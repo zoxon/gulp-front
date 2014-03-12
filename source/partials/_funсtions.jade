@@ -1,0 +1,116 @@
+//- forms
+
+mixin insertInput(name, labeltext, value, hint, errors)
+	.item
+		if (labeltext)
+			label(for="#{name}").required= labeltext
+				span  *
+
+		.for-input
+			.text
+				input(type="text", value="#{value}", id="#{name}", name="#{name}")
+
+		if (errors)
+			ul.errors
+				each errorsent, errorsnum in errors
+					li= errorsent
+
+		if (hint)
+			p.hint= hint
+
+		.clear
+
+
+mixin insertTextarea(name, labeltext, value, hint, errors)
+	.item
+		if (labeltext)
+			label(for="#{name}").required= labeltext 
+				span  *
+
+		.for-input
+			.textarea
+				textarea(name="#{name}", cols="80", rows="24", id="#{name}")= value
+		if (errors)
+			ul.errors
+				each errorsent, errorsnum in errors
+					li= errorsent
+
+		if (hint)
+			p.hint= hint
+
+		.clear
+
+
+mixin insertSelect(name, labeltext, value, hint, errors)
+	.item
+		if (labeltext)
+			label(for="#{name}").required= labeltext 
+				span  *
+
+		.for-input
+			select(name="#{name}", id="#{name}")
+				each selectent, selectnum  in value
+					option(value="#{selectnum}", label="#{selectent}")= selectent
+		if (errors)
+			ul.errors
+				each errorsent, errorsnum in errors
+					li= errorsent
+
+		if (hint)
+			p.hint= hint
+
+		.clear
+
+
+mixin insertRadio(name, id, labeltext, checked, disabled)
+	.item.radio
+		if (checked)
+			if (disabled)
+				input(type="radio", name="#{name}", id="#{id}", value="#{id}", checked=true, disabled=true)
+			else
+				input(type="radio", name="#{name}", id="#{id}", value="#{id}", checked=true, disabled=false)
+		else
+			if (disabled)
+				input(type="radio", name="#{name}", id="#{id}", value="#{id}", checked=false, disabled=true)
+			else
+				input(type="radio", name="#{name}", id="#{id}", value="#{id}", checked=false, disabled=false)
+
+		label(for="#{id}").required= labeltext
+		.clear
+
+
+mixin insertCheckbox(name, id, labeltext, checked, disabled)
+	.item.checkbox
+		if (checked)
+			if (disabled)
+				input(type="checkbox", name="#{name}", id="#{id}", value="#{id}", checked=true, disabled=true)
+			else
+				input(type="checkbox", name="#{name}", id="#{id}", value="#{id}", checked=true, disabled=false)
+		else
+			if (disabled)
+				input(type="checkbox", name="#{name}", id="#{id}", value="#{id}", checked=false, disabled=true)
+			else
+				input(type="checkbox", name="#{name}", id="#{id}", value="#{id}", checked=false, disabled=false)
+
+		label(for="#{id}").required= labeltext
+		.clear
+
+mixin insertCaptcha(labeltext, image)
+	.item.captcha
+		if (labeltext)
+			label(for="captcha").required= labeltext
+				span  *
+
+		.for-input
+			.text-mini
+				a(href="#", title="Дайте другой код!").captcha-refresh
+					img(src=image, alt="Секретный код!", id="captcha_image")
+				input(type="text", name="captcha", id="captcha", value="", class="text")
+		.clear
+
+mixin insertInputGroup(labeltext)
+	.b-input-group
+		label.b-input-group__label= labeltext
+		fieldset.b-input-group__body
+			block
+		.clear

@@ -1,0 +1,31 @@
+size(width, height = false)
+	width width
+	if height
+		height height
+	else
+		height width
+
+
+min-size(a, b = false)
+	min-width a
+	if b
+		min-height b
+	else
+		min-height a
+
+
+block(a, b = false)
+	size a b
+	display block
+
+
+inline-block(a, b = false)
+	size a b
+	display inline-block
+
+
+//Variables
+BaseFontSize = 14px
+BaseListFontSize = 14px
+BaseTableFontSize = 14px
+HeaderFontSize = 16px

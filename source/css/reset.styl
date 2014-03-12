@@ -1,0 +1,277 @@
+@import 'nib'
+@import '/lib/colors'
+@import '/lib/sizes'
+@import '/lib/font'
+@import '/lib/reset'
+
+hard-reset()
+*:focus
+	outline 0
+
+body
+html
+	font-family calibri
+	height 100%
+
+body
+	background-color white
+
+
+.clear
+	clear both
+	width 0
+	height 0
+	padding 0
+
+.last
+	margin-right 0 !important
+	padding-right 0 !important
+
+.first
+	padding-left 0 !important
+	margin-left 0 !important
+
+.rel
+	position relative
+
+.no-border
+	&
+	td
+	th
+		border none
+
+.no-padding
+	&
+	td
+	th
+		padding 0
+
+.img-repl
+	text-indent -9999px
+	overflow hidden
+	display block
+
+
+
+ // Поиск 
+.highlight
+	background-color #FFF090
+
+.b-content-wrapper img
+	position relative
+	padding 5px
+	box-shadow inset 5px 5px 0 0 white, inset -5px -5px 0 0 white
+	border 1px solid #bcfdc1
+
+.b-content-wrapper img[style~="float:left"]
+.b-content-wrapper img[style~="float: left"]
+	margin 7px 17px 15px 0
+
+.b-content-wrapper img[style~="float:right"]
+.b-content-wrapper img[style~="float: right"]
+	margin 7px 0 15px 17px
+
+ // Заголовки 
+h1, h2, h3, h4, h5, h6
+	font-family calibri
+	font-weight bold
+	color BaseHeadingColor
+	padding 20px 0 8px
+
+h3, h4, h5, h6
+	color #f15a2b
+	
+h1
+	font-size 26px
+	text-transform uppercase
+	color #000000
+
+h2
+	font-size 24px
+	text-transform uppercase
+	color #000000
+
+h3
+	font-size 24px
+
+h4
+	font-size 20px
+
+h5
+	font-size 18px
+
+h6
+	font-size 16px
+
+
+
+
+ // Текстовые элементы 
+p
+	font-size BaseFontSize
+	color ParagraphColor
+	padding 0 0 18px 0
+	line-height 18px
+
+a
+a:visited
+	transition color 0.2s ease 0s
+	color LinkColor
+	text-decoration underline
+
+a:hover
+	color HoverLinkColor
+	text-decoration none
+
+pre
+code
+	color BaseTextColor
+	font-size BaseFontSize
+	overflow hidden
+	white-space pre-wrap
+	white-space -moz-pre-wrap
+	white-space -pre-wrap
+	white-space -o-pre-wrap
+	word-wrap break-word
+	font-family consolas
+
+q
+	quotes "«" "»"
+	font-style italic
+
+	q
+		quotes "„" "“"
+		font-style italic
+
+blockquote
+	text-align center
+	padding 0 25px 6px
+	font-family times, "PT Serif"
+	background #00ad1f
+	border-radius 5px
+	margin-bottom 24px
+	color #fff900
+	font-weight bold
+	font-style italic
+	line-height 28px
+	font-size 23px
+
+	p
+		font-size 23px
+		color #fff900
+		// font-size BaseFontSize
+		// color BaseTextColor
+		padding 10px 0
+		// line-height 18px
+		line-height 28px
+		
+
+abbr
+	border-bottom thin dashed
+	cursor help
+	font-style italic	
+
+i
+	font-style oblique
+
+
+
+ // Таблицы 
+table
+	// border-top 1px solid BorderColor
+	// border-left 1px solid BorderColor
+	border-collapse collapse
+	margin 0 0 24px 0
+	width 100%
+
+	caption
+		padding-bottom 4px
+		font-size 16px
+		color #3a3a3a
+		font-weight bold
+
+th
+	text-align left
+	padding 7px
+	font-size HeaderFontSize
+	font-weight normal
+	color #737373
+	// font-weight 600
+	// height 19px
+	// border-right 1px solid BorderColor
+	border-bottom 1px solid BorderColor
+	line-height 18px
+
+	&:first-child
+		padding-left 0
+
+td
+	padding 7px
+	font-size BaseTableFontSize
+	color black
+	border-bottom 1px solid BorderColor
+	// border-right 1px solid BorderColor
+	// border-bottom 1px solid BorderColor
+
+	&:first-child
+		padding-left 0
+
+.b-text-wrapper
+	tr:hover
+		td
+			background-color #ebebeb
+
+img
+	border 0
+
+hr
+	background BorderColor
+	height 1px
+
+
+ // Списки 
+.bullet
+	padding-bottom 12px
+dt
+	color BaseTextColor
+	font-size BaseFontSize
+	font-weight 600
+
+dd
+	padding 0 10px 15px
+	font-size BaseFontSize
+	font-style italic
+	padding-top 10px
+	color BaseTextColor
+
+ul 
+	li
+		list-style none
+		padding 0 0 6px 34px
+		font-size BaseListFontSize
+		background-image url('../img/list-marker.png')
+		background-position 15px 0.35em
+		background-repeat no-repeat
+		color BaseTextColor
+
+		ul 
+			li
+				padding-bottom 0
+				padding-top 6px
+				background-position 15px 12px
+				background-repeat no-repeat
+
+ol
+	list-style-image:none
+	list-style-position:outside
+	list-style-type:none
+
+	li
+		padding 0 0 6px 0
+		font-size BaseListFontSize
+		list-style: decimal inside
+		color BaseTextColor
+
+		ol 
+			li
+				padding 6px 0 0 25px

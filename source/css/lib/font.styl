@@ -1,0 +1,16 @@
+@import 'font-face'
+@import 'font-family'
+
+//font #f00 14px center
+//	→
+//		color: #f00;
+//		font-size: 14px;
+//		text-align: center;
+font()
+	for arg in arguments
+		if arg is a 'color'
+			color arg
+		else if arg is a 'unit'
+			font-size arg
+		else if arg in alignment
+			text-align arg

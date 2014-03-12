@@ -1,0 +1,88 @@
+pos(type, a, b = false, c = false, d = false)
+	position type
+	if a b c d
+		top a
+		right b
+		bottom c
+		left d
+	else if a b
+		top a
+		bottom a
+		right b
+		left b
+	else
+		top a
+		right a
+		bottom a
+		left a
+
+apply-borders(sides, width, color, style)
+	if not width
+		width = 1px
+	if not color
+			color = #000
+	if not style
+			style = solid
+
+	if sides
+		for side in sides
+			if side
+				border-{side} width color style
+	else
+		if length(width) > 1 or length(color) > 1 or length(style) > 1
+			border-width width
+			border-color color
+			border-style style
+		else
+			border width color style
+
+sides = top right bottom left
+border-styles = solid dashed dotted double groove ridge inset outset inherit
+
+borders()
+	this-sides = false
+	this-width = false
+	this-color = false
+	this-style = false
+
+	for arg in arguments
+
+		if arg is a 'unit'
+			if this-width
+				push(this-width, arg)
+			else
+				this-width = arg
+
+		else if arg is a 'color' or arg == 'transparent'
+			if this-color
+				push(this-color, arg)
+			else
+				this-color = arg
+
+		else if arg in border-styles
+			if this-style
+				push(this-style, arg)
+			else
+				this-style = arg
+
+		else if arg in sides
+			// Aply border & reset border-side
+			if this-width or this-color or this-style
+				apply-borders this-sides this-width this-color this-style
+				this-width = false
+				this-color = false
+				this-style = false
+				this-sides = false
+
+			if this-sides
+				push(this-sides, arg)
+			else
+				this-sides = arg
+
+	apply-borders this-sides this-width this-color this-style
+
+
+reset()
+	padding 0
+	margin 0
+	border 0
