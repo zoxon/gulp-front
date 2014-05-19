@@ -6,7 +6,7 @@ html
 		title List Of Files
 
 		// livereload.js need for debug, remove in production
-		script(type="text/javascript", src="http://localhost:35729/livereload.js")
+		//- script(type="text/javascript", src="http://localhost:35729/livereload.js")
 
 		style.
 			body{
@@ -54,9 +54,9 @@ html
 
 	body
 		.content
-			h1 Аптечная сеть «Лекарь»
+			h1 Нвзвание проекта
 			ul
-				-var data = [{page: "home", name: "Главная"}, {page: "news", name: "Новости"}, {page: "articles", name: "Статьи"}, {page: "text-page", name: "Текстовая страница"}, {page: "catalog-list", name: "Список товаров"}, {page: "catalog-full", name: "Товар полная версия"}, {page: "cabinet", name: "Кабинет пользователя"}, {page: "forms", name: "Формы"}]
+				-var data = [{page: "home", name: "Главная"}]
 				each ent, num in data
 					li
 						a(href="#{ent.page}.html")= ent.name

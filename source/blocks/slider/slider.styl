@@ -1,0 +1,122 @@
+.b-image-slider
+	width 713px
+	height 366px
+	margin-bottom 19px
+	margin-top 20px
+
+.b-slides
+	overflow hidden
+	position relative
+	list-style none
+	padding 0
+	margin 0
+	display none
+	border 1px solid #d9d9d9
+	padding 1px
+	background #fff
+
+	&__slide-item
+		position absolute
+		display none
+		padding 0
+		background none
+
+.b-slides-controls
+	list-style none
+	margin 0
+	padding 0 
+	z-index 9999
+		
+	&_v-centered &__item
+		top 162px
+		position absolute
+
+	&__item
+		padding 0
+		background none
+
+	&__link
+		background-image url(../img/image-slider-buttons-sprite.png)
+		background-position 0 0
+		background-repeat no-repeat
+		width 35px
+		height 35px
+		display block
+		text-indent -9999px
+
+
+	&__prev
+		left -20px
+		
+		a
+		a:visited
+			background-position 0 0
+
+		a:hover
+			//
+
+
+	&__next
+		right -20px
+
+		a
+		a:visited
+			background-position 0 100%
+
+		a:hover
+			//
+		
+.b-slides-markers
+	padding 0
+	margin 0
+	position absolute
+	right 10px
+	bottom 0px
+	width 200px
+	text-align right
+
+	&__item
+		list-style none
+		display inline-block
+		// float left
+		padding-left 7px
+		width 13px
+		height 13px
+		
+		*:first-child+html &	
+			zoom 1
+			display inline
+
+
+	&__link
+		display inline-block
+		background url(../img/slider-controls-sprite.png) 0 0 no-repeat
+		text-indent -9999px
+		overflow hidden
+		width 13px
+		height 13px
+
+	&_active
+		a
+		a:visited
+			background-position 0 -134px
+
+	&_h-centered
+		text-align center
+		
+.b-slides-caption
+	max-width 390px
+	margin 0 0 10px 20px
+	position absolute
+	bottom 0
+	left 0
+	font-size 24px
+	color #000
+	font-weight bold
+	max-width 390px
+
+	& span
+		line-height 29px
+		background white
+		box-shadow 10px 0 0 white, -10px 0 0 white
+		padding 4px 0

@@ -1,20 +1,21 @@
-@import 'nib'
-@import '/lib/colors'
-@import '/lib/sizes'
-@import '/lib/font'
-@import '/lib/reset'
+@import './lib/mixins'
 
+
+//- Сброс стилей
+//- Жесткий ресет
 hard-reset()
-*:focus
-	outline 0
 
-body
-html
-	font-family calibri
-	height 100%
+//- Альтернатива ресету
+//- http://necolas.github.io/normalize.css/
+//- normalize()
 
-body
-	background-color white
+//- Старая версия сброса от Эрика Мейера (Eric A. Meyer), для html 4, xhtml
+//- http://meyerweb.com/eric/tools/css/reset/reset200802.css
+//- meyer-reset()
+
+//- Последняя версия сброса от Эрика Мейера (Eric A. Meyer), поддерживает теги html5
+//- http://meyerweb.com/eric/tools/css/reset/
+//- meyer-html5()
 
 
 .clear
@@ -52,55 +53,77 @@ body
 	display block
 
 
-
  // Поиск 
 .highlight
 	background-color #FFF090
 
-.b-content-wrapper img
-	position relative
-	padding 5px
-	box-shadow inset 5px 5px 0 0 white, inset -5px -5px 0 0 white
-	border 1px solid #bcfdc1
+// Костыли для блока с контентом
+.b-content-wrapper
+	& img
+		position relative
+		padding 1px
+		// box-shadow inset 1px 5px 0 0 white, inset -1px -1px 0 0 white
+		border 1px solid #e8e8e8
+		// width 100%
+		margin 5px 0 21px 0
 
-.b-content-wrapper img[style~="float:left"]
-.b-content-wrapper img[style~="float: left"]
-	margin 7px 17px 15px 0
+	& img[style~="float:left"]
+	& img[style~="float: left"]
+		margin 7px 17px 15px 0
 
-.b-content-wrapper img[style~="float:right"]
-.b-content-wrapper img[style~="float: right"]
-	margin 7px 0 15px 17px
+	& img[style~="float:right"]
+	& img[style~="float: right"]
+		margin 7px 0 15px 17px
 
- // Заголовки 
+	& table tr:nth-child(even) td
+		background-color #eaf7ff
+
+
+	& ul
+	& ol
+		padding-bottom 15px
+
+		& ul
+		& ol
+			padding-bottom 0
+
+
+body
+html
+	font-family $font-family-base
+	color $base-text-color
+	font-size $font-size-base
+
+body
+	background-color $base-bg
+
+
+// Заголовки 
 h1, h2, h3, h4, h5, h6
-	font-family calibri
-	font-weight bold
-	color BaseHeadingColor
+.h1, .h2, .h3, .h4, .h5, .h6
+	font-family $headings-font-family
+	font-weight $headings-font-weight 
+	color $headings-color
+	line-height $headings-line-height
 	padding 20px 0 8px
 
-h3, h4, h5, h6
-	color #f15a2b
 	
-h1
+h1, .h1
 	font-size 26px
-	text-transform uppercase
-	color #000000
 
-h2
-	font-size 24px
-	text-transform uppercase
-	color #000000
-
-h3
+h2, .h2
 	font-size 24px
 
-h4
+h3, .h3
+	font-size 24px
+
+h4, .h4
 	font-size 20px
 
-h5
+h5, .h5
 	font-size 18px
 
-h6
+h6, .h6
 	font-size 16px
 
 
@@ -108,19 +131,19 @@ h6
 
  // Текстовые элементы 
 p
-	font-size BaseFontSize
-	color ParagraphColor
+	font-size $font-size-base
+	color $base-text-color
 	padding 0 0 18px 0
-	line-height 18px
+	line-height $line-height-base
 
 a
 a:visited
 	transition color 0.2s ease 0s
-	color LinkColor
+	color $link-color
 	text-decoration underline
 
 a:hover
-	color HoverLinkColor
+	color $link-hover-color
 	text-decoration none
 
 pre
@@ -144,21 +167,22 @@ q
 		font-style italic
 
 blockquote
-	text-align center
-	padding 0 25px 6px
-	font-family times, "PT Serif"
-	background #00ad1f
-	border-radius 5px
-	margin-bottom 24px
-	color #fff900
-	font-weight bold
-	font-style italic
-	line-height 28px
-	font-size 23px
+	// text-align center
+	padding 0 11px 0 11px
+	font-family times
+	// background #00ad1f
+	// border-radius 5px
+	margin 4px 0 21px 0
+	color #0080dd
+	// font-weight bold
+	// font-style oblique
+	line-height 29px
+	font-size 25px
+	border-left 5px solid #007cd9
 
 	p
 		font-size 23px
-		color #fff900
+		color #0080dd
 		// font-size BaseFontSize
 		// color BaseTextColor
 		padding 10px 0
@@ -185,18 +209,20 @@ table
 	width 100%
 
 	caption
-		padding-bottom 4px
+		padding-bottom 10px
+		padding-top 18px
 		font-size 16px
 		color #3a3a3a
 		font-weight bold
+		text-align left
 
 th
 	text-align left
 	padding 7px
 	font-size HeaderFontSize
 	font-weight normal
-	color #737373
-	// font-weight 600
+	color BaseHeadingColor
+	font-weight bold
 	// height 19px
 	// border-right 1px solid BorderColor
 	border-bottom 1px solid BorderColor
@@ -233,7 +259,7 @@ hr
 .bullet
 	padding-bottom 12px
 dt
-	color BaseTextColor
+	color BaseHeadingColor
 	font-size BaseFontSize
 	font-weight 600
 
@@ -247,18 +273,18 @@ dd
 ul 
 	li
 		list-style none
-		padding 0 0 6px 34px
+		padding 0 0 2px 41px
 		font-size BaseListFontSize
-		background-image url('../img/list-marker.png')
-		background-position 15px 0.35em
+		background-image url('../img/list-marker.gif')
+		background-position 14px 0.90em
 		background-repeat no-repeat
 		color BaseTextColor
 
 		ul 
 			li
 				padding-bottom 0
-				padding-top 6px
-				background-position 15px 12px
+				padding-top 2px
+				background-position 14px 12px
 				background-repeat no-repeat
 
 ol

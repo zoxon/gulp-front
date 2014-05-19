@@ -1,14 +1,3 @@
-console.log('███████████████████████████████████████████████████████████████████████████████');
-console.log('█████████████▀▀▀▀▀███▀▀▀▀██▀▀▀▀█████▀▀▀▀▀▀█████▀▀▀▀▀▀▀▀▀▀███▀▀▀▀▀▀▀▀▀▀█████████');
-console.log('█████████████     ███    ██    ██████    ██████          ███          █████████');
-console.log('█████████████▌   ▐███    ██    ██████    ██████    ██    ███    ███▄▄▄█████████');
-console.log('█████████████▌   ▐███    ██    ██████    ██████    █████████          █████████');
-console.log('████████    █▌   ▐███    ██    ██████    ██████    ██    ███    ███▀▀▀█████████');
-console.log('████████          ████        ███████    ██████          ███          █████████');
-console.log('████████▄▄▄▄▄▄▄▄▄▄█████▄▄▄▄▄▄███████▄▄▄▄▄▄█████▄▄▄▄▄▄▄▄▄▄███▄▄▄▄▄▄▄▄▄▄█████████');
-console.log('███████████████████████████████████████████████████████████████████████████████');
-
-
 // Инициализируем плагины
 var gulp = require('gulp'),
 	lr = require('tiny-lr'),
@@ -16,142 +5,113 @@ var gulp = require('gulp'),
 	stylus = require('gulp-stylus'),
 	livereload = require('gulp-livereload'),
 	imagemin = require('gulp-imagemin'),
-	//uglify = require('gulp-uglify'),
-	//concat = require('gulp-concat'),
 	connect = require('connect'),
 	nib = require('nib'),
 	cssbeautify = require('gulp-cssbeautify'),
-	prettify = require('gulp-prettify'),
-	zip = require('gulp-zip'),
+	gutil = require('gulp-util'),
+	cache = require('gulp-cache'),
 	server = lr();
+
+// Функция обработки ошибок
+handleError = function(err) {
+	gutil.log(err);
+	gutil.beep();
+};
+
+// Пути к файлам
+path = {
+	html: {
+		source: ['./source/**/*.jade', '!./source/partials/*.jade', '!./source/blocks/**/*.jade'],
+		watch: 'source/**/*.jade',
+		destination: './public/',
+		basedir: './source'
+	},
+	css: {
+		source: ['./source/css/*.styl', '!./source/css/lib/**/*.styl', '!./source/**/_*.styl'],
+		watch: 'source/**/*.styl',
+		destination: './public/css/'
+	},
+	assets: {
+		source: './assets/**/*',
+		watch: 'assets/**/*',
+		destination: './public'
+	},
+	img: {
+		source: './source/img/**/*.{jpg,jpeg,png,gif}',
+		watch: 'source/img/**/*',
+		destination: './public/img'
+	}
+};
 
 
 // Собираем Stylus
 gulp.task('stylus', function() {
-	gulp.src(['./source/css/*.styl', '!./source/css/lib/**/*.styl', '!./source/**/_*.styl'])
+	gulp.src(path.css.source)
 		.pipe(stylus({
 			use: ['nib']
 		}))
-		.on('error', console.log)
+		.on('error', handleError)
 		.pipe(cssbeautify({
 			indent: '	',
 			autosemicolon: true
 		}))
-		.pipe(gulp.dest('./public/css/'))
+		.pipe(gulp.dest(path.css.destination))
 		.pipe(livereload(server));
 });
 
 
 // Собираем html из Jade
 gulp.task('jade', function() {
-	gulp.src(['./source/**/*.jade', '!./source/partials/*.jade'])
+	gulp.src(path.html.source)
 		.pipe(jade({
-			pretty: true
+			pretty: true,
+			basedir: path.html.basedir
 		}))
-		.on('error', console.log)
-
-	.pipe(prettify({
-		indent_char: '	',
-		indent_size: 1,
-		indent_with_tabs: true
-	}))
-		.pipe(gulp.dest('./public/'))
+		.on('error', handleError)
+		.pipe(gulp.dest(path.html.destination))
 		.pipe(livereload(server));
 });
 
 
 // Копируем и минимизируем изображения
 gulp.task('images', function() {
-	gulp.src('./source/img/**/*.{jpg,jpeg,png,gif}')
-		.pipe(imagemin())
-		.pipe(gulp.dest('./public/img'))
+	gulp.src(path.img.source)
+		.on('error', handleError)
+		.pipe(cache(imagemin()))
+		.pipe(gulp.dest(path.img.destination))
 });
 
 // Копируем файлы
 gulp.task('copy', function() {
-	gulp.src('./assets/**/*')
-		.pipe(gulp.dest('./public'));
+	gulp.src(path.assets.source)
+		.on('error', handleError)
+		.pipe(gulp.dest(path.assets.destination));
 });
 
 // Локальный сервер для разработки
 gulp.task('http-server', function() {
 	connect()
-		.use(require('connect-livereload')())
-		.use(connect.static('./public'))
+		.use(connect.static(path.assets.destination))
 		.listen('3000');
 
 	console.log('Server listening on http://localhost:3000');
 });
 
-
 // Запуск сервера разработки gulp watch
-gulp.task('default', function() {
-	// Предварительная сборка проекта
-	gulp.run('stylus');
-	gulp.run('jade');
-	gulp.run('images');
-	gulp.run('copy');
-	// gulp.run('js');
-
+gulp.task("watch", function() {
 	// Подключаем Livereload
 	server.listen(35729, function(err) {
-		if (err) return console.log(err);
+		if (err) return handleError(err);
 
-		gulp.watch('source/**/*.styl', function() {
-			gulp.run('stylus');
-		});
-		gulp.watch('source/**/*.jade', function() {
-			gulp.run('jade');
-		});
-		gulp.watch('source/img/**/*', function() {
-			gulp.run('images');
-		});
-		gulp.watch('assets/**/*', function() {
-			gulp.run('copy');
-		});
+		gulp.watch(path.css.watch, ['stylus']);
+		gulp.watch(path.html.watch, ['jade']);
+		gulp.watch(path.img.watch, ['images']);
+		gulp.watch(path.assets.watch, ['copy']);
+
 	});
-	gulp.run('http-server');
-
 });
 
-// gulp.task('build', function() {
-// 	// css
-// 	gulp.src(['./source/css/*.styl', '!./source/css/lib/**/*.styl', '!./source/**/_*.styl'])
-// 		.pipe(stylus({
-// 			use: ['nib']
-// 		}))
-// 		.pipe(cssbeautify({
-// 			indent: '	',
-// 			autosemicolon: true
-// 		}))
-// 		.pipe(gulp.dest('./build/css/')) // записываем css
 
-// 	// jade
-// 	gulp.src(['./source/**/*.jade', '!./source/partials/*.jade'])
-// 		.pipe(jade({
-// 			pretty: true
-// 		}))
-// 		.on('error', console.log)
+gulp.task("build", ['stylus', 'jade', 'images', 'copy']);
 
-// 	.pipe(prettify({
-// 		indent_char: '	',
-// 		indent_size: 1,
-// 		indent_with_tabs: true
-// 	}))
-// 		.pipe(gulp.dest('./build/'));
-
-// 	// image
-// 	gulp.src('./source/img/**/*.{jpg,jpeg,png,gif}')
-// 		.pipe(imagemin())
-// 		.pipe(gulp.dest('./build/img'));
-
-// 	//Файлы
-// 	gulp.src('./assets/**/*')
-// 		.pipe(gulp.dest('./build'));
-
-// 	//Жмем в архив
-// 	gulp.src('build/**/*')
-//         .pipe(zip('build.zip'))
-//         .pipe(gulp.dest('.'));
-
-// });
+gulp.task("default", ["build", "watch", "http-server"]);

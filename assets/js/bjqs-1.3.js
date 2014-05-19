@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Basic jQuery Slider plug-in v.1.3
  *
  * http://www.basic-slider.com
@@ -479,7 +479,8 @@
                     gotoslide = key + 2;
                 }
 
-                var marker = $('<li class="b-slides-markers__item"><a class="b-slides-markers__link" href="#">'+ slidenum +'</a></li>');
+                // var marker = $('<li class="b-slides-markers__item"><a class="b-slides-markers__link" href="#">'+ slidenum +'</a></li>');
+                var marker = $('<li class="b-slides-markers__item"><a class="b-slides-markers__link" href="#"></a></li>');
 
                 // set the first marker to be active
                 if(slidenum === state.currentslide){ marker.addClass('b-slides-markers_active'); }
@@ -569,7 +570,7 @@
                 }
 
                 if (caption) {
-                    caption = $('<p class="b-slides-caption">' + caption + '</p>');
+                    caption = $('<p class="b-slides-caption"><span>' + caption + '</span></p>');
                     caption.appendTo($(slide));
                 }
 
@@ -713,6 +714,7 @@
 
         // lets get the party started :)
         init();
+        $(this).append('<div class="clear"></div>');
 
     };
 

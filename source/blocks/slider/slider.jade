@@ -1,0 +1,46 @@
+.b-image-slider.js-image-slider
+	ul.b-slides
+		li
+			a(href="#")
+				img(src="img/content/slide1.png", alt="Картинка", title="Текст для слайда о продукции может быть 2 строчки")
+		li
+			a(href="#")
+				img(src="img/content/slide2.png", alt="Картинка")
+		li
+			a(href="#")
+				img(src="img/content/slide3.png", alt="Картинка")
+
+script(type="text/javascript").
+	$(document).ready(function() {
+
+		$('.js-image-slider').bjqs({
+			// width and height need to be provided to enforce consistency
+			// if responsive is set to true, these values act as maximum dimensions
+			width : 955,
+			height : 348,
+
+			// animation values
+			animtype : 'fade', // accepts 'fade' or 'slide'
+			animduration : 450, // how fast the animation are
+			animspeed : 2000, // the delay between each slide
+			automatic : true, // automatic
+
+			// control and marker configuration
+			showcontrols : false, // show next and prev controls
+			centercontrols : true, // center controls verically
+			nexttext : 'Next', // Text for 'next' button (can use HTML)
+			prevtext : 'Prev', // Text for 'previous' button (can use HTML)
+			showmarkers : true, // Show individual slide markers
+			centermarkers : false, // Center markers horizontally
+
+			// interaction values
+			keyboardnav : true, // enable keyboard navigation
+			hoverpause : true, // pause the slider on hover
+
+			// presentational options
+			usecaptions : true, // show captions for images using the image title tag
+			randomstart : true, // start slider at random slide
+			responsive : false
+		});
+
+	});
