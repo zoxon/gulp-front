@@ -20,6 +20,8 @@ gulp
 Cервер запустится на localhost:3000
 
 
+##Лицензия
+[The MIT License (MIT)](license.txt)
 
 
 
