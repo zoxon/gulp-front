@@ -1,162 +1,93 @@
 @import './lib/mixins'
 
+//- Влючаем костыли для ишака и прочего старья
+support-for-ie = true
+vendor-prefixes = webkit moz o ms official
 
-//- Сброс стилей
-//- Жесткий ресет
+
 hard-reset()
-
-//- Альтернатива ресету
-//- http://necolas.github.io/normalize.css/
-//- normalize()
-
-//- Старая версия сброса от Эрика Мейера (Eric A. Meyer), для html 4, xhtml
-//- http://meyerweb.com/eric/tools/css/reset/reset200802.css
-//- meyer-reset()
-
-//- Последняя версия сброса от Эрика Мейера (Eric A. Meyer), поддерживает теги html5
-//- http://meyerweb.com/eric/tools/css/reset/
-//- meyer-html5()
-
-
-.clear
-	clear both
-	width 0
-	height 0
-	padding 0
-
-.last
-	margin-right 0 !important
-	padding-right 0 !important
-
-.first
-	padding-left 0 !important
-	margin-left 0 !important
-
-.rel
-	position relative
-
-.no-border
-	&
-	td
-	th
-		border none
-
-.no-padding
-	&
-	td
-	th
-		padding 0
-
-.img-repl
-	text-indent -9999px
-	overflow hidden
-	display block
-
-
- // Поиск 
-.highlight
-	background-color #FFF090
-
-// Костыли для блока с контентом
-.b-content-wrapper
-	& img
-		position relative
-		padding 1px
-		// box-shadow inset 1px 5px 0 0 white, inset -1px -1px 0 0 white
-		border 1px solid #e8e8e8
-		// width 100%
-		margin 5px 0 21px 0
-
-	& img[style~="float:left"]
-	& img[style~="float: left"]
-		margin 7px 17px 15px 0
-
-	& img[style~="float:right"]
-	& img[style~="float: right"]
-		margin 7px 0 15px 17px
-
-	& table tr:nth-child(even) td
-		background-color #eaf7ff
-
-
-	& ul
-	& ol
-		padding-bottom 15px
-
-		& ul
-		& ol
-			padding-bottom 0
-
 
 body
 html
-	font-family $font-family-base
-	color $base-text-color
-	font-size $font-size-base
+	color $base-font-color
+	font-family $base-font-family
 
-body
-	background-color $base-bg
+// body
+// 	background-color $base-bg-color
 
 
-// Заголовки 
+// Разыне хелперы типа clear и тд.
+@import './lib/helpers'
+
+
+/* Заголовки */
 h1, h2, h3, h4, h5, h6
-.h1, .h2, .h3, .h4, .h5, .h6
-	font-family $headings-font-family
-	font-weight $headings-font-weight 
-	color $headings-color
-	line-height $headings-line-height
-	padding 20px 0 8px
+	color $heading-font-color
+	font-family $heading-font-family
+	font-weight bold
+	padding 20px 0 10px
 
-	
-h1, .h1
-	font-size 26px
+h1
+	font-size $heading-h1-font-size
 
-h2, .h2
-	font-size 24px
+h2
+	font-size $heading-h2-font-size
 
-h3, .h3
-	font-size 24px
+h3
+	font-size $heading-h3-font-size
 
-h4, .h4
-	font-size 20px
+h4
+	font-size $heading-h4-font-size
 
-h5, .h5
-	font-size 18px
+h5
+	font-size $heading-h5-font-size
 
-h6, .h6
-	font-size 16px
+h6
+	font-size $heading-h6-font-size
 
 
 
 
- // Текстовые элементы 
+/* Текстовые элементы */
 p
-	font-size $font-size-base
-	color $base-text-color
-	padding 0 0 18px 0
-	line-height $line-height-base
+	color $base-font-color
+	font-size $base-font-size
+	line-height $base-line-height
+	padding 0 0 $base-line-height 0
 
 a
 a:visited
-	transition color 0.2s ease 0s
-	color $link-color
+	color $base-link-color
 	text-decoration underline
+	transition color 0.2s ease 0s
+
+a:visited
+	color $base-visited-link-color
 
 a:hover
-	color $link-hover-color
+	color $base-hover-link-color
 	text-decoration none
 
 pre
+	background #eee
+	padding 10px
+	border-radius 3px
+	margin-bottom $base-line-height
+	
+pre
 code
-	color BaseTextColor
-	font-size BaseFontSize
+	color $base-font-color
+	font-family $base-monospace-font-family
+	font-size $base-font-size - 2px
 	overflow hidden
-	white-space pre-wrap
 	white-space -moz-pre-wrap
-	white-space -pre-wrap
 	white-space -o-pre-wrap
+	white-space -pre-wrap
+	white-space pre-wrap
 	word-wrap break-word
-	font-family consolas
+	tab-size 4
+	line-height $base-line-height
+	
 
 q
 	quotes "«" "»"
@@ -167,136 +98,128 @@ q
 		font-style italic
 
 blockquote
-	// text-align center
-	padding 0 11px 0 11px
-	font-family times
-	// background #00ad1f
-	// border-radius 5px
-	margin 4px 0 21px 0
-	color #0080dd
-	// font-weight bold
-	// font-style oblique
-	line-height 29px
-	font-size 25px
-	border-left 5px solid #007cd9
+	font-family $base-font-family
+	font-style italic
+	// padding 5% 10%
+	text-align left
+	color $heading-font-color 
 
-	p
-		font-size 23px
-		color #0080dd
-		// font-size BaseFontSize
-		// color BaseTextColor
+	q
+		color $base-font-color
+		font-family $base-font-family
+		font-size $base-font-size
+		line-height $base-line-height
 		padding 10px 0
-		// line-height 18px
-		line-height 28px
-		
+
+	p 
+		color $heading-font-color
 
 abbr
 	border-bottom thin dashed
 	cursor help
-	font-style italic	
+	font-style italic
 
 i
 	font-style oblique
 
 
 
- // Таблицы 
+/* Таблицы */
 table
-	// border-top 1px solid BorderColor
-	// border-left 1px solid BorderColor
-	border-collapse collapse
-	margin 0 0 24px 0
 	width 100%
-
+	border-collapse collapse
+	margin 30px 0 40px
+	
 	caption
-		padding-bottom 10px
-		padding-top 18px
-		font-size 16px
-		color #3a3a3a
+		color $base-font-color
+		font-size $table-heading-font-size + 2px
 		font-weight bold
+		padding 8px 0
 		text-align left
 
 th
-	text-align left
-	padding 7px
-	font-size HeaderFontSize
-	font-weight normal
-	color BaseHeadingColor
-	font-weight bold
-	// height 19px
-	// border-right 1px solid BorderColor
-	border-bottom 1px solid BorderColor
-	line-height 18px
+td
+	padding $table-cell-pading
+	font-size $table-base-font-size 
+	text-align $table-base-cell-align
 
-	&:first-child
-		padding-left 0
+th
+	padding $table-heading-pading
+	font-size $table-heading-font-size
+	color $table-heading-font-color
+	border-bottom 1px solid $table-heading-border-color
+	font-weight bold
 
 td
-	padding 7px
-	font-size BaseTableFontSize
-	color black
-	border-bottom 1px solid BorderColor
-	// border-right 1px solid BorderColor
-	// border-bottom 1px solid BorderColor
+	color $table-base-font-color
+	border-bottom 1px solid $table-cell-border-color
 
-	&:first-child
-		padding-left 0
+thead
+	tr:first-child
+		th
+			border-bottom 1px solid $table-heading-border-color
+			border-top 1px solid $table-heading-border-color
 
-.b-text-wrapper
-	tr:hover
+tbody
+	tr:last-child
 		td
-			background-color #ebebeb
+			border-bottom 1px solid $table-heading-border-color
+tfoot
+	th
+		border-color $table-heading-border-color
+
 
 img
 	border 0
 
 hr
-	background BorderColor
+	background $table-heading-border-color
 	height 1px
 
 
- // Списки 
-.bullet
-	padding-bottom 12px
+
+
+/* Списки */
+
 dt
-	color BaseHeadingColor
-	font-size BaseFontSize
-	font-weight 600
+	color $base-font-color
+	font-size $base-font-size
+	font-weight bold
 
 dd
-	padding 0 10px 15px
-	font-size BaseFontSize
+	color $base-font-color
+	font-size $base-font-size
 	font-style italic
+	padding 0 10px 15px
 	padding-top 10px
-	color BaseTextColor
 
 ul 
 	li
-		list-style none
-		padding 0 0 2px 41px
-		font-size BaseListFontSize
-		background-image url('../img/list-marker.gif')
-		background-position 14px 0.90em
+		background-image url($list-marker-path)
+		background-position 18px 0.55em
 		background-repeat no-repeat
-		color BaseTextColor
+		color $base-font-color
+		font-size $base-font-size
+		list-style none
+		padding 0 0 6px 34px
 
 		ul 
 			li
-				padding-bottom 0
-				padding-top 2px
-				background-position 14px 12px
+				background-position 18px 12px
 				background-repeat no-repeat
+				padding-bottom 0
+				padding-top 6px
 
 ol
-	list-style-image:none
-	list-style-position:outside
-	list-style-type:none
+	list-style-image none
+	list-style-position outside
+	list-style-type none
 
 	li
+		color $base-font-color
+		font-size $base-font-size
+		list-style decimal inside
 		padding 0 0 6px 0
-		font-size BaseListFontSize
-		list-style: decimal inside
-		color BaseTextColor
 
 		ol 
 			li

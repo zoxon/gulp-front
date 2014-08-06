@@ -1,15 +1,15 @@
-file(name, ext, path)
-	path + '/' + name + '.' + ext
+file(file_name, file_ext, file_path)
+	file_path + '/' + file_name + '.' + file_ext
 
-font-face(family, font=family, path='fonts', weight=normal, style=normal, local='☺')
+font-face(ff_family, ff_font=family, ff_path='fonts', ff_weight=normal, ff_style=normal, ff_local='☺')
 	@font-face
-		font-family family
-		src url(file(font, 'eot', path))
-		src local(local),
-			url(file(font, 'eot?#iefix', path)) format("embedded-opentype"),
-			url(file(font, 'woff', path)) format("woff"),
-			url(file(font, 'ttf', path)) format("truetype"),
-			url(file(font, 'svg#' + family, path)) format("svg");
+		font-family ff_family
+		src url(file(ff_font, 'eot', ff_path))
+		src local(ff_local),
+			url(file(ff_font, 'eot?#iefix', ff_path)) format("embedded-opentype"),
+			url(file(ff_font, 'woff', ff_path)) format("woff"),
+			url(file(ff_font, 'ttf', ff_path)) format("truetype"),
+			url(file(ff_font, 'svg#' + ff_family, ff_path)) format("svg");
 
-		font-weight weight
-		font-style style
+		font-weight ff_weight
+		font-style ff_style

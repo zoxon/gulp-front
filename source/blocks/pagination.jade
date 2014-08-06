@@ -1,0 +1,16 @@
+// PAGINATION
+.b-pagination
+	ul
+		li.b-pagination__item
+			a(href="#").b-pagination__larr &larr;
+		-for (var p = 1; p < 10; p++)
+			if (p != 5)
+				li.b-pagination__item
+					a(href="#")= p
+			else
+				li.b-pagination__item
+					span= p
+		li.b-pagination__item
+			a(href="#").b-pagination__rarr &rarr;
+	.clear
+// END PAGINATION

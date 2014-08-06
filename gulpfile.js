@@ -1,16 +1,13 @@
 // Инициализируем плагины
 var gulp = require('gulp'),
-	lr = require('tiny-lr'),
 	jade = require('gulp-jade'),
 	stylus = require('gulp-stylus'),
-	livereload = require('gulp-livereload'),
-	imagemin = require('gulp-imagemin'),
-	connect = require('connect'),
 	nib = require('nib'),
+	imagemin = require('gulp-imagemin'),
+	webserver = require('gulp-webserver'),
 	cssbeautify = require('gulp-cssbeautify'),
 	gutil = require('gulp-util'),
 	cache = require('gulp-cache'),
-	server = lr();
 
 // Функция обработки ошибок
 handleError = function(err) {
@@ -44,11 +41,21 @@ path = {
 };
 
 
+// Локальный сервер
+gulp.task('webserver', function() {
+	gulp.src('public')
+	.pipe(webserver({
+		host: 'localhost',
+		port: 3000,
+		livereload: true
+	}));
+});
+
 // Собираем Stylus
 gulp.task('stylus', function() {
 	gulp.src(path.css.source)
 		.pipe(stylus({
-			use: ['nib']
+			use: [nib()]
 		}))
 		.on('error', handleError)
 		.pipe(cssbeautify({
@@ -56,22 +63,19 @@ gulp.task('stylus', function() {
 			autosemicolon: true
 		}))
 		.pipe(gulp.dest(path.css.destination))
-		.pipe(livereload(server));
 });
-
 
 // Собираем html из Jade
 gulp.task('jade', function() {
 	gulp.src(path.html.source)
 		.pipe(jade({
 			pretty: true,
-			basedir: path.html.basedir
+			basedir: path.html.basedir,
+			data: gulp.src(['users.json'])
 		}))
 		.on('error', handleError)
 		.pipe(gulp.dest(path.html.destination))
-		.pipe(livereload(server));
 });
-
 
 // Копируем и минимизируем изображения
 gulp.task('images', function() {
@@ -85,33 +89,18 @@ gulp.task('images', function() {
 gulp.task('copy', function() {
 	gulp.src(path.assets.source)
 		.on('error', handleError)
-		.pipe(gulp.dest(path.assets.destination));
-});
-
-// Локальный сервер для разработки
-gulp.task('http-server', function() {
-	connect()
-		.use(connect.static(path.assets.destination))
-		.listen('3000');
-
-	console.log('Server listening on http://localhost:3000');
+		.pipe(gulp.dest(path.assets.destination))
 });
 
 // Запуск сервера разработки gulp watch
 gulp.task("watch", function() {
-	// Подключаем Livereload
-	server.listen(35729, function(err) {
-		if (err) return handleError(err);
-
-		gulp.watch(path.css.watch, ['stylus']);
-		gulp.watch(path.html.watch, ['jade']);
-		gulp.watch(path.img.watch, ['images']);
-		gulp.watch(path.assets.watch, ['copy']);
-
-	});
+	gulp.watch(path.css.watch, ['stylus']);
+	gulp.watch(path.html.watch, ['jade']);
+	gulp.watch(path.img.watch, ['images']);
+	gulp.watch(path.assets.watch, ['copy']);
 });
 
 
 gulp.task("build", ['stylus', 'jade', 'images', 'copy']);
 
-gulp.task("default", ["build", "watch", "http-server"]);
+gulp.task("default", ["build", "watch", "webserver"]);

@@ -1,6 +1,212 @@
-//- forms
+//-//////////////////////////////////////////////////////////
+//- BEM FORMS
+//-//////////////////////////////////////////////////////////
 
-mixin insertInput(name, labeltext, value, hint, errors)
+mixin bem-input(name, labeltext, value, placeholder, hint, errors)
+	if (errors)
+		-var errorclass='b-form_error'
+
+	.b-form__item.b-form_text(class=errorclass)
+		if (labeltext)
+			label(for=name).b-form__label!= labeltext
+				span.b-form__label_required  *
+
+		.b-form__input
+			input(type="text", value=value, name=name, placeholder=placeholder, id=name)
+
+		if (errors && hint)
+			.b-form__helpers
+				if (hint)
+					.b-form__hint= hint
+
+				if (errors)
+					ul.b-form__errors
+						each errorsent, errorsnum in errors
+							li= errorsent
+
+		.clear
+
+
+mixin bem-file(name, labeltext, value, placeholder, hint, errors)
+	if (errors)
+		-var errorclass='b-form_error'
+
+	.b-form__item.b-form_file(class=errorclass)
+		if (labeltext)
+			label(for=name).b-form__label!= labeltext
+				span.b-form__label_required  *
+
+		.b-form__input
+			input(type="file", value=value, name=name, placeholder=placeholder, id=name)
+
+		if (errors && hint)
+			.b-form__helpers
+				if (hint)
+					.b-form__hint= hint
+
+				if (errors)
+					ul.b-form__errors
+						each errorsent, errorsnum in errors
+							li= errorsent
+
+		.clear
+
+mixin bem-textarea(name, labeltext, value, placeholder, hint, errors)
+	if (errors)
+		-var errorclass='b-form_error'
+
+	.b-form__item.b-form_textarea(class=errorclass)
+		if (labeltext)
+			label(for=name).b-form__label!= labeltext
+				span.b-form__label_required  *
+
+		.b-form__input
+			textarea(name=name, cols="80", rows="24", placeholder=placeholder, id=name)= value
+
+		if (errors && hint)
+			.b-form__helpers
+				if (hint)
+					.b-form__hint= hint
+
+				if (errors)
+					ul.b-form__errors
+						each errorsent, errorsnum in errors
+							li= errorsent
+
+		.clear
+
+
+
+mixin bem-select(name, labeltext, value, hint, errors)
+	if (errors)
+		-var errorclass='b-form_error'
+
+	.b-form__item.b-form_select(class=errorclass)
+		if (labeltext)
+			label(for=name).b-form__label!= labeltext
+				span.b-form__label_required  *
+
+		.b-form__input
+			select(name=name, id=name)
+				each selectent, selectnum  in value
+					option(value=selectnum, label=selectent)= selectent
+
+		if (errors && hint)
+			.b-form__helpers
+				if (hint)
+					.b-form__hint= hint
+
+				if (errors)
+					ul.b-form__errors
+						each errorsent, errorsnum in errors
+							li= errorsent
+
+		.clear
+
+
+mixin bem-multiselect(name, labeltext, value, hint, errors)
+	if (errors)
+		-var errorclass='b-form_error'
+
+	.b-form__item.b-form_select(class=errorclass)
+		if (labeltext)
+			label(for=name).b-form__label!= labeltext
+				span.b-form__label_required  *
+
+		.b-form__input
+			select(name=name, id=name, multiple="multiple")
+				each selectent, selectnum  in value
+					option(value=selectnum, label=selectent)= selectent
+
+		.b-form__helpers
+			a(href="#").b-form__clear-link.js-clear-multiselect-options Сбросить все выбранные пункты
+			if (hint)
+				.b-form__hint= hint
+
+			if (errors)
+				ul.b-form__errors
+					each errorsent, errorsnum in errors
+						li= errorsent
+
+		.clear
+
+
+mixin bem-radio(name, id, labeltext, checked, disabled)
+	.b-form__item.b-form_radio
+		if (checked)
+			if (disabled)
+				input(type="radio", name=name, id=id, value=id, checked=true, disabled=true)
+			else
+				input(type="radio", name=name, id=id, value=id, checked=true, disabled=false)
+		else
+			if (disabled)
+				input(type="radio", name=name, id=id, value=id, checked=false, disabled=true)
+			else
+				input(type="radio", name=name, id=id, value=id, checked=false, disabled=false)
+
+		label(for="#{id}").b-form__label!= labeltext
+		.clear
+
+
+mixin bem-checkbox(name, id, labeltext, checked, disabled)
+	.b-form__item.b-form_checkbox
+		if (checked)
+			if (disabled)
+				input(type="checkbox", name=name, id=id, value=id, checked=true, disabled=true)
+			else
+				input(type="checkbox", name=name, id=id, value=id, checked=true, disabled=false)
+		else
+			if (disabled)
+				input(type="checkbox", name=name, id=id, value=id, checked=false, disabled=true)
+			else
+				input(type="checkbox", name=name, id=id, value=id, checked=false, disabled=false)
+		if (labeltext)
+			label(for="#{id}").b-form__label!= labeltext
+		.clear
+
+
+
+mixin bem-captcha(labeltext, image)
+	if (errors)
+		-var errorclass='b-form_error'
+
+	.b-form__item.b-form_captcha(class=errorclass)
+		if (labeltext)
+			label(for="#{name}").b-form__label!= labeltext
+				span.b-form__label_required  *
+		.b-form__input-image
+			a(href="#", title="Дайте другой код!")
+					img(src=image, alt="Секретный код!")
+
+		.b-form__input
+			input(type="text", name="captcha", value="")
+
+
+		if (errors && hint)
+			.b-form__helpers
+				if (hint)
+					.b-form__hint= hint
+
+				if (errors)
+					ul.b-form__errors
+						each errorsent, errorsnum in errors
+							li= errorsent
+
+		.clear
+
+
+
+
+
+
+
+
+//-//////////////////////////////////////////////////////////
+//- Zendy forms
+//-//////////////////////////////////////////////////////////
+
+
+mixin input(name, labeltext, value, hint, errors)
 	.item
 		if (labeltext)
 			label(for="#{name}").required= labeltext
@@ -21,7 +227,7 @@ mixin insertInput(name, labeltext, value, hint, errors)
 		.clear
 
 
-mixin insertTextarea(name, labeltext, value, hint, errors)
+mixin textarea(name, labeltext, value, hint, errors)
 	.item
 		if (labeltext)
 			label(for="#{name}").required= labeltext 
@@ -41,7 +247,7 @@ mixin insertTextarea(name, labeltext, value, hint, errors)
 		.clear
 
 
-mixin insertSelect(name, labeltext, value, hint, errors)
+mixin select(name, labeltext, value, hint, errors)
 	.item
 		if (labeltext)
 			label(for="#{name}").required= labeltext 
@@ -62,7 +268,7 @@ mixin insertSelect(name, labeltext, value, hint, errors)
 		.clear
 
 
-mixin insertRadio(name, id, labeltext, checked, disabled)
+mixin radio(name, id, labeltext, checked, disabled)
 	.item.radio
 		if (checked)
 			if (disabled)
@@ -79,7 +285,7 @@ mixin insertRadio(name, id, labeltext, checked, disabled)
 		.clear
 
 
-mixin insertCheckbox(name, id, labeltext, checked, disabled)
+mixin checkbox(name, id, labeltext, checked, disabled)
 	.item.checkbox
 		if (checked)
 			if (disabled)
@@ -95,7 +301,9 @@ mixin insertCheckbox(name, id, labeltext, checked, disabled)
 		label(for="#{id}").required= labeltext
 		.clear
 
-mixin insertCaptcha(labeltext, image)
+
+
+mixin captcha(labeltext, image)
 	.item.captcha
 		if (labeltext)
 			label(for="captcha").required= labeltext
@@ -108,9 +316,30 @@ mixin insertCaptcha(labeltext, image)
 				input(type="text", name="captcha", id="captcha", value="", class="text")
 		.clear
 
-mixin insertInputGroup(labeltext)
+
+
+//-//////////////////////////////////////////////////////////
+//- Other form elements
+//-//////////////////////////////////////////////////////////
+
+mixin inputGroup(labeltext)
 	.b-input-group
-		label.b-input-group__label= labeltext
+		label.b-input-group__label!= labeltext
 		fieldset.b-input-group__body
 			block
 		.clear
+
+
+
+//-//////////////////////////////////////////////////////////
+//- Other mixins
+//-//////////////////////////////////////////////////////////
+
+
+mixin ie(condition)
+	| 
+	| <!--[!{condition}]>
+	block
+	| 
+	| <![endif]-->
+	| 

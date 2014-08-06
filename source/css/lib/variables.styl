@@ -1,91 +1,122 @@
+////////////////////////////////////////////////////////////
 // Базовые
-// --------------------------------------------------
-
-$base-bg 					?=		#fff;
-$base-text-color 			?=		#222;
-
-
-// Сылки
-// --------------------------------------------------
-
-$link-color 				?=		#0069d1;
-$link-hover-color 			?=		#f12200;
-
-
-// Типографика
-// --------------------------------------------------
-
-$font-family-sans-serif 	?=		arial;
-$font-family-serif 			?=		georgia;
-$font-family-monospace 		?=		consolas;
-$font-family-base 			?=		$font-family-sans-serif;
-
-$font-size-base 			?=		14px;
-$font-size-large 			?=		ceil($font-size-base * 1.25); // ~18px
-$font-size-small 			?=		ceil($font-size-base * 0.85); // ~12px
-
-$line-height-base 			?=		1.428571429; // 20/14
-$line-height-computed 		?=		floor($font-size-base * $line-height-base); // ~20px
-
-$headings-font-family 		?=		$font-family-base;
-$headings-font-weight 		?=		500;
-$headings-line-height 		?=		1.1;
-$headings-color 			?=		#000;
+////////////////////////////////////////////////////////////
+$base-bg-color                              = #fff
+$base-font-family                           = museosans
+$base-monospace-font-family                 = consolas
+$base-font-color                            = #000
+$base-font-size                             = 14px
+$base-line-height                           = 19px
 
 
 
+////////////////////////////////////////////////////////////
+// Заголовки
+////////////////////////////////////////////////////////////
+$heading-font-family                        = museosans
+$heading-font-color                         = #000
+$heading-h1-font-size                       = 30px
+$heading-h2-font-size                       = $heading-h1-font-size - 2px
+$heading-h3-font-size                       = $heading-h1-font-size - 4px
+$heading-h4-font-size                       = $heading-h1-font-size - 6px
+$heading-h5-font-size                       = $heading-h1-font-size - 8px
+$heading-h6-font-size                       = $heading-h1-font-size - 10px
+
+
+
+////////////////////////////////////////////////////////////
+// Ссылки
+////////////////////////////////////////////////////////////
+$base-link-color                            = #0083ca
+$base-hover-link-color                      = #ee1111
+$base-visited-link-color                    = $base-link-color + 10%
+
+
+
+////////////////////////////////////////////////////////////
+// Таблицы
+////////////////////////////////////////////////////////////
+$table-base-font-size                       = 12px
+$table-base-font-color                      = #666
+$table-base-cell-align                      = left
+
+$table-heading-font-size                    = $table-base-font-size
+$table-heading-font-color                   = #222
+$table-heading-border-color                 = #ccc
+$table-heading-pading                       = 10px 12px 10px 0
+
+$table-cell-pading                          = 8px 12px 8px 0
+$table-cell-font-color                      = #666
+$table-cell-border-color                    = #eee
 
 
 
 
 
+////////////////////////////////////////////////////////////
+// Списки
+////////////////////////////////////////////////////////////
+$list-marker-path                           = '../img/list-marker.png'
 
 
 
+////////////////////////////////////////////////////////////
+// Формы
+////////////////////////////////////////////////////////////
+$form-base-font-size                       = 13px
+$form-base-font-family                     = museosans
+$form-item-padding                         = 13px
 
+$form-label-font-size                      = 12px
+$form-label-font-color                     = #646464
+$form-label-font-family                    = $form-base-font-family
 
+$form-input-height                         = 33px
+$form-textarea-height                      = 150px
 
+$form-input-border-color                   = #cdcdcd
+$form-input-bg-color                       = #fff
+$form-input-border-radius                  = 3px
+$form-input-font-color                     = #010000
+$form-input-font-size                      = $form-base-font-size
+$form-input-focus-color                    = rgba(#3488ab,.75)
+$form-input-error-color                    = #ff0000
+$form-input-success-color                  = #3488ab
+$form-input-focus-text-color               = $form-input-font-color
+$form-input-padding                        = 7px
 
+$form-input-hint-font-size                 = 11px
+$form-input-hint-font-color                = #aeadad
 
+$form-input-error-font-size                = 11px
 
+// Чекбоксы
+$form-checkbox-size                        = 14px
 
+$form-captcha-width                        = 78px
+$form-input-width                          = 427px
 
+////////////////////////////////////////////////////////////
+// Шрифты
+////////////////////////////////////////////////////////////
 
-
-// Code
-// ------------------------
-$code-color ?=                  #c7254e;
-$code-bg ?=                     #f9f2f4;
-
-$pre-bg ?=                      #f5f5f5;
-$pre-color ?=                   #222;
-$pre-border-color ?=            #ccc;
-$pre-scrollable-max-height ?=   340px;
-
-
-// Type
-// ------------------------
-$text-muted ?=                  #999;
-$abbr-border-color ?=           #999;
-$headings-small-color ?=        #999;
-$blockquote-small-color ?=      #999;
-$blockquote-border-color ?=     #eee;
-$page-header-border-color ?=    #eee;
-
-
-// Tables
-// -------------------------
-
-$table-cell-padding ?=                 8px;
-$table-condensed-cell-padding ?=       5px;
-
-$table-bg ?=                           transparent; // overall background-color
-$table-bg-accent ?=                    #f9f9f9; // for striping
-$table-bg-hover ?=                     #f5f5f5;
-$table-bg-active ?=                    $table-bg-hover;
-
-$table-border-color ?=                 #ddd; // table and cell border
-
-
-// Hr border color
-$hr-border ?=                         #eee;
+arial             = Arial, "Helvetica CY", "Nimbus Sans L", sans-serif
+arial-black       = "Arial Black", "Helvetica CY", "Nimbus Sans L" sans-serif
+comic-sans        = "Comic Sans MS", "Monaco CY", cursive
+courier           = "Courier New", "Nimbus Mono L", monospace
+georgia           = Georgia, "Century Schoolbook L", Serif
+impact            = Impact, "Charcoal CY", sans-serif
+lucida-console    = "Lucida Console", Monaco, monospace
+lucida-sans       = "Lucida Sans Unicode", "Lucida Grande", sans-serif
+platino           = "Palatino Linotype", "Book Antiqua", Palatino, serif
+tahoma            = Tahoma, "Geneva CY", sans-serif
+times             = "Times New Roman", "Times CY", "Nimbus Roman No9 L", serif
+trebuchet         = "Trebuchet MS", "Helvetica CY", sans-serif
+verdana           = Verdana, "Geneva CY", "DejaVu Sans", sans-serif
+helvetica         = "Helvetica Neue", Arial, "Helvetica CY", "Nimbus Sans L", sans-serif
+consolas          = "Consolas", "Courier New", "Nimbus Mono L", monospace
+calibri           = Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+segoe             = "Segoe UI", Segoe, Tahoma, Geneva, sans-serif;
+ptsans            = "PT Sans", sans-serif;
+ptserif           = "PT Serif", serif;
+museosans         = "Museo Sans Cyrl", "Museo Sans", "Perspective Sans", Helvetica, Arial, sans-serif; 

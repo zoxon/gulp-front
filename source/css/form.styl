@@ -1,0 +1,770 @@
+@import './lib/mixins'
+
+
+
+.b-form
+	&__section
+		padding-bottom 10px
+
+		&_button
+			padding-left 127px
+
+			& .b-button 
+				margin-right 15px
+
+	&__drop-loader
+		padding-bottom 17px
+
+
+	& .for-input
+		// float left
+		// width 425px
+		// margin-right 10px
+
+	& label
+		font-size $form-label-font-size 
+		font-family $form-label-font-family
+		color $form-label-font-color
+		display block
+		margin-top 1px
+		padding-bottom 5px
+		-webkit-touch-callout none
+		-webkit-user-select none
+		-khtml-user-select none
+		-moz-user-select none
+		-ms-user-select none
+		user-select none
+		cursor pointer
+
+
+		&.required
+			& span
+				color $form-input-error-color
+
+	& input
+	& textarea
+		width 100%
+		box-sizing border-box
+		font-family $form-base-font-family
+		font-size $form-input-font-size
+		color $form-input-font-color
+		background transparent
+		border none
+		border-radius $form-input-border-radius
+		overflow hidden
+		background-color $form-input-bg-color
+
+	
+		&:focus
+			color $form-input-focus-text-color
+	& select
+		width 100%	
+
+	& .item
+		padding-bottom $form-item-padding
+
+		& .text
+			// width 390px
+			// width $form-input-width + 2px
+			// height $form-input-height + 2px
+			
+			& input
+				border 1px solid $form-input-border-color
+				padding 0 10px
+				// width 368px
+				// width $form-input-width - 20px
+				height $form-input-height
+				line-height $form-input-height
+
+				&:focus
+					box-shadow 0 0 5px $form-input-focus-color
+					border-color $form-input-focus-color
+		
+		& .textarea
+			// border-radius 3px
+
+			& textarea
+				border 1px solid $form-input-border-color 
+				padding 10px
+				resize vertical
+				height 80px
+				min-height 80px
+				// width 655px
+
+				&:focus
+					box-shadow 0 0 5px $form-input-focus-color
+					border-color $form-input-focus-color
+
+		& .jq-selectbox__select
+			// width $form-input-width
+		
+		& .text-mini
+			& input
+				float left
+				width $form-input-width - $form-captcha-width - 10px
+				padding 0 10px
+				line-height $form-input-height
+				height $form-input-height
+				border 1px solid $form-input-border-color
+
+				&:focus
+					box-shadow 0 0 5px $form-input-focus-color
+					border-color $form-input-focus-color
+
+		& .captcha-refresh
+			float left
+			display block
+			width $form-captcha-width
+			height $form-input-height
+			margin-right 10px
+
+
+		&_error
+			& label
+				color $form-input-error-color	
+
+			& .text
+				& input
+					border 1px solid $form-input-error-color !important
+
+					&:focus
+						box-shadow 0 0 5px rgba($form-input-error-color, 0.75) !important
+	
+		& .errors
+			// float left
+			// max-width 290px
+			float none
+			clear both
+			margin-left 127px
+			& li
+				padding 2px 0
+				background none
+				font-size 11px
+				line-height 12px
+				color $form-input-error-color
+
+		& .hint
+			// max-width 290px
+			float none
+			clear both
+			margin-left 127px
+			padding 2px 0 0 0
+			float left
+			font-size 11px
+			line-height 12px
+			color $form-input-hint-font-color
+
+	& .checkbox label
+	& .radio label
+		font-size 13px
+		color #000
+		
+
+	&_two-coll label
+		width 120px
+		padding-right 7px
+		float left
+	
+	&_two-coll .for-input
+		float left
+		width $form-input-width
+		margin-right 10px
+
+	&_small label
+		color #bbbbbb
+		display inline-block
+		padding-right 8px
+
+		*:first-child+html &
+			float left
+	
+	&_small .item
+		padding-bottom 0
+		
+	&_small .item .text input
+	&_small .jq-selectbox__select
+		padding 0 5px
+		height 23px
+		line-height 21px
+		font-size 11px
+		color #2f2f27
+		border-radius 2px
+
+	&_small .item .text input
+		width 56px
+	
+	&_small .jq-selectbox
+		width 126px
+	
+	&_small .jq-selectbox__trigger
+		width 16px
+		
+	&_small .jq-selectbox__trigger-arrow
+		top 9px
+		right 4px
+		background url(../img/form_small_arrow.gif) 0 0 no-repeat
+
+	&_small .jq-selectbox__dropdown
+		top 23px
+		
+	&_small .jq-selectbox li
+		font-size 11px
+		color #2f2f27
+		padding 3px 6px 4px
+
+.b-form-message
+	font-size 16px
+	padding-bottom 20px
+
+	&_success
+		color $form-input-success-color
+
+	&_error
+		color $form-input-error-color
+
+.b-input-group
+	&__label
+		padding-bottom 8px !important
+	
+	&__body
+		width 800px
+		float left
+
+		& label
+			width auto
+
+	& .item
+		padding-bottom 11px
+
+	& label
+		//
+
+	& .jq-checkbox
+	& .jq-radio
+		float left
+		margin 0px 8px 0 0
+
+.b-select-mini
+	padding-bottom 17px
+	&__select
+		width 182px
+		float left
+		padding-right 22px
+		
+		& .item
+			padding-bottom 0
+
+		& .jq-selectbox__select
+			width 135px !important
+
+	&__hint
+		float left
+		width 207px
+		font-size 11px
+		color #919191
+		line-height 13px
+
+
+// Формы
+// .b-form
+// 	&__item
+// 		padding-bottom 6px
+
+// 	&__label
+// 		font-size $form-label-font-size
+// 		color $form-label-font-color
+// 		font-family 'GoodCyr-WideBook Regular', sans-serif
+// 		// display block
+// 		// padding-bottom 4px
+		
+// 		& span&_required
+// 			color $form-input-error-color 
+
+// 	&__input
+// 		background url(../img/input-bg.png) 0 0 repeat
+
+// 		& input
+// 		& textarea
+// 			background transparent
+// 			box-sizing border-box
+// 			width 100%
+// 			// border 1px solid $form-input-border-color
+// 			// border-radius $form-input-border-radius
+// 			color $form-input-font-color
+// 			font-family $form-base-font-family
+// 			font-size $form-base-font-size
+// 			transition border-color 0.30s
+
+// 			// &:focus
+// 			// 	border-color $form-input-focus-color
+// 			// 	box-shadow inset 0px 0px 0px 1px $form-input-focus-color
+
+// 		& input
+// 			padding 0 $form-input-padding
+// 			height $form-input-height
+// 			line-height $form-input-height
+			
+// 			*:first-child+html &
+// 				line-height $form-input-height
+
+// 		& textarea
+// 			padding $form-input-padding
+// 			resize vertical
+// 			height $form-textarea-height
+// 			overflow auto // Убираем скролл для ie
+
+// 	&__helpers
+// 		// 
+// 	&__hint
+// 		font-size $form-input-hint-font-size
+// 		color $form-input-hint-font-color
+// 		line-height 13px
+// 		padding-top 2px
+
+// 	&__clear-link
+// 		font-size $form-input-hint-font-size
+// 		padding 7px 0
+// 		display block
+
+// 	&__errors
+// 		// 
+// 		& li
+// 			font-size $form-input-error-font-size
+// 			color $form-input-error-color
+// 			line-height 13px
+// 			padding 2px 0 0 0
+
+// 	&_error
+// 		& .b-form__input
+// 			& input
+// 			& textarea
+// 				border-color $form-input-error-color
+// 				box-shadow inset 0px 0px 0px 1px $form-input-error-color
+// 				transition none
+
+// 				// &:focus
+// 				// 	border-color $form-input-focus-color
+// 				// 	box-shadow inset 0px 0px 0px 1px $form-input-focus-color
+	
+// 	&_comment &__item
+// 		padding-bottom 10px
+
+// 	&_comment &__input
+// 		& input
+// 		& textarea
+// 			border 2px solid #bcd7df
+// 			border-radius 5px
+// 			font-size 15px
+// 			color #7d8189
+
+// 		& input
+// 			height 43px
+// 			line-height 43px
+			
+// 			*:first-child+html &
+// 				line-height 43px
+	
+// 	&_small
+// 		width 272px
+
+// 	&_captcha &__input-image
+// 		width 121px
+// 		margin-right 29px
+// 		float left
+
+// 	&_captcha &__input
+// 		width 122px
+// 		float left
+
+// Чекбоксы
+.jq-checkbox
+
+	top -1px
+	width $form-checkbox-size
+	height $form-checkbox-size
+	border 1px solid #008aff
+	// border-radius $form-input-border-radius
+	// box-shadow 0 1px 1px rgba(0,0,0,0.05), inset -1px -1px #FFF, inset 1px -1px #FFF
+	vertical-align middle
+	cursor pointer
+
+	&.checked .jq-checkbox__div
+		position absolute
+		left 1px
+		top -3px
+		size 16px 17px
+		margin 0
+		background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAARCAYAAADUryzEAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAARlJREFUeNpiYej6z0AmqAViQSYyNRcCcRMQK5JjQBIQ9wHxeSCOIdUAByCeAcSvgdgfiL+SYoAqEK8DYmYgjgLixyBBFiI18wPxFlCgAXEdEO+BSRDrgrlArAbER4C4DVkCZoAfEHPh0JwBxMFA/BkUaED8F92AICBeD8SrgZgVTbMBEE+AsouB+CG66SADqqG0FzR6YIAdiJdA6f1APAeb85ig0fEUys8B4lAouxKItYH4FxBnAfF/XAY8AWJfIP4BFZsOxJZAXAHlg1x1A1fowgIRlKrSoWxhID4IdfpL9FDHZQAILALipVA2LDAboKFPlAGwMHgCZYNS2jxCCQTdgA9AnA9lt0EDkCQDGKDpfSExtoMAQIABALQzMNcsPhkgAAAAAElFTkSuQmCC") no-repeat
+
+	&.focused
+		border 1px solid $form-input-focus-color
+
+	&.disabled
+		opacity 0.55
+
+
+// Радио кнопки
+.jq-radio
+	width 16px
+	height 16px
+	border 1px solid #008aff
+	border-radius 50%
+	background #F6F6F6 url("data:image/gif;base64,R0lGODlhAQAMALMAAPHx8f7+/vv7+/j4+PX19fLy8vz8/Pn5+fb29vPz8/39/ff39wAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAABAAwAAAQJMCgjzliIpAIiADs=") 0 -1px repeat-x
+	box-shadow 0 1px 1px rgba(0,0,0,0.05), inset -1px -1px #FFF, inset 1px -1px #FFF
+	vertical-align middle
+	cursor pointer
+
+	&.checked .jq-radio__div
+		width 6px
+		height 6px
+		margin 5px 0 0 5px
+		border-radius 50%
+		background #008aff
+
+	&.focused
+		border 1px solid $form-input-focus-color
+
+	&.disabled
+		opacity 0.55
+
+
+// Файл
+.jq-file
+	width 270px
+	box-shadow 0 1px 2px rgba(0,0,0,0.1)
+	border-radius 4px
+
+	input
+		cursor pointer
+		height auto
+		line-height 1em
+
+	&.disabled .jq-file__name
+		color #888
+
+	&.disabled,
+	&.disabled .jq-file__browse
+		border-color #CCC
+		background #F5F5F5
+		box-shadow none
+		color #888
+
+	&__name
+		-moz-box-sizing border-box
+		box-sizing border-box
+		width 100%
+		height 32px
+		padding 0 80px 0 10px
+		color #333
+		font-size 14px
+		line-height 30px
+		white-space nowrap
+		text-overflow ellipsis
+		overflow hidden
+		border 1px solid #CCC
+		border-bottom-color #B3B3B3
+		border-radius 4px
+		box-shadow inset 1px 1px #F1F1F1
+		background #FFF
+
+		.focused &
+			border 1px solid $form-input-focus-color
+
+	&__browse
+		position absolute
+		top 1px
+		right 1px
+		padding 0 10px
+		border-left 1px solid #CCC
+		border-radius 0 4px 4px 0
+		background #F1F1F1 url("data:image/pngb;ase64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAeCAIAAABi9+OQAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABdJREFUeNpi+v//PxM2zMDAQEtxgAADAF2uTe9L4getAAAAAElFTkSuQmCC") repeat-x
+		box-shadow inset 1px -1px #F1F1F1, inset -1px 0 #F1F1F1, 0 1px 2px rgba(0,0,0,0.1)
+		color #333
+		text-shadow 1px 1px #FFF
+		font-size 14px
+		line-height 30px
+
+		.jq-file:hover &
+			background-color #E6E6E6
+			background-position 0 -10px
+
+		.jq-file:active &
+			background #F5F5F5
+			box-shadow inset 1px 1px 3px #DDD
+
+
+// Селект
+.jq-selectbox
+	vertical-align middle
+	cursor pointer
+	width 100%
+
+	ul
+		margin 0
+		padding 0
+
+	li
+		min-height 18px
+		padding 5px 10px 6px
+		color #231F20
+
+		&.selected
+			background-color #A3ABB1
+			color #FFF
+
+		&:hover
+			background-color $form-input-focus-color
+			color #FFF
+
+		&.disabled
+			color #AAA
+
+			&:hover
+				background none
+
+		&.optgroup
+			font-weight bold
+
+			&:hover
+				background none
+				color #231F20
+				cursor default
+
+		&.option
+			padding-left 25px
+
+	&__select
+		background-color #fff
+		border 1px solid $form-input-border-color
+		border-radius $form-input-border-radius
+		color $form-input-font-color
+		font-family $base-font-family
+		font-size $form-base-font-size
+		height $form-input-height 
+		line-height $form-input-height 
+		padding 0 45px 0 10px
+		transition border-color 0.30s
+		box-sizing border-box
+				
+
+		&:hover
+			background-color #fff - 2%
+			background-position 0 -10px
+
+		&:active
+			background #F5F5F5
+			box-shadow inset 1px 1px 3px #DDD
+
+		.jq-selectbox.focused &
+			// border 1px solid #5794BF
+			border-color $form-input-focus-color
+			// box-shadow inset 0px 0px 0px 1px $form-input-focus-color
+
+		.jq-selectbox.disabled &
+			border-color #CCC
+			background #F5F5F5
+			box-shadow none
+			color #888
+
+	&__select-text
+		display block
+		width 100%
+		overflow hidden
+		text-overflow ellipsis
+		white-space nowrap
+
+	&__trigger
+		position absolute
+		top 0
+		right 0
+		width 34px
+		height 100%
+
+	&__trigger-arrow
+		position absolute
+		top 12px
+		right 12px
+		width 11px
+		height 11px
+		overflow hidden
+		background url("data:image/gif;base64,R0lGODlhBwAEAIABAKmpqf///yH5BAEAAAEALAAAAAAHAAQAAAIHRH5miYp8CgA7") 50% 50% no-repeat
+
+		.jq-selectbox:hover &
+			opacity 1
+
+		.jq-selectbox.disabled &
+			opacity 0.3
+
+	&__dropdown
+		top $form-input-height + 4px
+		width 100%
+		box-sizing border-box
+		margin 0
+		padding 0
+		border 1px solid #CCC
+		border-radius 4px
+		background #FFF
+		box-shadow 0 2px 10px rgba(0,0,0,0.2)
+		font-size 14px
+		line-height 18px
+		overflow hidden
+
+	&__search
+		margin 5px
+
+		input
+			box-sizing border-box
+			width 100%
+			margin 0
+			padding 5px 27px 6px 8px
+			outline none
+			border 1px solid #CCC
+			border-radius 3px
+			background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAO1JREFUeNqU078LAXEYx/FzYfNzk5TJaFNKYjFYSQZ/hvwBsvg1UCY2xT9gM8hukQGThWRjkcFw3pdnujhfT736Xn2fPvfc3fd07V0OFDDFAnM0ENYsZRiGLSc9OpqIYIA9fMhhjCrW2h9VlMlcH/aymMGtOqEugX08PwQucUZKdTozMIqdTc9WepQD7wjY9ARx+ydwhfyXfS+S0qMcOEQJGcueB3VccFINdMgal6NzkmPjRwJXxDBB7/2RDdtAp6wb+dpphHDASG5QQ0V6u2aoSqBZD/lDrNWRJynLK2qpBn4rc6K2XB9/Nb8EGABtf1thzY6X2AAAAABJRU5ErkJggg==") no-repeat 100% 50%
+			box-shadow inset 1px 1px #F1F1F1
+			color #333
+			-webkit-appearance textfield
+
+			&::-webkit-search-cancel-button,
+			&::-webkit-search-decoration
+				-webkit-appearance none
+
+	&__not-found
+		margin 5px
+		padding 5px 8px 6px
+		background #F0F0F0
+		font-size 13px
+
+	.b-form_error &__select
+		border-color #ea5d2d
+		box-shadow inset 0px 0px 0px 1px #ea5d2d
+
+
+// Мультиселект
+.jq-select-multiple
+	width 100%
+	box-sizing border-box
+	padding 1px
+	border 1px solid $form-input-border-color
+	border-radius $form-input-border-radius
+	box-shadow inset 1px 1px #F1F1F1, 0 1px 2px rgba(0,0,0,0.1)
+	background #FFF
+	color $form-input-font-color
+	font-size $form-base-font-size
+	line-height $form-input-height - 7px
+	cursor default
+
+	&.focused
+		border-color $form-input-focus-color !important
+		// box-shadow inset 0px 0px 0px 1px $form-input-focus-color !important
+
+	&.disabled
+		border-color #CCC
+		background #F5F5F5
+		box-shadow none
+		color #888
+
+	ul
+		margin 0
+		padding 0
+
+	li
+		padding 3px 9px 4px
+		list-style none
+		cursor pointer
+
+		&:hover
+			background-color #fff - 2%
+
+		&:first-child
+			// border-radius 3px 3px 0 0
+
+		&:last-child
+			// border-radius 0 0 3px 3px
+
+		&.selected
+			background $form-input-focus-color
+			color #FFF
+
+		&.disabled
+			color #AAA
+
+		&.optgroup
+			font-weight bold
+
+		&.option
+			padding-left 25px
+
+	&.disabled li.selected,
+	& li.selected.disabled
+		background #CCC
+		color #FFF
+
+	.b-form_error &
+		border-color #ea5d2d
+		box-shadow inset 0px 0px 0px 1px #ea5d2d
+
+
+// Другие
+input[type="email"].styler,
+input[type="number"].styler,
+input[type="password"].styler,
+input[type="search"].styler,
+input[type="tel"].styler,
+input[type="text"].styler,
+input[type="url"].styler,
+textarea.styler
+	padding 7px 9px
+	border 1px solid #CCC
+	border-bottom-color #B3B3B3
+	border-radius 4px
+	box-shadow inset 1px 1px #F1F1F1, 0 1px 2px rgba(0,0,0,0.1)
+	color #333
+	font-size 14px
+
+	&:hover
+		border-color #B3B3B3
+
+	&:focus
+		border-color #CCC
+		border-top-color #B3B3B3
+		box-shadow inset 0 1px 2px rgba(0,0,0,0.1)
+		outline none
+
+input[type="search"].styler
+	-webkit-appearance none
+
+textarea.styler
+	overflow auto
+
+button.styler,
+input[type="button"].styler,
+input[type="submit"].styler,
+input[type="reset"].styler
+	overflow visible
+	padding 7px 11px
+	outline none
+	border 1px solid #CCC
+	border-bottom-color #B3B3B3
+	border-radius 4px
+	background #F1F1F1 url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAeCAIAAABi9+OQAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABdJREFUeNpi+v//PxM2zMDAQEtxgAADAF2uTe9L4getAAAAAElFTkSuQmCC") repeat-x
+	box-shadow inset 1px -1px #F1F1F1, inset -1px 0 #F1F1F1, 0 1px 2px rgba(0,0,0,0.1)
+	color #333
+	text-shadow 1px 1px #FFF
+	font-size 14px
+	cursor pointer
+
+	&:hover
+		background-color #E6E6E6
+		background-position 0 -10px
+
+	&:active
+		background #F5F5F5
+		box-shadow inset 1px 1px 3px #DDD
+
+	&::-moz-focus-inner
+		padding 0
+		border 0
+
+button.styler:after
+	content ''

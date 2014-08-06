@@ -1,44 +1,74 @@
-@media print
-	*
+@import './lib/mixins'
+
+@media print {
+	*{
 		background transparent !important
 		color #000 !important
 		box-shadow none !important
 		text-shadow none !important
+	}
+
 	a,
-	a:visited
+	a:visited{
 		text-decoration underline
+	}
 
-	a[href]:after
+	a[href]:after{
 		content " (" attr(href) ")"
+	}
 
-	abbr[title]:after
+	abbr[title]:after{
 		content " (" attr(title) ")"
+	}
 
 	a[href^="javascript:"]:after
-	a[href^="#"]:after
+	a[href^="#"]:after{
 		content ""
+	}
 
 	pre,
-	blockquote
+	blockquote{
 		border 1px solid #999
 		page-break-inside avoid
+	}
 
-	thead
+	thead{
 		display table-header-group
+	}
 
 	tr,
-	img
+	img{
 		page-break-inside avoid
+	}
 
-	img
+	img{
 		max-width 100% !important
+	}
 
 	p,
 	h2,
-	h3
+	h3{
 		orphans 3
 		widows 3
+	}
 
 	h2,
-	h3
+	h3{
 		page-break-after: avoid
+	}
+
+}
+
+
+
+
+
+@media all and (max-width: 1000px) {
+	
+}
+
+
+
+@media all and (max-width: 768px) {
+	
+}
