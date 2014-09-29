@@ -1,0 +1,38 @@
+.b-form.b-form_default
+	p.b-form-message.b-form-message_success Сообщение о успешной отправке данных формой
+	p.b-form-message.b-form-message_error Сообщение об ошибке валидации формы
+	form(action="#", method="post")
+		.b-form__section
+			+bem-input('email', 'Ваш e-mail', 'info@somesite.com')
+			+bem-input('password', 'Пароль', '')
+			+bem-input('retype-password', 'Подтвердить пароль', '', false, ['ошибка ввода пароля'])
+		
+		.b-form__section
+			+bem-input('name', 'Имя', 'info@somesite.com', 'Поле при фокусе', false)
+			+bem-input('surname', 'Фамилия', 'info@somesite.com')
+			
+			-var data = ['Выберите значение...', 'Значение 1', 'Значение 2', 'Значение 3']
+			+bem-select('sample-select', 'Комобокс', data)
+		
+		.b-form__section
+			+inputGroup('Переключатели')
+				+bem-checkbox('checkbox-group-1', 'checkbox-1', 'Нормал')
+				+bem-checkbox('checkbox-group-1', 'checkbox-2', 'Включен', true)
+				+bem-checkbox('checkbox-group-1', 'checkbox-3', 'Неактивный', false, true)
+				+bem-checkbox('checkbox-group-1', 'checkbox-4', 'Включен - неактив', true, true)
+		
+		.b-form__section
+			+inputGroup('Радио')
+				+bem-radio('radio-group-1', 'radio-1', 'Нормал')
+				+bem-radio('radio-group-1', 'radio-2', 'Включен', true)
+				+bem-radio('radio-group-2', 'radio-3', 'Неактивный', false, true)
+				+bem-radio('radio-group-2', 'radio-4', 'Включен - неактив', true, true)
+
+		.b-form__section
+			+bem-textarea('textarea', 'Текстареа', 'Текст и фокус...')
+			+bem-multiselect('multiple-select', 'Мультиселект', ['Выберите значение...', 'Значение 1', 'Значение 2', 'Значение 3', 'Значение 4', 'Значение 5', 'Значение 6'], 6)
+			//- +bem-captcha('Введите символы с картинки', 'img/content/captcha.png')
+
+		.b-form__section
+			input(type="submit", value="Зарегистрироватся").b-button.b-button_red-big
+

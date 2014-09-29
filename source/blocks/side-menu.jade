@@ -1,0 +1,14 @@
+.b-side-menu
+	ul
+		each ent, num in [{"level1": "Товары", "level2": ["Телефоны", "Сувениры", "Украшения"]}, {"level1": "Услуги", "level2": ["Цветы", "Реклама", "Красота и здоровье", "Пригласительные"]}, {"level1": "Для Дома", "level2": ["Техника", "Инвентарь", "Растения"]}, {"level1": "Для Спорта", "level2": ["Одежда", "Снаряжение", "Аксессуары"]}, {"level1": "Для авто", "level2": ["Автохимия", "Автокосметика", "Авто аксессуары"]}]
+			li.b-side-menu__item
+				a(href="#")= ent.level1
+				.b-side-menu__submenu
+					ul
+						each ent2, num2 in ent.level2
+							if (num == 1 && num2 == 2)
+								-var sideMenuActiveClass = 'b-side-menu__submenu-item_active'
+							else
+								-var sideMenuActiveClass = ''
+							li.b-side-menu__submenu-item(class=sideMenuActiveClass)
+								a(href="#")= ent2

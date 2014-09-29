@@ -1,8 +1,8 @@
 @import 'nib'
 @import '/lib/variables'
-@import '/lib/mixins/font-face'
-@import '/lib/mixins/size'
-
+@import '/lib/mixins/font'
+// @import '/lib/mixins/meyer-reset'
+// @import '/lib/mixins/normalize'
 
 hard-reset()
 	*
@@ -15,3 +15,107 @@ hard-reset()
 	*:focus
 		outline 0
 
+
+
+// IE 7 Valid hack
+// Use 
+// +ie7()
+//     color red
+ie7()
+	*:first-child+html &
+		{block}
+
+
+// IE 6 Valid hack
+ie6()
+	*html &
+		{block}
+
+
+
+inline-block-ie7()
+	display inline-block
+
+	if(support-for-ie == true)
+		*:first-child+html &
+			display inline
+			zoom 1
+			{block}
+
+
+
+overflow(value)
+	if (value == ellipsis)
+		white-space nowrap
+		text-overflow ellipsis
+		overflow hidden
+	else
+		overflow value
+
+
+// Usage examle
+// size 30px
+// →
+// width 30px
+// height 30px
+size( values... )
+	if length( values ) == 1
+		width values[ 0 ] || auto
+		height values[ 0 ] || auto
+	else
+		width values[ 0 ] if values[ 0 ] != false
+		height values[ 1 ] if values[ 1 ] != false
+
+
+min-size( a, b = false )
+	min-width a
+	if b
+		min-height b
+	else
+		min-height a
+
+
+block( a, b = false )
+	size a b
+	display block
+
+
+inline-block( a, b = false )
+	size a b
+	display inline-block
+
+
+triangle( direction, size, face-color, back-color = transparent )
+	width 0
+	height 0
+	border size solid back-color
+	if direction == up || direction == down-left || direction == down-right
+		border-bottom-color face-color
+	if direction == down || direction == up-left || direction == up-right
+		border-top-color face-color
+	if direction == left || direction == down-right || direction == up-right
+		border-right-color face-color
+	if direction == right || direction == down-left || direction == up-left
+		border-left-color face-color
+
+
+// Usage examle
+//  input
+//  	+placeholder()
+//			color grey
+placeholder()
+	if selector() == "&"
+		error( "placeholder() must be called from a ruleset!" )
+	&::-webkit-input-placeholder
+		{block}
+	&:-moz-placeholder
+		{block}
+	&::-moz-placeholder
+		{block}
+	&:-ms-input-placeholder
+		{block}
+
+user-select-none()
+	-webkit-touch-callout none
+	-khtml-user-select none
+	user-select none

@@ -1,0 +1,19 @@
+.b-sidebar
+	.b-sidebar-menu
+		each ent, num in [{"title": "Каталог <br /> оборудования", "childrens" : ["Интерактивные доски ", "Цифровые лаборатории", "Оптические системы", "Циф-е лаборатории PASCO", "Мобильные классы", "Проекторы", "Электронные учебники", "Планшеты иноутбуки"]}, {"title": "Каталог программного обеспечения", "childrens" : ["Для средней школы и ВУЗов", "Для начальной школы", "Дошколятам -  подготовка к школе"]}]
+			.b-sidebar-menu__section
+				h3.b-sidebar-menu__title!= ent.title
+				ul
+					each ent2, num2 in ent.childrens
+						if (num == 1 && num2 == 1)
+							li.b-sidebar-menu__item
+								a(href="#")= ent2
+								.b-sidebar-menu__dropdown
+									.b-dropdown-submenu
+										ul
+											each ent3, num3 in ["география", "биология", "экология", "обществознание", "естествознание и экономика", "литература", "МХК", "иностранные языки"]
+												li.b-dropdown-submenu__item
+													a(href="#")= ent3
+						else
+							li.b-sidebar-menu__item
+								a(href="#")= ent2

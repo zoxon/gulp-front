@@ -1,7 +1,84 @@
-@import 'nib'
-@import '/lib/mixins/font-face'
+@import '/lib/mixins'
 
-font-face("PT Sans", ptsans, '../fonts', , ,"PT Sans")
-font-face("PT Sans", ptsans_italic, '../fonts', , italic , "PT Sans")
-font-face("PT Sans", ptsans_bold, '../fonts', bold , , "PT Sans")
-font-face("PT Sans", ptsans_bold_italic, '../fonts', bold , italic, "PT Sans")
+$font-base-path = "../fonts"
+$font-family = "Museo Sans Cyrl"
+
+font-face(
+	family: $font-family, 
+	file-name: "museosanscyrl-100", 
+	base-path: $font-base-path, 
+	weight: 100, 
+	style: normal
+)
+
+font-face(
+	family: $font-family, 
+	file-name: "museosanscyrl-100italic", 
+	base-path: $font-base-path, 
+	weight: 100, 
+	style: italic
+)
+
+font-face(
+	family: $font-family, 
+	file-name: "museosanscyrl-300", 
+	base-path: $font-base-path, 
+	weight: 300, 
+	style: normal
+)
+
+font-face(
+	family: $font-family, 
+	file-name: "museosanscyrl-300italic", 
+	base-path: $font-base-path, 
+	weight: 300, 
+	style: italic
+)
+
+font-face(
+	family: $font-family, 
+	file-name: "museosanscyrl-500", 
+	base-path: $font-base-path, 
+	weight: 500, 
+	style: normal
+)
+
+font-face(
+	family: $font-family, 
+	file-name: "museosanscyrl-500italic", 
+	base-path: $font-base-path, 
+	weight: 500, 
+	style: italic
+)
+
+font-face(
+	family: $font-family, 
+	file-name: "museosanscyrl-700", 
+	base-path: $font-base-path, 
+	weight: 700, 
+	style: normal
+)
+
+font-face(
+	family: $font-family, 
+	file-name: "museosanscyrl-700italic", 
+	base-path: $font-base-path, 
+	weight: 700, 
+	style: italic
+)
+
+font-face(
+	family: $font-family, 
+	file-name: "museosanscyrl-900", 
+	base-path: $font-base-path, 
+	weight: 900, 
+	style: normal
+)
+
+font-face(
+	family: $font-family, 
+	file-name: "museosanscyrl-900italic", 
+	base-path: $font-base-path, 
+	weight: 900, 
+	style: italic
+)

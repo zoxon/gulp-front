@@ -1,47 +1,46 @@
 (function($) {
 
 	/*!
-	* jQuery Placeholder plugin for XHTML
-	* 
-	* Copyright (c) 2014 Weltkind Web Works
-	* www.weltkind.com
-	* 
-	* @version 1.0.0
-	*/
+	 * jQuery Placeholder plugin for XHTML
+	 *
+	 * Copyright (c) 2014 Weltkind Web Works
+	 * www.weltkind.com
+	 *
+	 * @version 1.2.0
+	 */
 	jQuery.fn.placeholder = function(options) {
 
-		var defaults = {
-			title: $(this).val()
-		};
+		var defaults = {};
 
-		var obj = $(this);
+		var that = $(this)
+		options = $.extend(defaults, options),
+		value = '';
 
-		var options = $.extend(defaults, options);
-
-		if (options.title !== $(this).val()) {
-			$(this).val(options.title);
-		}
-
-		$(this).focus(function() {
-			if ($(this).val() === options.title) {
-				$(this).val('');
-			}
+		that.each(function() {
+			$(this).focus(function() {
+				value = $(this).val();
+				if ($(this).val() === value) {
+					$(this).val('');
+				}
+			});
+			$(this).focusout(function() {
+				if ($(this).val() === '') {
+					$(this).val(value);
+				}
+			});
 		});
-		$(this).focusout(function() {
-			if ($(this).val() === '') {
-				$(this).val(options.title);
-			}
-		});
+
 	}
 
+
 	/*!
-	* jQuery form checker
-	* 
-	* Copyright (c) 2014 Weltkind Web Works
-	* www.weltkind.com
-	* 
-	* @version 1.0.0
-	*/
+	 * jQuery form checker
+	 *
+	 * Copyright (c) 2014 Weltkind Web Works
+	 * www.weltkind.com
+	 *
+	 * @version 1.0.0
+	 */
 	jQuery.fn.formChecker = function() {
 
 		var defaultFormValues = $(this).serializeArray();
@@ -61,13 +60,13 @@
 	}
 
 	/*!
-	* jQuery carusel plugin
-	* 
-	* Copyright (c) 2014 Weltkind Web Works
-	* www.weltkind.com
-	* 
-	* @version 1.0.0
-	*/
+	 * jQuery carusel plugin
+	 *
+	 * Copyright (c) 2014 Weltkind Web Works
+	 * www.weltkind.com
+	 *
+	 * @version 1.0.0
+	 */
 	jQuery.fn.roulette = function(options) {
 
 		var defaults = {
@@ -139,15 +138,15 @@
 
 
 	/*!
-	* Simple jQuery Equal Heights
-	*
-	* Copyright (c) 2013 Matt Banks
-	* Dual licensed under the MIT and GPL licenses.
-	* Uses the same license as jQuery, see:
-	* http://docs.jquery.com/License
-	*
-	* @version 1.5.1
-	*/
+	 * Simple jQuery Equal Heights
+	 *
+	 * Copyright (c) 2013 Matt Banks
+	 * Dual licensed under the MIT and GPL licenses.
+	 * Uses the same license as jQuery, see:
+	 * http://docs.jquery.com/License
+	 *
+	 * @version 1.5.1
+	 */
 	$.fn.equalHeights = function() {
 		var maxHeight = 0,
 			$this = $(this);
@@ -171,22 +170,22 @@
 	});
 
 
-		/*!
-	* jQuery raiting plugin
-	* 
-	* Copyright (c) 2014 Weltkind Web Works
-	* www.weltkind.com
-	* 
-	* @version 1.0.0
-	*/
-	jQuery.fn.raiting = function(options){
+	/*!
+	 * jQuery raiting plugin
+	 *
+	 * Copyright (c) 2014 Weltkind Web Works
+	 * www.weltkind.com
+	 *
+	 * @version 1.0.0
+	 */
+	jQuery.fn.raiting = function(options) {
 
 		var defaults = {
 			elemWidth: 17
 		};
 
 		var options = $.extend(defaults, options);
-		
+
 
 		$(this).hover(function() {
 			$(this).append('<div class="b-star-raiting__hover"></div>');
@@ -224,16 +223,180 @@
 		$(this).click(function() {
 			// alert("Я ставлю " + rating);
 			// return false;
-			
-			$(this).children('.b-star-raiting__current').width(rating*20+'%');
+
+			$(this).children('.b-star-raiting__current').width(rating * 20 + '%');
 
 			field = $(this).attr('data-save-field');
-			$('#'+field).val(rating);
+			$('#' + field).val(rating);
 
 
 		});
 
 	}
+
+
+	/*!
+	 * jQuery spinner plugin
+	 *
+	 * Copyright (c) 2014 Weltkind Web Works
+	 * www.weltkind.com
+	 *
+	 * @version 1.0.0
+	 *
+	 */
+	jQuery.fn.spinner = function(options) {
+
+		var defaults = {
+			onzero: function() {} // Запускается если значение поля 0
+		};
+
+		var options = $.extend(defaults, options);
+
+
+		var input, minus, plus;
+		input = $(this).find('input');
+		minus = $(this).find('.js-minus-one');
+		plus = $(this).find('.js-plus-one');
+
+		// Обработка клика по +
+		plus.click(function() {
+			input = $(this).parent().find('input');
+			var InpVal = parseInt(input.val(), 10);
+			if (!isNaN(InpVal)) {
+				input.val(InpVal + 1);
+			} else {
+				input.val(1);
+			}
+			return false;
+		});
+
+		// Фильтруем левые символы
+		input.blur(function() {
+			input = $(this).parent().find('input');
+			var InpVal = parseInt(input.val(), 10);
+			if (isNaN(InpVal)) {
+				input.val(1);
+			}
+			if (InpVal < 1) {
+				input.val(1);
+				options.onzero.call(this);
+			}
+			return false;
+		});
+
+		minus.click(function() {
+			input = $(this).parent().find('input');
+			var InpVal = parseInt(input.val(), 10);
+			if (!isNaN(InpVal)) {
+				if (InpVal > 1) {
+					input.val(InpVal - 1);
+				} else {
+					input.val(1);
+					options.onzero.call(this);
+				}
+			} else {
+				input.val(1);
+			}
+			return false;
+		});
+
+
+	}
+
+
+	/*!
+	 * jQuery link radio plugin
+	 *
+	 * Copyright (c) 2014 Weltkind Web Works
+	 * www.weltkind.com
+	 *
+	 * @version 1.0.0
+	 *
+	 */
+	jQuery.fn.linkRadio = function(options) {
+
+		var defaults = {};
+
+		var options = $.extend(defaults, options);
+
+		var that = $(this);
+		var currentValue = '';
+		var input = that.find('input');
+		var inputValue = '';
+
+
+		that.find('.b-link-radio__item a').click(function(event) {
+			var parent = $(this).parents('.b-link-radio');
+			var thisInput = parent.find('input');
+
+			if (!$(this).hasClass('b-link-radio__item_active')) {
+				parent.find('.b-link-radio__item').removeClass('b-link-radio__item_active');
+				$(this).parent().addClass('b-link-radio__item_active');
+
+				currentValue = $(this).attr('rel');
+				thisInput.val(currentValue);
+			};
+			event.preventDefault();
+		});
+
+		if (input.val() != '') {
+			that.find('.b-link-radio__item a').each(function() {
+				inputValue = $(this).parents('.b-link-radio').find('input').val();
+
+				if ($(this).attr('rel') == inputValue) {
+					$(this).parents('.b-link-radio').find('.b-link-radio__item').removeClass('b-link-radio__item_active');
+					$(this).parent().addClass('b-link-radio__item_active');
+				};
+			});
+		};
+
+	}
+
+
+	/*!
+	 * jQuery dropdown plugin
+	 *
+	 * Copyright (c) 2014 Weltkind Web Works
+	 * www.weltkind.com
+	 *
+	 * @version 1.0.0
+	 *
+	 */
+	$.fn.dropDown = function(options) {
+		var defaults = {
+			attribute: 'href',
+			dropDownClass: $('.js-dropdown'),
+			closestClass: '.js-dropdown-open'
+		};
+
+		var options = $.extend(defaults, options),
+			$this = $(this);
+
+		//Dropdown
+		options.dropDownClass.hide();
+		$this.click(function(e) {
+			var $popup = $('#'+$(this).attr(options.attribute));
+
+			if ($popup.css('display') != 'block') {
+				$(document).bind('click.myDropdownClick', function(e) {
+					if (!yourClick && $(e.target).closest(options.closestClass).length == 0) {
+						options.dropDownClass.hide();
+						$this.removeClass('js-dropdown_showed');
+						$(document).unbind('click.myDropdownClick');
+					}
+					yourClick = false;
+				});
+				options.dropDownClass.hide();
+				$this.removeClass('js-dropdown_showed');
+				$popup.show();
+				$(this).addClass('js-dropdown_showed');
+
+				var yourClick = true;
+			}
+
+			e.preventDefault();
+		});
+	};
 
 
 })(jQuery);
@@ -253,5 +416,6 @@ function getIEVer() {
 }
 
 $(document).ready(function() {
-	
+	$('select, input').styler();
+
 });

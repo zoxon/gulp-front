@@ -1,31 +1,43 @@
 @import './lib/mixins'
 
-//- Влючаем костыли для ишака и прочего старья
-support-for-ie = true
-vendor-prefixes = webkit moz o ms official
-
-
+////////////////////////////////////////////////////////////
+// Reset
+////////////////////////////////////////////////////////////
 hard-reset()
 
+
+
+
+////////////////////////////////////////////////////////////
+// Base
+////////////////////////////////////////////////////////////
 body
 html
 	color $base-font-color
 	font-family $base-font-family
 
-// body
-// 	background-color $base-bg-color
 
 
-// Разыне хелперы типа clear и тд.
+////////////////////////////////////////////////////////////
+// Helpers
+////////////////////////////////////////////////////////////
 @import './lib/helpers'
 
 
-/* Заголовки */
+
+
+////////////////////////////////////////////////////////////
+// Headings
+////////////////////////////////////////////////////////////
 h1, h2, h3, h4, h5, h6
 	color $heading-font-color
 	font-family $heading-font-family
-	font-weight bold
+	font-weight normal
 	padding 20px 0 10px
+	// text-transform uppercase
+
+h4, h5, h6
+	color #646464
 
 h1
 	font-size $heading-h1-font-size
@@ -44,11 +56,14 @@ h5
 
 h6
 	font-size $heading-h6-font-size
+	color #646464 + 30%
 
 
 
 
-/* Текстовые элементы */
+////////////////////////////////////////////////////////////
+// Text elements
+////////////////////////////////////////////////////////////
 p
 	color $base-font-color
 	font-size $base-font-size
@@ -124,16 +139,18 @@ i
 
 
 
-/* Таблицы */
+////////////////////////////////////////////////////////////
+// Tables
+////////////////////////////////////////////////////////////
 table
 	width 100%
 	border-collapse collapse
-	margin 30px 0 40px
+	margin 10px 0
 	
 	caption
 		color $base-font-color
 		font-size $table-heading-font-size + 2px
-		font-weight bold
+		font-weight 900
 		padding 8px 0
 		text-align left
 
@@ -168,6 +185,20 @@ tfoot
 	th
 		border-color $table-heading-border-color
 
+.b-vertical-table
+	tr
+		th
+		td
+			border-color #eee
+			
+		&:first-child th
+			padding-top 0
+
+	&__title
+		font-size 16px
+		padding-top 35px
+		border-bottom 1px solid #ccc !important
+
 
 img
 	border 0
@@ -179,12 +210,14 @@ hr
 
 
 
-/* Списки */
+////////////////////////////////////////////////////////////
+// Lists
+////////////////////////////////////////////////////////////
 
 dt
 	color $base-font-color
 	font-size $base-font-size
-	font-weight bold
+	font-weight 900
 
 dd
 	color $base-font-color
@@ -196,16 +229,16 @@ dd
 ul 
 	li
 		background-image url($list-marker-path)
-		background-position 18px 0.55em
+		background-position 0 0.55em
 		background-repeat no-repeat
 		color $base-font-color
 		font-size $base-font-size
 		list-style none
-		padding 0 0 6px 34px
+		padding 0 0 8px 21px
 
 		ul 
 			li
-				background-position 18px 12px
+				background-position 0 12px
 				background-repeat no-repeat
 				padding-bottom 0
 				padding-top 6px
@@ -215,12 +248,14 @@ ol
 	list-style-position outside
 	list-style-type none
 
+
 	li
 		color $base-font-color
 		font-size $base-font-size
-		list-style decimal inside
-		padding 0 0 6px 0
+		list-style-type decimal
+		padding 0 0 8px 3px
+		margin-left 18px
 
 		ol 
 			li
-				padding 6px 0 0 25px
+				padding 6px 0 0 3px

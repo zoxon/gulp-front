@@ -1,217 +1,130 @@
 @import './lib/mixins'
 
 
-
+//-//////////////////////////////////////////////////////////
+//- BEM forms
+//-//////////////////////////////////////////////////////////
 .b-form
-	&__section
+	& input
+		+placeholder()
+			color $form-input-font-color
+			font-family $form-base-font-family
+			font-size $form-base-font-size
+
+	&__item
+		padding-bottom 6px
+
+	&__label
+		font-size $form-label-font-size
+		color $form-label-font-color
+		font-family $form-label-font-family
+		display block
+		padding-bottom 4px
+		user-select-none()
+		
+		& span&_required
+			color $form-input-error-color 
+
+	&__input
+		// background url(../img/input-bg.png) 0 0 repeat
+
+		& input
+		& textarea
+			background transparent
+			box-sizing border-box
+			width 100%
+			border 1px solid $form-input-border-color
+			border-radius $form-input-border-radius
+			color $form-input-font-color
+			font-family $form-base-font-family
+			font-size $form-base-font-size
+			transition border-color 0.30s
+
+			&:focus
+				border-color $form-input-focus-color
+				box-shadow 0px 0px 2px $form-input-focus-color
+
+		& input
+			padding 0 $form-input-padding
+			height $form-input-height
+			line-height $form-input-height
+			
+			*:first-child+html &
+				line-height $form-input-height
+
+		& textarea
+			padding $form-input-padding
+			resize vertical
+			height $form-textarea-height
+			overflow auto // Убираем скролл для ie
+
+	&__helpers
+		// 
+	&__hint
+		font-size $form-input-hint-font-size
+		color $form-input-hint-font-color
+		line-height 13px
+		padding-top 2px
+
+	&__clear-link
+		font-size $form-input-hint-font-size
+		padding 7px 0
+		display block
+
+	&__errors
+		// 
+		& li
+			font-size $form-input-error-font-size
+			color $form-input-error-color
+			line-height 13px
+			padding 2px 0 0 0
+
+	&_error
+		& .b-form__input
+			& input
+			& textarea
+				border-color $form-input-error-color
+				box-shadow 0px 0px 2px $form-input-error-color
+				transition none
+
+				&:focus
+					border-color $form-input-focus-color
+					box-shadow 0px 0px 2px $form-input-focus-color
+	
+	&_comment &__item
 		padding-bottom 10px
 
-		&_button
-			padding-left 127px
+	&_comment &__input
+		& input
+		& textarea
+			border 2px solid #bcd7df
+			border-radius 5px
+			font-size 15px
+			color #7d8189
 
-			& .b-button 
-				margin-right 15px
-
-	&__drop-loader
-		padding-bottom 17px
-
-
-	& .for-input
-		// float left
-		// width 425px
-		// margin-right 10px
-
-	& label
-		font-size $form-label-font-size 
-		font-family $form-label-font-family
-		color $form-label-font-color
-		display block
-		margin-top 1px
-		padding-bottom 5px
-		-webkit-touch-callout none
-		-webkit-user-select none
-		-khtml-user-select none
-		-moz-user-select none
-		-ms-user-select none
-		user-select none
-		cursor pointer
-
-
-		&.required
-			& span
-				color $form-input-error-color
-
-	& input
-	& textarea
-		width 100%
-		box-sizing border-box
-		font-family $form-base-font-family
-		font-size $form-input-font-size
-		color $form-input-font-color
-		background transparent
-		border none
-		border-radius $form-input-border-radius
-		overflow hidden
-		background-color $form-input-bg-color
-
-	
-		&:focus
-			color $form-input-focus-text-color
-	& select
-		width 100%	
-
-	& .item
-		padding-bottom $form-item-padding
-
-		& .text
-			// width 390px
-			// width $form-input-width + 2px
-			// height $form-input-height + 2px
+		& input
+			height 43px
+			line-height 43px
 			
-			& input
-				border 1px solid $form-input-border-color
-				padding 0 10px
-				// width 368px
-				// width $form-input-width - 20px
-				height $form-input-height
-				line-height $form-input-height
-
-				&:focus
-					box-shadow 0 0 5px $form-input-focus-color
-					border-color $form-input-focus-color
-		
-		& .textarea
-			// border-radius 3px
-
-			& textarea
-				border 1px solid $form-input-border-color 
-				padding 10px
-				resize vertical
-				height 80px
-				min-height 80px
-				// width 655px
-
-				&:focus
-					box-shadow 0 0 5px $form-input-focus-color
-					border-color $form-input-focus-color
-
-		& .jq-selectbox__select
-			// width $form-input-width
-		
-		& .text-mini
-			& input
-				float left
-				width $form-input-width - $form-captcha-width - 10px
-				padding 0 10px
-				line-height $form-input-height
-				height $form-input-height
-				border 1px solid $form-input-border-color
-
-				&:focus
-					box-shadow 0 0 5px $form-input-focus-color
-					border-color $form-input-focus-color
-
-		& .captcha-refresh
-			float left
-			display block
-			width $form-captcha-width
-			height $form-input-height
-			margin-right 10px
-
-
-		&_error
-			& label
-				color $form-input-error-color	
-
-			& .text
-				& input
-					border 1px solid $form-input-error-color !important
-
-					&:focus
-						box-shadow 0 0 5px rgba($form-input-error-color, 0.75) !important
+			*:first-child+html &
+				line-height 43px
 	
-		& .errors
-			// float left
-			// max-width 290px
-			float none
-			clear both
-			margin-left 127px
-			& li
-				padding 2px 0
-				background none
-				font-size 11px
-				line-height 12px
-				color $form-input-error-color
+	&_small
+		width 272px
 
-		& .hint
-			// max-width 290px
-			float none
-			clear both
-			margin-left 127px
-			padding 2px 0 0 0
-			float left
-			font-size 11px
-			line-height 12px
-			color $form-input-hint-font-color
-
-	& .checkbox label
-	& .radio label
-		font-size 13px
-		color #000
-		
-
-	&_two-coll label
-		width 120px
-		padding-right 7px
+	&_captcha &__input-image
+		width 121px
+		margin-right 29px
 		float left
-	
-	&_two-coll .for-input
+
+	&_captcha &__input
+		width 122px
 		float left
-		width $form-input-width
-		margin-right 10px
 
-	&_small label
-		color #bbbbbb
-		display inline-block
-		padding-right 8px
 
-		*:first-child+html &
-			float left
-	
-	&_small .item
-		padding-bottom 0
-		
-	&_small .item .text input
-	&_small .jq-selectbox__select
-		padding 0 5px
-		height 23px
-		line-height 21px
-		font-size 11px
-		color #2f2f27
-		border-radius 2px
-
-	&_small .item .text input
-		width 56px
-	
-	&_small .jq-selectbox
-		width 126px
-	
-	&_small .jq-selectbox__trigger
-		width 16px
-		
-	&_small .jq-selectbox__trigger-arrow
-		top 9px
-		right 4px
-		background url(../img/form_small_arrow.gif) 0 0 no-repeat
-
-	&_small .jq-selectbox__dropdown
-		top 23px
-		
-	&_small .jq-selectbox li
-		font-size 11px
-		color #2f2f27
-		padding 3px 6px 4px
-
+//-//////////////////////////////////////////////////////////
+//- Form helpers
+//-//////////////////////////////////////////////////////////
 .b-form-message
 	font-size 16px
 	padding-bottom 20px
@@ -223,12 +136,12 @@
 		color $form-input-error-color
 
 .b-input-group
+	padding-bottom $form-item-padding
 	&__label
 		padding-bottom 8px !important
 	
 	&__body
-		width 800px
-		float left
+		max-width 800px
 
 		& label
 			width auto
@@ -237,148 +150,23 @@
 		padding-bottom 11px
 
 	& label
-		//
+		display block
+		font-size $form-label-font-size
+		color $form-label-font-color
+		font-family $form-label-font-family
+		user-select-none()
 
 	& .jq-checkbox
 	& .jq-radio
 		float left
 		margin 0px 8px 0 0
-
-.b-select-mini
-	padding-bottom 17px
-	&__select
-		width 182px
-		float left
-		padding-right 22px
-		
-		& .item
-			padding-bottom 0
-
-		& .jq-selectbox__select
-			width 135px !important
-
-	&__hint
-		float left
-		width 207px
-		font-size 11px
-		color #919191
-		line-height 13px
-
-
-// Формы
-// .b-form
-// 	&__item
-// 		padding-bottom 6px
-
-// 	&__label
-// 		font-size $form-label-font-size
-// 		color $form-label-font-color
-// 		font-family 'GoodCyr-WideBook Regular', sans-serif
-// 		// display block
-// 		// padding-bottom 4px
-		
-// 		& span&_required
-// 			color $form-input-error-color 
-
-// 	&__input
-// 		background url(../img/input-bg.png) 0 0 repeat
-
-// 		& input
-// 		& textarea
-// 			background transparent
-// 			box-sizing border-box
-// 			width 100%
-// 			// border 1px solid $form-input-border-color
-// 			// border-radius $form-input-border-radius
-// 			color $form-input-font-color
-// 			font-family $form-base-font-family
-// 			font-size $form-base-font-size
-// 			transition border-color 0.30s
-
-// 			// &:focus
-// 			// 	border-color $form-input-focus-color
-// 			// 	box-shadow inset 0px 0px 0px 1px $form-input-focus-color
-
-// 		& input
-// 			padding 0 $form-input-padding
-// 			height $form-input-height
-// 			line-height $form-input-height
 			
-// 			*:first-child+html &
-// 				line-height $form-input-height
-
-// 		& textarea
-// 			padding $form-input-padding
-// 			resize vertical
-// 			height $form-textarea-height
-// 			overflow auto // Убираем скролл для ie
-
-// 	&__helpers
-// 		// 
-// 	&__hint
-// 		font-size $form-input-hint-font-size
-// 		color $form-input-hint-font-color
-// 		line-height 13px
-// 		padding-top 2px
-
-// 	&__clear-link
-// 		font-size $form-input-hint-font-size
-// 		padding 7px 0
-// 		display block
-
-// 	&__errors
-// 		// 
-// 		& li
-// 			font-size $form-input-error-font-size
-// 			color $form-input-error-color
-// 			line-height 13px
-// 			padding 2px 0 0 0
-
-// 	&_error
-// 		& .b-form__input
-// 			& input
-// 			& textarea
-// 				border-color $form-input-error-color
-// 				box-shadow inset 0px 0px 0px 1px $form-input-error-color
-// 				transition none
-
-// 				// &:focus
-// 				// 	border-color $form-input-focus-color
-// 				// 	box-shadow inset 0px 0px 0px 1px $form-input-focus-color
 	
-// 	&_comment &__item
-// 		padding-bottom 10px
-
-// 	&_comment &__input
-// 		& input
-// 		& textarea
-// 			border 2px solid #bcd7df
-// 			border-radius 5px
-// 			font-size 15px
-// 			color #7d8189
-
-// 		& input
-// 			height 43px
-// 			line-height 43px
-			
-// 			*:first-child+html &
-// 				line-height 43px
-	
-// 	&_small
-// 		width 272px
-
-// 	&_captcha &__input-image
-// 		width 121px
-// 		margin-right 29px
-// 		float left
-
-// 	&_captcha &__input
-// 		width 122px
-// 		float left
-
+//-//////////////////////////////////////////////////////////
+//- JQuery Form Styler
+//-//////////////////////////////////////////////////////////
 // Чекбоксы
 .jq-checkbox
-
 	top -1px
 	width $form-checkbox-size
 	height $form-checkbox-size
@@ -507,13 +295,14 @@
 		min-height 18px
 		padding 5px 10px 6px
 		color #231F20
+		background-image none
 
 		&.selected
-			background-color #A3ABB1
+			background-color #07a1f1
 			color #FFF
 
 		&:hover
-			background-color $form-input-focus-color
+			background-color #07a1f1
 			color #FFF
 
 		&.disabled
@@ -582,7 +371,7 @@
 
 	&__trigger-arrow
 		position absolute
-		top 12px
+		top 10px
 		right 12px
 		width 11px
 		height 11px
@@ -640,6 +429,84 @@
 		box-shadow inset 0px 0px 0px 1px #ea5d2d
 
 
+.b-form_search
+	.jq-selectbox
+		li
+			padding 8px 10px 9px
+		&__select
+			height 40px
+			line-height 40px
+			border-radius 5px
+			background-color #fff
+			border none
+			box-shadow inset 0 1px 0 rgba(178,197,211,.75)
+			font-size 14px
+			color #000
+			font-family arial
+			padding 0 15px 0 10px
+
+			&:hover
+				background-color #fff - 2%
+		
+		&__trigger
+			position absolute
+			top 0
+			right 0
+			width 16px
+			height 100%
+		
+		&__trigger-arrow
+			position absolute
+			top 17px
+			right 7px
+			width 6px
+			height 5px
+			overflow hidden
+			background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAFCAYAAABmWJ3mAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAD9JREFUeNpi3L9//xYGBgZvBlSwlQlI5ALxDyRBEDsPJHEfiDuRJEDse0xQTgdUwX0om4EFSTvISEaYsQABBgDwvw7DF8E7YgAAAABJRU5ErkJggg==") 50% 50% no-repeat
+
+		&__dropdown
+			top 42px
+
+
+.b-form_small
+	.jq-selectbox
+		li
+			padding 4px 7px 5px
+		&__select
+			height 29px
+			line-height 29px
+			font-family arial
+			padding 0 15px 0 7px
+			border 1px solid #dbe7ee
+			border-radius 4px
+			background-color #fff
+			font-size 11px
+			color #000
+
+
+			&:hover
+				background-color #fff - 2%
+		
+		&__trigger
+			position absolute
+			top 0
+			right 0
+			width 16px
+			height 100%
+		
+		&__trigger-arrow
+			position absolute
+			top 12px
+			right 7px
+			width 6px
+			height 5px
+			overflow hidden
+			background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAFCAYAAABmWJ3mAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAD9JREFUeNpi3L9//xYGBgZvBlSwlQlI5ALxDyRBEDsPJHEfiDuRJEDse0xQTgdUwX0om4EFSTvISEaYsQABBgDwvw7DF8E7YgAAAABJRU5ErkJggg==") 50% 50% no-repeat
+
+		&__dropdown
+			top 30px
+
+
 // Мультиселект
 .jq-select-multiple
 	width 100%
@@ -651,7 +518,7 @@
 	background #FFF
 	color $form-input-font-color
 	font-size $form-base-font-size
-	line-height $form-input-height - 7px
+	line-height 22px
 	cursor default
 
 	&.focused
@@ -672,6 +539,7 @@
 		padding 3px 9px 4px
 		list-style none
 		cursor pointer
+		background-image none
 
 		&:hover
 			background-color #fff - 2%
@@ -703,6 +571,16 @@
 	.b-form_error &
 		border-color #ea5d2d
 		box-shadow inset 0px 0px 0px 1px #ea5d2d
+
+.b-form_modal 
+	& .jq-select-multiple
+		border-radius 5px
+		background-color #fff
+		box-shadow inset 0 1px 0 rgba(178,197,211,.75)
+		border none
+
+
+
 
 
 // Другие

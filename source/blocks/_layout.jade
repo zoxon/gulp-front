@@ -13,7 +13,8 @@ html(xmlns="http://www.w3.org/1999/xhtml", xml:lang="ru-RU", lang="ru-RU")
 		title= pageTitle
 
 		//- Favicon
-		link(rel="shortcut icon", type="image/x-icon", href="favicon.ico")
+		//- link(rel="shortcut icon", type="image/x-icon", href="favicon.ico")
+		link(rel="shortcut icon", type="image/png", href="favicon.png")
 		
 		//- CSS
 		link(rel="stylesheet", type="text/css", href="css/fonts.css", media="all")
@@ -26,6 +27,14 @@ html(xmlns="http://www.w3.org/1999/xhtml", xml:lang="ru-RU", lang="ru-RU")
 		
 		//- Javascript
 		script(type="text/javascript", src="js/jquery-1.11.1.min.js")
+		script(type="text/javascript", src="js/jquery.formstyler.js")
 		script(type="text/javascript", src="js/script.js")
 	body
+		+ie('if lt IE 8')
+			p.b-browsehappy Вы используете 
+				strong устаревший
+				|  браузер. Пожалуйста 
+				a(href="http://browsehappy.com/", target="_blank") обновите браузер
+				|  для лучшего отображения сайта.
+				
 		block content

@@ -2,137 +2,82 @@
 //- BEM FORMS
 //-//////////////////////////////////////////////////////////
 
-mixin bem-input(name, labeltext, value, placeholder, hint, errors)
-	if (errors)
-		-var errorclass='b-form_error'
-
-	.b-form__item.b-form_text(class=errorclass)
-		if (labeltext)
+mixin bem-input-label(labeltext)
+	if (labeltext)
 			label(for=name).b-form__label!= labeltext
 				span.b-form__label_required  *
 
+
+mixin bem-input-errors(errors)
+	if (errors)
+		ul.b-form__errors
+			each errorsent, errorsnum in errors
+				li= errorsent
+	
+
+mixin bem-input-hint(hint)
+	if (hint)
+		.b-form__hint= hint
+
+
+mixin bem-input-helpers(hint, errors)
+	if (errors && hint)
+		.b-form__helpers
+			+bem-input-hint(hint)
+			+bem-input-errors(errors)
+
+
+mixin bem-input-wrapper(type, name, labeltext, value, placeholder, hint, errors)
+	if (errors)
+		-var errorclass='b-form__item_error'
+
+	.b-form__item(class=errorclass, class="b-form__item_#{type}")
+		+bem-input-label(labeltext)
+
 		.b-form__input
-			input(type="text", value=value, name=name, placeholder=placeholder, id=name)
+			block
 
-		if (errors && hint)
-			.b-form__helpers
-				if (hint)
-					.b-form__hint= hint
-
-				if (errors)
-					ul.b-form__errors
-						each errorsent, errorsnum in errors
-							li= errorsent
+		+bem-input-helpers(hint, errors)
 
 		.clear
+
+
+
+
+mixin bem-input(name, labeltext, value, placeholder, hint, errors)
+	+bem-input-wrapper('text', name, labeltext, value, placeholder, hint, errors)
+		input(type="text", value=value, name=name, placeholder=placeholder, id=name)
 
 
 mixin bem-file(name, labeltext, value, placeholder, hint, errors)
-	if (errors)
-		-var errorclass='b-form_error'
+	+bem-input-wrapper('file', name, labeltext, value, placeholder, hint, errors)
+		input(type="file", value=value, name=name, placeholder=placeholder, id=name)
 
-	.b-form__item.b-form_file(class=errorclass)
-		if (labeltext)
-			label(for=name).b-form__label!= labeltext
-				span.b-form__label_required  *
-
-		.b-form__input
-			input(type="file", value=value, name=name, placeholder=placeholder, id=name)
-
-		if (errors && hint)
-			.b-form__helpers
-				if (hint)
-					.b-form__hint= hint
-
-				if (errors)
-					ul.b-form__errors
-						each errorsent, errorsnum in errors
-							li= errorsent
-
-		.clear
+	
 
 mixin bem-textarea(name, labeltext, value, placeholder, hint, errors)
-	if (errors)
-		-var errorclass='b-form_error'
-
-	.b-form__item.b-form_textarea(class=errorclass)
-		if (labeltext)
-			label(for=name).b-form__label!= labeltext
-				span.b-form__label_required  *
-
-		.b-form__input
-			textarea(name=name, cols="80", rows="24", placeholder=placeholder, id=name)= value
-
-		if (errors && hint)
-			.b-form__helpers
-				if (hint)
-					.b-form__hint= hint
-
-				if (errors)
-					ul.b-form__errors
-						each errorsent, errorsnum in errors
-							li= errorsent
-
-		.clear
-
+	+bem-input-wrapper('textarea', name, labeltext, value, placeholder, hint, errors)
+		textarea(name=name, cols="80", rows="24", placeholder=placeholder, id=name)= value
+	
 
 
 mixin bem-select(name, labeltext, value, hint, errors)
-	if (errors)
-		-var errorclass='b-form_error'
-
-	.b-form__item.b-form_select(class=errorclass)
-		if (labeltext)
-			label(for=name).b-form__label!= labeltext
-				span.b-form__label_required  *
-
-		.b-form__input
-			select(name=name, id=name)
+	+bem-input-wrapper('select', name, labeltext, value, placeholder, hint, errors)
+		select(name=name, id=name)
 				each selectent, selectnum  in value
 					option(value=selectnum, label=selectent)= selectent
 
-		if (errors && hint)
-			.b-form__helpers
-				if (hint)
-					.b-form__hint= hint
-
-				if (errors)
-					ul.b-form__errors
-						each errorsent, errorsnum in errors
-							li= errorsent
-
-		.clear
-
-
-mixin bem-multiselect(name, labeltext, value, hint, errors)
-	if (errors)
-		-var errorclass='b-form_error'
-
-	.b-form__item.b-form_select(class=errorclass)
-		if (labeltext)
-			label(for=name).b-form__label!= labeltext
-				span.b-form__label_required  *
-
-		.b-form__input
-			select(name=name, id=name, multiple="multiple")
+	
+mixin bem-multiselect(name, labeltext, value, size, hint, errors)
+	+bem-input-wrapper('multiselect', name, labeltext, value, placeholder, hint, errors)
+		select(name=name, id=name, multiple="multiple", size=size)
 				each selectent, selectnum  in value
 					option(value=selectnum, label=selectent)= selectent
 
-		.b-form__helpers
-			a(href="#").b-form__clear-link.js-clear-multiselect-options Сбросить все выбранные пункты
-			if (hint)
-				.b-form__hint= hint
-
-			if (errors)
-				ul.b-form__errors
-					each errorsent, errorsnum in errors
-						li= errorsent
-
-		.clear
 
 
 mixin bem-radio(name, id, labeltext, checked, disabled)
-	.b-form__item.b-form_radio
+	.b-form__item.b-form__item_radio
 		if (checked)
 			if (disabled)
 				input(type="radio", name=name, id=id, value=id, checked=true, disabled=true)
@@ -149,7 +94,7 @@ mixin bem-radio(name, id, labeltext, checked, disabled)
 
 
 mixin bem-checkbox(name, id, labeltext, checked, disabled)
-	.b-form__item.b-form_checkbox
+	.b-form__item.b-form__item_checkbox
 		if (checked)
 			if (disabled)
 				input(type="checkbox", name=name, id=id, value=id, checked=true, disabled=true)
@@ -182,15 +127,7 @@ mixin bem-captcha(labeltext, image)
 			input(type="text", name="captcha", value="")
 
 
-		if (errors && hint)
-			.b-form__helpers
-				if (hint)
-					.b-form__hint= hint
-
-				if (errors)
-					ul.b-form__errors
-						each errorsent, errorsnum in errors
-							li= errorsent
+		+bem-input-helpers(hint, errors)
 
 		.clear
 
@@ -205,68 +142,61 @@ mixin bem-captcha(labeltext, image)
 //- Zendy forms
 //-//////////////////////////////////////////////////////////
 
-
-mixin input(name, labeltext, value, hint, errors)
-	.item
-		if (labeltext)
-			label(for="#{name}").required= labeltext
-				span  *
-
-		.for-input
-			.text
-				input(type="text", value="#{value}", id="#{name}", name="#{name}")
-
-		if (errors)
+mixin input-errors(errors)
+	if (errors)
 			ul.errors
 				each errorsent, errorsnum in errors
 					li= errorsent
 
-		if (hint)
-			p.hint= hint
+mixin input-hint(hint)
+	if (hint)
+		p.hint= hint
+
+mixin for-input-wrapper()
+	.for-input
+		.text
+			block
+
+mixin input-label(name, labeltext)
+	if (labeltext)
+		label(for="#{name}").required= labeltext
+			span  *
+
+mixin input-wrapper(name, labeltext, value, hint, errors)
+	.item
+		+input-label(name, labeltext)
+		+for-input-wrapper()
+			block
+
+		+input-errors(errors)
+		+input-hint(hint)
 
 		.clear
+
+mixin input(name, labeltext, value, hint, errors)
+	+input-wrapper(name, labeltext, value, hint, errors)
+		input(type="text", value="#{value}", id="#{name}", name="#{name}")
 
 
 mixin textarea(name, labeltext, value, hint, errors)
-	.item
-		if (labeltext)
-			label(for="#{name}").required= labeltext 
-				span  *
-
-		.for-input
-			.textarea
-				textarea(name="#{name}", cols="80", rows="24", id="#{name}")= value
-		if (errors)
-			ul.errors
-				each errorsent, errorsnum in errors
-					li= errorsent
-
-		if (hint)
-			p.hint= hint
-
-		.clear
+	+input-wrapper(name, labeltext, value, hint, errors)
+		textarea(name="#{name}", cols="80", rows="24", id="#{name}")= value
 
 
 mixin select(name, labeltext, value, hint, errors)
-	.item
-		if (labeltext)
-			label(for="#{name}").required= labeltext 
-				span  *
+	+input-wrapper(name, labeltext, value, hint, errors)
+		select(name="#{name}", id="#{name}")
+			each selectent, selectnum  in value
+				option(value="#{selectnum}", label="#{selectent}")= selectent
+		
 
-		.for-input
-			select(name="#{name}", id="#{name}")
-				each selectent, selectnum  in value
-					option(value="#{selectnum}", label="#{selectent}")= selectent
-		if (errors)
-			ul.errors
-				each errorsent, errorsnum in errors
-					li= errorsent
 
-		if (hint)
-			p.hint= hint
-
-		.clear
-
+mixin multiselect(name, labeltext, value, size, hint, errors)
+	+input-wrapper(name, labeltext, value, hint, errors)
+		select(name="#{name}", id="#{name}", multiple="multiple", size=size)
+			each selectent, selectnum  in value
+				option(value="#{selectnum}", label="#{selectent}")= selectent
+		
 
 mixin radio(name, id, labeltext, checked, disabled)
 	.item.radio
@@ -305,9 +235,7 @@ mixin checkbox(name, id, labeltext, checked, disabled)
 
 mixin captcha(labeltext, image)
 	.item.captcha
-		if (labeltext)
-			label(for="captcha").required= labeltext
-				span  *
+		+input-label('captcha', labeltext)
 
 		.for-input
 			.text-mini
@@ -324,7 +252,9 @@ mixin captcha(labeltext, image)
 
 mixin inputGroup(labeltext)
 	.b-input-group
-		label.b-input-group__label!= labeltext
+		if (labeltext)
+			label.b-input-group__label!= labeltext
+
 		fieldset.b-input-group__body
 			block
 		.clear
