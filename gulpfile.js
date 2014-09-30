@@ -45,9 +45,10 @@ path = {
 gulp.task('webserver', function() {
 	gulp.src('public')
 	.pipe(webserver({
-		host: 'localhost',
+		host: 'localhost', // Если нужен сервер в сети ставьте 0.0.0.0
 		port: 3000,
-		livereload: true
+		livereload: true,
+		open: "/index.html"
 	}));
 });
 
