@@ -1,6 +1,6 @@
 {
   "name": "gulp-front",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "homepage": "https://github.com/Zoxon/gulp-front",
   "license": "MIT",
   "description": "Простой путь разработки с Jade и Stylus",
