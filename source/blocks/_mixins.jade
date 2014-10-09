@@ -4,8 +4,8 @@
 
 mixin bem-input-label(labeltext)
 	if (labeltext)
-			label(for=name).b-form__label!= labeltext
-				span.b-form__label_required  *
+		label(for=name).b-form__label!= labeltext
+			span.b-form__label_required  *
 
 
 mixin bem-input-errors(errors)
@@ -21,7 +21,7 @@ mixin bem-input-hint(hint)
 
 
 mixin bem-input-helpers(hint, errors)
-	if (errors && hint)
+	if (errors || hint)
 		.b-form__helpers
 			+bem-input-hint(hint)
 			+bem-input-errors(errors)
@@ -64,15 +64,15 @@ mixin bem-textarea(name, labeltext, value, placeholder, hint, errors)
 mixin bem-select(name, labeltext, value, hint, errors)
 	+bem-input-wrapper('select', name, labeltext, value, placeholder, hint, errors)
 		select(name=name, id=name)
-				each selectent, selectnum  in value
-					option(value=selectnum, label=selectent)= selectent
+			each selectent, selectnum  in value
+				option(value=selectnum, label=selectent)= selectent
 
 	
 mixin bem-multiselect(name, labeltext, value, size, hint, errors)
 	+bem-input-wrapper('multiselect', name, labeltext, value, placeholder, hint, errors)
 		select(name=name, id=name, multiple="multiple", size=size)
-				each selectent, selectnum  in value
-					option(value=selectnum, label=selectent)= selectent
+			each selectent, selectnum  in value
+				option(value=selectnum, label=selectent)= selectent
 
 
 
