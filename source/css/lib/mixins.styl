@@ -1,8 +1,6 @@
 @import 'nib'
 @import '/lib/variables'
 @import '/lib/mixins/font'
-// @import '/lib/mixins/meyer-reset'
-// @import '/lib/mixins/normalize'
 
 hard-reset()
 	*
@@ -32,7 +30,6 @@ ie6()
 		{block}
 
 
-
 inline-block-ie7()
 	display inline-block
 
@@ -43,6 +40,17 @@ inline-block-ie7()
 			{block}
 
 
+display(value)
+	if (value == inline-block)
+		display inline-block
+		if(support-for-ie == true && support-ie-version <= 7)
+			*:first-child+html &
+				display inline
+				zoom 1
+				{block}
+	else
+		display value
+		
 
 overflow(value)
 	if (value == ellipsis)
