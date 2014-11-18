@@ -2,63 +2,75 @@
 //- BEM FORMS
 //-//////////////////////////////////////////////////////////
 
-//- Form factory
-//- @type enum
+//- Universal interface for all form elements
+//- Eample of use
+//- +bem-input-factory(type="select", value=['value 1', 'value 2', value='n...'], name="sample-select", errors=['error 1', 'error 2'])
+//- @type enum — text, file, textarea, select, multiselect, radio, checkbox, captcha, date
 //- @name string
 //- @id string
 //- @label string
-//- @image string — Path to image
+//- @image string — Path to captcha image
 //- @value string or array — array for select and multiselect
 //- @placeholder string
-//- @hint string
+//- @hint string — hint for input
 //- @errors array — array of errors
-//- @checked boolean
-//- @disabled boolean
+//- @checked boolean — checked flag for radio and checkbox
+//- @disabled boolean — disabled flag for radio and checkbox
+//- @required boolean — show or hide required marker
+//- @itemclass string — Class for form item
 
 mixin bem-input-factory()
-	- var type = attributes.type || "text"
-	- var name = attributes.name
-	- var labeltext = attributes.label || "Enter label"
-	- var value = attributes.value
-	- var placeholder = attributes.placeholder
-	- var hint = attributes.hint || "Enter hint text"
-	- var errors = attributes.errors
-	- var id = attributes.id
-	- var image = attributes.image || "img/content/captcha.png"
-	- var checked = attributes.checked || false
-	- var disabled = attributes.disabled || false
-	- var required = attributes.required || true
+	- var type 			= attributes.type 			|| "text"
+	- var name 			= attributes.name
+	- var labeltext 	= attributes.label
+	- var value 		= attributes.value
+	- var placeholder 	= attributes.placeholder
+	- var hint 			= attributes.hint
+	- var errors 		= attributes.errors
+	- var id 			= attributes.id
+	- var image 		= attributes.image 			|| "img/content/captcha.png"
+	- var checked 		= attributes.checked 		|| false
+	- var disabled 		= attributes.disabled 		|| false
+	- var required 		= attributes.required 		|| false
+	- var itemclass 	= attributes.class
 
 	if (type == "text")
-		+bem-input(name, labeltext, value, placeholder, hint, errors)
+		+bem-input(name, labeltext, value, placeholder, itemclass, required, hint, errors)
 	
 	else if (type == "file")
-		+bem-file(name, labeltext, value, placeholder, hint, errors)
+		+bem-file(name, labeltext, value, placeholder, itemclass, required, hint, errors)
 	
 	else if (type == "textarea")
-		+bem-textarea(name, labeltext, value, placeholder, hint, errors)
+		+bem-textarea(name, labeltext, value, placeholder, itemclass, required, hint, errors)
 
 	else if (type == "select")
-		+bem-select(name, labeltext, value, hint, errors)
+		+bem-select(name, labeltext, value, hint, itemclass, required, errors)
 		
 	else if (type == "multiselect")
-		+bem-multiselect(name, labeltext, value, size, hint, errors)
+		+bem-multiselect(name, labeltext, value, size, itemclass, required, hint, errors)
 
 	else if (type == "radio")
-		+bem-radio(name, id, labeltext, checked, disabled)
+		+bem-radio(name, id, labeltext, itemclass, required, checked, disabled)
 
 	else if (type == "checkbox")
-		+bem-checkbox(name, id, labeltext, checked, disabled)
+		+bem-checkbox(name, id, labeltext, itemclass, required, checked, disabled)
 		
 	else if (type == "captcha")
-		+bem-captcha(labeltext, image)
+		+bem-captcha(labeltext, itemclass, required, image)
 
-//- Form service mixins
+	else if (type == "date")
+		+bem-input-date(name, label, value, placeholder, icon, itemclass, required, hint, errors)
+
+
+//-//////////////////////////////////////////////////////////
+//- BEM form service mixins
+//-//////////////////////////////////////////////////////////
 mixin bem-input-label(labeltext)
 	if (labeltext)
 		label(for=name).b-form__label!= labeltext
 			if (required)
 				span.b-form__label_required  *
+
 
 mixin bem-input-errors(errors)
 	if (errors)
@@ -66,9 +78,11 @@ mixin bem-input-errors(errors)
 			each errorsent, errorsnum in errors
 				li= errorsent
 	
+
 mixin bem-input-hint(hint)
 	if (hint)
 		.b-form__hint= hint
+
 
 mixin bem-input-helpers(hint, errors)
 	if (errors || hint)
@@ -76,11 +90,18 @@ mixin bem-input-helpers(hint, errors)
 			+bem-input-hint(hint)
 			+bem-input-errors(errors)
 
-mixin bem-input-wrapper(type, name, labeltext, value, placeholder, hint, errors)
+
+mixin bem-input-wrapper(type, name, labeltext, value, placeholder, itemclass, required, hint, errors)
 	if (errors)
 		-var errorclass='b-form__item_error'
 
-	.b-form__item(class=errorclass, class="b-form__item_#{type}")
+	if (required)
+		-var requiredclass='b-form__item_required'
+
+	if (itemclass)
+		-var requiredclass=itemclass
+
+	.b-form__item(class=errorclass, class="b-form__item_#{type}", class=requiredclass, class=itemclass)
 		+bem-input-label(labeltext)
 
 		.b-form__input
@@ -90,32 +111,47 @@ mixin bem-input-wrapper(type, name, labeltext, value, placeholder, hint, errors)
 
 		.clear
 
-//- Form mixins
-mixin bem-input(name, labeltext, value, placeholder, hint, errors)
-	+bem-input-wrapper('text', name, labeltext, value, placeholder, hint, errors)
+
+
+//-//////////////////////////////////////////////////////////
+//- BEM form mixins
+//-//////////////////////////////////////////////////////////
+mixin bem-input(name, labeltext, value, placeholder, itemclass, required, hint, errors)
+	+bem-input-wrapper('text', name, labeltext, value, placeholder, itemclass, required, hint, errors)
 		input(type="text", value=value, name=name, placeholder=placeholder, id=name)
 
-mixin bem-file(name, labeltext, value, placeholder, hint, errors)
-	+bem-input-wrapper('file', name, labeltext, value, placeholder, hint, errors)
+
+mixin bem-file(name, labeltext, value, placeholder, itemclass, required, hint, errors)
+	+bem-input-wrapper('file', name, labeltext, value, placeholder, itemclass, required, hint, errors)
 		input(type="file", value=value, name=name, placeholder=placeholder, id=name)
 
-mixin bem-textarea(name, labeltext, value, placeholder, hint, errors)
-	+bem-input-wrapper('textarea', name, labeltext, value, placeholder, hint, errors)
+
+mixin bem-textarea(name, labeltext, value, placeholder, itemclass, required, hint, errors)
+	+bem-input-wrapper('textarea', name, labeltext, value, placeholder, itemclass, required, hint, errors)
 		textarea(name=name, cols="80", rows="24", placeholder=placeholder, id=name)= value
 
-mixin bem-select(name, labeltext, value, hint, errors)
-	+bem-input-wrapper('select', name, labeltext, value, placeholder, hint, errors)
+
+mixin bem-select(name, labeltext, value, placeholder, itemclass, required, hint, errors)
+	+bem-input-wrapper('select', name, labeltext, value, placeholder, itemclass, required, hint, errors)
 		select(name=name, id=name)
 			each selectent, selectnum  in value
 				option(value=selectnum, label=selectent)= selectent
 
-mixin bem-multiselect(name, labeltext, value, size, hint, errors)
-	+bem-input-wrapper('multiselect', name, labeltext, value, placeholder, hint, errors)
+
+mixin bem-multiselect(name, labeltext, value, size, itemclass, required, hint, errors)
+	+bem-input-wrapper('multiselect', name, labeltext, value, placeholder, itemclass, required, hint, errors)
 		select(name=name, id=name, multiple="multiple", size=size)
 			each selectent, selectnum  in value
 				option(value=selectnum, label=selectent)= selectent
 
-mixin bem-radio(name, id, labeltext, checked, disabled)
+
+mixin bem-input-date(name, label, value, placeholder, icon, itemclass, required, hint, errors)
+	+bem-input-wrapper('input-date', name, labeltext, value, placeholder, itemclass, required, hint, errors)
+		input(type="text", value=value, name=name, placeholder=placeholder, id=name)
+		.b-form__input-icon.js-datepicker-trigger(class=icon)
+
+
+mixin bem-radio(name, id, labeltext, itemclass, required, checked, disabled)
 	.b-form__item.b-form__item_radio
 		if (checked)
 			if (disabled)
@@ -131,7 +167,8 @@ mixin bem-radio(name, id, labeltext, checked, disabled)
 		label(for="#{id}").b-form__label!= labeltext
 		.clear
 
-mixin bem-checkbox(name, id, labeltext, checked, disabled)
+
+mixin bem-checkbox(name, id, labeltext, itemclass, required, checked, disabled)
 	.b-form__item.b-form__item_checkbox
 		if (checked)
 			if (disabled)
@@ -147,7 +184,8 @@ mixin bem-checkbox(name, id, labeltext, checked, disabled)
 			label(for="#{id}").b-form__label!= labeltext
 		.clear
 
-mixin bem-captcha(labeltext, image)
+
+mixin bem-captcha(labeltext, itemclass, required, image)
 	if (errors)
 		-var errorclass='b-form_error'
 

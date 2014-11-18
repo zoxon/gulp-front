@@ -57,6 +57,15 @@
 			resize vertical
 			height $form-textarea-height
 			overflow auto // Убираем скролл для ie
+			
+	&__input-icon
+		// size $form-input-height
+		size 30px $form-input-height
+		display block
+		position absolute
+		right 0
+		top 0
+		cursor pointer
 
 	&__helpers
 		// 
@@ -120,6 +129,10 @@
 	&_captcha &__input
 		width 122px
 		float left
+		
+	&__item_input-date &__input
+		input
+			padding-right 30px
 
 
 //-//////////////////////////////////////////////////////////
