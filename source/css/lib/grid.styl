@@ -1,0 +1,58 @@
+$grid-container-width = 940
+$grid-columns-count   = 12
+$grid-column-width    = 60
+$grid-column-indent   = 20
+
+col(w)
+	$grid-all-indents-width = ($grid-columns-count - 1) * $grid-column-indent
+	$grid-one-column-width  = ($grid-container-width - $grid-all-indents-width) / $grid-columns-count
+	width unit(($grid-one-column-width * w) + ((w - 1) * $grid-column-indent), px)
+		
+
+.g-grid
+	&__row
+		micro-clearfix()
+
+	&__col
+		margin-left unit($grid-column-indent, px)
+		width unit($grid-column-width, px)
+		float left
+		&:first-child
+			margin-left 0
+
+		&_width_1
+			col(1)
+			
+		&_width_2
+			col(2)
+			
+		&_width_3
+			col(3)
+
+		&_width_4
+			col(4)
+			
+		&_width_5
+			col(5)
+			
+		&_width_6
+			col(6)
+			
+		&_width_7
+			col(7)
+			
+		&_width_8
+			col(8)
+			
+		&_width_9
+			col(9)
+			
+		&_width_10
+			col(10)
+			
+		&_width_11
+			col(11)
+			
+		&_width_12
+			col(12)
+			// 
