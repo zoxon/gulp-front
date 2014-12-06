@@ -134,3 +134,17 @@ em( value, base = $base-font-size )
 
 pt2px( pt )
 	unit(pt/0.75, px)
+
+selection( color )
+	::selection
+		background color
+		{block}
+	::-moz-selection
+		background color
+		{block}
+	img::selection
+		background transparent
+		{block}
+	img::-moz-selection
+		background transparent
+		{block}
