@@ -8,6 +8,9 @@ var gulp = require('gulp'),
 	cssbeautify = require('gulp-cssbeautify'),
 	gutil = require('gulp-util'),
 	cache = require('gulp-cache'),
+	include = require('gulp-include'),
+	rename = require("gulp-rename"),
+	uglify = require('gulp-uglify');
 
 // Функция обработки ошибок
 handleError = function(err) {
@@ -37,6 +40,13 @@ path = {
 		source: './source/img/**/*.{jpg,jpeg,png,gif}',
 		watch: 'source/img/**/*',
 		destination: './public/img'
+	},
+	js: {
+		plugins: {
+			source: './source/js/*.js',
+			watch: './source/js/*',
+			destination: './public/js'
+		}
 	}
 };
 
@@ -58,12 +68,12 @@ gulp.task('stylus', function() {
 		.pipe(stylus({
 			use: [nib()]
 		}))
-		.on('error', handleError)
 		.pipe(cssbeautify({
 			indent: '	',
 			autosemicolon: true
 		}))
-		.pipe(gulp.dest(path.css.destination))
+		.on('error', handleError)
+		.pipe(gulp.dest(path.css.destination));
 });
 
 // Собираем html из Jade
@@ -75,22 +85,34 @@ gulp.task('jade', function() {
 			data: gulp.src(['users.json'])
 		}))
 		.on('error', handleError)
-		.pipe(gulp.dest(path.html.destination))
+		.pipe(gulp.dest(path.html.destination));
 });
 
 // Копируем и минимизируем изображения
 gulp.task('images', function() {
 	gulp.src(path.img.source)
-		.on('error', handleError)
 		.pipe(cache(imagemin()))
-		.pipe(gulp.dest(path.img.destination))
+		.on('error', handleError)
+		.pipe(gulp.dest(path.img.destination));
 });
 
 // Копируем файлы
 gulp.task('copy', function() {
 	gulp.src(path.assets.source)
 		.on('error', handleError)
-		.pipe(gulp.dest(path.assets.destination))
+		.pipe(gulp.dest(path.assets.destination));
+});
+
+// Собираем JS
+gulp.task('plugins', function() {
+	gulp.src(path.js.plugins.source)
+		.pipe(include())
+		// .pipe(uglify())
+		.pipe(rename({
+			suffix: ".min"
+		}))
+		.on('error', handleError)
+		.pipe(gulp.dest(path.js.plugins.destination));
 });
 
 // Запуск сервера разработки gulp watch
@@ -98,10 +120,11 @@ gulp.task("watch", function() {
 	gulp.watch(path.css.watch, ['stylus']);
 	gulp.watch(path.html.watch, ['jade']);
 	gulp.watch(path.img.watch, ['images']);
+	gulp.watch(path.js.plugins.watch, ['plugins']);
 	gulp.watch(path.assets.watch, ['copy']);
 });
 
 
-gulp.task("build", ['stylus', 'jade', 'images', 'copy']);
+gulp.task("build", ['stylus', 'jade', 'images', 'plugins', 'copy']);
 
 gulp.task("default", ["build", "watch", "webserver"]);
