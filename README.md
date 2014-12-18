@@ -14,6 +14,8 @@
   * blocks — Миксины и чанки jade
   * css — Stylus файлы
   * img — Картинки. Обрабатываются imgaemin
+  * js/plugins — JQuery плагины
+  * js/plugins.js — Точка сборки плагинов
 
 
 
