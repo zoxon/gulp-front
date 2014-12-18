@@ -31,7 +31,7 @@
 		.b-form__section
 			+bem-input-factory(type="textarea", name='textarea', label='Текстареа', value='Текст и фокус...')
 			+bem-input-factory(type="multiselect", name='multiple-select', label='Мультиселект', value=['Выберите значение...', 'Значение 1', 'Значение 2', 'Значение 3', 'Значение 4', 'Значение 5', 'Значение 6'], 6)
-			+bem-input-factory(type="captcha", label='Введите символы с картинки', image='img/content/captcha.png')
+			+bem-input-factory(type="captcha", name='captcha', label='Введите символы с картинки', image='img/content/captcha.png')
 
 		.b-form__section
 			input(type="submit", value="Зарегистрироватся").b-button.b-button_red-big
