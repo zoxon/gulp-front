@@ -107,7 +107,7 @@ gulp.task('copy', function() {
 gulp.task('plugins', function() {
 	gulp.src(path.js.plugins.source)
 		.pipe(include())
-		// .pipe(uglify())
+		.pipe(uglify())
 		.pipe(rename({
 			suffix: ".min"
 		}))
