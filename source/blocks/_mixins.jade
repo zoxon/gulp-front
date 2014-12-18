@@ -5,6 +5,7 @@
 //- Universal interface for all form elements
 //- Eample of use
 //- +bem-input-factory(type="select", value=['value 1', 'value 2', value='n...'], name="sample-select", errors=['error 1', 'error 2'])
+//- more seу in _forms.jade
 //- @type enum — text, file, textarea, select, multiselect, radio, checkbox, captcha, date
 //- @name string
 //- @id string
@@ -36,6 +37,9 @@ mixin bem-input-factory()
 
 	if (type == "text")
 		+bem-input(name, labeltext, value, placeholder, itemclass, required, hint, errors)
+
+	else if (type == "password")
+		+bem-input-password(name, labeltext, value, placeholder, itemclass, required, hint, errors)
 	
 	else if (type == "file")
 		+bem-file(name, labeltext, value, placeholder, itemclass, required, hint, errors)
@@ -56,7 +60,7 @@ mixin bem-input-factory()
 		+bem-checkbox(name, id, labeltext, itemclass, required, checked, disabled)
 		
 	else if (type == "captcha")
-		+bem-captcha(labeltext, itemclass, required, image)
+		+bem-captcha(name, labeltext, itemclass, required, image)
 
 	else if (type == "date")
 		+bem-input-date(name, label, value, placeholder, icon, itemclass, required, hint, errors)
@@ -65,7 +69,7 @@ mixin bem-input-factory()
 //-//////////////////////////////////////////////////////////
 //- BEM form service mixins
 //-//////////////////////////////////////////////////////////
-mixin bem-input-label(labeltext)
+mixin bem-input-label(labeltext, name)
 	if (labeltext)
 		label(for=name).b-form__label!= labeltext
 			if (required)
@@ -102,7 +106,7 @@ mixin bem-input-wrapper(type, name, labeltext, value, placeholder, itemclass, re
 		-var requiredclass=itemclass
 
 	.b-form__item(class=errorclass, class="b-form__item_#{type}", class=requiredclass, class=itemclass)
-		+bem-input-label(labeltext)
+		+bem-input-label(labeltext, name)
 
 		.b-form__input
 			block
@@ -119,6 +123,11 @@ mixin bem-input-wrapper(type, name, labeltext, value, placeholder, itemclass, re
 mixin bem-input(name, labeltext, value, placeholder, itemclass, required, hint, errors)
 	+bem-input-wrapper('text', name, labeltext, value, placeholder, itemclass, required, hint, errors)
 		input(type="text", value=value, name=name, placeholder=placeholder, id=name)
+
+
+mixin bem-input-password(name, labeltext, value, placeholder, itemclass, required, hint, errors)
+	+bem-input-wrapper('password', name, labeltext, value, placeholder, itemclass, required, hint, errors)
+		input(type="password", value=value, name=name, placeholder=placeholder, id=name)
 
 
 mixin bem-file(name, labeltext, value, placeholder, itemclass, required, hint, errors)
@@ -185,7 +194,7 @@ mixin bem-checkbox(name, id, labeltext, itemclass, required, checked, disabled)
 		.clear
 
 
-mixin bem-captcha(labeltext, itemclass, required, image)
+mixin bem-captcha(name, labeltext, itemclass, required, image)
 	if (errors)
 		-var errorclass='b-form_error'
 
@@ -198,7 +207,7 @@ mixin bem-captcha(labeltext, itemclass, required, image)
 					img(src=image, alt="Секретный код!")
 
 		.b-form__input
-			input(type="text", name="captcha", value="")
+			input(type="text", name=name, id=name, value="")
 
 
 		+bem-input-helpers(hint, errors)
