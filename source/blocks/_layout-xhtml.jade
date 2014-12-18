@@ -1,0 +1,41 @@
+doctype transitional
+include _mixins
+- var basedir = '/source'
+- var pageTitle = 'Project Name'
+html(xmlns="http://www.w3.org/1999/xhtml", xml:lang="ru-RU", lang="ru-RU")
+	head
+		//- Meta
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(http-equiv="Content-Type", content="text/html;charset=UTF-8")
+		//- meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
+
+		//- Title
+		title= pageTitle
+
+		//- Favicon
+		link(rel="shortcut icon", type="image/x-icon", href="favicon.ico")
+		//- link(rel="shortcut icon", type="image/png", href="favicon.png")
+		
+		//- CSS
+		link(rel="stylesheet", type="text/css", href="css/fonts.css", media="all")
+		link(rel="stylesheet", type="text/css", href="css/reset.css", media="all")
+		link(rel="stylesheet", type="text/css", href="css/form.css", media="all")
+		link(rel="stylesheet", type="text/css", href="css/style.css", media="all")
+		
+		//- +ie('if lt IE 9')
+			link(rel="stylesheet", type="text/css", href="css/ie8.css", media="all")
+		
+		//- Javascript
+		script(type="text/javascript", src="js/jquery-1.11.1.min.js")
+	body
+		+ie('if lt IE 8')
+			p.b-browsehappy Вы используете 
+				strong устаревший
+				|  браузер. Пожалуйста 
+				a(href="http://browsehappy.com/", target="_blank") обновите браузер
+				|  для лучшего отображения сайта.
+				
+		block content
+
+		script(type="text/javascript", src="js/plugins.min.js")
+		script(type="text/javascript", src="js/script.js")
