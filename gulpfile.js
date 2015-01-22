@@ -10,7 +10,8 @@ var gulp = require('gulp'),
 	cache = require('gulp-cache'),
 	include = require('gulp-include'),
 	rename = require("gulp-rename"),
-	uglify = require('gulp-uglify');
+	uglify = require('gulp-uglify'),
+	jadeOrig = require('jade');
 
 // Функция обработки ошибок
 handleError = function(err) {
@@ -80,7 +81,8 @@ gulp.task('stylus', function() {
 gulp.task('jade', function() {
 	gulp.src(path.html.source)
 		.pipe(jade({
-			pretty: true,
+			jade: jadeOrig,
+			pretty: '\t',
 			basedir: path.html.basedir,
 			data: gulp.src(['users.json'])
 		}))
