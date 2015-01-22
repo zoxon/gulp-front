@@ -2,7 +2,7 @@
 var gulp = require('gulp'),
 	jade = require('gulp-jade'),
 	stylus = require('gulp-stylus'),
-	nib = require('nib'),
+	autoprefixer = require('gulp-autoprefixer'),
 	imagemin = require('gulp-imagemin'),
 	webserver = require('gulp-webserver'),
 	cssbeautify = require('gulp-cssbeautify'),
@@ -66,12 +66,14 @@ gulp.task('webserver', function() {
 // Собираем Stylus
 gulp.task('stylus', function() {
 	gulp.src(path.css.source)
-		.pipe(stylus({
-			use: [nib()]
-		}))
+		.pipe(stylus())
 		.pipe(cssbeautify({
 			indent: '	',
 			autosemicolon: true
+		}))
+		.pipe(autoprefixer({
+			browsers: ["> 5%", "last 2 version", "ie 7"],
+			cascade: false
 		}))
 		.on('error', handleError)
 		.pipe(gulp.dest(path.css.destination));
@@ -93,7 +95,11 @@ gulp.task('jade', function() {
 // Копируем и минимизируем изображения
 gulp.task('images', function() {
 	gulp.src(path.img.source)
-		.pipe(cache(imagemin()))
+		.pipe(cache(imagemin({
+			optimizationLevel: 3,
+			progressive: true,
+			interlaced: true
+		})))
 		.on('error', handleError)
 		.pipe(gulp.dest(path.img.destination));
 });
