@@ -72,7 +72,7 @@ gulp.task('stylus', function() {
 			autosemicolon: true
 		}))
 		.pipe(autoprefixer({
-			browsers: ["> 5%", "last 2 version", "ie 7"],
+			browsers: ['last 2 version', '> 5%', 'safari 5', 'ie 8', 'ie 7', 'opera 12.1', 'ios 6', 'android 4'],
 			cascade: false
 		}))
 		.on('error', handleError)
