@@ -2,7 +2,7 @@
 var gulp = require('gulp'),
 	jade = require('gulp-jade'),
 	stylus = require('gulp-stylus'),
-	nib = require('nib'),
+	autoprefixer = require('gulp-autoprefixer'),
 	imagemin = require('gulp-imagemin'),
 	webserver = require('gulp-webserver'),
 	cssbeautify = require('gulp-cssbeautify'),
@@ -10,7 +10,8 @@ var gulp = require('gulp'),
 	cache = require('gulp-cache'),
 	include = require('gulp-include'),
 	rename = require("gulp-rename"),
-	uglify = require('gulp-uglify');
+	uglify = require('gulp-uglify'),
+	jadeOrig = require('jade');
 
 // Функция обработки ошибок
 handleError = function(err) {
@@ -65,12 +66,14 @@ gulp.task('webserver', function() {
 // Собираем Stylus
 gulp.task('stylus', function() {
 	gulp.src(path.css.source)
-		.pipe(stylus({
-			use: [nib()]
-		}))
+		.pipe(stylus())
 		.pipe(cssbeautify({
 			indent: '	',
 			autosemicolon: true
+		}))
+		.pipe(autoprefixer({
+			browsers: ["> 5%", "last 2 version", "ie 7"],
+			cascade: false
 		}))
 		.on('error', handleError)
 		.pipe(gulp.dest(path.css.destination));
@@ -80,7 +83,8 @@ gulp.task('stylus', function() {
 gulp.task('jade', function() {
 	gulp.src(path.html.source)
 		.pipe(jade({
-			pretty: true,
+			jade: jadeOrig,
+			pretty: '\t',
 			basedir: path.html.basedir,
 			data: gulp.src(['users.json'])
 		}))
@@ -91,7 +95,11 @@ gulp.task('jade', function() {
 // Копируем и минимизируем изображения
 gulp.task('images', function() {
 	gulp.src(path.img.source)
-		.pipe(cache(imagemin()))
+		.pipe(cache(imagemin({
+			optimizationLevel: 3,
+			progressive: true,
+			interlaced: true
+		})))
 		.on('error', handleError)
 		.pipe(gulp.dest(path.img.destination));
 });
