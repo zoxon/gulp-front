@@ -3,35 +3,35 @@
 	p.b-form-message.b-form-message_error Сообщение об ошибке валидации формы
 	form(action="#", method="post")
 		.b-form__section
-			+bem-input-factory(type="text", name='email', label='Ваш e-mail', value='info@somesite.com')
-			+bem-input-factory(name='password', value='Пароль', label='Пароль', errors=['ошибка ввода пароля'])
-			+bem-input-factory(name='retype-password', value='Подтвердить пароль', label='Подтвердить пароль', hint='ошибка ввода пароля')
+			+input(type="text", name='email', label='Ваш e-mail', value='info@somesite.com')
+			+input(name='password', value='Пароль', label='Пароль', errors=['ошибка ввода пароля'])
+			+input(name='retype-password', value='Подтвердить пароль', label='Подтвердить пароль', hint='ошибка ввода пароля')
 		
 		.b-form__section
-			+bem-input-factory(type="text", name='name', label='Имя', value='info@somesite.com')
-			+bem-input-factory(type="text", name='surname', label='Фамилия', value='info@somesite.com')
+			+input(type="text", name='name', label='Имя', value='info@somesite.com')
+			+input(type="text", name='surname', label='Фамилия', value='info@somesite.com')
 			
 			-var data = ['Выберите значение...', 'Значение 1', 'Значение 2', 'Значение 3']
-			+bem-input-factory(type="select", name='sample-select', label='Комобокс', value=data)
+			+input(type="select", name='sample-select', label='Комобокс', value=data)
 		
 		.b-form__section
 			+inputGroup('Переключатели')
-				+bem-input-factory(type='checkbox', name='checkbox-group-1', id='checkbox-1', label='Нормал')
-				+bem-input-factory(type='checkbox', name='checkbox-group-1', id='checkbox-2', label='Включен', checked='true')
-				+bem-input-factory(type='checkbox', name='checkbox-group-2', id='checkbox-3', label='Неактивный', disabled='true')
-				+bem-input-factory(type='checkbox', name='checkbox-group-2', id='checkbox-4', label='Включен - неактив', checked='true', disabled='true')
+				+input(type='checkbox', name='checkbox-group-1', id='checkbox-1', label='Нормал')
+				+input(type='checkbox', name='checkbox-group-1', id='checkbox-2', label='Включен', checked='true')
+				+input(type='checkbox', name='checkbox-group-2', id='checkbox-3', label='Неактивный', disabled='true')
+				+input(type='checkbox', name='checkbox-group-2', id='checkbox-4', label='Включен - неактив', checked='true', disabled='true')
 		
 		.b-form__section
 			+inputGroup('Радио')
-				+bem-input-factory(type='radio', name='radio-group-3', id='radio-1', label='Нормал')
-				+bem-input-factory(type='radio', name='radio-group-3', id='radio-2', label='Включен', checked='true')
-				+bem-input-factory(type='radio', name='radio-group-4', id='radio-3', label='Неактивный', disabled='true')
-				+bem-input-factory(type='radio', name='radio-group-4', id='radio-4', label='Включен - неактив', checked='true', disabled='true')
+				+input(type='radio', name='radio-group-3', id='radio-1', label='Нормал')
+				+input(type='radio', name='radio-group-3', id='radio-2', label='Включен', checked='true')
+				+input(type='radio', name='radio-group-4', id='radio-3', label='Неактивный', disabled='true')
+				+input(type='radio', name='radio-group-4', id='radio-4', label='Включен - неактив', checked='true', disabled='true')
 
 		.b-form__section
-			+bem-input-factory(type="textarea", name='textarea', label='Текстареа', value='Текст и фокус...')
-			+bem-input-factory(type="multiselect", name='multiple-select', label='Мультиселект', value=['Выберите значение...', 'Значение 1', 'Значение 2', 'Значение 3', 'Значение 4', 'Значение 5', 'Значение 6'], 6)
-			+bem-input-factory(type="captcha", name='captcha', label='Введите символы с картинки', image='img/content/captcha.png')
+			+input(type="textarea", name='textarea', label='Текстареа', value='Текст и фокус...')
+			+input(type="multiselect", name='multiple-select', label='Мультиселект', value=['Выберите значение...', 'Значение 1', 'Значение 2', 'Значение 3', 'Значение 4', 'Значение 5', 'Значение 6'], 6)
+			+input(type="captcha", name='captcha', label='Введите символы с картинки', image='img/content/captcha.png')
 
 		.b-form__section
 			input(type="submit", value="Зарегистрироватся").b-button.b-button_red-big
