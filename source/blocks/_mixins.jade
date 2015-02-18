@@ -3,7 +3,7 @@
 //-//////////////////////////////////////////////////////////
 
 //- Universal interface for all form elements
-//- Eample of use
+//- Example of use
 //- +input(type="select", value=['value 1', 'value 2', value='n...'], name="sample-select", errors=['error 1', 'error 2'])
 //- more seу in _forms.jade
 //- @type enum — text, file, textarea, select, multiselect, radio, checkbox, captcha, date
@@ -21,21 +21,21 @@
 //- @itemclass string — Class for form item
 
 mixin input()
-	- var type 			= attributes.type 			|| "text"
-	- var name 			= attributes.name
-	- var labeltext 	= attributes.label
-	- var value 		= attributes.value
-	- var placeholder 	= attributes.placeholder
-	- var hint 			= attributes.hint
-	- var errors 		= attributes.errors
-	- var id 			= attributes.id
-	- var image 		= attributes.image 			|| "img/content/captcha.png"
-	- var checked 		= attributes.checked 		|| false
-	- var disabled 		= attributes.disabled 		|| false
-	- var required 		= attributes.required 		|| false
-	- var itemclass 	= attributes.class
-	- var errorclass 	='b-form__item_error'
-	- var requiredclass 	='b-form__item_required'
+	- var type          = attributes.type           || "text"
+	- var name          = attributes.name
+	- var labeltext     = attributes.label
+	- var value         = attributes.value
+	- var placeholder   = attributes.placeholder
+	- var hint          = attributes.hint
+	- var errors        = attributes.errors
+	- var id            = attributes.id
+	- var image         = attributes.image          || "img/content/captcha.png"
+	- var checked       = attributes.checked        || false
+	- var disabled      = attributes.disabled       || false
+	- var required      = attributes.required       || false
+	- var itemclass     = attributes.class
+	- var errorclass    ='b-form__item_error'
+	- var requiredclass ='b-form__item_required'
 
 	if (type == "text")
 		+_input(name, labeltext, value, placeholder, itemclass, required, hint, errors)
