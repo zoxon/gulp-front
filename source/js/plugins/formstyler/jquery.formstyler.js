@@ -1,11 +1,11 @@
 /*
- * jQuery Form Styler v1.6.1
+ * jQuery Form Styler v1.6.2
  * https://github.com/Dimox/jQueryFormStyler
  *
  * Copyright 2012-2014 Dimox (http://dimox.name/)
  * Released under the MIT license.
  *
- * Date: 2014.11.23
+ * Date: 2015.02.21
  *
  */
 
@@ -43,6 +43,9 @@
 
 		return this.each(function() {
 			var el = $(this);
+
+			var iOS = (navigator.userAgent.match(/(iPad|iPhone|iPod)/i) && !navigator.userAgent.match(/(Windows\sPhone)/i)) ? true : false;
+			var Android = (navigator.userAgent.match(/Android/i) && !navigator.userAgent.match(/(Windows\sPhone)/i)) ? true : false;
 
 			function Attributes() {
 				var id = '',
@@ -502,7 +505,6 @@
 
 									// если iOS, то не показываем выпадающий список,
 									// т.к. отображается нативный и неизвестно, как его спрятать
-									var iOS = navigator.userAgent.match(/(iPad|iPhone|iPod)/i) ? true : false;
 									if (iOS) return;
 
 									// умное позиционирование
@@ -564,6 +566,12 @@
 											selectbox.removeClass('dropup').addClass('dropdown');
 										}
 									}
+
+									// если выпадающий список выходит за правый край окна браузера,
+									// то меняем позиционирование с левого на правое
+									if (selectbox.offset().left + dropdown.outerWidth() > win.width()) {
+										dropdown.css({left: 'auto', right: 0});
+									}
 									// конец умного позиционирования
 
 									$('div.jqselect').css({zIndex: (singleSelectzIndex - 1)}).removeClass('opened');
@@ -610,10 +618,14 @@
 
 									// прокручиваем до выбранного пункта при открытии списка
 									if (li.filter('.selected').length) {
-										// если нечетное количество видимых пунктов,
-										// то высоту пункта делим пополам для последующего расчета
-										if ( (ul.innerHeight() / liHeight) % 2 !== 0 ) liHeight = liHeight / 2;
-										ul.scrollTop(ul.scrollTop() + li.filter('.selected').position().top - ul.innerHeight() / 2 + liHeight);
+										if (el.val() === '') {
+											ul.scrollTop(0);
+										} else {
+											// если нечетное количество видимых пунктов,
+											// то высоту пункта делим пополам для последующего расчета
+											if ( (ul.innerHeight() / liHeight) % 2 !== 0 ) liHeight = liHeight / 2;
+											ul.scrollTop(ul.scrollTop() + li.filter('.selected').position().top - ul.innerHeight() / 2 + liHeight);
+										}
 									}
 
 									preventScrolling(ul);
@@ -679,11 +691,19 @@
 								// изменение селекта с клавиатуры
 								.on('keydown.styler keyup.styler', function(e) {
 									var liHeight = li.data('li-height');
-									divText.text(option.filter(':selected').text());
+									if (el.val() === '') {
+										divText.text(selectPlaceholder).addClass('placeholder');
+									} else {
+										divText.text(option.filter(':selected').text());
+									}
 									li.removeClass('selected sel').not('.optgroup').eq(el[0].selectedIndex).addClass('selected sel');
 									// вверх, влево, Page Up, Home
 									if (e.which == 38 || e.which == 37 || e.which == 33 || e.which == 36) {
-										ul.scrollTop(ul.scrollTop() + li.filter('.selected').position().top);
+										if (el.val() === '') {
+											ul.scrollTop(0);
+										} else {
+											ul.scrollTop(ul.scrollTop() + li.filter('.selected').position().top);
+										}
 									}
 									// вниз, вправо, Page Down, End
 									if (e.which == 40 || e.which == 39 || e.which == 34 || e.which == 35) {
@@ -873,8 +893,6 @@
 								// если Android или iOS, то мультиселект не стилизуем
 								// причина для Android - в стилизованном селекте нет возможности выбрать несколько пунктов
 								// причина для iOS - в стилизованном селекте неправильно отображаются выбранные пункты
-								var Android = navigator.userAgent.match(/Android/i) ? true : false;
-								var iOS = navigator.userAgent.match(/(iPad|iPhone|iPod)/i) ? true : false;
 								if (Android || iOS) return;
 
 								doMultipleSelect();
