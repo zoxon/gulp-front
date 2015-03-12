@@ -21,9 +21,9 @@
 		display block
 		padding-bottom 4px
 		user-select-none()
-		
+
 		& span&_required
-			color $form-input-error-color 
+			color $form-input-error-color
 
 	&__input
 		// background url(../img/input-bg.png) 0 0 repeat
@@ -48,7 +48,7 @@
 			padding 0 $form-input-padding
 			height $form-input-height
 			line-height $form-input-height
-			
+
 			*:first-child+html &
 				line-height $form-input-height
 
@@ -57,7 +57,7 @@
 			resize vertical
 			height $form-textarea-height
 			overflow auto // Убираем скролл для ie
-			
+
 	&__input-icon
 		// size $form-input-height
 		size 30px $form-input-height
@@ -68,7 +68,8 @@
 		cursor pointer
 
 	&__helpers
-		// 
+		//
+
 	&__hint
 		font-size $form-input-hint-font-size
 		color $form-input-hint-font-color
@@ -81,7 +82,7 @@
 		display block
 
 	&__errors
-		// 
+		//
 		& li
 			font-size $form-input-error-font-size
 			color $form-input-error-color
@@ -99,27 +100,7 @@
 				&:focus
 					border-color $form-input-focus-color
 					box-shadow 0px 0px 2px $form-input-focus-color
-	
-	&_comment &__item
-		padding-bottom 10px
 
-	&_comment &__input
-		& input
-		& textarea
-			border 2px solid #bcd7df
-			border-radius 5px
-			font-size 15px
-			color #7d8189
-
-		& input
-			height 43px
-			line-height 43px
-			
-			*:first-child+html &
-				line-height 43px
-	
-	&_small
-		width 272px
 
 	&_captcha &__input-image
 		width 121px
@@ -129,7 +110,7 @@
 	&_captcha &__input
 		width 122px
 		float left
-		
+
 	&__item_input-date &__input
 		input
 			padding-right 30px
@@ -148,11 +129,12 @@
 	&_error
 		color $form-input-error-color
 
+
 .b-input-group
 	padding-bottom $form-item-padding
 	&__label
 		padding-bottom 8px !important
-	
+
 	&__body
 		max-width 800px
 
@@ -173,8 +155,8 @@
 	& .jq-radio
 		float left
 		margin 0px 8px 0 0
-			
-	
+
+
 //-//////////////////////////////////////////////////////////
 //- JQuery Form Styler
 //-//////////////////////////////////////////////////////////
@@ -342,12 +324,12 @@
 		color $form-input-font-color
 		font-family $base-font-family
 		font-size $form-base-font-size
-		height $form-input-height 
-		line-height $form-input-height 
+		height $form-input-height
+		line-height $form-input-height
 		padding 0 45px 0 10px
 		transition border-color 0.30s
 		box-sizing border-box
-				
+
 
 		&:hover
 			background-color #fff - 2%
@@ -460,14 +442,14 @@
 
 			&:hover
 				background-color #fff - 2%
-		
+
 		&__trigger
 			position absolute
 			top 0
 			right 0
 			width 16px
 			height 100%
-		
+
 		&__trigger-arrow
 			position absolute
 			top 17px
@@ -499,14 +481,14 @@
 
 			&:hover
 				background-color #fff - 2%
-		
+
 		&__trigger
 			position absolute
 			top 0
 			right 0
 			width 16px
 			height 100%
-		
+
 		&__trigger-arrow
 			position absolute
 			top 12px
@@ -585,7 +567,7 @@
 		border-color #ea5d2d
 		box-shadow inset 0px 0px 0px 1px #ea5d2d
 
-.b-form_modal 
+.b-form_modal
 	& .jq-select-multiple
 		border-radius 5px
 		background-color #fff
