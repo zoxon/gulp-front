@@ -1,5 +1,6 @@
 # Gulp Front
 
+[![Dependency Status](https://david-dm.org/Zoxon/gulp-front.svg)](https://david-dm.org/Zoxon/gulp-front)
 ![Github branch](https://img.shields.io/badge/branch-develop-red.svg?style=flat)
 ![GitHub issues](https://img.shields.io/github/issues/Zoxon/gulp-front.svg?style=flat)
 ![GitHub forks](https://img.shields.io/github/forks/Zoxon/gulp-front.svg?style=flat)
