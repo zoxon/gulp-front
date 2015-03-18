@@ -1,5 +1,6 @@
 # Gulp Front
 
+[![Build Status](https://travis-ci.org/Zoxon/gulp-front.svg)](https://travis-ci.org/Zoxon/gulp-front)
 [![Dependency Status](https://david-dm.org/Zoxon/gulp-front.svg)](https://david-dm.org/Zoxon/gulp-front)
 ![Github branch](https://img.shields.io/badge/branch-develop-red.svg?style=flat)
 ![GitHub issues](https://img.shields.io/github/issues/Zoxon/gulp-front.svg?style=flat)
@@ -18,42 +19,42 @@
 * public — Корень сервера. Все сгенерированные файлы складываются сюда.
 * source — Исходный код для препроцессоров.
 * source
-  * blocks — Миксины и чанки jade
-  * css — Stylus файлы
-  * img — Картинки. Обрабатываются imgaemin
-  * js/plugins — JQuery плагины
-  * js/plugins.js — Точка сборки плагинов
+	* blocks — Миксины и чанки jade
+	* css — Stylus файлы
+	* img — Картинки. Обрабатываются imgaemin
+	* js/plugins — JQuery плагины
+	* js/plugins.js — Точка сборки плагинов
 
 
 
 ##Установка
 
 1. Нужно установить gulp глобально один раз
-  ```
-  npm install -g gulp
-  ```
+	```
+	npm install -g gulp
+	```
 2. Перейти в папку проекта
-  ```
-  cd gulp-front
-  ```
+	```
+	cd gulp-front
+	```
 3. Установить зависимости
-  ```
-  npm install
-  ```
+	```
+	npm install
+	```
 
 
 ##Запуск
 
 1. Перейти в папку проекта
-  ```
-  cd gulp-front
-  ```
+	```
+	cd gulp-front
+	```
 2. Запуситить таск менеджер
-  ```
-  gulp
-  ```
+	```
+	gulp
+	```
 3. Открыть в браузере
-  Cервер запустится на [http://localhost:3000/](http://localhost:3000/)
+	Cервер запустится на [http://localhost:3000/](http://localhost:3000/)
 
 
 ##Лицензия
