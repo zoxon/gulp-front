@@ -11,8 +11,7 @@ var gulp = require('gulp'),
 	cache = require('gulp-cache'),
 	include = require('gulp-include'),
 	rename = require("gulp-rename"),
-	uglify = require('gulp-uglify'),
-	jadeOrig = require('jade');
+	uglify = require('gulp-uglify');
 
 // Функция обработки ошибок
 handleError = function(err) {
@@ -84,7 +83,6 @@ gulp.task('stylus', function() {
 gulp.task('jade', function() {
 	gulp.src(path.html.source)
 		.pipe(jade({
-			jade: jadeOrig,
 			pretty: '\t',
 			basedir: path.html.basedir
 		}))
