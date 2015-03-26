@@ -4,14 +4,14 @@ var gulp = require('gulp'),
 	stylus = require('gulp-stylus'),
 	autoprefixer = require('gulp-autoprefixer'),
 	imagemin = require('gulp-imagemin'),
-	webserver = require('gulp-webserver'),
+	browserSync = require('browser-sync'),
+	reload = browserSync.reload,
 	cssbeautify = require('gulp-cssbeautify'),
 	gutil = require('gulp-util'),
 	cache = require('gulp-cache'),
 	include = require('gulp-include'),
 	rename = require("gulp-rename"),
-	uglify = require('gulp-uglify'),
-	jadeOrig = require('jade');
+	uglify = require('gulp-uglify');
 
 // Функция обработки ошибок
 handleError = function(err) {
@@ -54,14 +54,13 @@ path = {
 
 // Локальный сервер
 gulp.task('webserver', function() {
-	gulp.src('public')
-	.pipe(webserver({
-		host: 'localhost', // Если нужен сервер в сети ставьте 0.0.0.0
-		port: 3000,
-		livereload: true,
-		open: "/index.html"
-	}));
+	browserSync({
+		server: {
+			baseDir: "./public"
+		}
+	});
 });
+
 
 // Собираем Stylus
 gulp.task('stylus', function() {
@@ -76,19 +75,20 @@ gulp.task('stylus', function() {
 			autosemicolon: true
 		}))
 		.on('error', handleError)
-		.pipe(gulp.dest(path.css.destination));
+		.pipe(gulp.dest(path.css.destination))
+		.pipe(reload({stream:true}));
 });
 
 // Собираем html из Jade
 gulp.task('jade', function() {
 	gulp.src(path.html.source)
 		.pipe(jade({
-			jade: jadeOrig,
 			pretty: '\t',
 			basedir: path.html.basedir
 		}))
 		.on('error', handleError)
-		.pipe(gulp.dest(path.html.destination));
+		.pipe(gulp.dest(path.html.destination))
+		.pipe(reload({stream:true}));
 });
 
 // Копируем и минимизируем изображения
@@ -107,7 +107,8 @@ gulp.task('images', function() {
 gulp.task('copy', function() {
 	gulp.src(path.assets.source)
 		.on('error', handleError)
-		.pipe(gulp.dest(path.assets.destination));
+		.pipe(gulp.dest(path.assets.destination))
+		.pipe(reload({stream:true}));
 });
 
 // Собираем JS
@@ -120,19 +121,17 @@ gulp.task('plugins', function() {
 			suffix: ".min"
 		}))
 		.on('error', handleError)
-		.pipe(gulp.dest(path.js.plugins.destination));
-});
-
-// Запуск сервера разработки gulp watch
-gulp.task("watch", function() {
-	gulp.watch(path.css.watch, ['stylus']);
-	gulp.watch(path.html.watch, ['jade']);
-	gulp.watch(path.img.watch, ['images']);
-	gulp.watch(path.js.plugins.watch, ['plugins']);
-	gulp.watch(path.assets.watch, ['copy']);
+		.pipe(gulp.dest(path.js.plugins.destination))
+		.pipe(reload({stream:true}));
 });
 
 
 gulp.task("build", ['stylus', 'jade', 'images', 'plugins', 'copy']);
 
-gulp.task("default", ["build", "watch", "webserver"]);
+gulp.task("default", ["build", "webserver"], function(){
+	gulp.watch(path.css.watch, ["stylus"]);
+	gulp.watch(path.html.watch, ["jade"]);
+	gulp.watch(path.img.watch, ["images"]);
+	gulp.watch(path.js.plugins.watch, ["plugins"]);
+	gulp.watch(path.assets.watch, ["copy"]);
+});
