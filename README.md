@@ -2,7 +2,6 @@
 
 [![Build Status](https://travis-ci.org/Zoxon/gulp-front.svg)](https://travis-ci.org/Zoxon/gulp-front)
 [![Dependency Status](https://david-dm.org/zoxon/gulp-front.svg)](https://david-dm.org/Zoxon/gulp-front)
-![Github branch](https://img.shields.io/badge/branch-develop-red.svg?style=flat)
 ![GitHub issues](https://img.shields.io/github/issues/Zoxon/gulp-front.svg?style=flat)
 ![GitHub forks](https://img.shields.io/github/forks/Zoxon/gulp-front.svg?style=flat)
 ![GitHub stars](https://img.shields.io/github/stars/Zoxon/gulp-front.svg?style=flat)
