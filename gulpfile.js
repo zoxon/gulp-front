@@ -38,7 +38,7 @@ path = {
 		destination: './public'
 	},
 	img: {
-		source: './source/img/**/*.{jpg,jpeg,png,gif}',
+		source: './source/img/**/*.{jpg,jpeg,png,gif,svg}',
 		watch: 'source/img/**/*',
 		destination: './public/img'
 	},
