@@ -1,2 +1,27 @@
-.b-header
-	p HEADER
+header(role="banner").b-header
+	.b-header__logo
+		h1.b-logo: a(href="#") Gulp-front
+
+	.b-header__utility-menu
+		nav.b-utility-menu(aria-label="utility", role="navigation")
+			ul
+				each ent, num in ["Careers", "Legal", "Log In"]
+					li.b-utility-menu__item: a(href="#")= ent
+	
+	.b-header__primary-menu
+		nav(aria-label="primary", role="navigation").b-primary-menu
+			ul
+				each ent, num in [ {"title": "Lorem", "submenu": ["Consectetur", "Adipisicing elit", "Reiciendis deleniti", "Suscipit quae", "Drchitecto dolore"]}, {"title": "Ipsum", "submenu": ["Aspernatur eveniet", "Doloremquet", "Autem perferendis", "Ipsum ullam"]}, {"title": "Dolor", "submenu": ["Quaerat", "Doloremquet", "Perferendis", "Assumenda"]}, {"title": "Sit", "submenu": ["Dicta", "Repellendus", "Aspernatur"]}, {"title": "Amet", "submenu": ["Perferendis", "Quaerat", "Dolore", "Reiciendis deleniti", "Suscipit quae",]} ]
+					li.b-primary-menu__item
+						a(href="#").b-primary-menu__link= ent
+						.b-primary-menu__submenu
+							.b-primary-menu-submenu
+								ul
+									each ent2, num2 in ent.submenu
+										li.b-primary-menu-submenu__item: a(href="#")= ent2
+	
+	.b-header__secondary-menu
+		nav(aria-label="secondary", role="navigation").b-secondary-menu
+			ul
+				each ent, num in ["Typography", "Articles", "Lists", "Tables", "Forms", "Breaks and Headings"]
+					li.b-secondary-menu__item: a(href="#")= ent
