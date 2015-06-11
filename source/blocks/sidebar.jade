@@ -1,19 +1,18 @@
-.b-sidebar
-	.b-sidebar-menu
-		each ent, num in [{"title": "Каталог <br /> оборудования", "childrens" : ["Интерактивные доски ", "Цифровые лаборатории", "Оптические системы", "Циф-е лаборатории PASCO", "Мобильные классы", "Проекторы", "Электронные учебники", "Планшеты иноутбуки"]}, {"title": "Каталог программного обеспечения", "childrens" : ["Для средней школы и ВУЗов", "Для начальной школы", "Дошколятам -  подготовка к школе"]}]
-			.b-sidebar-menu__section
-				h3.b-sidebar-menu__title!= ent.title
+aside(role="complementary").b-sidebar
+	section.b-sidebar__section
+		nav.b-sidebar-menu
+			ul
+				each ent, num in ["Typography", "Articles", "Lists", "Tables", "Forms", "Breaks and Headings"]
+					.b-sidebar-menu__item: a(href="#")= ent
+
+	section.b-sidebar__section
+		.b-text-widget
+			h3.b-text-widget__title Widget example
+			.b-text-widget__body
+				p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam necessitatibus vero iste beatae, doloremque. Beatae tempore animi consequatur, iste quam fugiat quos, quasi aliquam sint, sequi debitis facilis magnam! Dolor!
 				ul
-					each ent2, num2 in ent.childrens
-						if (num == 1 && num2 == 1)
-							li.b-sidebar-menu__item
-								a(href="#")= ent2
-								.b-sidebar-menu__dropdown
-									.b-dropdown-submenu
-										ul
-											each ent3, num3 in ["география", "биология", "экология", "обществознание", "естествознание и экономика", "литература", "МХК", "иностранные языки"]
-												li.b-dropdown-submenu__item
-													a(href="#")= ent3
-						else
-							li.b-sidebar-menu__item
-								a(href="#")= ent2
+					li lorem ipsum dolor sit amet
+					li consectetur adipisicing elit
+					li minus vero placeat quae nisi
+					li repellat illum laudantium officiis
+					li reiciendis perferendis blanditiis
