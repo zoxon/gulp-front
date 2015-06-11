@@ -1,0 +1,267 @@
+// TYPOGRAPHY
+section
+	header
+		h2 Typography
+// END TYPOGRAPHY
+
+// ARTICLES
+section
+	header
+		h2 Articles
+
+	article
+		header
+			h3 This is an Article
+			time(datetime="2013-05-27") Wednesday, May 27, 2015
+		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem magni numquam vitae. Animi rem nisi, eaque nobis sed omnis laboriosam, mollitia! Accusantium culpa delectus quia, ratione tenetur magni voluptas voluptatum!
+
+		footer
+			a(href="#") read more &raquo;
+
+	article
+		header
+			h3 This is Another Article
+			time(datetime="2013-05-27") Wednesday, May 27, 2015
+		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem magni numquam vitae. Animi rem nisi, eaque nobis sed omnis laboriosam, mollitia! Accusantium culpa delectus quia, ratione tenetur magni voluptas voluptatum!
+		aside This is an example of an aside. Its related to the content at hand, however isn&apos;t part of the main content.
+
+		p There"s also an article element, meant for articles. This article has its own header and footer as well. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis est, nec convallis dui. Nulla lectus velit, ornare sit amet blandit in, mattis eget nulla.
+
+		footer
+			a(href="#") read more &raquo;
+// END ARTICLES
+
+// LISTS
+section
+	header
+		h2 Lists
+
+		h3 Unordered Lists
+		ul
+			li ipsum dolor sit amet, consectetur adipisicing elit. 
+			li quia voluptatum ducimus, eaque officiis impedit ea minima iste distinctio 
+				ul
+					li reprehenderit, porro voluptate quas fugiat, quisquam soluta alias corporis 
+					li voluptatibus quos odit.
+						ul
+							li lorem ipsum dolor sit amet
+							li consectetur adipisicing elit
+								ul
+									li eos vitae
+									li sequi
+					li magni
+					li animi 
+				li voluptatum veniam placeat omnis alias
+				li cum architecto nam nisi praesentium 
+			li earum ratione facilis illum 
+			li similique adipisci
+
+		h3 Ordered Lists
+		ol
+			li ipsum dolor sit amet, consectetur adipisicing elit. 
+			li quia voluptatum ducimus, eaque officiis impedit ea minima iste distinctio 
+				ul
+					li reprehenderit, porro voluptate quas fugiat, quisquam soluta alias corporis 
+					li voluptatibus quos odit.
+						ul
+							li lorem ipsum dolor sit amet
+							li consectetur adipisicing elit
+								ul
+									li eos vitae
+									li sequi
+					li magni
+					li animi 
+				li voluptatum veniam placeat omnis alias
+				li cum architecto nam nisi praesentium 
+			li earum ratione facilis illum 
+			li similique adipisci
+
+		h3 Definition Lists
+		dl
+			dt iPod
+			dd The iPod is a line of portable media players designed and marketed by Apple Inc.
+			
+			dt VCR
+			dd The VCR is an electro-mechanical device that records analog audio and analog video from broadcast television on a removable tape.
+			
+			dt Walkman
+			dd Walkman is a Sony brand tradename originally used for portable audio cassette players.
+// END LISTS
+
+//TABLES
+section
+	header
+		h2 Tables
+
+		p This table has a caption, colgroup, thead, tfoot, and tbody.
+		table
+			caption Table with caption, colgroup, thead, tfoot, and tbody
+			colgroup
+				col
+				col
+				col
+			thead
+				tr
+					th header 1
+					th header 2
+					th header 3
+			tfoot
+				tr
+					td footer 1
+					td footer 2
+					td footer 3
+			tbody
+				tr
+					td body 1
+					td body 2
+					td body 3
+				tr
+					td body 1
+					td body 2
+					td body 3
+				tr
+					td body 1
+					td body 2
+					td body 3
+				tr
+					td body 1
+					td body 2
+					td body 3
+		
+		p This is a filler paragraph – Ignore this. These are scattered through out the markup to simulate content. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis est, nec convallis dui. Nulla lectus velit, ornare sit amet blandit in, mattis eget nulla.
+// END TABLES
+
+// FORMS
+section
+	header
+		h2 Forms
+		h3 Messaging
+			.b-form-message.b-form-message_success Success
+			.b-form-message.b-form-message_info Info
+			.b-form-message.b-form-message_error Error
+			p This is a filler paragraph – Ignore this. These are scattered through out the markup to simulate content. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis est, nec convallis dui. Nulla lectus velit, ornare sit amet blandit in, mattis eget nulla.
+		
+		h3 Fields
+		h4 Text Inputs
+		+input(type="text", name="name", label="Name", value="Nikolas")
+		+input(type="email", name="email", label="Email", value="info@somesite.com")
+		+input(type="password", name="password", placholder="Enter password", label="Пароль", errors=["some error message", "another error message"])
+
+		h4 Radios and Checkboxes
+			+inputGroup("Radios")
+				+input(type="radio", name="radio-group-3", id="radio-1", label="Normal")
+				+input(type="radio", name="radio-group-3", id="radio-2", label="Checked", checked="true")
+				+input(type="radio", name="radio-group-4", id="radio-3", label="Disabled", disabled="true")
+				+input(type="radio", name="radio-group-4", id="radio-4", label="Checked and Disabled", checked="true", disabled="true")
+
+			+inputGroup("Checkboxes")
+				+input(type="checkbox", name="checkbox-group-1", id="checkbox-1", label="Normal")
+				+input(type="checkbox", name="checkbox-group-1", id="checkbox-2", label="Checked", checked="true")
+				+input(type="checkbox", name="checkbox-group-2", id="checkbox-3", label="Disabled", disabled="true")
+				+input(type="checkbox", name="checkbox-group-2", id="checkbox-4", label="Checked and Disabled", checked="true", disabled="true")
+
+
+		h4 Selects
+		-var data = ["Lorem ipsum", "Dolor sit amet", "Consectetur adipisicing", "Elit", "Expedita at soluta"]
+		+input(type="select", name="select", placeholder="Select value...", label="Select", value=data)
+
+		+input(type="multiselect", name="multiple-select", label="Мультиселект", value=["Выберите значение...", "Значение 1", "Значение 2", "Значение 3", "Значение 4", "Значение 5", "Значение 6"], size="6")
+
+		h4 Textareas and Files
+		+input(type="textarea", name="textarea", label="Textarea", value="Текст и фокус...")
+		
+		h4 Captcha
+		+input(type="captcha", name="captcha", label="Введите символы с картинки", image="img/content/captcha.png")
+
+		h3 Buttons
+			h4 &lt;button&gt; buttons
+			button(type="button").b-button.b-button_color_grey.b-button_size_lg Large
+			button(type="button").b-button.b-button_color_grey Default
+			button(type="button").b-button.b-button_color_grey.b-button_size_sm Small
+			button(type="button").b-button.b-button_color_grey.b-button_size_xs Extra small
+
+			button(type="button").b-button.b-button_color_blue.b-button_size_lg Large
+			button(type="button").b-button.b-button_color_blue Default
+			button(type="button").b-button.b-button_color_blue.b-button_size_sm Small
+			button(type="button").b-button.b-button_color_blue.b-button_size_xs Extra small
+
+			h3 &lt;a href="#"&gt; buttons
+			a(href="#").b-button.b-button_color_grey.b-button_size_lg Large
+			|  
+			a(href="#").b-button.b-button_color_grey Default
+			|  
+			a(href="#").b-button.b-button_color_grey.b-button_size_sm Small
+			|  
+			a(href="#").b-button.b-button_color_grey.b-button_size_xs Extra small
+			|  
+
+			a(href="#").b-button.b-button_color_blue.b-button_size_lg Large
+			|  
+			a(href="#").b-button.b-button_color_blue Default
+			|  
+			a(href="#").b-button.b-button_color_blue.b-button_size_sm Small
+			|  
+			a(href="#").b-button.b-button_color_blue.b-button_size_xs Extra small
+			|  
+
+			h4 Disabled buttons
+			button(type="button", disabled).b-button.b-button_color_grey.b-button_size_lg Large
+			button(type="button", disabled).b-button.b-button_color_grey Default
+			button(type="button", disabled).b-button.b-button_color_grey.b-button_size_sm Small
+			button(type="button", disabled).b-button.b-button_color_grey.b-button_size_xs Extra small
+
+			button(type="button").b-button.b-button_color_blue.b-button_size_lg.b-button_disabled Large
+			button(type="button").b-button.b-button_color_blue.b-button_disabled Default
+			button(type="button").b-button.b-button_color_blue.b-button_size_sm.b-button_disabled Small
+			button(type="button").b-button.b-button_color_blue.b-button_size_xs.b-button_disabled Extra small
+
+			h4 Block buttons
+			button(type="button").b-button.b-button_color_grey.b-button_block Default
+			button(type="button").b-button.b-button_color_blue.b-button_block Default
+				
+// END FORMS
+
+// BREAKS AND HEADINGS
+section
+	header
+		h2 Breaks and Headings
+		
+		h3 Breaks
+		p Below is a horizontal break.
+		hr
+		p That&apos;s it.
+
+		h2 Headings &ndash; This is an H2
+		p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a felis est, nec convallis dui. Nulla lectus velit, ornare sit amet blandit in, mattis eget nulla. Integer tellus ligula, consectetur sed tincidunt nec, tempor in enim.
+
+		h3 Three &ndash; This is an H3
+		p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a felis est, nec convallis dui. Nulla lectus velit, ornare sit amet blandit in, mattis eget nulla. Integer tellus ligula, consectetur sed tincidunt nec, tempor in enim.
+
+		h4 Four &ndash; This is an H4
+		p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a felis est, nec convallis dui. Nulla lectus velit, ornare sit amet blandit in, mattis eget nulla. Integer tellus ligula, consectetur sed tincidunt nec, tempor in enim.
+
+		h1 Breaking Multi-Line H1 Heading &ndash; Nulla vitae elit libero, a pharetra augue. Maecenas faucibus mollis interdum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+		p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a felis est, nec convallis dui. Nulla lectus velit, ornare sit amet blandit in, mattis eget nulla. Integer tellus ligula, consectetur sed tincidunt nec, tempor in enim.
+		
+		h2 Breaking Multi-Line H2 Heading &ndash; Nulla vitae elit libero, a pharetra augue. Maecenas faucibus mollis interdum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+		p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a felis est, nec convallis dui. Nulla lectus velit, ornare sit amet blandit in, mattis eget nulla. Integer tellus ligula, consectetur sed tincidunt nec, tempor in enim.
+		
+		h3 Breaking Multi-Line H3 Heading &ndash; Nulla vitae elit libero, a pharetra augue. Maecenas faucibus mollis interdum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+		p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a felis est, nec convallis dui. Nulla lectus velit, ornare sit amet blandit in, mattis eget nulla. Integer tellus ligula, consectetur sed tincidunt nec, tempor in enim.
+		
+		h4 Breaking Multi-Line H4 Heading &ndash; Nulla vitae elit libero, a pharetra augue. Maecenas faucibus mollis interdum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+		p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a felis est, nec convallis dui. Nulla lectus velit, ornare sit amet blandit in, mattis eget nulla. Integer tellus ligula, consectetur sed tincidunt nec, tempor in enim.
+
+		h1 H1 Adjacent Headings
+		h2 H2 Lorem ipsum dolor subheading
+		p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a felis est, nec convallis dui. Nulla lectus velit, ornare sit amet blandit in, mattis eget nulla. Integer tellus ligula, consectetur sed tincidunt nec, tempor in enim.
+		
+		h2 H2 Adjacent Headings
+		h3 H3 Lorem ipsum dolor subheading
+		p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a felis est, nec convallis dui. Nulla lectus velit, ornare sit amet blandit in, mattis eget nulla. Integer tellus ligula, consectetur sed tincidunt nec, tempor in enim.
+		
+		h3 H3 Adjacent Headings
+		h4 H4 Lorem ipsum dolor subheading
+		p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a felis est, nec convallis dui. Nulla lectus velit, ornare sit amet blandit in, mattis eget nulla. Integer tellus ligula, consectetur sed tincidunt nec, tempor in enim.
+		
+// END BREAKS AND HEADINGS
