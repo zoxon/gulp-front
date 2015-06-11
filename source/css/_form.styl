@@ -1,119 +1,131 @@
 @import './lib/mixins'
-
+@import './lib/_buttons'
 
 //-//////////////////////////////////////////////////////////
 //- BEM forms
 //-//////////////////////////////////////////////////////////
-.b-form
-	& input
-		+placeholder()
-			color $form-input-font-color
-			font-family $form-base-font-family
-			font-size $form-base-font-size
 
-	&__item
-		padding-bottom 6px
+//- Helpers
+form-focus-style($color)
+	border-color $color
+	box-shadow 0px 0px 2px rgba($color,.75)
+	{block}
 
+//- Base styles
+.b-form-item
+	padding-bottom 10px
 	&__label
-		font-size $form-label-font-size
-		color $form-label-font-color
-		font-family $form-label-font-family
 		display block
 		padding-bottom 4px
-		user-select-none()
-
-		& span&_required
+		font-family $form-base-font-family
+		span
 			color $form-input-error-color
 
 	&__input
-		// background url(../img/input-bg.png) 0 0 repeat
-
-		& input
-		& textarea
-			background transparent
+		input
+		textarea
+		select
 			box-sizing border-box
 			width 100%
-			border 1px solid $form-input-border-color
-			border-radius $form-input-border-radius
-			color $form-input-font-color
 			font-family $form-base-font-family
-			font-size $form-base-font-size
-			transition border-color 0.30s
+			padding 0 9px
 
-			&:focus
-				border-color $form-input-focus-color
-				box-shadow 0px 0px 2px $form-input-focus-color
-
-		& input
-			padding 0 $form-input-padding
-			height $form-input-height
-			line-height $form-input-height
-
-			*:first-child+html &
-				line-height $form-input-height
-
-		& textarea
-			padding $form-input-padding
+		textarea
+			height 100px
+			min-height 100px
+			padding 9px
 			resize vertical
-			height $form-textarea-height
-			overflow auto // Убираем скролл для ie
-
-	&__input-icon
-		// size $form-input-height
-		size 30px $form-input-height
-		display block
-		position absolute
-		right 0
-		top 0
-		cursor pointer
+			line-height normal !important
 
 	&__helpers
-		//
+		padding-top 4px
+		padding-bottom 4px
+		font-family $form-base-font-family
+
+	&__errors
+		ul
+			padding 0
+			margin 0
+		li
+			padding 0
+			margin 0
+			list-style none
+			background none
+			font-family $form-base-font-family
+			font-size $form-input-error-font-size
+			color $form-input-error-color
 
 	&__hint
 		font-size $form-input-hint-font-size
 		color $form-input-hint-font-color
-		line-height 13px
-		padding-top 2px
 
-	&__clear-link
-		font-size $form-input-hint-font-size
-		padding 7px 0
-		display block
+	&_type_captcha &__input-image
+		width 100px
+		float left
+		margin-right 10px
 
-	&__errors
-		//
-		& li
-			font-size $form-input-error-font-size
-			color $form-input-error-color
-			line-height 13px
-			padding 2px 0 0 0
+	&_type_captcha &__input
+		margin-top 10px
+		width 190px
+		float left
 
-	&_error
-		& .b-form__input
-			& input
-			& textarea
-				border-color $form-input-error-color
-				box-shadow 0px 0px 2px $form-input-error-color
-				transition none
+	&_type_checkbox
+	&_type_radio
+		font-size 0
+		padding-bottom 3px
+		padding-top 3px
 
+	&_type_checkbox input
+	&_type_radio input
+		margin-right 4px
+
+	&_type_checkbox &__label
+	&_type_radio &__label
+		padding-bottom 0
+
+	&_type_checkbox &__label
+	&_type_radio &__label
+	&_type_checkbox input
+	&_type_radio input
+		cursor pointer
+		display inline-block
+		vertical-align middle
+
+
+//- Default style
+.b-form-item_style_default
+	padding-bottom 17px
+	.b-form-item
+		&__label
+			color #454545
+			font-size 14px
+			padding-bottom 2px
+
+		&__input
+			input
+			select
+			textarea
+				background-color #fff
+				border-radius 3px
+				height 30px
+				line-height 30px
+				border 1px solid #d3d3d3
+				+placeholder()
+					color #d3d3d3
+					font-size 12px
 				&:focus
-					border-color $form-input-focus-color
-					box-shadow 0px 0px 2px $form-input-focus-color
+					form-focus-style($form-input-focus-color)
+			textarea
+				height 235px
+				min-height 235px
 
-
-	&_captcha &__input-image
-		width 121px
-		margin-right 29px
-		float left
-
-	&_captcha &__input
-		width 122px
-		float left
-
-	&__item_input-date &__input
+	&.b-form-item_status_error .b-form-item__input
 		input
-			padding-right 30px
+		textarea
+		select
+			border-color $form-input-error-color
+			&:focus
+				form-focus-style($form-input-error-color)
 
 
 //-//////////////////////////////////////////////////////////
@@ -153,7 +165,6 @@
 
 	& .jq-checkbox
 	& .jq-radio
-		float left
 		margin 0px 8px 0 0
 
 
@@ -325,24 +336,24 @@
 		font-family $base-font-family
 		font-size $form-base-font-size
 		height $form-input-height
-		line-height $form-input-height
+		line-height $form-input-height - 2px
 		padding 0 45px 0 10px
 		transition border-color 0.30s
 		box-sizing border-box
+		background linear-gradient(to top, #f4f4f4 0%, #fff 100%) 0 0 repeat-x
 
 
 		&:hover
-			background-color #fff - 2%
-			background-position 0 -10px
+			background #f4f4f4
 
 		&:active
 			background #F5F5F5
-			box-shadow inset 1px 1px 3px #DDD
+			border-color $form-input-focus-color
+			box-shadow inset 1px 1px 3px #DDD, 0px 0px 2px $form-input-focus-color
 
 		.jq-selectbox.focused &
-			// border 1px solid #5794BF
 			border-color $form-input-focus-color
-			// box-shadow inset 0px 0px 0px 1px $form-input-focus-color
+			box-shadow 0px 0px 2px $form-input-focus-color
 
 		.jq-selectbox.disabled &
 			border-color #CCC
@@ -356,6 +367,8 @@
 		overflow hidden
 		text-overflow ellipsis
 		white-space nowrap
+		&.placeholder
+			color $form-input-focus-text-color
 
 	&__trigger
 		position absolute
@@ -366,12 +379,12 @@
 
 	&__trigger-arrow
 		position absolute
-		top 10px
-		right 12px
+		top 9px
+		right 7px
 		width 11px
 		height 11px
 		overflow hidden
-		background url("data:image/gif;base64,R0lGODlhBwAEAIABAKmpqf///yH5BAEAAAEALAAAAAAHAAQAAAIHRH5miYp8CgA7") 50% 50% no-repeat
+		background url("data:image/gif;base64,R0lGODlhBQADAIABAAAAAAAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMwMTQgNzkuMTU2Nzk3LCAyMDE0LzA4LzIwLTA5OjUzOjAyICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxNCAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RjAwRjM4MjkwRjVCMTFFNTlEODhDRTA4NUQwNDQ5QzYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RjAwRjM4MkEwRjVCMTFFNTlEODhDRTA4NUQwNDQ5QzYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpGMDBGMzgyNzBGNUIxMUU1OUQ4OENFMDg1RDA0NDlDNiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpGMDBGMzgyODBGNUIxMUU1OUQ4OENFMDg1RDA0NDlDNiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgH//v38+/r5+Pf29fTz8vHw7+7t7Ovq6ejn5uXk4+Lh4N/e3dzb2tnY19bV1NPS0dDPzs3My8rJyMfGxcTDwsHAv769vLu6ubi3trW0s7KxsK+urayrqqmop6alpKOioaCfnp2cm5qZmJeWlZSTkpGQj46NjIuKiYiHhoWEg4KBgH9+fXx7enl4d3Z1dHNycXBvbm1sa2ppaGdmZWRjYmFgX15dXFtaWVhXVlVUU1JRUE9OTUxLSklIR0ZFRENCQUA/Pj08Ozo5ODc2NTQzMjEwLy4tLCsqKSgnJiUkIyIhIB8eHRwbGhkYFxYVFBMSERAPDg0MCwoJCAcGBQQDAgEAACH5BAEAAAEALAAAAAAFAAMAAAIFhB0XC1sAOw==") 50% 50% no-repeat
 
 		.jq-selectbox:hover &
 			opacity 1
@@ -419,87 +432,10 @@
 		background #F0F0F0
 		font-size 13px
 
-	.b-form_error &__select
+	.b-form-item_error &__select
 		border-color #ea5d2d
 		box-shadow inset 0px 0px 0px 1px #ea5d2d
 
-
-.b-form_search
-	.jq-selectbox
-		li
-			padding 8px 10px 9px
-		&__select
-			height 40px
-			line-height 40px
-			border-radius 5px
-			background-color #fff
-			border none
-			box-shadow inset 0 1px 0 rgba(178,197,211,.75)
-			font-size 14px
-			color #000
-			font-family arial
-			padding 0 15px 0 10px
-
-			&:hover
-				background-color #fff - 2%
-
-		&__trigger
-			position absolute
-			top 0
-			right 0
-			width 16px
-			height 100%
-
-		&__trigger-arrow
-			position absolute
-			top 17px
-			right 7px
-			width 6px
-			height 5px
-			overflow hidden
-			background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAFCAYAAABmWJ3mAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAD9JREFUeNpi3L9//xYGBgZvBlSwlQlI5ALxDyRBEDsPJHEfiDuRJEDse0xQTgdUwX0om4EFSTvISEaYsQABBgDwvw7DF8E7YgAAAABJRU5ErkJggg==") 50% 50% no-repeat
-
-		&__dropdown
-			top 42px
-
-
-.b-form_small
-	.jq-selectbox
-		li
-			padding 4px 7px 5px
-		&__select
-			height 29px
-			line-height 29px
-			font-family arial
-			padding 0 15px 0 7px
-			border 1px solid #dbe7ee
-			border-radius 4px
-			background-color #fff
-			font-size 11px
-			color #000
-
-
-			&:hover
-				background-color #fff - 2%
-
-		&__trigger
-			position absolute
-			top 0
-			right 0
-			width 16px
-			height 100%
-
-		&__trigger-arrow
-			position absolute
-			top 12px
-			right 7px
-			width 6px
-			height 5px
-			overflow hidden
-			background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAFCAYAAABmWJ3mAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAD9JREFUeNpi3L9//xYGBgZvBlSwlQlI5ALxDyRBEDsPJHEfiDuRJEDse0xQTgdUwX0om4EFSTvISEaYsQABBgDwvw7DF8E7YgAAAABJRU5ErkJggg==") 50% 50% no-repeat
-
-		&__dropdown
-			top 30px
 
 
 // Мультиселект
@@ -563,16 +499,9 @@
 		background #CCC
 		color #FFF
 
-	.b-form_error &
+	.b-form-item_error &
 		border-color #ea5d2d
 		box-shadow inset 0px 0px 0px 1px #ea5d2d
-
-.b-form_modal
-	& .jq-select-multiple
-		border-radius 5px
-		background-color #fff
-		box-shadow inset 0 1px 0 rgba(178,197,211,.75)
-		border none
 
 
 
