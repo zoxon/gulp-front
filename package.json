@@ -28,6 +28,7 @@
     "gulp-rename": "^1.2.0",
     "gulp-stylus": "^2.0.1",
     "gulp-uglify": "^1.0.2",
-    "gulp-util": "^3.0.4"
+    "gulp-util": "^3.0.4",
+    "imagemin-pngquant": "^4.1.0"
   }
 }

@@ -11,7 +11,8 @@ var gulp = require('gulp'),
 	cache = require('gulp-cache'),
 	include = require('gulp-include'),
 	rename = require("gulp-rename"),
-	uglify = require('gulp-uglify');
+	uglify = require('gulp-uglify'),
+	imageminPngquant = require('imagemin-pngquant');
 
 // Функция обработки ошибок
 handleError = function(err) {
@@ -97,7 +98,13 @@ gulp.task('images', function() {
 		.pipe(cache(imagemin({
 			optimizationLevel: 3,
 			progressive: true,
-			interlaced: true
+			interlaced: true,
+			svgoPlugins: [
+				{
+					removeViewBox: false
+				}
+			],
+			use: [imageminPngquant()]
 		})))
 		.on('error', handleError)
 		.pipe(gulp.dest(path.img.destination));
