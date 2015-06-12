@@ -1,7 +1,7 @@
 doctype html
 include _mixins
 - var basedir = '/source'
-- var pageTitle = 'Project Name'
+- var projName = 'Project Name'
 
 html(lang="ru")
 	head
@@ -13,7 +13,8 @@ html(lang="ru")
 		//- meta(name="viewport", content="width=1024")
 		
 		//- Title
-		title= pageTitle
+		block head
+		title #{pageTitle} :: #{projName}
 		
 		//- Favicon
 		//- Use 180x180px image
