@@ -65,8 +65,8 @@ mixin input()
 				label(for="#{_attributes.name}").b-form-item__label!= _attributes.label
 					span  *
 			.b-form-item__input-image
-				a(href="#", title="Дайте другой код!")
-					img(src=_attributes.image, alt="Секретный код!")
+				a(href="#", title="Reload image")
+					img(src=_attributes.image, alt="Captcha")
 
 			.b-form-item__input
 				input(type=_attributes.type, name=_attributes.name, id=_attributes.id, value=_attributes.value, placeholder=_attributes.placeholder)
@@ -110,6 +110,8 @@ mixin __wrapper()
 
 		.clear
 
+
+
 mixin __label()
 	if (_attributes.label)
 		label(for=_attributes.name).b-form-item__label!= _attributes.label
@@ -135,6 +137,7 @@ mixin __helpers()
 //-//////////////////////////////////////////////////////////
 
 mixin inputGroup(label)
+
 	.b-input-group
 		if (label)
 			label.b-input-group__label!= label

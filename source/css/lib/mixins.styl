@@ -1,6 +1,7 @@
 // @import 'nib'
 @import '/lib/variables'
 @import '/lib/mixins/font'
+@import "type-utils"
 
 hard-reset()
 	*
@@ -129,9 +130,6 @@ user-select-none()
 	user-select none
 
 
-em( value, base = $base-font-size )
-	unit(value/base * 1em, 'em')
-
 pt2px( pt )
 	unit(pt/0.75, px)
 
@@ -166,3 +164,15 @@ selection( color )
 	img::-moz-selection
 		background transparent
 		{block}
+
+
+/*
+ * Font rendering OS X
+ */
+font-smoothing(active = true)
+	if active == true
+		-webkit-font-smoothing antialiased
+		-moz-osx-font-smoothing grayscale
+	else
+		-webkit-font-smoothing subpixel-antialiased
+		-moz-osx-font-smoothing auto
