@@ -4,3 +4,9 @@ public/
 *.sublime-workspace
 .DS_Store
 *.log
+.sublime-gulp-tmp.js
+.idea
+.svn
+.tags
+.tags_sorted_by_file
+Thumbs.db

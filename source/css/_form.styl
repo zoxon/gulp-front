@@ -1,0 +1,159 @@
+@import './lib/mixins'
+@import './lib/_buttons'
+
+//-//////////////////////////////////////////////////////////
+//- BEM forms
+//-//////////////////////////////////////////////////////////
+
+//- Helpers
+form-focus-style($color)
+	border-color $color
+	box-shadow 0px 0px 2px rgba($color,.75)
+	{block}
+
+//- Base styles
+.b-form-item
+	padding-bottom 10px
+	&__label
+		display block
+		padding-bottom 4px
+		font-family $form-base-font-family
+		span
+			color $form-input-error-color
+
+	&__input
+		input
+		textarea
+		select
+			box-sizing border-box
+			width 100%
+			font-family $form-base-font-family
+			padding 0 9px
+
+		textarea
+			height 100px
+			min-height 100px
+			padding 9px
+			resize vertical
+			line-height normal !important
+
+	&__helpers
+		padding-top 4px
+		padding-bottom 4px
+		font-family $form-base-font-family
+
+	&__errors
+		ul
+			padding 0
+			margin 0
+		li
+			padding 0
+			margin 0
+			list-style none
+			background none
+			font-family $form-base-font-family
+			font-size $form-input-error-font-size
+			color $form-input-error-color
+
+	&__hint
+		font-size $form-input-hint-font-size
+		color $form-input-hint-font-color
+
+	&_type_captcha &__input-image
+		width 100px
+		float left
+		margin-right 10px
+
+	&_type_captcha &__input
+		margin-top 10px
+		width 190px
+		float left
+
+	&_type_checkbox
+	&_type_radio
+		font-size 0
+		padding-bottom 3px
+		padding-top 3px
+
+	&_type_checkbox input
+	&_type_radio input
+		margin-right 4px
+
+	&_type_checkbox &__label
+	&_type_radio &__label
+		padding-bottom 0
+
+	&_type_checkbox &__label
+	&_type_radio &__label
+	&_type_checkbox input
+	&_type_radio input
+		cursor pointer
+		display inline-block
+		vertical-align middle
+
+
+//- Default style
+.b-form-item_style_default
+	padding-bottom 17px
+	.b-form-item
+		&__label
+			color #454545
+			font-size 14px
+			padding-bottom 2px
+
+		&__input
+			input
+			select
+			textarea
+				background-color #fff
+				border-radius 3px
+				height 30px
+				line-height 30px
+				border 1px solid #d3d3d3
+				+placeholder()
+					color #d3d3d3
+					font-size 12px
+				&:focus
+					form-focus-style($form-input-focus-color)
+			textarea
+				height 235px
+				min-height 235px
+
+	&.b-form-item_status_error .b-form-item__input
+		input
+		textarea
+		select
+			border-color $form-input-error-color
+			&:focus
+				form-focus-style($form-input-error-color)
+
+
+//-//////////////////////////////////////////////////////////
+//- Form helpers
+//-//////////////////////////////////////////////////////////
+
+@import '_alerts'
+
+.b-input-group
+	padding-bottom $form-item-padding
+	&__label
+		padding-bottom 8px
+		display block
+		font-size 14px
+		font-weight bold
+		user-select-none()
+
+	&__body
+		max-width 800px
+		.b-form-item
+			padding-bottom 4px
+
+		& label
+			width auto
+
+	& .jq-checkbox
+	& .jq-radio
+		margin 0px 8px 0 0
+
+
+@import '_formstyler'

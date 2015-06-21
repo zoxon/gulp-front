@@ -1,5 +1,6 @@
 language: node_js
 node_js:
+  - "iojs"
   - "0.12"
   - "0.11"
   - "0.10"
@@ -8,6 +9,6 @@ before_script:
   - npm install -g gulp
 script: gulp build
 
-notifications:
-  email:
-    - zoxon.box@gmail.com
+# notifications:
+#   email:
+#     - john.doe@example.com

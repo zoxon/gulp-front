@@ -4,231 +4,147 @@
 
 //- Universal interface for all form elements
 //- Example of use
-//- +input(type="select", value=['value 1', 'value 2', value='n...'], name="sample-select", errors=['error 1', 'error 2'])
-//- more seу in _forms.jade
-//- @type enum — text, file, textarea, select, multiselect, radio, checkbox, captcha, date
-//- @name string
-//- @id string
-//- @label string
-//- @image string — Path to captcha image
-//- @value string or array — array for select and multiselect
-//- @placeholder string
-//- @hint string — hint for input
-//- @errors array — array of errors
-//- @checked boolean — checked flag for radio and checkbox
-//- @disabled boolean — disabled flag for radio and checkbox
-//- @required boolean — show or hide required marker
-//- @itemclass string — Class for form item
+//- +input(type="select", value=["value 1", "value 2", value="n..."], name="sample-select", errors=["error 1", "error 2"])
+
+
+- var _attributes = {};
 
 mixin input()
-	- var type          = attributes.type           || "text"
-	- var name          = attributes.name
-	- var labeltext     = attributes.label
-	- var value         = attributes.value
-	- var placeholder   = attributes.placeholder
-	- var hint          = attributes.hint
-	- var errors        = attributes.errors
-	- var id            = attributes.id
-	- var image         = attributes.image          || "img/content/captcha.png"
-	- var checked       = attributes.checked        || false
-	- var disabled      = attributes.disabled       || false
-	- var required      = attributes.required       || false
-	- var itemclass     = attributes.class
-	- var errorclass    ='b-form__item_error'
-	- var requiredclass ='b-form__item_required'
-
-	if (type == "text")
-		+_input(name, labeltext, value, placeholder, itemclass, required, hint, errors)
-
-	else if (type == "password")
-		+_password(name, labeltext, value, placeholder, itemclass, required, hint, errors)
+	- _attributes = attributes;
+	- _attributes.type          = attributes.type           || "text";
+	- _attributes.image         = attributes.image          || "img/content/captcha.png";
+	- _attributes.checked       = attributes.checked        || false
+	- _attributes.disabled      = attributes.disabled       || false
+	- _attributes.required      = attributes.required       || false
+	- _attributes.errorclass    = attributes.errorclass     || "error"
+	- _attributes.requiredclass = attributes.requiredclass  || "required"
+	- _attributes.errors        = attributes.errors         || false
+	- _attributes.hint          = attributes.hint           || false
+	- _attributes.name          = attributes.name           || "input-name"
+	- _attributes.id            = attributes.id             || attributes.name
+	- _attributes.cols          = attributes.cols           || 80
+	- _attributes.rows          = attributes.rows           || 24
+	- _attributes.multiple      = attributes.multiple       || true
+	- _attributes.size          = attributes.size           || 5
+	- _attributes.value         = attributes.value          || ""
+	- _attributes.style         = attributes.style          || "default"
 	
-	else if (type == "file")
-		+_file(name, labeltext, value, placeholder, itemclass, required, hint, errors)
+
+	- if (_attributes.errors)
+		-_attributes.errorclass = "b-form-item_status_" + _attributes.errorclass
+	- else
+		-_attributes.errorclass = ""
+
+	- if (_attributes.required)
+		-_attributes.requiredclass = "b-form-item_" + _attributes.requiredclass
+	- else
+		-_attributes.requiredclass = ""
+
+	- if (_attributes.type)
+		-_attributes.typeclass = "b-form-item_type_" + _attributes.type
+	- else
+		-_attributes.typeclass = ""
+
+	- if (_attributes.style)
+		-_attributes.styleclass = "b-form-item_style_" + _attributes.style
+	- else
+		-_attributes.styleclass = ""
+
+
+	- if (_attributes.type === "checkbox" || _attributes.type === "radio")
+		.b-form-item(class=_attributes.typeclass, class=_attributes.styleclass, class=_attributes.requiredclass, class=_attributes.errorclass)
+			input(type = _attributes.type, name = _attributes.name, id = _attributes.id, value = _attributes.value, checked = _attributes.checked, disabled = _attributes.disabled)
+
+			if (_attributes.label)
+				label(for="#{_attributes.id}").b-form-item__label!= _attributes.label
+			.clear
 	
-	else if (type == "textarea")
-		+_textarea(name, labeltext, value, placeholder, itemclass, required, hint, errors)
+	- else if (_attributes.type === "captcha")
+		.b-form-item(class=_attributes.typeclass, class=_attributes.styleclass, class=_attributes.requiredclass, class=_attributes.errorclass)
+			if (_attributes.label)
+				label(for="#{_attributes.name}").b-form-item__label!= _attributes.label
+					span  *
+			.b-form-item__input-image
+				a(href="#", title="Reload image")
+					img(src=_attributes.image, alt="Captcha")
 
-	else if (type == "select")
-		+_select(name, labeltext, value, hint, itemclass, required, errors)
-		
-	else if (type == "multiselect")
-		+_multiselect(name, labeltext, value, size, itemclass, required, hint, errors)
+			.b-form-item__input
+				input(type=_attributes.type, name=_attributes.name, id=_attributes.id, value=_attributes.value, placeholder=_attributes.placeholder)
 
-	else if (type == "radio")
-		+_radio(name, id, labeltext, itemclass, required, checked, disabled)
+			+__helpers()
 
-	else if (type == "checkbox")
-		+_checkbox(name, id, labeltext, itemclass, required, checked, disabled)
-		
-	else if (type == "captcha")
-		+_captcha(name, labeltext, itemclass, required, image)
+			.clear
 
-	else if (type == "date")
-		+_date(name, label, value, placeholder, icon, itemclass, required, hint, errors)
+	- else
+		+__wrapper()
+			- if (_attributes.type === "text" || _attributes.type === "email" || _attributes.type === "password" || _attributes.type === "file")
+				input(type=_attributes.type, value=_attributes.value, name=_attributes.name, placeholder=_attributes.placeholder, id=_attributes.name)
+				- if (_attributes.type === "input-date")
+					.b-form-item__input-icon.js-datepicker-trigger(class=_attributes.icon)
 
+			- else if (_attributes.type === "textarea")
+				textarea(name = _attributes.name, cols = _attributes.cols, rows = _attributes.rows, placeholder = _attributes.placeholder, id = _attributes.id)= _attributes.value
+			
+			- else if (_attributes.type === "select")
+				select(name = _attributes.name, id = _attributes.id, data-placeholder = _attributes.placeholder)
+					- if (_attributes.placeholder)
+						option
+					each ent, num  in _attributes.value
+						option(value=num, label=ent)= ent
 
-//-//////////////////////////////////////////////////////////
-//- BEM form service mixins
-//-//////////////////////////////////////////////////////////
-mixin __label(labeltext, name, required)
-	if (labeltext)
-		label(for=name).b-form__label!= labeltext
-			if (required)
-				span.b-form__label_required  *
-
-
-mixin __errors(errors)
-	if (errors)
-		ul.b-form__errors
-			each errorsent, errorsnum in errors
-				li= errorsent
-
-
-mixin __hint(hint)
-	if (hint)
-		.b-form__hint= hint
+			- else if (_attributes.type === "multiselect")
+				select(name = _attributes.name, id = _attributes.id, multiple, size = _attributes.size)
+					each ent, num  in _attributes.value
+						option(value=num, label=ent)= ent
 
 
-mixin __helpers(hint, errors)
-	if (errors || hint)
-		.b-form__helpers
-			+__hint(hint)
-			+__errors(errors)
 
+mixin __wrapper()
+	.b-form-item(class=_attributes.typeclass, class=_attributes.styleclass, class=_attributes.requiredclass, class=_attributes.errorclass)
+		+__label()
 
-mixin __wrapper(type, name, labeltext, value, placeholder, itemclass, required, hint, errors)
-	if (errors)
-		-var errorclass='b-form__item_error'
-
-	if (required)
-		-var requiredclass='b-form__item_required'
-
-	if (itemclass)
-		-var requiredclass=itemclass
-
-	.b-form__item(class=errorclass, class="b-form__item_#{type}", class=requiredclass, class=itemclass)
-		+__label(labeltext, name, required)
-
-		.b-form__input
+		.b-form-item__input
 			block
 
-		+__helpers(hint, errors)
+		+__helpers()
 
 		.clear
 
 
 
-//-//////////////////////////////////////////////////////////
-//- BEM form mixins
-//-//////////////////////////////////////////////////////////
-mixin _input(name, labeltext, value, placeholder, itemclass, required, hint, errors)
-	+__wrapper('text', name, labeltext, value, placeholder, itemclass, required, hint, errors)
-		input(type="text", value=value, name=name, placeholder=placeholder, id=name)
+mixin __label()
+	if (_attributes.label)
+		label(for=_attributes.name).b-form-item__label!= _attributes.label
+			if (_attributes.required)
+				span  *
 
 
-mixin _password(name, labeltext, value, placeholder, itemclass, required, hint, errors)
-	+__wrapper('password', name, labeltext, value, placeholder, itemclass, required, hint, errors)
-		input(type="password", value=value, name=name, placeholder=placeholder, id=name)
 
+mixin __helpers()
+	if (_attributes.errors || _attributes.hint)
+		.b-form-item__helpers
+			if (_attributes.hint)
+				.b-form-item__hint= _attributes.hint
 
-mixin _file(name, labeltext, value, placeholder, itemclass, required, hint, errors)
-	+__wrapper('file', name, labeltext, value, placeholder, itemclass, required, hint, errors)
-		input(type="file", value=value, name=name, placeholder=placeholder, id=name)
-
-
-mixin _textarea(name, labeltext, value, placeholder, itemclass, required, hint, errors)
-	+__wrapper('textarea', name, labeltext, value, placeholder, itemclass, required, hint, errors)
-		textarea(name=name, cols="80", rows="24", placeholder=placeholder, id=name)= value
-
-
-mixin _select(name, labeltext, value, placeholder, itemclass, required, hint, errors)
-	+__wrapper('select', name, labeltext, value, placeholder, itemclass, required, hint, errors)
-		select(name=name, id=name)
-			each selectent, selectnum  in value
-				option(value=selectnum, label=selectent)= selectent
-
-
-mixin _multiselect(name, labeltext, value, size, itemclass, required, hint, errors)
-	+__wrapper('multiselect', name, labeltext, value, placeholder, itemclass, required, hint, errors)
-		select(name=name, id=name, multiple="multiple", size=size)
-			each selectent, selectnum  in value
-				option(value=selectnum, label=selectent)= selectent
-
-
-mixin _date(name, label, value, placeholder, icon, itemclass, required, hint, errors)
-	+__wrapper('input-date', name, labeltext, value, placeholder, itemclass, required, hint, errors)
-		input(type="text", value=value, name=name, placeholder=placeholder, id=name)
-		.b-form__input-icon.js-datepicker-trigger(class=icon)
-
-
-mixin _radio(name, id, labeltext, itemclass, required, checked, disabled)
-	.b-form__item.b-form__item_radio
-		if (checked)
-			if (disabled)
-				input(type="radio", name=name, id=id, value=id, checked=true, disabled=true)
-			else
-				input(type="radio", name=name, id=id, value=id, checked=true, disabled=false)
-		else
-			if (disabled)
-				input(type="radio", name=name, id=id, value=id, checked=false, disabled=true)
-			else
-				input(type="radio", name=name, id=id, value=id, checked=false, disabled=false)
-
-		label(for="#{id}").b-form__label!= labeltext
-		.clear
-
-
-mixin _checkbox(name, id, labeltext, itemclass, required, checked, disabled)
-	.b-form__item.b-form__item_checkbox
-		if (checked)
-			if (disabled)
-				input(type="checkbox", name=name, id=id, value=id, checked=true, disabled=true)
-			else
-				input(type="checkbox", name=name, id=id, value=id, checked=true, disabled=false)
-		else
-			if (disabled)
-				input(type="checkbox", name=name, id=id, value=id, checked=false, disabled=true)
-			else
-				input(type="checkbox", name=name, id=id, value=id, checked=false, disabled=false)
-		if (labeltext)
-			label(for="#{id}").b-form__label!= labeltext
-		.clear
-
-
-mixin _captcha(name, labeltext, itemclass, required, image)
-	if (errors)
-		-var errorclass='b-form_error'
-
-	.b-form__item.b-form_captcha(class=errorclass)
-		if (labeltext)
-			label(for="#{name}").b-form__label!= labeltext
-				span.b-form__label_required  *
-		.b-form__input-image
-			a(href="#", title="Дайте другой код!")
-					img(src=image, alt="Секретный код!")
-
-		.b-form__input
-			input(type="text", name=name, id=name, value="")
-
-
-		+__helpers(hint, errors)
-
-		.clear
-
+			if (_attributes.errors)
+				ul.b-form-item__errors
+					each ent, num in _attributes.errors
+						li= ent
 
 
 //-//////////////////////////////////////////////////////////
 //- Other form elements
 //-//////////////////////////////////////////////////////////
 
-mixin inputGroup(labeltext)
+mixin inputGroup(label)
+
 	.b-input-group
-		if (labeltext)
-			label.b-input-group__label!= labeltext
+		if (label)
+			label.b-input-group__label!= label
 
 		fieldset.b-input-group__body
 			block
+
 		.clear
 
 
@@ -253,3 +169,4 @@ mixin iePlus(condition)
 	| 
 	| <!--<![endif]-->
 	| 
+

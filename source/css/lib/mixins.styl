@@ -1,22 +1,23 @@
 // @import 'nib'
 @import '/lib/variables'
 @import '/lib/mixins/font'
+@import "type-utils"
 
 hard-reset()
 	*
 		margin 0
 		padding 0
 		border none
-		list-style none
-		outline none
-	
+		// list-style none
+		// outline none
+
 	*:focus
 		outline 0
 
 
 
 // IE 7 Valid hack
-// Use 
+// Use
 // +ie7()
 //     color red
 ie7()
@@ -50,7 +51,7 @@ display(value)
 				{block}
 	else
 		display value
-		
+
 
 overflow(value)
 	if (value == ellipsis)
@@ -129,9 +130,6 @@ user-select-none()
 	user-select none
 
 
-em( value, base = $base-font-size )
-	unit(value/base * 1em, 'em')
-
 pt2px( pt )
 	unit(pt/0.75, px)
 
@@ -147,7 +145,7 @@ clearfix()
 
 	&:after
 		clear both
-		
+
 micro-clearfix()
 	content ""
 	display: table
@@ -166,3 +164,15 @@ selection( color )
 	img::-moz-selection
 		background transparent
 		{block}
+
+
+/*
+ * Font rendering OS X
+ */
+font-smoothing(active = true)
+	if active == true
+		-webkit-font-smoothing antialiased
+		-moz-osx-font-smoothing grayscale
+	else
+		-webkit-font-smoothing subpixel-antialiased
+		-moz-osx-font-smoothing auto

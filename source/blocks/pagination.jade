@@ -1,16 +1,18 @@
 // PAGINATION
-.b-pagination
+nav.b-pagination
 	ul
-		li.b-pagination__item
-			a(href="#").b-pagination__larr &larr;
-		-for (var p = 1; p < 10; p++)
-			if (p != 5)
+		li.b-pagination__item.b-pagination__item_larr
+			a(href="#", aria-label="Previous").b-pagination__link &larr;
+
+		-for (var page = 1; page < 10; page++)
+			if (page != 5)
 				li.b-pagination__item
-					a(href="#")= p
+					a(href="#").b-pagination__link= page
 			else
-				li.b-pagination__item
-					span= p
-		li.b-pagination__item
-			a(href="#").b-pagination__rarr &rarr;
+				li.b-pagination__item.b-pagination__item_current
+					span= page
+
+		li.b-pagination__item.b-pagination__item_rarr
+			a(href="#", aria-label="Next").b-pagination__link &rarr;
 	.clear
 // END PAGINATION

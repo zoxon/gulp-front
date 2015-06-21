@@ -1,6 +1,12 @@
 @import './lib/mixins'
 
 ////////////////////////////////////////////////////////////
+// Fonts
+////////////////////////////////////////////////////////////
+@import '_fonts'
+
+
+////////////////////////////////////////////////////////////
 // Reset
 ////////////////////////////////////////////////////////////
 hard-reset()
@@ -11,10 +17,30 @@ hard-reset()
 ////////////////////////////////////////////////////////////
 // Base
 ////////////////////////////////////////////////////////////
-body
+
 html
+	font-size 100%
+
+body
 	color $base-font-color
 	font-family $base-font-family
+	background $base-bg-color
+	overflow-x hidden
+
+article
+aside
+details
+figcaption
+figure
+footer
+header
+hgroup
+main
+menu
+nav
+section
+summary
+	display block
 
 
 
@@ -32,12 +58,9 @@ html
 h1, h2, h3, h4, h5, h6
 	color $heading-font-color
 	font-family $heading-font-family
-	font-weight normal
-	padding 20px 0 10px
+	font-weight bold
+	padding 20px 0 8px
 	// text-transform uppercase
-
-h4, h5, h6
-	color #646464
 
 h1
 	font-size $heading-h1-font-size
@@ -56,7 +79,7 @@ h5
 
 h6
 	font-size $heading-h6-font-size
-	color #646464 + 30%
+
 
 
 
@@ -117,8 +140,12 @@ blockquote
 	font-style italic
 	// padding 5% 10%
 	text-align left
-	color $heading-font-color
-
+	// color $heading-font-color
+	border-left 3px solid #e0e2e3
+	padding 0 0 0 14px
+	margin-bottom $base-line-height
+	color #131313
+	font-size 16px
 	q
 		color $base-font-color
 		font-family $base-font-family
@@ -127,7 +154,12 @@ blockquote
 		padding 10px 0
 
 	p
-		color $heading-font-color
+		color #131313
+		padding-bottom 0
+
+	cite
+		color #666D71
+		font-size 12px
 
 abbr
 	border-bottom thin dashed
@@ -145,12 +177,13 @@ i
 table
 	width 100%
 	border-collapse collapse
-	margin 10px 0
+	margin 0 0 20px 0
+	border 1px solid $table-heading-border-color
 
 	caption
 		color $base-font-color
 		font-size $table-heading-font-size + 2px
-		font-weight 900
+		font-weight bold
 		padding 8px 0
 		text-align left
 
@@ -159,12 +192,12 @@ td
 	padding $table-cell-pading
 	font-size $table-base-font-size
 	text-align $table-base-cell-align
+	border 1px solid $table-heading-border-color
+	padding 8px
 
 th
-	padding $table-heading-pading
 	font-size $table-heading-font-size
 	color $table-heading-font-color
-	border-bottom 1px solid $table-heading-border-color
 	font-weight bold
 
 td
@@ -172,18 +205,17 @@ td
 	border-bottom 1px solid $table-cell-border-color
 
 thead
-	tr:first-child
-		th
-			border-bottom 1px solid $table-heading-border-color
-			border-top 1px solid $table-heading-border-color
-
-tbody
-	tr:last-child
-		td
-			border-bottom 1px solid $table-heading-border-color
 tfoot
-	th
-		border-color $table-heading-border-color
+	background #ebf2f8
+
+tr:nth-child(odd)
+	td
+		background #fff
+
+tr:nth-child(even)
+	td
+		background #ebf2f8
+
 
 .b-vertical-table
 	tr
@@ -215,47 +247,52 @@ hr
 ////////////////////////////////////////////////////////////
 
 dt
-	color $base-font-color
+	// color $base-font-color
 	font-size $base-font-size
-	font-weight 900
+	font-weight bold
+	// font-size 14px
+	color #131313
+	padding 0 0 7px 0
+
 
 dd
-	color $base-font-color
+	color #666D71
+	// color $base-font-color
 	font-size $base-font-size
-	font-style italic
-	padding 0 10px 15px
-	padding-top 10px
+	font-style nromal
+	padding 0 0 20px 0
 
 ul
 	li
-		background-image url($list-marker-path)
-		background-position 0 0.55em
-		background-repeat no-repeat
+		list-style-position inside
 		color $base-font-color
 		font-size $base-font-size
-		list-style none
 		padding 0 0 8px 21px
-
 		ul
+			padding-bottom 0
 			li
-				background-position 0 12px
-				background-repeat no-repeat
 				padding-bottom 0
 				padding-top 6px
 
 ol
 	list-style-image none
-	list-style-position outside
+	list-style-position inside
 	list-style-type none
-
-
 	li
 		color $base-font-color
 		font-size $base-font-size
 		list-style-type decimal
 		padding 0 0 8px 3px
 		margin-left 18px
-
-		ol
+		li
+			list-style-type lower-latin
+			padding 6px 0 0 3px
 			li
-				padding 6px 0 0 3px
+				list-style-type lower-roman
+
+ul
+ol
+	padding-bottom $base-line-height
+	ul
+	ol
+		padding-bottom 0

@@ -1,3 +1,5 @@
+'use strict';
+
 // Инициализируем плагины
 var gulp = require('gulp'),
 	jade = require('gulp-jade'),
@@ -11,16 +13,19 @@ var gulp = require('gulp'),
 	cache = require('gulp-cache'),
 	include = require('gulp-include'),
 	rename = require("gulp-rename"),
-	uglify = require('gulp-uglify');
+	uglify = require('gulp-uglify'),
+	imageminPngquant = require('imagemin-pngquant'),
+	jadeInheritance = require('gulp-jade-inheritance'),
+	stylusTypeUtils = require('stylus-type-utils');
 
 // Функция обработки ошибок
-handleError = function(err) {
+var handleError = function(err) {
 	gutil.log(err);
 	gutil.beep();
 };
 
 // Пути к файлам
-path = {
+var path = {
 	html: {
 		source: ['./source/**/*.jade', '!./source/partials/*.jade', '!./source/blocks/**/*.jade'],
 		watch: 'source/**/*.jade',
@@ -38,7 +43,7 @@ path = {
 		destination: './public'
 	},
 	img: {
-		source: './source/img/**/*.{jpg,jpeg,png,gif}',
+		source: './source/img/**/*.{jpg,jpeg,png,gif,svg}',
 		watch: 'source/img/**/*',
 		destination: './public/img'
 	},
@@ -53,11 +58,16 @@ path = {
 
 
 // Локальный сервер
-gulp.task('webserver', function() {
-	browserSync({
-		server: {
-			baseDir: "./public"
-		}
+gulp.task('browser-sync', function () {
+	browserSync.init([
+		'*.html',
+		'css/*.css',
+		'**/*.{png,jpg,svg}',
+		'js/*.js',
+		'fonts/*.{eot,woff,woff2,ttf}'
+	], {
+		open: true,
+		server: { baseDir: './public' }
 	});
 });
 
@@ -65,7 +75,7 @@ gulp.task('webserver', function() {
 // Собираем Stylus
 gulp.task('stylus', function() {
 	gulp.src(path.css.source)
-		.pipe(stylus())
+		.pipe(stylus({use: stylusTypeUtils()}))
 		.pipe(autoprefixer({
 			browsers: ['last 2 version', '> 5%', 'safari 5', 'ie 8', 'ie 7', 'opera 12.1', 'ios 6', 'android 4'],
 			cascade: false
@@ -82,6 +92,7 @@ gulp.task('stylus', function() {
 // Собираем html из Jade
 gulp.task('jade', function() {
 	gulp.src(path.html.source)
+		.pipe(jadeInheritance({ basedir: path.html.basedir }))
 		.pipe(jade({
 			pretty: '\t',
 			basedir: path.html.basedir
@@ -97,7 +108,9 @@ gulp.task('images', function() {
 		.pipe(cache(imagemin({
 			optimizationLevel: 3,
 			progressive: true,
-			interlaced: true
+			interlaced: true,
+			svgoPlugins: [{removeViewBox: false}],
+			use: [imageminPngquant()]
 		})))
 		.on('error', handleError)
 		.pipe(gulp.dest(path.img.destination));
@@ -128,7 +141,7 @@ gulp.task('plugins', function() {
 
 gulp.task("build", ['stylus', 'jade', 'images', 'plugins', 'copy']);
 
-gulp.task("default", ["build", "webserver"], function(){
+gulp.task("default", ["build", "browser-sync"], function(){
 	gulp.watch(path.css.watch, ["stylus"]);
 	gulp.watch(path.html.watch, ["jade"]);
 	gulp.watch(path.img.watch, ["images"]);
