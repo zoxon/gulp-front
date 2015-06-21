@@ -1,0 +1,61 @@
+// For enable close button add to your script.js this code
+// $('.b-alert__close').on('click', function() {
+// 	$(this).closest('.b-alert').fadeOut();
+// });
+
+// Mixins
+alert-style( color )
+	border 1px solid color + 50%
+	background color + 90%
+	.b-alert
+		&__title
+		&__close
+		&__body
+			color color - 20%
+
+		&__close
+			&:hover
+				color color - 40%
+
+.b-alert
+	display block
+	padding 10px 15px
+	border-radius 2px
+	position relative
+	margin-bottom $base-line-height
+	&__title
+		font-weight bold
+		font-size $base-font-size
+		padding-bottom 8px
+	&__close
+		size 16px
+		font-weight bold
+		text-align center
+		line-height 16px
+		position absolute
+		right 5px
+		top 5px
+		cursor pointer
+		&:hover
+			border-radius 2px
+
+	&__body
+		font-size $base-font-size
+
+
+
+.b-alert_style_error
+.b-alert_color_red
+	alert-style(color = #e74c3c)
+
+.b-alert_style_success
+.b-alert_color_green
+	alert-style(color = #187818)
+
+.b-alert_style_info
+.b-alert_style_blue
+	alert-style(color = #00529c)
+
+.b-alert_style_message
+.b-alert_color_grey
+	alert-style(color = #000)
