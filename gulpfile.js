@@ -50,7 +50,7 @@ var path = {
 	js: {
 		plugins: {
 			source: './source/js/*.js',
-			watch: './source/js/*',
+			watch: './source/js/**/*.js',
 			destination: './public/js'
 		}
 	}
@@ -77,7 +77,7 @@ gulp.task('stylus', function() {
 	gulp.src(path.css.source)
 		.pipe(stylus({use: stylusTypeUtils()}))
 		.pipe(autoprefixer({
-			browsers: ['last 2 version', '> 5%', 'safari 5', 'ie 8', 'ie 7', 'opera 12.1', 'ios 6', 'android 4'],
+			browsers: ['last 2 version', '> 1%', 'safari 5', 'ie 8', 'ie 7', 'opera 12.1', 'ios 6', 'android 4'],
 			cascade: false
 		}))
 		.pipe(cssbeautify({
