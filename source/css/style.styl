@@ -6,10 +6,35 @@
 	padding 0.5em 0 0.7em
 	text-align center
 
+
+html
 body
 	background $base-bg-color
+	height 100%
+
+
+$footer-height = '79px'
+.b-page
+	height 100%
+
+	&__content
+		//
+
+	&__wrapper
+		min-height 100%
+		height auto !important
+		height 100%
+		margin 0 auto $footer-height
+
+	&__footer
+	&__buffer
+		height $footer-height
+
+
+
 
 @import '_demo'
+
 
 @import './_form'
 @import './_media'

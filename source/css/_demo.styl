@@ -1,3 +1,4 @@
+@import '_tabs'
 @import '_animations'
 
 //-//////////////////////////////////////////////////////////
@@ -198,19 +199,22 @@ $header-font-color  = #fff
 		border 1px solid transparent
 		transition all 300ms ease-in-out 0s
 		text-decoration none
-		span
-			font-size 16px
-			font-family $header-font-family
 
 	&:hover
 		text-decoration underline
 		color $header-font-color
 
+	&__text
+		font-size 16px
+		font-family $header-font-family
+		vertical-align middle
+
 	&__icon
 		transition all 300ms ease-in-out 0s
-		margin-right 4px
+		margin-right 7px
 		size 16px
 		fill $header-font-color
+		vertical-align middle
 
 .b-header-presentation
 	font-family $header-font-family
@@ -257,8 +261,6 @@ $header-font-color  = #fff
 		font-size 14px
 		padding 0 0 10px 0
 		list-style none
-		&:last-child
-			padding-bottom 0
 
 	&__link
 		&
@@ -304,21 +306,3 @@ $header-font-color  = #fff
 	color #000
 	font-size 14px
 
-
-//STICKY FOOTER
-//http://ryanfait.com/sticky-footer/
-html
-body
-.b-page
-	height 100%
-
-.b-wrapper
-	min-height 100%
-	height auto !important
-	height 100%
-	margin 0 auto 90px
-
-.b-footer
-.b-push
-	height 90px
-//END STICKY FOOTER

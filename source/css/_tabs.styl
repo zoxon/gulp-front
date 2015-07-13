@@ -1,0 +1,132 @@
+$tabs-border-color = #dadada
+$tabs-bg-color = #fff
+$tabs-unactive-font-color = #111
+$tabs-active-color = #000
+
+.b-tabs
+	&__head
+		//
+
+	&__head-item
+		padding 0
+		background none
+		background-image none
+		a
+			&
+			&:visited
+				text-decoration none
+				display block
+
+			&:hover
+				text-decoration none
+
+	&__head-item_active
+		position relative
+		z-index 5
+		opacity 1
+		a
+			&
+			&:visited
+				text-decoration none
+
+			&:hover
+				//
+
+	&__body
+		//
+
+
+	&__body-content
+		position relative
+		opacity 0
+
+.b-tabs_mode_horizontal
+	.b-tabs
+		&__head-item
+			float left
+			a
+				&
+				&:visited
+					text-align center
+
+
+.b-tabs_mode_vertical
+	.b-tabs
+		&__head
+			float left
+			max-width 100px
+
+		&__head-item
+			//
+
+		&__body
+			margin-left 120px
+
+.b-tabs_style_default
+	.b-tabs
+		&__head
+			// border-bottom 1px solid $tabs-border-color
+
+		&__head-item
+			font-size 14px
+			// border-radius 3px 3px 0 0
+			// margin-bottom -1px
+			// border 1px solid transparent
+			// border-bottom none
+			a
+				&
+				&:visited
+					padding 7px 30px 8px
+					color $tabs-unactive-color
+					text-decoration none
+
+				&:hover
+					text-decoration none
+
+		&__head-item_active
+			background $tabs-bg-color
+			// border 1px solid $tabs-border-color
+			// border-bottom none
+			a
+				&
+				&:visited
+					color $tabs-active-color
+					text-decoration none
+
+				&:hover
+					border-bottom none
+
+		&__body
+			// padding-top 20px
+
+.b-tabs_style_default.b-tabs_mode_vertical
+	.b-tabs
+		&__head
+			border-right 1px solid $tabs-border-color
+
+		&__head-item
+			border-radius 3px 0 0 3px
+			margin-right -1px
+			border 1px solid transparent
+			border-right none
+
+
+		&__head-item_active
+			border 1px solid $tabs-border-color
+			border-right none
+
+.b-tabs_style_default.b-tabs_mode_horizontal
+	.b-tabs
+		&__head
+			border-bottom 1px solid $tabs-border-color
+
+		&__head-item
+			border-radius 3px 3px 0 0
+			margin-bottom -1px
+			border 1px solid transparent
+			border-bottom none
+
+
+		&__head-item_active
+			border 1px solid $tabs-border-color
+			border-bottom none

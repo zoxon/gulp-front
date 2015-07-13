@@ -22,7 +22,7 @@ script.
 
 		$('.js-link-sroll a[href^="#"]').on('click',function (event) {
 			event.preventDefault();
-
+			var $heder = $('.b-header__top');
 			var target = this.hash;
 			var $target = $(target);
 
@@ -32,7 +32,7 @@ script.
 			}
 
 			$('html, body').stop().animate({
-				'scrollTop': $target.offset().top
+				'scrollTop': $target.offset().top - $heder.outerHeight()
 			}, 900, 'swing', function () {
 				window.location.hash = target;
 			});
