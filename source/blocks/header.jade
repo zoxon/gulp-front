@@ -52,7 +52,7 @@ script.
 		
 	});
 
-header(role="banner").b-header
+header.b-header
 	.b-header__top
 		.b-header__inner
 			.b-header__logo
@@ -64,7 +64,7 @@ header(role="banner").b-header
 			
 			.b-header__menu
 				- var menuData = [ {"title": "Typography", "url": "#typography", "submenu": [ {"title": "Titles &amp; Paragraphs", "url": "#titles-and-paragraphs"}, {"title": "Unordered lists", "url": "#unordered-lists"}, {"title": "Ordered lists", "url": "#ordered-lists"}, {"title": "Tables", "url": "#tables"}, {"title": "Quotes", "url": "#quotes"}, {"title": "Description lists", "url": "#description-lists"}, {"title": "Code", "url": "#code"}, {"title": "Text level elements", "url": "#text-elements"} ]}, {"title": "Articles", "url": "#articles", "submenu": false}, {"title": "Forms", "url": "#forms", "submenu": [{"title": "Messaging", "url": "#messaging"}, {"title": "Text Inputs", "url": "#text-inputs"}, {"title": "Radios and Checkboxes", "url": "#radios-and-checkboxes"}, {"title": "Selects", "url": "#selects"}, {"title": "Textareas and Files", "url": "#textareas-and-files"}, {"title": "Captcha", "url": "#captcha"}, {"title": "Buttons", "url": "#buttons"} ]} ];
-				nav(aria-label="primary", role="navigation").b-main-menu.js-link-sroll
+				nav(aria-label="primary").b-main-menu.js-link-sroll
 					ul
 						each ent, num in menuData
 							if (ent.submenu !== false)
