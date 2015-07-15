@@ -1,42 +1,64 @@
 @import './lib/mixins'
 @import './lib/print'
 
+// Simple media indicator
+body:before
+	// display none
+	position fixed
+	left 0
+	bottom 0
+	background #fff
+	z-index 101
+	color #000
+	padding 10px
+	border 1px solid silver
+	border-radius 2px
+
+
 @media only screen
 	// 1200 and bigger(devices and browsers)
 	@media (min-width: 1200px)
-		//
+		body:before
+			content 'min-width: 1200px'
 
 
 	// Smaller than 1200 (devices and browsers)
 	@media (min-width: 997px) and (max-width: 1199px)
-		//
+		body:before
+			content '(min-width: 997px) and (max-width: 1199px)'
 
 
 	// Smaller than standard 960 (devices and browsers)
 	@media (max-width: 996px)
-		body
-			background-color red + 50%
+		body:before
+			content '(max-width: 996px)'
 
 
 	// Tablet Portrait size to standard 960 (devices and browsers)
 	@media (min-width: 768px) and (max-width: 996px)
-		body
-			background-color orange + 50%
+		body:before
+			content '(min-width: 768px) and (max-width: 996px)'
 
 
 	// All Mobile Sizes (devices and browser)
 	@media (max-width: 767px)
-		body
-			background-color yellow + 50%
+		body:before
+			content '(max-width: 767px)'
+
+		.b-content-wrapper
+			table
+				overflow-x auto
+				display block
+				border none
 
 
 	// Mobile Landscape Size to Tablet Portrait (devices and browsers)
 	@media (min-width: 480px) and (max-width: 767px)
-		body
-			background-color green + 50%
+		body:before
+			content '(min-width: 480px) and (max-width: 767px)'
 
 
 	// Mobile Portrait Size to Mobile Landscape Size (devices and browsers)
 	@media (max-width: 479px)
-		body
-			background-color blue + 50%
+		body:before
+			content '(max-width: 479px)'
