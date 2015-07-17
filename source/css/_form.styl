@@ -1,6 +1,3 @@
-@import './lib/mixins'
-@import './lib/_buttons'
-
 //-//////////////////////////////////////////////////////////
 //- BEM forms
 //-//////////////////////////////////////////////////////////
@@ -110,9 +107,14 @@ form-focus-style($color)
 				height 30px
 				line-height 30px
 				border 1px solid #d3d3d3
+				&:invalid
+					border-color $form-input-error-color
+					form-focus-style($form-input-error-color)
+
 				+placeholder()
 					color #d3d3d3
 					font-size 12px
+
 				&:focus
 					form-focus-style($form-input-focus-color)
 			textarea
@@ -128,11 +130,10 @@ form-focus-style($color)
 				form-focus-style($form-input-error-color)
 
 
+
 //-//////////////////////////////////////////////////////////
 //- Form helpers
 //-//////////////////////////////////////////////////////////
-
-@import '_alerts'
 
 .b-input-group
 	padding-bottom $form-item-padding
@@ -155,5 +156,3 @@ form-focus-style($color)
 	& .jq-radio
 		margin 0px 8px 0 0
 
-
-@import '_formstyler'
