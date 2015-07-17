@@ -26,7 +26,8 @@
 
 //= require plugins/html5shiv/html5shiv.js
 //= require plugins/respond/respond.src.js
-//= require plugins/formstyler/jquery.formstyler.js
-//= require plugins/social-likes/social-likes.js
-//= require plugins/colorbox/jquery.colorbox.js
-//= require plugins/jquery.placeholder.js
+//require plugins/formstyler/jquery.formstyler.js
+//require plugins/social-likes/social-likes.js
+//require plugins/colorbox/jquery.colorbox.js
+//require plugins/jquery.placeholder.js
+//= require plugins/jquery.tabs.js
