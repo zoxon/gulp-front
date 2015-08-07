@@ -10,7 +10,7 @@ var gulp = require('gulp'),
 	reload = browserSync.reload,
 	cssbeautify = require('gulp-cssbeautify'),
 	gutil = require('gulp-util'),
-	cache = require('gulp-cache'),
+	changed = require('gulp-changed'),
 	include = require('gulp-include'),
 	rename = require("gulp-rename"),
 	uglify = require('gulp-uglify'),
@@ -24,7 +24,7 @@ var handleError = function(err) {
 	gutil.beep();
 };
 
-// Пути к файлам
+// Имена папок
 var config = {
 	path: {
 		source: 'source',
@@ -37,6 +37,7 @@ var config = {
 	}
 };
 
+// Настройки плагинов
 var plugins = {
 	browserSync: {
 		files: [
@@ -98,6 +99,7 @@ var plugins = {
 	}
 }
 
+// Пути к файлам
 var path = {
 	source: {
 		html: [
@@ -162,7 +164,8 @@ gulp.task('jade', function() {
 // Копируем и минимизируем изображения
 gulp.task('images', function() {
 	gulp.src(path.source.img)
-		.pipe(cache(imagemin(plugins.imagemin.options)))
+		.pipe(changed(path.dest.img))
+		.pipe(imagemin(plugins.imagemin.options))
 		.on('error', handleError)
 		.pipe(gulp.dest(path.dest.img));
 });
