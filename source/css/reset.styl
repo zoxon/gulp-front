@@ -25,7 +25,6 @@ body
 	color $base-font-color
 	font-family $base-font-family
 	background $base-bg-color
-	overflow-x hidden
 
 article
 aside
@@ -61,6 +60,14 @@ h1, h2, h3, h4, h5, h6
 	font-weight bold
 	padding 20px 0 8px
 	// text-transform uppercase
+	small
+		font-weight normal
+		line-height 1
+		color #777
+		font-size 65%
+
+h3, h4, h5, h6
+	font-weight: bold
 
 h1
 	font-size $heading-h1-font-size
@@ -94,17 +101,26 @@ p
 	padding 0 0 $base-line-height 0
 
 a
-a:visited
-	color $base-link-color
-	text-decoration underline
-	transition color 0.2s ease 0s
+	&
+		color $base-link-color
+	&
+	&:visited
+		text-decoration underline
+		transition color 0.2s ease 0s
 
-a:visited
-	color $base-visited-link-color
+	&:visited
+		color $base-visited-link-color
 
-a:hover
-	color $base-hover-link-color
-	text-decoration none
+	&:hover
+	&:focus
+		color $base-hover-link-color
+		text-decoration none
+
+	&:focus
+		outline thin dotted
+		outline 5px auto -webkit-focus-ring-color
+		outline-offset -2px
+
 
 pre
 	background #eee
@@ -263,36 +279,15 @@ dd
 	padding 0 0 20px 0
 
 ul
-	li
-		list-style-position inside
-		color $base-font-color
-		font-size $base-font-size
-		padding 0 0 8px 21px
-		ul
-			padding-bottom 0
-			li
-				padding-bottom 0
-				padding-top 6px
-
 ol
-	list-style-image none
-	list-style-position inside
-	list-style-type none
-	li
-		color $base-font-color
-		font-size $base-font-size
-		list-style-type decimal
-		padding 0 0 8px 3px
-		margin-left 18px
-		li
-			list-style-type lower-latin
-			padding 6px 0 0 3px
-			li
-				list-style-type lower-roman
-
-ul
-ol
-	padding-bottom $base-line-height
+	margin-top 0
+	margin-bottom ceil($base-line-height / 2)
+	padding-left 21px
 	ul
 	ol
-		padding-bottom 0
+		margin-bottom 0
+
+	li
+		color $base-font-color
+		font-size $base-font-size
+		line-height 1.7em
