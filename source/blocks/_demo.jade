@@ -317,37 +317,64 @@ section
 
 	p This is a filler paragraph – Ignore this. These are scattered through out the markup to simulate content. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis est, nec convallis dui. Nulla lectus velit, ornare sit amet blandit in, mattis eget nulla.
 	
-	h3#text-inputs &#167; Text Inputs
-	+input(type="text", name="name", label="Name", value="Nikolas")
-	+input(type="email", name="email", label="Email", value="info@somesite.com")
-	+input(type="password", name="password", value="password", placholder="Enter password", label="Password", errors=["some error message", "another error message"])
+	.b-form
+		form(method="post", action="#")
+			.b-form__section
+				h3#text-inputs &#167; Text Inputs
+				.b-form__item
+					+input(type="text", name="name", label="Name", value="Nikolas")
 
-	h3#radios-and-checkboxes &#167; Radios and Checkboxes
-	+inputGroup("Radios")
-		+input(type="radio", name="radio-group-3", id="radio-1", label="Normal")
-		+input(type="radio", name="radio-group-3", id="radio-2", label="Checked", checked="true")
-		+input(type="radio", name="radio-group-4", id="radio-3", label="Disabled", disabled="true")
-		+input(type="radio", name="radio-group-4", id="radio-4", label="Checked and Disabled", checked="true", disabled="true")
+				.b-form__item
+					+input(type="email", name="email", label="Email", placeholder="info@example.com", pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}", title="Введите верный адрес email")
 
-	+inputGroup("Checkboxes")
-		+input(type="checkbox", name="checkbox-group-1", id="checkbox-1", label="Normal")
-		+input(type="checkbox", name="checkbox-group-1", id="checkbox-2", label="Checked", checked="true")
-		+input(type="checkbox", name="checkbox-group-2", id="checkbox-3", label="Disabled", disabled="true")
-		+input(type="checkbox", name="checkbox-group-2", id="checkbox-4", label="Checked and Disabled", checked="true", disabled="true")
+				.b-form__item
+					+input(type="url", name="url", label="Your site URL", placeholder="http://www.example.com", pattern="https?://.+", title = "Введите url начинающийся с http:// или https://")
 
+				.b-form__item
+					+input(type="tel", name="tel", label="Your phone", placeholder="+123 123-345-6789", pattern="(\+?\d[- .]*){7,13}", title="Международный, государственный или местный телефонный номер")
 
-	h3#selects &#167; Selects
-	-var data = ["Lorem ipsum", "Dolor sit amet", "Consectetur adipisicing", "Elit", "Expedita at soluta"]
-	+input(type="select", name="select", placeholder="Select value...", label="Select", value=data)
+				.b-form__item
+					+input(type="password", name="password", value="password", placholder="Enter password", label="Password", errors=["some error message", "another error message"])
 
-	+input(type="multiselect", name="multiple-select", label="Multiselect", value=["Value 1", "Value 2", "Value 3", "Value 4", "Value 5", "Value 6", "Value 7"], size="6")
+				.b-form__item
+					+input(type="number", name="number", placholder="18", label="Your age")
+			
+			.b-form__section
+				h3#radios-and-checkboxes &#167; Radios and Checkboxes
+				.b-form__item
+					+inputGroup("Radios")
+						+input(type="radio", name="radio-group-3", id="radio-1", label="Normal")
+						+input(type="radio", name="radio-group-3", id="radio-2", label="Checked", checked="true")
+						+input(type="radio", name="radio-group-4", id="radio-3", label="Disabled", disabled="true")
+						+input(type="radio", name="radio-group-4", id="radio-4", label="Checked and Disabled", checked="true", disabled="true")
+				.b-form__item
+					+inputGroup("Checkboxes")
+						+input(type="checkbox", name="checkbox-group-1", id="checkbox-1", label="Normal")
+						+input(type="checkbox", name="checkbox-group-1", id="checkbox-2", label="Checked", checked="true")
+						+input(type="checkbox", name="checkbox-group-2", id="checkbox-3", label="Disabled", disabled="true")
+						+input(type="checkbox", name="checkbox-group-2", id="checkbox-4", label="Checked and Disabled", checked="true", disabled="true")
 
-	h3#textareas-and-files &#167; Textareas and Files
-	+input(type="textarea", name="textarea", label="Textarea", placeholder="Textarea placeholder")
-	+input(type="file", name="file", label="File")
-	
-	h3#captcha &#167; Captcha
-	+input(type="captcha", name="captcha-input", label="Captcha", image="img/content/captcha.png")
+			.b-form__section
+				h3#selects &#167; Selects
+				-var data = ["Lorem ipsum", "Dolor sit amet", "Consectetur adipisicing", "Elit", "Expedita at soluta"]
+				.b-form__item
+					+input(type="select", name="select", placeholder="Select value...", label="Select", value=data)
+
+				.b-form__item
+					+input(type="multiselect", name="multiple-select", label="Multiselect", value=["Value 1", "Value 2", "Value 3", "Value 4", "Value 5", "Value 6", "Value 7"], size="10")
+			
+			.b-form__section
+				h3#textareas-and-files &#167; Textareas and Files
+				.b-form__item
+					+input(type="textarea", name="textarea", label="Textarea", placeholder="Textarea placeholder")
+
+				.b-form__item
+					+input(type="file", name="file", label="File")
+
+			.b-form__section
+				h3#captcha &#167; Captcha
+				.b-form__item
+					+input(type="captcha", name="captcha", label="Captcha", image="img/content/captcha.png")
 
 	h3#buttons &#167; Buttons
 	button(type="button").b-button.b-button_color_grey.b-button_size_lg Large
@@ -391,7 +418,14 @@ section
 	button(type="button").b-button.b-button_color_blue.b-button_size_xs.b-button_disabled Extra small
 
 	h4 &#167; Block buttons
+	button(type="button").b-button.b-button_color_grey.b-button_size_lg.b-button_block Large
 	button(type="button").b-button.b-button_color_grey.b-button_block Default
+	button(type="button").b-button.b-button_color_grey.b-button_size_sm.b-button_block Small
+	button(type="button").b-button.b-button_color_grey.b-button_size_xs.b-button_block Extra small
+
+	button(type="button").b-button.b-button_color_blue.b-button_size_lg.b-button_block Large
 	button(type="button").b-button.b-button_color_blue.b-button_block Default
+	button(type="button").b-button.b-button_color_blue.b-button_size_sm.b-button_block Small
+	button(type="button").b-button.b-button_color_blue.b-button_size_xs.b-button_block Extra small
 				
 // END FORMS
