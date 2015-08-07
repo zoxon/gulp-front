@@ -29,13 +29,19 @@ $header-font-color  = #fff
 
 .b-header
 	background $header-bg-color
-	padding 35px 0
+	padding 115px 0 35px
 	&__inner
 		width 960px
 		margin 0 auto
 
 	&__top
-		transition padding 0.5s ease, background 0.5s ease, box-shadow 0.5s ease, border 0.5s ease
+		transition padding 0.5s ease 0s, background 0.5s ease 0s, box-shadow 0.5s ease 0s
+		padding 1em 0
+		position absolute
+		top 0
+		width 100%
+		z-index 1000
+		background-color $header-bg-color
 
 	&__logo
 	&__menu
@@ -58,14 +64,35 @@ $header-font-color  = #fff
 		padding 70px 0
 
 	&_fixed &__top
-		background-color $header-bg-color
-		border-bottom 1px solid #ddd
-		box-shadow 0px 2px 3px rgba(#000, 0.04)
 		position fixed
-		top 0
-		width 100%
-		padding 1em 0em
-		z-index 1000
+		box-shadow 0px 2px 3px rgba(#000, 0.04)
+
+.b-button_style_ghost
+	font-family notosans
+	padding 20px 60px
+	font-size 20px
+	line-height 20px
+	border-radius 2px
+	transition 0.2s background ease-in-out 0s
+	&
+	&:visited
+		color #fff
+		border-color #fff
+
+	&:focus
+		color #fff
+		border-color #fff - 25%
+
+	&:hover
+	&:active
+		color $header-bg-color
+		background-color #fff
+
+		&:focus
+			color #fff
+
+	&:active
+		background-image none
 
 
 .b-logo
@@ -242,6 +269,7 @@ $header-font-color  = #fff
 	&__sub-description
 		color $header-font-color
 		font-size 14px
+		padding-bottom 60px
 
 
 .b-sidebar-menu

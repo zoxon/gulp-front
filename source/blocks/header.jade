@@ -1,20 +1,22 @@
 script.
 	$(function() {
 
-		var $header    = $('.b-header__top'),
+		var $header    = $('.b-header')
+			$headerTop = $header.find('.b-header__top'),
 			$window    = $(window),
 			marginTop  = 0,
-			offset     = $header.offset(),
+			offset     = $headerTop.offset().top,
 			classAdded = false;
 
 		$window.scroll(function() {
-			if ($window.scrollTop() > offset.top) {
+			if ($window.scrollTop() > offset) {
 				if (classAdded === false) {
-					$header.parent().addClass('b-header_fixed');
+					$header.addClass('b-header_fixed');
 				}
 				classAdded = true;
-			} else {
-				$header.parent().removeClass('b-header_fixed');
+			}
+			else {
+				$header.removeClass('b-header_fixed');
 				classAdded = false;
 			}
 		});
@@ -63,7 +65,7 @@ header.b-header
 					span.b-logo__name Gulp front
 			
 			.b-header__menu
-				- var menuData = [ {"title": "Typography", "url": "#typography", "submenu": [ {"title": "Titles &amp; Paragraphs", "url": "#titles-and-paragraphs"}, {"title": "Unordered lists", "url": "#unordered-lists"}, {"title": "Ordered lists", "url": "#ordered-lists"}, {"title": "Tables", "url": "#tables"}, {"title": "Quotes", "url": "#quotes"}, {"title": "Description lists", "url": "#description-lists"}, {"title": "Code", "url": "#code"}, {"title": "Text level elements", "url": "#text-elements"} ]}, {"title": "Articles", "url": "#articles", "submenu": false}, {"title": "Forms", "url": "#forms", "submenu": [{"title": "Messaging", "url": "#messaging"}, {"title": "Text Inputs", "url": "#text-inputs"}, {"title": "Radios and Checkboxes", "url": "#radios-and-checkboxes"}, {"title": "Selects", "url": "#selects"}, {"title": "Textareas and Files", "url": "#textareas-and-files"}, {"title": "Captcha", "url": "#captcha"}, {"title": "Buttons", "url": "#buttons"} ]} ];
+				- var menuData = [ {"title": "Typography", "url": "#typography", "submenu": [ {"title": "Titles &amp; Paragraphs", "url": "#titles-and-paragraphs"}, {"title": "Unordered lists", "url": "#unordered-lists"}, {"title": "Ordered lists", "url": "#ordered-lists"}, {"title": "Tables", "url": "#tables"}, {"title": "Quotes", "url": "#quotes"}, {"title": "Description lists", "url": "#description-lists"}, {"title": "Code", "url": "#code"}, {"title": "Text level elements", "url": "#text-elements"} ]}, {"title": "Articles", "url": "#articles", "submenu": false}, {"title": "Tabs", "url": "#tabs", "submenu": false}, {"title": "Forms", "url": "#forms", "submenu": [{"title": "Messaging", "url": "#messaging"}, {"title": "Text Inputs", "url": "#text-inputs"}, {"title": "Radios and Checkboxes", "url": "#radios-and-checkboxes"}, {"title": "Selects", "url": "#selects"}, {"title": "Textareas and Files", "url": "#textareas-and-files"}, {"title": "Captcha", "url": "#captcha"}, {"title": "Buttons", "url": "#buttons"} ]} ];
 				nav(aria-label="primary").b-main-menu.js-link-sroll
 					ul
 						each ent, num in menuData
@@ -95,8 +97,10 @@ header.b-header
 		.b-header__inner
 			.b-header-presentation
 				h1.b-header-presentation__name Gulp front
-				h2.b-header-presentation__description A lean and powerfull, gulp-based Jade &amp; Stylus boilerplate for better front-end coding.
+				h2.b-header-presentation__description A lean and powerful, gulp-based boilerplate for better front-end coding.
 				.b-header-presentation__try-now
 					a(href="#").b-button.b-button_color_white.b-button_style_outline.b-button_size_xxxl 
 				.b-header-presentation__version v. 2.2.5
 				.b-header-presentation__sub-description Created &amp; maintained by @zoxon
+				.b-header-presentation__download
+					a(href="//github.com/Zoxon/gulp-front/archive/master.zip").b-button.b-button_style_ghost Download
