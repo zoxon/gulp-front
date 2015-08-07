@@ -1,9 +1,8 @@
 @import './lib/mixins'
 @import './lib/print'
 
-// Simple media indicator
 body:before
-	// display none
+	display block
 	position fixed
 	left 0
 	bottom 0
@@ -16,49 +15,35 @@ body:before
 
 
 @media only screen
-	// 1200 and bigger(devices and browsers)
-	@media (min-width: 1200px)
+	//- Здесь стили более разумных, но все еще мобильных устройств. Android, iPhone  и так далее.
+	@media (min-width: 480px)
 		body:before
-			content 'min-width: 1200px'
+			content 'min-width: 480px'
 
 
-	// Smaller than 1200 (devices and browsers)
-	@media (min-width: 997px) and (max-width: 1199px)
+
+	//- Планшеты в режиме portrait.
+	@media (min-width: 768px)
 		body:before
-			content '(min-width: 997px) and (max-width: 1199px)'
+			content 'min-width: 768px'
+
+		
 
 
-	// Smaller than standard 960 (devices and browsers)
-	@media (max-width: 996px)
+
+
+	//- Планшеты в режиме landscape, нетбуки, ноутбуки, десктоп.
+	@media (min-width: 992px)
 		body:before
-			content '(max-width: 996px)'
+			content 'min-width: 992px'
+
+		
 
 
-	// Tablet Portrait size to standard 960 (devices and browsers)
-	@media (min-width: 768px) and (max-width: 996px)
+	//- Десктоп с большими разрешениями, телевизоры.
+	@media (min-width: 1382px)
 		body:before
-			content '(min-width: 768px) and (max-width: 996px)'
+			content 'min-width: 1382px'
 
+		
 
-	// All Mobile Sizes (devices and browser)
-	@media (max-width: 767px)
-		body:before
-			content '(max-width: 767px)'
-
-		.b-content-wrapper
-			table
-				overflow-x auto
-				display block
-				border none
-
-
-	// Mobile Landscape Size to Tablet Portrait (devices and browsers)
-	@media (min-width: 480px) and (max-width: 767px)
-		body:before
-			content '(min-width: 480px) and (max-width: 767px)'
-
-
-	// Mobile Portrait Size to Mobile Landscape Size (devices and browsers)
-	@media (max-width: 479px)
-		body:before
-			content '(max-width: 479px)'

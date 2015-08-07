@@ -1,44 +1,13 @@
 // @import 'nib'
-@import '/lib/variables'
-@import '/lib/mixins/font'
-@import "type-utils"
+@import 'variables'
+@import 'mixins/font'
+@import "../../../node_modules/stylus-type-utils/index.styl"
 
 hard-reset()
 	*
 		margin 0
 		padding 0
 		border none
-		// list-style none
-		// outline none
-
-	*:focus
-		outline 0
-
-
-
-// IE 7 Valid hack
-// Use
-// +ie7()
-//     color red
-ie7()
-	*:first-child+html &
-		{block}
-
-
-// IE 6 Valid hack
-ie6()
-	*html &
-		{block}
-
-
-inline-block-ie7()
-	display inline-block
-
-	if(support-for-ie == true)
-		*:first-child+html &
-			display inline
-			zoom 1
-			{block}
 
 
 display(value)
@@ -137,7 +106,9 @@ ps-tracking( val )
 	unit(val/1000, 'em')
 
 clearfix()
-	zoom 1
+	if(support-for-ie == true && support-ie-version <= 7)
+		*:first-child+html &
+			zoom 1
 	&:before
 	&:after
 		content ""
@@ -176,3 +147,34 @@ font-smoothing(active = true)
 	else
 		-webkit-font-smoothing subpixel-antialiased
 		-moz-osx-font-smoothing auto
+
+
+// Count size in persents
+ps(parentSize, childSize)
+	amount = (childSize / parentSize) * 100
+	amount = floor(amount, 2)
+	unit(amount, "%")
+
+
+font-feature()
+	-moz-font-feature-settings: "liga=1, dlig=1"
+	-ms-font-feature-settings: "liga", "dlig"
+	-webkit-font-feature-settings: "liga", "dlig"
+	-o-font-feature-settings: "liga", "dlig"
+	font-feature-settings: "liga", "dlig"
+
+hyphens()
+	-webkit-hyphens: auto
+	-moz-hyphens: auto
+	hyphens: auto
+
+image-responsive(display = block)
+	display display
+	max-width 100% // Part 1: Set a maximum relative to the parent
+	height auto // Part 2: Scale the height according to the width, otherwise you get stretching
+
+ul-reset()
+	ul
+		margin 0
+		padding 0
+		{block}

@@ -1,24 +1,57 @@
 .clear
 	clear both
 
-.g-clearfix
-	&:after
-		content ""
-		display table
-		clear both
+// .g-clearfix
+// 	&:after
+// 		content ""
+// 		display table
+// 		clear both
 
-.no-border
+.g-clearfix
+	clearfix()
+
+.h-table_no-border
 	&
 	td
 	th
 		border none
 
-.no-padding
+.h-table_no-padding
 	&
 	td
 	th
 		padding 0
 
+.h-table_va-m
+	td
+	th
+		vertical-align middle
+
+.h-table_va-t
+	td
+	th
+		vertical-align top
+
+.h-table_va-b
+	td
+	th
+		vertical-align bottom
+
+.h-table-align_divided
+	tr
+		td
+		th
+			text-align right
+	tr
+		td
+		th
+			&:first-child
+				text-align left
+
+.h-text-muted
+	&
+	& > *
+		color #b9b9b9
 
 .h-tac
 	text-align center
