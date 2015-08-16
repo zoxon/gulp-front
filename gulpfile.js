@@ -182,7 +182,7 @@ gulp.task('plugins', function() {
 	gulp.src(path.source.js)
 		.pipe(include())
 		.pipe(gulp.dest(path.dest.js))
-		.pipe(uglify())
+		.pipe(uglify().on('error', gutil.log))
 		.pipe(rename(plugins.rename.options))
 		.on('error', handleError)
 		.pipe(gulp.dest(path.dest.js))
