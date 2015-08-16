@@ -1,16 +1,5 @@
 (function($) {
 
-	/*!
-	 * jQuery spinner plugin
-	 *
-	 * Copyright (c) 2014 Weltkind Web Works
-	 * www.weltkind.com
-	 *
-	 * @version 1.0.0
-	 *
-	 */
-
-
 	$('.b-tabs .b-tabs__body-content').css({
 		"opacity": "0",
 		"display": "none"
@@ -38,7 +27,6 @@
 
 		var tab = $(this).attr("href");
 		$parent.find(".b-tabs__body-content").not(tab).css({
-			// "padding-left": "20px",
 			"opacity": 0,
 			"display": "none"
 		});
