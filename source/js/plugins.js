@@ -29,7 +29,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 // Enable html5 tags support in old browsers
-//= require plugins/html5shiv/html5shiv.js
+// require plugins/html5shiv/html5shiv.js
 
 // Enable @media support in old browsers
 //= require plugins/respond/respond.src.js
