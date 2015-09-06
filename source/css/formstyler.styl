@@ -1,4 +1,4 @@
-@import 'lib/mixins'
+@import '_mixins'
 
 //-//////////////////////////////////////////////////////////
 //- JQuery Form Styler
@@ -147,17 +147,18 @@
 			text-align left
 			-moz-appearance textfield
 
-	&__field input::-webkit-inner-spin-button,
-	&__field input::-webkit-outer-spin-button
-		margin 0
-		-webkit-appearance none
+	&__field
+		input::-webkit-inner-spin-button
+		input::-webkit-outer-spin-button
+			margin 0
+			-webkit-appearance none
 
 	&__spin
 		position absolute
 		right 0
 		width 32px
 		height 19px
-		border 1px solid #e5e4e4
+		border 1px solid #cdcdcd
 		border-radius 3px
 		// background #F5F5F5
 		// background -webkit-linear-gradient(#FFF, #E6E6E6)

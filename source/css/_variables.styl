@@ -1,21 +1,44 @@
 ////////////////////////////////////////////////////////////
-// Nib settings and ie support
-////////////////////////////////////////////////////////////
-support-for-ie                              = true
-vendor-prefixes                             = webkit moz o ms official
-support-ie-version                          = 7
-
-
-
-////////////////////////////////////////////////////////////
 // Базовые
 ////////////////////////////////////////////////////////////
 $base-bg-color                              = #fff
+
+$base-text-color                            = #333
+$base-quiet-color                           = #ccc
+$base-loud-color                            = #000
+
 $base-font-family                           = notosans
-$base-monospace-font-family                 = consolas
-$base-font-color                            = #000
 $base-font-size                             = 14px
-$base-line-height                           = 22px
+$base-font-weight                           = 300
+$base-line-height                           = 20px
+
+$fixed-font-family                          = consolas
+$fixed-font-size                            = $base-font-size
+$fixed-line-height                          = 1.6
+
+
+
+////////////////////////////////////////////////////////////
+// Components
+////////////////////////////////////////////////////////////
+$components-demo                            = true
+$components-buttons                         = true
+$components-tabs                            = true
+$components-form                            = true
+$components-media                           = true
+$components-grid                            = true
+$components-debug                           = false
+
+
+
+////////////////////////////////////////////////////////////
+// Таблицы
+////////////////////////////////////////////////////////////
+$table-border-color                         = #e6e6e6
+$table-head-border-color                    = #fff
+$table-back-color                           = #e6edf8
+$table-stripe-color                         = #f7f7f7
+$table-font-color                           = #333333
 
 
 
@@ -23,49 +46,17 @@ $base-line-height                           = 22px
 // Заголовки
 ////////////////////////////////////////////////////////////
 $heading-font-family                        = notoserif
-$heading-font-color                         = #000
-$heading-h1-font-size                       = 30px
-$heading-h2-font-size                       = $heading-h1-font-size - 4px
-$heading-h3-font-size                       = $heading-h1-font-size - 6px
-$heading-h4-font-size                       = $heading-h1-font-size - 10px
-$heading-h5-font-size                       = $heading-h1-font-size - 12px
-$heading-h6-font-size                       = $heading-h1-font-size - 14px
+$heading-color                              = #111
+$heading-font-weight                        = 700
 
 
 
 ////////////////////////////////////////////////////////////
 // Ссылки
 ////////////////////////////////////////////////////////////
-$base-link-color                            = #0083ca
-$base-hover-link-color                      = #ee1111
-$base-visited-link-color                    = $base-link-color + 10%
-
-
-
-////////////////////////////////////////////////////////////
-// Таблицы
-////////////////////////////////////////////////////////////
-$table-base-font-size                       = 12px
-$table-base-font-color                      = #666
-$table-base-cell-align                      = left
-
-$table-heading-font-size                    = $table-base-font-size
-$table-heading-font-color                   = #222
-$table-heading-border-color                 = #ccc
-$table-heading-pading                       = 10px 12px 10px 0
-
-$table-cell-pading                          = 8px 12px 8px 0
-$table-cell-font-color                      = #666
-$table-cell-border-color                    = #eee
-
-
-
-
-
-////////////////////////////////////////////////////////////
-// Списки
-////////////////////////////////////////////////////////////
-$list-marker-path                           = '../img/list-marker.gif'
+$link-color                                 = #0083ca
+$link-hover-color                           = #ee1111
+$link-visited-color                         = $link-color + 10%
 
 
 
@@ -106,26 +97,52 @@ $form-captcha-width                        = 78px
 $form-input-width                          = 427px
 
 
+
+////////////////////////////////////////////////////////////
+// Media
+////////////////////////////////////////////////////////////
+
+$media-enable-debug                         = false
+$media-enable-em                            = false
+
+// Extra small screen / phone
+$media-screen-xs                            = 480px // 30em
+$media-screen-phone                         = $media-screen-xs
+
+// Small screen / tablet
+$media-screen-sm                            = 768px // 48em
+$media-screen-tablet                        = $media-screen-sm
+
+// Medium screen / desktop
+$media-screen-md                            = 992px // 62em
+$media-screen-desktop                       = $media-screen-md
+
+// Large screen / wide desktop
+$media-screen-lg                            = 1382px // ~85em
+$media-screen-lg-desktop                    = $media-screen-lg
+
+
+
 ////////////////////////////////////////////////////////////
 // Цвета
 ////////////////////////////////////////////////////////////
-aqua                                       = #7FDBFF
-blue                                       = #0074D9
-navy                                       = #001F3F
-teal                                       = #39CCCC
-green                                      = #2ECC40
-olive                                      = #3D9970
-lime                                       = #01FF70
-yellow                                     = #FFDC00
-orange                                     = #FF851B
-red                                        = #FF4136
-fuchsia                                    = #F012BE
-purple                                     = #B10DC9
-maroon                                     = #85144B
-white                                      = #ffffff
-silver                                     = #dddddd
-gray                                       = #aaaaaa
-black                                      = #111111
+aqua                                        = #7FDBFF
+blue                                        = #0074D9
+navy                                        = #001F3F
+teal                                        = #39CCCC
+green                                       = #2ECC40
+olive                                       = #3D9970
+lime                                        = #01FF70
+yellow                                      = #FFDC00
+orange                                      = #FF851B
+red                                         = #FF4136
+fuchsia                                     = #F012BE
+purple                                      = #B10DC9
+maroon                                      = #85144B
+white                                       = #ffffff
+silver                                      = #dddddd
+gray                                        = #aaaaaa
+black                                       = #111111
 
 
 ////////////////////////////////////////////////////////////

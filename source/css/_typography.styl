@@ -1,0 +1,208 @@
+h1
+h2
+h3
+h4
+h5
+h6
+	font-family $heading-font-family
+	font-weight $heading-font-weight
+	margin 1.2em 0 0.5em
+	line-height normal
+
+
+h1
+	font-size 2.6em
+
+h2
+	font-size 2.3em
+
+h3
+	font-size 2em
+
+h4
+	font-size 1.8em
+
+h5
+	font-size 1.4em
+
+h6
+	font-size 1.2em
+
+a
+	color $link-color
+	text-decoration none
+
+	&:visited
+		color $link-visited-color
+
+	&:hover
+		color $link-hover-color
+		text-decoration underline
+
+i
+em
+	font-style italic
+
+b
+strong
+	font-weight bold
+
+ol
+ul
+	list-style-position inside
+	padding-left 2em
+
+ol
+	// list-style-type disc
+
+ul
+	// list-style-type decimal
+
+dt
+dd
+	line-height $base-line-height
+
+dt
+	font-weight: bold;
+
+dd
+	margin-left 0 //- Undo browser default
+
+
+
+pre
+code
+	font-family $fixed-font-family
+	font-size $fixed-font-size
+	line-height $fixed-line-height
+
+	overflow hidden
+	white-space -moz-pre-wrap
+	white-space -o-pre-wrap
+	white-space -pre-wrap
+	white-space pre-wrap
+	word-wrap break-word
+	tab-size 4
+
+pre
+	padding 1em
+	background #eee
+	border-radius 3px
+
+q
+	quotes "«" "»"
+	font-style italic
+
+	q
+		quotes "„" "“"
+		font-style italic
+
+blockquote
+	padding ($base-line-height / 2)
+	margin 0 0 $base-line-height
+	border-left 5px solid #eee
+
+	p
+	ul
+	ol
+		&:last-child
+			margin-bottom: 0
+
+		&:first-child
+			margin-top 0
+
+	footer
+	small
+		display block
+		font-size 80%
+		line-height $base-line-height
+
+		&:before
+			content '\2014 \00A0' //- em dash, nbsp
+
+hr
+	display block
+	height 1px
+	border 0
+	border-top 1px solid #ccc
+	margin 1em 0
+	padding 0
+
+
+table
+	width 100%
+
+.h-table
+	margin $base-line-height 0
+	border-collapse collapse
+	border-spacing 0
+	empty-cells show
+	border 1px solid $table-border-color
+	font-size 14px
+
+	caption
+		color $table-font-color
+		font-style italic
+		font-size 85%
+		line-height 1
+		padding 1em 0
+		text-align center
+
+	td
+	th
+		border-left 1px solid $table-border-color
+		border-width 0 0 0 1px
+		font-size inherit
+		margin 0
+		overflow visible
+		padding 0.5em 1em
+		font-weight normal
+		&:first-child
+			border-left-width 0
+
+	thead
+	tfoot
+		background-color $table-back-color
+		color $table-font-color
+		text-align left
+		vertical-align bottom
+		if $table-head-border-color
+			td
+			th
+				border-color $table-head-border-color
+
+
+	td
+		background-color transparent
+
+	// Horizontal stripes
+	&_striped
+		tr:nth-child(2n-1)
+			td
+				background-color $table-stripe-color
+
+	// All cels bordered
+	&_bordered
+		td
+			border-bottom 1px solid $table-border-color
+
+		tbody
+		thead
+			> tr:last-child
+				> td
+					border-bottom-width: 0
+
+	// Horizontal borders
+	&_horizontal
+		td
+		th
+			border-width 0 0 1px 0
+			border-bottom 1px solid $table-border-color
+
+		tbody
+		thead
+			> tr:last-child
+				> td
+					border-bottom-width 0
+
+

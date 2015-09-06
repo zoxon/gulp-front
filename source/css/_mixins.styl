@@ -1,7 +1,22 @@
-// @import 'nib'
-@import 'variables'
-@import 'mixins/font'
-@import "../../../node_modules/stylus-type-utils/index.styl"
+@import '_variables'
+
+////////////////////////////////////////////////////////////
+// @font-face mixin
+////////////////////////////////////////////////////////////
+file(file_name, file_ext, file_path)
+	file_path + "/" + file_name + "." + file_ext
+
+font-face( family, file-name, base-path="../fonts", weight=normal, style=normal )
+	@font-face
+		font-family family
+		src url(file(file-name, "eot", base-path));
+		src url(file(file-name, "eot?#iefix'", base-path)) format('embedded-opentype'),
+			url(file(file-name, "woff", base-path)) format("woff"),
+			url(file(file-name, "ttf", base-path)) format("truetype");
+
+		font-weight weight
+		font-style style
+
 
 hard-reset()
 	*
@@ -31,11 +46,7 @@ overflow(value)
 		overflow value
 
 
-// Usage examle
-// size 30px
-// →
-// width 30px
-// height 30px
+// Set with and height
 size( values... )
 	if length( values ) == 1
 		width values[ 0 ] || auto
@@ -44,7 +55,8 @@ size( values... )
 		width values[ 0 ] if values[ 0 ] != false
 		height values[ 1 ] if values[ 1 ] != false
 
-
+// Set min-width and min-height
+// Like size but with min-
 min-size( a, b = false )
 	min-width a
 	if b
@@ -52,17 +64,17 @@ min-size( a, b = false )
 	else
 		min-height a
 
-
+// Set size and display block
 block( a, b = false )
 	size a b
 	display block
 
-
+// Set size and display inline-block
 inline-block( a, b = false )
 	size a b
 	display inline-block
 
-
+// Draw border triangle
 triangle( direction, size, face-color, back-color = transparent )
 	width 0
 	height 0
@@ -77,10 +89,7 @@ triangle( direction, size, face-color, back-color = transparent )
 		border-left-color face-color
 
 
-// Usage examle
-//  input
-//  	+placeholder()
-//			color grey
+// Set input placeholder style
 placeholder()
 	if selector() == "&"
 		error( "placeholder() must be called from a ruleset!" )
@@ -93,18 +102,21 @@ placeholder()
 	&:-ms-input-placeholder
 		{block}
 
+// Set user select none
 user-select-none()
 	-webkit-touch-callout none
 	-khtml-user-select none
 	user-select none
 
-
+// Convert pt to px
 pt2px( pt )
 	unit(pt/0.75, px)
 
+// Convert photoshop tracking to em
 ps-tracking( val )
 	unit(val/1000, 'em')
 
+// Clearfix mixin
 clearfix()
 	if(support-for-ie == true && support-ie-version <= 7)
 		*:first-child+html &
@@ -122,6 +134,7 @@ micro-clearfix()
 	display: table
 	clear both
 
+// Set style of selection
 selection( color )
 	::selection
 		background color
@@ -137,9 +150,8 @@ selection( color )
 		{block}
 
 
-/*
- * Font rendering OS X
- */
+
+// Font rendering OS X
 font-smoothing(active = true)
 	if active == true
 		-webkit-font-smoothing antialiased
