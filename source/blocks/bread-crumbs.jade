@@ -1,12 +1,10 @@
-// BREAD CRUMBS
-.b-bread-crumbs
-	ul
-		each val, index in ['Главная', 'Категория товара']
-			li.b-bread-crumbs__item 
-				a(href="#").b-bread-crumbs__link= val
-				span.b-bread-crumbs__separator /
-
-		li.b-bread-crumbs__item Название страницы
-	.clear
-
-// END BREAD CRUMBS
+mixin bread-crumbs(data)
+	.b-bread-crumbs
+		ul.g-clearfix
+			each ent, num in data
+				if (num+1 < data.length)
+					li.b-bread-crumbs__item 
+						a(href="#").b-bread-crumbs__link= ent
+						span.b-bread-crumbs__separator /
+				else
+					li.b-bread-crumbs__item= ent

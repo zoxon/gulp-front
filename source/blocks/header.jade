@@ -1,20 +1,22 @@
 script.
 	$(function() {
 
-		var $header    = $('.b-header__top'),
+		var $header    = $('.b-header')
+			$headerTop = $header.find('.b-header__top'),
 			$window    = $(window),
 			marginTop  = 0,
-			offset     = $header.offset(),
+			offset     = $headerTop.offset().top,
 			classAdded = false;
 
 		$window.scroll(function() {
-			if ($window.scrollTop() > offset.top) {
+			if ($window.scrollTop() > offset) {
 				if (classAdded === false) {
-					$header.parent().addClass('b-header_fixed');
+					$header.addClass('b-header_fixed');
 				}
 				classAdded = true;
-			} else {
-				$header.parent().removeClass('b-header_fixed');
+			}
+			else {
+				$header.removeClass('b-header_fixed');
 				classAdded = false;
 			}
 		});
@@ -22,7 +24,7 @@ script.
 
 		$('.js-link-sroll a[href^="#"]').on('click',function (event) {
 			event.preventDefault();
-
+			var $heder = $('.b-header__top');
 			var target = this.hash;
 			var $target = $(target);
 
@@ -32,7 +34,7 @@ script.
 			}
 
 			$('html, body').stop().animate({
-				'scrollTop': $target.offset().top
+				'scrollTop': $target.offset().top - $heder.outerHeight()
 			}, 900, 'swing', function () {
 				window.location.hash = target;
 			});
@@ -52,7 +54,7 @@ script.
 		
 	});
 
-header(role="banner").b-header
+header.b-header
 	.b-header__top
 		.b-header__inner
 			.b-header__logo
@@ -63,8 +65,8 @@ header(role="banner").b-header
 					span.b-logo__name Gulp front
 			
 			.b-header__menu
-				- var menuData = [ {"title": "Typography", "url": "#typography", "submenu": [ {"title": "Titles &amp; Paragraphs", "url": "#titles-and-paragraphs"}, {"title": "Unordered lists", "url": "#unordered-lists"}, {"title": "Ordered lists", "url": "#ordered-lists"}, {"title": "Tables", "url": "#tables"}, {"title": "Quotes", "url": "#quotes"}, {"title": "Description lists", "url": "#description-lists"}, {"title": "Code", "url": "#code"}, {"title": "Text level elements", "url": "#text-elements"} ]}, {"title": "Articles", "url": "#articles", "submenu": false}, {"title": "Forms", "url": "#forms", "submenu": [{"title": "Messaging", "url": "#messaging"}, {"title": "Text Inputs", "url": "#text-inputs"}, {"title": "Radios and Checkboxes", "url": "#radios-and-checkboxes"}, {"title": "Selects", "url": "#selects"}, {"title": "Textareas and Files", "url": "#textareas-and-files"}, {"title": "Captcha", "url": "#captcha"}, {"title": "Buttons", "url": "#buttons"} ]} ];
-				nav(aria-label="primary", role="navigation").b-main-menu.js-link-sroll
+				- var menuData = [ {"title": "Typography", "url": "#typography", "submenu": [ {"title": "Titles & Paragraphs", "url": "#titles-and-paragraphs"}, {"title": "Unordered lists", "url": "#unordered-lists"}, {"title": "Ordered lists", "url": "#ordered-lists"}, {"title": "Tables", "url": "#tables"}, {"title": "Images helpers", "url": "#images-helpers"}, {"title": "Quotes", "url": "#quotes"}, {"title": "Description lists", "url": "#description-lists"}, {"title": "Code", "url": "#code"}, {"title": "Text level elements", "url": "#text-elements"} ]}, {"title": "Articles", "url": "#articles", "submenu": false}, {"title": "Tabs", "url": "#tabs", "submenu": false}, {"title": "Forms", "url": "#forms", "submenu": [{"title": "Messaging", "url": "#messaging"}, {"title": "Text Inputs", "url": "#text-inputs"}, {"title": "Radios and Checkboxes", "url": "#radios-and-checkboxes"}, {"title": "Selects", "url": "#selects"}, {"title": "Textareas and Files", "url": "#textareas-and-files"}, {"title": "Captcha", "url": "#captcha"}, {"title": "Buttons", "url": "#buttons"} ]}, {"title": "Grid", "url": "#grid", "submenu": false} ];
+				nav(aria-label="primary").b-main-menu.js-link-sroll
 					ul
 						each ent, num in menuData
 							if (ent.submenu !== false)
@@ -83,7 +85,7 @@ header(role="banner").b-header
 					.clear
 
 			.b-header__github
-				a(href="//github.com/Zoxon/gulp-front", target="_blank").b-github-button
+				a(href="//github.com/Zoxon/gulp-front", target="_blank", title="Watch source on Github").b-github-button
 					svg(width="100%", height="100%", viewBox="0 0 100 100").b-github-button__icon
 						g#github-button-octocat-icon
 							path(fill-rule="evenodd", clip-rule="evenodd", d="M49.941,99.039c-27.115,0-49.095-21.98-49.095-49.096c0-27.115,21.98-49.096,49.095-49.096c27.116,0,49.098,21.982,49.098,49.096C99.039,77.059,77.058,99.039,49.941,99.039z M49.941,8.43c-22.926,0-41.513,18.586-41.513,41.513c0,18.678,12.335,34.474,29.304,39.689c-0.006-0.951,0.006-6.691-0.008-7.696c-0.092-0.056-9.734,2.825-13.88-4.128c-0.659-1.13-1.73-5.102-4.622-7.3c-0.101-0.086-2.239-1.172-2.435-2.239c-0.022-0.148,0.137-0.46,0.348-0.536c0.22-0.081,3.735-1.518,7.652,3.43c1.182,1.656,3.849,8.008,13.183,4.083c0.251-0.979,0.751-3.236,3.715-3.852c-13.9-1.654-20.248-6.929-22.219-18.758c-1.23-8.062,1.135-14.764,4.688-18.072c-0.539-0.703-2.312-6.596,0.444-12.828c2.987-0.595,8.466,1.539,13.282,4.99c6.792-2.441,19.543-1.807,24.106,0c2.168-1.785,9.913-5.953,13.236-4.981c0.976,2.474,2.383,8.468,0.438,12.837c4.327,4.433,5.548,10.158,4.767,17.188c-0.956,10.655-7.515,18.267-22.243,19.523c3.71,2.546,3.874,6.53,4.002,8.101c0.033,3.663-0.042,8.649,0.005,10.225c16.948-5.225,29.265-21.012,29.265-39.676C91.455,27.016,72.869,8.43,49.941,8.43z")
@@ -95,8 +97,8 @@ header(role="banner").b-header
 		.b-header__inner
 			.b-header-presentation
 				h1.b-header-presentation__name Gulp front
-				h2.b-header-presentation__description A lean and powerfull, gulp-based Jade &amp; Stylus boilerplate for better front-end coding.
-				.b-header-presentation__try-now
-					a(href="#").b-button.b-button_color_white.b-button_style_outline.b-button_size_xxxl 
-				.b-header-presentation__version v. 2.5.0
+				h2.b-header-presentation__description A lean and powerful, gulp-based boilerplate for better front-end coding.
+				.b-header-presentation__version v. 3.0.0
 				.b-header-presentation__sub-description Created &amp; maintained by @zoxon
+				.b-header-presentation__download
+					a(href="//github.com/Zoxon/gulp-front/archive/master.zip", title="Download source from Github").b-button.b-button_style_ghost Download

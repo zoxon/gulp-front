@@ -1,15 +1,20 @@
-@import './lib/mixins'
+@import '_mixins'
+@import '_components'
 
-.b-browsehappy
-	background #ffe983
-	color $base-font-color
-	padding 0.5em 0 0.7em
-	text-align center
 
-body
-	background $base-bg-color
+$footer-height = 79px
+.b-page
+	height 100%
 
-@import '_demo'
+	&__content
+		//
 
-@import './_form'
-@import './_media'
+	&__wrapper
+		min-height 100%
+		margin 0 auto $footer-height
+
+	&__footer
+	&__buffer
+		height $footer-height
+
+

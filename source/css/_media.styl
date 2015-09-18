@@ -1,42 +1,51 @@
-@import './lib/mixins'
-@import './lib/print'
+@import '_mixins'
+
+if $media-enable-debug
+	// Стили для отладки @media
+	body:before
+		display block
+		position fixed
+		left 0
+		bottom 0
+		background #fff
+		z-index 101
+		color #000
+		padding 10px
+		border 1px solid silver
+		border-radius 2px
+
 
 @media only screen
-	// 1200 and bigger(devices and browsers)
-	@media (min-width: 1200px)
-		//
+	// Cтили для более разумных, но все еще мобильных устройств.
+	// Android, iPhone  и так далее.
+	@media (min-width: $media-screen-xs)
+		if $media-enable-debug
+			body:before
+				content 'min-width: $media-screen-xs'
 
 
-	// Smaller than 1200 (devices and browsers)
-	@media (min-width: 997px) and (max-width: 1199px)
-		//
+
+	// Планшеты в режиме portrait.
+	@media (min-width: $media-screen-sm)
+		if $media-enable-debug
+			body:before
+				content 'min-width: $media-screen-sm'
 
 
-	// Smaller than standard 960 (devices and browsers)
-	@media (max-width: 996px)
-		body
-			background-color red + 50%
+
+	// Планшеты в режиме landscape, нетбуки, ноутбуки, десктоп.
+	@media (min-width: $media-screen-md)
+		if $media-enable-debug
+			body:before
+				content 'min-width: $media-screen-md'
 
 
-	// Tablet Portrait size to standard 960 (devices and browsers)
-	@media (min-width: 768px) and (max-width: 996px)
-		body
-			background-color orange + 50%
+
+	// Десктоп с большими разрешениями, телевизоры.
+	@media (min-width: $media-screen-lg)
+		if $media-enable-debug
+			body:before
+				content 'min-width: $media-screen-lg'
 
 
-	// All Mobile Sizes (devices and browser)
-	@media (max-width: 767px)
-		body
-			background-color yellow + 50%
 
-
-	// Mobile Landscape Size to Tablet Portrait (devices and browsers)
-	@media (min-width: 480px) and (max-width: 767px)
-		body
-			background-color green + 50%
-
-
-	// Mobile Portrait Size to Mobile Landscape Size (devices and browsers)
-	@media (max-width: 479px)
-		body
-			background-color blue + 50%

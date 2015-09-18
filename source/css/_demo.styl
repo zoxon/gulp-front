@@ -1,3 +1,4 @@
+@import '_tabs'
 @import '_animations'
 
 //-//////////////////////////////////////////////////////////
@@ -19,6 +20,7 @@
 
 .b-page-title
 	padding 0 0 8px 0
+	margin 0
 	font-size 34px
 	border-bottom 1px solid #dadada
 
@@ -28,13 +30,19 @@ $header-font-color  = #fff
 
 .b-header
 	background $header-bg-color
-	padding 35px 0
+	padding 115px 0 35px
 	&__inner
 		width 960px
 		margin 0 auto
 
 	&__top
-		transition padding 0.5s ease, background 0.5s ease, box-shadow 0.5s ease, border 0.5s ease
+		transition padding 0.5s ease 0s, background 0.5s ease 0s, box-shadow 0.5s ease 0s
+		padding 1em 0
+		position absolute
+		top 0
+		width 100%
+		z-index 1000
+		background-color $header-bg-color
 
 	&__logo
 	&__menu
@@ -57,19 +65,41 @@ $header-font-color  = #fff
 		padding 70px 0
 
 	&_fixed &__top
-		background-color $header-bg-color
-		border-bottom 1px solid #ddd
-		box-shadow 0px 2px 3px rgba(#000, 0.04)
 		position fixed
-		top 0
-		width 100%
-		padding 1em 0em
-		z-index 1000
+		box-shadow 0px 2px 3px rgba(#000, 0.04)
+
+.b-button_style_ghost
+	font-family notosans
+	padding 20px 60px
+	font-size 20px
+	line-height 20px
+	border-radius 2px
+	transition 0.2s background ease-in-out 0s
+	&
+	&:visited
+		color #fff
+		border-color #fff
+
+	&:focus
+		color #fff
+		border-color #fff - 25%
+
+	&:hover
+	&:active
+		color $header-bg-color
+		background-color #fff
+
+		&:focus
+			color #fff
+
+	&:active
+		background-image none
 
 
 .b-logo
 	&
 	&:visited
+		line-height normal
 		font-family $header-font-family
 		font-size 0
 		color $header-font-color
@@ -198,19 +228,22 @@ $header-font-color  = #fff
 		border 1px solid transparent
 		transition all 300ms ease-in-out 0s
 		text-decoration none
-		span
-			font-size 16px
-			font-family $header-font-family
 
 	&:hover
 		text-decoration underline
 		color $header-font-color
 
+	&__text
+		font-size 16px
+		font-family $header-font-family
+		vertical-align middle
+
 	&__icon
 		transition all 300ms ease-in-out 0s
-		margin-right 4px
+		margin-right 7px
 		size 16px
 		fill $header-font-color
+		vertical-align middle
 
 .b-header-presentation
 	font-family $header-font-family
@@ -221,6 +254,8 @@ $header-font-color  = #fff
 		font-size 60px
 		margin 0
 		font-weight normal
+		padding-bottom 20px
+		line-height normal
 
 	&__description
 		color $header-font-color
@@ -238,6 +273,7 @@ $header-font-color  = #fff
 	&__sub-description
 		color $header-font-color
 		font-size 14px
+		padding-bottom 60px
 
 
 .b-sidebar-menu
@@ -249,6 +285,7 @@ $header-font-color  = #fff
 		padding 0
 
 	&__title
+		margin 0
 		padding 10px 20px
 		font-size 18px
 		border-bottom 1px solid #dadada
@@ -257,8 +294,6 @@ $header-font-color  = #fff
 		font-size 14px
 		padding 0 0 10px 0
 		list-style none
-		&:last-child
-			padding-bottom 0
 
 	&__link
 		&
@@ -304,21 +339,3 @@ $header-font-color  = #fff
 	color #000
 	font-size 14px
 
-
-//STICKY FOOTER
-//http://ryanfait.com/sticky-footer/
-html
-body
-.b-page
-	height 100%
-
-.b-wrapper
-	min-height 100%
-	height auto !important
-	height 100%
-	margin 0 auto 90px
-
-.b-footer
-.b-push
-	height 90px
-//END STICKY FOOTER

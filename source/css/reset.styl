@@ -1,298 +1,107 @@
-@import './lib/mixins'
+////////////////////////////////////////////////////////////
+// Mixins
+////////////////////////////////////////////////////////////
+@import '_mixins'
 
 ////////////////////////////////////////////////////////////
 // Fonts
 ////////////////////////////////////////////////////////////
+
 @import '_fonts'
 
 
 ////////////////////////////////////////////////////////////
 // Reset
 ////////////////////////////////////////////////////////////
-hard-reset()
 
+@import '_normalize'
 
 
 
 ////////////////////////////////////////////////////////////
-// Base
+// Base styles: opinionated defaults
 ////////////////////////////////////////////////////////////
 
 html
-	font-size 100%
+	color #222
+	font-size 1em
+	line-height 1.4
+	font-family $base-font-family
 
 body
-	color $base-font-color
-	font-family $base-font-family
 	background $base-bg-color
-	overflow-x hidden
+	height 100%
+	line-height 1.6em
+	font-size 0.9em
 
-article
-aside
-details
-figcaption
-figure
-footer
-header
-hgroup
-main
-menu
-nav
-section
-summary
-	display block
+
+
+// Remove text-shadow in selection highlight:
+// https://twitter.com/miketaylr/status/12228805301
+//
+// These selection rule sets have to be separate.
+// Customize the background color to match your design.
+
+::selection
+	background #b3d4fc
+	text-shadow none
+
+
+// Remove the gap between audio, canvas, iframes,
+// images, videos and the bottom of their containers:
+// https://github.com/h5bp/html5-boilerplate/issues/440
+
+audio
+canvas
+iframe
+img
+svg
+video
+	vertical-align middle
+
+
+// Remove default fieldset styles.
+fieldset
+	border 0
+	margin 0
+	padding 0
+
+
+// Allow only vertical resizing of textareas.
+textarea
+	resize vertical
+
+
+////////////////////////////////////////////////////////////
+// Browser Upgrade Prompt
+////////////////////////////////////////////////////////////
+
+.b-browsehappy
+	background #ffe983
+	color $base-text-color
+	padding 0.5em 0 0.7em
+	text-align center
 
 
 
 ////////////////////////////////////////////////////////////
 // Helpers
 ////////////////////////////////////////////////////////////
-@import './lib/helpers'
 
-
-
-
-////////////////////////////////////////////////////////////
-// Headings
-////////////////////////////////////////////////////////////
-h1, h2, h3, h4, h5, h6
-	color $heading-font-color
-	font-family $heading-font-family
-	font-weight bold
-	padding 20px 0 8px
-	// text-transform uppercase
-
-h1
-	font-size $heading-h1-font-size
-
-h2
-	font-size $heading-h2-font-size
-
-h3
-	font-size $heading-h3-font-size
-
-h4
-	font-size $heading-h4-font-size
-
-h5
-	font-size $heading-h5-font-size
-
-h6
-	font-size $heading-h6-font-size
-
-
+@import '_helpers'
 
 
 
 ////////////////////////////////////////////////////////////
-// Text elements
+// Print styles
 ////////////////////////////////////////////////////////////
-p
-	color $base-font-color
-	font-size $base-font-size
-	line-height $base-line-height
-	padding 0 0 $base-line-height 0
 
-a
-a:visited
-	color $base-link-color
-	text-decoration underline
-	transition color 0.2s ease 0s
-
-a:visited
-	color $base-visited-link-color
-
-a:hover
-	color $base-hover-link-color
-	text-decoration none
-
-pre
-	background #eee
-	padding 10px
-	border-radius 3px
-	margin-bottom $base-line-height
-
-pre
-code
-	color $base-font-color
-	font-family $base-monospace-font-family
-	font-size $base-font-size - 2px
-	overflow hidden
-	white-space -moz-pre-wrap
-	white-space -o-pre-wrap
-	white-space -pre-wrap
-	white-space pre-wrap
-	word-wrap break-word
-	tab-size 4
-	line-height $base-line-height
-
-
-q
-	quotes "«" "»"
-	font-style italic
-
-	q
-		quotes "„" "“"
-		font-style italic
-
-blockquote
-	font-family $base-font-family
-	font-style italic
-	// padding 5% 10%
-	text-align left
-	// color $heading-font-color
-	border-left 3px solid #e0e2e3
-	padding 0 0 0 14px
-	margin-bottom $base-line-height
-	color #131313
-	font-size 16px
-	q
-		color $base-font-color
-		font-family $base-font-family
-		font-size $base-font-size
-		line-height $base-line-height
-		padding 10px 0
-
-	p
-		color #131313
-		padding-bottom 0
-
-	cite
-		color #666D71
-		font-size 12px
-
-abbr
-	border-bottom thin dashed
-	cursor help
-	font-style italic
-
-i
-	font-style oblique
+@import '_print'
 
 
 
 ////////////////////////////////////////////////////////////
-// Tables
-////////////////////////////////////////////////////////////
-table
-	width 100%
-	border-collapse collapse
-	margin 0 0 20px 0
-	border 1px solid $table-heading-border-color
-
-	caption
-		color $base-font-color
-		font-size $table-heading-font-size + 2px
-		font-weight bold
-		padding 8px 0
-		text-align left
-
-th
-td
-	padding $table-cell-pading
-	font-size $table-base-font-size
-	text-align $table-base-cell-align
-	border 1px solid $table-heading-border-color
-	padding 8px
-
-th
-	font-size $table-heading-font-size
-	color $table-heading-font-color
-	font-weight bold
-
-td
-	color $table-base-font-color
-	border-bottom 1px solid $table-cell-border-color
-
-thead
-tfoot
-	background #ebf2f8
-
-tr:nth-child(odd)
-	td
-		background #fff
-
-tr:nth-child(even)
-	td
-		background #ebf2f8
-
-
-.b-vertical-table
-	tr
-		th
-		td
-			border-color #eee
-
-		&:first-child th
-			padding-top 0
-
-	&__title
-		font-size 16px
-		padding-top 35px
-		border-bottom 1px solid #ccc !important
-
-
-img
-	border 0
-
-hr
-	background $table-heading-border-color
-	height 1px
-
-
-
-
-////////////////////////////////////////////////////////////
-// Lists
+// Typography
 ////////////////////////////////////////////////////////////
 
-dt
-	// color $base-font-color
-	font-size $base-font-size
-	font-weight bold
-	// font-size 14px
-	color #131313
-	padding 0 0 7px 0
-
-
-dd
-	color #666D71
-	// color $base-font-color
-	font-size $base-font-size
-	font-style nromal
-	padding 0 0 20px 0
-
-ul
-	li
-		list-style-position inside
-		color $base-font-color
-		font-size $base-font-size
-		padding 0 0 8px 21px
-		ul
-			padding-bottom 0
-			li
-				padding-bottom 0
-				padding-top 6px
-
-ol
-	list-style-image none
-	list-style-position inside
-	list-style-type none
-	li
-		color $base-font-color
-		font-size $base-font-size
-		list-style-type decimal
-		padding 0 0 8px 3px
-		margin-left 18px
-		li
-			list-style-type lower-latin
-			padding 6px 0 0 3px
-			li
-				list-style-type lower-roman
-
-ul
-ol
-	padding-bottom $base-line-height
-	ul
-	ol
-		padding-bottom 0
+@import '_typography'

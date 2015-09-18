@@ -9,28 +9,29 @@ block style
 
 block content
 	.b-page
-		.b-wrapper
+		.b-page__wrapper
 			// HEADER
-			include /blocks/header
+			.b-page__header
+				include /blocks/header
 			// END HEADER
+			
+			// MAIN
+			.b-page__content
+				.b-main
+					.b-main__sidebar
+						include /blocks/sidebar
+					.b-main__content
+						main.b-content
+							header
+								h1.b-page-title Page title
+							
+							include /blocks/_demo
+					.clear
+			// END MAIN
 
-			.b-main
-				.b-main__sidebar
-					include /blocks/sidebar
-				.b-main__content
-					main(role="main").b-content
-						header
-							h1.b-page-title Page title
-						
-						include /blocks/_demo
-				.clear
-
-
-
-				
-
-			.b-push
+			.b-page__buffer
 
 		// FOOTER
-		include /blocks/footer
+		.b-page__footer
+			include /blocks/footer
 		// END FOOTER

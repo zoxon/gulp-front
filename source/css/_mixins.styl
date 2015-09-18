@@ -1,0 +1,208 @@
+@import '_variables'
+
+////////////////////////////////////////////////////////////
+// @font-face mixin
+////////////////////////////////////////////////////////////
+file(file_name, file_ext, file_path)
+	file_path + "/" + file_name + "." + file_ext
+
+font-face( family, file-name, base-path="../fonts", weight=normal, style=normal )
+	@font-face
+		font-family family
+		src url(file(file-name, "eot", base-path));
+		src url(file(file-name, "eot?#iefix'", base-path)) format('embedded-opentype'),
+			url(file(file-name, "woff", base-path)) format("woff"),
+			url(file(file-name, "ttf", base-path)) format("truetype");
+
+		font-weight weight
+		font-style style
+
+
+hard-reset()
+	*
+		margin 0
+		padding 0
+		border none
+
+
+display(value)
+	if (value == inline-block)
+		display inline-block
+		if(support-for-ie == true && support-ie-version <= 7)
+			*:first-child+html &
+				display inline
+				zoom 1
+				{block}
+	else
+		display value
+
+
+overflow(value)
+	if (value == ellipsis)
+		white-space nowrap
+		text-overflow ellipsis
+		overflow hidden
+	else
+		overflow value
+
+
+// Set with and height
+size( values... )
+	if length( values ) == 1
+		width values[ 0 ] || auto
+		height values[ 0 ] || auto
+	else
+		width values[ 0 ] if values[ 0 ] != false
+		height values[ 1 ] if values[ 1 ] != false
+
+// Set min-width and min-height
+// Like size but with min-
+min-size( a, b = false )
+	min-width a
+	if b
+		min-height b
+	else
+		min-height a
+
+// Set size and display block
+block( a, b = false )
+	size a b
+	display block
+
+// Set size and display inline-block
+inline-block( a, b = false )
+	size a b
+	display inline-block
+
+// Draw border triangle
+triangle( direction, size, face-color, back-color = transparent )
+	width 0
+	height 0
+	border size solid back-color
+	if direction == up || direction == down-left || direction == down-right
+		border-bottom-color face-color
+	if direction == down || direction == up-left || direction == up-right
+		border-top-color face-color
+	if direction == left || direction == down-right || direction == up-right
+		border-right-color face-color
+	if direction == right || direction == down-left || direction == up-left
+		border-left-color face-color
+
+
+// Set input placeholder style
+placeholder()
+	if selector() == "&"
+		error( "placeholder() must be called from a ruleset!" )
+	&::-webkit-input-placeholder
+		{block}
+	&:-moz-placeholder
+		{block}
+	&::-moz-placeholder
+		{block}
+	&:-ms-input-placeholder
+		{block}
+
+// Set user select none
+user-select-none()
+	-webkit-touch-callout none
+	-khtml-user-select none
+	user-select none
+
+// Convert pt to px
+pt2px( pt )
+	unit(pt/0.75, px)
+
+// Convert photoshop tracking to em
+ps-tracking( val )
+	unit(val/1000, 'em')
+
+// Clearfix mixin
+clearfix()
+	if(support-for-ie == true && support-ie-version <= 7)
+		*:first-child+html &
+			zoom 1
+	&:before
+	&:after
+		content ""
+		display table
+
+	&:after
+		clear both
+
+micro-clearfix()
+	content ""
+	display: table
+	clear both
+
+// Set style of selection
+selection( color )
+	::selection
+		background color
+		{block}
+	::-moz-selection
+		background color
+		{block}
+	img::selection
+		background transparent
+		{block}
+	img::-moz-selection
+		background transparent
+		{block}
+
+
+
+// Font rendering OS X
+font-smoothing(active = true)
+	if active == true
+		-webkit-font-smoothing antialiased
+		-moz-osx-font-smoothing grayscale
+	else
+		-webkit-font-smoothing subpixel-antialiased
+		-moz-osx-font-smoothing auto
+
+
+// Count size in persents
+ps(parentSize, childSize)
+	amount = (childSize / parentSize) * 100
+	amount = floor(amount, 2)
+	unit(amount, "%")
+
+
+font-feature()
+	-moz-font-feature-settings: "liga=1, dlig=1"
+	-ms-font-feature-settings: "liga", "dlig"
+	-webkit-font-feature-settings: "liga", "dlig"
+	-o-font-feature-settings: "liga", "dlig"
+	font-feature-settings: "liga", "dlig"
+
+hyphens()
+	-webkit-hyphens: auto
+	-moz-hyphens: auto
+	hyphens: auto
+
+image-responsive(display = block)
+	display display
+	max-width 100% // Part 1: Set a maximum relative to the parent
+	height auto // Part 2: Scale the height according to the width, otherwise you get stretching
+
+ul-reset()
+	ul
+		margin 0
+		padding 0
+		{block}
+
+ol-reset()
+	ol
+		margin 0
+		padding 0
+		{block}
+
+// _strip-units
+// remove units of a number
+_strip-units( val )
+	unit( val, "" )
+
+em( value, base = 16 )
+	value = _strip-units( value )
+	base = _strip-units( base )
+	value / base * 1em
