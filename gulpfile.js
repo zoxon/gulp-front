@@ -16,7 +16,7 @@ var gulp = require('gulp'),
 	uglify = require('gulp-uglify'),
 	imageminPngquant = require('imagemin-pngquant'),
 	jadeInheritance = require('gulp-jade-inheritance'),
-	stylusTypeUtils = require('stylus-type-utils');
+	csscomb = require('gulp-csscomb');
 
 // Функция обработки ошибок
 var handleError = function(err) {
@@ -61,7 +61,7 @@ var plugins = {
 	},
 
 	stylus: {
-		options: {use: stylusTypeUtils()}
+		options: {}
 	},
 
 	cssbeautify: {
@@ -127,7 +127,7 @@ var path = {
 	watch: {
 		html: config.path.source + '/**/*.jade',
 		css: config.path.source + '/**/*.styl',
-		img: config.path.source + '/**/*.{jpg,jpeg,png,gif,svg}',
+		img: config.path.source + '/' + config.path.images + '/**/*.{jpg,jpeg,png,gif,svg}',
 		js: config.path.source + '/**/*.js',
 		copy: config.path.assets + '/**/*'
 	}
@@ -146,6 +146,7 @@ gulp.task('stylus', function() {
 		.pipe(stylus(plugins.stylus.options))
 		.pipe(autoprefixer(plugins.autoprefixer.options))
 		.pipe(cssbeautify(plugins.cssbeautify.options))
+		.pipe(csscomb())
 		.on('error', handleError)
 		.pipe(gulp.dest(path.dest.css))
 		.pipe(reload({stream:true}));
