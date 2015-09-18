@@ -8,23 +8,27 @@ button-style(color, background, border)
 	&:visited
 		color color
 		background-color background
-		border-color border
+		if border
+			border-color border
 
 	&:focus
 		color color
 		background-color: background - 10%
-		border-color border - 25%
+		if border
+			border-color border - 25%
 
 	&:hover
 	&:active
 		color color
 		background-color background - 10%
-		border-color border - 12%
+		if border
+			border-color border - 12%
 
 		&:focus
 			color color
 			background-color background - 17%
-			border-color border - 25%
+			if border
+				border-color border - 25%
 
 
 	&:active
@@ -37,7 +41,8 @@ button-style(color, background, border)
 		&:focus
 		&:active
 			background-color background
-			border-color border
+			if border
+				border-color border
 
 button-size(padding-vertical, padding-horizontal, font-size, line-height, border-radius)
 	padding padding-vertical padding-horizontal
@@ -82,7 +87,6 @@ button-size(padding-vertical, padding-horizontal, font-size, line-height, border
 	&:active
 		outline: 0;
 		background-image: none;
-		-webkit-box-shadow: inset 0 3px 5px rgba(0 0 0 0.125);
 		box-shadow: inset 0 3px 5px rgba(0 0 0 0.125);
 
 	&_disabled

@@ -190,3 +190,19 @@ ul-reset()
 		margin 0
 		padding 0
 		{block}
+
+ol-reset()
+	ol
+		margin 0
+		padding 0
+		{block}
+
+// _strip-units
+// remove units of a number
+_strip-units( val )
+	unit( val, "" )
+
+em( value, base = 16 )
+	value = _strip-units( value )
+	base = _strip-units( base )
+	value / base * 1em
