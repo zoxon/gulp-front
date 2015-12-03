@@ -9,6 +9,26 @@
 ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 
 
+# Преимущества и возможности
+
+* Быстрый и удобный сборщик (gulp)
+* Сервер и синхронное тестирование сайта в браузерах (с помощью browser-sync)
+* Авто-подстановка вендорных префиксов в CSS (gulp-autoprefixer)
+* Шаблонизатор Jade и препроцессор HTML (gulp-jade)
+* Конкатенация JavaScript файлов (gulp-include)
+* Форматирование CSS (gulp-csscomb)
+* Сжатие изображений (gulp-imagemin)
+* Препроцессор CSS (gulp-stylus)
+* Минификация CSS (gulp-csso)
+* Форматирование HTML (gulp-html-prettify)
+* Минификация JavaScript (gulp-uglify)
+* Перехват и вывод ошибок без остановки gulp (gulp-plumber)
+* Jade миксины для елементов форм
+* Настроенная типографика на базе normalize.css
+* Миксины сетки (fluid и fixed)
+* Миксины для font-face и др.
+* Настроенные конфиги для TravisCI и EditorConfig
+
 
 ##Быстрый старт
 
