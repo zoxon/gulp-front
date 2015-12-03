@@ -1,0 +1,211 @@
+// Core
+#colorbox
+#cboxOverlay
+#cboxWrapper
+	position absolute
+	z-index 9999
+	top 0
+	left 0
+	overflow hidden
+
+
+#cboxOverlay
+	position fixed
+	width 100%
+	height 100%
+
+
+#cboxMiddleLeft
+#cboxBottomLeft
+	clear left
+
+
+#cboxContent
+	position relative
+
+
+#cboxLoadedContent
+	overflow auto
+	-webkit-overflow-scrolling touch
+
+
+#cboxTitle
+	margin 0
+
+
+#cboxLoadingOverlay
+#cboxLoadingGraphic
+	position absolute
+	top 0
+	left 0
+	width 100%
+	height 100%
+
+
+#cboxPrevious
+#cboxNext
+#cboxClose
+#cboxSlideshow
+	cursor pointer
+
+
+.cboxPhoto
+	display block
+	float left
+	max-width none
+	margin auto
+	-ms-interpolation-mode bicubic
+	border 0
+
+
+.cboxIframe
+	display block
+	width 100%
+	height 100%
+	border 0
+
+
+#colorbox
+#cboxContent
+#cboxLoadedContent
+	-webkit-box-sizing content-box
+	-moz-box-sizing content-box
+	box-sizing content-box
+
+
+
+// Style
+$border-width = 0
+$border-height = 0
+$border-bottom-height = 0
+$overlay-color = #000
+
+
+#cboxOverlay
+	background $overlay-color
+
+.cboxPhoto
+	// border-radius 3px
+
+#colorbox
+	outline 0
+
+#cboxWrapper
+	// background-color #FFF
+	// border-radius 3px
+	// box-shadow 0 2px 6px rgba(#000, 0.15), 0 0 3px rgba(#000, 0.1)
+
+
+#cboxTopLeft
+#cboxTopCenter
+	width $border-width
+	height $border-height
+
+
+#cboxBottomCenter
+	height $border-bottom-height
+
+
+#cboxTopRight
+#cboxBottomLeft
+#cboxBottomRight
+#cboxMiddleLeft
+#cboxMiddleRight
+	width $border-width
+
+#cboxContent
+	// background #fff
+
+.cboxIframe
+	// background #ffffff
+
+#cboxError
+	padding 50px
+	border 1px solid #cccccc
+
+#cboxLoadedContent
+	// margin-bottom 17px
+
+#cboxTitle
+	color #000
+	font-size 14px
+	line-height 17px
+	height 34px
+	overflow hidden
+
+#cboxCurrent
+	position absolute
+	bottom 0px
+	left 100px
+	text-indent -9999px
+	color #999999
+
+#cboxLoadingOverlay
+	// background #ffffff url("../img/facebook-ajax-loader.gif") no-repeat 50% 50%
+
+
+#cboxPrevious
+#cboxNext
+#cboxSlideshow
+#cboxClose
+	overflow visible
+	width auto
+	margin 0
+	padding 0
+	border 0
+	background none
+
+
+#cboxPreviousactive
+#cboxNextactive
+#cboxSlideshowactive
+#cboxCloseactive
+	outline 0
+
+
+#cboxSlideshow
+	position absolute
+	right 42px
+	bottom 0px
+	color #444444
+	display none
+
+#cboxPrevious
+#cboxNext
+	position absolute
+	top 0
+	// background-image url("../img/colorbox-gallery__arrows-sprite.png")
+	background-position 0 0
+	background-repeat no-repeat
+	width 34px
+	height 100%
+	opacity 0.7
+	transition all 0.2s ease-in-out 0s
+	text-indent -9999px
+	&:hover
+		opacity 1
+
+
+#cboxPrevious
+	left 0
+	background-position 10px 50%
+
+
+#cboxNext
+	right 0
+	background-position -139px 50%
+
+
+#cboxClose
+	position absolute
+	top 15px
+	right 15px
+	size 30px
+	background url("../img/cbox-close.png") 50% 50% no-repeat
+	text-indent -9999px
+	opacity 0.4
+
+#cboxClose:hover
+	opacity 1
+	text-decoration none
+
