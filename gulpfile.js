@@ -4,24 +4,32 @@
 var gulp = require('gulp'),
 	jade = require('gulp-jade'),
 	stylus = require('gulp-stylus'),
-	autoprefixer = require('gulp-autoprefixer'),
+	autoprefixer = require('autoprefixer-stylus'),
 	imagemin = require('gulp-imagemin'),
 	browserSync = require('browser-sync'),
-	reload = browserSync.reload,
 	cssbeautify = require('gulp-cssbeautify'),
 	gutil = require('gulp-util'),
-	changed = require('gulp-changed'),
+	newer = require('gulp-newer'),
 	include = require('gulp-include'),
 	rename = require("gulp-rename"),
 	uglify = require('gulp-uglify'),
 	imageminPngquant = require('imagemin-pngquant'),
 	jadeInheritance = require('gulp-jade-inheritance'),
-	csscomb = require('gulp-csscomb');
+	csscomb = require('gulp-csscomb'),
+	csso = require('gulp-csso'),
+	gulpFilter = require('gulp-filter'),
+	prettify = require('gulp-prettify'),
+	plumber = require('gulp-plumber');
 
 // Функция обработки ошибок
-var handleError = function(err) {
-	gutil.log(err);
-	gutil.beep();
+var errorHandler = function(err) {
+	gutil.log([(err.name + ' in ' + err.plugin).bold.red, '', err.message, ''].join('\n'));
+
+	if (gutil.env.beep) {
+		gutil.beep();
+	}
+
+	this.emit('end');
 };
 
 // Имена папок
@@ -40,13 +48,6 @@ var config = {
 // Настройки плагинов
 var plugins = {
 	browserSync: {
-		files: [
-			'*.html',
-			'css/*.css',
-			'**/*.{png,jpg,svg}',
-			'js/*.js',
-			'fonts/*.{eot,woff,woff2,ttf}'
-		],
 		options: {
 			open: true,
 			server: { baseDir: config.path.dist }
@@ -96,6 +97,16 @@ var plugins = {
 		options: {
 			suffix: ".min"
 		}
+	},
+
+	prettify: {
+		options: {
+			"unformatted": ["pre", "code"],
+			"indent_with_tabs": true,
+			"preserve_newlines": true,
+			"brace_style": "expand",
+			"end_with_newline": true
+		}
 	}
 }
 
@@ -133,61 +144,85 @@ var path = {
 	}
 };
 
-
 // Локальный сервер
 gulp.task('browser-sync', function () {
 	browserSync.init(plugins.browserSync.files, plugins.browserSync.options);
 });
 
+gulp.task('bs-reload', function () {
+	browserSync.reload();
+});
 
 // Собираем Stylus
 gulp.task('stylus', function() {
 	gulp.src(path.source.css)
-		.pipe(stylus(plugins.stylus.options))
-		.pipe(autoprefixer(plugins.autoprefixer.options))
+		.pipe(plumber({
+			errorHandler: errorHandler
+		}))
+		.pipe(stylus({
+			use: [
+				autoprefixer(plugins.autoprefixer.options)
+			]
+		}))
 		.pipe(cssbeautify(plugins.cssbeautify.options))
 		.pipe(csscomb())
-		.on('error', handleError)
 		.pipe(gulp.dest(path.dest.css))
-		.pipe(reload({stream:true}));
+		.pipe(browserSync.reload({stream:true}))
+		.pipe(csso())
+		.pipe(rename({suffix: '.min'}))
+		.pipe(gulp.dest(path.dest.css))
 });
 
 // Собираем html из Jade
 gulp.task('jade', function() {
 	gulp.src(path.source.html)
+		.pipe(plumber({
+			errorHandler: errorHandler
+		}))
 		.pipe(jadeInheritance(plugins.jadeInheritance.options))
 		.pipe(jade(plugins.jade.options))
-		.on('error', handleError)
+		.pipe(prettify(plugins.prettify.options))
 		.pipe(gulp.dest(path.dest.html))
-		.pipe(reload({stream:true}));
+		.pipe(browserSync.reload({stream:true}))
 });
 
 // Копируем и минимизируем изображения
 gulp.task('images', function() {
 	gulp.src(path.source.img)
-		.pipe(changed(path.dest.img))
+		.pipe(plumber({
+			errorHandler: errorHandler
+		}))
+		.pipe(newer(path.dest.img))
 		.pipe(imagemin(plugins.imagemin.options))
-		.on('error', handleError)
 		.pipe(gulp.dest(path.dest.img));
 });
 
 // Копируем файлы
 gulp.task('copy', function() {
 	gulp.src(path.source.copy)
-		.on('error', handleError)
-		.pipe(gulp.dest(path.dest.copy));
+		.pipe(plumber({
+			errorHandler: errorHandler
+		}))
+		.pipe(newer(path.dest.copy))
+		.pipe(gulp.dest(path.dest.copy))
+		.pipe(gulpFilter(['**/*.js', '!**/*.min.js']))
+		.pipe(uglify())
+		.pipe(rename({suffix: '.min'}))
+		.pipe(gulp.dest(path.dest.css))
 });
 
 // Собираем JS
 gulp.task('plugins', function() {
 	gulp.src(path.source.js)
+		.pipe(plumber({
+			errorHandler: errorHandler
+		}))
 		.pipe(include())
 		.pipe(gulp.dest(path.dest.js))
 		.pipe(uglify().on('error', gutil.log))
 		.pipe(rename(plugins.rename.options))
-		.on('error', handleError)
 		.pipe(gulp.dest(path.dest.js))
-		.pipe(reload({stream:true}));
+		.pipe(browserSync.reload({stream:true}))
 });
 
 
@@ -199,4 +234,5 @@ gulp.task("default", ["build", "browser-sync"], function(){
 	gulp.watch(path.watch.img, ["images"]);
 	gulp.watch(path.watch.js, ["plugins"]);
 	gulp.watch(path.watch.copy, ["copy"]);
+	gulp.watch("*.html", ['bs-reload']);
 });
