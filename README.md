@@ -1,4 +1,6 @@
 # Gulp Front
+
+[![Join the chat at https://gitter.im/zoxon/gulp-front](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/zoxon/gulp-front?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ** Шаблон для быстрого старта разработки с [Gulp](http://gulpjs.com/), [Jade](http://jade-lang.com/) и [Stylus](https://learnboost.github.io/stylus/)
 
 [![Build Status](https://travis-ci.org/Zoxon/gulp-front.svg)](https://travis-ci.org/Zoxon/gulp-front)
