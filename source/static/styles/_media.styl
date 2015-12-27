@@ -1,0 +1,49 @@
+if $media-enable-debug
+	// Стили для отладки @media
+	body:before
+		display block
+		position fixed
+		left 0
+		bottom 0
+		background #fff
+		z-index 101
+		color #000
+		padding 10px
+		border 1px solid silver
+		border-radius 2px
+
+
+@media only screen
+	// Cтили для более разумных, но все еще мобильных устройств.
+	// Android, iPhone  и так далее.
+	@media (min-width: $media-screen-xs)
+		if $media-enable-debug
+			body:before
+				content 'min-width: $media-screen-xs'
+
+
+
+	// Планшеты в режиме portrait.
+	@media (min-width: $media-screen-sm)
+		if $media-enable-debug
+			body:before
+				content 'min-width: $media-screen-sm'
+
+
+
+	// Планшеты в режиме landscape, нетбуки, ноутбуки, десктоп.
+	@media (min-width: $media-screen-md)
+		if $media-enable-debug
+			body:before
+				content 'min-width: $media-screen-md'
+
+
+
+	// Десктоп с большими разрешениями, телевизоры.
+	@media (min-width: $media-screen-lg)
+		if $media-enable-debug
+			body:before
+				content 'min-width: $media-screen-lg'
+
+
+

@@ -1,0 +1,47 @@
+.pagination
+	m-cf()
+	text-align center
+	+ul-reset()
+		display inline-block
+		font-size 0
+
+	&__item
+		list-style none
+		padding 0
+		display inline-block
+		vertical-align middle
+		font-size 16px
+		font-weight 300
+
+	&__link
+		&
+		&:visited
+			color #505050
+			padding 8px
+			size 16px
+			display block
+			text-decoration none
+			line-height 1
+
+		&:hover
+			color #9d9d9d
+			text-decoration none
+
+	&__arrow
+		display inline-block
+		line-height 1
+		vertical-align middle
+		text-align center
+		transition 125ms all ease-in-out
+		&:hover
+			background-color #d2d2d2
+			svg
+				fill #fff
+		svg
+			fill #d2d2d2
+			svgSize($chevron-right)
+
+	&__item_active &__link
+		&
+		&:visited
+			color #f05050

@@ -1,0 +1,33 @@
+.pager
+	font-size 0
+	display inline-block
+	&__arrow
+		display inline-block
+		padding 8px
+		size 14px
+		fill #d2d2d2
+		line-height 1
+		vertical-align middle
+		text-align center
+		transition 125ms all ease-in-out
+		&:hover
+			background-color #d2d2d2
+			fill #fff
+		svg
+			svgSize($chevron-right)
+
+	&__arrow_left
+		margin-right 5px
+
+	&__arrow_right
+		margin-left 5px
+
+	&__counter
+		color #717171
+		font-size 18px
+		font-weight 400
+		display inline-block
+		vertical-align middle
+		//
+	&__total
+		//

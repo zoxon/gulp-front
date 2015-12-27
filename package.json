@@ -1,40 +1,66 @@
 {
   "name": "gulp-front",
-  "version": "3.0.0",
+  "version": "4.0.0",
+  "description": "Шаблон для быстрого старта разработки с Gulp, Jade и Stylus",
   "homepage": "https://github.com/Zoxon/gulp-front",
   "license": "MIT",
-  "description": "Простой путь разработки с Jade и Stylus",
+  "author": "Velicko Konstantin <zoxon.box@gmail.com> (http://github.com/zoxon)",
   "repository": {
     "type": "git",
-    "url": "http://github.com/Zoxon/gulp-front.git"
+    "url": "http://github.com/zoxon/gulp-front.git"
   },
-  "author": "Velicko Konstantin <zoxon.box@gmail.com> (http://github.com/Zoxon)",
   "licenses": {
     "type": "MIT",
-    "url": "http://github.com/Zoxon/gulp-front/blob/master/license.txt"
+    "url": "http://github.com/zoxon/gulp-front/blob/master/license.txt"
   },
   "bugs": {
-    "url": "http://github.com/Zoxon/gulp-front/issues"
+    "url": "http://github.com/zoxon/gulp-front/issues"
   },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "main": "gulpfile.js",
+  "keywords": [
+    "gulp",
+    "bem",
+    "modules",
+    "sprites",
+    "svg",
+    "jade",
+    "stylus"
+  ],
   "dependencies": {
     "autoprefixer-stylus": "^0.8.1",
     "browser-sync": "^2.10.0",
+    "del": "^2.2.0",
     "gulp": "^3.9.0",
+    "gulp-changed": "^1.3.0",
+    "gulp-combine-mq": "^0.4.0",
+    "gulp-concat": "^2.6.0",
     "gulp-cssbeautify": "^0.1.3",
     "gulp-csscomb": "^3.0.6",
     "gulp-csso": "^1.0.1",
+    "gulp-data": "^1.2.1",
     "gulp-filter": "^3.0.1",
-    "gulp-imagemin": "^2.3.0",
-    "gulp-include": "^2.0.2",
+    "gulp-flatten": "^0.2.0",
+    "gulp-if": "^2.0.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-include": "^2.1.0",
     "gulp-jade": "^1.1.0",
-    "gulp-jade-inheritance": "^0.5.3",
+    "gulp-jade-inheritance": "^0.5.4",
     "gulp-newer": "^1.1.0",
     "gulp-plumber": "^1.0.1",
     "gulp-prettify": "^0.3.0",
     "gulp-rename": "^1.2.2",
-    "gulp-stylus": "^2.0.7",
+    "gulp-stylus": "^2.1.1",
+    "gulp-svg-symbols": "^1.0.0",
     "gulp-uglify": "^1.5.1",
-    "gulp-util": "^3.0.6",
-    "imagemin-pngquant": "^4.2.0"
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.5",
+    "gulp-zip": "^3.0.2",
+    "imagemin-pngquant": "^4.2.0",
+    "imagemin-svgo": "^4.2.0",
+    "run-sequence": "^1.1.5",
+    "rupture": "^0.6.1"
   }
 }

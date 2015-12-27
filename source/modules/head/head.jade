@@ -1,0 +1,65 @@
+mixin head(data)
+	meta(charset="utf-8")
+	- var pageTitle = config.projectName
+	if data && data.title
+		- pageTitle = data.title + ' :: ' + pageTitle
+	title= pageTitle
+	meta(content="" name="author")
+	meta(content="" name="description")
+	meta(content="" name="keywords")
+	meta(content="telephone=no" name="format-detection")
+	meta(name="robots" content="noodp, noydir")
+	meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+	//- This make sence for mobile browsers. It means, that content has been optimized for mobile browsers
+	meta(name="HandheldFriendly" content="true")
+	meta(content="IE=edge" http-equiv="X-UA-Compatible")
+	link(rel="stylesheet", href="css/reset.min.css")
+	link(rel="stylesheet", href="css/main.min.css")
+
+	//- OpenGraph Meta
+	if config.useSocialMetaTags
+		meta(property="og:title" content=pageTitle)
+		meta(property="og:title" content="")
+		meta(property="og:url" content="")
+		meta(property="og:description" content="")
+		meta(property="og:image" content="")
+		meta(property="og:image:type" content="image/jpeg")
+		meta(property="og:image:width" content="500")
+		meta(property="og:image:height" content="300")
+		meta(property="twitter:description" content="")
+		link(rel="image_src" href="")
+
+	//- Favicon
+	//- http://realfavicongenerator.net/
+	link(rel="apple-touch-icon", sizes="57x57", href="/apple-touch-icon-57x57.png")
+	link(rel="apple-touch-icon", sizes="60x60", href="/apple-touch-icon-60x60.png")
+	link(rel="apple-touch-icon", sizes="72x72", href="/apple-touch-icon-72x72.png")
+	link(rel="apple-touch-icon", sizes="76x76", href="/apple-touch-icon-76x76.png")
+	link(rel="apple-touch-icon", sizes="114x114", href="/apple-touch-icon-114x114.png")
+	link(rel="apple-touch-icon", sizes="120x120", href="/apple-touch-icon-120x120.png")
+	link(rel="apple-touch-icon", sizes="144x144", href="/apple-touch-icon-144x144.png")
+	link(rel="apple-touch-icon", sizes="152x152", href="/apple-touch-icon-152x152.png")
+	link(rel="apple-touch-icon", sizes="180x180", href="/apple-touch-icon-180x180.png")
+	link(rel="icon", type="image/png", href="/favicon-32x32.png", sizes="32x32")
+	link(rel="icon", type="image/png", href="/favicon-194x194.png", sizes="194x194")
+	link(rel="icon", type="image/png", href="/favicon-96x96.png", sizes="96x96")
+	link(rel="icon", type="image/png", href="/android-chrome-192x192.png", sizes="192x192")
+	link(rel="icon", type="image/png", href="/favicon-16x16.png", sizes="16x16")
+	link(rel="manifest", href="/manifest.json")
+	link(rel="mask-icon", href="/safari-pinned-tab.svg", color="#71bf44")
+	meta(name="apple-mobile-web-app-title", content=config.projectName)
+	meta(name="application-name", content=config.projectName)
+	meta(name="msapplication-TileColor", content="#ffffff")
+	meta(name="msapplication-TileImage", content="/mstile-144x144.png")
+	meta(name="theme-color", content="#ffffff")
+
+	script.
+		(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)
+
+
+	+ie('if lt IE 9')
+		script(src="js/jquery-1.11.3.min.js")
+	
+	+iePlus('if gt IE 8')
+		script(src="js/jquery-2.1.4.min.js")

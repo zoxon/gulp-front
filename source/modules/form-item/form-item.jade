@@ -1,0 +1,145 @@
+//- Universal interface for all form elements
+//- Example of use
+//- +input(type="select", value=["value 1", "value 2", value="n..."], name="sample-select", errors=["error 1", "error 2"])
+
+- var _attributes = {};
+
+mixin form-item()
+	- _attributes = attributes;
+	- _attributes.type          = attributes.type           || "text"
+	- _attributes.image         = attributes.image          || "img/content/captcha.png"
+	- _attributes.checked       = attributes.checked        || false
+	- _attributes.disabled      = attributes.disabled       || false
+	- _attributes.required      = attributes.required       || false
+	- _attributes.errorclass    = attributes.errorclass     || "error"
+	- _attributes.requiredclass = attributes.requiredclass  || "required"
+	- _attributes.errors        = attributes.errors         || false
+	- _attributes.hint          = attributes.hint           || false
+	- _attributes.name          = attributes.name           || "input-name"
+	- _attributes.id            = attributes.id             || attributes.name
+	- _attributes.cols          = attributes.cols           || 80
+	- _attributes.rows          = attributes.rows           || 24
+	- _attributes.multiple      = attributes.multiple       || true
+	- _attributes.size          = attributes.size           || 5
+	- _attributes.style         = attributes.style          || "default"
+	- _attributes.baseClass     = attributes.baseClass      || "form-item"
+	- _attributes.pattern       = attributes.pattern
+	- _attributes.mod           = attributes.mod
+	- _attributes.title         = attributes.title
+	- _attributes.value         = attributes.value
+	
+	- _attributes.classes       = [_attributes.baseClass]
+
+	- if (_attributes.type)
+		- _attributes.classes.push(_attributes.baseClass + "_type_" + _attributes.type)
+
+	- if (_attributes.mod)
+		- if (Array.isArray(_attributes.mod))
+			- if (_attributes.mod.length > 1)
+				each ent, num in _attributes.mod
+					- _attributes.classes.push(_attributes.baseClass + "_" + ent)
+		- else
+			- _attributes.classes.push(_attributes.baseClass + "_" + _attributes.mod)
+
+	- if (_attributes.errors)
+		- _attributes.classes.push(_attributes.baseClass + "_status_" + _attributes.errorclass)
+
+	- if (_attributes.required)
+		- _attributes.classes.push(_attributes.baseClass + "_" + _attributes.requiredclass)
+
+	- if (_attributes.style)
+		- _attributes.classes.push(_attributes.baseClass + "_style_" + _attributes.style)
+
+
+	- if (_attributes.checked)
+		-_attributes.checked = "checked"
+	- else
+		-_attributes.checked = false
+
+	- if (_attributes.disabled)
+		-_attributes.disabled = "disabled"
+	- else
+		-_attributes.disabled = false
+
+
+
+	- if (_attributes.type === "checkbox" || _attributes.type === "radio")
+		label(class=_attributes.classes)
+			div(class=_attributes.baseClass + "__input")
+				input(type = _attributes.type, name = _attributes.name, id = _attributes.id, value = _attributes.value, checked = _attributes.checked, disabled = _attributes.disabled)
+
+			if (_attributes.label)
+				span(class=_attributes.baseClass + "__label")!= _attributes.label
+	
+	- else if (_attributes.type === "captcha")
+		div(class=_attributes.classes)
+			if (_attributes.label)
+				label(for="#{_attributes.name}", class=_attributes.baseClass + "__label")!= _attributes.label
+					span  *
+			div(class=_attributes.baseClass + "__input-image")
+				a(href="#", title="Reload image")
+					img(src=_attributes.image, alt="Captcha")
+
+			div(class=_attributes.baseClass + "__input")
+				input(type="text", name=_attributes.name, id=_attributes.id, value=_attributes.value, placeholder=_attributes.placeholder)
+
+			+__helpers()
+
+	- else
+		+__wrapper()
+			- if (_attributes.type === "text" || _attributes.type === "password" || _attributes.type === "email" || _attributes.type === "tel" || _attributes.type === "url" || _attributes.type === "number")
+				input(type=_attributes.type, value=_attributes.value, name=_attributes.name, placeholder=_attributes.placeholder, id=_attributes.name, pattern=_attributes.pattern, title=_attributes.title)
+				- if (_attributes.type === "input-date")
+					div(class=_attributes.baseClass + "__input-icon js-datepicker-trigger " + _attributes.icon)
+
+			- else if (_attributes.type === "file")
+				input(type=_attributes.type, name=_attributes.name, placeholder=_attributes.placeholder, id=_attributes.name)
+
+			- else if (_attributes.type === "textarea")
+				textarea(name = _attributes.name, cols = _attributes.cols, rows = _attributes.rows, placeholder = _attributes.placeholder, id = _attributes.id)= _attributes.value
+			
+			- else if (_attributes.type === "select")
+				select(name = _attributes.name, id = _attributes.id, data-placeholder = _attributes.placeholder)
+					- if (_attributes.placeholder)
+						option
+					each ent, num  in _attributes.value
+						option(value=num, label=ent)= ent
+
+			- else if (_attributes.type === "multiselect")
+				select(name = _attributes.name, id = _attributes.id, multiple, size = _attributes.size)
+					each ent, num  in _attributes.value
+						option(value=num, label=ent)= ent
+
+
+
+mixin __wrapper()
+	div(class=_attributes.classes)
+		+__label()
+
+		div(class=_attributes.baseClass + "__input")
+			block
+
+		+__helpers()
+
+
+
+mixin __label()
+	if (_attributes.label)
+		label(for=_attributes.name, class=_attributes.baseClass + "__label")!= _attributes.label
+			if (_attributes.required)
+				span  *
+
+
+
+mixin __helpers()
+	if (_attributes.errors || _attributes.hint)
+		div(class=_attributes.baseClass + "__helpers")
+			if (_attributes.hint)
+				div(class=_attributes.baseClass + "__hint")= _attributes.hint
+
+			if (_attributes.errors)
+				ul(class=_attributes.baseClass + "__errors")
+					each ent, num in _attributes.errors
+						li= ent
+
+

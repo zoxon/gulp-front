@@ -1,0 +1,19 @@
+include ../modules/mixins/mixins
+include ../modules/head/head
+include ../modules/_page-list/_page-list
+
+doctype html
+html(class="no-js" lang="ru")
+
+	head
+		+head(head.index)
+
+	style
+		:stylus
+			body
+				background #fff
+
+			@import "../modules/_page-list/_page-list.styl"
+
+	body.page
+		+page-list(pageList.data)

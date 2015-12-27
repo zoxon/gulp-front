@@ -1,0 +1,87 @@
+// Perfect Scrolbar
+$ps-scrollbar-size = 6px
+$ps-scrollbar-border-radius = 6px
+$ps-scrollbar-color = #a1a1a1
+
+$ps-rail-color = false
+$ps-rail-offset = 3px
+
+$ps-enable-hover = false
+
+.ps-container
+	position relative
+	& .ps-scrollbar-x-rail
+	& .ps-scrollbar-y-rail
+		position: absolute; /* please don't change 'position' */
+		border-radius: $ps-scrollbar-border-radius
+		background-color $ps-rail-color
+		transition: background-color .2s linear, opacity .2s linear;
+		if $ps-enable-hover
+			opacity: 0;
+
+		if $ps-enable-hover
+			&.hover
+			&:hover
+				background-color: $ps-rail-color
+				if $ps-enable-hover
+					opacity: 0.9;
+
+			&.in-scrolling
+				background-color: $ps-rail-color
+				if $ps-enable-hover
+					opacity: 0.9;
+
+
+	& .ps-scrollbar-x-rail
+		bottom: $ps-rail-offset /* there must be 'bottom' for ps-scrollbar-x-rail */
+		height: $ps-scrollbar-size
+
+	& .ps-scrollbar-y-rail
+		right: $ps-rail-offset /* there must be 'right' for ps-scrollbar-y-rail */
+		width: $ps-scrollbar-size
+
+	&:hover .ps-scrollbar-x-rail,
+	&.hover .ps-scrollbar-x-rail,
+	&:hover .ps-scrollbar-y-rail,
+	&.hover .ps-scrollbar-y-rail
+		if $ps-enable-hover
+			opacity: 0.6;
+
+	& .ps-scrollbar-x,
+	& .ps-scrollbar-y
+		position: absolute; /* please don't change 'position' */
+		background-color: $ps-scrollbar-color
+		border-radius: $ps-scrollbar-border-radius
+		transition: background-color .2s linear;
+
+	& .ps-scrollbar-x
+		bottom: 0; /* there must be 'bottom' for ps-scrollbar-x */
+		height: $ps-scrollbar-size
+
+	& .ps-scrollbar-y
+		right: 0; /* there must be 'right' for ps-scrollbar-y */
+		width: $ps-scrollbar-size
+
+
+	& .ps-scrollbar-x-rail:hover .ps-scrollbar-x,
+	& .ps-scrollbar-x-rail.hover .ps-scrollbar-x,
+	& .ps-scrollbar-y-rail:hover .ps-scrollbar-y,
+	& .ps-scrollbar-y-rail.hover .ps-scrollbar-y
+		if $ps-enable-hover
+			background-color: $ps-scrollbar-color
+
+
+	&.ie6 .ps-scrollbar-x,
+	&.ie6 .ps-scrollbar-y
+		font-size: 0; /* fixed scrollbar height in xp sp3 ie6 */
+
+	&.ie .ps-scrollbar-x,
+	&.ie .ps-scrollbar-y
+		visibility: hidden;
+
+
+	&.ie:hover .ps-scrollbar-x,
+	&.ie:hover .ps-scrollbar-y,
+	&.ie.hover .ps-scrollbar-x,
+	&.ie.hover .ps-scrollbar-y
+		visibility: visible;

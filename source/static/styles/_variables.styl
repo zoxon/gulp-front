@@ -1,0 +1,218 @@
+////////////////////////////////////////////////////////////
+// Базовые
+////////////////////////////////////////////////////////////
+$base-bg-color                              = #fff
+
+$base-text-color                            = #333
+$base-quiet-color                           = #ccc
+$base-loud-color                            = #000
+
+$base-font-family                           = notosans
+$base-font-size                             = 18px
+$base-font-weight                           = 300
+$base-line-height                           = 22px
+
+$fixed-font-family                          = consolas
+$fixed-font-size                            = 16px
+$fixed-line-height                          = 1.6
+
+
+
+////////////////////////////////////////////////////////////
+// Components
+////////////////////////////////////////////////////////////
+$components-buttons                         = true
+$components-tabs                            = true
+$components-form                            = true
+$components-grid                            = true
+$components-debug                           = false
+$components-animations                      = true
+
+
+
+////////////////////////////////////////////////////////////
+// Таблицы
+////////////////////////////////////////////////////////////
+$table-border-color                         = #e6e6e6
+$table-head-border-color                    = #fff
+$table-back-color                           = #e6edf8
+$table-stripe-color                         = #f7f7f7
+$table-font-color                           = $base-text-color
+
+
+
+////////////////////////////////////////////////////////////
+// Заголовки
+////////////////////////////////////////////////////////////
+$heading-font-family                        = notoserif
+$heading-color                              = #111
+$heading-font-weight                        = 700
+
+
+
+////////////////////////////////////////////////////////////
+// Ссылки
+////////////////////////////////////////////////////////////
+$link-color                                 = #0083ca
+$link-hover-color                           = #ee1111
+$link-visited-color                         = $link-color + 10%
+
+
+
+////////////////////////////////////////////////////////////
+// Формы
+////////////////////////////////////////////////////////////
+$form-base-font-size                       = 13px
+$form-base-font-family                     = notosans
+$form-item-padding                         = 13px
+
+$form-label-font-size                      = 12px
+$form-label-font-color                     = #646464
+$form-label-font-family                    = $form-base-font-family
+
+$form-input-height                         = 42px
+$form-textarea-height                      = 150px
+
+$form-input-border-color                   = #cdcdcd
+$form-input-bg-color                       = #fff
+$form-input-border-radius                  = 3px
+$form-input-font-color                     = #010000
+$form-input-font-size                      = $form-base-font-size
+$form-input-focus-color                    = rgba(#3488ab,.75)
+$form-input-error-color                    = #ee1111
+$form-input-success-color                  = #0083ca
+$form-input-focus-text-color               = $form-input-font-color
+$form-input-padding                        = 7px
+
+$form-input-hint-font-size                 = 11px
+$form-input-hint-font-color                = #aeadad
+
+$form-input-error-font-size                = 11px
+
+// Чекбоксы
+$form-checkbox-size                        = 14px
+
+$form-captcha-width                        = 78px
+$form-input-width                          = 427px
+
+
+
+////////////////////////////////////////////////////////////
+// Media
+////////////////////////////////////////////////////////////
+
+$media-enable-debug                         = false
+$media-enable-em                            = false
+
+// Extra small screen / phone
+$media-screen-xs                            = 480px // 30em
+$media-screen-phone                         = $media-screen-xs
+
+// Small screen / tablet
+$media-screen-sm                            = 768px // 48em
+$media-screen-tablet                        = $media-screen-sm
+
+// Medium screen / desktop
+$media-screen-md                            = 992px // 62em
+$media-screen-desktop                       = $media-screen-md
+
+// Large screen / wide desktop
+$media-screen-lg                            = 1382px // ~85em
+$media-screen-lg-desktop                    = $media-screen-lg
+
+
+
+////////////////////////////////////////////////////////////
+// Цвета
+////////////////////////////////////////////////////////////
+aqua                                        = #7FDBFF
+blue                                        = #0074D9
+navy                                        = #001F3F
+teal                                        = #39CCCC
+green                                       = #2ECC40
+olive                                       = #3D9970
+lime                                        = #01FF70
+yellow                                      = #FFDC00
+orange                                      = #FF851B
+red                                         = #FF4136
+fuchsia                                     = #F012BE
+purple                                      = #B10DC9
+maroon                                      = #85144B
+white                                       = #ffffff
+silver                                      = #dddddd
+gray                                        = #aaaaaa
+black                                       = #111111
+
+
+////////////////////////////////////////////////////////////
+// Шрифты
+////////////////////////////////////////////////////////////
+arial             = Arial, "Helvetica CY", "Nimbus Sans L", sans-serif
+arial-black       = "Arial Black", "Helvetica CY", "Nimbus Sans L" sans-serif
+comic-sans        = "Comic Sans MS", "Monaco CY", cursive
+courier           = "Courier New", "Nimbus Mono L", monospace
+georgia           = Georgia, "Century Schoolbook L", Serif
+impact            = Impact, "Charcoal CY", sans-serif
+lucida-console    = "Lucida Console", Monaco, monospace
+lucida-sans       = "Lucida Sans Unicode", "Lucida Grande", sans-serif
+platino           = "Palatino Linotype", "Book Antiqua", Palatino, serif
+tahoma            = Tahoma, "Geneva CY", sans-serif
+times             = "Times New Roman", "Times CY", "Nimbus Roman No9 L", serif
+trebuchet         = "Trebuchet MS", "Helvetica CY", sans-serif
+verdana           = Verdana, "Geneva CY", "DejaVu Sans", sans-serif
+helvetica         = "Helvetica Neue", Arial, "Helvetica CY", "Nimbus Sans L", sans-serif
+consolas          = "Consolas", "Courier New", "Nimbus Mono L", monospace
+calibri           = Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+segoe             = "Segoe UI", Segoe, Tahoma, Geneva, sans-serif;
+ptsans            = "PT Sans", sans-serif;
+ptserif           = "PT Serif", serif;
+museosans         = "Museo Sans Cyrl", "Museo Sans", "Perspective Sans", Helvetica, Arial, sans-serif;
+notosans          = "Noto Sans", sans-serif;
+notoserif         = "Noto Serif", serif;
+pfdin             = "PF DinText Pro", Arial, "Helvetica CY", "Nimbus Sans L", sans-serif
+
+
+//-//////////////////////////////////////////////////////////
+//- CSS Easing
+//-//////////////////////////////////////////////////////////
+// Default
+$linear = cubic-bezier(0.250, 0.250, 0.750, 0.750)
+$ease = cubic-bezier(0.250, 0.100, 0.250, 1.000)
+$ease-in = cubic-bezier(0.420, 0.000, 1.000, 1.000)
+$ease-out = cubic-bezier(0.000, 0.000, 0.580, 1.000)
+$ease-in-out = cubic-bezier(0.420, 0.000, 0.580, 1.000)
+
+// Penner Equations (approximated)
+$easeInQuad = cubic-bezier(0.550, 0.085, 0.680, 0.530)
+$easeInCubic = cubic-bezier(0.550, 0.055, 0.675, 0.190)
+$easeInQuart = cubic-bezier(0.895, 0.030, 0.685, 0.220)
+$easeInQuint = cubic-bezier(0.755, 0.050, 0.855, 0.060)
+$easeInSine = cubic-bezier(0.470, 0.000, 0.745, 0.715)
+$easeInExpo = cubic-bezier(0.950, 0.050, 0.795, 0.035)
+$easeInCirc = cubic-bezier(0.600, 0.040, 0.980, 0.335)
+$easeInBack = cubic-bezier(0.600, -0.280, 0.735, 0.045)
+
+$easeOutQuad = cubic-bezier(0.250, 0.460, 0.450, 0.940)
+$easeOutCubic = cubic-bezier(0.215, 0.610, 0.355, 1.000)
+$easeOutQuart = cubic-bezier(0.165, 0.840, 0.440, 1.000)
+$easeOutQuint = cubic-bezier(0.230, 1.000, 0.320, 1.000)
+$easeOutSine = cubic-bezier(0.390, 0.575, 0.565, 1.000)
+$easeOutExpo = cubic-bezier(0.190, 1.000, 0.220, 1.000)
+$easeOutCirc = cubic-bezier(0.075, 0.820, 0.165, 1.000)
+$easeOutBack = cubic-bezier(0.175, 0.885, 0.320, 1.275)
+
+$easeInOutQuad = cubic-bezier(0.455, 0.030, 0.515, 0.955)
+$easeInOutCubic = cubic-bezier(0.645, 0.045, 0.355, 1.000)
+$easeInOutQuart = cubic-bezier(0.770, 0.000, 0.175, 1.000)
+$easeInOutQuint = cubic-bezier(0.860, 0.000, 0.070, 1.000)
+$easeInOutSine = cubic-bezier(0.445, 0.050, 0.550, 0.950)
+$easeInOutExpo = cubic-bezier(1.000, 0.000, 0.000, 1.000)
+$easeInOutCirc = cubic-bezier(0.785, 0.135, 0.150, 0.860)
+$easeInOutBack = cubic-bezier(0.680, -0.550, 0.265, 1.550)
+
+
+
+//-//////////////////////////////////////////////////////////
+//- Project variables
+//-//////////////////////////////////////////////////////////
+$content-width = 1160px

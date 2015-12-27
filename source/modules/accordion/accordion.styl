@@ -1,0 +1,44 @@
+.accordion
+	ul-reset()
+
+	&__item
+		padding 0
+		list-style none
+		margin-bottom 4px
+
+	&__header
+		position relative
+		color #3d3d3d
+		font-size 18px
+		line-height 20px
+		padding 15px 50px 15px 20px
+		background-color #F9F9F9
+		cursor pointer
+		transition 150ms all ease-in-out 0s
+		&:hover
+			box-shadow 0 1px 5px rgba(22, 20, 17, 0.16)
+
+		&:after
+			transition 150ms all ease-in-out 0s
+			position absolute
+			right 20px
+			top 22px
+			content ''
+			display inline-block
+			vertical-align middle
+			width 0
+			height 0
+			border 4px solid transparent
+			border-top-color #535353
+			margin-left 4px
+			border-bottom none
+
+	&__content
+		display none
+		padding 20px 10px
+
+	&__item_active &__header
+		box-shadow 0 1px 5px rgba(22, 20, 17, 0.16)
+
+	&__item_active &__header:after
+		transform rotate(180deg)

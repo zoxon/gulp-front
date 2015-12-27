@@ -1,0 +1,22 @@
+"alert": {
+	"error": {
+		"type": "error",
+		"title": "Error message title",
+		"text": "Error message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum."
+	},
+	"success": {
+		"type": "success",
+		"title": "Success message title",
+		"text": "Success message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum."
+	},
+	"info": {
+		"type": "info",
+		"title": "Info message title",
+		"text": "Info message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum."
+	},
+	"message": {
+		"type": "message",
+		"title": "Message message title",
+		"text": "Message message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum."
+	},
+}

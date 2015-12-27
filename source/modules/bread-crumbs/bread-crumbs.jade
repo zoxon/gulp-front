@@ -1,0 +1,11 @@
+mixin bread-crumbs(data)
+	.bread-crumbs
+		ul
+			each ent, num in data
+				if (num+1 < data.length)
+					li.bread-crumbs__item 
+						a(href="#").bread-crumbs__link= ent
+						.bread-crumbs__separator
+							+svg-icon('chevron-right')
+				else
+					li.bread-crumbs__item= ent
