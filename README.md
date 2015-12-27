@@ -2,7 +2,7 @@
 
 *Шаблон для быстрого старта разработки с [Gulp](http://gulpjs.com/), [Jade](http://jade-lang.com/) и [Stylus](https://learnboost.github.io/stylus/)*
 
-[![Build Status](https://travis-ci.org/Zoxon/gulp-front.svg)](https://travis-ci.org/Zoxon/gulp-front)
+[![Build Status](https://api.travis-ci.org/zoxon/gulp-front.svg)](https://travis-ci.org/Zoxon/gulp-front)
 [![Dependency Status](https://david-dm.org/zoxon/gulp-front.svg)](https://david-dm.org/Zoxon/gulp-front)
 ![GitHub issues](https://img.shields.io/github/issues/Zoxon/gulp-front.svg?style=flat)
 ![GitHub forks](https://img.shields.io/github/forks/Zoxon/gulp-front.svg?style=flat)
