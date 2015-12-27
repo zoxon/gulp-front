@@ -1,0 +1,121 @@
+// Ion.Tabs: Base */
+
+.ionTabs
+	position relative
+
+	&__head
+		position relative
+		display table
+		width 100%
+		list-style-type none
+		margin 0
+		padding 0
+		z-index 1
+		// zoom 1
+
+		// &:before
+		// &:after
+		// 	content ""
+		// 	display table
+
+		// &:after
+		// 	clear both
+
+	&__tab
+		position relative
+		display table-cell
+		// float left
+		text-align center
+		list-style-type none
+		background none
+		margin 0
+		padding 0
+		cursor pointer
+
+	&__tab&__tab_state_active
+		cursor default
+
+
+	&__body
+		position relative
+		z-index 2
+
+
+	&__item
+		position relative
+		display none
+
+	&__item&__item_state_active
+		display block
+
+
+	&__preloader
+		position relative
+
+.ionTabs_color_green
+	.ionTabs
+		margin 0 0 30px
+		&__head
+			border-bottom 1px solid #99d685
+
+		&__tab
+			line-height 16px
+			padding 10px 15px 12px
+			color #717171
+			font-size 13px
+
+			&:hover
+				background #99d685
+				color #fff
+
+		&__tab_state_active
+			// top 0
+			background #99d685
+			color #fff
+
+		&__body
+			padding 20px 0
+
+		&__item
+			// padding 15px 26px
+
+		&__item_indent
+			padding 0 20px
+
+		&__preloader
+			height 50px
+			background url(../img/preloader-flat.gif) no-repeat 25px 50%
+
+.ionTabs_color_violet
+	.ionTabs
+		margin 0 0 30px
+		&__head
+			border-bottom 1px solid #8271b4
+
+		&__tab
+			line-height 16px
+			padding 10px 15px 12px
+			color #717171
+			font-size 13px
+
+			&:hover
+				background #8271b4
+				color #fff
+
+		&__tab_state_active
+			// top 0
+			background #8271b4
+			color #fff
+
+		&__body
+			padding 20px 0
+
+		&__item
+			// padding 15px 26px
+
+		&__item_indent
+			padding 0 20px
+
+		&__preloader
+			height 50px
+			background url(../img/preloader-flat.gif) no-repeat 25px 50%

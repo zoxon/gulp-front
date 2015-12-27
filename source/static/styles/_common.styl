@@ -1,0 +1,49 @@
+
+html, body
+	height 100%
+
+
+.page
+	// Стили для body
+
+	&__wrapper
+		min-height 100%
+		margin-bottom -50px
+
+	* html &__wrapper
+		height 100%
+
+	&__buffer
+		height 50px
+
+	&__header
+		margin-bottom 50px
+
+	&__main
+		width $content-width
+		margin 0 auto
+		padding-bottom 60px
+
+	&__bread-crumbs
+		//
+
+.layout
+	m-cf()
+	&__sidebar
+		width 300px
+
+	&__content
+		width 830px
+
+	&_sidebar_left &__sidebar
+		float left
+
+	&_sidebar_left &__content
+		float right
+
+	&_sidebar_right &__sidebar
+		float right
+
+	&_sidebar_right &__content
+		float left
+

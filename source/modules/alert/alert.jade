@@ -1,0 +1,13 @@
+mixin alert(data)
+	- var classes = ["alert"]
+	if data.type
+		- classes.push(classes[0] + "_type_" + data.type)
+
+	if data.color
+		- classes.push(classes[0] + "_color_" + data.color)
+
+	div(class=classes)
+		.alert__title= data.title
+		.alert__body= data.text
+		.alert__close
+			+svg-icon("close")

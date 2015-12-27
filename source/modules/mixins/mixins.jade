@@ -1,0 +1,20 @@
+mixin ie(condition)
+	| 
+	| <!--[!{condition}]>
+	block
+	| 
+	| <![endif]-->
+	| 
+
+mixin iePlus(condition)
+	| 
+	| <!--[!{condition}]><!-->
+	block
+	| 
+	| <!--<![endif]-->
+	| 
+
+
+mixin svg-icon(name)
+	svg(class="icon icon_#{name}")&attributes(attributes)
+		use(xlink:href='img/icons.svg##{name}')

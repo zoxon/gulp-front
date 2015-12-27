@@ -1,0 +1,25 @@
+include ../logo/logo
+include ../search-widget/search-widget
+include ../main-menu/main-menu
+include ../github-button/github-button
+include ../header-presentation/header-presentation
+
+mixin header(data)
+	header.header
+		.header__top
+			.header__inner
+				.header__logo
+					+logo()
+				
+				.header__menu
+					+main-menu(mainMenu.default)
+
+				.header__github
+					+github-button()
+						
+
+				.clear
+
+		.header__bottom
+			.header__inner
+				+header-presentation(data)

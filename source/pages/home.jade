@@ -1,0 +1,38 @@
+include ../modules/mixins/mixins
+include ../modules/head/head
+include ../modules/footer/footer
+include ../modules/browsehappy/browsehappy
+include ../modules/header/header
+include ../modules/sidebar/sidebar
+include ../modules/demo/demo
+
+
+doctype html
+html(class="no-js" lang="ru")
+
+	head
+		+head(head.home)
+
+	body.page
+		+browsehappy(browsehappy)
+
+		.page__wrapper
+			.page__header
+				+header()
+
+			.page__main
+				.layout.layout_sidebar_left
+					.layout__sidebar
+						+sidebar()
+					.layout__content
+						+demo()
+
+
+			.page__buffer
+
+		.page__footer
+			+footer()
+		
+		//- Scripts
+		script(src='js/plugins.min.js')
+		script(src='js/main.min.js')

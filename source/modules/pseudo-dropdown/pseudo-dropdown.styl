@@ -1,0 +1,49 @@
+.pseudo-dropdown
+	font-size 13px
+	position relative
+	&__trigger
+		cursor pointer
+		padding 3px 8px
+		display inline-block
+		background #F9F9F9
+		box-shadow 0 1px 5px rgba(22,20,17,.16)
+
+		&:after
+			content ''
+			display inline-block
+			vertical-align middle
+			width 0
+			height 0
+			border 3px solid transparent
+			border-top-color #333
+			margin-left 4px
+			border-bottom none
+	&__list
+		min-width 150px
+		max-width 300px
+		position absolute
+		left 0
+		top 100%
+		z-index 100
+		overflow hidden
+		border-radius 3px
+		background #fff
+		opacity 0
+		visibility hidden
+		transition all 0.2s ease-in-out 0s
+		box-shadow 0 0 7px rgba(0, 0, 0, 0.13)
+
+	&_dropdown_open &__list
+		opacity 1
+		visibility visible
+
+.pseudo-dropdown-list
+	ul-reset()
+	&__item
+		padding 5px 12px
+		list-style none
+		cursor pointer
+	&__item:hover
+	&__item_active
+		background #0074D9
+		color #fff

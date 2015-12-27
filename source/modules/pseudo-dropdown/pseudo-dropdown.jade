@@ -1,0 +1,14 @@
+mixin pseudo-dropdown(data)
+	.pseudo-dropdown
+		.pseudo-dropdown__trigger
+		.pseudo-dropdown__list
+			.pseudo-dropdown-list
+				ul
+					- var activeCounter = 0
+					each ent, num in data.list
+						- var classes = ['pseudo-dropdown-list__item']
+						if ent.active && activeCounter < 1
+							- activeCounter += 1
+							- classes.push(classes[0] + '_active')
+
+						li(class=classes, data-value="#{num}")= ent.title

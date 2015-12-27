@@ -1,0 +1,11 @@
+mixin pager(data)
+	.pager
+		a(href="#").pager__arrow.pager__arrow_left
+			+svg-icon('chevron-left')
+		.pager__counter
+			span.pager__current= data.current
+			|  из 
+			span.pager__total= data.total
+		a(href="#").pager__arrow.pager__arrow_right
+			+svg-icon('chevron-right')
+

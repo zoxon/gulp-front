@@ -1,0 +1,62 @@
+.page_modal
+	overflow hidden
+
+.modal
+	overflow-x hidden
+	overflow-y auto
+	position fixed
+	top 0
+	right 0
+	width 100%
+	height 100%
+	z-index 9999
+	background-color rgba(#000, 0.7)
+	transition 200ms all ease-in-out
+	visibility visible
+	opacity 1
+
+	&__overlay
+		z-index 1
+		position fixed
+		top 0
+		bottom 0
+		right 0
+		left 0
+		margin auto
+		width 100%
+		height 100%
+		margin-left -20px
+
+	&__wrapper
+		position absolute
+		z-index 2
+		top 0
+		left 50%
+		z-index 1050
+		display inline-block
+		overflow visible
+		transform translateX(-50%)
+
+	&__content
+		margin 100px 0
+		background-color #fff
+		padding 15px 37px 30px
+
+	&__close
+		cursor pointer
+		position absolute
+		right -36px
+		top 40px
+		size 16px
+		fill #fff
+		padding 10px
+		line-height 1
+		&:hover
+			fill #fff - 20%
+		svg
+			transition 125ms all ease-in-out
+			svgSize($close)
+
+	&_hidden
+		visibility hidden
+		opacity 0

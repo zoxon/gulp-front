@@ -1,0 +1,43 @@
+.search-widget
+	position relative
+	&__input
+		border none
+		background #717171
+		font-size 16px
+		font-weight 300
+		height 30px
+		line-height 30px
+		padding 0 40px 0 10px
+		box-sizing border-box
+		width 100%
+		color #a3a3a3
+		transition 125ms all ease-in-out
+		+placeholder()
+			color #a3a3a3
+		&:focus
+			background #fff
+			color #505050
+			outline none
+
+	&__submit
+		position absolute
+		right 0
+		top 0
+		size 30px
+		border transparent
+		background none
+		padding 6px
+		line-height 1
+		fill #d4d4d4
+		transition 125ms all ease-in-out
+
+		&:focus
+		&:hover
+			outline none
+			fill #d4d4d4 - 10%
+
+		svg
+			display inline-block
+			vertical-align middle
+			svgSize($maginifer)
+			visibility visible

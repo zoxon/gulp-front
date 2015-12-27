@@ -1,0 +1,30 @@
+mixin pagination(data)
+	nav.pagination
+		ul
+			if data.arrows
+				li.pagination__item.pagination__arrow.pagination__arrow_prev
+					a(href="#", aria-label="Previous").pagination__link
+						+svg-icon('chevron-left')
+			
+			- for (var i = 0; i < data.pages; i++)
+				- var classes = ['pagination__item']
+				if i == 0
+					- classes.push(classes[0] + '_first')
+				if i == data.pages
+					- classes.push(classes[0] + '_last')
+				if i+1 == data.active
+					- classes.push(classes[0] + '_active')
+
+				li(class=classes)
+					a(href="#").pagination__link= i+1
+
+			li.pagination__item.pagination__item_spacer
+				.pagination__link ...
+
+			li.pagination__item
+				a(href="#", aria-label="Last").pagination__link= data.total
+			
+			if data.arrows
+				li.pagination__item.pagination__arrow.pagination__arrow_next
+					a(href="#", aria-label="Next").pagination__link
+						+svg-icon('chevron-right')

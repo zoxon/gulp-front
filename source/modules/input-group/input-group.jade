@@ -1,0 +1,7 @@
+mixin input-group(data)
+	.input-group
+		if (data.label)
+			label.input-group__label!= data.label
+
+		fieldset.input-group__body
+			block

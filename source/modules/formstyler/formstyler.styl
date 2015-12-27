@@ -1,0 +1,479 @@
+//-//////////////////////////////////////////////////////////
+//- JQuery Form Styler
+//-//////////////////////////////////////////////////////////
+// Чекбоксы
+.jq-checkbox
+	vertical-align middle
+	width 18px
+	height 18px
+	margin 0 4px 0 0
+	border 1px solid #C3C3C3
+	cursor pointer
+
+	&.checked
+		.jq-checkbox__div
+			width 18px
+			height 18px
+			&:before
+				position absolute
+				top 4px
+				left 4px
+				content ''
+				display block
+				border-left 3px solid #08C
+				border-bottom 3px solid #08C
+				width 7px
+				height 4px
+				transform rotate(-45deg)
+
+	&.focused
+		border: 1px solid #08C
+
+	&.disabled
+		opacity .55
+
+
+// Радио кнопки
+.jq-radio
+	vertical-align middle
+	width 20px
+	height 20px
+	border 1px solid #C3C3C3
+	border-radius 50%
+	cursor pointer
+
+	&.checked
+		.jq-radio__div
+			width 8px
+			height 8px
+			margin 6px 0 0 6px
+			border-radius 50%
+			background #08C
+
+	&.focused
+		border 1px solid #08C
+
+	&.disabled
+		opacity .55
+
+
+// Файл
+.jq-file
+	width 100%
+	border-radius 4px
+	input
+		height auto
+		line-height 1em
+		cursor pointer
+
+	&__name
+		overflow hidden
+		box-sizing border-box
+		width 100%
+		height 40px
+		line-height 40px
+		padding 0 80px 0 10px
+		border 1px solid #CCC
+		border-radius 4px
+		background #FFF
+		box-shadow inset 1px 1px #F1F1F1
+		font-size 14px
+		color #333
+		white-space nowrap
+		text-overflow ellipsis
+
+	&__browse
+		position absolute
+		top 1px
+		right 1px
+		padding 0 10px
+		border-left 1px solid #CCC
+		border-radius 0 4px 4px 0
+		font-size 14px
+		background #fff - 2%
+		line-height 38px
+		color #333
+		text-shadow 1px 1px #FFF
+
+	&:hover
+		.jq-file__browse
+			background #fff - 5%
+
+	&:active
+		.jq-file__browse
+			background #F5F5F5
+
+	&.focused
+		.jq-file__name
+			border 1px solid #5794BF
+
+	&.disabled
+		.jq-file__name
+		.jq-file__browse
+			border-color #CCC
+			background #F5F5F5
+			box-shadow none
+			color #888
+
+
+// Spinner
+.jq-number
+	position relative
+	display inline-block
+	vertical-align middle
+	padding 0 36px 0 0
+	&.focused
+		.jq-number__field
+			// border 1px solid #5794BF
+	&.disabled
+		.jq-number__spin
+			&:after
+				// border-bottom-color #AAA
+			&.minus
+				&:after
+					// border-top-color #AAA
+
+	&__field
+		width 100px
+		&:hover
+			border-color #B3B3B3
+		input
+			padding 8px 9px
+			outline none
+			background none
+			font-size 14px
+			text-align left
+			-moz-appearance textfield
+
+	&__field
+		input::-webkit-inner-spin-button
+		input::-webkit-outer-spin-button
+			margin 0
+			-webkit-appearance none
+
+	&__spin
+		position absolute
+		right 0
+		width 32px
+		height 19px
+		border 1px solid #cdcdcd
+		border-radius 3px
+		// background #F5F5F5
+		// background -webkit-linear-gradient(#FFF, #E6E6E6)
+		// background linear-gradient(#FFF, #E6E6E6)
+		// box-shadow 0 1px 2px rgba(0,0,0,.1)
+		// box-shadow inset 1px -1px #F1F1F1, inset -1px 0 #F1F1F1, 0 1px 2px rgba(0,0,0,.1)
+		-webkit-user-select none
+		-moz-user-select none
+		-ms-user-select none
+		user-select none
+		text-shadow 1px 1px #FFF
+		cursor pointer
+		&:hover
+			background #E6E6E6
+			// background -webkit-linear-gradient(#F6F6F6, #E6E6E6)
+			// background linear-gradient(#F6F6F6, #E6E6E6)
+		&:active
+			background #F5F5F5
+			// box-shadow inset 1px 1px 3px #DDD
+		&:after
+			content ''
+			position absolute
+			left 12px
+
+		&.plus
+			top 0
+			right 0
+			&:after
+				top 3px
+				triangle(up, 4px, #999)
+			&:hover
+				&:after
+					border-bottom-color #000
+		&.minus
+			bottom 0
+			right 0
+			&:after
+				top 8px
+				triangle(down, 4px, #999)
+			&:hover
+				&:after
+					border-top-color #000
+
+	&.disabled &__field,
+	&.disabled &__spin
+		border-color #CCC
+		background #F5F5F5
+		box-shadow none
+		color #888
+
+
+// Селект
+.jq-selectbox
+	width 100%
+	vertical-align middle
+	cursor pointer
+	.placeholder
+		color #888
+
+	ul
+		margin 0
+		padding 0
+
+	li
+		min-height 18px
+		padding 5px 10px 6px
+		-webkit-user-select none
+		-moz-user-select none
+		-ms-user-select none
+		user-select none
+		white-space nowrap
+		color #231F20
+
+		.selected
+			background-color #A3ABB1
+			color #FFF
+
+		&:hover
+			background-color: #08C
+			color #FFF
+
+		.disabled
+			color #AAA
+			&:hover
+				background none
+
+		.optgroup
+			font-weight bold
+			&:hover
+				background none
+				color #231F20
+				cursor default
+
+		.option
+			padding-left 25px
+
+	&__select
+		height 40px
+		padding 0 45px 0 10px
+		border 1px solid #CCC
+		border-radius 4px
+		background #fff
+		font-size 14px
+		line-height 40px
+		color #333
+		text-shadow 1px 1px #FFF
+
+		&:hover
+			background #fff - 2%
+
+		&:active
+			background #F5F5F5
+			box-shadow inset 1px 1px 3px #DDD
+
+	.focused
+		.jq-selectbox__select
+			border 1px solid #5794BF
+
+	.disabled
+		.jq-selectbox__select
+			border-color #CCC
+			background #F5F5F5
+			box-shadow none
+			color #888
+
+		.jq-selectbox__trigger-arrow
+			border-top-color #AAA
+
+	&__select-text
+		display block
+		overflow hidden
+		width 100%
+		white-space nowrap
+		text-overflow ellipsis
+
+	&__trigger
+		position absolute
+		top 0
+		right 0
+		width 34px
+		height 100%
+
+	&__trigger-arrow
+		position absolute
+		top 42%
+		right 12px
+		width 0
+		height 0
+		triangle(down, 4px, #999)
+
+	&:hover
+		.jq-selectbox__trigger-arrow
+			border-top-color #000
+
+	&__dropdown
+		box-sizing border-box
+		width 100%
+		margin 2px 0 0
+		padding 0
+		border 1px solid #CCC
+		border-radius 4px
+		background #FFF
+		box-shadow 0 2px 10px rgba(0,0,0,.2)
+		font-size 14px
+		line-height 18px
+
+	&__search
+		margin 5px
+		input
+			box-sizing border-box
+			width 100%
+			margin 0
+			padding 5px 27px 6px 8px
+			border 1px solid #CCC
+			border-radius 3px
+			outline none
+			background url("data:image/pngbase64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAO1JREFUeNqU078LAXEYx/FzYfNzk5TJaFNKYjFYSQZ/hvwBsvg1UCY2xT9gM8hukQGThWRjkcFw3pdnujhfT736Xn2fPvfc3fd07V0OFDDFAnM0ENYsZRiGLSc9OpqIYIA9fMhhjCrW2h9VlMlcH/aymMGtOqEugX08PwQucUZKdTozMIqdTc9WepQD7wjY9ARx+ydwhfyXfS+S0qMcOEQJGcueB3VccFINdMgal6NzkmPjRwJXxDBB7/2RDdtAp6wb+dpphHDASG5QQ0V6u2aoSqBZD/lDrNWRJynLK2qpBn4rc6K2XB9/Nb8EGABtf1thzY6X2AAAAABJRU5ErkJggg==") no-repeat 100% 50%
+			box-shadow inset 1px 1px #F1F1F1
+			color #333
+			-webkit-appearance textfield
+
+	&__search
+		input
+			&::-webkit-search-cancel-button
+			&::-webkit-search-decoration
+				-webkit-appearance none
+
+	&__not-found
+		margin 5px
+		padding 5px 8px 6px
+		background #F0F0F0
+		font-size 13px
+
+
+// Мультиселект
+.jq-select-multiple
+	width 100%
+	box-sizing border-box
+	padding 1px
+	border 1px solid #CCC
+	border-bottom-color #B3B3B3
+	border-radius 4px
+	background #FFF
+	box-shadow inset 1px 1px #F1F1F1, 0 1px 2px rgba(0,0,0,.1)
+	font-size 14px
+	line-height 18px
+	color #333
+	cursor default
+	ul
+		margin 0
+		padding 0
+
+	li
+		padding 3px 9px 4px
+		list-style none
+		-webkit-user-select none
+		-moz-user-select none
+		-ms-user-select none
+		user-select none
+		white-space nowrap
+
+		&:first-child
+			border-radius 3px 3px 0 0
+
+		&:last-child
+			border-radius 0 0 3px 3px
+
+		&.selected
+			background #08C
+			color #FFF
+
+		&.disabled
+			color #AAA
+
+		&.optgroup
+			font-weight bold
+
+		&.option
+			padding-left 25px
+
+	&.focused
+		border 1px solid #5794BF
+
+	&.disabled
+		border-color #CCC
+		background #F5F5F5
+		box-shadow none
+		color #888
+
+		li.selected
+		li.selected.disabled
+			background #CCC
+			color #FFF
+
+
+// Другие
+input[type='email']
+input[type='password']
+input[type='search']
+input[type='tel']
+input[type='text']
+input[type='url']
+textarea
+	&.styler
+		padding 8px 9px
+		border 1px solid #CCC
+		border-bottom-color #B3B3B3
+		border-radius 4px
+		box-shadow inset 1px 1px #F1F1F1, 0 1px 2px rgba(0,0,0,.1)
+		font-size 14px
+		color #333
+		&:hover
+			border-color #B3B3B3
+
+		&:focus
+			border-color #CCC
+			border-top-color #B3B3B3
+			outline none
+			box-shadow inset 0 1px 2px rgba(0,0,0,.1)
+
+input[type='search'].styler
+	-webkit-appearance none
+
+textarea.styler
+	overflow auto
+
+
+
+button
+input[type='button']
+input[type='submit']
+input[type='reset']
+	.styler
+		overflow visible
+		padding 8px 11px
+		border 1px solid #CCC
+		border-bottom-color #B3B3B3
+		border-radius 4px
+		outline none
+		background #F5F5F5
+		background linear-gradient(#FFF, #E6E6E6)
+		box-shadow inset 1px -1px #F1F1F1, inset -1px 0 #F1F1F1, 0 1px 2px rgba(0,0,0,.1)
+		font-size 14px
+		color #333
+		text-shadow 1px 1px #FFF
+		cursor pointer
+		&::-moz-focus-inner
+			padding 0
+			border 0
+		&:not([disabled]):hover
+			background #E6E6E6
+			background linear-gradient(#F6F6F6, #E6E6E6)
+		&:not([disabled]):active
+			background #F5F5F5
+			box-shadow inset 1px 1px 3px #DDD
+		&[disabled]
+			border-color #CCC
+			background #F5F5F5
+			box-shadow none
+			color #888

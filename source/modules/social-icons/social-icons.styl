@@ -1,0 +1,56 @@
+.social-icons
+	display inline-block
+
+	&__title
+		color #505050
+		font-size 20px
+		font-weight 500
+		margin 0
+		padding-bottom 14px
+
+	&__list
+		+ul-reset()
+			font-size 0
+
+	&__item
+		list-style none
+		padding 0
+		display inline-block
+		margin-right 20px
+		&:last-child
+			margin-right 0
+		a
+			&
+			&:visited
+			&:hover
+				display block
+				text-decoration none
+
+		svg
+			transition 125ms all ease
+			fill #b0b0b0
+			size 34px
+
+	&__item_vk:hover
+		svg
+			fill #45668e
+
+	&__item_ok:hover
+		svg
+			fill #ed812b
+
+	&__item_tw:hover
+		svg
+			fill #55acee
+
+	&__item_fb:hover
+		svg
+			fill #3b5998
+
+	&__item_gp:hover
+		svg
+			fill #dc4e41
+
+	&__item_mr:hover
+		svg
+			fill #168de2

@@ -1,0 +1,64 @@
+.main-menu
+	ul-reset()
+
+	&__item
+		padding 0 20px 0 0
+		list-style none
+		font-family notoserif
+		font-size 14px
+		float left
+		position relative
+
+	&__link
+		&
+		&:visited
+			display block
+			text-decoration none
+			color #fff
+			padding 8px 11px 11px
+			transition background 300ms ease-in-out 0s
+
+		&:hover
+			color #fff
+			text-decoration underline
+
+	&__submenu
+		visibility hidden
+		opacity 0
+		transition all 300ms ease-in-out 0s
+		position absolute
+		top 38px
+		left 0
+		background #fff
+		width 250px
+		z-index 1
+		border-radius 0 2px 2px 2px
+		overflow hidden
+
+	&__item:hover &__submenu
+		visibility visible
+		opacity 1
+
+	&__item_dropdown &__link:after
+		content ''
+		display inline-block
+		margin-left 6px
+		triangle( down, 3px, #fff)
+		vertical-align middle
+
+	&__item_dropdown:hover &__link
+		&
+		&:visited
+			border-radius 2px 2px 0 0
+			background #fff
+			color #111
+		&:after
+			triangle( up, 3px, #111)
+			margin-bottom 4px
+
+	.header_fixed &__submenu
+		border 1px solid #ddd
+		border-top none
+		box-shadow 0px 2px 3px rgba(#000, 0.04)
+
+

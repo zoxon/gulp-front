@@ -1,0 +1,133 @@
+////////////////////////////////////////////////////////////
+// Core
+////////////////////////////////////////////////////////////
+.qtip
+	position: absolute;
+	left: -28000px;
+	top: -28000px;
+	display: none;
+	max-width: 280px;
+	min-width: 50px;
+	// font-size: 10.5px;
+	// line-height: 12px;
+	direction: ltr;
+	box-shadow: none;
+	padding: 0;
+
+.qtip-content
+	position: relative;
+	padding: 5px 9px;
+	overflow: hidden;
+	text-align: left;
+	word-wrap: break-word;
+
+.qtip-titlebar
+	position: relative;
+	padding: 5px 35px 5px 10px;
+	overflow: hidden;
+	border-width: 0 0 1px;
+	font-weight: bold;
+
+	& + .qtip-content
+		border-top-width: 0 !important;
+
+// Default close button class
+.qtip-close
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 11; // Overlap .qtip-tip
+	cursor: pointer;
+	outline: medium none;
+	border: 1px solid transparent;
+
+.qtip-titlebar
+	.qtip-close
+		right: 4px;
+		top: 50%;
+		margin-top: -9px;
+
+* html .qtip-titlebar .qtip-close
+	top: 16px; // IE fix
+
+
+
+.qtip-icon
+	text-decoration: none;
+
+
+// Tips plugin
+.qtip
+	.qtip-tip
+		margin: 0 auto;
+		overflow: hidden;
+		z-index: 10;
+		canvas
+			top: 0;
+			left: 0;
+
+		.qtip-vml
+			behavior: url(#default#VML);
+			display: inline-block;
+			visibility: visible;
+
+		&
+		.qtip-vml
+		canvas
+			position: absolute;
+			color: #123456;
+			background: transparent;
+			border: 0 dashed transparent;
+
+
+// Opera bug #357 - Incorrect tip position https://github.com/Craga89/qTip2/issues/367
+x:-o-prefocus, .qtip .qtip-tip
+	visibility: hidden;
+
+
+// Default tooltip style
+.qtip-default
+	background-color #fff
+	border-color #fff
+	box-shadow 0 3px 11px rgba(22, 20, 17, 0.16)
+	font-size 13px
+	line-height normal
+	color #484848
+	.qtip-content
+		padding 13px 20px
+		a
+			&
+			&:visited
+				text-decoration underline
+			&:hover
+				text-decoration none
+
+	.qtip-close
+		&
+		&:visited
+			color #d3d3d4
+			size 10px
+			text-decoration none
+			font-size 10px
+			line-height 10px
+			padding 5px
+			&:before
+				content: "\e01e";
+				font-family: "megacom" !important;
+				font-style: normal !important;
+				font-weight: normal !important;
+				font-variant: normal !important;
+				text-transform: none !important;
+				speak: none;
+				line-height: 1;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+		&:hover
+			color #484848
+			text-decoration none
+
+		.ui-icon
+			display none
+
+	.qtip-icon
+		border none
