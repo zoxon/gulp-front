@@ -264,134 +264,55 @@ textarea {
 	resize: vertical;
 }
 
-.b-browsehappy {
-	padding: 0.5em 0 0.7em;
-	text-align: center;
-	color: #333333;
-	background: #ffe983;
-}
-
 .clear {
 	clear: both;
 }
 
-.clearfix:before,
-.clearfix:after {
-	display: table;
-	content: "";
-}
-
-.clearfix:after {
-	clear: both;
-}
-
-.h-text-muted,
-.h-text-muted > * {
+.text-muted,
+.text-muted > * {
 	color: #cccccc;
 }
 
-.b-content-wrapper img[align="left"],
-.b-content-wrapper img[style*="float: left"],
-.b-content-wrapper img[style*="float:left"] {
+.content-wrapper img[align="left"],
+.content-wrapper img[style*="float: left"],
+.content-wrapper img[style*="float:left"] {
 	margin: 5px 15px 0px 0px;
 }
 
-.b-content-wrapper img[align="right"],
-.b-content-wrapper img[style*="float: right"],
-.b-content-wrapper img[style*="float:right"] {
+.content-wrapper img[align="right"],
+.content-wrapper img[style*="float: right"],
+.content-wrapper img[style*="float:right"] {
 	margin: 5px 0px 0px 15px;
 }
 
-.h-align-image-center {
+.align-image-center {
 	text-align: center;
 }
 
-.h-align-image-left {
+.align-image-left {
 	float: left;
 	margin: 5px 15px 0px 0px;
 }
 
-.h-align-image-right {
+.align-image-right {
 	float: right;
 	margin: 5px 0px 0px 15px;
 }
 
-.h-image-captioned {
+.image-captioned {
 	margin-bottom: 20px;
 }
 
-.h-image-captioned figcaption {
+.image-captioned figcaption {
 	color: #454545;
 	font-size: 13px;
 	font-style: oblique;
 }
 
-.h-fluid-image {
+.fluid-image {
 	display: block;
 	max-width: 100%;
 	height: auto;
-}
-
-@media print {
-	*,
-	*:before,
-	*:after {
-		color: #000000 !important;
-		background: transparent !important;
-		-webkit-box-shadow: none !important;
-		box-shadow: none !important;
-		text-shadow: none !important;
-	}
-
-	a,
-	a:visited {
-		text-decoration: underline;
-	}
-
-	a[href]:after {
-		content: " (" attr(href) ")";
-	}
-
-	abbr[title]:after {
-		content: " (" attr(title) ")";
-	}
-
-	a[href^="#"]:after,
-	a[href^="javascript:"]:after {
-		content: "";
-	}
-
-	pre,
-	blockquote {
-		border: 1px solid #999999;
-
-		page-break-inside: avoid;
-	}
-
-	thead {
-		display: table-header-group;
-	}
-
-	tr,
-	img {
-		page-break-inside: avoid;
-	}
-
-	img {
-		max-width: 100% !important;
-	}
-
-	p,
-	h2,
-	h3 {
-		orphans: 3;
-		widows: 3;
-	}
-
-	h2,
-	h3 {
-		page-break-after: avoid;
-	}
 }
 
 h1,
@@ -464,7 +385,7 @@ ul {
 
 dt,
 dd {
-	line-height: 20px;
+	line-height: 22px;
 }
 
 dt {
@@ -487,7 +408,7 @@ code {
 	-o-tab-size: 4;
 	tab-size: 4;
 	font-family: "Consolas", "Courier New", "Nimbus Mono L", monospace;
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 1.6;
 }
 
@@ -508,8 +429,8 @@ q q {
 }
 
 blockquote {
-	margin: 0 0 20px;
-	padding: 10px;
+	margin: 0 0 22px;
+	padding: 11px;
 	border-left: 5px solid #eeeeee;
 }
 
@@ -529,7 +450,7 @@ blockquote footer,
 blockquote small {
 	display: block;
 	font-size: 80%;
-	line-height: 20px;
+	line-height: 22px;
 }
 
 blockquote footer:before,
@@ -550,8 +471,8 @@ table {
 	width: 100%;
 }
 
-.h-table {
-	margin: 20px 0;
+.table {
+	margin: 22px 0;
 	empty-cells: show;
 	border-spacing: 0;
 	border: 1px solid #e6e6e6;
@@ -559,7 +480,7 @@ table {
 	font-size: 14px;
 }
 
-.h-table caption {
+.table caption {
 	padding: 1em 0;
 	text-align: center;
 	color: #333333;
@@ -568,8 +489,8 @@ table {
 	line-height: 1;
 }
 
-.h-table td,
-.h-table th {
+.table td,
+.table th {
 	overflow: visible;
 	margin: 0;
 	padding: 0.5em 1em;
@@ -579,50 +500,176 @@ table {
 	font-weight: normal;
 }
 
-.h-table td:first-child,
-.h-table th:first-child {
+.table td:first-child,
+.table th:first-child {
 	border-left-width: 0;
 }
 
-.h-table thead,
-.h-table tfoot {
+.table thead,
+.table tfoot {
 	text-align: left;
 	vertical-align: bottom;
 	color: #333333;
 	background-color: #e6edf8;
 }
 
-.h-table thead td,
-.h-table tfoot td,
-.h-table thead th,
-.h-table tfoot th {
+.table thead td,
+.table tfoot td,
+.table thead th,
+.table tfoot th {
 	border-color: #ffffff;
 }
 
-.h-table td {
+.table td {
 	background-color: transparent;
 }
 
-.h-table_striped tr:nth-child(2n-1) td {
+.table_striped tr:nth-child(2n-1) td {
 	background-color: #f7f7f7;
 }
 
-.h-table_bordered td {
+.table_bordered td {
 	border-bottom: 1px solid #e6e6e6;
 }
 
-.h-table_bordered tbody > tr:last-child > td,
-.h-table_bordered thead > tr:last-child > td {
+.table_bordered tbody > tr:last-child > td,
+.table_bordered thead > tr:last-child > td {
 	border-bottom-width: 0;
 }
 
-.h-table_horizontal td,
-.h-table_horizontal th {
+.table_horizontal td,
+.table_horizontal th {
 	border-width: 0 0 1px 0;
 	border-bottom: 1px solid #e6e6e6;
 }
 
-.h-table_horizontal tbody > tr:last-child > td,
-.h-table_horizontal thead > tr:last-child > td {
+.table_horizontal tbody > tr:last-child > td,
+.table_horizontal thead > tr:last-child > td {
 	border-bottom-width: 0;
+}
+
+@font-face {
+	font-family: "Noto Sans";
+	src: url("../fonts/notosans.eot");
+	src: url("../fonts/notosans.eot?#iefix'") format("embedded-opentype"), url("../fonts/notosans.woff") format("woff"), url("../fonts/notosans.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Noto Sans";
+	src: url("../fonts/notosansitalic.eot");
+	src: url("../fonts/notosansitalic.eot?#iefix'") format("embedded-opentype"), url("../fonts/notosansitalic.woff") format("woff"), url("../fonts/notosansitalic.ttf") format("truetype");
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "Noto Sans";
+	src: url("../fonts/notosansbold.eot");
+	src: url("../fonts/notosansbold.eot?#iefix'") format("embedded-opentype"), url("../fonts/notosansbold.woff") format("woff"), url("../fonts/notosansbold.ttf") format("truetype");
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Noto Sans";
+	src: url("../fonts/notosansbolditalic.eot");
+	src: url("../fonts/notosansbolditalic.eot?#iefix'") format("embedded-opentype"), url("../fonts/notosansbolditalic.woff") format("woff"), url("../fonts/notosansbolditalic.ttf") format("truetype");
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "Noto Serif";
+	src: url("../fonts/notoserif.eot");
+	src: url("../fonts/notoserif.eot?#iefix'") format("embedded-opentype"), url("../fonts/notoserif.woff") format("woff"), url("../fonts/notoserif.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Noto Serif";
+	src: url("../fonts/notoserifitalic.eot");
+	src: url("../fonts/notoserifitalic.eot?#iefix'") format("embedded-opentype"), url("../fonts/notoserifitalic.woff") format("woff"), url("../fonts/notoserifitalic.ttf") format("truetype");
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "Noto Serif";
+	src: url("../fonts/notoserifbold.eot");
+	src: url("../fonts/notoserifbold.eot?#iefix'") format("embedded-opentype"), url("../fonts/notoserifbold.woff") format("woff"), url("../fonts/notoserifbold.ttf") format("truetype");
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Noto Serif";
+	src: url("../fonts/notoserifbolditalic.eot");
+	src: url("../fonts/notoserifbolditalic.eot?#iefix'") format("embedded-opentype"), url("../fonts/notoserifbolditalic.woff") format("woff"), url("../fonts/notoserifbolditalic.ttf") format("truetype");
+	font-weight: bold;
+	font-style: italic;
+}
+
+@media print {
+	*,
+	*:before,
+	*:after {
+		color: #000000 !important;
+		background: transparent !important;
+		-webkit-box-shadow: none !important;
+		box-shadow: none !important;
+		text-shadow: none !important;
+	}
+
+	a,
+	a:visited {
+		text-decoration: underline;
+	}
+
+	a[href]:after {
+		content: " (" attr(href) ")";
+	}
+
+	abbr[title]:after {
+		content: " (" attr(title) ")";
+	}
+
+	a[href^="#"]:after,
+	a[href^="javascript:"]:after {
+		content: "";
+	}
+
+	pre,
+	blockquote {
+		border: 1px solid #999999;
+
+		page-break-inside: avoid;
+	}
+
+	thead {
+		display: table-header-group;
+	}
+
+	tr,
+	img {
+		page-break-inside: avoid;
+	}
+
+	img {
+		max-width: 100% !important;
+	}
+
+	p,
+	h2,
+	h3 {
+		orphans: 3;
+		widows: 3;
+	}
+
+	h2,
+	h3 {
+		page-break-after: avoid;
+	}
 }

@@ -1,919 +1,999 @@
 <!DOCTYPE html>
+<html lang="ru" class="no-js">
 
-<html lang="ru">
 	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Home page :: Project Name</title>
-		<link rel="apple-touch-icon" href="apple-touch-icon.png">
-		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic&amp;amp;subset=cyrillic,latin">
-		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic,700italic&amp;amp;subset=cyrillic,latin">
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/style.css">
-		 
-		<!--[if lt IE 9]>
-		<script src="js/jquery-1.11.2.min.js"></script> 
-		<![endif]-->
-		 
-		 
-		<!--[if gt IE 8]><!-->
-		<script src="js/jquery-2.1.3.min.js"></script> 
-		<!--<![endif]-->
-		 
-	</head>
-	<body>
-		 
-		<!--[if lt IE 8]>
-		<p class="b-browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com" target="_blank">обновите браузер</a> для лучшего отображения сайта.</p>
+		<meta charset="utf-8" />
+		<title>Главная :: Gulp-front</title>
+		<meta content="" name="author" />
+		<meta content="" name="description" />
+		<meta content="" name="keywords" />
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="robots" content="noodp, noydir" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="HandheldFriendly" content="true" />
+		<meta content="IE=edge" http-equiv="X-UA-Compatible" />
+		<link rel="stylesheet" href="css/reset.min.css" />
+		<link rel="stylesheet" href="css/main.min.css" />
+		<meta property="og:title" content="Главная :: Gulp-front" />
+		<meta property="og:title" content="" />
+		<meta property="og:url" content="" />
+		<meta property="og:description" content="" />
+		<meta property="og:image" content="" />
+		<meta property="og:image:type" content="image/jpeg" />
+		<meta property="og:image:width" content="500" />
+		<meta property="og:image:height" content="300" />
+		<meta property="twitter:description" content="" />
+		<link rel="image_src" href="" />
+		<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
+		<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+		<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+		<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+		<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+		<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" />
+		<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
+		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194" />
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192" />
+		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+		<link rel="manifest" href="/manifest.json" />
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#71bf44" />
+		<meta name="apple-mobile-web-app-title" content="Gulp-front" />
+		<meta name="application-name" content="Gulp-front" />
+		<meta name="msapplication-TileColor" content="#ffffff" />
+		<meta name="msapplication-TileImage" content="/mstile-144x144.png" />
+		<meta name="theme-color" content="#ffffff" />
 		<script>
-			$(document).ready(function() {
-				$('.b-browsehappy').click(function() {
-					$(this).slideUp();
-				});
-			});
-			
-			
-		</script> 
+			(function(H)
+			{
+				H.className = H.className.replace(/\bno-js\b/, 'js')
+			})(document.documentElement)
+
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="js/jquery-1.11.3.min.js"></script> 
 		<![endif]-->
-		 
-		<div class="b-page">
-			<div class="b-page__wrapper">
-				<!-- HEADER-->
-				<div class="b-page__header">
-					<script>
-						$(function() {
-						
-							var $header    = $('.b-header')
-								$headerTop = $header.find('.b-header__top'),
-								$window    = $(window),
-								marginTop  = 0,
-								offset     = $headerTop.offset().top,
-								classAdded = false;
-						
-							$window.scroll(function() {
-								if ($window.scrollTop() > offset) {
-									if (classAdded === false) {
-										$header.addClass('b-header_fixed');
-									}
-									classAdded = true;
-								}
-								else {
-									$header.removeClass('b-header_fixed');
-									classAdded = false;
-								}
-							});
-						
-						
-							$('.js-link-sroll a[href^="#"]').on('click',function (event) {
-								event.preventDefault();
-								var $heder = $('.b-header__top');
-								var target = this.hash;
-								var $target = $(target);
-						
-								if ($(this).parent().hasClass('b-main-menu-submenu__item')) {
-									$('.b-main-menu-submenu__item').removeClass('b-main-menu-submenu__item_active');
-									$(this).parent().addClass('b-main-menu-submenu__item_active');
-								}
-						
-								$('html, body').stop().animate({
-									'scrollTop': $target.offset().top - $heder.outerHeight()
-								}, 900, 'swing', function () {
-									window.location.hash = target;
-								});
-							});
-						
-							$('.b-logo').click(function(event) {
-								event.preventDefault();
-						
-								$('html, body').stop().animate({
-									'scrollTop': 0
-								}, 900, 'swing', function () {
-									var loc = window.location.href,
-										index = loc.indexOf('#');
-									window.location = loc.substring(0, index);
-								});
-							});
-							
-						});
-						
-					</script>
-					<header class="b-header">
-						<div class="b-header__top">
-							<div class="b-header__inner">
-								<div class="b-header__logo"><a href="#" class="b-logo">
-										<svg width="100%" height="100%" viewBox="0 0 510 510" class="b-logo__icon">
-											<g id="gulp-front-heart">
-												<path d="M255,489.6l-35.7-35.7C86.7,336.6,0,257.55,0,160.65C0,81.6,61.2,20.4,140.25,20.4c43.35,0,86.7,20.4,114.75,53.55C283.05,40.8,326.4,20.4,369.75,20.4C448.8,20.4,510,81.6,510,160.65c0,96.9-86.7,175.95-219.3,293.25L255,489.6z"></path>
-											</g>
-										</svg><span class="b-logo__name">Gulp front</span></a></div>
-								<div class="b-header__menu">
-									<nav aria-label="primary" class="b-main-menu js-link-sroll">
+
+		<!--[if gt IE 8]><!-->
+		<script src="js/jquery-2.1.4.min.js"></script>
+		<!--<![endif]-->
+
+	</head>
+
+	<body class="page">
+		<!--[if lt IE 8]>
+		<p class="browsehappy">Вы используете<strong>устаревший</strong> браузер. Пожалуйста<a href="http://browsehappy.com" target="_blank">обновите браузер</a> для лучшего отображения сайта.</p><![endif]-->
+		<div class="page__wrapper">
+			<div class="page__header">
+				<header class="header">
+					<div class="header__top">
+						<div class="header__inner">
+							<div class="header__logo">
+								<a href="index.html" class="logo">
+									<span class="logo__icon">
+										<svg class="icon icon_heart">
+											<use xlink:href="img/icons.svg#heart"></use>
+										</svg>
+									</span>
+									<span class="logo__name">Gulp front</span>
+								</a>
+							</div>
+							<div class="header__menu">
+								<nav aria-label="primary" class="main-menu js-link-sroll">
+									<ul>
+										<li class="main-menu__item main-menu__item_dropdown">
+											<a href="#typography" class="main-menu__link">Typography</a>
+											<div class="main-menu__submenu">
+												<div class="main-menu-submenu">
+													<ul>
+														<li class="main-menu-submenu__item">
+															<a href="#titles-and-paragraphs">Titles &amp; Paragraphs</a>
+														</li>
+														<li class="main-menu-submenu__item">
+															<a href="#unordered-lists">Unordered lists</a>
+														</li>
+														<li class="main-menu-submenu__item">
+															<a href="#ordered-lists">Ordered lists</a>
+														</li>
+														<li class="main-menu-submenu__item">
+															<a href="#tables">Tables</a>
+														</li>
+														<li class="main-menu-submenu__item">
+															<a href="#images-helpers">Images helpers</a>
+														</li>
+														<li class="main-menu-submenu__item">
+															<a href="#quotes">Quotes</a>
+														</li>
+														<li class="main-menu-submenu__item">
+															<a href="#description-lists">Description lists</a>
+														</li>
+														<li class="main-menu-submenu__item">
+															<a href="#code">Code</a>
+														</li>
+														<li class="main-menu-submenu__item">
+															<a href="#text-elements">Text level elements</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class="main-menu__item main-menu__item_dropdown">
+											<a href="#helpers" class="main-menu__link">Helpers</a>
+											<div class="main-menu__submenu">
+												<div class="main-menu-submenu">
+													<ul>
+														<li class="main-menu-submenu__item">
+															<a href="#social-icons">Social icons module</a>
+														</li>
+														<li class="main-menu-submenu__item">
+															<a href="#svg-icons">Svg Icons</a>
+														</li>
+														<li class="main-menu-submenu__item">
+															<a href="#accordion">Accordion</a>
+														</li>
+														<li class="main-menu-submenu__item">
+															<a href="#pseudo-dropdown">Pseudo dropdown</a>
+														</li>
+														<li class="main-menu-submenu__item">
+															<a href="#images-helpers">Images helpers</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class="main-menu__item main-menu__item_dropdown">
+											<a href="#forms" class="main-menu__link">Forms</a>
+											<div class="main-menu__submenu">
+												<div class="main-menu-submenu">
+													<ul>
+														<li class="main-menu-submenu__item">
+															<a href="#messaging">Messaging</a>
+														</li>
+														<li class="main-menu-submenu__item">
+															<a href="#text-inputs">Text Inputs</a>
+														</li>
+														<li class="main-menu-submenu__item">
+															<a href="#radios-and-checkboxes">Radios and Checkboxes</a>
+														</li>
+														<li class="main-menu-submenu__item">
+															<a href="#selects">Selects</a>
+														</li>
+														<li class="main-menu-submenu__item">
+															<a href="#textareas-and-files">Textareas and Files</a>
+														</li>
+														<li class="main-menu-submenu__item">
+															<a href="#captcha">Captcha</a>
+														</li>
+														<li class="main-menu-submenu__item">
+															<a href="#buttons">Buttons</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class="main-menu__item ">
+											<a href="#grid" class="main-menu__link">Grid</a>
+										</li>
+									</ul>
+								</nav>
+							</div>
+							<div class="header__github">
+								<a href="//github.com/Zoxon/gulp-front" target="_blank" title="Watch source on Github" class="github-button">
+									<span class="github-button__icon">
+										<svg class="icon icon_github-octocat">
+											<use xlink:href="img/icons.svg#github-octocat"></use>
+										</svg>
+									</span>
+									<span class="github-button__text">Github</span>
+								</a>
+							</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+					<div class="header__bottom">
+						<div class="header__inner">
+							<div class="header-presentation">
+								<h1 class="header-presentation__name">Gulp front</h1>
+								<h2 class="header-presentation__description">A lean and powerful, gulp-based boilerplate for better front-end coding.</h2>
+								<div class="header-presentation__version">v. 4.0.0</div>
+								<div class="header-presentation__sub-description">Created &amp; maintained by @zoxon</div>
+								<div class="header-presentation__download">
+									<a href="//github.com/Zoxon/gulp-front/archive/master.zip" title="Download source from Github" class="button button_style_ghost button_color_white button_size_lg button_block">Download</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</header>
+			</div>
+			<div class="page__main">
+				<div class="layout layout_sidebar_left">
+					<div class="layout__sidebar">
+						<aside class="sidebar">
+							<section class="sidebar__section">
+								<div class="sidebar-menu">
+									<h3 class="sidebar-menu__title">Navigation</h3>
+									<nav class="sidebar-menu__items">
 										<ul>
-											<li class="b-main-menu__item b-main-menu__item_has_dropdown"><a href="#typography" class="b-main-menu__link">Typography</a>
-												<div class="b-main-menu__submenu">
-													<div class="b-main-menu-submenu">
-														<ul>
-															<li class="b-main-menu-submenu__item"><a href="#titles-and-paragraphs">Titles &amp; Paragraphs</a></li>
-															<li class="b-main-menu-submenu__item"><a href="#unordered-lists">Unordered lists</a></li>
-															<li class="b-main-menu-submenu__item"><a href="#ordered-lists">Ordered lists</a></li>
-															<li class="b-main-menu-submenu__item"><a href="#tables">Tables</a></li>
-															<li class="b-main-menu-submenu__item"><a href="#images-helpers">Images helpers</a></li>
-															<li class="b-main-menu-submenu__item"><a href="#quotes">Quotes</a></li>
-															<li class="b-main-menu-submenu__item"><a href="#description-lists">Description lists</a></li>
-															<li class="b-main-menu-submenu__item"><a href="#code">Code</a></li>
-															<li class="b-main-menu-submenu__item"><a href="#text-elements">Text level elements</a></li>
-														</ul>
-													</div>
+											<li class="sidebar-menu__item">
+												<a href="#typography" class="sidebar-menu__link">Typography</a>
+												<div class="sidebar-menu__submenu">
+													<ul>
+														<li class="sidebar-menu__item">
+															<a href="#titles-and-paragraphs">Titles & Paragraphs</a>
+														</li>
+														<li class="sidebar-menu__item">
+															<a href="#unordered-lists">Unordered lists</a>
+														</li>
+														<li class="sidebar-menu__item">
+															<a href="#ordered-lists">Ordered lists</a>
+														</li>
+														<li class="sidebar-menu__item">
+															<a href="#tables">Tables</a>
+														</li>
+														<li class="sidebar-menu__item">
+															<a href="#images-helpers">Images helpers</a>
+														</li>
+														<li class="sidebar-menu__item">
+															<a href="#quotes">Quotes</a>
+														</li>
+														<li class="sidebar-menu__item">
+															<a href="#description-lists">Description lists</a>
+														</li>
+														<li class="sidebar-menu__item">
+															<a href="#code">Code</a>
+														</li>
+														<li class="sidebar-menu__item">
+															<a href="#text-elements">Text level elements</a>
+														</li>
+													</ul>
 												</div>
 											</li>
-											<li class="b-main-menu__item "><a href="#articles" class="b-main-menu__link">Articles</a>
-											</li>
-											<li class="b-main-menu__item "><a href="#tabs" class="b-main-menu__link">Tabs</a>
-											</li>
-											<li class="b-main-menu__item b-main-menu__item_has_dropdown"><a href="#forms" class="b-main-menu__link">Forms</a>
-												<div class="b-main-menu__submenu">
-													<div class="b-main-menu-submenu">
-														<ul>
-															<li class="b-main-menu-submenu__item"><a href="#messaging">Messaging</a></li>
-															<li class="b-main-menu-submenu__item"><a href="#text-inputs">Text Inputs</a></li>
-															<li class="b-main-menu-submenu__item"><a href="#radios-and-checkboxes">Radios and Checkboxes</a></li>
-															<li class="b-main-menu-submenu__item"><a href="#selects">Selects</a></li>
-															<li class="b-main-menu-submenu__item"><a href="#textareas-and-files">Textareas and Files</a></li>
-															<li class="b-main-menu-submenu__item"><a href="#captcha">Captcha</a></li>
-															<li class="b-main-menu-submenu__item"><a href="#buttons">Buttons</a></li>
-														</ul>
-													</div>
+											<li class="sidebar-menu__item">
+												<a href="#helpers" class="sidebar-menu__link">Helpers</a>
+												<div class="sidebar-menu__submenu">
+													<ul>
+														<li class="sidebar-menu__item">
+															<a href="#social-icons">Social icons module</a>
+														</li>
+														<li class="sidebar-menu__item">
+															<a href="#svg-icons">Svg Icons</a>
+														</li>
+														<li class="sidebar-menu__item">
+															<a href="#accordion">Accordion</a>
+														</li>
+														<li class="sidebar-menu__item">
+															<a href="#pseudo-dropdown">Pseudo dropdown</a>
+														</li>
+														<li class="sidebar-menu__item">
+															<a href="#images-helpers">Images helpers</a>
+														</li>
+													</ul>
 												</div>
 											</li>
-											<li class="b-main-menu__item "><a href="#grid" class="b-main-menu__link">Grid</a>
+											<li class="sidebar-menu__item">
+												<a href="#forms" class="sidebar-menu__link">Forms</a>
+												<div class="sidebar-menu__submenu">
+													<ul>
+														<li class="sidebar-menu__item">
+															<a href="#messaging">Messaging</a>
+														</li>
+														<li class="sidebar-menu__item">
+															<a href="#text-inputs">Text Inputs</a>
+														</li>
+														<li class="sidebar-menu__item">
+															<a href="#radios-and-checkboxes">Radios and Checkboxes</a>
+														</li>
+														<li class="sidebar-menu__item">
+															<a href="#selects">Selects</a>
+														</li>
+														<li class="sidebar-menu__item">
+															<a href="#textareas-and-files">Textareas and Files</a>
+														</li>
+														<li class="sidebar-menu__item">
+															<a href="#captcha">Captcha</a>
+														</li>
+														<li class="sidebar-menu__item">
+															<a href="#buttons">Buttons</a>
+														</li>
+													</ul>
+												</div>
+											</li>
+											<li class="sidebar-menu__item">
+												<a href="#grid" class="sidebar-menu__link">Grid</a>
 											</li>
 										</ul>
-										<div class="clear"></div>
 									</nav>
 								</div>
-								<div class="b-header__github"><a href="//github.com/Zoxon/gulp-front" target="_blank" title="Watch source on Github" class="b-github-button">
-										<svg width="100%" height="100%" viewBox="0 0 100 100" class="b-github-button__icon">
-											<g id="github-button-octocat-icon">
-												<path fill-rule="evenodd" clip-rule="evenodd" d="M49.941,99.039c-27.115,0-49.095-21.98-49.095-49.096c0-27.115,21.98-49.096,49.095-49.096c27.116,0,49.098,21.982,49.098,49.096C99.039,77.059,77.058,99.039,49.941,99.039z M49.941,8.43c-22.926,0-41.513,18.586-41.513,41.513c0,18.678,12.335,34.474,29.304,39.689c-0.006-0.951,0.006-6.691-0.008-7.696c-0.092-0.056-9.734,2.825-13.88-4.128c-0.659-1.13-1.73-5.102-4.622-7.3c-0.101-0.086-2.239-1.172-2.435-2.239c-0.022-0.148,0.137-0.46,0.348-0.536c0.22-0.081,3.735-1.518,7.652,3.43c1.182,1.656,3.849,8.008,13.183,4.083c0.251-0.979,0.751-3.236,3.715-3.852c-13.9-1.654-20.248-6.929-22.219-18.758c-1.23-8.062,1.135-14.764,4.688-18.072c-0.539-0.703-2.312-6.596,0.444-12.828c2.987-0.595,8.466,1.539,13.282,4.99c6.792-2.441,19.543-1.807,24.106,0c2.168-1.785,9.913-5.953,13.236-4.981c0.976,2.474,2.383,8.468,0.438,12.837c4.327,4.433,5.548,10.158,4.767,17.188c-0.956,10.655-7.515,18.267-22.243,19.523c3.71,2.546,3.874,6.53,4.002,8.101c0.033,3.663-0.042,8.649,0.005,10.225c16.948-5.225,29.265-21.012,29.265-39.676C91.455,27.016,72.869,8.43,49.941,8.43z"></path>
-											</g>
-										</svg><span class="b-github-button__text">Github</span></a></div>
-								<div class="clear"></div>
-							</div>
-						</div>
-						<div class="b-header__bottom">
-							<div class="b-header__inner">
-								<div class="b-header-presentation">
-									<h1 class="b-header-presentation__name">Gulp front</h1>
-									<h2 class="b-header-presentation__description">A lean and powerful, gulp-based boilerplate for better front-end coding.</h2>
-									<div class="b-header-presentation__version">v. 3.0.0</div>
-									<div class="b-header-presentation__sub-description">Created &amp; maintained by @zoxon</div>
-									<div class="b-header-presentation__download"><a href="//github.com/Zoxon/gulp-front/archive/master.zip" title="Download source from Github" class="b-button b-button_style_ghost">Download</a></div>
-								</div>
-							</div>
-						</div>
-					</header>
-				</div>
-				<!-- END HEADER-->
-				<!-- MAIN-->
-				<div class="b-page__content">
-					<div class="b-main">
-						<div class="b-main__sidebar">
-							<aside class="b-sidebar">
-								<section class="b-sidebar__section">
-									<div class="b-sidebar-menu">
-										<h3 class="b-sidebar-menu__title">Navigation</h3>
-										<nav class="b-sidebar-menu__items">
-											<ul>
-												<li class="b-sidebar-menu__item"><a href="#typography" class="b-sidebar-menu__link">Typography</a>
-													<div class="b-sidebar-menu__submenu">
-														<div class="b-sidebar-menu-submenu">
-															<ul>
-																<li class="b-sidebar-menu-submenu__item"><a href="#titles-and-paragraphs">Titles & Paragraphs</a></li>
-																<li class="b-sidebar-menu-submenu__item"><a href="#unordered-lists">Unordered lists</a></li>
-																<li class="b-sidebar-menu-submenu__item"><a href="#ordered-lists">Ordered lists</a></li>
-																<li class="b-sidebar-menu-submenu__item"><a href="#tables">Tables</a></li>
-																<li class="b-sidebar-menu-submenu__item"><a href="#images-helpers">Images helpers</a></li>
-																<li class="b-sidebar-menu-submenu__item"><a href="#quotes">Quotes</a></li>
-																<li class="b-sidebar-menu-submenu__item"><a href="#description-lists">Description lists</a></li>
-																<li class="b-sidebar-menu-submenu__item"><a href="#code">Code</a></li>
-																<li class="b-sidebar-menu-submenu__item"><a href="#text-elements">Text level elements</a></li>
-															</ul>
-														</div>
-													</div>
-												</li>
-												<li class="b-sidebar-menu__item"><a href="#articles" class="b-sidebar-menu__link">Articles</a>
-												</li>
-												<li class="b-sidebar-menu__item"><a href="#tabs" class="b-sidebar-menu__link">Tabs</a>
-												</li>
-												<li class="b-sidebar-menu__item"><a href="#forms" class="b-sidebar-menu__link">Forms</a>
-													<div class="b-sidebar-menu__submenu">
-														<div class="b-sidebar-menu-submenu">
-															<ul>
-																<li class="b-sidebar-menu-submenu__item"><a href="#messaging">Messaging</a></li>
-																<li class="b-sidebar-menu-submenu__item"><a href="#text-inputs">Text Inputs</a></li>
-																<li class="b-sidebar-menu-submenu__item"><a href="#radios-and-checkboxes">Radios and Checkboxes</a></li>
-																<li class="b-sidebar-menu-submenu__item"><a href="#selects">Selects</a></li>
-																<li class="b-sidebar-menu-submenu__item"><a href="#textareas-and-files">Textareas and Files</a></li>
-																<li class="b-sidebar-menu-submenu__item"><a href="#captcha">Captcha</a></li>
-																<li class="b-sidebar-menu-submenu__item"><a href="#buttons">Buttons</a></li>
-															</ul>
-														</div>
-													</div>
-												</li>
-												<li class="b-sidebar-menu__item"><a href="#grid" class="b-sidebar-menu__link">Grid</a>
-												</li>
-											</ul>
-										</nav>
-									</div>
-								</section>
-								<section class="b-sidebar__section">
-									<div class="b-text-widget">
-										<h3 class="b-text-widget__title">Widget example</h3>
-										<div class="b-text-widget__body">
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam necessitatibus vero iste beatae, doloremque. Beatae tempore animi consequatur, iste quam fugiat quos, quasi aliquam sint, sequi debitis facilis magnam! Dolor!</p>
-											<ul>
-												<li>lorem ipsum dolor sit amet</li>
-												<li>consectetur adipisicing elit</li>
-												<li>minus vero placeat quae nisi</li>
-												<li>repellat illum laudantium officiis</li>
-												<li>reiciendis perferendis blanditiis</li>
-											</ul>
-										</div>
-									</div>
-								</section>
-							</aside>
-						</div>
-						<div class="b-main__content">
-							<main class="b-content">
-								<header>
-									<h1 class="b-page-title">Page title</h1>
-								</header>
-								<!-- TYPOGRAPHY-->
-								<section>
-									<header>
-										<h2 id="typography">Typography</h2>
-									</header>
-									<h3 id="titles-and-paragraphs">&#167; Titles &amp; Paragraphs</h3>
-									<p>Мы сообщество волонтеров, которые помогают животным на собственные средства и средства людей, разделяющих наши взгляды. Все члены Фонда помогают животным в свободное от основной работы время на добровольных и бескорыстных началах. Бюджетирования со стороны государства, как и постоянных состоятельных спонсоров, у Фонда нет. Возможности наши ограничены.  Обычно, когда люди слышат о нас, то первым делом хотят позвонить и попросить забрать бездомную собаку или кошку, живущую возле их подъезда. Не удивляйтесь, если Вам откажут.  Бишкеке около 130 тыс. животных, нуждающихся в помощи, которые приносят около 300 тыс. щенков. И это только собаки. Забрать   всех   у Фонда нет возможности. Опросная анкета трансформирует популярный инструмент маркетинга. Таргетирование конструктивно. Охват аудитории концентрирует формат события. Согласно последним исследованиям, взаимодействие корпорации и клиента редко соответствует рыночным ожиданиям. Надо сказать, что рекламная акция инновационна.</p>
-									<p>Организация слубы маркетинга усиливает рекламный макет. Стимулирование коммьюнити транслирует формат события. Медиапланирование одновременно тормозит рекламный бриф, опираясь на опыт западных коллег.</p>
-									<p>Правда, специалисты отмечают, что баинг и селлинг консолидирует межличностный креатив. Рыночная информация синхронизирует межличностный процесс стратегического планирования. Общество потребления нейтрализует метод изучения рынка. Построение бренда специфицирует фактор коммуникации.</p>
-									<h1>H1 Proin gravida nibh vel velit auctor aliquetoin</h1>
-									<p>Мы сообщество волонтеров, которые помогают животным на собственные средства и средства людей, разделяющих наши взгляды. Все члены Фонда помогают животным в свободное от основной работы время на добровольных и бескорыстных началах. Бюджетирования со стороны государства, как и постоянных состоятельных спонсоров, у Фонда нет. Возможности наши ограничены.  Обычно, когда люди слышат о нас, то первым делом хотят позвонить и попросить забрать бездомную собаку или кошку, живущую возле их подъезда. Не удивляйтесь, если Вам откажут.  Бишкеке около 130 тыс. животных, нуждающихся в помощи, которые приносят около 300 тыс. щенков. И это только собаки. Забрать   всех   у Фонда нет возможности. Опросная анкета трансформирует популярный инструмент маркетинга. Таргетирование конструктивно. Охват аудитории концентрирует формат события. Согласно последним исследованиям, взаимодействие корпорации и клиента редко соответствует рыночным ожиданиям. </p>
-									<h2>H2 Aenean sollicitudin, lorem quis bibendum auctor elit</h2>
-									<p>Мы сообщество волонтеров, которые помогают животным на собственные средства и средства людей, разделяющих наши взгляды. Все члены Фонда помогают животным в свободное от основной работы время на добровольных и бескорыстных началах. Бюджетирования со стороны государства, как и постоянных состоятельных спонсоров, у Фонда нет. Возможности наши ограничены.  Обычно, когда люди слышат о нас, то первым делом хотят позвонить и попросить забрать бездомную собаку или кошку, живущую возле их подъезда. Не удивляйтесь, если Вам откажут.  Бишкеке около 130 тыс. животных, нуждающихся в помощи, которые приносят около 300 тыс. щенков. И это только собаки. Забрать   всех   у Фонда нет возможности. Опросная анкета трансформирует популярный инструмент маркетинга. Таргетирование конструктивно. Охват аудитории концентрирует формат события. Согласно последним исследованиям, взаимодействие корпорации и клиента редко соответствует рыночным ожиданиям. </p>
-									<h3>H3 Duis sed odio sit amet nibh vulputate cursus a sit amet.</h3>
-									<p>Мы сообщество волонтеров, которые помогают животным на собственные средства и средства людей, разделяющих наши взгляды. Все члены Фонда помогают животным в свободное от основной работы время на добровольных и бескорыстных началах. Бюджетирования со стороны государства, как и постоянных состоятельных спонсоров, у Фонда нет. Возможности наши ограничены.  Обычно, когда люди слышат о нас, то первым делом хотят позвонить и попросить забрать бездомную собаку или кошку, живущую возле их подъезда. Не удивляйтесь, если Вам откажут.  Бишкеке около 130 тыс. животных, нуждающихся в помощи, которые приносят около 300 тыс. щенков. И это только собаки. Забрать   всех   у Фонда нет возможности. Опросная анкета трансформирует популярный инструмент маркетинга. Таргетирование конструктивно. Охват аудитории концентрирует формат события. Согласно последним исследованиям, взаимодействие корпорации и клиента редко соответствует рыночным ожиданиям. </p>
-									<h4>H4 Morbi accumsan ipsum velit. </h4>
-									<p>Мы сообщество волонтеров, которые помогают животным на собственные средства и средства людей, разделяющих наши взгляды. Все члены Фонда помогают животным в свободное от основной работы время на добровольных и бескорыстных началах. Бюджетирования со стороны государства, как и постоянных состоятельных спонсоров, у Фонда нет. Возможности наши ограничены.  Обычно, когда люди слышат о нас, то первым делом хотят позвонить и попросить забрать бездомную собаку или кошку, живущую возле их подъезда. Не удивляйтесь, если Вам откажут.  Бишкеке около 130 тыс. животных, нуждающихся в помощи, которые приносят около 300 тыс. щенков. И это только собаки. Забрать   всех   у Фонда нет возможности. Опросная анкета трансформирует популярный инструмент маркетинга. Таргетирование конструктивно. Охват аудитории концентрирует формат события. Согласно последним исследованиям, взаимодействие корпорации и клиента редко соответствует рыночным ожиданиям. </p>
-									<h5>H5 Nam nec tellus a odio tincidunt auctor a ornare odio.</h5>
-									<p>Мы сообщество волонтеров, которые помогают животным на собственные средства и средства людей, разделяющих наши взгляды. Все члены Фонда помогают животным в свободное от основной работы время на добровольных и бескорыстных началах. Бюджетирования со стороны государства, как и постоянных состоятельных спонсоров, у Фонда нет. Возможности наши ограничены.  Обычно, когда люди слышат о нас, то первым делом хотят позвонить и попросить забрать бездомную собаку или кошку, живущую возле их подъезда. Не удивляйтесь, если Вам откажут.  Бишкеке около 130 тыс. животных, нуждающихся в помощи, которые приносят около 300 тыс. щенков. И это только собаки. Забрать   всех   у Фонда нет возможности. Опросная анкета трансформирует популярный инструмент маркетинга. Таргетирование конструктивно. Охват аудитории концентрирует формат события. Согласно последним исследованиям, взаимодействие корпорации и клиента редко соответствует рыночным ожиданиям. </p>
-									<h6>H6 Sed non neque elit. Sed ut imperdiet nisi.</h6>
-									<p>Мы сообщество волонтеров, которые помогают животным на собственные средства и средства людей, разделяющих наши взгляды. Все члены Фонда помогают животным в свободное от основной работы время на добровольных и бескорыстных началах. Бюджетирования со стороны государства, как и постоянных состоятельных спонсоров, у Фонда нет. Возможности наши ограничены.  Обычно, когда люди слышат о нас, то первым делом хотят позвонить и попросить забрать бездомную собаку или кошку, живущую возле их подъезда. Не удивляйтесь, если Вам откажут.  Бишкеке около 130 тыс. животных, нуждающихся в помощи, которые приносят около 300 тыс. щенков. И это только собаки. Забрать   всех   у Фонда нет возможности. Опросная анкета трансформирует популярный инструмент маркетинга. Таргетирование конструктивно. Охват аудитории концентрирует формат события. Согласно последним исследованиям, взаимодействие корпорации и клиента редко соответствует рыночным ожиданиям.</p>
-									<h1>H1 Proin gravida nibh vel velit auctor aliquetoin</h1>
-									<h2>H2 Aenean sollicitudin, lorem quis bibendum auctor</h2>
-									<h3>H3 Duis sed odio sit amet nibh vulputate cursus a sit amet. </h3>
-									<h4>H4 Morbi accumsan ipsum velit. </h4>
-									<h5>H5 Nam nec tellus a odio tincidunt auctor a ornare odio. </h5>
-									<h6>H6 Sed non neque elit. Sed ut imperdiet nisi.</h6>
-									<p>Мы сообщество волонтеров, которые помогают животным на собственные средства и средства людей, разделяющих наши взгляды. Все члены Фонда помогают животным в свободное от основной работы время на добровольных и бескорыстных началах. Бюджетирования со стороны государства, как и постоянных состоятельных спонсоров, у Фонда нет. Возможности наши ограничены.  Обычно, когда люди слышат о нас, то первым делом хотят позвонить и попросить забрать бездомную собаку или кошку, живущую возле их подъезда. Не удивляйтесь, если Вам откажут.  Бишкеке около 130 тыс. животных, нуждающихся в помощи, которые приносят около 300 тыс. щенков. И это только собаки. Забрать   всех   у Фонда нет возможности. Опросная анкета трансформирует популярный инструмент маркетинга. Таргетирование конструктивно. Охват аудитории концентрирует формат события. Согласно последним исследованиям, взаимодействие корпорации и клиента редко соответствует рыночным ожиданиям.</p>
-									<h3 id="unordered-lists">&#167; Unordered lists</h3>
+							</section>
+						</aside>
+					</div>
+					<div class="layout__content">
+						<h1 class="page-title">Gulp-front features</h1>
+						<!-- TYPOGRAPHY-->
+						<section>
+							<h2 id="typography">Typography</h2>
+							<h3 id="titles-and-paragraphs">Titles &amp; Paragraphs</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
+								unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
+								autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam,
+								consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus
+								ducimus doloremque minima nam!</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam vitae nesciunt repudiandae rem, quae tenetur id, nobis vel esse adipisci consequuntur eos officia, alias nemo exercitationem repellat velit molestias voluptates.</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita dolorem odio deleniti dolores, error vel accusamus ipsa adipisci esse libero optio iusto minus, ullam temporibus placeat ea? Quidem nihil, perspiciatis!</p>
+							<h1>H1 Proin gravida nibh vel velit auctor aliquetoin</h1>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
+								unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
+								autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam,
+								consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus
+								ducimus doloremque minima nam!</p>
+							<h2>H2 Aenean sollicitudin, lorem quis bibendum auctor elit</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
+								unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
+								autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam,
+								consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus
+								ducimus doloremque minima nam!</p>
+							<h3>H3 Duis sed odio sit amet nibh vulputate cursus a sit amet.</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
+								unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
+								autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam,
+								consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus
+								ducimus doloremque minima nam!</p>
+							<h4>H4 Morbi accumsan ipsum velit. </h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
+								unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
+								autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam,
+								consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus
+								ducimus doloremque minima nam!</p>
+							<h5>H5 Nam nec tellus a odio tincidunt auctor a ornare odio.</h5>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
+								unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
+								autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam,
+								consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus
+								ducimus doloremque minima nam!</p>
+							<h6>H6 Sed non neque elit. Sed ut imperdiet nisi.</h6>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
+								unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
+								autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam,
+								consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus
+								ducimus doloremque minima nam!</p>
+							<h1>H1 Proin gravida nibh vel velit auctor aliquetoin</h1>
+							<h2>H2 Aenean sollicitudin, lorem quis bibendum auctor</h2>
+							<h3>H3 Duis sed odio sit amet nibh vulputate cursus a sit amet. </h3>
+							<h4>H4 Morbi accumsan ipsum velit. </h4>
+							<h5>H5 Nam nec tellus a odio tincidunt auctor a ornare odio. </h5>
+							<h6>H6 Sed non neque elit. Sed ut imperdiet nisi.</h6>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
+								unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
+								autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam,
+								consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus
+								ducimus doloremque minima nam!</p>
+							<h3 id="unordered-lists">Unordered lists</h3>
+							<ul>
+								<li>Proin gravida nibh vel velit auctor aliquet</li>
+								<li>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
 									<ul>
-										<li>Proin gravida nibh vel velit auctor aliquet</li>
-										<li>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. 
+										<li>Morbi accumsan ipsum velit. Nam nec tellus aitae ass aptent taciti sociosqu ad litora torquent </li>
+										<li>per conubia nostra, per inceptos himenaeos.
 											<ul>
-												<li>Morbi accumsan ipsum velit. Nam nec tellus aitae ass aptent taciti sociosqu ad litora torquent </li>
-												<li>per conubia nostra, per inceptos himenaeos. 
-													<ul>
-														<li>Mauris in erat justo. </li>
-														<li>Proin gravida nibh vel velit auctor aliquet</li>
-													</ul>
-												</li>
-												<li>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. </li>
-												<li>Morbi accumsan ipsum velit. Nam nec tellus aitae ass aptent taciti sociosqu ad litora </li>
+												<li>Mauris in erat justo. </li>
+												<li>Proin gravida nibh vel velit auctor aliquet</li>
 											</ul>
 										</li>
-										<li>Yorquent  per conubia nostra, per inceptos himenaeos. </li>
-										<li>Mauris in erat justo. </li>
+										<li>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. </li>
+										<li>Morbi accumsan ipsum velit. Nam nec tellus aitae ass aptent taciti sociosqu ad litora </li>
 									</ul>
-									<h3 id="ordered-lists">&#167; Ordered lists</h3>
+								</li>
+								<li>Yorquent per conubia nostra, per inceptos himenaeos. </li>
+								<li>Mauris in erat justo. </li>
+							</ul>
+							<h3 id="ordered-lists">Ordered lists</h3>
+							<ol>
+								<li>Proin gravida nibh vel velit auctor aliquet</li>
+								<li>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
 									<ol>
-										<li>Proin gravida nibh vel velit auctor aliquet</li>
-										<li>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. 
+										<li>Morbi accumsan ipsum velit. Nam nec tellus aitae ass aptent taciti sociosqu ad litora torquent </li>
+										<li>per conubia nostra, per inceptos himenaeos.
 											<ol>
-												<li>Morbi accumsan ipsum velit. Nam nec tellus aitae ass aptent taciti sociosqu ad litora torquent </li>
-												<li>per conubia nostra, per inceptos himenaeos. 
-													<ol>
-														<li>Mauris in erat justo. </li>
-														<li>Proin gravida nibh vel velit auctor aliquet</li>
-													</ol>
-												</li>
-												<li>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. </li>
-												<li>Morbi accumsan ipsum velit. Nam nec tellus aitae ass aptent taciti sociosqu ad litora </li>
+												<li>Mauris in erat justo. </li>
+												<li>Proin gravida nibh vel velit auctor aliquet</li>
 											</ol>
 										</li>
-										<li>Yorquent  per conubia nostra, per inceptos himenaeos. </li>
-										<li>Mauris in erat justo. </li>
+										<li>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. </li>
+										<li>Morbi accumsan ipsum velit. Nam nec tellus aitae ass aptent taciti sociosqu ad litora </li>
 									</ol>
-									<h3 id="tables">&#167; Tables</h3>
-									<table>
-										<caption>Table with caption, colgroup, thead, tfoot, and tbody</caption>
-										<colgroup>
-											<col>
-											<col>
-											<col>
-											<col>
-										</colgroup>
-										<thead>
-											<tr>
-												<th>Etiam</th>
-												<th>Pharetra</th>
-												<th>Erat sed</th>
-												<th>Feugiat</th>
-											</tr>
-										</thead>
-										<tfoot>
-											<tr>
-												<th>Etiam</th>
-												<th>Pharetra</th>
-												<th>Erat sed</th>
-												<th>Feugiat</th>
-											</tr>
-										</tfoot>
-										<tbody>
-											<tr>
-												<td>Nam nec tellus</td>
-												<td>8873-1978-8717</td>
-												<td>145.58</td>
-												<td>m³</td>
-											</tr>
-											<tr>
-												<td>Etiam</td>
-												<td>532-8725-9727</td>
-												<td>17800.50</td>
-												<td>m²</td>
-											</tr>
-											<tr>
-												<td>Suspendisse</td>
-												<td>3364-2214-8781</td>
-												<td>312.22</td>
-												<td>$</td>
-											</tr>
-											<tr>
-												<td>Morbi accumsan</td>
-												<td>5547-2212-8884</td>
-												<td>7822.33</td>
-												<td>€</td>
-											</tr>
-											<tr>
-												<td>Condimentum </td>
-												<td>6687-2111-5557</td>
-												<td>25.00</td>
-												<td>444</td>
-											</tr>
-											<tr>
-												<td>Nam nec tellus</td>
-												<td>7898-4460-4557</td>
-												<td>13.25</td>
-												<td>13.25</td>
-											</tr>
-											<tr>
-												<td>Etiam</td>
-												<td>1400-0077-7741</td>
-												<td>140000</td>
-												<td>140000</td>
-											</tr>
-											<tr>
-												<td>Suspendisse</td>
-												<td>1829-9774-6660</td>
-												<td>18.26</td>
-												<td>18.26</td>
-											</tr>
-											<tr>
-												<td>Condimentum </td>
-												<td>6687-2111-5557</td>
-												<td>3.141592653589793238462</td>
-												<td>+V</td>
-											</tr>
-										</tbody>
-									</table>
-									<table class="h-table">
-										<caption>Table with caption, colgroup, thead, tfoot, and tbody</caption>
-										<colgroup>
-											<col>
-											<col>
-											<col>
-											<col>
-										</colgroup>
-										<thead>
-											<tr>
-												<th>Etiam</th>
-												<th>Pharetra</th>
-												<th>Erat sed</th>
-												<th>Feugiat</th>
-											</tr>
-										</thead>
-										<tfoot>
-											<tr>
-												<th>Etiam</th>
-												<th>Pharetra</th>
-												<th>Erat sed</th>
-												<th>Feugiat</th>
-											</tr>
-										</tfoot>
-										<tbody>
-											<tr>
-												<td>Nam nec tellus</td>
-												<td>8873-1978-8717</td>
-												<td>145.58</td>
-												<td>m³</td>
-											</tr>
-											<tr>
-												<td>Etiam</td>
-												<td>532-8725-9727</td>
-												<td>17800.50</td>
-												<td>m²</td>
-											</tr>
-											<tr>
-												<td>Suspendisse</td>
-												<td>3364-2214-8781</td>
-												<td>312.22</td>
-												<td>$</td>
-											</tr>
-											<tr>
-												<td>Morbi accumsan</td>
-												<td>5547-2212-8884</td>
-												<td>7822.33</td>
-												<td>€</td>
-											</tr>
-											<tr>
-												<td>Condimentum </td>
-												<td>6687-2111-5557</td>
-												<td>25.00</td>
-												<td>444</td>
-											</tr>
-											<tr>
-												<td>Nam nec tellus</td>
-												<td>7898-4460-4557</td>
-												<td>13.25</td>
-												<td>13.25</td>
-											</tr>
-											<tr>
-												<td>Etiam</td>
-												<td>1400-0077-7741</td>
-												<td>140000</td>
-												<td>140000</td>
-											</tr>
-											<tr>
-												<td>Suspendisse</td>
-												<td>1829-9774-6660</td>
-												<td>18.26</td>
-												<td>18.26</td>
-											</tr>
-											<tr>
-												<td>Condimentum </td>
-												<td>6687-2111-5557</td>
-												<td>3.141592653589793238462</td>
-												<td>+V</td>
-											</tr>
-										</tbody>
-									</table>
-									<table class="h-table h-table_striped">
-										<caption>Table with caption, colgroup, thead, tfoot, and tbody</caption>
-										<colgroup>
-											<col>
-											<col>
-											<col>
-											<col>
-										</colgroup>
-										<thead>
-											<tr>
-												<th>Etiam</th>
-												<th>Pharetra</th>
-												<th>Erat sed</th>
-												<th>Feugiat</th>
-											</tr>
-										</thead>
-										<tfoot>
-											<tr>
-												<th>Etiam</th>
-												<th>Pharetra</th>
-												<th>Erat sed</th>
-												<th>Feugiat</th>
-											</tr>
-										</tfoot>
-										<tbody>
-											<tr>
-												<td>Nam nec tellus</td>
-												<td>8873-1978-8717</td>
-												<td>145.58</td>
-												<td>m³</td>
-											</tr>
-											<tr>
-												<td>Etiam</td>
-												<td>532-8725-9727</td>
-												<td>17800.50</td>
-												<td>m²</td>
-											</tr>
-											<tr>
-												<td>Suspendisse</td>
-												<td>3364-2214-8781</td>
-												<td>312.22</td>
-												<td>$</td>
-											</tr>
-											<tr>
-												<td>Morbi accumsan</td>
-												<td>5547-2212-8884</td>
-												<td>7822.33</td>
-												<td>€</td>
-											</tr>
-											<tr>
-												<td>Condimentum </td>
-												<td>6687-2111-5557</td>
-												<td>25.00</td>
-												<td>444</td>
-											</tr>
-											<tr>
-												<td>Nam nec tellus</td>
-												<td>7898-4460-4557</td>
-												<td>13.25</td>
-												<td>13.25</td>
-											</tr>
-											<tr>
-												<td>Etiam</td>
-												<td>1400-0077-7741</td>
-												<td>140000</td>
-												<td>140000</td>
-											</tr>
-											<tr>
-												<td>Suspendisse</td>
-												<td>1829-9774-6660</td>
-												<td>18.26</td>
-												<td>18.26</td>
-											</tr>
-											<tr>
-												<td>Condimentum </td>
-												<td>6687-2111-5557</td>
-												<td>3.141592653589793238462</td>
-												<td>+V</td>
-											</tr>
-										</tbody>
-									</table>
-									<table class="h-table h-table_bordered">
-										<caption>Table with caption, colgroup, thead, tfoot, and tbody</caption>
-										<colgroup>
-											<col>
-											<col>
-											<col>
-											<col>
-										</colgroup>
-										<thead>
-											<tr>
-												<th>Etiam</th>
-												<th>Pharetra</th>
-												<th>Erat sed</th>
-												<th>Feugiat</th>
-											</tr>
-										</thead>
-										<tfoot>
-											<tr>
-												<th>Etiam</th>
-												<th>Pharetra</th>
-												<th>Erat sed</th>
-												<th>Feugiat</th>
-											</tr>
-										</tfoot>
-										<tbody>
-											<tr>
-												<td>Nam nec tellus</td>
-												<td>8873-1978-8717</td>
-												<td>145.58</td>
-												<td>m³</td>
-											</tr>
-											<tr>
-												<td>Etiam</td>
-												<td>532-8725-9727</td>
-												<td>17800.50</td>
-												<td>m²</td>
-											</tr>
-											<tr>
-												<td>Suspendisse</td>
-												<td>3364-2214-8781</td>
-												<td>312.22</td>
-												<td>$</td>
-											</tr>
-											<tr>
-												<td>Morbi accumsan</td>
-												<td>5547-2212-8884</td>
-												<td>7822.33</td>
-												<td>€</td>
-											</tr>
-											<tr>
-												<td>Condimentum </td>
-												<td>6687-2111-5557</td>
-												<td>25.00</td>
-												<td>444</td>
-											</tr>
-											<tr>
-												<td>Nam nec tellus</td>
-												<td>7898-4460-4557</td>
-												<td>13.25</td>
-												<td>13.25</td>
-											</tr>
-											<tr>
-												<td>Etiam</td>
-												<td>1400-0077-7741</td>
-												<td>140000</td>
-												<td>140000</td>
-											</tr>
-											<tr>
-												<td>Suspendisse</td>
-												<td>1829-9774-6660</td>
-												<td>18.26</td>
-												<td>18.26</td>
-											</tr>
-											<tr>
-												<td>Condimentum </td>
-												<td>6687-2111-5557</td>
-												<td>3.141592653589793238462</td>
-												<td>+V</td>
-											</tr>
-										</tbody>
-									</table>
-									<table class="h-table h-table_horizontal">
-										<caption>Table with caption, colgroup, thead, tfoot, and tbody</caption>
-										<colgroup>
-											<col>
-											<col>
-											<col>
-											<col>
-										</colgroup>
-										<thead>
-											<tr>
-												<th>Etiam</th>
-												<th>Pharetra</th>
-												<th>Erat sed</th>
-												<th>Feugiat</th>
-											</tr>
-										</thead>
-										<tfoot>
-											<tr>
-												<th>Etiam</th>
-												<th>Pharetra</th>
-												<th>Erat sed</th>
-												<th>Feugiat</th>
-											</tr>
-										</tfoot>
-										<tbody>
-											<tr>
-												<td>Nam nec tellus</td>
-												<td>8873-1978-8717</td>
-												<td>145.58</td>
-												<td>m³</td>
-											</tr>
-											<tr>
-												<td>Etiam</td>
-												<td>532-8725-9727</td>
-												<td>17800.50</td>
-												<td>m²</td>
-											</tr>
-											<tr>
-												<td>Suspendisse</td>
-												<td>3364-2214-8781</td>
-												<td>312.22</td>
-												<td>$</td>
-											</tr>
-											<tr>
-												<td>Morbi accumsan</td>
-												<td>5547-2212-8884</td>
-												<td>7822.33</td>
-												<td>€</td>
-											</tr>
-											<tr>
-												<td>Condimentum </td>
-												<td>6687-2111-5557</td>
-												<td>25.00</td>
-												<td>444</td>
-											</tr>
-											<tr>
-												<td>Nam nec tellus</td>
-												<td>7898-4460-4557</td>
-												<td>13.25</td>
-												<td>13.25</td>
-											</tr>
-											<tr>
-												<td>Etiam</td>
-												<td>1400-0077-7741</td>
-												<td>140000</td>
-												<td>140000</td>
-											</tr>
-											<tr>
-												<td>Suspendisse</td>
-												<td>1829-9774-6660</td>
-												<td>18.26</td>
-												<td>18.26</td>
-											</tr>
-											<tr>
-												<td>Condimentum </td>
-												<td>6687-2111-5557</td>
-												<td>3.141592653589793238462</td>
-												<td>+V</td>
-											</tr>
-										</tbody>
-									</table>
-									<table class="h-table h-table_striped h-table_horizontal">
-										<caption>Table with caption, colgroup, thead, tfoot, and tbody</caption>
-										<colgroup>
-											<col>
-											<col>
-											<col>
-											<col>
-										</colgroup>
-										<thead>
-											<tr>
-												<th>Etiam</th>
-												<th>Pharetra</th>
-												<th>Erat sed</th>
-												<th>Feugiat</th>
-											</tr>
-										</thead>
-										<tfoot>
-											<tr>
-												<th>Etiam</th>
-												<th>Pharetra</th>
-												<th>Erat sed</th>
-												<th>Feugiat</th>
-											</tr>
-										</tfoot>
-										<tbody>
-											<tr>
-												<td>Nam nec tellus</td>
-												<td>8873-1978-8717</td>
-												<td>145.58</td>
-												<td>m³</td>
-											</tr>
-											<tr>
-												<td>Etiam</td>
-												<td>532-8725-9727</td>
-												<td>17800.50</td>
-												<td>m²</td>
-											</tr>
-											<tr>
-												<td>Suspendisse</td>
-												<td>3364-2214-8781</td>
-												<td>312.22</td>
-												<td>$</td>
-											</tr>
-											<tr>
-												<td>Morbi accumsan</td>
-												<td>5547-2212-8884</td>
-												<td>7822.33</td>
-												<td>€</td>
-											</tr>
-											<tr>
-												<td>Condimentum </td>
-												<td>6687-2111-5557</td>
-												<td>25.00</td>
-												<td>444</td>
-											</tr>
-											<tr>
-												<td>Nam nec tellus</td>
-												<td>7898-4460-4557</td>
-												<td>13.25</td>
-												<td>13.25</td>
-											</tr>
-											<tr>
-												<td>Etiam</td>
-												<td>1400-0077-7741</td>
-												<td>140000</td>
-												<td>140000</td>
-											</tr>
-											<tr>
-												<td>Suspendisse</td>
-												<td>1829-9774-6660</td>
-												<td>18.26</td>
-												<td>18.26</td>
-											</tr>
-											<tr>
-												<td>Condimentum </td>
-												<td>6687-2111-5557</td>
-												<td>3.141592653589793238462</td>
-												<td>+V</td>
-											</tr>
-										</tbody>
-									</table>
-									<table class="h-table h-table_striped h-table_bordered">
-										<caption>Table with caption, colgroup, thead, tfoot, and tbody</caption>
-										<colgroup>
-											<col>
-											<col>
-											<col>
-											<col>
-										</colgroup>
-										<thead>
-											<tr>
-												<th>Etiam</th>
-												<th>Pharetra</th>
-												<th>Erat sed</th>
-												<th>Feugiat</th>
-											</tr>
-										</thead>
-										<tfoot>
-											<tr>
-												<th>Etiam</th>
-												<th>Pharetra</th>
-												<th>Erat sed</th>
-												<th>Feugiat</th>
-											</tr>
-										</tfoot>
-										<tbody>
-											<tr>
-												<td>Nam nec tellus</td>
-												<td>8873-1978-8717</td>
-												<td>145.58</td>
-												<td>m³</td>
-											</tr>
-											<tr>
-												<td>Etiam</td>
-												<td>532-8725-9727</td>
-												<td>17800.50</td>
-												<td>m²</td>
-											</tr>
-											<tr>
-												<td>Suspendisse</td>
-												<td>3364-2214-8781</td>
-												<td>312.22</td>
-												<td>$</td>
-											</tr>
-											<tr>
-												<td>Morbi accumsan</td>
-												<td>5547-2212-8884</td>
-												<td>7822.33</td>
-												<td>€</td>
-											</tr>
-											<tr>
-												<td>Condimentum </td>
-												<td>6687-2111-5557</td>
-												<td>25.00</td>
-												<td>444</td>
-											</tr>
-											<tr>
-												<td>Nam nec tellus</td>
-												<td>7898-4460-4557</td>
-												<td>13.25</td>
-												<td>13.25</td>
-											</tr>
-											<tr>
-												<td>Etiam</td>
-												<td>1400-0077-7741</td>
-												<td>140000</td>
-												<td>140000</td>
-											</tr>
-											<tr>
-												<td>Suspendisse</td>
-												<td>1829-9774-6660</td>
-												<td>18.26</td>
-												<td>18.26</td>
-											</tr>
-											<tr>
-												<td>Condimentum </td>
-												<td>6687-2111-5557</td>
-												<td>3.141592653589793238462</td>
-												<td>+V</td>
-											</tr>
-										</tbody>
-									</table>
-									<h3 id="images-helpers">&#167; Images helpers</h3>
-									<p><img src="img/image.jpg" alt="" class="h-align-image-left"></p>
-									<p>Мы сообщество волонтеров, которые помогают животным на собственные средства и средства людей, разделяющих наши взгляды. Все члены Фонда помогают животным в свободное от основной работы время на добровольных и бескорыстных началах. Бюджетирования со стороны государства, как и постоянных состоятельных спонсоров, у Фонда нет. Возможности наши ограничены.  Обычно, когда люди слышат о нас, то первым делом хотят позвонить и попросить забрать бездомную собаку или кошку, живущую возле их подъезда. Не удивляйтесь, если Вам откажут.  Бишкеке около 130 тыс. животных, нуждающихся в помощи, которые приносят около 300 тыс. щенков. И это только собаки. Забрать   всех   у Фонда нет возможности. Опросная анкета трансформирует популярный инструмент маркетинга. Таргетирование конструктивно. Охват аудитории концентрирует формат события. Согласно последним исследованиям, взаимодействие корпорации и клиента редко соответствует рыночным ожиданиям.</p>
-									<p class="h-align-image-center"><img src="img/image.jpg" alt=""></p>
-									<p>Мы сообщество волонтеров, которые помогают животным на собственные средства и средства людей, разделяющих наши взгляды. Все члены Фонда помогают животным в свободное от основной работы время на добровольных и бескорыстных началах. Бюджетирования со стороны государства, как и постоянных состоятельных спонсоров, у Фонда нет. Возможности наши ограничены.  Обычно, когда люди слышат о нас, то первым делом хотят позвонить и попросить забрать бездомную собаку или кошку, живущую возле их подъезда. Не удивляйтесь, если Вам откажут.  Бишкеке около 130 тыс. животных, нуждающихся в помощи, которые приносят около 300 тыс. щенков. И это только собаки. Забрать   всех   у Фонда нет возможности. Опросная анкета трансформирует популярный инструмент маркетинга. Таргетирование конструктивно. Охват аудитории концентрирует формат события. Согласно последним исследованиям, взаимодействие корпорации и клиента редко соответствует рыночным ожиданиям.</p>
-									<p><img src="img/image.jpg" alt="" class="h-align-image-right"></p>
-									<p>Мы сообщество волонтеров, которые помогают животным на собственные средства и средства людей, разделяющих наши взгляды. Все члены Фонда помогают животным в свободное от основной работы время на добровольных и бескорыстных началах. Бюджетирования со стороны государства, как и постоянных состоятельных спонсоров, у Фонда нет. Возможности наши ограничены.  Обычно, когда люди слышат о нас, то первым делом хотят позвонить и попросить забрать бездомную собаку или кошку, живущую возле их подъезда. Не удивляйтесь, если Вам откажут.  Бишкеке около 130 тыс. животных, нуждающихся в помощи, которые приносят около 300 тыс. щенков. И это только собаки. Забрать   всех   у Фонда нет возможности. Опросная анкета трансформирует популярный инструмент маркетинга. Таргетирование конструктивно. Охват аудитории концентрирует формат события. Согласно последним исследованиям, взаимодействие корпорации и клиента редко соответствует рыночным ожиданиям.</p>
-									<div class="h-align-image-center">
-										<figure class="h-image-captioned"><img src="img/image.jpg" alt="">
-											<figcaption>Название</figcaption>
-										</figure>
-									</div>
-									<p>Мы сообщество волонтеров, которые помогают животным на собственные средства и средства людей, разделяющих наши взгляды. Все члены Фонда помогают животным в свободное от основной работы время на добровольных и бескорыстных началах. Бюджетирования со стороны государства, как и постоянных состоятельных спонсоров, у Фонда нет. Возможности наши ограничены.  Обычно, когда люди слышат о нас, то первым делом хотят позвонить и попросить забрать бездомную собаку или кошку, живущую возле их подъезда. Не удивляйтесь, если Вам откажут.  Бишкеке около 130 тыс. животных, нуждающихся в помощи, которые приносят около 300 тыс. щенков. И это только собаки. Забрать   всех   у Фонда нет возможности. Опросная анкета трансформирует популярный инструмент маркетинга. Таргетирование конструктивно. Охват аудитории концентрирует формат события. Согласно последним исследованиям, взаимодействие корпорации и клиента редко соответствует рыночным ожиданиям.</p>
-									<h3 id="quotes">&#167; Quotes</h3>
-									<blockquote>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-										<footer>
-											<cite>Someone famous</cite>
-										</footer>
-									</blockquote>
-									<h3 id="description-lists">&#167; Description lists</h3>
-									<dl>
-										<dt>Description lists</dt>
-										<dd>A description list defines terms and their corresponding descriptions.</dd>
-										<dt>This is a term</dt>
-										<dd>This is a description.</dd>
-										<dt>This is a term</dt>
-										<dd>This is a description.</dd>
-									</dl>
-									<h3 id="code">&#167; Code</h3>
-									<pre><code>&lt;!DOCTYPE html&gt;
+								</li>
+								<li>Yorquent per conubia nostra, per inceptos himenaeos. </li>
+								<li>Mauris in erat justo. </li>
+							</ol>
+							<h3 id="tables">Tables</h3>
+							<table>
+								<caption>Table with caption, colgroup, thead, tfoot, and tbody</caption>
+								<colgroup>
+									<col/>
+									<col/>
+									<col/>
+									<col/>
+								</colgroup>
+								<thead>
+									<tr>
+										<th>Etiam</th>
+										<th>Pharetra</th>
+										<th>Erat sed</th>
+										<th>Feugiat</th>
+									</tr>
+								</thead>
+								<tfoot>
+									<tr>
+										<th>Etiam</th>
+										<th>Pharetra</th>
+										<th>Erat sed</th>
+										<th>Feugiat</th>
+									</tr>
+								</tfoot>
+								<tbody>
+									<tr>
+										<td>Nam nec tellus</td>
+										<td>8873-1978-8717</td>
+										<td>145.58</td>
+										<td>m³</td>
+									</tr>
+									<tr>
+										<td>Etiam</td>
+										<td>532-8725-9727</td>
+										<td>17800.50</td>
+										<td>m²</td>
+									</tr>
+									<tr>
+										<td>Suspendisse</td>
+										<td>3364-2214-8781</td>
+										<td>312.22</td>
+										<td>$</td>
+									</tr>
+									<tr>
+										<td>Morbi accumsan</td>
+										<td>5547-2212-8884</td>
+										<td>7822.33</td>
+										<td>€</td>
+									</tr>
+									<tr>
+										<td>Condimentum </td>
+										<td>6687-2111-5557</td>
+										<td>25.00</td>
+										<td>444</td>
+									</tr>
+									<tr>
+										<td>Nam nec tellus</td>
+										<td>7898-4460-4557</td>
+										<td>13.25</td>
+										<td>13.25</td>
+									</tr>
+									<tr>
+										<td>Etiam</td>
+										<td>1400-0077-7741</td>
+										<td>140000</td>
+										<td>140000</td>
+									</tr>
+									<tr>
+										<td>Suspendisse</td>
+										<td>1829-9774-6660</td>
+										<td>18.26</td>
+										<td>18.26</td>
+									</tr>
+									<tr>
+										<td>Condimentum </td>
+										<td>6687-2111-5557</td>
+										<td>3.141592653589793238462</td>
+										<td>+V</td>
+									</tr>
+								</tbody>
+							</table>
+							<table class="table">
+								<caption>Table with caption, colgroup, thead, tfoot, and tbody</caption>
+								<colgroup>
+									<col/>
+									<col/>
+									<col/>
+									<col/>
+								</colgroup>
+								<thead>
+									<tr>
+										<th>Etiam</th>
+										<th>Pharetra</th>
+										<th>Erat sed</th>
+										<th>Feugiat</th>
+									</tr>
+								</thead>
+								<tfoot>
+									<tr>
+										<th>Etiam</th>
+										<th>Pharetra</th>
+										<th>Erat sed</th>
+										<th>Feugiat</th>
+									</tr>
+								</tfoot>
+								<tbody>
+									<tr>
+										<td>Nam nec tellus</td>
+										<td>8873-1978-8717</td>
+										<td>145.58</td>
+										<td>m³</td>
+									</tr>
+									<tr>
+										<td>Etiam</td>
+										<td>532-8725-9727</td>
+										<td>17800.50</td>
+										<td>m²</td>
+									</tr>
+									<tr>
+										<td>Suspendisse</td>
+										<td>3364-2214-8781</td>
+										<td>312.22</td>
+										<td>$</td>
+									</tr>
+									<tr>
+										<td>Morbi accumsan</td>
+										<td>5547-2212-8884</td>
+										<td>7822.33</td>
+										<td>€</td>
+									</tr>
+									<tr>
+										<td>Condimentum </td>
+										<td>6687-2111-5557</td>
+										<td>25.00</td>
+										<td>444</td>
+									</tr>
+									<tr>
+										<td>Nam nec tellus</td>
+										<td>7898-4460-4557</td>
+										<td>13.25</td>
+										<td>13.25</td>
+									</tr>
+									<tr>
+										<td>Etiam</td>
+										<td>1400-0077-7741</td>
+										<td>140000</td>
+										<td>140000</td>
+									</tr>
+									<tr>
+										<td>Suspendisse</td>
+										<td>1829-9774-6660</td>
+										<td>18.26</td>
+										<td>18.26</td>
+									</tr>
+									<tr>
+										<td>Condimentum </td>
+										<td>6687-2111-5557</td>
+										<td>3.141592653589793238462</td>
+										<td>+V</td>
+									</tr>
+								</tbody>
+							</table>
+							<table class="table table_striped">
+								<caption>Table with caption, colgroup, thead, tfoot, and tbody</caption>
+								<colgroup>
+									<col/>
+									<col/>
+									<col/>
+									<col/>
+								</colgroup>
+								<thead>
+									<tr>
+										<th>Etiam</th>
+										<th>Pharetra</th>
+										<th>Erat sed</th>
+										<th>Feugiat</th>
+									</tr>
+								</thead>
+								<tfoot>
+									<tr>
+										<th>Etiam</th>
+										<th>Pharetra</th>
+										<th>Erat sed</th>
+										<th>Feugiat</th>
+									</tr>
+								</tfoot>
+								<tbody>
+									<tr>
+										<td>Nam nec tellus</td>
+										<td>8873-1978-8717</td>
+										<td>145.58</td>
+										<td>m³</td>
+									</tr>
+									<tr>
+										<td>Etiam</td>
+										<td>532-8725-9727</td>
+										<td>17800.50</td>
+										<td>m²</td>
+									</tr>
+									<tr>
+										<td>Suspendisse</td>
+										<td>3364-2214-8781</td>
+										<td>312.22</td>
+										<td>$</td>
+									</tr>
+									<tr>
+										<td>Morbi accumsan</td>
+										<td>5547-2212-8884</td>
+										<td>7822.33</td>
+										<td>€</td>
+									</tr>
+									<tr>
+										<td>Condimentum </td>
+										<td>6687-2111-5557</td>
+										<td>25.00</td>
+										<td>444</td>
+									</tr>
+									<tr>
+										<td>Nam nec tellus</td>
+										<td>7898-4460-4557</td>
+										<td>13.25</td>
+										<td>13.25</td>
+									</tr>
+									<tr>
+										<td>Etiam</td>
+										<td>1400-0077-7741</td>
+										<td>140000</td>
+										<td>140000</td>
+									</tr>
+									<tr>
+										<td>Suspendisse</td>
+										<td>1829-9774-6660</td>
+										<td>18.26</td>
+										<td>18.26</td>
+									</tr>
+									<tr>
+										<td>Condimentum </td>
+										<td>6687-2111-5557</td>
+										<td>3.141592653589793238462</td>
+										<td>+V</td>
+									</tr>
+								</tbody>
+							</table>
+							<table class="table table_bordered">
+								<caption>Table with caption, colgroup, thead, tfoot, and tbody</caption>
+								<colgroup>
+									<col/>
+									<col/>
+									<col/>
+									<col/>
+								</colgroup>
+								<thead>
+									<tr>
+										<th>Etiam</th>
+										<th>Pharetra</th>
+										<th>Erat sed</th>
+										<th>Feugiat</th>
+									</tr>
+								</thead>
+								<tfoot>
+									<tr>
+										<th>Etiam</th>
+										<th>Pharetra</th>
+										<th>Erat sed</th>
+										<th>Feugiat</th>
+									</tr>
+								</tfoot>
+								<tbody>
+									<tr>
+										<td>Nam nec tellus</td>
+										<td>8873-1978-8717</td>
+										<td>145.58</td>
+										<td>m³</td>
+									</tr>
+									<tr>
+										<td>Etiam</td>
+										<td>532-8725-9727</td>
+										<td>17800.50</td>
+										<td>m²</td>
+									</tr>
+									<tr>
+										<td>Suspendisse</td>
+										<td>3364-2214-8781</td>
+										<td>312.22</td>
+										<td>$</td>
+									</tr>
+									<tr>
+										<td>Morbi accumsan</td>
+										<td>5547-2212-8884</td>
+										<td>7822.33</td>
+										<td>€</td>
+									</tr>
+									<tr>
+										<td>Condimentum </td>
+										<td>6687-2111-5557</td>
+										<td>25.00</td>
+										<td>444</td>
+									</tr>
+									<tr>
+										<td>Nam nec tellus</td>
+										<td>7898-4460-4557</td>
+										<td>13.25</td>
+										<td>13.25</td>
+									</tr>
+									<tr>
+										<td>Etiam</td>
+										<td>1400-0077-7741</td>
+										<td>140000</td>
+										<td>140000</td>
+									</tr>
+									<tr>
+										<td>Suspendisse</td>
+										<td>1829-9774-6660</td>
+										<td>18.26</td>
+										<td>18.26</td>
+									</tr>
+									<tr>
+										<td>Condimentum </td>
+										<td>6687-2111-5557</td>
+										<td>3.141592653589793238462</td>
+										<td>+V</td>
+									</tr>
+								</tbody>
+							</table>
+							<table class="table table_horizontal">
+								<caption>Table with caption, colgroup, thead, tfoot, and tbody</caption>
+								<colgroup>
+									<col/>
+									<col/>
+									<col/>
+									<col/>
+								</colgroup>
+								<thead>
+									<tr>
+										<th>Etiam</th>
+										<th>Pharetra</th>
+										<th>Erat sed</th>
+										<th>Feugiat</th>
+									</tr>
+								</thead>
+								<tfoot>
+									<tr>
+										<th>Etiam</th>
+										<th>Pharetra</th>
+										<th>Erat sed</th>
+										<th>Feugiat</th>
+									</tr>
+								</tfoot>
+								<tbody>
+									<tr>
+										<td>Nam nec tellus</td>
+										<td>8873-1978-8717</td>
+										<td>145.58</td>
+										<td>m³</td>
+									</tr>
+									<tr>
+										<td>Etiam</td>
+										<td>532-8725-9727</td>
+										<td>17800.50</td>
+										<td>m²</td>
+									</tr>
+									<tr>
+										<td>Suspendisse</td>
+										<td>3364-2214-8781</td>
+										<td>312.22</td>
+										<td>$</td>
+									</tr>
+									<tr>
+										<td>Morbi accumsan</td>
+										<td>5547-2212-8884</td>
+										<td>7822.33</td>
+										<td>€</td>
+									</tr>
+									<tr>
+										<td>Condimentum </td>
+										<td>6687-2111-5557</td>
+										<td>25.00</td>
+										<td>444</td>
+									</tr>
+									<tr>
+										<td>Nam nec tellus</td>
+										<td>7898-4460-4557</td>
+										<td>13.25</td>
+										<td>13.25</td>
+									</tr>
+									<tr>
+										<td>Etiam</td>
+										<td>1400-0077-7741</td>
+										<td>140000</td>
+										<td>140000</td>
+									</tr>
+									<tr>
+										<td>Suspendisse</td>
+										<td>1829-9774-6660</td>
+										<td>18.26</td>
+										<td>18.26</td>
+									</tr>
+									<tr>
+										<td>Condimentum </td>
+										<td>6687-2111-5557</td>
+										<td>3.141592653589793238462</td>
+										<td>+V</td>
+									</tr>
+								</tbody>
+							</table>
+							<table class="table table_striped table_horizontal">
+								<caption>Table with caption, colgroup, thead, tfoot, and tbody</caption>
+								<colgroup>
+									<col/>
+									<col/>
+									<col/>
+									<col/>
+								</colgroup>
+								<thead>
+									<tr>
+										<th>Etiam</th>
+										<th>Pharetra</th>
+										<th>Erat sed</th>
+										<th>Feugiat</th>
+									</tr>
+								</thead>
+								<tfoot>
+									<tr>
+										<th>Etiam</th>
+										<th>Pharetra</th>
+										<th>Erat sed</th>
+										<th>Feugiat</th>
+									</tr>
+								</tfoot>
+								<tbody>
+									<tr>
+										<td>Nam nec tellus</td>
+										<td>8873-1978-8717</td>
+										<td>145.58</td>
+										<td>m³</td>
+									</tr>
+									<tr>
+										<td>Etiam</td>
+										<td>532-8725-9727</td>
+										<td>17800.50</td>
+										<td>m²</td>
+									</tr>
+									<tr>
+										<td>Suspendisse</td>
+										<td>3364-2214-8781</td>
+										<td>312.22</td>
+										<td>$</td>
+									</tr>
+									<tr>
+										<td>Morbi accumsan</td>
+										<td>5547-2212-8884</td>
+										<td>7822.33</td>
+										<td>€</td>
+									</tr>
+									<tr>
+										<td>Condimentum </td>
+										<td>6687-2111-5557</td>
+										<td>25.00</td>
+										<td>444</td>
+									</tr>
+									<tr>
+										<td>Nam nec tellus</td>
+										<td>7898-4460-4557</td>
+										<td>13.25</td>
+										<td>13.25</td>
+									</tr>
+									<tr>
+										<td>Etiam</td>
+										<td>1400-0077-7741</td>
+										<td>140000</td>
+										<td>140000</td>
+									</tr>
+									<tr>
+										<td>Suspendisse</td>
+										<td>1829-9774-6660</td>
+										<td>18.26</td>
+										<td>18.26</td>
+									</tr>
+									<tr>
+										<td>Condimentum </td>
+										<td>6687-2111-5557</td>
+										<td>3.141592653589793238462</td>
+										<td>+V</td>
+									</tr>
+								</tbody>
+							</table>
+							<table class="table table_striped table_bordered">
+								<caption>Table with caption, colgroup, thead, tfoot, and tbody</caption>
+								<colgroup>
+									<col/>
+									<col/>
+									<col/>
+									<col/>
+								</colgroup>
+								<thead>
+									<tr>
+										<th>Etiam</th>
+										<th>Pharetra</th>
+										<th>Erat sed</th>
+										<th>Feugiat</th>
+									</tr>
+								</thead>
+								<tfoot>
+									<tr>
+										<th>Etiam</th>
+										<th>Pharetra</th>
+										<th>Erat sed</th>
+										<th>Feugiat</th>
+									</tr>
+								</tfoot>
+								<tbody>
+									<tr>
+										<td>Nam nec tellus</td>
+										<td>8873-1978-8717</td>
+										<td>145.58</td>
+										<td>m³</td>
+									</tr>
+									<tr>
+										<td>Etiam</td>
+										<td>532-8725-9727</td>
+										<td>17800.50</td>
+										<td>m²</td>
+									</tr>
+									<tr>
+										<td>Suspendisse</td>
+										<td>3364-2214-8781</td>
+										<td>312.22</td>
+										<td>$</td>
+									</tr>
+									<tr>
+										<td>Morbi accumsan</td>
+										<td>5547-2212-8884</td>
+										<td>7822.33</td>
+										<td>€</td>
+									</tr>
+									<tr>
+										<td>Condimentum </td>
+										<td>6687-2111-5557</td>
+										<td>25.00</td>
+										<td>444</td>
+									</tr>
+									<tr>
+										<td>Nam nec tellus</td>
+										<td>7898-4460-4557</td>
+										<td>13.25</td>
+										<td>13.25</td>
+									</tr>
+									<tr>
+										<td>Etiam</td>
+										<td>1400-0077-7741</td>
+										<td>140000</td>
+										<td>140000</td>
+									</tr>
+									<tr>
+										<td>Suspendisse</td>
+										<td>1829-9774-6660</td>
+										<td>18.26</td>
+										<td>18.26</td>
+									</tr>
+									<tr>
+										<td>Condimentum </td>
+										<td>6687-2111-5557</td>
+										<td>3.141592653589793238462</td>
+										<td>+V</td>
+									</tr>
+								</tbody>
+							</table>
+							<h3 id="quotes">Quotes</h3>
+							<blockquote>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+								<footer>
+									<cite>Someone famous</cite>
+								</footer>
+							</blockquote>
+							<h3 id="description-lists">Description lists</h3>
+							<dl>
+								<dt>Description lists</dt>
+								<dd>A description list defines terms and their corresponding descriptions.</dd>
+								<dt>This is a term</dt>
+								<dd>This is a description.</dd>
+								<dt>This is a term</dt>
+								<dd>This is a description.</dd>
+							</dl>
+							<h3 id="code">Code</h3>
+							<pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
 	&lt;meta charset="UTF-8" /&gt;
@@ -923,556 +1003,695 @@
 	&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque architecto eius nemo voluptatem assumenda, impedit adipisci beatae modi hic nostrum natus fugiat illo rem quia, consequuntur blanditiis tempora nihil. Voluptatibus.&lt;/p&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-									<h3 id="text-elements">&#167; Text level elements</h3>
-									<p>Text level <abbr title="HyperText Markup Language">HTML</abbr> elements may be used within other elements. They include: <em>em </em>and <strong>strong </strong>for semantic emphasis, <i>i </i>and <b>b </b>for presentational formatting, <abbr>abbr </abbr>abbreviations, cite citations, <code>code example</code>, 
-										<del>del</del>, <ins>ins</ins> for visibly deleted and inserted content, 
-										<dfn>dfn </dfn>definitions, 
-										<mark>mark</mark> for highlighted passages and <sup>sup </sup>superscript and <sub>sub </sub>subscript.
-									</p>
-									<hr>
-								</section>
-								<!-- END TYPOGRAPHY-->
-								<!-- ARTICLES-->
-								<section>
-									<header>
-										<h2 id="articles">Articles</h2>
-									</header>
-									<article>
-										<header>
-											<h3>This is an Article</h3>
-											<time datetime="2013-05-27">Wednesday, May 27, 2015</time>
-										</header>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem magni numquam vitae. Animi rem nisi, eaque nobis sed omnis laboriosam, mollitia! Accusantium culpa delectus quia, ratione tenetur magni voluptas voluptatum!</p>
-										<footer><a href="#">read more &raquo;</a></footer>
-									</article>
-									<article>
-										<header>
-											<h3>This is Another Article</h3>
-											<time datetime="2013-05-27">Wednesday, May 27, 2015</time>
-										</header>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem magni numquam vitae. Animi rem nisi, eaque nobis sed omnis laboriosam, mollitia! Accusantium culpa delectus quia, ratione tenetur magni voluptas voluptatum!</p>
-										<aside>This is an example of an aside. Its related to the content at hand, however isn&apos;t part of the main content.</aside>
-										<p>There"s also an article element, meant for articles. This article has its own header and footer as well. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis est, nec convallis dui. Nulla lectus velit, ornare sit amet blandit in, mattis eget nulla.</p>
-										<footer><a href="#">read more &raquo;</a></footer>
-									</article>
-									<hr>
-								</section>
-								<!-- END ARTICLES-->
-								<!-- TABS-->
-								<section>
-									<header>
-										<h2 id="tabs">Tabs</h2>
-									</header>
-									<div class="b-tabs b-tabs_style_default b-tabs_mode_horizontal">
-										<div class="b-tabs__head">
-											<div class="b-tabs__head-item"><a href="#tab1">Tab 1</a></div>
-											<div class="b-tabs__head-item"><a href="#tab2">Tab 2</a></div>
-											<div class="b-tabs__head-item"><a href="#tab3">Tab 3</a></div>
-											<div class="clear"></div>
+							<h3 id="text-elements">Text level elements</h3>
+							<p>Text level
+								<abbr title="HyperText Markup Language">HTML</abbr> elements may be used within other elements. They include:
+								<em>em </em>and
+								<strong>strong </strong>for semantic emphasis,
+								<i>i </i>and
+								<b>b </b>for presentational formatting,
+								<abbr>abbr </abbr>abbreviations, cite citations, <code>code example</code>,
+								<del>del</del>,
+								<ins>ins</ins> for visibly deleted and inserted content,
+								<dfn>dfn </dfn>definitions,
+								<mark>mark</mark> for highlighted passages and
+								<sup>sup </sup>superscript and
+								<sub>sub </sub>subscript.
+							</p>
+							<hr/>
+						</section>
+						<!-- END TYPOGRAPHY-->
+						<!-- HELPERS-->
+						<section>
+							<h2 id="helpers">Helpers and mixins</h2>
+							<h3 id="social-icons">Social icons module</h3>
+							<div class="social-icons">
+								<h3 class="social-icons__title">Social icons</h3>
+								<div class="social-icons__list">
+									<ul>
+										<li class="social-icons__item social-icons__item_fb">
+											<a href="#">
+												<svg class="icon icon_fb">
+													<use xlink:href="img/icons.svg#fb"></use>
+												</svg>
+											</a>
+										</li>
+										<li class="social-icons__item social-icons__item_gp">
+											<a href="#">
+												<svg class="icon icon_gp">
+													<use xlink:href="img/icons.svg#gp"></use>
+												</svg>
+											</a>
+										</li>
+										<li class="social-icons__item social-icons__item_tw">
+											<a href="#">
+												<svg class="icon icon_tw">
+													<use xlink:href="img/icons.svg#tw"></use>
+												</svg>
+											</a>
+										</li>
+										<li class="social-icons__item social-icons__item_mr">
+											<a href="#">
+												<svg class="icon icon_mr">
+													<use xlink:href="img/icons.svg#mr"></use>
+												</svg>
+											</a>
+										</li>
+										<li class="social-icons__item social-icons__item_ok">
+											<a href="#">
+												<svg class="icon icon_ok">
+													<use xlink:href="img/icons.svg#ok"></use>
+												</svg>
+											</a>
+										</li>
+										<li class="social-icons__item social-icons__item_vk">
+											<a href="#">
+												<svg class="icon icon_vk">
+													<use xlink:href="img/icons.svg#vk"></use>
+												</svg>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<h3 id="svg-icons">Svg Icons</h3>
+							<style>
+								.demo-icons .icon {
+									display: inline-block;
+									padding: 20px;
+									box-shadow: 0 1px 5px rgba(22, 20, 17, 0.16);
+									width: 34px;
+									height: 34px;
+									margin: 5px;
+								}
+
+							</style>
+							<div class="demo-icons">
+								<svg class="icon icon_chevron-down">
+									<use xlink:href="img/icons.svg#chevron-down"></use>
+								</svg>
+								<svg class="icon icon_chevron-up">
+									<use xlink:href="img/icons.svg#chevron-up"></use>
+								</svg>
+								<svg class="icon icon_chevron-left">
+									<use xlink:href="img/icons.svg#chevron-left"></use>
+								</svg>
+								<svg class="icon icon_chevron-right">
+									<use xlink:href="img/icons.svg#chevron-right"></use>
+								</svg>
+								<svg class="icon icon_github-octocat">
+									<use xlink:href="img/icons.svg#github-octocat"></use>
+								</svg>
+								<svg class="icon icon_hamburger">
+									<use xlink:href="img/icons.svg#hamburger"></use>
+								</svg>
+								<svg class="icon icon_heart">
+									<use xlink:href="img/icons.svg#heart"></use>
+								</svg>
+								<svg class="icon icon_maginifer">
+									<use xlink:href="img/icons.svg#maginifer"></use>
+								</svg>
+								<svg class="icon icon_rss">
+									<use xlink:href="img/icons.svg#rss"></use>
+								</svg>
+								<svg class="icon icon_fb">
+									<use xlink:href="img/icons.svg#fb"></use>
+								</svg>
+								<svg class="icon icon_gp">
+									<use xlink:href="img/icons.svg#gp"></use>
+								</svg>
+								<svg class="icon icon_mr">
+									<use xlink:href="img/icons.svg#mr"></use>
+								</svg>
+								<svg class="icon icon_ok">
+									<use xlink:href="img/icons.svg#ok"></use>
+								</svg>
+								<svg class="icon icon_tw">
+									<use xlink:href="img/icons.svg#tw"></use>
+								</svg>
+								<svg class="icon icon_vk">
+									<use xlink:href="img/icons.svg#vk"></use>
+								</svg>
+							</div>
+							<h3 id="accordion">Accordion</h3>
+							<div class="accordion">
+								<ul>
+									<li class="accordion__item accordion__item_active accordion__item">
+										<div class="accordion__header">Accordion item 1</div>
+										<div class="accordion__content">
+											<p>Accordion item 1 content</p>
 										</div>
-										<div class="b-tabs__body">
-											<div id="tab1" class="b-tabs__body-content">
-												<h2>Tab 1 Proin gravida nibh vel velit auctor aliquetoin</h2>
-												<p>Мы сообщество волонтеров, которые помогают животным на собственные средства и средства людей, разделяющих наши взгляды. Все члены Фонда помогают животным в свободное от основной работы время на добровольных и бескорыстных началах. Бюджетирования со стороны государства, как и постоянных состоятельных спонсоров, у Фонда нет. Возможности наши ограничены.  Обычно, когда люди слышат о нас, то первым делом хотят позвонить и попросить забрать бездомную собаку или кошку, живущую возле их подъезда. Не удивляйтесь, если Вам откажут.  Бишкеке около 130 тыс. животных, нуждающихся в помощи, которые приносят около 300 тыс. щенков. И это только собаки. Забрать   всех   у Фонда нет возможности. Опросная анкета трансформирует популярный инструмент маркетинга. Таргетирование конструктивно. Охват аудитории концентрирует формат события. Согласно последним исследованиям, взаимодействие корпорации и клиента редко соответствует рыночным ожиданиям. </p>
-											</div>
-											<div id="tab2" class="b-tabs__body-content">
-												<h2>Tab 2. H1 Proin gravida nibh vel velit auctor aliquetoin</h2>
-												<p>Мы сообщество волонтеров, которые помогают животным на собственные средства и средства людей, разделяющих наши взгляды. Все члены Фонда помогают животным в свободное от основной работы время на добровольных и бескорыстных началах. Бюджетирования со стороны государства, как и постоянных состоятельных спонсоров, у Фонда нет. Возможности наши ограничены.  Обычно, когда люди слышат о нас, то первым делом хотят позвонить и попросить забрать бездомную собаку или кошку, живущую возле их подъезда. Не удивляйтесь, если Вам откажут.  Бишкеке около 130 тыс. животных, нуждающихся в помощи, которые приносят около 300 тыс. щенков. И это только собаки. Забрать   всех   у Фонда нет возможности. Опросная анкета трансформирует популярный инструмент маркетинга. Таргетирование конструктивно. Охват аудитории концентрирует формат события. Согласно последним исследованиям, взаимодействие корпорации и клиента редко соответствует рыночным ожиданиям. </p>
-											</div>
-											<div id="tab3" class="b-tabs__body-content">
-												<h2>Tab 3. H1 Proin gravida nibh vel velit auctor aliquetoin</h2>
-												<p>Мы сообщество волонтеров, которые помогают животным на собственные средства и средства людей, разделяющих наши взгляды. Все члены Фонда помогают животным в свободное от основной работы время на добровольных и бескорыстных началах. Бюджетирования со стороны государства, как и постоянных состоятельных спонсоров, у Фонда нет. Возможности наши ограничены.  Обычно, когда люди слышат о нас, то первым делом хотят позвонить и попросить забрать бездомную собаку или кошку, живущую возле их подъезда. Не удивляйтесь, если Вам откажут.  Бишкеке около 130 тыс. животных, нуждающихся в помощи, которые приносят около 300 тыс. щенков. И это только собаки. Забрать   всех   у Фонда нет возможности. Опросная анкета трансформирует популярный инструмент маркетинга. Таргетирование конструктивно. Охват аудитории концентрирует формат события. Согласно последним исследованиям, взаимодействие корпорации и клиента редко соответствует рыночным ожиданиям. </p>
-											</div>
+									</li>
+									<li class="accordion__item accordion__item">
+										<div class="accordion__header">Accordion item 2</div>
+										<div class="accordion__content">
+											<p>Accordion item 2 content</p>
 										</div>
-										<div class="clear"></div>
+									</li>
+									<li class="accordion__item accordion__item">
+										<div class="accordion__header">Accordion item 3</div>
+										<div class="accordion__content">
+											<p>Accordion item 2 content</p>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<h3 id="pseudo-dropdown">Pseudo dropdown</h3>
+							<div class="pseudo-dropdown">
+								<div class="pseudo-dropdown__trigger"></div>
+								<div class="pseudo-dropdown__list">
+									<div class="pseudo-dropdown-list">
+										<ul>
+											<li data-value="0" class="pseudo-dropdown-list__item">Item 1</li>
+											<li data-value="1" class="pseudo-dropdown-list__item">Item 2</li>
+											<li data-value="2" class="pseudo-dropdown-list__item">Item 3</li>
+											<li data-value="3" class="pseudo-dropdown-list__item pseudo-dropdown-list__item_active">Item 4 - active</li>
+											<li data-value="4" class="pseudo-dropdown-list__item">Item 5</li>
+										</ul>
 									</div>
-									<div class="b-tabs b-tabs_style_default b-tabs_mode_vertical">
-										<div class="b-tabs__head">
-											<div class="b-tabs__head-item"><a href="#tab21">Tab 1</a></div>
-											<div class="b-tabs__head-item"><a href="#tab22">Tab 2</a></div>
-											<div class="b-tabs__head-item"><a href="#tab23">Tab 3</a></div>
-											<div class="clear"></div>
-										</div>
-										<div class="b-tabs__body">
-											<div id="tab21" class="b-tabs__body-content">
-												<h2>Tab 1 Proin gravida nibh vel velit auctor aliquetoin</h2>
-												<p>Мы сообщество волонтеров, которые помогают животным на собственные средства и средства людей, разделяющих наши взгляды. Все члены Фонда помогают животным в свободное от основной работы время на добровольных и бескорыстных началах. Бюджетирования со стороны государства, как и постоянных состоятельных спонсоров, у Фонда нет. Возможности наши ограничены.  Обычно, когда люди слышат о нас, то первым делом хотят позвонить и попросить забрать бездомную собаку или кошку, живущую возле их подъезда. Не удивляйтесь, если Вам откажут.  Бишкеке около 130 тыс. животных, нуждающихся в помощи, которые приносят около 300 тыс. щенков. И это только собаки. Забрать   всех   у Фонда нет возможности. Опросная анкета трансформирует популярный инструмент маркетинга. Таргетирование конструктивно. Охват аудитории концентрирует формат события. Согласно последним исследованиям, взаимодействие корпорации и клиента редко соответствует рыночным ожиданиям. </p>
-											</div>
-											<div id="tab22" class="b-tabs__body-content">
-												<h2>Tab 2. H1 Proin gravida nibh vel velit auctor aliquetoin</h2>
-												<p>Мы сообщество волонтеров, которые помогают животным на собственные средства и средства людей, разделяющих наши взгляды. Все члены Фонда помогают животным в свободное от основной работы время на добровольных и бескорыстных началах. Бюджетирования со стороны государства, как и постоянных состоятельных спонсоров, у Фонда нет. Возможности наши ограничены.  Обычно, когда люди слышат о нас, то первым делом хотят позвонить и попросить забрать бездомную собаку или кошку, живущую возле их подъезда. Не удивляйтесь, если Вам откажут.  Бишкеке около 130 тыс. животных, нуждающихся в помощи, которые приносят около 300 тыс. щенков. И это только собаки. Забрать   всех   у Фонда нет возможности. Опросная анкета трансформирует популярный инструмент маркетинга. Таргетирование конструктивно. Охват аудитории концентрирует формат события. Согласно последним исследованиям, взаимодействие корпорации и клиента редко соответствует рыночным ожиданиям. </p>
-											</div>
-											<div id="tab23" class="b-tabs__body-content">
-												<h2>Tab 3. H1 Proin gravida nibh vel velit auctor aliquetoin</h2>
-												<p>Мы сообщество волонтеров, которые помогают животным на собственные средства и средства людей, разделяющих наши взгляды. Все члены Фонда помогают животным в свободное от основной работы время на добровольных и бескорыстных началах. Бюджетирования со стороны государства, как и постоянных состоятельных спонсоров, у Фонда нет. Возможности наши ограничены.  Обычно, когда люди слышат о нас, то первым делом хотят позвонить и попросить забрать бездомную собаку или кошку, живущую возле их подъезда. Не удивляйтесь, если Вам откажут.  Бишкеке около 130 тыс. животных, нуждающихся в помощи, которые приносят около 300 тыс. щенков. И это только собаки. Забрать   всех   у Фонда нет возможности. Опросная анкета трансформирует популярный инструмент маркетинга. Таргетирование конструктивно. Охват аудитории концентрирует формат события. Согласно последним исследованиям, взаимодействие корпорации и клиента редко соответствует рыночным ожиданиям. </p>
-											</div>
-										</div>
-										<div class="clear"></div>
-									</div>
-								</section>
-								<!-- END TABS-->
-								<!-- FORMS-->
-								<section>
-									<header>
-										<h2 id="forms">Forms</h2>
-									</header>
-									<h3 id="messaging">&#167; Messaging</h3>
-									<script>
-										$(function() {
-											$('.b-alert__close').on('click', function() {
-												$(this).closest('.b-alert').fadeOut();
-											});
-										});
-									</script>
-									<div class="b-alert b-alert_style_error">
-										<div class="b-alert__title">Error message title</div>
-										<div class="b-alert__body">Error message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum.</div>
-										<div class="b-alert__close">&times;</div>
-									</div>
-									<div class="b-alert b-alert_style_success">
-										<div class="b-alert__title">Success message title</div>
-										<div class="b-alert__body">Success message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum.</div>
-										<div class="b-alert__close">&times;</div>
-									</div>
-									<div class="b-alert b-alert_style_info">
-										<div class="b-alert__title">Info message title</div>
-										<div class="b-alert__body">Info message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum.</div>
-										<div class="b-alert__close">&times;</div>
-									</div>
-									<div class="b-alert b-alert_style_message">
-										<div class="b-alert__title">Message title</div>
-										<div class="b-alert__body">Message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum.</div>
-										<div class="b-alert__close">&times;</div>
-									</div>
-									<p>This is a filler paragraph – Ignore this. These are scattered through out the markup to simulate content. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis est, nec convallis dui. Nulla lectus velit, ornare sit amet blandit in, mattis eget nulla.</p>
-									<div class="b-form">
-										<form method="post" action="#">
-											<div class="b-form__section">
-												<h3 id="text-inputs">&#167; Text Inputs</h3>
-												<div class="b-form__item">
-													<div class="b-form-item b-form-item_type_text b-form-item_style_default">
-														<label for="name" class="b-form-item__label">Name</label>
-														<div class="b-form-item__input">
-															<input type="text" value="Nikolas" name="name" id="name">
-														</div>
-														<div class="clear"></div>
-													</div>
-												</div>
-												<div class="b-form__item">
-													<div class="b-form-item b-form-item_type_email b-form-item_style_default">
-														<label for="email" class="b-form-item__label">Email</label>
-														<div class="b-form-item__input">
-															<input type="email" name="email" placeholder="info@example.com" id="email" pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" title="Введите верный адрес email">
-														</div>
-														<div class="clear"></div>
-													</div>
-												</div>
-												<div class="b-form__item">
-													<div class="b-form-item b-form-item_type_url b-form-item_style_default">
-														<label for="url" class="b-form-item__label">Your site URL</label>
-														<div class="b-form-item__input">
-															<input type="url" name="url" placeholder="http://www.example.com" id="url" pattern="https?://.+" title="Введите url начинающийся с http:// или https://">
-														</div>
-														<div class="clear"></div>
-													</div>
-												</div>
-												<div class="b-form__item">
-													<div class="b-form-item b-form-item_type_tel b-form-item_style_default">
-														<label for="tel" class="b-form-item__label">Your phone</label>
-														<div class="b-form-item__input">
-															<input type="tel" name="tel" placeholder="+123 123-345-6789" id="tel" title="Международный, государственный или местный телефонный номер">
-														</div>
-														<div class="clear"></div>
-													</div>
-												</div>
-												<div class="b-form__item">
-													<div class="b-form-item b-form-item_type_password b-form-item_status_error b-form-item_style_default">
-														<label for="password" class="b-form-item__label">Password</label>
-														<div class="b-form-item__input">
-															<input type="password" value="password" name="password" id="password">
-														</div>
-														<div class="b-form-item__helpers">
-															<ul class="b-form-item__errors">
-																<li>some error message</li>
-																<li>another error message</li>
-															</ul>
-														</div>
-														<div class="clear"></div>
-													</div>
-												</div>
-												<div class="b-form__item">
-													<div class="b-form-item b-form-item_type_number b-form-item_style_default">
-														<label for="number" class="b-form-item__label">Your age</label>
-														<div class="b-form-item__input">
-															<input type="number" name="number" id="number">
-														</div>
-														<div class="clear"></div>
-													</div>
+								</div>
+							</div>
+							<h3 id="images-helpers">Images helpers</h3>
+							<p>
+								<img src="img/content/image.jpg" alt="" class="align-image-left" />
+							</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
+								unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
+								autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam,
+								consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus
+								ducimus doloremque minima nam!</p>
+							<p class="align-image-center">
+								<img src="img/content/image.jpg" alt="" />
+							</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
+								unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
+								autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam,
+								consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus
+								ducimus doloremque minima nam!</p>
+							<p>
+								<img src="img/content/image.jpg" alt="" class="align-image-right" />
+							</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
+								unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
+								autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam,
+								consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus
+								ducimus doloremque minima nam!</p>
+							<div class="align-image-center">
+								<figure class="image-captioned">
+									<img src="img/content/image.jpg" alt="" />
+									<figcaption>Название</figcaption>
+								</figure>
+							</div>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
+								unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
+								autem soluta velit, maxime delectus! Velit fuga, est vitae.</p>
+						</section>
+						<!--END HELPERS-->
+						<!-- FORMS-->
+						<section>
+							<h2 id="forms">Forms</h2>
+							<h3 id="messaging">Messaging</h3>
+							<div class="alert alert_type_error">
+								<div class="alert__title">Error message title</div>
+								<div class="alert__body">Error message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum.</div>
+								<div class="alert__close">
+									<svg class="icon icon_close">
+										<use xlink:href="img/icons.svg#close"></use>
+									</svg>
+								</div>
+							</div>
+							<div class="alert alert_type_success">
+								<div class="alert__title">Success message title</div>
+								<div class="alert__body">Success message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum.</div>
+								<div class="alert__close">
+									<svg class="icon icon_close">
+										<use xlink:href="img/icons.svg#close"></use>
+									</svg>
+								</div>
+							</div>
+							<div class="alert alert_type_info">
+								<div class="alert__title">Info message title</div>
+								<div class="alert__body">Info message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum.</div>
+								<div class="alert__close">
+									<svg class="icon icon_close">
+										<use xlink:href="img/icons.svg#close"></use>
+									</svg>
+								</div>
+							</div>
+							<div class="alert alert_type_message">
+								<div class="alert__title">Message message title</div>
+								<div class="alert__body">Message message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum.</div>
+								<div class="alert__close">
+									<svg class="icon icon_close">
+										<use xlink:href="img/icons.svg#close"></use>
+									</svg>
+								</div>
+							</div>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et ab totam, voluptas animi eius ducimus molestiae! Veritatis, atque? Porro praesentium, possimus! Iste architecto cupiditate placeat ab fugiat et adipisci reprehenderit.</p>
+							<div class="form">
+								<form method="post" action="#">
+									<div class="form__section">
+										<h3 id="text-inputs">Text Inputs</h3>
+										<div class="form__item">
+											<div class="form-item form-item_type_text form-item_style_default">
+												<label for="name" class="form-item__label">Name</label>
+												<div class="form-item__input">
+													<input type="text" value="Nikolas" name="name" id="name" />
 												</div>
 											</div>
-											<div class="b-form__section">
-												<h3 id="radios-and-checkboxes">&#167; Radios and Checkboxes</h3>
-												<div class="b-form__item">
-													<div class="b-input-group">
-														<label class="b-input-group__label">Radios</label>
-														<fieldset class="b-input-group__body">
-															<div class="b-form-item b-form-item_type_radio b-form-item_style_default">
-																<input type="radio" name="radio-group-3" id="radio-1">
-																<label for="radio-1" class="b-form-item__label">Normal</label>
-																<div class="clear"></div>
-															</div>
-															<div class="b-form-item b-form-item_type_radio b-form-item_style_default">
-																<input type="radio" name="radio-group-3" id="radio-2" checked="checked">
-																<label for="radio-2" class="b-form-item__label">Checked</label>
-																<div class="clear"></div>
-															</div>
-															<div class="b-form-item b-form-item_type_radio b-form-item_style_default">
-																<input type="radio" name="radio-group-4" id="radio-3" disabled="disabled">
-																<label for="radio-3" class="b-form-item__label">Disabled</label>
-																<div class="clear"></div>
-															</div>
-															<div class="b-form-item b-form-item_type_radio b-form-item_style_default">
-																<input type="radio" name="radio-group-4" id="radio-4" checked="checked" disabled="disabled">
-																<label for="radio-4" class="b-form-item__label">Checked and Disabled</label>
-																<div class="clear"></div>
-															</div>
-														</fieldset>
-														<div class="clear"></div>
-													</div>
-												</div>
-												<div class="b-form__item">
-													<div class="b-input-group">
-														<label class="b-input-group__label">Checkboxes</label>
-														<fieldset class="b-input-group__body">
-															<div class="b-form-item b-form-item_type_checkbox b-form-item_style_default">
-																<input type="checkbox" name="checkbox-group-1" id="checkbox-1">
-																<label for="checkbox-1" class="b-form-item__label">Normal</label>
-																<div class="clear"></div>
-															</div>
-															<div class="b-form-item b-form-item_type_checkbox b-form-item_style_default">
-																<input type="checkbox" name="checkbox-group-1" id="checkbox-2" checked="checked">
-																<label for="checkbox-2" class="b-form-item__label">Checked</label>
-																<div class="clear"></div>
-															</div>
-															<div class="b-form-item b-form-item_type_checkbox b-form-item_style_default">
-																<input type="checkbox" name="checkbox-group-2" id="checkbox-3" disabled="disabled">
-																<label for="checkbox-3" class="b-form-item__label">Disabled</label>
-																<div class="clear"></div>
-															</div>
-															<div class="b-form-item b-form-item_type_checkbox b-form-item_style_default">
-																<input type="checkbox" name="checkbox-group-2" id="checkbox-4" checked="checked" disabled="disabled">
-																<label for="checkbox-4" class="b-form-item__label">Checked and Disabled</label>
-																<div class="clear"></div>
-															</div>
-														</fieldset>
-														<div class="clear"></div>
-													</div>
+										</div>
+										<div class="form__item">
+											<div class="form-item form-item_type_email form-item_style_default">
+												<label for="email" class="form-item__label">Email</label>
+												<div class="form-item__input">
+													<input type="email" name="email" placeholder="info@example.com" id="email" pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" title="Введите верный адрес email" />
 												</div>
 											</div>
-											<div class="b-form__section">
-												<h3 id="selects">&#167; Selects</h3>
-												<div class="b-form__item">
-													<div class="b-form-item b-form-item_type_select b-form-item_style_default">
-														<label for="select" class="b-form-item__label">Select</label>
-														<div class="b-form-item__input">
-															<select name="select" id="select" data-placeholder="Select value...">
-																<option></option>
-																<option value="0" label="Lorem ipsum">Lorem ipsum</option>
-																<option value="1" label="Dolor sit amet">Dolor sit amet</option>
-																<option value="2" label="Consectetur adipisicing">Consectetur adipisicing</option>
-																<option value="3" label="Elit">Elit</option>
-																<option value="4" label="Expedita at soluta">Expedita at soluta</option>
-															</select>
-														</div>
-														<div class="clear"></div>
-													</div>
-												</div>
-												<div class="b-form__item">
-													<div class="b-form-item b-form-item_type_multiselect b-form-item_style_default">
-														<label for="multiple-select" class="b-form-item__label">Multiselect</label>
-														<div class="b-form-item__input">
-															<select name="multiple-select" id="multiple-select" multiple size="10">
-																<option value="0" label="Value 1">Value 1</option>
-																<option value="1" label="Value 2">Value 2</option>
-																<option value="2" label="Value 3">Value 3</option>
-																<option value="3" label="Value 4">Value 4</option>
-																<option value="4" label="Value 5">Value 5</option>
-																<option value="5" label="Value 6">Value 6</option>
-																<option value="6" label="Value 7">Value 7</option>
-															</select>
-														</div>
-														<div class="clear"></div>
-													</div>
+										</div>
+										<div class="form__item">
+											<div class="form-item form-item_type_url form-item_style_default">
+												<label for="url" class="form-item__label">Your site URL</label>
+												<div class="form-item__input">
+													<input type="url" name="url" placeholder="http://www.example.com" id="url" pattern="https?://.+" title="Введите url начинающийся с http:// или https://" />
 												</div>
 											</div>
-											<div class="b-form__section">
-												<h3 id="textareas-and-files">&#167; Textareas and Files</h3>
-												<div class="b-form__item">
-													<div class="b-form-item b-form-item_type_textarea b-form-item_style_default">
-														<label for="textarea" class="b-form-item__label">Textarea</label>
-														<div class="b-form-item__input">
-															<textarea name="textarea" cols="80" rows="24" placeholder="Textarea placeholder" id="textarea"></textarea>
-														</div>
-														<div class="clear"></div>
-													</div>
-												</div>
-												<div class="b-form__item">
-													<div class="b-form-item b-form-item_type_file b-form-item_style_default">
-														<label for="file" class="b-form-item__label">File</label>
-														<div class="b-form-item__input">
-															<input type="file" name="file" id="file">
-														</div>
-														<div class="clear"></div>
-													</div>
+										</div>
+										<div class="form__item">
+											<div class="form-item form-item_type_tel form-item_style_default">
+												<label for="tel" class="form-item__label">Your phone</label>
+												<div class="form-item__input">
+													<input type="tel" name="tel" placeholder="+123 123-345-6789" id="tel" title="Международный, государственный или местный телефонный номер" />
 												</div>
 											</div>
-											<div class="b-form__section">
-												<h3 id="captcha">&#167; Captcha</h3>
-												<div class="b-form__item">
-													<div class="b-form-item b-form-item_type_captcha b-form-item_style_default">
-														<label for="captcha-input" class="b-form-item__label">Captcha<span> *</span></label>
-														<div class="b-form-item__input-image"><a href="#" title="Reload image"><img src="img/content/captcha.png" alt="Captcha"></a></div>
-														<div class="b-form-item__input">
-															<input type="text" name="captcha-input" id="captcha-input">
-														</div>
-														<div class="clear"></div>
-													</div>
+										</div>
+										<div class="form__item">
+											<div class="form-item form-item_type_password form-item_status_error form-item_style_default">
+												<label for="password" class="form-item__label">Password</label>
+												<div class="form-item__input">
+													<input type="password" value="password" name="password" id="password" />
+												</div>
+												<div class="form-item__helpers">
+													<ul class="form-item__errors">
+														<li>some error message</li>
+														<li>another error message</li>
+													</ul>
 												</div>
 											</div>
-										</form>
-									</div>
-									<h3 id="buttons">&#167; Buttons</h3>
-									<button type="button" class="b-button b-button_color_grey b-button_size_lg">Large</button>
-									<button type="button" class="b-button b-button_color_grey">Default</button>
-									<button type="button" class="b-button b-button_color_grey b-button_size_sm">Small</button>
-									<button type="button" class="b-button b-button_color_grey b-button_size_xs">Extra small</button>
-									<button type="button" class="b-button b-button_color_blue b-button_size_lg">Large</button>
-									<button type="button" class="b-button b-button_color_blue">Default</button>
-									<button type="button" class="b-button b-button_color_blue b-button_size_sm">Small</button>
-									<button type="button" class="b-button b-button_color_blue b-button_size_xs">Extra small</button>
-									<h4>&#167; Link buttons</h4><a href="#" class="b-button b-button_color_grey b-button_size_lg">Large</a> <a href="#" class="b-button b-button_color_grey">Default</a> <a href="#" class="b-button b-button_color_grey b-button_size_sm">Small</a> <a href="#" class="b-button b-button_color_grey b-button_size_xs">Extra small</a> <a href="#" class="b-button b-button_color_blue b-button_size_lg">Large</a> <a href="#" class="b-button b-button_color_blue">Default</a> <a href="#" class="b-button b-button_color_blue b-button_size_sm">Small</a> <a href="#" class="b-button b-button_color_blue b-button_size_xs">Extra small</a> 
-									<h4>&#167; Disabled buttons</h4>
-									<button type="button" disabled class="b-button b-button_color_grey b-button_size_lg">Large</button>
-									<button type="button" disabled class="b-button b-button_color_grey">Default</button>
-									<button type="button" disabled class="b-button b-button_color_grey b-button_size_sm">Small</button>
-									<button type="button" disabled class="b-button b-button_color_grey b-button_size_xs">Extra small</button>
-									<button type="button" class="b-button b-button_color_blue b-button_size_lg b-button_disabled">Large</button>
-									<button type="button" class="b-button b-button_color_blue b-button_disabled">Default</button>
-									<button type="button" class="b-button b-button_color_blue b-button_size_sm b-button_disabled">Small</button>
-									<button type="button" class="b-button b-button_color_blue b-button_size_xs b-button_disabled">Extra small</button>
-									<h4>&#167; Block buttons</h4>
-									<button type="button" class="b-button b-button_color_grey b-button_size_lg b-button_block">Large</button>
-									<button type="button" class="b-button b-button_color_grey b-button_block">Default</button>
-									<button type="button" class="b-button b-button_color_grey b-button_size_sm b-button_block">Small</button>
-									<button type="button" class="b-button b-button_color_grey b-button_size_xs b-button_block">Extra small</button>
-									<button type="button" class="b-button b-button_color_blue b-button_size_lg b-button_block">Large</button>
-									<button type="button" class="b-button b-button_color_blue b-button_block">Default</button>
-									<button type="button" class="b-button b-button_color_blue b-button_size_sm b-button_block">Small</button>
-									<button type="button" class="b-button b-button_color_blue b-button_size_xs b-button_block">Extra small</button>
-								</section>
-								<!-- END FORMS-->
-								<!-- GRID-->
-								<section>
-									<header>
-										<h2 id="grid">Grid</h2>
-									</header>
-									<div class="b-grid b-grid_demo">
-										<div class="b-grid__row">
-											<div class="b-grid__col">1</div>
-											<div class="b-grid__col">2</div>
-											<div class="b-grid__col">3</div>
-											<div class="b-grid__col">4</div>
-											<div class="b-grid__col">5</div>
-											<div class="b-grid__col">6</div>
-											<div class="b-grid__col">7</div>
-											<div class="b-grid__col">8</div>
-											<div class="b-grid__col">9</div>
-											<div class="b-grid__col">10</div>
-											<div class="b-grid__col">11</div>
-											<div class="b-grid__col">12</div>
 										</div>
-										<div class="b-grid__row">
-											<div class="b-grid__col b-grid__col_2">1</div>
-											<div class="b-grid__col b-grid__col_2">2</div>
-											<div class="b-grid__col b-grid__col_2">3</div>
-											<div class="b-grid__col b-grid__col_2">4</div>
-											<div class="b-grid__col b-grid__col_2">5</div>
-											<div class="b-grid__col b-grid__col_2">6</div>
-										</div>
-										<div class="b-grid__row">
-											<div class="b-grid__col b-grid__col_3">1</div>
-											<div class="b-grid__col b-grid__col_3">2</div>
-											<div class="b-grid__col b-grid__col_3">3</div>
-											<div class="b-grid__col b-grid__col_3">4</div>
-										</div>
-										<div class="b-grid__row">
-											<div class="b-grid__col b-grid__col_4">1</div>
-											<div class="b-grid__col b-grid__col_4">2</div>
-											<div class="b-grid__col b-grid__col_4">3</div>
-										</div>
-										<div class="b-grid__row">
-											<div class="b-grid__col b-grid__col_6">1</div>
-											<div class="b-grid__col b-grid__col_6">2</div>
-										</div>
-										<div class="b-grid__row">
-											<div class="b-grid__col b-grid__col_12">1</div>
-										</div>
-										<div class="b-grid__row">
-											<div class="b-grid__col b-grid__col_1">1</div>
-											<div class="b-grid__col b-grid__col_11">2</div>
-										</div>
-										<div class="b-grid__row">
-											<div class="b-grid__col b-grid__col_2">1</div>
-											<div class="b-grid__col b-grid__col_10">2</div>
-										</div>
-										<div class="b-grid__row">
-											<div class="b-grid__col b-grid__col_3">1</div>
-											<div class="b-grid__col b-grid__col_9">2</div>
-										</div>
-										<div class="b-grid__row">
-											<div class="b-grid__col b-grid__col_4">1</div>
-											<div class="b-grid__col b-grid__col_8">2</div>
-										</div>
-										<div class="b-grid__row">
-											<div class="b-grid__col b-grid__col_5">1</div>
-											<div class="b-grid__col b-grid__col_7">2</div>
-										</div>
-										<div class="b-grid__row">
-											<div class="b-grid__col b-grid__col_6">1</div>
-											<div class="b-grid__col b-grid__col_6">2</div>
-										</div>
-										<div class="b-grid__row">
-											<div class="b-grid__col b-grid__col_7">1</div>
-											<div class="b-grid__col b-grid__col_5">2</div>
-										</div>
-										<div class="b-grid__row">
-											<div class="b-grid__col b-grid__col_8">1</div>
-											<div class="b-grid__col b-grid__col_4">2</div>
-										</div>
-										<div class="b-grid__row">
-											<div class="b-grid__col b-grid__col_9">1</div>
-											<div class="b-grid__col b-grid__col_3">2</div>
-										</div>
-										<div class="b-grid__row">
-											<div class="b-grid__col b-grid__col_10">1</div>
-											<div class="b-grid__col b-grid__col_2">2</div>
-										</div>
-										<div class="b-grid__row">
-											<div class="b-grid__col b-grid__col_11">1</div>
-											<div class="b-grid__col b-grid__col_1">2</div>
-										</div>
-										<div class="b-grid__row">
-											<div class="b-grid__col b-grid__col_offset_1">1</div>
-											<div class="b-grid__col">2</div>
-											<div class="b-grid__col">3</div>
-											<div class="b-grid__col">4</div>
-											<div class="b-grid__col">5</div>
-											<div class="b-grid__col">6</div>
-											<div class="b-grid__col">7</div>
-											<div class="b-grid__col">8</div>
-											<div class="b-grid__col">9</div>
-											<div class="b-grid__col">10</div>
-											<div class="b-grid__col">11</div>
-										</div>
-										<div class="b-grid__row">
-											<div class="b-grid__col b-grid__col_offset_2">1</div>
-											<div class="b-grid__col">2</div>
-											<div class="b-grid__col">3</div>
-											<div class="b-grid__col">4</div>
-											<div class="b-grid__col">5</div>
-											<div class="b-grid__col">6</div>
-											<div class="b-grid__col">7</div>
-											<div class="b-grid__col">8</div>
-											<div class="b-grid__col">9</div>
-											<div class="b-grid__col">10</div>
-										</div>
-										<div class="b-grid__row">
-											<div class="b-grid__col b-grid__col_offset_3">1</div>
-											<div class="b-grid__col">2</div>
-											<div class="b-grid__col">3</div>
-											<div class="b-grid__col">4</div>
-											<div class="b-grid__col">5</div>
-											<div class="b-grid__col">6</div>
-											<div class="b-grid__col">7</div>
-											<div class="b-grid__col">8</div>
-											<div class="b-grid__col">9</div>
-										</div>
-										<div class="b-grid__row">
-											<div class="b-grid__col b-grid__col_offset_4">1</div>
-											<div class="b-grid__col">2</div>
-											<div class="b-grid__col">3</div>
-											<div class="b-grid__col">4</div>
-											<div class="b-grid__col">5</div>
-											<div class="b-grid__col">6</div>
-											<div class="b-grid__col">7</div>
-											<div class="b-grid__col">8</div>
-										</div>
-										<div class="b-grid__row">
-											<div class="b-grid__col b-grid__col_offset_5">1</div>
-											<div class="b-grid__col">2</div>
-											<div class="b-grid__col">3</div>
-											<div class="b-grid__col">4</div>
-											<div class="b-grid__col">5</div>
-											<div class="b-grid__col">6</div>
-											<div class="b-grid__col">7</div>
-										</div>
-										<div class="b-grid__row">
-											<div class="b-grid__col b-grid__col_offset_6">1</div>
-											<div class="b-grid__col">2</div>
-											<div class="b-grid__col">3</div>
-											<div class="b-grid__col">4</div>
-											<div class="b-grid__col">5</div>
-											<div class="b-grid__col">6</div>
-										</div>
-										<div class="b-grid__row">
-											<div class="b-grid__col b-grid__col_offset_7">1</div>
-											<div class="b-grid__col">2</div>
-											<div class="b-grid__col">3</div>
-											<div class="b-grid__col">4</div>
-											<div class="b-grid__col">5</div>
-										</div>
-										<div class="b-grid__row">
-											<div class="b-grid__col b-grid__col_offset_8">1</div>
-											<div class="b-grid__col">2</div>
-											<div class="b-grid__col">3</div>
-											<div class="b-grid__col">4</div>
-										</div>
-										<div class="b-grid__row">
-											<div class="b-grid__col b-grid__col_offset_9">1</div>
-											<div class="b-grid__col">2</div>
-											<div class="b-grid__col">3</div>
-										</div>
-										<div class="b-grid__row">
-											<div class="b-grid__col b-grid__col_offset_10">1</div>
-											<div class="b-grid__col">2</div>
-										</div>
-										<div class="b-grid__row">
-											<div class="b-grid__col b-grid__col_offset_11">1</div>
+										<div class="form__item">
+											<div class="form-item form-item_type_number form-item_style_default">
+												<label for="number" class="form-item__label">Your age</label>
+												<div class="form-item__input">
+													<input type="number" name="number" id="number" />
+												</div>
+											</div>
 										</div>
 									</div>
-								</section>
-								<!-- END GRID-->
-							</main>
-						</div>
-						<div class="clear"></div>
+									<div class="form__section">
+										<h3 id="radios-and-checkboxes">Radios and Checkboxes</h3>
+										<div class="form__item">
+											<div class="input-group">
+												<label class="input-group__label">Radios</label>
+												<fieldset class="input-group__body">
+													<div class="input-group__item">
+														<label class="form-item form-item_type_radio form-item_style_default">
+															<div class="form-item__input">
+																<input type="radio" name="radio-group-3" id="radio-1" />
+															</div>
+															<span class="form-item__label">Normal</span>
+														</label>
+													</div>
+													<div class="input-group__item">
+														<label class="form-item form-item_type_radio form-item_style_default">
+															<div class="form-item__input">
+																<input type="radio" name="radio-group-3" id="radio-2" checked="checked" />
+															</div>
+															<span class="form-item__label">Checked</span>
+														</label>
+													</div>
+													<div class="input-group__item">
+														<label class="form-item form-item_type_radio form-item_style_default">
+															<div class="form-item__input">
+																<input type="radio" name="radio-group-4" id="radio-3" disabled="disabled" />
+															</div>
+															<span class="form-item__label">Disabled</span>
+														</label>
+													</div>
+													<div class="input-group__item">
+														<label class="form-item form-item_type_radio form-item_style_default">
+															<div class="form-item__input">
+																<input type="radio" name="radio-group-4" id="radio-4" checked="checked" disabled="disabled" />
+															</div>
+															<span class="form-item__label">Checked and Disabled</span>
+														</label>
+													</div>
+												</fieldset>
+											</div>
+										</div>
+										<div class="form__item">
+											<div class="input-group">
+												<label class="input-group__label">Checkboxes</label>
+												<fieldset class="input-group__body">
+													<div class="input-group__item">
+														<label class="form-item form-item_type_checkbox form-item_style_default">
+															<div class="form-item__input">
+																<input type="checkbox" name="checkbox-group-1" id="checkbox-1" />
+															</div>
+															<span class="form-item__label">Normal</span>
+														</label>
+													</div>
+													<div class="input-group__item">
+														<label class="form-item form-item_type_checkbox form-item_style_default">
+															<div class="form-item__input">
+																<input type="checkbox" name="checkbox-group-1" id="checkbox-2" checked="checked" />
+															</div>
+															<span class="form-item__label">Checked</span>
+														</label>
+													</div>
+													<div class="input-group__item">
+														<label class="form-item form-item_type_checkbox form-item_style_default">
+															<div class="form-item__input">
+																<input type="checkbox" name="checkbox-group-2" id="checkbox-3" disabled="disabled" />
+															</div>
+															<span class="form-item__label">Disabled</span>
+														</label>
+													</div>
+													<div class="input-group__item">
+														<label class="form-item form-item_type_checkbox form-item_style_default">
+															<div class="form-item__input">
+																<input type="checkbox" name="checkbox-group-2" id="checkbox-4" checked="checked" disabled="disabled" />
+															</div>
+															<span class="form-item__label">Checked and Disabled</span>
+														</label>
+													</div>
+												</fieldset>
+											</div>
+										</div>
+									</div>
+									<div class="form__section">
+										<h3 id="selects">Selects</h3>
+										<div class="form__item">
+											<div class="form-item form-item_type_select form-item_style_default">
+												<label for="select" class="form-item__label">Select</label>
+												<div class="form-item__input">
+													<select name="select" id="select" data-placeholder="Select value...">
+														<option></option>
+														<option value="0" label="Lorem ipsum">Lorem ipsum</option>
+														<option value="1" label="Dolor sit amet">Dolor sit amet</option>
+														<option value="2" label="Consectetur adipisicing">Consectetur adipisicing</option>
+														<option value="3" label="Elit">Elit</option>
+														<option value="4" label="Expedita at soluta">Expedita at soluta</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="form__item">
+											<div class="form-item form-item_type_multiselect form-item_style_default">
+												<label for="multiple-select" class="form-item__label">Multiselect</label>
+												<div class="form-item__input">
+													<select name="multiple-select" id="multiple-select" multiple="multiple" size="10">
+														<option value="0" label="Value 1">Value 1</option>
+														<option value="1" label="Value 2">Value 2</option>
+														<option value="2" label="Value 3">Value 3</option>
+														<option value="3" label="Value 4">Value 4</option>
+														<option value="4" label="Value 5">Value 5</option>
+														<option value="5" label="Value 6">Value 6</option>
+														<option value="6" label="Value 7">Value 7</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="form__section">
+										<h3 id="textareas-and-files">Textareas and Files</h3>
+										<div class="form__item">
+											<div class="form-item form-item_type_textarea form-item_style_default">
+												<label for="textarea" class="form-item__label">Textarea</label>
+												<div class="form-item__input">
+													<textarea name="textarea" cols="80" rows="24" placeholder="Textarea placeholder" id="textarea"></textarea>
+												</div>
+											</div>
+										</div>
+										<div class="form__item">
+											<div class="form-item form-item_type_file form-item_style_default">
+												<label for="file" class="form-item__label">File</label>
+												<div class="form-item__input">
+													<input type="file" name="file" id="file" />
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="form__section">
+										<h3 id="captcha">Captcha</h3>
+										<div class="form__item">
+											<div class="form-item form-item_type_captcha form-item_style_default">
+												<label for="captcha-input" class="form-item__label">Captcha
+													<span> *</span>
+												</label>
+												<div class="form-item__input-image">
+													<a href="#" title="Reload image">
+														<img src="img/captcha.png" alt="Captcha" />
+													</a>
+												</div>
+												<div class="form-item__input">
+													<input type="text" name="captcha-input" id="captcha-input" />
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+							<h3 id="buttons">Buttons</h3>
+							<button type="button" class="button button_color_grey button_style_rounded button_size_lg">Large</button>
+							<button type="button" class="button button_color_grey button_style_rounded">Default</button>
+							<button type="button" class="button button_color_grey button_style_rounded button_size_sm">Small</button>
+							<button type="button" class="button button_color_grey button_style_rounded button_size_xs">Extra small</button>
+							<button type="button" class="button button_color_blue button_style_rounded button_size_lg">Large</button>
+							<button type="button" class="button button_color_blue button_style_rounded">Default</button>
+							<button type="button" class="button button_color_blue button_style_rounded button_size_sm">Small</button>
+							<button type="button" class="button button_color_blue button_style_rounded button_size_xs">Extra small</button>
+							<h4>Link buttons</h4>
+							<a href="#" class="button button_color_grey button_style_rounded button_size_lg">Large</a>
+							<a href="#" class="button button_color_grey button_style_rounded">Default</a>
+							<a href="#" class="button button_color_grey button_style_rounded button_size_sm">Small</a>
+							<a href="#" class="button button_color_grey button_style_rounded button_size_xs">Extra small</a>
+							<a href="#" class="button button_color_blue button_style_rounded button_size_lg">Large</a>
+							<a href="#" class="button button_color_blue button_style_rounded">Default</a>
+							<a href="#" class="button button_color_blue button_style_rounded button_size_sm">Small</a>
+							<a href="#" class="button button_color_blue button_style_rounded button_size_xs">Extra small</a>
+							<h4>Disabled buttons</h4>
+							<button type="button" disabled="disabled" class="button button_color_grey button_style_rounded button_size_lg">Large</button>
+							<button type="button" disabled="disabled" class="button button_color_grey button_style_rounded">Default</button>
+							<button type="button" disabled="disabled" class="button button_color_grey button_style_rounded button_size_sm">Small</button>
+							<button type="button" disabled="disabled" class="button button_color_grey button_style_rounded button_size_xs">Extra small</button>
+							<button type="button" class="button button_color_blue button_style_rounded button_size_lg button_disabled">Large</button>
+							<button type="button" class="button button_color_blue button_style_rounded button_disabled">Default</button>
+							<button type="button" class="button button_color_blue button_style_rounded button_size_sm button_disabled">Small</button>
+							<button type="button" class="button button_color_blue button_style_rounded button_size_xs button_disabled">Extra small</button>
+							<h4>Block buttons</h4>
+							<button type="button" class="button button_color_grey button_style_rounded button_size_lg button_block">Large</button>
+							<button type="button" class="button button_color_grey button_style_rounded button_block">Default</button>
+							<button type="button" class="button button_color_grey button_style_rounded button_size_sm button_block">Small</button>
+							<button type="button" class="button button_color_grey button_style_rounded button_size_xs button_block">Extra small</button>
+							<button type="button" class="button button_color_blue button_style_rounded button_size_lg button_block">Large</button>
+							<button type="button" class="button button_color_blue button_style_rounded button_block">Default</button>
+							<button type="button" class="button button_color_blue button_style_rounded button_size_sm button_block">Small</button>
+							<button type="button" class="button button_color_blue button_style_rounded button_size_xs button_block">Extra small</button>
+						</section>
+						<!-- END FORMS-->
+						<!-- GRID-->
+						<section>
+							<h2 id="grid">Grid</h2>
+							<div class="grid grid_demo">
+								<div class="grid__row">
+									<div class="grid__col">1</div>
+									<div class="grid__col">2</div>
+									<div class="grid__col">3</div>
+									<div class="grid__col">4</div>
+									<div class="grid__col">5</div>
+									<div class="grid__col">6</div>
+									<div class="grid__col">7</div>
+									<div class="grid__col">8</div>
+									<div class="grid__col">9</div>
+									<div class="grid__col">10</div>
+									<div class="grid__col">11</div>
+									<div class="grid__col">12</div>
+								</div>
+								<div class="grid__row">
+									<div class="grid__col grid__col_2">1</div>
+									<div class="grid__col grid__col_2">2</div>
+									<div class="grid__col grid__col_2">3</div>
+									<div class="grid__col grid__col_2">4</div>
+									<div class="grid__col grid__col_2">5</div>
+									<div class="grid__col grid__col_2">6</div>
+								</div>
+								<div class="grid__row">
+									<div class="grid__col grid__col_3">1</div>
+									<div class="grid__col grid__col_3">2</div>
+									<div class="grid__col grid__col_3">3</div>
+									<div class="grid__col grid__col_3">4</div>
+								</div>
+								<div class="grid__row">
+									<div class="grid__col grid__col_4">1</div>
+									<div class="grid__col grid__col_4">2</div>
+									<div class="grid__col grid__col_4">3</div>
+								</div>
+								<div class="grid__row">
+									<div class="grid__col grid__col_6">1</div>
+									<div class="grid__col grid__col_6">2</div>
+								</div>
+								<div class="grid__row">
+									<div class="grid__col grid__col_12">1</div>
+								</div>
+								<div class="grid__row">
+									<div class="grid__col grid__col_1">1</div>
+									<div class="grid__col grid__col_11">2</div>
+								</div>
+								<div class="grid__row">
+									<div class="grid__col grid__col_2">1</div>
+									<div class="grid__col grid__col_10">2</div>
+								</div>
+								<div class="grid__row">
+									<div class="grid__col grid__col_3">1</div>
+									<div class="grid__col grid__col_9">2</div>
+								</div>
+								<div class="grid__row">
+									<div class="grid__col grid__col_4">1</div>
+									<div class="grid__col grid__col_8">2</div>
+								</div>
+								<div class="grid__row">
+									<div class="grid__col grid__col_5">1</div>
+									<div class="grid__col grid__col_7">2</div>
+								</div>
+								<div class="grid__row">
+									<div class="grid__col grid__col_6">1</div>
+									<div class="grid__col grid__col_6">2</div>
+								</div>
+								<div class="grid__row">
+									<div class="grid__col grid__col_7">1</div>
+									<div class="grid__col grid__col_5">2</div>
+								</div>
+								<div class="grid__row">
+									<div class="grid__col grid__col_8">1</div>
+									<div class="grid__col grid__col_4">2</div>
+								</div>
+								<div class="grid__row">
+									<div class="grid__col grid__col_9">1</div>
+									<div class="grid__col grid__col_3">2</div>
+								</div>
+								<div class="grid__row">
+									<div class="grid__col grid__col_10">1</div>
+									<div class="grid__col grid__col_2">2</div>
+								</div>
+								<div class="grid__row">
+									<div class="grid__col grid__col_11">1</div>
+									<div class="grid__col grid__col_1">2</div>
+								</div>
+								<div class="grid__row">
+									<div class="grid__col grid__col_offset_1">1</div>
+									<div class="grid__col">2</div>
+									<div class="grid__col">3</div>
+									<div class="grid__col">4</div>
+									<div class="grid__col">5</div>
+									<div class="grid__col">6</div>
+									<div class="grid__col">7</div>
+									<div class="grid__col">8</div>
+									<div class="grid__col">9</div>
+									<div class="grid__col">10</div>
+									<div class="grid__col">11</div>
+								</div>
+								<div class="grid__row">
+									<div class="grid__col grid__col_offset_2">1</div>
+									<div class="grid__col">2</div>
+									<div class="grid__col">3</div>
+									<div class="grid__col">4</div>
+									<div class="grid__col">5</div>
+									<div class="grid__col">6</div>
+									<div class="grid__col">7</div>
+									<div class="grid__col">8</div>
+									<div class="grid__col">9</div>
+									<div class="grid__col">10</div>
+								</div>
+								<div class="grid__row">
+									<div class="grid__col grid__col_offset_3">1</div>
+									<div class="grid__col">2</div>
+									<div class="grid__col">3</div>
+									<div class="grid__col">4</div>
+									<div class="grid__col">5</div>
+									<div class="grid__col">6</div>
+									<div class="grid__col">7</div>
+									<div class="grid__col">8</div>
+									<div class="grid__col">9</div>
+								</div>
+								<div class="grid__row">
+									<div class="grid__col grid__col_offset_4">1</div>
+									<div class="grid__col">2</div>
+									<div class="grid__col">3</div>
+									<div class="grid__col">4</div>
+									<div class="grid__col">5</div>
+									<div class="grid__col">6</div>
+									<div class="grid__col">7</div>
+									<div class="grid__col">8</div>
+								</div>
+								<div class="grid__row">
+									<div class="grid__col grid__col_offset_5">1</div>
+									<div class="grid__col">2</div>
+									<div class="grid__col">3</div>
+									<div class="grid__col">4</div>
+									<div class="grid__col">5</div>
+									<div class="grid__col">6</div>
+									<div class="grid__col">7</div>
+								</div>
+								<div class="grid__row">
+									<div class="grid__col grid__col_offset_6">1</div>
+									<div class="grid__col">2</div>
+									<div class="grid__col">3</div>
+									<div class="grid__col">4</div>
+									<div class="grid__col">5</div>
+									<div class="grid__col">6</div>
+								</div>
+								<div class="grid__row">
+									<div class="grid__col grid__col_offset_7">1</div>
+									<div class="grid__col">2</div>
+									<div class="grid__col">3</div>
+									<div class="grid__col">4</div>
+									<div class="grid__col">5</div>
+								</div>
+								<div class="grid__row">
+									<div class="grid__col grid__col_offset_8">1</div>
+									<div class="grid__col">2</div>
+									<div class="grid__col">3</div>
+									<div class="grid__col">4</div>
+								</div>
+								<div class="grid__row">
+									<div class="grid__col grid__col_offset_9">1</div>
+									<div class="grid__col">2</div>
+									<div class="grid__col">3</div>
+								</div>
+								<div class="grid__row">
+									<div class="grid__col grid__col_offset_10">1</div>
+									<div class="grid__col">2</div>
+								</div>
+								<div class="grid__row">
+									<div class="grid__col grid__col_offset_11">1</div>
+								</div>
+							</div>
+						</section>
+						<!-- END GRID-->
 					</div>
 				</div>
-				<!-- END MAIN-->
-				<div class="b-page__buffer"></div>
 			</div>
-			<!-- FOOTER-->
-			<div class="b-page__footer">
-				<footer class="b-footer">
-					<div class="b-footer__inner">
-						<div class="b-footer__copyright">
-							<div class="b-copyright">&copy;2015 Gulp-front</div>
-						</div>
-					</div>
-				</footer>
-			</div>
-			<!-- END FOOTER-->
+			<div class="page__buffer"></div>
+		</div>
+		<div class="page__footer">
+			<footer class="footer">
+				<div class="footer__inner">
+					<div class="copyright">&copy;&nbsp;2015 Gulp-front</div>
+				</div>
+			</footer>
 		</div>
 		<script src="js/plugins.min.js"></script>
-		<script src="js/script.js"></script>
+		<script src="js/main.min.js"></script>
 	</body>
+
 </html>
