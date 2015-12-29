@@ -10,8 +10,10 @@
 ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 [![Join the chat at https://gitter.im/zoxon/gulp-front](https://img.shields.io/badge/gitter-join%20chat-green.svg?style=flat)](https://gitter.im/zoxon/gulp-front?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+## Демо
+[zoxon.github.io/gulp-front](http://zoxon.github.io/gulp-front/)
 
-# Преимущества и возможности
+## Преимущества и возможности
 
 * Быстрый и удобный сборщик (gulp)
 * Сервер и синхронное тестирование сайта в браузерах (с помощью browser-sync)
