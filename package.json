@@ -50,7 +50,7 @@
     "gulp-jade-inheritance": "^0.5.4",
     "gulp-newer": "^1.1.0",
     "gulp-plumber": "^1.0.1",
-    "gulp-prettify": "^0.3.0",
+    "gulp-prettify": "^0.4.0",
     "gulp-rename": "^1.2.2",
     "gulp-stylus": "^2.1.1",
     "gulp-svg-symbols": "^1.0.0",
