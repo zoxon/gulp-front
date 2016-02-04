@@ -1,6 +1,6 @@
 {
   "name": "gulp-front",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Шаблон для быстрого старта разработки с Gulp, Jade и Stylus",
   "homepage": "https://github.com/Zoxon/gulp-front",
   "license": "MIT",
@@ -30,7 +30,7 @@
     "stylus"
   ],
   "dependencies": {
-    "autoprefixer-stylus": "^0.8.1",
+    "autoprefixer-stylus": "^0.9.1",
     "browser-sync": "^2.10.0",
     "del": "^2.2.0",
     "gulp": "^3.9.0",
@@ -60,6 +60,9 @@
     "gulp-zip": "^3.0.2",
     "imagemin-pngquant": "^4.2.0",
     "imagemin-svgo": "^4.2.0",
+    "jade": "^1.11.0",
+    "jstransformer": "0.0.4",
+    "jstransformer-stylus": "^1.0.0",
     "run-sequence": "^1.1.5",
     "rupture": "^0.6.1"
   }
