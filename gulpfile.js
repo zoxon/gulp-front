@@ -23,7 +23,6 @@ var imageminPngquant = require('imagemin-pngquant');
 var imageminSvgo = require('imagemin-svgo');
 var include = require('gulp-include');
 var jade = require('jade');
-var jadeInheritance = require('gulp-jade-inheritance');
 var jstransformer = require('jstransformer');
 var jstransformerStylus = require('jstransformer-stylus');
 var path = require('path');
@@ -393,4 +392,3 @@ gulp.task('dev', ['develop'], function (cb) {
 	});
 
 });
-

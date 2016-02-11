@@ -47,7 +47,6 @@
     "gulp-imagemin": "^2.4.0",
     "gulp-include": "^2.1.0",
     "gulp-jade": "^1.1.0",
-    "gulp-jade-inheritance": "^0.5.4",
     "gulp-newer": "^1.1.0",
     "gulp-plumber": "^1.0.1",
     "gulp-prettify": "^0.4.0",
