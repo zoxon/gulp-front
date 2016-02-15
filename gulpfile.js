@@ -3,6 +3,7 @@
 var gulp = require('gulp');
 var autoprefixer = require('autoprefixer-stylus');
 var browserSync = require('browser-sync').create();
+var buffer = require('vinyl-buffer');
 var changed = require('gulp-changed');
 var concat = require('gulp-concat');
 var cssbeautify = require('gulp-cssbeautify');
@@ -12,28 +13,29 @@ var data = require('gulp-data');
 var del = require('del');
 var filter = require('gulp-filter');
 var flatten = require('gulp-flatten');
-var gulpZip = require('gulp-zip');
+var gcmq = require('gulp-combine-mq');
 var gulpif = require('gulp-if');
+var gulpJade = require('gulp-jade');
+var gulpZip = require('gulp-zip');
 var gutil = require('gulp-util');
 var htmlPrettify = require('gulp-prettify');
 var imagemin = require('gulp-imagemin');
 var imageminPngquant = require('imagemin-pngquant');
 var imageminSvgo = require('imagemin-svgo');
 var include = require('gulp-include');
-var jade = require('gulp-jade');
-var jadeInheritance = require('gulp-jade-inheritance');
+var jade = require('jade');
+var jstransformer = require('jstransformer');
+var jstransformerStylus = require('jstransformer-stylus');
 var path = require('path');
 var plumber = require('gulp-plumber');
 var rename = require('gulp-rename');
 var runSequence = require('run-sequence');
 var rupture = require('rupture');
+var spritesmith = require('gulp.spritesmith');
 var stylus = require('gulp-stylus');
 var svgSymbols = require('gulp-svg-symbols');
 var uglify = require('gulp-uglify');
 var watch = require('gulp-watch');
-var gcmq = require('gulp-combine-mq');
-var spritesmith = require('gulp.spritesmith');
-var buffer = require('vinyl-buffer');
 
 
 // Error handler for gulp-plumber
@@ -122,6 +124,7 @@ var options = {
 	},
 
 	jade: {
+		jade: jade,
 		pretty: '\t'
 	},
 
@@ -205,11 +208,17 @@ gulp.task('combine-modules-data', function (cb) {
 		.pipe(gulp.dest('tmp'));
 });
 
+
+jade.filters.stylus = jstransformer(jstransformerStylus);
+jade.filters.shoutFilter = function (str) {
+	return str + '!!!!';
+}
+
 gulp.task('compile-pages', function (cb) {
 	return gulp.src(['**/*.jade', '!**/_*.jade'], {cwd: 'source/pages'})
 		.pipe(plumber(options.plumber))
 		.pipe(data(getData('tmp/data.js')))
-		.pipe(jade(options.jade))
+		.pipe(gulpJade(options.jade))
 		.pipe(htmlPrettify(options.htmlPrettify))
 		.pipe(gulp.dest('dest'));
 });
@@ -412,4 +421,3 @@ gulp.task('dev', ['develop'], function (cb) {
 	});
 
 });
-
