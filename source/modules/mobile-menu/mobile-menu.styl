@@ -1,0 +1,53 @@
+.mobile-menu
+	padding 20px 0
+	ul-reset()
+
+	&__item
+		padding 0 0 20px 0
+		list-style none
+
+	&__icon
+	&__text
+		display inline-block
+		vertical-align middle
+
+	&__icon
+		padding-right 6px
+		svg
+			display block
+			size 16px
+			fill #222
+
+	&__link
+		&
+		&:visited
+			vertical-align middle
+			text-decoration none
+			color #222
+			display block
+			padding 12px 20px
+			line-height normal
+			font-size 18px
+
+		&:hover
+			color #222
+
+	&__submenu &__item
+		padding-bottom 0
+
+	&__submenu &__item:last-child &__submenu-link
+		border-bottom none
+
+	&__submenu-link
+		&
+		&:visited
+			font-size 14px
+			display block
+			padding 10px 20px
+			margin 0 20px 0 30px
+			text-decoration none
+			color #505050
+			border-bottom 1px solid #e2e3e4
+
+		&:hover
+			color #2d3e60

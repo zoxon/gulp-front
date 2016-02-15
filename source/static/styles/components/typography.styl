@@ -207,3 +207,40 @@ table
 					border-bottom-width 0
 
 
+	&_responsive
+		thead
+		tfoot
+			display none
+
+		caption
+			display block
+
+		tbody
+			td
+				border none
+				display block
+				vertical-align top
+
+				&:before
+					content attr(data-th) ": "
+					font-weight bold
+					width 6.5em
+					display inline-block
+
+				&.table__hide
+					display none
+
+				& .table__content
+					vertical-align top
+
+				&:first-child
+					padding-top 1.5em
+
+				&:last-child
+					padding-bottom 1.5em
+
+
+		.table__wrapper_active
+			max-height 310px
+			overflow auto
+			-webkit-overflow-scrolling touch

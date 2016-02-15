@@ -44,7 +44,7 @@
 
 // Sliders
 // ---------------------------------------------------------------------------
-//= require plugins/slick/slick.js
+// require plugins/slick/slick.js
 // require plugins/bjqs/bjqs-1.3.js
 
 
@@ -139,7 +139,30 @@
 
 // Scrollbar plugin
 // ---------------------------------------------------------------------------
-//= require plugins/perfect-scrollbar/perfect-scrollbar.js
+// require plugins/perfect-scrollbar/perfect-scrollbar.js
+
+// Forms
+// ---------------------------------------------------------------------------
+//= require plugins/formstyler/jquery.formstyler.js
+
+
+// Tabs
+// ---------------------------------------------------------------------------
+// require plugins/ion-tabs/ion.tabs.js
+
+
+// Ion Slider
+// ---------------------------------------------------------------------------
+// require plugins/ion-rangeSlider/ion.rangeSlider.js
+
+// Transit
+// ---------------------------------------------------------------------------
+//= require plugins/transit/jquery.transit.js
+
+// Basic table
+// ---------------------------------------------------------------------------
+//= require plugins/basictable/jquery.basictable.js
+
 
 // My plugins
 // ---------------------------------------------------------------------------
@@ -149,18 +172,5 @@
 // require plugins/jquery.link-radio.js
 // require plugins/jquery.raiting.js
 // require plugins/jquery.spinner.js
-//= require plugins/jquery.tabs.js
+// require plugins/jquery.tabs.js
 
-
-// Forms
-// ---------------------------------------------------------------------------
-//= require plugins/formstyler/jquery.formstyler.js
-
-
-// Tabs
-// ---------------------------------------------------------------------------
-//= require plugins/ion-tabs/ion.tabs.js
-
-
-// Ion Slider
-//= require plugins/ion-rangeSlider/ion.rangeSlider.js

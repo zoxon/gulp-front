@@ -1,0 +1,17 @@
+mixin mobile-menu(data)
+	.mobile-menu
+		nav.mobile-menu__menu
+			ul
+				each ent, num in data
+					li.mobile-menu__item
+						a(href="#{ent.url}").mobile-menu__link
+							span.mobile-menu__icon
+								+svg-icon(ent.icon)
+							span.mobile-menu__text= ent.title
+							
+						if ent.submenu
+							.mobile-menu__submenu
+								ul
+									each ent2, num2 in ent.submenu
+										li.mobile-menu__item
+											a(href="#{ent2.url}").mobile-menu__submenu-link= ent2.title

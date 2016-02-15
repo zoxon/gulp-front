@@ -3,6 +3,7 @@
 		{
 			"title":"Typography",
 			"url":"#typography",
+			"icon": "text",
 			"submenu":[
 				{
 					"title":"Titles & Paragraphs",
@@ -45,6 +46,7 @@
 		{
 			"title": "Helpers",
 			"url": "#helpers",
+			"icon": "add",
 			"submenu": [
 				{
 					"title": "Social icons module",
@@ -71,6 +73,7 @@
 		{
 			"title":"Forms",
 			"url":"#forms",
+			"icon": "input",
 			"submenu":[
 				{
 					"title":"Messaging",
@@ -105,6 +108,7 @@
 		{
 			"title":"Grid",
 			"url":"#grid",
+			"icon": "grid",
 			"submenu":false
 		}
 	]
