@@ -1,6 +1,6 @@
 {
   "name": "gulp-front",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "Шаблон для быстрого старта разработки с Gulp, Jade и Stylus",
   "homepage": "https://github.com/Zoxon/gulp-front",
   "license": "MIT",
@@ -58,9 +58,11 @@
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
     "gulp-zip": "^3.0.2",
+    "gulp.spritesmith": "^6.0.0",
     "imagemin-pngquant": "^4.2.0",
     "imagemin-svgo": "^4.2.0",
     "run-sequence": "^1.1.5",
-    "rupture": "^0.6.1"
+    "rupture": "^0.6.1",
+    "vinyl-buffer": "^1.0.0"
   }
 }
