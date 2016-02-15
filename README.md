@@ -16,6 +16,12 @@
 ## Преимущества и возможности
 
 * Быстрый и удобный сборщик (gulp)
+* Простейшие модули (js, styl, jade, json, прочие файлы)
+* Базовые модули (bread-crumbs, button, footer, form, form-item, header, input-group, logo, main-menu, page-title, pagination и др.)
+* Сборка svg спрайтов для инлайн подлючения (gulp-svg-symbols)
+* Сборка png спрайтов и ретина спрайтов (gulp-spritesmith)
+* Jade миксины для @media (rupture)
+* Склейка @media и перенос в конец файла (gulp-combine-mq)
 * Сервер и синхронное тестирование сайта в браузерах (с помощью browser-sync)
 * Авто-подстановка вендорных префиксов в CSS (autoprefixer-stylus)
 * Шаблонизатор Jade и препроцессор HTML (gulp-jade)
@@ -35,7 +41,7 @@
 * Упаковка скомпилированных файлов в zip архив
 
 
-##Быстрый старт
+## Быстрый старт
 
 * Установить [node.js](https://nodejs.org)
 
@@ -124,5 +130,5 @@ gulp-front/                             # Корень проекта
 └── README.md                           # Файл который вы читаете
 ```
 
-##Лицензия
-[The MIT license](LICENSE)
+## Лицензия
+[The MIT License (MIT)](LICENSE)
