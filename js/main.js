@@ -36,9 +36,7 @@ Modernizr.load([
 $(document).ready(function() {
 	$('select, input').styler();
 
-	$('.js-scrolable').perfectScrollbar({
-		suppressScrollX: true
-	});
+	$('.content-wrapper table').basictable({baseClass: 'table'});
 
 	// Here insert modules scripts
 	// Accordion
@@ -136,11 +134,77 @@ $(document).ready(function() {
 	
 		$('html, body').stop().animate({
 			'scrollTop': 0
-		}, 900, 'swing', function () {
-			var loc = window.location.href,
-				index = loc.indexOf('#');
-			window.location = loc.substring(0, index);
-		});
+		}, 900, 'swing');
+	});
+	
+	
+	var mmenu = {
+		trigger: $('.mobile-menu-trigger'),
+		panel: $('.page__mobile-menu'),
+		pageContent: $('.page__content'),
+		cover: true,
+		menuPosition: 'right',
+	
+		show: function(){
+			mmenu.panel.show();
+			var menuWidth = mmenu.panel.width();
+	
+			if (mmenu.menuPosition === 'right') {
+				var menuWidth = '-' + menuWidth;
+			}
+	
+			// mmenu.pageContent.transition({
+			// 	x: menuWidth + 'px',
+			// 	complete: function(){
+			// 		$('.page').addClass('page_mmenu-open');
+			// 		$('html, body').css({
+			// 			"overflow": "hidden",
+			// 			"height": "auto"
+			// 		});
+			// 	}
+			// });
+			$('.page').addClass('page_mmenu-open', function(){
+				$('.page').addClass('page_mmenu-open');
+				$('html, body').css({
+					"overflow": "hidden",
+					"height": "auto"
+				});
+			});
+		},
+	
+		hide: function(){
+			$('.page').removeClass('page_mmenu-open', function(){
+					mmenu.panel.hide();
+					$('html, body').removeAttr('style');
+					$(this).removeAttr('style');
+				});
+			// mmenu.pageContent.transition({
+			// 	x: 0,
+			// 	complete: function(){
+			// 		mmenu.panel.hide();
+			// 		$('html, body').removeAttr('style');
+			// 		$(this).removeAttr('style');
+			// 	}
+			// });
+		}
+	};
+	
+	if (mmenu.cover) {
+		mmenu.pageContent.append('<div class="page__cover">');
+	}
+	
+	mmenu.trigger.click(function(event) {
+		event.preventDefault();
+		mmenu.show();
+	});
+	
+	$('.page__cover').on('click', function(event) {
+		event.preventDefault();
+	
+		if ($('.page').hasClass('page_mmenu-open')) {
+			event.preventDefault();
+			mmenu.hide();
+		}
 	});
 	
 	
@@ -211,6 +275,18 @@ $(document).ready(function() {
 				}
 			}
 		});
+	});
+	
+	
+	var $scrollTop = $('.scroll-top');
+	
+	$scrollTop.click(function(event) {
+		event.preventDefault();
+	
+	
+		$('html, body').stop().animate({
+			'scrollTop': 0
+		}, 900, 'swing');
 	});
 	
 

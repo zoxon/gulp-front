@@ -305,7 +305,7 @@ textarea {
 
 .image-captioned figcaption {
 	color: #454545;
-	font-size: 13px;
+	font-size: 1em;
 	font-style: oblique;
 }
 
@@ -548,6 +548,50 @@ table {
 	border-bottom-width: 0;
 }
 
+.table_responsive thead,
+.table_responsive tfoot {
+	display: none;
+}
+
+.table_responsive caption {
+	display: block;
+}
+
+.table_responsive tbody td {
+	display: block;
+	vertical-align: top;
+	border: none;
+}
+
+.table_responsive tbody td:before {
+	display: inline-block;
+	width: 6.5em;
+	content: attr(data-th) ": ";
+	font-weight: bold;
+}
+
+.table_responsive tbody td.table__hide {
+	display: none;
+}
+
+.table_responsive tbody td .table__content {
+	vertical-align: top;
+}
+
+.table_responsive tbody td:first-child {
+	padding-top: 1.5em;
+}
+
+.table_responsive tbody td:last-child {
+	padding-bottom: 1.5em;
+}
+
+.table_responsive .table__wrapper_active {
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+	max-height: 310px;
+}
+
 @font-face {
 	font-family: "Noto Sans";
 	src: url("../fonts/notosans.eot");
@@ -610,6 +654,27 @@ table {
 	src: url("../fonts/notoserifbolditalic.eot?#iefix'") format("embedded-opentype"), url("../fonts/notoserifbolditalic.woff") format("woff"), url("../fonts/notoserifbolditalic.ttf") format("truetype");
 	font-weight: bold;
 	font-style: italic;
+}
+
+@media only screen and (max-width: 375px) {
+	.image-captioned {
+		display: block;
+		float: none;
+		width: 100%;
+		height: auto;
+		margin-right: 0;
+		margin-left: 0;
+	}
+
+	.align-image-left,
+	.align-image-right,
+	.align-image-center img {
+		display: block;
+		float: none;
+		width: 100%;
+		height: auto;
+		margin: 0;
+	}
 }
 
 @media print {
