@@ -1,0 +1,12 @@
+# Browserslist config for autoprefixer
+# https://github.com/ai/browserslist
+
+last 2 version
+Chrome >= 20
+Firefox >= 20
+Opera >= 12
+Android 2.3
+Android >= 4
+iOS >= 6
+Safari >= 6
+Explorer >= 8
