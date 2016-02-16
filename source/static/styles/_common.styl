@@ -6,9 +6,16 @@ html, body
 .page
 	// Стили для body
 
+	&__content
+		transition 125ms all ease-in-out
+		background $base-bg-color
+		position relative
+		z-index 2
+
 	&__wrapper
 		min-height 100%
 		margin-bottom -50px
+
 
 	* html &__wrapper
 		height 100%
@@ -20,30 +27,79 @@ html, body
 		margin-bottom 50px
 
 	&__main
-		width $content-width
+		max-width $content-width
 		margin 0 auto
 		padding-bottom 60px
 
 	&__bread-crumbs
 		//
 
+	&__mobile-menu
+		background-color #f3f3f3
+		position fixed
+		right 0
+		top 0
+		bottom 0
+		right 0
+		z-index 1
+		width 80%
+		overflow-y auto
+		-webkit-overflow-scrolling touch
+		display none
+
+	&__cover
+		position absolute
+		left 0
+		top 0
+		right 0
+		bottom 0
+		z-index 9999
+		background-color rgba(#000, 0.3)
+		transition 125ms all ease-in-out
+		visibility hidden
+		opacity 0
+
+	&_mmenu-open
+		overflow hidden
+
+	&_mmenu-open &__cover
+		visibility visible
+		opacity 1
+
+	&_mmenu-open &__content
+	&_mmenu-open &__cover
+		left -80%
+
+	&_mmenu-open &__mobile-menu
+		z-index 2
+
+
 .layout
 	m-cf()
 	&__sidebar
 		width 300px
+		+below($content-width)
+			display none
 
 	&__content
 		width 830px
+		+below($content-width)
+			width auto
+			m-padding()
 
 	&_sidebar_left &__sidebar
 		float left
 
 	&_sidebar_left &__content
 		float right
+		+below($content-width)
+			float none
 
 	&_sidebar_right &__sidebar
 		float right
 
 	&_sidebar_right &__content
 		float left
+		+below($content-width)
+			float none
 

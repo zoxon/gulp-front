@@ -2,6 +2,7 @@ include ../modules/mixins/mixins
 include ../modules/head/head
 include ../modules/footer/footer
 include ../modules/browsehappy/browsehappy
+include ../modules/mobile-menu/mobile-menu
 include ../modules/header/header
 include ../modules/sidebar/sidebar
 include ../modules/demo/demo
@@ -15,23 +16,27 @@ html(class="no-js" lang="ru")
 
 	body.page
 		+browsehappy(browsehappy)
+		
+		.page__mobile-menu
+			+mobile-menu(mainMenu.default)
+		
+		.page__content
+			.page__wrapper
+				.page__header#page__header
+					+header()
 
-		.page__wrapper
-			.page__header
-				+header()
-
-			.page__main
-				.layout.layout_sidebar_left
-					.layout__sidebar
-						+sidebar()
-					.layout__content
-						+demo()
+				.page__main
+					.layout.layout_sidebar_left
+						.layout__sidebar
+							+sidebar()
+						.layout__content
+							+demo()
 
 
-			.page__buffer
+				.page__buffer
 
-		.page__footer
-			+footer()
+			.page__footer
+				+footer()
 		
 		//- Scripts
 		script(src='js/plugins.min.js')

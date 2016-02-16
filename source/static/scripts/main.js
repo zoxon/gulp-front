@@ -36,9 +36,7 @@ Modernizr.load([
 $(document).ready(function() {
 	$('select, input').styler();
 
-	$('.js-scrolable').perfectScrollbar({
-		suppressScrollX: true
-	});
+	$('.content-wrapper table').basictable({baseClass: 'table'});
 
 	// Here insert modules scripts
 	//= require ../../../tmp/modules.js

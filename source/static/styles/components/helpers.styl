@@ -34,10 +34,29 @@
 
 .image-captioned
 	margin-bottom 20px
+	+below(375px)
+		margin-left 0
+		margin-right 0
+		float none
+		width 100%
+		height auto
+		display block
+
 	figcaption
 		font-style oblique
-		font-size 13px
+		font-size 1em
 		color #454545
+
+
+.align-image-left
+.align-image-right
+.align-image-center img
+	+below(375px)
+		margin 0
+		float none
+		width 100%
+		height auto
+		display block
 
 // Add this class to an image to make it fit within it's fluid parent wrapper while maintaining
 // aspect ratio.

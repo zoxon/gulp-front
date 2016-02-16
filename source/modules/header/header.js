@@ -42,9 +42,5 @@ $('.logo').click(function(event) {
 
 	$('html, body').stop().animate({
 		'scrollTop': 0
-	}, 900, 'swing', function () {
-		var loc = window.location.href,
-			index = loc.indexOf('#');
-		window.location = loc.substring(0, index);
-	});
+	}, 900, 'swing');
 });

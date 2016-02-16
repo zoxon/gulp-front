@@ -171,3 +171,16 @@ em( value, base = 16 )
 	value = _strip-units( value )
 	base = _strip-units( base )
 	value / base * 1em
+
+rem( value, base = 16px )
+	u = unit(value)
+	base = _strip-units( base )
+
+	if (u is 'px')
+		return unit(value / base, 'rem')
+	else
+		return unit(value, u)
+
+m-padding()
+	padding-left $mobile-padding
+	padding-right $mobile-padding

@@ -175,6 +175,10 @@ offset( size = 1 )
 	// Demo styles
 	&_demo &__row
 		margin-bottom $grid-fixed-gut-width
+		+below(470px)
+			margin-left 0
+			margin-right 0
+			width auto
 
 	&_demo &__col
 		background-color antiquewhite
@@ -183,3 +187,9 @@ offset( size = 1 )
 		font-size 12px
 		color #333
 		padding 10px 0
+		+below(470px)
+			width auto
+			margin 0 0 8px 0
+			box-sizing border-box
+			float none
+			display block

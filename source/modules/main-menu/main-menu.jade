@@ -1,7 +1,7 @@
 include ../main-menu-submenu/main-menu-submenu
 
 mixin main-menu(data)
-	nav(aria-label="primary").main-menu.js-link-sroll
+	nav.main-menu.js-link-sroll
 		ul
 			each ent, num in data
 				if (ent.submenu !== false)

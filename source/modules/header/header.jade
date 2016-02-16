@@ -3,6 +3,7 @@ include ../search-widget/search-widget
 include ../main-menu/main-menu
 include ../github-button/github-button
 include ../header-presentation/header-presentation
+include ../mobile-menu-trigger/mobile-menu-trigger
 
 mixin header(data)
 	header.header
@@ -17,6 +18,8 @@ mixin header(data)
 				.header__github
 					+github-button()
 						
+				.header__mobile-menu-trigger
+					+mobile-menu-trigger()
 
 				.clear
 
