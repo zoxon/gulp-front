@@ -1,6 +1,6 @@
 {
   "name": "gulp-front",
-  "version": "4.1.3",
+  "version": "4.1.4",
   "description": "The template for quick start of development with Gulp, Jade and Stylus",
   "keywords": [
     "gulp",
@@ -42,6 +42,7 @@
     "del": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-bump": "^1.0.0",
+    "gulp-cached": "^1.1.0",
     "gulp-changed": "^1.3.0",
     "gulp-combine-mq": "^0.4.0",
     "gulp-concat": "^2.6.0",
@@ -55,6 +56,7 @@
     "gulp-imagemin": "^2.4.0",
     "gulp-include": "^2.1.0",
     "gulp-jade": "^1.1.0",
+    "gulp-jade-inheritance": "^0.5.4",
     "gulp-newer": "^1.1.0",
     "gulp-plumber": "^1.1.0",
     "gulp-prettify": "^0.4.0",
@@ -66,7 +68,7 @@
     "gulp-watch": "^4.3.5",
     "gulp-zip": "^3.2.0",
     "gulp.spritesmith": "^6.2.0",
-    "imagemin-pngquant": "^4.2.0",
+    "imagemin-pngquant": "^4.2.1",
     "jade": "^1.11.0",
     "jstransformer": "0.0.4",
     "jstransformer-stylus": "^1.0.0",

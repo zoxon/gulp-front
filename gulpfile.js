@@ -36,6 +36,8 @@ var stylus = require('gulp-stylus');
 var svgSymbols = require('gulp-svg-symbols');
 var uglify = require('gulp-uglify');
 var watch = require('gulp-watch');
+var cached = require('gulp-cached');
+var jadeInheritance = require('gulp-jade-inheritance');
 
 
 // Error handler for gulp-plumber
@@ -213,11 +215,17 @@ jade.filters.shoutFilter = function (str) {
 }
 
 gulp.task('compile-pages', function (cb) {
-	return gulp.src(['**/*.jade', '!**/_*.jade'], {cwd: 'source/pages'})
+	return gulp.src(['**/*.jade', '!**/_*.jade'], {cwd: 'source'})
 		.pipe(plumber(options.plumber))
+		.pipe(cached('templates'))
+		.pipe(gulpif(global.isWatching, jadeInheritance({basedir: 'source'})))
+		.pipe(filter(function (file) {
+			return !/source[\\\/]modules/.test(file.path);
+		}))
 		.pipe(data(getData('tmp/data.js')))
 		.pipe(gulpJade(options.jade))
 		.pipe(htmlPrettify(options.htmlPrettify))
+		.pipe(flatten())
 		.pipe(gulp.dest('dest'));
 });
 
@@ -390,6 +398,8 @@ gulp.task('develop', function (cb) {
 });
 
 gulp.task('dev', ['develop'], function (cb) {
+	global.isWatching = true;
+
 	// Modules, pages
 	watch('source/**/*.jade', function() {
 		return runSequence('compile-pages', browserSync.reload);
