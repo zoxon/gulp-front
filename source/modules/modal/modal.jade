@@ -1,9 +1,11 @@
+include ../icon/icon
+
 mixin modal(data)
 	.modal
 		.modal__overlay
 		.modal__wrapper
 			.modal__close
-				+svg-icon('close')
+				+icon('close')
 
 			.modal__content
 				block

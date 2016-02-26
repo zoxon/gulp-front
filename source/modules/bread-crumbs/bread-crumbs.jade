@@ -1,3 +1,5 @@
+include ../icon/icon
+
 mixin bread-crumbs(data)
 	.bread-crumbs
 		ul
@@ -6,6 +8,6 @@ mixin bread-crumbs(data)
 					li.bread-crumbs__item 
 						a(href="#").bread-crumbs__link= ent
 						.bread-crumbs__separator
-							+svg-icon('chevron-right')
+							+icon('chevron-right')
 				else
 					li.bread-crumbs__item= ent

@@ -1,10 +1,12 @@
+include ../icon/icon
+
 mixin pagination(data)
 	nav.pagination
 		ul
 			if data.arrows
 				li.pagination__item.pagination__arrow.pagination__arrow_prev
 					a(href="#", aria-label="Previous").pagination__link
-						+svg-icon('chevron-left')
+						+icon('chevron-left')
 			
 			- for (var i = 0; i < data.pages; i++)
 				- var classes = ['pagination__item']
@@ -27,4 +29,4 @@ mixin pagination(data)
 			if data.arrows
 				li.pagination__item.pagination__arrow.pagination__arrow_next
 					a(href="#", aria-label="Next").pagination__link
-						+svg-icon('chevron-right')
+						+icon('chevron-right')

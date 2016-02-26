@@ -1,6 +1,8 @@
+include ../icon/icon
+
 mixin search-widget(data)
 	.search-widget
 		form(action="#", method="post")
 			input(type="text", name="query", placeholder="Поиск").search-widget__input
 			button(type="submit").search-widget__submit
-				+svg-icon('maginifer')
+				+icon('maginifer')

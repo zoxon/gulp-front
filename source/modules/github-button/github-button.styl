@@ -2,27 +2,34 @@
 	&
 	&:visited
 		padding 3px 10px
-		display block
+		display inline-block
 		font-size 0
 		color #fff
 		text-decoration none
 		border 1px solid transparent
-		transition all 300ms ease-in-out 0s
+		transition .3s background ease-in-out
 		text-decoration none
+		border-radius 2px
 
 	&:hover
-		text-decoration underline
-		color #fff
+		text-decoration none
+		color #333
+		background #fff
+		svg
+			fill #333
+
+	&__text
+	&__icon
+		display inline-block
+		vertical-align middle
 
 	&__text
 		font-size 16px
 		font-family notoserif
-		vertical-align middle
 
 	&__icon
 		transition all 300ms ease-in-out 0s
 		margin-right 7px
-		vertical-align middle
 		svg
 			size 16px
 			fill #fff

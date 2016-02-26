@@ -678,21 +678,22 @@ mixin demo()
 							height 34px
 							margin 5px
 			.demo-icons
-				+svg-icon('chevron-down')
-				+svg-icon('chevron-up')
-				+svg-icon('chevron-left')
-				+svg-icon('chevron-right')
-				+svg-icon('github-octocat')
-				+svg-icon('hamburger')
-				+svg-icon('heart')
-				+svg-icon('maginifer')
-				+svg-icon('rss')
-				+svg-icon('fb')
-				+svg-icon('gp')
-				+svg-icon('mr')
-				+svg-icon('ok')
-				+svg-icon('tw')
-				+svg-icon('vk')
+				include ../icon/icon
+				+icon('chevron-down')
+				+icon('chevron-up')
+				+icon('chevron-left')
+				+icon('chevron-right')
+				+icon('github-octocat')
+				+icon('hamburger')
+				+icon('heart')
+				+icon('maginifer')
+				+icon('rss')
+				+icon('fb')
+				+icon('gp')
+				+icon('mr')
+				+icon('ok')
+				+icon('tw')
+				+icon('vk')
 
 			h3#accordion Accordion
 			include ../accordion/accordion

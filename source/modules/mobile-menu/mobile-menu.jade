@@ -1,3 +1,5 @@
+include ../icon/icon
+
 mixin mobile-menu(data)
 	.mobile-menu
 		nav.mobile-menu__menu
@@ -6,7 +8,7 @@ mixin mobile-menu(data)
 					li.mobile-menu__item
 						a(href="#{ent.url}").mobile-menu__link
 							span.mobile-menu__icon
-								+svg-icon(ent.icon)
+								+icon(ent.icon)
 							span.mobile-menu__text= ent.title
 							
 						if ent.submenu

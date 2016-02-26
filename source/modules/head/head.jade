@@ -58,8 +58,11 @@ mixin head(data)
 		(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)
 
 
-	+ie('if lt IE 9')
-		script(src="js/jquery-1.11.3.min.js")
-	
-	+iePlus('if gt IE 8')
-		script(src="js/jquery-2.1.4.min.js")
+	<!--[if lt IE 9]>
+	script(src="js/jquery-1.11.3.min.js")
+	| 
+	<![endif]-->
+	| 
+	<!--[if gt IE 8]><!-->
+	script(src="js/jquery-2.1.4.min.js")
+	<!--<![endif]-->

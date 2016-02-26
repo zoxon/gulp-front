@@ -1,3 +1,5 @@
+include ../icon/icon
+
 mixin alert(data)
 	- var classes = ["alert"]
 	if data.type
@@ -10,4 +12,4 @@ mixin alert(data)
 		.alert__title= data.title
 		.alert__body= data.text
 		.alert__close
-			+svg-icon("close")
+			+icon("close")
