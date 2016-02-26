@@ -1,12 +1,6 @@
 // Mixins.
 
-m-nl()
-	margin 0
-	padding 0
-	text-indent 0
-	list-style none
-	list-style-position outside
-
+// Clearfix
 m-cf()
 	&:before, &:after
 		display table
@@ -19,26 +13,40 @@ m-cf()
 		zoom 1
 
 
+// Justify
 m-blocks-justify()
 	text-align justify
 	text-justify newspaper
 
 
-// You can add your own mixins here:
+// Font-face
+file(file-path, file-name, file-ext)
+	file-path + "/" + file-name + "." + file-ext
 
-file(file_name, file_ext, file_path)
-	file_path + "/" + file_name + "." + file_ext
-
-font-face( family, file-name, base-path="../fonts", weight=normal, style=normal )
+font-face( family, file-name, base-path="../fonts", weight = false, style = false, formats = eot woff2 woff truetype svg, svg-font-name = false )
 	@font-face
 		font-family family
-		src url(file(file-name, "eot", base-path));
-		src url(file(file-name, "eot?#iefix'", base-path)) format('embedded-opentype'),
-			url(file(file-name, "woff", base-path)) format("woff"),
-			url(file(file-name, "ttf", base-path)) format("truetype");
+		if weight
+			font-weight weight
+		if style
+			font-style style
+		fonts = ()
+		if eot in formats
+			src: url( file(base-path, file-name, "eot") )
+			push( fonts, 'url("' + file(base-path, file-name, "eot?#iefix") + '") format("embedded-opentype")' )
+		if woff2 in formats
+			push( fonts, 'url("' + file(base-path, file-name, "woff2") + '") format("woff2")' )
+		if woff in formats
+			push( fonts, 'url("' + file(base-path, file-name, "woff") + '") format("woff")' )
+		if opentype in formats || otf in formats
+			push( fonts, 'url("' + file(base-path, file-name, "otf") + '") format("opentype")' )
+		if truetype in formats || ttf in formats
+			push( fonts, 'url("' + file(base-path, file-name, "ttf") + '") format("truetype")' )
+		if svg in formats
+			svg-name = svg-font-name ? svg-font-name : name
+			push( fonts, 'url("' + file(base-path, file-name, "svg") + '#' + svg-name + '") format("svg")' )
+		src unquote( join( ", ", fonts ) )
 
-		font-weight weight
-		font-style style
 
 // overflow ellipsis
 overflow(value)
@@ -49,6 +57,7 @@ overflow(value)
 	else
 		overflow value
 
+
 // size 10px 20px
 size( values... )
 	if length( values ) == 1
@@ -57,6 +66,7 @@ size( values... )
 	else
 		width values[ 0 ] if values[ 0 ] != false
 		height values[ 1 ] if values[ 1 ] != false
+
 
 // Draw border triangle
 triangle( direction, size, face-color, back-color = transparent )
@@ -72,6 +82,7 @@ triangle( direction, size, face-color, back-color = transparent )
 	if direction == right || direction == down-left || direction == up-left
 		border-left-color face-color
 
+
 // Set input placeholder style
 placeholder()
 	if selector() == "&"
@@ -85,19 +96,23 @@ placeholder()
 	&:-ms-input-placeholder
 		{block}
 
+
 // Set user select none
 user-select-none()
 	-webkit-touch-callout none
 	-khtml-user-select none
 	user-select none
 
+
 // Convert pt to px
 pt2px( pt )
 	unit(pt/0.75, px)
 
+
 // Convert photoshop tracking to em
 ps-tracking( val )
 	unit(val/1000, 'em')
+
 
 // Set style of selection
 selection( color )
@@ -113,7 +128,6 @@ selection( color )
 	img::-moz-selection
 		background transparent
 		{block}
-
 
 
 // Font rendering OS X
@@ -140,15 +154,18 @@ font-feature()
 	-o-font-feature-settings: "liga", "dlig"
 	font-feature-settings: "liga", "dlig"
 
+
 hyphens()
 	-webkit-hyphens: auto
 	-moz-hyphens: auto
 	hyphens: auto
 
+
 image-responsive(display = block)
 	display display
 	max-width 100% // Part 1: Set a maximum relative to the parent
 	height auto // Part 2: Scale the height according to the width, otherwise you get stretching
+
 
 ul-reset()
 	ul
@@ -156,21 +173,25 @@ ul-reset()
 		padding 0
 		{block}
 
+
 ol-reset()
 	ol
 		margin 0
 		padding 0
 		{block}
 
+
 // _strip-units
 // remove units of a number
 _strip-units( val )
 	unit( val, "" )
 
+
 em( value, base = 16 )
 	value = _strip-units( value )
 	base = _strip-units( base )
 	value / base * 1em
+
 
 rem( value, base = 16px )
 	u = unit(value)
@@ -180,6 +201,46 @@ rem( value, base = 16px )
 		return unit(value / base, 'rem')
 	else
 		return unit(value, u)
+
+retina-query( media = all, density = 1 )
+	media = join( " ", media )
+	query = media + " and (-webkit-min-device-pixel-ratio: " + density + "), "
+	query += media + " and (min--moz-device-pixel-ratio: " + density + "), "
+	query += media + " and (-o-min-device-pixel-ratio: " + density + "/1), "
+	query += media + " and (min-device-pixel-ratio: " + density + "), "
+	query += media + " and (min-resolution: " + ceil( density * 96 ) + "dpi), "
+	query += media + " and (min-resolution: " + density + "dppx)"
+	@media query
+		{block}
+
+retina-image( img-src, size = false, suffix = "@2x" )
+	ext = extname( img-src )
+	image-src = pathjoin( dirname( img-src ), basename( img-src, ext ) + ext )
+	retina-src = pathjoin( dirname( img-src ), basename( img-src, ext ) + suffix + ext )
+	unless size
+		size = image-size( img-src, true )
+		if size[ 0 ] == 0 && size[ 1 ] == 0
+			size = contain
+
+	background-image: url( image-src )
+	+retina-query( only screen, 1.3 )
+		background-image: url( retina-src )
+		background-size: size
+
+ratio-box( ratio = 1/1 )
+	ratio = _strip-units( ratio )
+
+	overflow hidden
+	position relative
+
+	// The container's height, as a percentage of the
+	// container's width, is set by assigning
+	// padding-top to a pseudo-element.
+	&:before
+		content ''
+		display block
+		height 0
+		padding-top floor((1 / ratio) * 100%, 2)
 
 m-padding()
 	padding-left $mobile-padding
