@@ -49,6 +49,14 @@
 			"icon": "add",
 			"submenu": [
 				{
+					"title": "Modal windows",
+					"url": "#modals"
+				},
+				{
+					"title": "Responsive video",
+					"url": "#video"
+				},
+				{
 					"title": "Social icons module",
 					"url": "#social-icons"
 				},

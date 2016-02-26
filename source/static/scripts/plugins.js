@@ -164,6 +164,11 @@
 //= require plugins/basictable/jquery.basictable.js
 
 
+// Remodal
+// ---------------------------------------------------------------------------
+//= require plugins/remodal/remodal.js
+
+
 // My plugins
 // ---------------------------------------------------------------------------
 // require plugins/jquery.drop-down.js

@@ -1,62 +1,196 @@
-.page_modal
-	overflow hidden
+/*
+ *  Remodal - v1.0.6
+ *  Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
+ *  http://vodkabears.github.io/remodal/
+ *
+ *  Made by Ilya Makarov
+ *  Under MIT License
+ */
 
-.modal
-	overflow-x hidden
-	overflow-y auto
+/* ==========================================================================
+ Remodal's necessary styles
+ ========================================================================== */
+
+/* Hide scroll bar */
+
+html.remodal-is-locked
+	overflow hidden
+	touch-action none
+
+
+/* Anti FOUC */
+
+.remodal,
+[data-remodal-id]
+	display none
+
+
+/* Necessary styles of the overlay */
+
+.remodal-overlay
 	position fixed
+	z-index 9999
+	top -5000px
+	right -5000px
+	bottom -5000px
+	left -5000px
+	display none
+
+
+/* Necessary styles of the wrapper */
+
+.remodal-wrapper
+	position fixed
+	z-index 10000
 	top 0
 	right 0
-	width 100%
+	bottom 0
+	left 0
+	display none
+	overflow auto
+	text-align center
+	-webkit-overflow-scrolling touch
+
+
+.remodal-wrapper:after
+	display inline-block
 	height 100%
-	z-index 9999
-	background-color rgba(#000, 0.7)
-	transition 200ms all ease-in-out
-	visibility visible
-	opacity 1
+	margin-left -0.05em
+	content ""
 
-	&__overlay
-		z-index 1
-		position fixed
-		top 0
-		bottom 0
-		right 0
-		left 0
-		margin auto
-		width 100%
-		height 100%
-		margin-left -20px
 
-	&__wrapper
-		position absolute
-		z-index 2
-		top 0
-		left 50%
-		z-index 1050
-		display inline-block
-		overflow visible
-		transform translateX(-50%)
+/* Fix iPad, iPhone glitches */
 
-	&__content
-		margin 100px 0
-		background-color #fff
-		padding 15px 37px 30px
+.remodal-overlay,
+.remodal-wrapper
+	backface-visibility hidden
 
+
+/* Necessary styles of the modal dialog */
+
+.remodal
+	position relative
+	outline none
+	text-size-adjust 100%
+	text-align left
+
+
+.remodal-is-initialized
+	/* Disable Anti-FOUC */
+	display inline-block
+
+
+
+// Modal styles
+.remodal-bg.remodal-is-opening,
+.remodal-bg.remodal-is-opened
+	filter blur(3px)
+
+.remodal-overlay
+	background rgba(43, 46, 56, 0.9)
+
+.remodal-overlay.remodal-is-opening,
+.remodal-overlay.remodal-is-closing
+	animation-duration 0.3s
+	animation-fill-mode forwards
+
+.remodal-overlay.remodal-is-opening
+	animation-name remodal-overlay-opening-keyframes
+
+.remodal-overlay.remodal-is-closing
+	animation-name remodal-overlay-closing-keyframes
+
+.remodal-wrapper
+	padding 10px 10px 0
+
+.remodal
+	box-sizing border-box
+	// width 100%
+	// padding 20px
+	transform translate3d(0, 0, 0)
+	color #2b2e38
+	background #fff
+
+.remodal.remodal-is-opening,
+.remodal.remodal-is-closing
+	animation-duration 0.3s
+	animation-fill-mode forwards
+
+.remodal.remodal-is-opening
+	animation-name remodal-opening-keyframes
+
+.remodal.remodal-is-closing
+	animation-name remodal-closing-keyframes
+
+.remodal,
+.remodal-wrapper:after
+	vertical-align middle
+
+.modal
 	&__close
-		cursor pointer
 		position absolute
-		right -36px
-		top 40px
-		size 16px
-		fill #fff
-		padding 10px
-		line-height 1
-		&:hover
-			fill #fff - 20%
+		display block
+		overflow visible
+		margin 0
+		padding 0
+		cursor pointer
+		transition color 0.2s
+		text-decoration none
+		border 0
+		outline 0
+		background transparent
+		z-index 1000
+		right 7px
+		top 7px
+		size 28px
+		font-size 15px
+		padding 6px
 		svg
-			transition 125ms all ease-in-out
-			svgSize($close)
+			fill #505050
+			size 16px
+			display block
 
-	&_hidden
-		visibility hidden
+		&:hover
+			svg
+				fill #000
+
+	&_type_alert &__content
+		width 556px
+
+@keyframes remodal-opening-keyframes
+	from
+		transform scale(1.05)
 		opacity 0
+	to
+		transform none
+		opacity 1
+
+@keyframes remodal-closing-keyframes
+	from
+		transform none
+		opacity 1
+	to
+		transform scale(0.95)
+		opacity 0
+
+@keyframes remodal-overlay-opening-keyframes
+	from
+		opacity 0
+	to
+		opacity 1
+
+@keyframes remodal-overlay-closing-keyframes
+	from
+		opacity 1
+	to
+		opacity 0
+
+@media only screen and (min-width 641px)
+	.remodal
+		max-width 1396px
+
+.lt-ie9 .remodal-overlay
+	background #2b2e38
+
+.lt-ie9 .remodal
+	width 700px

@@ -662,6 +662,28 @@ mixin demo()
 		section
 			h2#helpers Helpers and mixins
 
+			h3#modals Modal windows
+
+			button.button.button_color_blue.button_style_rounded(data-remodal-target="modal1") Open modal #1
+			button.button.button_color_blue.button_style_rounded(data-remodal-target="modal2") Open modal #2
+		
+			include ../modal/modal
+			+modal({"id": "modal1", "close": true})
+				div(style="padding: 35px")
+					h1(style="margin-top: 0") Simple modal #1
+					p Lorem ipsum dolor sit amet, consectetur adipisicing elit unde sint debitis in magnam vel pariatur libero nisi minima. 
+
+					button.button.button_color_blue.button_style_rounded(data-remodal-action="confirm" class="remodal-confirm") OK
+					button.button.button_color_grey.button_style_rounded(data-remodal-action="cancel" class="remodal-cancel") Cancel
+
+			+modal({"id": "modal2", "close": true})
+				div(style="padding: 35px")
+					iframe(width="640" height="360" src="https://www.youtube.com/embed/dOWFVKb2JqM" frameborder="0" allowfullscreen)
+
+			h3#video Responsive video
+			.video-widget.video-widget_responsive.video-widget_16x9
+				iframe(width="1280" height="720" src="https://www.youtube.com/embed/dOWFVKb2JqM" frameborder="0" allowfullscreen)
+
 			h3#social-icons Social icons module
 			include ../social-icons/social-icons
 			+social-icons({"title": "Social icons"})
