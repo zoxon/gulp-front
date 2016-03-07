@@ -215,17 +215,17 @@ jade.filters.shoutFilter = function (str) {
 }
 
 gulp.task('compile-pages', function (cb) {
-	return gulp.src(['**/*.jade', '!**/_*.jade'], {cwd: 'source'})
+	return gulp.src(['**/*.jade', '!**/_*.jade'], {cwd: 'source/pages'})
 		.pipe(plumber(options.plumber))
-		.pipe(cached('templates'))
-		.pipe(gulpif(global.isWatching, jadeInheritance({basedir: 'source'})))
-		.pipe(filter(function (file) {
-			return !/source[\\\/]modules/.test(file.path);
-		}))
+		// .pipe(cached('templates'))
+		// .pipe(gulpif(global.isWatching, jadeInheritance({basedir: 'source'})))
+		// .pipe(filter(function (file) {
+		// 	return !/source[\\\/]modules/.test(file.path);
+		// }))
 		.pipe(data(getData('tmp/data.js')))
 		.pipe(gulpJade(options.jade))
 		.pipe(htmlPrettify(options.htmlPrettify))
-		.pipe(flatten())
+		// .pipe(flatten())
 		.pipe(gulp.dest('dest'));
 });
 
