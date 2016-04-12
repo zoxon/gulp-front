@@ -1,4 +1,5 @@
 "config": {
 	"projectName": "Gulp-front",
-	"useSocialMetaTags": true
+	"useSocialMetaTags": true,
+	"lang": "ru"
 }
