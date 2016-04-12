@@ -57,6 +57,7 @@
     "gulp-include": "^2.1.0",
     "gulp-jade": "^1.1.0",
     "gulp-jade-inheritance": "^0.5.4",
+    "gulp-load-plugins": "^1.2.0",
     "gulp-newer": "^1.1.0",
     "gulp-plumber": "^1.1.0",
     "gulp-prettify": "^0.4.0",
