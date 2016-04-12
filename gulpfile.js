@@ -15,6 +15,8 @@ var path = require('path');
 var runSequence = require('run-sequence');
 var rupture = require('rupture');
 var spritesmith = require('gulp.spritesmith');
+var posthtmlAttrsSorter = require('posthtml-attrs-sorter');
+
 
 
 // Error handler for gulp-plumber
@@ -142,6 +144,30 @@ var options = {
 		use: [
 			imageminPngquant()
 		]
+	},
+
+	posthtml: {
+		plugins: [
+			posthtmlAttrsSorter({
+				order: [
+					'class',
+					'id',
+					'name',
+					'data',
+					'ng',
+					'src',
+					'for',
+					'type',
+					'href',
+					'values',
+					'title',
+					'alt',
+					'role',
+					'aria'
+				]
+			})
+		],
+		options: {}
 	}
 };
 
@@ -201,6 +227,7 @@ gulp.task('compile-pages', function (cb) {
 		// }))
 		.pipe($.data(getData('tmp/data.js')))
 		.pipe($.jade(options.jade))
+		.pipe($.posthtml(options.posthtml.plugins, options.posthtml.options))
 		.pipe($.prettify(options.htmlPrettify))
 		// .pipe($.flatten())
 		.pipe(gulp.dest('dest'));
