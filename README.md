@@ -3,11 +3,11 @@
 *Шаблон для быстрого старта разработки с [Gulp](http://gulpjs.com/), [Jade](http://jade-lang.com/) и [Stylus](https://learnboost.github.io/stylus/)*
 
 [![Build Status](https://api.travis-ci.org/zoxon/gulp-front.svg)](https://travis-ci.org/Zoxon/gulp-front)
-[![Dependency Status](https://david-dm.org/zoxon/gulp-front.svg)](https://david-dm.org/Zoxon/gulp-front)
-![GitHub issues](https://img.shields.io/github/issues/Zoxon/gulp-front.svg?style=flat)
-![GitHub forks](https://img.shields.io/github/forks/Zoxon/gulp-front.svg?style=flat)
-![GitHub stars](https://img.shields.io/github/stars/Zoxon/gulp-front.svg?style=flat)
-![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
+[![devDependency Status](https://david-dm.org/Zoxon/gulp-front/dev-status.svg)](https://david-dm.org/Zoxon/gulp-front#info=devDependencies)
+[![GitHub issues](https://img.shields.io/github/issues/Zoxon/gulp-front.svg?style=flat)](https://github.com/zoxon/gulp-front/issues)
+[![GitHub forks](https://img.shields.io/github/forks/Zoxon/gulp-front.svg?style=flat)](https://github.com/zoxon/gulp-front/network)
+[![GitHub stars](https://img.shields.io/github/stars/Zoxon/gulp-front.svg?style=flat)](https://github.com/zoxon/gulp-front/stargazers)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/zoxon/gulp-front/blob/master/LICENSE)
 [![Join the chat at https://gitter.im/zoxon/gulp-front](https://img.shields.io/badge/gitter-join%20chat-green.svg?style=flat)](https://gitter.im/zoxon/gulp-front?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Демо
