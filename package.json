@@ -1,6 +1,6 @@
 {
   "name": "gulp-front",
-  "version": "4.2.1",
+  "version": "4.2.2",
   "description": "The template for quick start of development with Gulp, Jade and Stylus",
   "keywords": [
     "gulp",
@@ -15,25 +15,26 @@
     "project",
     "template"
   ],
-  "homepage": "https://github.com/Zoxon/gulp-front",
-  "author": "Velicko Konstantin <zoxon.box@gmail.com> (http://github.com/zoxon)",
+  "homepage": "https://github.com/zoxon/gulp-front",
+  "author": "Velicko Konstantin <zoxon.box@gmail.com> (https://github.com/zoxon)",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "http://github.com/zoxon/gulp-front.git"
+    "url": "https://github.com/zoxon/gulp-front.git"
   },
   "licenses": {
     "type": "MIT",
-    "url": "http://github.com/zoxon/gulp-front/blob/master/license.txt"
+    "url": "https://github.com/zoxon/gulp-front/blob/master/LICENSE"
   },
   "bugs": {
-    "url": "http://github.com/zoxon/gulp-front/issues"
+    "url": "https://github.com/zoxon/gulp-front/issues"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
-    "node": ">=5.1.0"
+    "node": ">=4.0.0",
+    "npm" : "~3.0.0"
   },
   "main": "gulpfile.js",
   "devDependencies": {
