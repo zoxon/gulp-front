@@ -4,3 +4,12 @@
 svgSize($icon)
 	width $icon[0]
 	height $icon[1]
+
+
+// Default icons sizes
+.icon
+	<% _.each(icons, function (icon) { %>
+	&_<%= icon.className %>
+		width <%= icon.width %>
+		height <%= icon.height %>
+	<% }); %>
