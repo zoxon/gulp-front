@@ -1,3 +1,10 @@
+body
+	background #fff
+	margin 0 !important
+	padding 0 !important
+
+
+
 .page-list
 	padding 20px 55px
 	max-width 700px
@@ -10,6 +17,8 @@
 		font-family arial
 		font-size 30px
 		font-weight normal
+		margin 0
+		padding-bottom 20px
 
 	&__item
 		font-family arial
@@ -21,7 +30,6 @@
 		&
 		&:visited
 			display inline-block
-			height 15px
 			color #290656
 			text-decoration underline
 
@@ -31,10 +39,30 @@
 
 	&__spacer
 	&__file-name
+		display inline-block
 		color grey
 		font-size 12px
 		font-family georgia
 		font-style italic
-		padding 5px 0 10px 10px
+		padding-left 10px
 		margin 0
+
+
+@media screen and (max-width: 640px)
+	.page-list
+		padding 20px
+
+		&__item
+			display block
+			padding 0
+
+		&__spacer
+		&__file-name
+			display none
+
+		&__link
+			&
+			&:visited
+				display block
+				padding 10px
 

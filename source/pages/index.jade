@@ -9,9 +9,8 @@ html(class="no-js" lang=config.lang)
 
 	style
 		:stylus
-			body
-				background #fff
-
+			@import "../static/styles/_variables.styl"
+			@import "../static/styles/components/mixins.styl"
 			@import "../modules/_page-list/_page-list.styl"
 
 	body.page
