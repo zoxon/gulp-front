@@ -2,11 +2,11 @@
 
 *Шаблон для быстрого старта разработки с [Gulp](http://gulpjs.com/), [Jade](http://jade-lang.com/) и [Stylus](https://learnboost.github.io/stylus/)*
 
-[![Build Status](https://api.travis-ci.org/zoxon/gulp-front.svg)](https://travis-ci.org/Zoxon/gulp-front)
-[![devDependency Status](https://david-dm.org/Zoxon/gulp-front/dev-status.svg)](https://david-dm.org/Zoxon/gulp-front#info=devDependencies)
-[![GitHub issues](https://img.shields.io/github/issues/Zoxon/gulp-front.svg?style=flat)](https://github.com/zoxon/gulp-front/issues)
-[![GitHub forks](https://img.shields.io/github/forks/Zoxon/gulp-front.svg?style=flat)](https://github.com/zoxon/gulp-front/network)
-[![GitHub stars](https://img.shields.io/github/stars/Zoxon/gulp-front.svg?style=flat)](https://github.com/zoxon/gulp-front/stargazers)
+[![Build Status](https://api.travis-ci.org/zoxon/gulp-front.svg)](https://travis-ci.org/zoxon/gulp-front)
+[![devDependency Status](https://david-dm.org/zoxon/gulp-front/dev-status.svg)](https://david-dm.org/zoxon/gulp-front#info=devDependencies)
+[![GitHub issues](https://img.shields.io/github/issues/zoxon/gulp-front.svg?style=flat)](https://github.com/zoxon/gulp-front/issues)
+[![GitHub forks](https://img.shields.io/github/forks/zoxon/gulp-front.svg?style=flat)](https://github.com/zoxon/gulp-front/network)
+[![GitHub stars](https://img.shields.io/github/stars/zoxon/gulp-front.svg?style=flat)](https://github.com/zoxon/gulp-front/stargazers)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/zoxon/gulp-front/blob/master/LICENSE)
 [![Join the chat at https://gitter.im/zoxon/gulp-front](https://img.shields.io/badge/gitter-join%20chat-green.svg?style=flat)](https://gitter.im/zoxon/gulp-front?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -63,13 +63,13 @@
 	npm install npm@latest
 	```
 
-* Склонировать проект либо [скачать архив](https://github.com/Zoxon/gulp-front/archive/master.zip)
+* Склонировать проект либо [скачать архив](https://github.com/zoxon/gulp-front/archive/master.zip)
 
 	```bash
-	git clone git@github.com:Zoxon/gulp-front.git my-project && cd my-project
+	git clone git@github.com:zoxon/gulp-front.git my-project && cd my-project
 	```
 
-	Все новые фишки появляются сначала в ветке [develop](https://github.com/Zoxon/gulp-front/tree/develop), но там могут быть баги
+	Все новые фишки появляются сначала в ветке [develop](https://github.com/zoxon/gulp-front/tree/develop), но там могут быть баги
 
 * Установить `gulp` глобально (один раз!)
 
@@ -103,8 +103,8 @@
 gulp-front/                             # Корень проекта
 ├── dest                                # Скомилированные файлы
 ├── source                              # Исходные файлы
-│   └── modules                         # Простейшие модули
-│   └── pages                           # Страницы
+│   ├── modules                         # Простейшие модули
+│   ├── pages                           # Страницы
 │   └── static                          # Статичные файлы
 │       ├── assets                      # Прочие файлы
 │       ├── scripts                     # JavaScript файлы
