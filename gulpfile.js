@@ -197,10 +197,10 @@ gulp.task('compile-styles', function (cb) {
 		.pipe($.combineMq({beautify: false}))
 		.pipe($.cssbeautify(options.cssbeautify))
 		.pipe($.csscomb())
-		.pipe(gulp.dest('dest/css'))
+		.pipe(gulp.dest('dest/assets/stylesheets'))
 		.pipe($.csso())
 		.pipe($.rename({suffix: '.min'}))
-		.pipe(gulp.dest('dest/css'))
+		.pipe(gulp.dest('dest/assets/stylesheets'))
 		.pipe(browserSync.stream());
 });
 
@@ -236,10 +236,10 @@ gulp.task('compile-pages', function (cb) {
 gulp.task('copy-modules-img', function (cb) {
 	return gulp.src('**/*.{jpg,gif,svg,png}', {cwd: 'source/modules/*/assets'})
 		.pipe($.plumber(options.plumber))
-		.pipe($.changed('dest/img'))
+		.pipe($.changed('dest/assets/images'))
 		.pipe($.imagemin(options.imagemin))
 		.pipe($.flatten())
-		.pipe(gulp.dest('dest/img'));
+		.pipe(gulp.dest('dest/assets/images'));
 });
 
 gulp.task('combine-modules-scripts', function (cb) {
@@ -256,17 +256,17 @@ gulp.task('copy-assets', function (cb) {
 
 	return gulp.src(['**/*.*', '!**/_*.*'], {cwd: 'source/static/assets'})
 		.pipe($.plumber(options.plumber))
-		.pipe($.changed('dest'))
+		.pipe($.changed('dest/assets'))
 
 		// Minify images
 		.pipe(imageFilter)
-		.pipe($.changed('dest'))
+		.pipe($.changed('dest/assets'))
 		.pipe($.imagemin(options.imagemin))
 		.pipe(imageFilter.restore)
 
 		// Minify JavaScript files
 		.pipe(scriptsFilter)
-		.pipe(gulp.dest('dest'))
+		.pipe(gulp.dest('dest/assets'))
 		.pipe($.uglify())
 		.pipe($.rename({suffix: '.min'}))
 		.pipe(scriptsFilter.restore)
@@ -278,17 +278,17 @@ gulp.task('copy-assets', function (cb) {
 		.pipe(stylesFilter.restore)
 
 		// Copy other files
-		.pipe(gulp.dest('dest'));
+		.pipe(gulp.dest('dest/assets'));
 });
 
 gulp.task('combine-scripts', function (cb) {
 	return gulp.src(['*.js', '!_*.js'], {cwd: 'source/static/scripts'})
 		.pipe($.plumber(options.plumber))
 		.pipe($.include())
-		.pipe(gulp.dest('dest/js'))
+		.pipe(gulp.dest('dest/assets/javascripts'))
 		.pipe($.uglify())
 		.pipe($.rename({suffix: '.min'}))
-		.pipe(gulp.dest('dest/js'));
+		.pipe(gulp.dest('dest/assets/javascripts'));
 });
 
 gulp.task('combine-svg-icons', function (cb) {
@@ -298,7 +298,7 @@ gulp.task('combine-svg-icons', function (cb) {
 		.pipe($.svgSymbols(options.svgSymbols))
 		.pipe($.if(/\.styl$/, gulp.dest('tmp')))
 		.pipe($.if(/\.svg$/, $.rename('icons.svg')))
-		.pipe($.if(/\.svg$/, gulp.dest('dest/img')));
+		.pipe($.if(/\.svg$/, gulp.dest('dest/assets/images')));
 });
 
 gulp.task('combine-png-sprite', function (cb) {
@@ -307,7 +307,7 @@ gulp.task('combine-png-sprite', function (cb) {
 
 	spriteData.img.pipe(buffer())
 		.pipe($.imagemin())
-		.pipe(gulp.dest('dest/img'));
+		.pipe(gulp.dest('dest/assets/images'));
 
 	spriteData.css.pipe(buffer())
 		.pipe(gulp.dest('tmp'));

@@ -1,17 +1,33 @@
 "head": {
-	"defaults": {
-		"title": "default title"
+	"default": {
+		"title": "Default title",
+		"mobile": true,
+		"meta": {
+			"author": "Velichko Konstantin",
+			"description": "The template for quick start of development with Gulp, Jade and Stylus",
+			"keywords": "demo, gulp, bem, modules, sprites, svg, jade, stylus, boilerplate, frontend, project, template"
+		},
+		"og": {
+			"url": "http://zoxon.github.io/gulp-front/",
+			"description": "The template for quick start of development with Gulp, Jade and Stylus",
+			"image": {
+				"path": "assets/images/content/preview.png",
+				"type": "image/png",
+				"width": "500",
+				"height": "300"
+			}
+		}
 	},
 	"index": {
-		"title": "Список страниц"
+		"title": "Список страниц",
+		"mobile": true,
+		"meta": false,
+		"og": false
 	},
 	"home": {
-		"title": "Главная"
-	},
-	"carFullModal": {
-		"title": "Полная версия обьявления (модалка)"
-	},
-	"carFull": {
-		"title": "Полная версия обьявления"
+		"title": "Main page",
+		"mobile": true,
+		"meta": "default",
+		"og": "default"
 	}
 }

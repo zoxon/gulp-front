@@ -1,5 +1,11 @@
 "config": {
 	"projectName": "Gulp-front",
-	"useSocialMetaTags": true,
-	"lang": "ru"
+	"lang": "ru",
+	"path": {
+		"favicons": "/favicons",
+		"styles": "assets/stylesheets",
+		"scripts": "assets/javascripts",
+		"images": "assets/images",
+		"fonts": "assets/fonts"
+	}
 }
