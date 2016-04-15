@@ -21,6 +21,7 @@
 	}
 }());
 
+
 // Собираем все нужные плагины в нужном порядке
 // Подробнее https://www.npmjs.com/package/gulp-include
 
@@ -28,30 +29,72 @@
 // Important plugins
 //////////////////////////////////////////////////////////////////////////////
 
-// Enable html5 tags support in old browsers
-//= require plugins/html5shiv/html5shiv.js
-
-// Enable @media support in old browsers
-//= require plugins/respond/respond.src.js
-
+// Modernizr
 // Browser feature detection library for HTML5/CSS3
-//= require plugins/modernizr/modernizr-2.8.3.min.js
+//= require plugins/modernizr/modernizr-custom-3.2.0.js
+
+
+// FastclickJS
+// Remove delay between a physical tap and the firing of a click event on mobile browsers.
+//= require plugins/fastclick/fastclick.js
+
+
+// Placeholders polyfill
+//= require plugins/placeholders.js/placeholders.jquery.js
+
+
+// SVG polyfill
+//= require plugins/svg4everybody/svg4everybody.js
 
 
 //////////////////////////////////////////////////////////////////////////////
 // Optionals plugins
 //////////////////////////////////////////////////////////////////////////////
 
+// jQuery.BEM
+// Small jQuery plugin for comfortable working with HTML made by BEM methodology.
+// ---------------------------------------------------------------------------
+//= require plugins/jquery-bem/jquery.bem.js
+
+
+// Basic table
+// Responsive tables
+// ---------------------------------------------------------------------------
+//= require plugins/basictable/jquery.basictable.js
+
+
+// Forms
+// Crosbrowser from elements select, checkbox, radio, file, number
+// ---------------------------------------------------------------------------
+//= require plugins/formstyler/jquery.formstyler.js
+
+
+// Ion tabs
+// Powerfull tabs plugin
+// ---------------------------------------------------------------------------
+// require plugins/ion-tabs/ion.tabs.js
+
+
+// Ion Slider
+// Range slider plugin
+// ---------------------------------------------------------------------------
+// require plugins/ion-rangeSlider/ion.rangeSlider.js
+
+// Perfect scrollbar
+// Scrollbar plugin
+// ---------------------------------------------------------------------------
+// require plugins/perfect-scrollbar/perfect-scrollbar.js
+
+
+// Remodal
+// Css modal windows
+// ---------------------------------------------------------------------------
+//= require plugins/remodal/remodal.js
+
 // Sliders
 // ---------------------------------------------------------------------------
 // require plugins/slick/slick.js
 // require plugins/bjqs/bjqs-1.3.js
-
-
-// Modlal windows and lightbox gallery
-// ---------------------------------------------------------------------------
-// require plugins/colorbox/jquery.colorbox.js
-// require plugins/colorbox/i18n/jquery.colorbox-ru.js
 
 
 // Share buttons
@@ -137,45 +180,10 @@
 // require plugins/mousewheel/jquery.mousewheel.js
 
 
-// Scrollbar plugin
-// ---------------------------------------------------------------------------
-// require plugins/perfect-scrollbar/perfect-scrollbar.js
-
-// Forms
-// ---------------------------------------------------------------------------
-//= require plugins/formstyler/jquery.formstyler.js
-
-
-// Tabs
-// ---------------------------------------------------------------------------
-// require plugins/ion-tabs/ion.tabs.js
-
-
-// Ion Slider
-// ---------------------------------------------------------------------------
-// require plugins/ion-rangeSlider/ion.rangeSlider.js
-
 // Transit
 // ---------------------------------------------------------------------------
-//= require plugins/transit/jquery.transit.js
-
-// Basic table
-// ---------------------------------------------------------------------------
-//= require plugins/basictable/jquery.basictable.js
+// require plugins/transit/jquery.transit.js
 
 
-// Remodal
-// ---------------------------------------------------------------------------
-//= require plugins/remodal/remodal.js
 
-
-// My plugins
-// ---------------------------------------------------------------------------
-// require plugins/jquery.drop-down.js
-// require plugins/jquery.equal-heights.js
-// require plugins/jquery.highlight.js
-// require plugins/jquery.link-radio.js
-// require plugins/jquery.raiting.js
-// require plugins/jquery.spinner.js
-// require plugins/jquery.tabs.js
 
