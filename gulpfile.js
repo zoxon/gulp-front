@@ -16,6 +16,7 @@ var runSequence = require('run-sequence');
 var rupture = require('rupture');
 var spritesmith = require('gulp.spritesmith');
 var posthtmlAttrsSorter = require('posthtml-attrs-sorter');
+var stylus = require('stylus');
 
 
 
@@ -72,6 +73,15 @@ var getDateTime = function getDateTime() {
 	return year + '-' + month + '-' + day + '-' + hours + minutes;
 };
 
+// https://github.com/stylus/stylus/issues/1872#issuecomment-86553717
+var stylusFileExists = function() {
+	return function(style) {
+		style.define('file-exists', function(path) {
+			return !!stylus.utils.lookup(path.string, this.paths);
+		});
+	};
+};
+
 // Plugins options
 var options = {
 	del: [
@@ -94,7 +104,8 @@ var options = {
 			rupture(),
 			autoprefixer({
 				cascade: false
-			})
+			}),
+			stylusFileExists()
 		]
 	},
 
