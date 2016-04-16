@@ -349,6 +349,7 @@ gulp.task('build-zip', function() {
 		.pipe(gulp.dest('zip'));
 });
 
+// Service tasks
 gulp.task('build-html', function (cb) {
 	return runSequence(
 		'combine-modules-data',
@@ -373,6 +374,7 @@ gulp.task('build-js', function (cb) {
 	);
 });
 
+// Main tasks
 gulp.task('build', function (cb) {
 	return runSequence(
 		'cleanup',
@@ -397,15 +399,18 @@ gulp.task('zip', function (cb) {
 	);
 });
 
-gulp.task('develop', function (cb) {
+gulp.task('dev', function (cb) {
 	return runSequence(
 		'build',
-		'browser-sync',
+		[
+			'browser-sync',
+			'watch'
+		],
 		cb
 	);
 });
 
-gulp.task('dev', ['develop'], function (cb) {
+gulp.task('watch', function (cb) {
 	global.isWatching = true;
 
 	// Modules, pages
@@ -459,4 +464,8 @@ gulp.task('dev', ['develop'], function (cb) {
 	$.watch('source/static/sprite/**/*.png', function() {
 		return runSequence('combine-png-sprite', browserSync.reload);
 	});
+});
+
+gulp.task('default', function(cb) {
+	gulp.start('build');
 });
