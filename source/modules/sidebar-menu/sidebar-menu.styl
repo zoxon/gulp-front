@@ -1,18 +1,12 @@
 .sidebar-menu
 	background #fff
-	border 1px solid #dadada
+	background-color #fff
 
 	ul-reset()
 
-	&__title
-		margin 0
-		padding 10px 20px
-		font-size 18px
-		border-bottom 1px solid #dadada
-
 	&__item
 		font-size 14px
-		padding 0 0 4px 0
+		padding 0 0 18px 0
 		list-style none
 
 	&__link
@@ -22,8 +16,58 @@
 			display block
 			padding 6px 20px 8px
 			text-decoration none
+			color #2d3e60
+			transition 125ms all ease-in-out
+			position relative
+		&:hover
+			// text-decoration underline
+			color blue
+
+		&:before
+			content ''
+			display block
+			position absolute
+			left 0
+			bottom 0
+			height 1px
+			width 0
+			transition width 0s ease, background .5s ease
+
+		&:after
+			content ''
+			display block
+			position absolute
+			right 0
+			bottom 0
+			height 1px
+			width 0
+			background blue
+			transition width .5s ease
+
+		&:hover:before
+			width 100%
+			background blue
+			transition width .5s ease
+
+		&:hover:after
+			width 100%
+			background transparent
+			transition all 0s ease
+
+	&__submenu &__item
+		padding 6px 30px 8px
+
+	&__submenu a
+		&
+		&:visited
+			text-decoration none
+			color #323232
+			transition 125ms all ease-in-out
+			display block
+			position relative
+
 		&:hover
 			text-decoration underline
+			color blue
 
-	&__submenu
-		padding 0 20px 0 40px
+
