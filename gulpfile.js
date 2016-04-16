@@ -7,15 +7,16 @@ var autoprefixer = require('autoprefixer-stylus');
 var browserSync = require('browser-sync').create();
 var buffer = require('vinyl-buffer');
 var del = require('del');
+var fs = require('fs');
 var imageminPngquant = require('imagemin-pngquant');
 var jade = require('jade');
 var jstransformer = require('jstransformer');
 var jstransformerStylus = require('jstransformer-stylus');
 var path = require('path');
+var posthtmlAttrsSorter = require('posthtml-attrs-sorter');
 var runSequence = require('run-sequence');
 var rupture = require('rupture');
 var spritesmith = require('gulp.spritesmith');
-var posthtmlAttrsSorter = require('posthtml-attrs-sorter');
 var stylus = require('stylus');
 
 
@@ -35,27 +36,6 @@ var errorHandler = function (err) {
 var debugObj = function (obj) {
 	var util = require('util');
 	console.log(util.inspect(obj, {showHidden: false, depth: null}));
-};
-
-// Read file and return object
-var getData = function getData (file) {
-	var dataEntry;
-	var data;
-	var fs = require('fs');
-
-	try {
-		dataEntry = fs.readFileSync(file, 'utf8');
-	} catch (er) {
-		dataEntry = false;
-	}
-
-	if (dataEntry) {
-		eval('data = {' + dataEntry + '}');
-	} else {
-		data = '{}';
-	}
-
-	return data;
 };
 
 var correctNumber = function correctNumber(number) {
@@ -190,10 +170,6 @@ gulp.task('browser-sync', function() {
 	return browserSync.init(options.browserSync);
 });
 
-gulp.task('bs-reload', function (cb) {
-	browserSync.reload();
-});
-
 gulp.task('combine-modules-styles', function (cb) {
 	return gulp.src(['**/*.styl', '!**/_*.styl'], {cwd: 'source/modules'})
 		.pipe($.plumber(options.plumber))
@@ -215,10 +191,25 @@ gulp.task('compile-styles', function (cb) {
 		.pipe(browserSync.stream());
 });
 
-gulp.task('combine-modules-data', function (cb) {
-	return gulp.src(['**/*.js', '!**/_*.js'], {cwd: 'source/modules/*/data'})
+gulp.task('compile-modules-yaml', function (cb) {
+	return gulp.src(['**/*.yml', '!**/_*.yml'], {cwd: 'source/modules/*/data'})
 		.pipe($.plumber(options.plumber))
-		.pipe($.concat('data.js', { newLine: ',\n\n' }))
+		.pipe($.yaml({space: '\t'}))
+		.pipe($.mergeJson('data-yaml.json'))
+		.pipe(gulp.dest('tmp/data'));
+});
+
+gulp.task('combine-modules-json', function (cb) {
+	return gulp.src(['**/*.json', '!**/_*.json'], {cwd: 'source/modules/*/data'})
+		.pipe($.plumber(options.plumber))
+		.pipe($.mergeJson('data-json.json'))
+		.pipe(gulp.dest('tmp/data'));
+});
+
+gulp.task('combine-modules-data', function (cb) {
+	return gulp.src('**/*.json', {cwd: 'tmp/data'})
+		.pipe($.plumber(options.plumber))
+		.pipe($.mergeJson('data.json'))
 		.pipe(gulp.dest('tmp'));
 });
 
@@ -231,16 +222,12 @@ jade.filters.shoutFilter = function (str) {
 gulp.task('compile-pages', function (cb) {
 	return gulp.src(['**/*.jade', '!**/_*.jade'], {cwd: 'source/pages'})
 		.pipe($.plumber(options.plumber))
-		// .pipe($.cached('templates'))
-		// .pipe($.if(global.isWatching, $.jadeInheritance({basedir: 'source'})))
-		// .pipe($.filter(function (file) {
-		// 	return !/source[\\\/]modules/.test(file.path);
-		// }))
-		.pipe($.data(getData('tmp/data.js')))
+		.pipe($.data(function(file) {
+			return JSON.parse(fs.readFileSync('./tmp/data.json'));
+		}))
 		.pipe($.jade(options.jade))
 		.pipe($.posthtml(options.posthtml.plugins, options.posthtml.options))
 		.pipe($.prettify(options.htmlPrettify))
-		// .pipe($.flatten())
 		.pipe(gulp.dest('dest'));
 });
 
@@ -361,9 +348,21 @@ gulp.task('build-zip', function() {
 });
 
 // Service tasks
+
+gulp.task('combine-data', function (cb) {
+	return runSequence(
+		[
+			'compile-modules-yaml',
+			'combine-modules-json'
+		],
+		'combine-modules-data',
+		cb
+	);
+});
+
 gulp.task('build-html', function (cb) {
 	return runSequence(
-		'combine-modules-data',
+		'combine-data',
 		'compile-pages',
 		cb
 	);
@@ -430,7 +429,7 @@ gulp.task('watch', function (cb) {
 	});
 
 	// Modules data
-	$.watch('source/modules/*/data/*.js', function() {
+	$.watch(['source/modules/*/data/*.{json,yml}'], function() {
 		return runSequence('build-html', browserSync.reload);
 	});
 
