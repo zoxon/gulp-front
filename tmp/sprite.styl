@@ -1,0 +1,187 @@
+/*
+Stylus variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon_home_width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon_home = x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet = width height image $spritesheet_sprites;
+*/
+$menu_name = 'menu';
+$menu_x = 42px;
+$menu_y = 0px;
+$menu_offset_x = -42px;
+$menu_offset_y = 0px;
+$menu_width = 18px;
+$menu_height = 12px;
+$menu_total_width = 60px;
+$menu_total_height = 26px;
+$menu_image = 'sprite.png';
+$menu = 42px 0px -42px 0px 18px 12px 60px 26px 'sprite.png' 'menu';
+$photo_name = 'photo';
+$photo_x = 0px;
+$photo_y = 0px;
+$photo_offset_x = 0px;
+$photo_offset_y = 0px;
+$photo_width = 34px;
+$photo_height = 26px;
+$photo_total_width = 60px;
+$photo_total_height = 26px;
+$photo_image = 'sprite.png';
+$photo = 0px 0px 0px 0px 34px 26px 60px 26px 'sprite.png' 'photo';
+$menu_2x_name = 'menu@2x'
+$menu_2x_x = 84px
+$menu_2x_y = 0px
+$menu_2x_offset_x = -84px
+$menu_2x_offset_y = 0px
+$menu_2x_width = 36px
+$menu_2x_height = 24px
+$menu_2x_total_width = 120px
+$menu_2x_total_height = 52px
+$menu_2x_image = 'sprite@2x.png'
+$menu_2x = 84px 0px -84px 0px 36px 24px 120px 52px 'sprite@2x.png' 'menu@2x'
+$photo_2x_name = 'photo@2x'
+$photo_2x_x = 0px
+$photo_2x_y = 0px
+$photo_2x_offset_x = 0px
+$photo_2x_offset_y = 0px
+$photo_2x_width = 68px
+$photo_2x_height = 52px
+$photo_2x_total_width = 120px
+$photo_2x_total_height = 52px
+$photo_2x_image = 'sprite@2x.png'
+$photo_2x = 0px 0px 0px 0px 68px 52px 120px 52px 'sprite@2x.png' 'photo@2x'
+$spritesheet_width = 60px;
+$spritesheet_height = 26px;
+$spritesheet_image = 'sprite.png';
+$spritesheet_sprites = $menu $photo;
+$spritesheet = 60px 26px 'sprite.png' $spritesheet_sprites;
+$retina_spritesheet_width = 120px
+$retina_spritesheet_height = 52px
+$retina_spritesheet_image = 'sprite@2x.png'
+$retina_spritesheet_sprites = $menu_2x $photo_2x
+$retina_spritesheet = 120px 52px 'sprite@2x.png' $retina_spritesheet_sprites
+
+// These "retina group" variables are mappings for the naming and pairing of normal and retina sprites.
+
+// The list formatted variables are intended for mixins like `retinaSprite` and `retinaSprites`.
+
+$menu_group_name = 'menu'
+$menu_group = 'menu' $menu $menu_2x
+$photo_group_name = 'photo'
+$photo_group = 'photo' $photo $photo_2x
+$retina_groups = $menu_group $photo_group
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  spriteWidth($icon_home)
+}
+
+.icon-email {
+  sprite($icon_email)
+}
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+spriteWidth($sprite) {
+  width: $sprite[4];
+}
+
+spriteHeight($sprite) {
+  height: $sprite[5];
+}
+
+spritePosition($sprite) {
+  background-position: $sprite[2] $sprite[3];
+}
+
+spriteImage($sprite) {
+  background-image: url($sprite[8]);
+}
+
+sprite($sprite) {
+  spriteImage($sprite)
+  spritePosition($sprite)
+  spriteWidth($sprite)
+  spriteHeight($sprite)
+}
+
+
+// The `retinaSprite` mixin sets up rules and a media query for a sprite/retina sprite.
+// It should be used with a "retina group" variable.
+//
+// The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-display-media-query/
+//
+// $icon_home_group = 'icon-home' $icon_home $icon_home_2x;
+//
+// .icon-home {
+// 	retinaSprite($icon_home_group)
+// }
+
+
+spriteBackgroundSize($sprite) {
+	background-size $sprite[6] $sprite[7]
+}
+
+retinaSprite($retina_group) {
+	$normal_sprite = $retina_group[1]
+	$retina_sprite = $retina_group[2]
+	sprite($normal_sprite)
+
+	@media (-webkit-min-device-pixel-ratio: 2),
+				 (min-resolution: 192dpi) {
+		spriteImage($retina_sprite)
+		spriteBackgroundSize($normal_sprite)
+	}
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of Stylus
+
+This must be run when you have at least 2 sprites.
+  If run with a single sprite, then there will be reference errors.
+
+sprites($spritesheet_sprites);
+*/
+sprites($sprites) {
+  for $sprite in $sprites {
+    $sprite_name = $sprite[9];
+    .{$sprite_name} {
+      sprite($sprite);
+    }
+  }
+}
+
+// The `retinaSprites` mixin generates a CSS rule and media query for retina groups
+// This yields the same output as CSS retina template but can be overridden in Stylus
+//
+// retinaSprites($retina_groups)
+
+retinaSprites($retina_groups) {
+	for $retina_group in $retina_groups {
+		$sprite_name = $retina_group[0];
+		.{$sprite_name} {
+			retinaSprite $retina_group
+		}
+	}
+}

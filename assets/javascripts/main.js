@@ -8,6 +8,11 @@ $(document).ready(function() {
 	$('.content-wrapper table').basictable({baseClass: 'table'});
 
 	// Here insert modules scripts
+	$('.alert__close').on('click', function() {
+		$(this).closest('.alert').fadeOut();
+	});
+	
+	
 	// Accordion
 	$('.accordion').each(function(index, el) {
 		var $that = $(this);
@@ -46,11 +51,6 @@ $(document).ready(function() {
 				$item.removeClass('accordion__item_active');
 			}
 		});
-	});
-	
-	
-	$('.alert__close').on('click', function() {
-		$(this).closest('.alert').fadeOut();
 	});
 	
 	
