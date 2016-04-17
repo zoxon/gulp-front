@@ -23,7 +23,7 @@
       og: false
 
     home:
-      title: "Demo"
+      title: "Gulp-front demo"
       mobile: true
       meta: "default"
       og: "default"
