@@ -8,6 +8,8 @@ svgSize($icon)
 
 // Default icons sizes
 .icon
+	// Add coment for normal stylus compilation
+	// https://github.com/zoxon/gulp-front/issues/22
 	<% _.each(icons, function (icon) { %>
 	&_<%= icon.className %>
 		width <%= icon.width %>
