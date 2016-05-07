@@ -467,7 +467,7 @@ gulp.task('watch', function (cb) {
 
 	// Svg icons
 	$.watch('source/static/icons/**/*.svg', function() {
-		return runSequence('combine-svg-icons', browserSync.reload);
+		return runSequence('combine-svg-icons', 'build-css', browserSync.reload);
 	});
 
 	// Png sprites
