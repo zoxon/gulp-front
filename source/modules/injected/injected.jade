@@ -1,0 +1,42 @@
+//- jade-injected
+//- Copyright(c) 2016 Pavel Yagodin <pavel.yagodin@gmail.com>
+//- MIT Licensed
+- var injected = [];
+- var injectedIncrement = 0;
+mixin injected()
+	- injected = [];
+	- injectedIncrement = 0;
+
+	mixin use(name)
+		+if(name, injectedIncrement)
+			- injected[name][injectedIncrement]();
+
+	mixin if(name, index)
+		- var index = index || 0;
+		- var inject = injected[name];
+		if typeof inject == 'object'
+			if typeof inject[index] == 'function'
+				block
+
+	mixin else(name, index)
+		- var index = index || 0;
+		- var inject = injected[name];
+		if typeof inject != 'object'
+			block
+
+	mixin each(name)
+		- injectedIncrement = 0;
+		- var inject = injected[name]
+		if typeof inject == 'object'
+			each item in inject
+				block
+				- injectedIncrement++;
+			- injectedIncrement = 0;
+
+	block
+
+mixin inject(name)
+	if typeof injected[name] === 'undefined'
+		- injected[name] = [block];
+	else
+		- injected[name].push(block);

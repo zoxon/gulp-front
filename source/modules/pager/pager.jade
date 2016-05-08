@@ -1,7 +1,7 @@
 include ../icon/icon
 
 mixin pager(data)
-	.pager
+	.pager&attributes(attributes)
 		a(href="#").pager__arrow.pager__arrow_left
 			+icon('chevron-left')
 		.pager__counter

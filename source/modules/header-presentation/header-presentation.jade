@@ -1,8 +1,8 @@
 mixin header-presentation(data)
-	.header-presentation
-		h1.header-presentation__name Gulp front
-		h2.header-presentation__description A lean and powerful, gulp-based boilerplate for better front-end coding.
-		.header-presentation__version v. 4.2.4
-		.header-presentation__sub-description Created &amp; maintained by @zoxon
+	.header-presentation&attributes(attributes)
+		h1.header-presentation__name= data.name
+		h2.header-presentation__description= data.description
+		.header-presentation__version= 'v. ' + data.version
+		.header-presentation__sub-description= data.subDescription
 		.header-presentation__download
-			a(href="//github.com/Zoxon/gulp-front/archive/master.zip", title="Download source from Github").button.button_style_ghost.button_color_white.button_size_lg.button_block Download
+			a(href="//github.com/Zoxon/gulp-front/archive/master.zip", title="Download source from Github").button.button_style_ghost.button_color_white.button_size_large.button_block.button_style_rounded Download

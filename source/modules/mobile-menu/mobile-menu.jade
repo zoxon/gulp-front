@@ -1,7 +1,7 @@
 include ../icon/icon
 
 mixin mobile-menu(data)
-	.mobile-menu
+	.mobile-menu&attributes(attributes)
 		nav.mobile-menu__menu
 			ul
 				each ent, num in data

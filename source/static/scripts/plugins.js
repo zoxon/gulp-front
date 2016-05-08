@@ -66,7 +66,7 @@
 // Forms
 // Crosbrowser from elements select, checkbox, radio, file, number
 // ---------------------------------------------------------------------------
-//= require plugins/formstyler/jquery.formstyler.js
+// require plugins/formstyler/jquery.formstyler.js
 
 
 // Ion tabs
@@ -80,6 +80,7 @@
 // ---------------------------------------------------------------------------
 // require plugins/ion-rangeSlider/ion.rangeSlider.js
 
+
 // Perfect scrollbar
 // Scrollbar plugin
 // ---------------------------------------------------------------------------
@@ -90,6 +91,7 @@
 // Css modal windows
 // ---------------------------------------------------------------------------
 //= require plugins/remodal/remodal.js
+
 
 // Sliders
 // ---------------------------------------------------------------------------

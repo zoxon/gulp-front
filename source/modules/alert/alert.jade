@@ -8,7 +8,7 @@ mixin alert(data)
 	if data.color
 		- classes.push(classes[0] + "_color_" + data.color)
 
-	div(class=classes)
+	div(class=classes)&attributes(attributes)
 		.alert__title= data.title
 		.alert__body= data.text
 		.alert__close

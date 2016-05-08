@@ -6,7 +6,7 @@ include ../header-presentation/header-presentation
 include ../mobile-menu-trigger/mobile-menu-trigger
 
 mixin header(data)
-	header.header
+	header.header&attributes(attributes)
 		.header__top
 			.header__inner
 				.header__logo
@@ -25,4 +25,4 @@ mixin header(data)
 
 		.header__bottom
 			.header__inner
-				+header-presentation(data)
+				+header-presentation(headerPresentation.default)

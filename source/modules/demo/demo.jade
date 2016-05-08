@@ -1,11 +1,9 @@
 include ../alert/alert
 include ../form/form
-include ../form-item/form-item
-include ../input-group/input-group
 include ../page-title/page-title
 
 mixin demo()
-	.content-wrapper
+	.content-wrapper.demo
 		+page-title({"title": "Gulp-front features"})
 		// TYPOGRAPHY
 		section
@@ -664,8 +662,8 @@ mixin demo()
 
 			h3#modals Modal windows
 
-			button.button.button_color_blue.button_style_rounded(data-remodal-target="modal1") Open modal #1
-			button.button.button_color_blue.button_style_rounded(data-remodal-target="modal2") Open modal #2
+			button.button.button_style_solid.button_color_blue.button_style_rounded(data-remodal-target="modal1") Open modal #1
+			button.button.button_style_solid.button_color_blue.button_style_rounded(data-remodal-target="modal2") Open modal #2
 		
 			include ../modal/modal
 			+modal({"id": "modal1", "close": true})
@@ -673,8 +671,8 @@ mixin demo()
 					h1(style="margin-top: 0") Simple modal #1
 					p Lorem ipsum dolor sit amet, consectetur adipisicing elit unde sint debitis in magnam vel pariatur libero nisi minima. 
 
-					button.button.button_color_blue.button_style_rounded(data-remodal-action="confirm" class="remodal-confirm") OK
-					button.button.button_color_grey.button_style_rounded(data-remodal-action="cancel" class="remodal-cancel") Cancel
+					button.button.button_style_solid.button_color_blue.button_style_rounded(data-remodal-action="confirm" class="remodal-confirm") OK
+					button.button.button_style_solid.button_color_red.button_style_rounded(data-remodal-action="cancel" class="remodal-cancel") Cancel
 
 			+modal({"id": "modal2", "close": true})
 				div(style="padding: 35px")
@@ -765,123 +763,318 @@ mixin demo()
 
 			p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et ab totam, voluptas animi eius ducimus molestiae! Veritatis, atque? Porro praesentium, possimus! Iste architecto cupiditate placeat ab fugiat et adipisci reprehenderit.
 			
+			script.
+				$(function() {
+					$.getJSON("http://ip-api.com/json",
+						function(json) {
+							$('#form-demo__ip').val(json.query);
+							$('#form-demo__city').val(json.city);
+							$('#form-demo__country').val(json.country);
+						}
+					);
+				});
+
 			+form()
 				.form__section
 					h3#text-inputs Text Inputs
 					.form__item
-						+form-item(type="text", name="name", label="Name", value="Nikolas")
+						.form-item
+							.form-item__label
+								+label({"for": "form-demo__name", "text": "Name"})
+							.form-item__control
+								+input({type: "text", "name": "form-demo__name", "id": "form-demo__name", "value": "Nikolas"}).input_style_default
+					.form__item
+						.form-item
+							.form-item__label
+								+label({"for": "form-demo__ip", "text": "IP address"})
+							.form-item__control
+								+input({type: "text", "name": "form-demo__ip", "id": "form-demo__ip", "placeholder": "Enter your country", "disabled": true}).input_style_default
 
 					.form__item
-						+form-item(type="email", name="email", label="Email", placeholder="info@example.com", pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}", title="Введите верный адрес email")
+						.form-item
+							.form-item__label
+								+label({"for": "form-demo__country", "text": "Country"})
+							.form-item__control
+								+input({type: "text", "name": "form-demo__country", "id": "form-demo__country", "placeholder": "Enter your country"}).input_style_default
 
 					.form__item
-						+form-item(type="url", name="url", label="Your site URL", placeholder="http://www.example.com", pattern="https?://.+", title = "Введите url начинающийся с http:// или https://")
+						.form-item
+							.form-item__label
+								+label({"for": "form-demo__city", "text": "City"})
+							.form-item__control
+								+input({type: "text", "name": "form-demo__city", "id": "form-demo__city", "placeholder": "Enter your city"}).input_style_default
 
 					.form__item
-						+form-item(type="tel", name="tel", label="Your phone", placeholder="+123 123-345-6789", title="Международный, государственный или местный телефонный номер")
+						.form-item
+							.form-item__label
+								+label({"for": "form-demo__email", "text": "Email"})
+							.form-item__control
+								+input({type: "email", "name": "form-demo__email", "id": "form-demo__email", "placeholder": "info@example.com"}).input_style_default
 
 					.form__item
-						+form-item(type="password", name="password", value="password", placholder="Enter password", label="Password", errors=["some error message", "another error message"])
+						.form-item
+							.form-item__label
+								+label({"for": "form-demo__url", "text": "Your site URL"})
+							.form-item__control
+								+input({type: "url", "name": "form-demo__url", "id": "form-demo__url", "placeholder": "http://www.example.com"}).input_style_default
 
 					.form__item
-						+form-item(type="number", name="number", placholder="18", label="Your age")
+						.form-item
+							.form-item__label
+								+label({"for": "form-demo__tel", "text": "Your phone"})
+							.form-item__control
+								+input({type: "tel", "name": "form-demo__tel", "id": "form-demo__tel", "placeholder": "+123 123-345-6789"}).input_style_default
+
+					.form__item
+						.form-item
+							.form-item__label
+								+label({"for": "form-demo__password", "text": "Password"})
+							.form-item__control
+								+input({type: "password", "name": "form-demo__password", "id": "form-demo__password", "placeholder": "Enter password"}).input_style_default
+
+					.form__item
+						.form-item
+							.form-item__label
+								+label({"for": "form-demo__age", "text": "Your age"})
+							.form-item__control
+								+input({type: "number", "name": "form-demo__age", "id": "form-demo__age", "placeholder": "18"}).input_style_default
+					
 				
 				.form__section
 					h3#radios-and-checkboxes Radios and Checkboxes
 					.form__item
-						+input-group({"label": "Radios"})
-							.input-group__item
-								+form-item(type="radio", name="radio-group-3", id="radio-1", label="Normal")
-							.input-group__item
-								+form-item(type="radio", name="radio-group-3", id="radio-2", label="Checked", checked="true")
-							.input-group__item
-								+form-item(type="radio", name="radio-group-4", id="radio-3", label="Disabled", disabled="true")
-							.input-group__item
-								+form-item(type="radio", name="radio-group-4", id="radio-4", label="Checked and Disabled", checked="true", disabled="true")
-					.form__item
-						+input-group({"label": "Checkboxes"})
-							.input-group__item
-								+form-item(type="checkbox", name="checkbox-group-1", id="checkbox-1", label="Normal")
-							.input-group__item
-								+form-item(type="checkbox", name="checkbox-group-1", id="checkbox-2", label="Checked", checked="true")
-							.input-group__item
-								+form-item(type="checkbox", name="checkbox-group-2", id="checkbox-3", label="Disabled", disabled="true")
-							.input-group__item
-								+form-item(type="checkbox", name="checkbox-group-2", id="checkbox-4", label="Checked and Disabled", checked="true", disabled="true")
+						.form-item
+							.form-item__label
+								+label({"text": "Radios"})
+							.form-item__control
+								+radio-group()
+									+radio({"id": "form-demo__radio-1", "name": "form-demo__radio-group-1"}).radio-group__item
+										| Normal
+									+radio({"id": "form-demo__radio-2", "name": "form-demo__radio-group-1", "checked": true}).radio-group__item
+										| Checked
+									+radio({"id": "form-demo__radio-3", "name": "form-demo__radio-group-2", "disabled": true}).radio-group__item
+										| Normal Disabled
+									+radio({"id": "form-demo__radio-4", "name": "form-demo__radio-group-2", "checked": true, "disabled": true}).radio-group__item
+										| Checked and Disabled
 
+					.form__item
+						.form-item
+							.form-item__label
+								+label({"text": "Checkboxes"})
+							.form-item__control
+								+checkbox-group()
+									+checkbox({"id": "form-demo__checkbox-1", "name": "form-demo__checkbox-group-1"}).checkbox-group__item
+										| Normal
+									+checkbox({"id": "form-demo__checkbox-2", "name": "form-demo__checkbox-group-1", "checked": true}).checkbox-group__item
+										| Checked
+									+checkbox({"id": "form-demo__checkbox-3", "name": "form-demo__checkbox-group-1", "disabled": true}).checkbox-group__item
+										| Normal Disabled
+									+checkbox({"id": "form-demo__checkbox-4", "name": "form-demo__checkbox-group-1", "checked": true, "disabled": true}).checkbox-group__item
+										| Checked and Disabled
+						
 				.form__section
 					h3#selects Selects
-					-var data = ["Lorem ipsum", "Dolor sit amet", "Consectetur adipisicing", "Elit", "Expedita at soluta"]
+					-var language = [{"code": "ar_DZ", "label": "جزائري عربي"}, {"code": "ca_ES", "label": "Català"}, {"code": "cs_CZ", "label": "Čeština"}, {"code": "da_DK", "label": "Dansk"}, {"code": "de_DE", "label": "Deutsch"}, {"code": "el_GR", "label": "Ελληνικά"}, {"code": "en_GB", "label": "English (GB)"}, {"code": "en_US", "label": "English (US)"}, {"code": "es_ES", "label": "Español"}, {"code": "et_EE", "label": "Eesti"}, {"code": "fi_FI", "label": "Suomi"}, {"code": "fr_FR", "label": "Français"}, {"code": "gl_GZ", "label": "Galego (Galiza)"}, {"code": "he_IL", "label": "עברית"}, {"code": "hu_HU", "label": "Magyar"}, {"code": "id_ID", "label": "Bahasa Indonesia"}, {"code": "is_IS", "label": "Íslenska"}, {"code": "it_IT", "label": "Italiano"}, {"code": "ja_JP", "label": "日本語"}, {"code": "lv_LV", "label": "Latviešu"}, {"code": "nl_NL", "label": "Nederlands"}, {"code": "no_NO", "label": "Norsk"}, {"code": "pl_PL", "label": "Polski"}, {"code": "pt_PT", "label": "Português"}, {"code": "ro_RO", "label": "Română"}, {"code": "ru_RU", "label": "Русский"}, {"code": "sk_SK", "label": "Slovenčina"}, {"code": "sv_SE", "label": "Svenska"}, {"code": "th_TH", "label": "ไทย"}, {"code": "uk_UA", "label": "Українська"}, {"code": "vi_VN", "label": "Tiếng Việt"}, {"code": "zh_CN", "label": "中文(简体)"}, {"code": "zh_TW", "label": "中文(繁體)"}, {"code": "bg_BG", "label": "Български"}]
+					
 					.form__item
-						+form-item(type="select", name="select", placeholder="Select value...", label="Select", value=data)
+						.form-item
+							.form-item__label
+								+label({"for": "form-demo__language", "text": "Language"})
+							.form-item__control
+								+select({"id": "form-demo__language", "name": "form-demo__language"}).select_style_default
+									option.select__placeholder Select language...
+									each option in language
+										option(value=option.code)= option.label
+					.form__item
+						.form-item
+							.form-item__label
+								+label({"for": "form-demo__language", "text": "Language"})
+							.form-item__control
+								+select({"id": "form-demo__language", "name": "form-demo__language", "disabled": true}).select_style_default
+									option.select__placeholder Select language...
+									each option in language
+										option(value=option.code)= option.label
 
 					.form__item
-						+form-item(type="multiselect", name="multiple-select", label="Multiselect", value=["Value 1", "Value 2", "Value 3", "Value 4", "Value 5", "Value 6", "Value 7"], size="10")
+						.form-item
+							.form-item__label
+								+label({"for": "form-demo__s-language", "text": "Secondary languages"})
+							.form-item__control
+								+select({"id": "form-demo__s-language", "name": "form-demo__s-language", "multiple": true, "size": 10}).select_style_default
+									option.select__placeholder Select language...
+									each option in language
+										option(value=option.code)= option.label
 				
 				.form__section
 					h3#textareas-and-files Textareas and Files
 					.form__item
-						+form-item(type="textarea", name="textarea", label="Textarea", placeholder="Textarea placeholder")
+						.form-item
+							.form-item__label
+								+label({"for": "form-demo__message", "text": "Message"})
+							.form-item__control
+								+textarea({"id": "form-demo__message", "name": "form-demo__message", "placeholder": "Enter message"}).textarea_style_default
 
 					.form__item
-						+form-item(type="file", name="file", label="File")
+						.form-item
+							.form-item__label
+								+label({"for": "form-demo__photo", "text": "Photo"})
+							.form-item__control
+								+input({type: "file", "name": "form-demo__photo", "id": "form-demo__photo", "placeholder": "Select photo", "multiple": true}).input_style_default
 
 				.form__section
 					h3#captcha Captcha
 					.form__item
-						+form-item(type="captcha", name="captcha-input", label="Captcha", image="assets/images/captcha.png")
+						.form-item.form-item_captcha
+							.form-item__label
+								+label({"for": "form-demo__captcha", "text": "Captcha"})
+							.form-item__control
+								a(href="javascript:void(0);").form-item__image: img(src="/assets/images/captcha.png", alt="Enter text from image")
+								+input({type: "text", "name": "form-demo__captcha", "id": "form-demo__captcha", "placeholder": "Enter text from image"}).input_style_default.form-item__input
+
+						//- +form-item(type="captcha", name="captcha-input", label="Captcha", image="assets/images/captcha.png")
 
 			h3#buttons Buttons
-			button(type="button").button.button_color_grey.button_style_rounded.button_size_lg Large
-			button(type="button").button.button_color_grey.button_style_rounded Default
-			button(type="button").button.button_color_grey.button_style_rounded.button_size_sm Small
-			button(type="button").button.button_color_grey.button_style_rounded.button_size_xs Extra small
+			h4 Styles
+			h5 Solid
+			h6 Rounded
+			button(type="button").button.button_style_solid.button_color_grey.button_style_rounded Grey
+			button(type="button").button.button_style_solid.button_color_black.button_style_rounded Black
+			button(type="button").button.button_style_solid.button_color_blue.button_style_rounded Blue
+			button(type="button").button.button_style_solid.button_color_dark-blue.button_style_rounded Dark blue
+			button(type="button").button.button_style_solid.button_color_green.button_style_rounded Green
+			button(type="button").button.button_style_solid.button_color_yellow.button_style_rounded Yellow
+			button(type="button").button.button_style_solid.button_color_orange.button_style_rounded Orange
+			button(type="button").button.button_style_solid.button_color_red.button_style_rounded Red
+			button(type="button").button.button_style_solid.button_color_aqua.button_style_rounded Aqua
+			button(type="button").button.button_style_solid.button_color_purple.button_style_rounded Purple
 
-			button(type="button").button.button_color_blue.button_style_rounded.button_size_lg Large
-			button(type="button").button.button_color_blue.button_style_rounded Default
-			button(type="button").button.button_color_blue.button_style_rounded.button_size_sm Small
-			button(type="button").button.button_color_blue.button_style_rounded.button_size_xs Extra small
+			h6 Flat
+			button(type="button").button.button_style_solid.button_color_grey Grey
+			button(type="button").button.button_style_solid.button_color_black Black
+			button(type="button").button.button_style_solid.button_color_blue Blue
+			button(type="button").button.button_style_solid.button_color_dark-blue Dark blue
+			button(type="button").button.button_style_solid.button_color_green Green
+			button(type="button").button.button_style_solid.button_color_yellow Yellow
+			button(type="button").button.button_style_solid.button_color_orange Orange
+			button(type="button").button.button_style_solid.button_color_red Red
+			button(type="button").button.button_style_solid.button_color_aqua Aqua
+			button(type="button").button.button_style_solid.button_color_purple Purple
 
-			h4 Link buttons
-			a(href="#").button.button_color_grey.button_style_rounded.button_size_lg Large
-			|  
-			a(href="#").button.button_color_grey.button_style_rounded Default
-			|  
-			a(href="#").button.button_color_grey.button_style_rounded.button_size_sm Small
-			|  
-			a(href="#").button.button_color_grey.button_style_rounded.button_size_xs Extra small
-			|  
+			h6 Pill
+			button(type="button").button.button_style_solid.button_color_grey.button_style_pill Grey
+			button(type="button").button.button_style_solid.button_color_black.button_style_pill Black
+			button(type="button").button.button_style_solid.button_color_blue.button_style_pill Blue
+			button(type="button").button.button_style_solid.button_color_dark-blue.button_style_pill Dark blue
+			button(type="button").button.button_style_solid.button_color_green.button_style_pill Green
+			button(type="button").button.button_style_solid.button_color_yellow.button_style_pill Yellow
+			button(type="button").button.button_style_solid.button_color_orange.button_style_pill Orange
+			button(type="button").button.button_style_solid.button_color_red.button_style_pill Red
+			button(type="button").button.button_style_solid.button_color_aqua.button_style_pill Aqua
+			button(type="button").button.button_style_solid.button_color_purple.button_style_pill Purple
 
-			a(href="#").button.button_color_blue.button_style_rounded.button_size_lg Large
-			|  
-			a(href="#").button.button_color_blue.button_style_rounded Default
-			|  
-			a(href="#").button.button_color_blue.button_style_rounded.button_size_sm Small
-			|  
-			a(href="#").button.button_color_blue.button_style_rounded.button_size_xs Extra small
-			|  
+			h5 Ghost
+			h6 Rounded
+			button(type="button").button.button_style_ghost.button_color_grey.button_style_rounded Grey
+			button(type="button").button.button_style_ghost.button_color_black.button_style_rounded Black
+			button(type="button").button.button_style_ghost.button_color_blue.button_style_rounded Blue
+			button(type="button").button.button_style_ghost.button_color_dark-blue.button_style_rounded Dark blue
+			button(type="button").button.button_style_ghost.button_color_green.button_style_rounded Green
+			button(type="button").button.button_style_ghost.button_color_yellow.button_style_rounded Yellow
+			button(type="button").button.button_style_ghost.button_color_orange.button_style_rounded Orange
+			button(type="button").button.button_style_ghost.button_color_red.button_style_rounded Red
+			button(type="button").button.button_style_ghost.button_color_aqua.button_style_rounded Aqua
+			button(type="button").button.button_style_ghost.button_color_purple.button_style_rounded Purple
+
+			h6 Flat
+			button(type="button").button.button_style_ghost.button_color_grey Grey
+			button(type="button").button.button_style_ghost.button_color_black Black
+			button(type="button").button.button_style_ghost.button_color_blue Blue
+			button(type="button").button.button_style_ghost.button_color_dark-blue Dark blue
+			button(type="button").button.button_style_ghost.button_color_green Green
+			button(type="button").button.button_style_ghost.button_color_yellow Yellow
+			button(type="button").button.button_style_ghost.button_color_orange Orange
+			button(type="button").button.button_style_ghost.button_color_red Red
+			button(type="button").button.button_style_ghost.button_color_aqua Aqua
+			button(type="button").button.button_style_ghost.button_color_purple Purple
+
+			h6 Pill
+			button(type="button").button.button_style_ghost.button_color_grey.button_style_pill Grey
+			button(type="button").button.button_style_ghost.button_color_black.button_style_pill Black
+			button(type="button").button.button_style_ghost.button_color_blue.button_style_pill Blue
+			button(type="button").button.button_style_ghost.button_color_dark-blue.button_style_pill Dark blue
+			button(type="button").button.button_style_ghost.button_color_green.button_style_pill Green
+			button(type="button").button.button_style_ghost.button_color_yellow.button_style_pill Yellow
+			button(type="button").button.button_style_ghost.button_color_orange.button_style_pill Orange
+			button(type="button").button.button_style_ghost.button_color_red.button_style_pill Red
+			button(type="button").button.button_style_ghost.button_color_aqua.button_style_pill Aqua
+			button(type="button").button.button_style_ghost.button_color_purple.button_style_pill Purple
+			
+			h4 Sizes
+			button(type="button").button.button_style_solid.button_color_blue.button_style_rounded.button_size_extra-large Extra large
+			button(type="button").button.button_style_solid.button_color_blue.button_style_rounded.button_size_large Large
+			button(type="button").button.button_style_solid.button_color_blue.button_style_rounded Normal
+			button(type="button").button.button_style_solid.button_color_blue.button_style_rounded.button_size_small Small
+			button(type="button").button.button_style_solid.button_color_blue.button_style_rounded.button_size_extra-small Extra small
+			
+			h4 Icon buttons
+			button(type="button").button.button_style_solid.button_color_grey.button_style_rounded
+				span.button__text Grey
+				+icon('chevron-right').button__icon
+
+			button(type="button").button.button_style_solid.button_color_black.button_style_rounded
+				span.button__text Black
+				+icon('chevron-right').button__icon
+
+			button(type="button").button.button_style_solid.button_color_blue.button_style_rounded
+				span.button__text Blue
+				+icon('chevron-right').button__icon
+
+			button(type="button").button.button_style_solid.button_color_dark-blue.button_style_rounded
+				span.button__text Dark blue
+				+icon('chevron-right').button__icon
+
+			button(type="button").button.button_style_solid.button_color_green.button_style_rounded
+				span.button__text Green
+				+icon('chevron-right').button__icon
+
+			button(type="button").button.button_style_solid.button_color_yellow.button_style_rounded
+				+icon('chevron-left').button__icon
+				span.button__text Yellow
+
+			button(type="button").button.button_style_solid.button_color_orange.button_style_rounded
+				+icon('chevron-left').button__icon
+				span.button__text Orange
+
+			button(type="button").button.button_style_solid.button_color_red.button_style_rounded
+				+icon('chevron-left').button__icon
+				span.button__text Red
+
+			button(type="button").button.button_style_solid.button_color_aqua.button_style_rounded
+				+icon('chevron-left').button__icon
+				span.button__text Aqua
+
+			button(type="button").button.button_style_solid.button_color_purple.button_style_rounded
+				+icon('chevron-left').button__icon
+				span.button__text Purple
+
+			h4 Tags types
+			button(type="button").button.button_style_solid.button_color_blue.button_style_rounded Button
+			a(href="javascript:void(0);").button.button_style_solid.button_color_blue.button_style_rounded Link
+			input(type="button" value="Input").button.button_style_solid.button_color_blue.button_style_rounded
 
 			h4 Disabled buttons
-			button(type="button", disabled).button.button_color_grey.button_style_rounded.button_size_lg Large
-			button(type="button", disabled).button.button_color_grey.button_style_rounded Default
-			button(type="button", disabled).button.button_color_grey.button_style_rounded.button_size_sm Small
-			button(type="button", disabled).button.button_color_grey.button_style_rounded.button_size_xs Extra small
-
-			button(type="button").button.button_color_blue.button_style_rounded.button_size_lg.button_disabled Large
-			button(type="button").button.button_color_blue.button_style_rounded.button_disabled Default
-			button(type="button").button.button_color_blue.button_style_rounded.button_size_sm.button_disabled Small
-			button(type="button").button.button_color_blue.button_style_rounded.button_size_xs.button_disabled Extra small
+			button(type="button" disabled).button.button_style_solid.button_color_blue.button_style_rounded Disabled button
+			a(href="javascript:void(0);").button.button_style_solid.button_color_blue.button_style_rounded.button_disabled Disabled link
+			input(type="button" value="Disabled input" disabled).button.button_style_solid.button_color_blue.button_style_rounded
 
 			h4 Block buttons
-			button(type="button").button.button_color_grey.button_style_rounded.button_size_lg.button_block Large
-			button(type="button").button.button_color_grey.button_style_rounded.button_block Default
-			button(type="button").button.button_color_grey.button_style_rounded.button_size_sm.button_block Small
-			button(type="button").button.button_color_grey.button_style_rounded.button_size_xs.button_block Extra small
+			button(type="button").button.button_style_solid.button_color_blue.button_style_rounded.button_size_extra-large.button_block Extra large
+			button(type="button").button.button_style_solid.button_color_blue.button_style_rounded.button_size_large.button_block Large
+			button(type="button").button.button_style_solid.button_color_blue.button_style_rounded.button_block Normal
+			button(type="button").button.button_style_solid.button_color_blue.button_style_rounded.button_size_small.button_block Small
+			button(type="button").button.button_style_solid.button_color_blue.button_style_rounded.button_size_extra-small.button_block Extra small
 
-			button(type="button").button.button_color_blue.button_style_rounded.button_size_lg.button_block Large
-			button(type="button").button.button_color_blue.button_style_rounded.button_block Default
-			button(type="button").button.button_color_blue.button_style_rounded.button_size_sm.button_block Small
-			button(type="button").button.button_color_blue.button_style_rounded.button_size_xs.button_block Extra small
+
 		// END FORMS
 
 		// GRID

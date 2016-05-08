@@ -3,8 +3,6 @@ $(document).ready(function() {
 
 	FastClick.attach(document.body);
 
-	$('select, input').styler();
-
 	$('.content-wrapper table').basictable({baseClass: 'table'});
 
 	// Here insert modules scripts

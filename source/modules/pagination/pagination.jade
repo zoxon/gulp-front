@@ -1,7 +1,7 @@
 include ../icon/icon
 
 mixin pagination(data)
-	nav.pagination
+	nav.pagination&attributes(attributes)
 		ul
 			if data.arrows
 				li.pagination__item.pagination__arrow.pagination__arrow_prev

@@ -1,4 +1,103 @@
+include ../icon/icon
+
 mixin form(data)
-	.form
-		form(method="post", action="#")
-			block
+	form(method="post" action="#").form&attributes(attributes)
+		block
+
+
+//- Render label
+mixin label(data)
+	label.label(for=data.for)&attributes(attributes)!= data.text
+
+
+//- Render inputs like text, number, email etc.
+mixin input(data)
+	span.form-field.form-field_type_input.input&attributes(attributes)
+		span.input__box
+			input(
+				class="input__control" 
+				id=data.id 
+				type=data.type 
+				name=data.name 
+				value=data.value 
+				placeholder=data.placeholder
+				disabled=data.disabled
+				readonly=data.readonly,
+				multiple=data.multiple
+			)
+
+
+
+//- Render textarea
+mixin textarea(data)
+	.form-field.form-field_type_textarea.textarea&attributes(attributes)
+		textarea.textarea.textarea__control(
+				id=data.id
+				name=data.name
+				placeholder=data.placeholder
+				cols="30"
+				rows="10"
+			)!= data.text
+
+
+//- Render select
+mixin select(data)
+	span.form-field.form-field_type_select.select&attributes(attributes)
+		span.select__box
+			select(
+				class="select__control"
+				id=data.id
+				name=data.name
+				disabled=data.disabled,
+				data-placeholder=data.placeholder,
+				multiple=data.multiple
+				size=data.size
+			)
+				block
+
+//- Render radio button
+mixin radio(data)
+	label.radio&attributes(attributes)
+		span.radio__box
+			input(
+				class="radio__control"
+				type="radio"
+				autocomplete=data.autocomplete
+				id=data.id
+				name=data.name
+				value=data.value
+				checked=data.checked
+				disabled=data.disabled
+			)
+		block
+
+
+//- Render checkbox
+mixin checkbox(data)
+	label.checkbox&attributes(attributes)
+		span.checkbox__box
+			input(
+				class="checkbox__control"
+				type="checkbox"
+				autocomplete=data.autocomplete
+				id=data.id
+				name=data.name
+				value=data.value
+				checked=data.checked
+				disabled=data.disabled
+			)
+		block
+
+
+//- Render radio group
+mixin radio-group(data)
+	span.radio-group.control-group&attributes(attributes)
+		block
+
+
+//- Render checkbox group
+mixin checkbox-group(data)
+	span.checkbox-group.control-group&attributes(attributes)
+		block
+
+
