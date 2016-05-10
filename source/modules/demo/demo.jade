@@ -928,10 +928,9 @@ mixin demo()
 							.form-item__label
 								+label({"for": "form-demo__captcha", "text": "Captcha"})
 							.form-item__control
-								a(href="javascript:void(0);").form-item__image: img(src="/assets/images/captcha.png", alt="Enter text from image")
+								a(href="javascript:void(0);").form-item__image: img(src="assets/images/captcha.png", alt="Enter text from image")
 								+input({type: "text", "name": "form-demo__captcha", "id": "form-demo__captcha", "placeholder": "Enter text from image"}).input_style_default.form-item__input
 
-						//- +form-item(type="captcha", name="captcha-input", label="Captcha", image="assets/images/captcha.png")
 
 			h3#buttons Buttons
 			h4 Styles
