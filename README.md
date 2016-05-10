@@ -1,6 +1,8 @@
 # Gulp Front
 
-*Шаблон для быстрого старта разработки с [Gulp](http://gulpjs.com/), [Jade](http://jade-lang.com/) и [Stylus](https://learnboost.github.io/stylus/)*
+English description | [Описание на русском](README_RU.md)
+
+*A lean and powerful, gulp-based boilerplate for better front-end coding with [Gulp](http://gulpjs.com/), [Jade](http://jade-lang.com/) and [Stylus](https://learnboost.github.io/stylus/)*
 
 [![Build Status](https://api.travis-ci.org/zoxon/gulp-front.svg)](https://travis-ci.org/zoxon/gulp-front)
 [![devDependency Status](https://david-dm.org/zoxon/gulp-front/dev-status.svg)](https://david-dm.org/zoxon/gulp-front#info=devDependencies)
@@ -10,124 +12,126 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/zoxon/gulp-front/blob/master/LICENSE)
 [![Join the chat at https://gitter.im/zoxon/gulp-front](https://img.shields.io/badge/gitter-join%20chat-green.svg?style=flat)](https://gitter.im/zoxon/gulp-front?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-## Демо
+## Demo
 [zoxon.github.io/gulp-front](http://zoxon.github.io/gulp-front/)
 
-## Преимущества и возможности
+## Benefits & Features
 
-* Быстрый и удобный сборщик (gulp)
-* Простейшие модули (js, styl, jade, json, прочие файлы)
-* Базовые модули (bread-crumbs, button, footer, form, form-item, header, input-group, logo, main-menu, page-title, pagination и др.)
-* Сборка svg спрайтов для инлайн подлючения (gulp-svg-symbols)
-* Сборка png спрайтов и ретина спрайтов (gulp-spritesmith)
-* Jade миксины для @media (rupture)
-* Склейка @media и перенос в конец файла (gulp-combine-mq)
-* Сервер и синхронное тестирование сайта в браузерах (с помощью browser-sync)
-* Авто-подстановка вендорных префиксов в CSS (autoprefixer-stylus)
-* Шаблонизатор Jade и препроцессор HTML (gulp-jade)
-* Конкатенация JavaScript файлов (gulp-include)
-* Форматирование CSS (gulp-csscomb)
-* Сжатие изображений (gulp-imagemin)
-* Препроцессор CSS (gulp-stylus)
-* Минификация CSS (gulp-csso)
-* Форматирование HTML (gulp-html-prettify)
-* Минификация JavaScript (gulp-uglify)
-* Перехват и вывод ошибок без остановки gulp (gulp-plumber)
-* Jade миксины для елементов форм
-* Настроенная типографика на базе normalize.css
-* Миксины сетки (fluid и fixed)
-* Миксины для font-face и др.
-* Настроенные конфиги для TravisCI и EditorConfig
-* Упаковка скомпилированных файлов в zip архив
+* Fast and easy collector (gulp)
+* Simplest modules realization (js, styl, jade, json and other files) 
+* Base modules (bread-crumbs, button, footer, form, form-item, header, input-group, logo, main-menu, page-title, pagination and etc.) 
+* Build of svg sprites for inline connection (gulp-svg-symbols) 
+* Build of png and retina sprites (gulp-spritesmith)
+* Jade mixins for @media (rupture)
+* Merging @media and transfer it to the end of the file (gulp-combine-mq)
+* Server and synchronous site testing in the browser (using the browser-sync)
+* Autosubstitution of vendor prefixes in CSS (autoprefixer-stylus)
+* Jade template and HTML preprocessor (gulp-jade)
+* JavaScript files concatenation (gulp-include)
+* CSS formatting (gulp-csscomb)
+* Image compression (gulp-imagemin)
+* CSS preprocessor (gulp-stylus)
+* CSS minification (gulp-csso)
+* HTML formatting (gulp-htmlprettify)
+* JavaScript Minification (gulp-uglify)
+* Errors searching and output without stopping gulp (gulp-plumber)
+* Jade mixins for form elements
+* Customized typography based on normalize.css
+* Mixins for grid (fluid and fixed)
+* Mixins for font-face and others.
+* Customized configs for Travis CI and EditorConfig
+* Compiled files package in zip
 
 
-## Быстрый старт
+## Quick start
 
-* Установить [node.js](https://nodejs.org)
+* Install the [node.js](https://nodejs.org)
 
-* Зайти в папку с установленной nodejs и обновить npm до последней версии
+* Go to the folder with installed nodejs, update npm to the latest version
 
 	```bash
 	cd "C:\Program Files\nodejs"
 	```
 
-	или
+	or
 
 	```bash
 	cd "C:\Program Files (x86)\nodejs"
 	```
 
-	в зависимости от того где у вас установленна nodejs, и выполнить
+	and execute
 
 	```bash
 	npm install npm@latest
 	```
 
-* Склонировать проект либо [скачать архив](https://github.com/zoxon/gulp-front/archive/master.zip)
+* Clone the project or [download](https://github.com/zoxon/gulp-front/archive/master.zip) the file
 
 	```bash
 	git clone git@github.com:zoxon/gulp-front.git my-project && cd my-project
 	```
 
-	Все новые фишки появляются сначала в ветке [develop](https://github.com/zoxon/gulp-front/tree/develop), но там могут быть баги
-
-* Установить `gulp` глобально (один раз!)
+* Install `gulp` globally (once!)
 
 	```bash
 	npm i -g gulp
 	```
 
-* Установить зависимости (1 раз на проект)
+* Install dependencies
 
 	```bash
 	npm i
 	```
 
-* Запустить gulp.js
+* Install gulp globally (once!) - npm i -g gulp
+
+* Start `gulp`
 
 	```bash
 	gulp dev
 	```
 
-* В браузере откроется страница с проектом, по адрессу [`http://localhost:3000/`](http://localhost:3000/)
+* In browser open page with address [`http://localhost:3000/`](http://localhost:3000/)
 
-## Основные таски
+## Main tasks
 
-* `gulp dev` - запускает вотчеры и сервер
-* `gulp build` - собирает проект
-* `gulp zip` - собирает проект и архивирует его в zip архив
+* `gulp dev` - launches watchers and server
+* `gulp build` - compile a project
+* `gulp zip` - compile a project in zip
+* 
 
-## Структура папок и файлов
+
+## Files and folders structure
 
 ```
-gulp-front/                             # Корень проекта
-├── dest                                # Скомилированные файлы
-├── source                              # Исходные файлы
-│   ├── modules                         # Простейшие модули
-│   ├── pages                           # Страницы
-│   └── static                          # Статичные файлы
-│       ├── assets                      # Прочие файлы
-│       ├── scripts                     # JavaScript файлы
-│       │   ├── plugins                 # Папка с плагинами
-│       │   ├── main.js                 # Основной js файл
-│       │   └── plugins.js              # Точка сборки плагинов
-│       └── styles                      # Статичные стили
-│           ├── components              # Компоненты
-│           ├── plugins                 # Стили плагинов
-│           ├── _common.styl            # Различные стили
+gulp-front/                             # Project root
+├── dest                                # Compiled files
+├── source                              # Source files
+│   ├── modules                         # Modules folder
+│   ├── pages                           # Pages
+│   └── static                          # Static files
+│       ├── assets                      # Other files
+│       ├── scripts                     # JavaScript files
+│       │   ├── plugins                 # JavaScript plgins and libs
+│       │   ├── main.js                 # Main JavaScript file
+│       │   └── plugins.js              # Plugins assemblage file
+│       └── styles                      # Static styles
+│           ├── components              # Componetns
+│           ├── plugins                 # Plugins styles
+│           ├── _common.styl            # Different styles
 │           ├── _media.styl             # @media
-│           ├── _variables.styl         # Переменные
-│           ├── main.styl               # Основной файл стилей
-│           └── reset.styl              # Сброс стилей + типографика
-├── tmp                                 # Временная папка
-├── zip                                 # Папка с zip архивами
-├── package.json                        # Зависимости для node.js
-├── .csscomb.json                       # Конфиг для gulp-csscomb
-├── .editorconfig                       # Конфиг для EditorConfig
-├── .travis.yml                         # Конфиг для TravisCI
-├── gulpfile.js                         # Конфиг gulp.js
-├── LICENSE                             # Лицензия
-└── README.md                           # Файл который вы читаете
+│           ├── _variables.styl         # Variables
+│           ├── main.styl               # Main styles
+│           └── reset.styl              # Styles reset + typography
+├── tmp                                 # Temp folder
+├── zip                                 # Folder with zip archives
+├── package.json                        # Dependencies for node.js
+├── .csscomb.json                       # csscomb config
+├── .editorconfig                       # EditorConfig
+├── .travis.yml                         # TravisCI config
+├── gulpfile.js                         # gulp.js config
+├── LICENSE                             # License
+└── README.md                           # File you read
 ```
 
 ## Лицензия
