@@ -134,5 +134,5 @@ gulp-front/                             # Project root
 └── README.md                           # File you read
 ```
 
-## Лицензия
+## License
 [The MIT License (MIT)](LICENSE)
