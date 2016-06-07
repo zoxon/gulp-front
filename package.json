@@ -1,6 +1,6 @@
 {
   "name": "gulp-front",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "The template for quick start of development with Gulp, Jade and Stylus",
   "keywords": [
     "gulp",
@@ -29,8 +29,10 @@
   "bugs": {
     "url": "https://github.com/zoxon/gulp-front/issues"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "amo": "node tools/module/add.js",
+    "rmo": "node tools/module/remove.js"
   },
   "engines": {
     "node": ">=4.0.0",
@@ -76,6 +78,7 @@
     "jade": "^1.11.0",
     "jstransformer": "0.0.4",
     "jstransformer-stylus": "^1.0.0",
+    "mkdirp": "^0.5.1",
     "posthtml-attrs-sorter": "^0.1.2",
     "run-sequence": "^1.1.5",
     "rupture": "^0.6.1",
