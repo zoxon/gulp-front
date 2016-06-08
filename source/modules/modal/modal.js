@@ -1,2 +1,4 @@
-// Remodal init
-$('[data-remodal-id]').remodal();
+// Remodal
+(function() {
+	$('[data-remodal-id]').remodal();
+})();

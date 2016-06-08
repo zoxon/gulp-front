@@ -1,3 +1,6 @@
-$('.browsehappy').click(function() {
-	$(this).slideUp();
-});
+// Browsehappy
+(function() {
+	$('.browsehappy').click(function() {
+		$(this).slideUp();
+	});
+})();
