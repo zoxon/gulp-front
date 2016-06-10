@@ -220,14 +220,21 @@ jade.filters.shoutFilter = function (str) {
 }
 
 gulp.task('compile-pages', function (cb) {
-	return gulp.src(['**/*.jade', '!**/_*.jade'], {cwd: 'source/pages'})
+	var jsonData = JSON.parse(fs.readFileSync('./tmp/data.json'));
+	options.jade.locals = jsonData;
+
+	return gulp.src(['**/*.jade', '!**/_*.jade'], {cwd: 'source'})
 		.pipe($.plumber(options.plumber))
-		.pipe($.data(function(file) {
-			return JSON.parse(fs.readFileSync('./tmp/data.json'));
+		.pipe($.changed('dest', {extension: '.html'}))
+		.pipe($.if(global.isWatching, $.cached('templates')))
+		.pipe($.jadeInheritance({basedir: 'source'}))
+		.pipe($.filter(function (file) {
+			return !/source[\\\/]modules/.test(file.path);
 		}))
 		.pipe($.jade(options.jade))
 		.pipe($.posthtml(options.posthtml.plugins, options.posthtml.options))
 		.pipe($.prettify(options.htmlPrettify))
+		.pipe($.flatten())
 		.pipe(gulp.dest('dest'));
 });
 
@@ -430,6 +437,7 @@ gulp.task('watch', function (cb) {
 
 	// Modules data
 	$.watch(['source/modules/*/data/*.{json,yml}'], function() {
+		delete $.cached.caches['templates'];
 		return runSequence('build-html', browserSync.reload);
 	});
 
