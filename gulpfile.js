@@ -354,6 +354,11 @@ gulp.task('build-zip', function() {
 		.pipe(gulp.dest('zip'));
 });
 
+gulp.task('publish', function () {
+	return gulp.src('**/*', {cwd: 'dest'})
+		.pipe($.ghPages({branch: 'build'}))
+});
+
 // Service tasks
 
 gulp.task('combine-data', function (cb) {
@@ -412,6 +417,14 @@ gulp.task('zip', function (cb) {
 	return runSequence(
 		'build',
 		'build-zip',
+		cb
+	);
+});
+
+gulp.task('deploy', function (cb) {
+	return runSequence(
+		'build',
+		'publish',
 		cb
 	);
 });
