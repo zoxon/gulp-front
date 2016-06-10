@@ -83,8 +83,6 @@ English description | [Описание на русском](README_RU.md)
 	npm i
 	```
 
-* Install gulp globally (once!) - npm i -g gulp
-
 * Start `gulp`
 
 	```bash
@@ -98,7 +96,16 @@ English description | [Описание на русском](README_RU.md)
 * `gulp dev` - launches watchers and server
 * `gulp build` - compile a project
 * `gulp zip` - compile a project in zip
-* 
+* `gulp deploy` - compile a project and push in `build` branch to git repository
+
+## Module generation
+
+There is a script for add/delete modules in project in gulp-front.
+
+* `npm run amo <moduleName>` - creates an empty module with a help of technologies, such as jade and styl;
+* `npm run amo <moduleName> js yml json` - creates an empty module with a help of jade and styl and also using additional technologies: js, yml and json;
+* `npm run rmo <moduleName>` - Use to delete a module.nologies: js, yml and json;
+* `npm run rmo <moduleName>` - Use to delete a module.
 
 
 ## Files and folders structure
