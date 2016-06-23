@@ -50,14 +50,7 @@ strong
 
 ol
 ul
-	list-style-position inside
 	padding-left 2em
-
-ol
-	// list-style-type disc
-
-ul
-	// list-style-type decimal
 
 dt
 dd
@@ -67,7 +60,7 @@ dt
 	font-weight: bold;
 
 dd
-	margin-left 0 //- Undo browser default
+	margin-left 0
 
 
 
@@ -206,7 +199,7 @@ table
 				> td
 					border-bottom-width 0
 
-
+	// Responsive tables
 	&_responsive
 		thead
 		tfoot
@@ -216,6 +209,8 @@ table
 			display block
 
 		tbody
+			tr
+				border-bottom 1px solid $table-border-color
 			td
 				border none
 				display block
@@ -224,14 +219,14 @@ table
 				&:before
 					content attr(data-th) ": "
 					font-weight bold
-					width 6.5em
-					display inline-block
+					display block
 
-				&.table__hide
+				&^[0]__hide
 					display none
 
-				& .table__content
+				& ^[0]__content
 					vertical-align top
+					display block
 
 				&:first-child
 					padding-top 1.5em
@@ -240,7 +235,7 @@ table
 					padding-bottom 1.5em
 
 
-		.table__wrapper_active
+		& ^[0]__wrapper_active
 			max-height 310px
 			overflow auto
 			-webkit-overflow-scrolling touch
