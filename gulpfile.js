@@ -86,7 +86,8 @@ var options = {
 				cascade: false
 			}),
 			stylusFileExists()
-		]
+		],
+		'include css': true
 	},
 
 	cssbeautify: {
