@@ -390,7 +390,6 @@ strong {
 ol,
 ul {
 	padding-left: 2em;
-	list-style-position: inside;
 }
 
 dt,
@@ -567,6 +566,10 @@ table {
 	display: block;
 }
 
+.table_responsive tbody tr {
+	border-bottom: 1px solid #e6e6e6;
+}
+
 .table_responsive tbody td {
 	display: block;
 	vertical-align: top;
@@ -574,8 +577,7 @@ table {
 }
 
 .table_responsive tbody td:before {
-	display: inline-block;
-	width: 6.5em;
+	display: block;
 	content: attr(data-th) ": ";
 	font-weight: bold;
 }
@@ -585,6 +587,7 @@ table {
 }
 
 .table_responsive tbody td .table__content {
+	display: block;
 	vertical-align: top;
 }
 

@@ -4144,15 +4144,21 @@ This test will also return `true` for Firefox 4 Multitouch support.
 
 (function($) {
 	$.fn.basictable = function(options) {
+
 		var setup = function(table, data) {
+			var headings = [];
+
 			if (data.tableWrap) {
-				table.wrap('<div class="' + settings.baseClass + '__wrapper"></div>');
+				table.wrap('<div class="' + data.baseClass + '__wrapper"></div>');
 			}
 
 			var format = '';
 
 			if (table.find('thead tr th').length) {
-				format = 'thead tr th';
+				format = 'thead th';
+			}
+			else if (table.find('tbody tr th').length) {
+				format = 'tbody tr th';
 			}
 			else if (table.find('th').length) {
 				format = 'tr:first th';
@@ -4160,8 +4166,6 @@ This test will also return `true` for Firefox 4 Multitouch support.
 			else {
 				format = 'tr:first td';
 			}
-
-			var headings = [];
 
 			$.each(table.find(format), function() {
 				var $heading = $(this);
@@ -4177,44 +4181,50 @@ This test will also return `true` for Firefox 4 Multitouch support.
 				}
 			});
 
+			// Table Body
 			$.each(table.find('tbody tr'), function() {
-				var $row = $(this);
-				var cellIndex = 0;
+				setupRow($(this), headings, data);
+			});
 
-				$row.children().each(function() {
-					var $cell = $(this);
+			// Table Footer
+			$.each(table.find('tfoot tr'), function() {
+				setupRow($(this), headings, data);
+			});
+		};
 
-					if ($cell.html().trim() === '' || $cell.html() === '&nbsp;') {
-						$cell.addClass(settings.baseClass + '__hide');
-					}
-					else {
-						for (var i = 0; i < headings.length; i++) {
-							var $heading = $(headings[i][cellIndex]);
+		var setupRow = function($row, headings, data) {
+			$row.children().each(function() {
+				var $cell = $(this);
 
-							if ($heading.html() !== '' && $heading.html() !== '&nbsp;') {
-								if( $cell.attr('data-th') ) {
-									$cell.attr('data-th', $cell.attr('data-th') + ': ' + $heading.text());
-								}
-								else {
-									$cell.attr('data-th', $heading.text());
-								}
+				if (($cell.html() === '' || $cell.html() === '&nbsp;') && (!data.showEmptyCells)) {
+					$cell.addClass(data.baseClass + '__hide');
+				}
+				else {
+					var cellIndex = $cell.index();
+					var headingText = '';
 
-								if (data.contentWrap && !$cell.children().hasClass(settings.baseClass + '__content')) {
-										$cell.wrapInner('<span class="' + settings.baseClass + '__content" />');
-								}
-							}
+					for (var j = 0; j < headings.length; j++) {
+						if (j != 0) {
+							headingText += ': ';
 						}
+
+						var $heading = headings[j][cellIndex];
+						headingText += $heading.text();
 					}
 
-					cellIndex += $cell.attr('colspan') || 1;
-				});
+					$cell.attr('data-th', headingText);
+
+					if (data.contentWrap && !$cell.children().hasClass(data.baseClass + '__content')) {
+						$cell.wrapInner('<span class="' + data.baseClass + '__content" />');
+					}
+				}
 			});
 		};
 
 		var unwrap = function(table) {
 			$.each(table.find('td'), function() {
 				var $cell = $(this);
-				var content = $cell.children('.' + settings.baseClass + '__content').html();
+				var content = $cell.children('.' + data.baseClass + '__content').html();
 				$cell.html(content);
 			});
 		};
@@ -4223,7 +4233,7 @@ This test will also return `true` for Firefox 4 Multitouch support.
 			// Only change when table is larger than parent if force
 			// responsive is turned off.
 			if (!data.forceResponsive) {
-				if (table.removeClass(settings.baseClass + '_responsive').outerWidth() > table.parent().width()) {
+				if (table.removeClass(data.baseClass + '_responsive').outerWidth() > table.parent().width()) {
 					start(table, data);
 				}
 				else {
@@ -4241,18 +4251,18 @@ This test will also return `true` for Firefox 4 Multitouch support.
 		};
 
 		var start = function(table, data) {
-			table.addClass(settings.baseClass + '_responsive');
+			table.addClass(data.baseClass + '_responsive');
 
-			if (data.tableWrapper) {
-				table.parent('.' + settings.baseClass + 'wrapper').addClass(settings.baseClass + '__wrapper_active');
+			if (data.tableWrap) {
+				table.parent('.' + data.baseClass + 'wrapper').addClass(data.baseClass + '__wrapper_active');
 			}
 		};
 
 		var end = function(table, data) {
-			table.removeClass(settings.baseClass + '_responsive');
+			table.removeClass(data.baseClass + '_responsive');
 
-			if (data.tableWrapper) {
-				table.parent('.' + settings.baseClass + '__wrapper').removeClass(settings.baseClass + '__wrapper_active');
+			if (data.tableWrap) {
+				table.parent('.' + data.baseClass + '__wrapper').removeClass(data.baseClass + '__wrapper_active');
 			}
 		};
 
@@ -4277,52 +4287,56 @@ This test will also return `true` for Firefox 4 Multitouch support.
 		};
 
 		// Get table.
-		var table = this;
+		this.each(function() {
+			var table = $(this);
 
-		// If table has already executed.
-		if (table.length === 0 || table.data('basictable')) {
-			if (table.data('basictable')) {
-				// Destroy basic table.
-				if (options == 'destroy') {
-					destroy(table, table.data('basictable'));
+			// If table has already executed.
+			if (table.length === 0 || table.data('basictable')) {
+				if (table.data('basictable')) {
+					// Destroy basic table.
+					if (options == 'destroy') {
+						destroy(table, table.data('basictable'));
+					}
+					// Start responsive mode.
+					else if (options === 'start') {
+						start(table, table.data('basictable'));
+					}
+					else if (options === 'stop') {
+						end(table, table.data('basictable'));
+					}
+					else {
+						check(table, table.data('basictable'));
+					}
 				}
-				// Start responsive mode.
-				else if (options === 'start') {
-					start(table, table.data('basictable'));
-				}
-				else if (options === 'stop') {
-					end(table, table.data('basictable'));
-				}
-				else {
-					check(table, table.data('basictable'));
-				}
+				return false;
 			}
-			return false;
-		}
 
-		// Extend Settings.
-		var settings = $.extend({}, $.fn.basictable.defaults, options);
+			// Extend Settings.
+			var settings = $.extend({}, $.fn.basictable.defaults, options);
 
-		var vars = {
-			breakpoint: settings.breakpoint,
-			contentWrap: settings.contentWrap,
-			forceResponsive: settings.forceResponsive,
-			noResize: settings.noResize,
-			tableWrapper: settings.tableWrapper
-		};
+			var vars = {
+				breakpoint: settings.breakpoint,
+				contentWrap: settings.contentWrap,
+				forceResponsive: settings.forceResponsive,
+				noResize: settings.noResize,
+				tableWrap: settings.tableWrap,
+				showEmptyCells: settings.showEmptyCells,
+				baseClass: settings.baseClass
+			};
 
-		// Initiate
-		table.data('basictable', vars);
+			// Initiate
+			table.data('basictable', vars);
 
-		setup(table, table.data('basictable'));
+			setup(table, table.data('basictable'));
 
-		if (!vars.noResize) {
-			check(table, table.data('basictable'));
+			if (!vars.noResize) {
+				check(table, table.data('basictable'));
 
-			$(window).bind('resize.basictable', function() {
-				resize(table);
-			});
-		}
+				$(window).bind('resize.basictable', function() {
+					resize(table);
+				});
+			}
+		});
 	};
 
 	$.fn.basictable.defaults = {
@@ -4331,6 +4345,7 @@ This test will also return `true` for Firefox 4 Multitouch support.
 		forceResponsive: true,
 		noResize: false,
 		tableWrap: false,
+		showEmptyCells: false,
 		baseClass: 'bt'
 	};
 })(jQuery);
