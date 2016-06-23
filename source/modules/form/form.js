@@ -48,12 +48,37 @@
 	setFormFieldState('radio', 'control');
 
 
-	$('input[type="file"]').each(function(index, el) {
-		var $that = $(this);
-		$that.change(function(event) {
-			$(this).each(function(index, el) {
-				console.log(el.files[index].name);
+	$('.input').each(function(index, el) {
+		var $input = $(this);
+		var $box = $input.find('.input__box');
+		var $control = $input.find('input[type="file"]');
+		var placeholder = {
+			file: $control.attr('placeholder') || 'Select file...',
+			btn: 'Browse',
+			multiple: 'Files selected: '
+		}
+
+		if ($control.length > 0) {
+			$input.addClass('input_inited input_type_file');
+
+			var $fileBtn = $('<span class="input__file-btn">' + placeholder.btn + '</span>').appendTo($box);
+			var $fileName = $('<span class="input__file-name">' + placeholder.file + '</span>').appendTo($box);
+
+			$fileBtn.add($fileName).on('click', function() {
+				$(this).parents('.input').find('input[type="file"]').click();
 			});
+		}
+
+		$control.change(function(event) {
+			// Single file
+			if (this.files.length == 1) {
+				$fileName.text(this.files[0].name);
+			}
+			// Multiple files
+			else if (this.files.length > 1) {
+				$fileName.text(placeholder.multiple + this.files.length);
+			}
 		});
 	});
+
 })();

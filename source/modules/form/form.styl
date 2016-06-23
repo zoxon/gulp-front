@@ -89,6 +89,42 @@ input_style_default()
 	&^[0]_focused ^[0]__control
 		focus(#3498da)
 
+	^[0]_inited^[0]_type_file
+		overflow hidden
+
+	^[0]_inited^[0]_type_file ^[0]__control
+		position absolute
+		top 0
+		right 0
+		margin 0
+		padding 0
+		opacity 0
+		z-index -1
+
+	^[0]_inited^[0]_type_file ^[0]__file-btn
+	^[0]_inited^[0]_type_file ^[0]__file-name
+		display inline-block
+		vertical-align middle
+		cursor pointer
+
+	^[0]_inited^[0]_type_file ^[0]__file-btn
+		padding 5px 10px
+		background #3498da
+		color #fff
+		border-radius 2px
+		padding 12px 22px
+		font-size 16px
+		line-height 1.4
+		margin-right 20px
+		transition 125ms all ease-in-out
+		&:hover
+			background #3498da - 10%
+		&:active
+			box-shadow inset 0 3px 5px rgba(#000, 0.125)
+
+	^[0]_inited^[0]_type_file ^[0]__file-name
+		line-height 1.4
+
 .input
 	display block
 	position relative
@@ -102,9 +138,6 @@ input_style_default()
 
 	&_style_default
 		input_style_default()
-		& ^[0]__control[type="file"]
-			border none
-			padding 0
 
 
 .textarea
