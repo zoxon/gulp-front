@@ -2,6 +2,7 @@
 dest
 tmp
 zip
+.publish
 
 # Design
 psd
