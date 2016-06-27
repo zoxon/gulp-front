@@ -1,4 +1,4 @@
-// Forms
+// Mobile menu
 (function() {
 	var mmenu = {
 		trigger: $('.mobile-menu-trigger'),
