@@ -90,6 +90,15 @@ var options = {
 		'include css': true
 	},
 
+	include: {
+		hardFail: true,
+		includePaths: [
+			__dirname + "/",
+			__dirname + "/node_modules",
+			__dirname + "/source/static/scripts/plugins"
+		]
+	},
+
 	cssbeautify: {
 		indent: '\t',
 		autosemicolon: true
@@ -290,7 +299,7 @@ gulp.task('copy-assets', function (cb) {
 gulp.task('combine-scripts', function (cb) {
 	return gulp.src(['*.js', '!_*.js'], {cwd: 'source/static/scripts'})
 		.pipe($.plumber(options.plumber))
-		.pipe($.include())
+		.pipe($.include(options.include))
 		.pipe(gulp.dest('dest/assets/javascripts'))
 		.pipe($.uglify())
 		.pipe($.rename({suffix: '.min'}))

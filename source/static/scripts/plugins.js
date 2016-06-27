@@ -31,161 +31,37 @@
 
 // Modernizr
 // Browser feature detection library for HTML5/CSS3
-//= require plugins/modernizr/modernizr-custom-3.2.0.js
+//= require modernizr/modernizr-custom-3.2.0.js
 
 
 // FastclickJS
 // Remove delay between a physical tap and the firing of a click event on mobile browsers.
-//= require plugins/fastclick/fastclick.js
+//= require fastclick/lib/fastclick.js
 
 
 // Placeholders polyfill
-//= require plugins/placeholders.js/placeholders.jquery.js
+//= require placeholders.js/lib/utils.js
+//= require placeholders.js/lib/main.js
+//= require placeholders.js/lib/adapters/placeholders.jquery.js
 
 
-// SVG polyfill
-//= require plugins/svg4everybody/svg4everybody.js
+// SVG4Everybody
+//= require svg4everybody/dist/svg4everybody.js
 
 
 //////////////////////////////////////////////////////////////////////////////
 // Optionals plugins
 //////////////////////////////////////////////////////////////////////////////
 
-// jQuery.BEM
-// Small jQuery plugin for comfortable working with HTML made by BEM methodology.
-// ---------------------------------------------------------------------------
-//= require plugins/jquery-bem/jquery.bem.js
-
-
 // Basic table
 // Responsive tables
 // ---------------------------------------------------------------------------
-//= require plugins/basictable/jquery.basictable.js
-
-
-// Forms
-// Crosbrowser from elements select, checkbox, radio, file, number
-// ---------------------------------------------------------------------------
-// require plugins/formstyler/jquery.formstyler.js
-
-
-// Ion tabs
-// Powerfull tabs plugin
-// ---------------------------------------------------------------------------
-// require plugins/ion-tabs/ion.tabs.js
-
-
-// Ion Slider
-// Range slider plugin
-// ---------------------------------------------------------------------------
-// require plugins/ion-rangeSlider/ion.rangeSlider.js
-
-
-// Perfect scrollbar
-// Scrollbar plugin
-// ---------------------------------------------------------------------------
-// require plugins/perfect-scrollbar/perfect-scrollbar.js
+//= require basictable/jquery.basictable.js
 
 
 // Remodal
 // Css modal windows
 // ---------------------------------------------------------------------------
-//= require plugins/remodal/remodal.js
-
-
-// Sliders
-// ---------------------------------------------------------------------------
-// require plugins/slick/slick.js
-// require plugins/bjqs/bjqs-1.3.js
-
-
-// Share buttons
-// ---------------------------------------------------------------------------
-// require plugins/social-likes/social-likes.js
-
-
-// Gallery
-// ---------------------------------------------------------------------------
-// require plugins/fotorama/fotorama.js
-
-
-// Drag'n drop file uploader
-// ---------------------------------------------------------------------------
-// require plugins/dropzone/dropzone.js
-
-
-// JQuery UI
-// ---------------------------------------------------------------------------
-// UI Core
-// require plugins/jquery-ui/core.js
-// require plugins/jquery-ui/widget.js
-// require plugins/jquery-ui/mouse.js
-// require plugins/jquery-ui/position.js
-
-// Interactions
-// require plugins/jquery-ui/draggable.js
-// require plugins/jquery-ui/droppable.js
-// require plugins/jquery-ui/resizable.js
-// require plugins/jquery-ui/selectable.js
-// require plugins/jquery-ui/sortable.js
-
-// Widgets
-// require plugins/jquery-ui/accordion.js
-// require plugins/jquery-ui/autocomplete.js
-// require plugins/jquery-ui/button.js
-// require plugins/jquery-ui/datepicker.js
-// require plugins/jquery-ui/dialog.js
-// require plugins/jquery-ui/menu.js
-// require plugins/jquery-ui/progressbar.js
-// require plugins/jquery-ui/selectmenu.js
-// require plugins/jquery-ui/slider.js
-// require plugins/jquery-ui/spinner.js
-// require plugins/jquery-ui/tabs.js
-// require plugins/jquery-ui/tooltip.js
-
-// Effects
-// require plugins/jquery-ui/effect.js
-// require plugins/jquery-ui/effect-blind.js
-// require plugins/jquery-ui/effect-bounce.js
-// require plugins/jquery-ui/effect-clip.js
-// require plugins/jquery-ui/effect-drop.js
-// require plugins/jquery-ui/effect-explode.js
-// require plugins/jquery-ui/effect-fade.js
-// require plugins/jquery-ui/effect-fold.js
-// require plugins/jquery-ui/effect-highlight.js
-// require plugins/jquery-ui/effect-puff.js
-// require plugins/jquery-ui/effect-pulsate.js
-// require plugins/jquery-ui/effect-scale.js
-// require plugins/jquery-ui/effect-shake.js
-// require plugins/jquery-ui/effect-size.js
-// require plugins/jquery-ui/effect-slide.js
-// require plugins/jquery-ui/effect-transfer.js
-
-// Language
-// require plugins/jquery-ui/i18n/datepicker-ru.js
-// require plugins/jquery-ui/i18n/datepicker-en-GB.js
-// require plugins/jquery-ui/i18n/datepicker-ky.js
-
-
-// Browser detection library
-// ---------------------------------------------------------------------------
-// require plugins/bowser/bowser.js
-
-
-// Positioned element on the page, and lock within the user's viewport when scrolling
-// ---------------------------------------------------------------------------
-// require plugins/lockfixed/jquery.lockfixed.js
-
-
-// Cross-browser mouse wheel support with delta normalization
-// ---------------------------------------------------------------------------
-// require plugins/mousewheel/jquery.mousewheel.js
-
-
-// Transit
-// ---------------------------------------------------------------------------
-// require plugins/transit/jquery.transit.js
-
-
+//= require remodal/dist/remodal.js
 
 
