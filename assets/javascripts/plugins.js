@@ -2828,606 +2828,504 @@ This test will also return `true` for Firefox 4 Multitouch support.
 
 
 // Placeholders polyfill
-/*!
+/* 
  * The MIT License
  *
  * Copyright (c) 2012 James Allardice
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to
- * deal in the Software without restriction, including without limitation the
- * rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
- * sell copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), 
+ * to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+ * and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
  *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
- * IN THE SOFTWARE.
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
 
-( function ( global ) {
+// Defines the global Placeholders object along with various utility methods
+(function (global) {
 
-  'use strict';
+    "use strict";
 
-  //
-  // Test for support. We do this as early as possible to optimise for browsers
-  // that have native support for the attribute.
-  //
-
-  var test = document.createElement('input');
-  var nativeSupport = test.placeholder !== void 0;
-
-  global.Placeholders = {
-    nativeSupport: nativeSupport,
-    disable: nativeSupport ? noop : disablePlaceholders,
-    enable: nativeSupport ? noop : enablePlaceholders
-  };
-
-  if ( nativeSupport ) {
-    return;
-  }
-
-  //
-  // If we reach this point then the browser does not have native support for
-  // the attribute.
-  //
-
-  // The list of input element types that support the placeholder attribute.
-  var validTypes = [
-    'text',
-    'search',
-    'url',
-    'tel',
-    'email',
-    'password',
-    'number',
-    'textarea'
-  ];
-
-  // The list of keycodes that are not allowed when the polyfill is configured
-  // to hide-on-input.
-  var badKeys = [
-
-    // The following keys all cause the caret to jump to the end of the input
-    // value.
-
-    27, // Escape
-    33, // Page up
-    34, // Page down
-    35, // End
-    36, // Home
-
-    // Arrow keys allow you to move the caret manually, which should be
-    // prevented when the placeholder is visible.
-
-    37, // Left
-    38, // Up
-    39, // Right
-    40, // Down
-
-    // The following keys allow you to modify the placeholder text by removing
-    // characters, which should be prevented when the placeholder is visible.
-
-    8, // Backspace
-    46 // Delete
-  ];
-
-  // Styling variables.
-  var placeholderStyleColor = '#ccc';
-  var placeholderClassName = 'placeholdersjs';
-  var classNameRegExp = new RegExp('(?:^|\\s)' + placeholderClassName + '(?!\\S)');
-
-  // The various data-* attributes used by the polyfill.
-  var ATTR_CURRENT_VAL = 'data-placeholder-value';
-  var ATTR_ACTIVE = 'data-placeholder-active';
-  var ATTR_INPUT_TYPE = 'data-placeholder-type';
-  var ATTR_FORM_HANDLED = 'data-placeholder-submit';
-  var ATTR_EVENTS_BOUND = 'data-placeholder-bound';
-  var ATTR_OPTION_FOCUS = 'data-placeholder-focus';
-  var ATTR_OPTION_LIVE = 'data-placeholder-live';
-  var ATTR_MAXLENGTH = 'data-placeholder-maxlength';
-
-  // Various other variables used throughout the rest of the script.
-  var UPDATE_INTERVAL = 100;
-  var head = document.getElementsByTagName('head')[ 0 ];
-  var root = document.documentElement;
-  var Placeholders = global.Placeholders;
-  var keydownVal;
-
-  // Get references to all the input and textarea elements currently in the DOM
-  // (live NodeList objects to we only need to do this once).
-  var inputs = document.getElementsByTagName('input');
-  var textareas = document.getElementsByTagName('textarea');
-
-  // Get any settings declared as data-* attributes on the root element.
-  // Currently the only options are whether to hide the placeholder on focus
-  // or input and whether to auto-update.
-  var hideOnInput = root.getAttribute(ATTR_OPTION_FOCUS) === 'false';
-  var liveUpdates = root.getAttribute(ATTR_OPTION_LIVE) !== 'false';
-
-  // Create style element for placeholder styles (instead of directly setting
-  // style properties on elements - allows for better flexibility alongside
-  // user-defined styles).
-  var styleElem = document.createElement('style');
-  styleElem.type = 'text/css';
-
-  // Create style rules as text node.
-  var styleRules = document.createTextNode(
-    '.' + placeholderClassName + ' {' +
-      'color:' + placeholderStyleColor + ';' +
-    '}'
-  );
-
-  // Append style rules to newly created stylesheet.
-  if ( styleElem.styleSheet ) {
-    styleElem.styleSheet.cssText = styleRules.nodeValue;
-  } else {
-    styleElem.appendChild(styleRules);
-  }
-
-  // Prepend new style element to the head (before any existing stylesheets,
-  // so user-defined rules take precedence).
-  head.insertBefore(styleElem, head.firstChild);
-
-  // Set up the placeholders.
-  var placeholder;
-  var elem;
-
-  for ( var i = 0, len = inputs.length + textareas.length; i < len; i++ ) {
-
-    // Find the next element. If we've already done all the inputs we move on
-    // to the textareas.
-    elem = i < inputs.length ? inputs[ i ] : textareas[ i - inputs.length ];
-
-    // Get the value of the placeholder attribute, if any. IE10 emulating IE7
-    // fails with getAttribute, hence the use of the attributes node.
-    placeholder = elem.attributes.placeholder;
-
-    // If the element has a placeholder attribute we need to modify it.
-    if ( placeholder ) {
-
-      // IE returns an empty object instead of undefined if the attribute is
-      // not present.
-      placeholder = placeholder.nodeValue;
-
-      // Only apply the polyfill if this element is of a type that supports
-      // placeholders and has a placeholder attribute with a non-empty value.
-      if ( placeholder && inArray(validTypes, elem.type) ) {
-        newElement(elem);
-      }
-    }
-  }
-
-  // If enabled, the polyfill will repeatedly check for changed/added elements
-  // and apply to those as well.
-  var timer = setInterval(function () {
-    for ( var i = 0, len = inputs.length + textareas.length; i < len; i++ ) {
-      elem = i < inputs.length ? inputs[ i ] : textareas[ i - inputs.length ];
-
-      // Only apply the polyfill if this element is of a type that supports
-      // placeholders, and has a placeholder attribute with a non-empty value.
-      placeholder = elem.attributes.placeholder;
-
-      if ( placeholder ) {
-
-        placeholder = placeholder.nodeValue;
-
-        if ( placeholder && inArray(validTypes, elem.type) ) {
-
-          // If the element hasn't had event handlers bound to it then add
-          // them.
-          if ( !elem.getAttribute(ATTR_EVENTS_BOUND) ) {
-            newElement(elem);
-          }
-
-          // If the placeholder value has changed or not been initialised yet
-          // we need to update the display.
-          if (
-            placeholder !== elem.getAttribute(ATTR_CURRENT_VAL) ||
-            ( elem.type === 'password' && !elem.getAttribute(ATTR_INPUT_TYPE) )
-          ) {
-
-            // Attempt to change the type of password inputs (fails in IE < 9).
-            if (
-              elem.type === 'password' &&
-              !elem.getAttribute(ATTR_INPUT_TYPE) &&
-              changeType(elem, 'text')
-            ) {
-              elem.setAttribute(ATTR_INPUT_TYPE, 'password');
-            }
-
-            // If the placeholder value has changed and the placeholder is
-            // currently on display we need to change it.
-            if ( elem.value === elem.getAttribute(ATTR_CURRENT_VAL) ) {
-              elem.value = placeholder;
-            }
-
-            // Keep a reference to the current placeholder value in case it
-            // changes via another script.
-            elem.setAttribute(ATTR_CURRENT_VAL, placeholder);
-          }
+    // Cross-browser DOM event binding
+    function addEventListener(elem, event, fn) {
+        if (elem.addEventListener) {
+            return elem.addEventListener(event, fn, false);
         }
-      } else if ( elem.getAttribute(ATTR_ACTIVE) ) {
-        hidePlaceholder(elem);
-        elem.removeAttribute(ATTR_CURRENT_VAL);
-      }
+        if (elem.attachEvent) {
+            return elem.attachEvent("on" + event, fn);
+        }
     }
 
-    // If live updates are not enabled cancel the timer.
-    if ( !liveUpdates ) {
-      clearInterval(timer);
-    }
-  }, UPDATE_INTERVAL);
-
-  // Disabling placeholders before unloading the page prevents flash of
-  // unstyled placeholders on load if the page was refreshed.
-  addEventListener(global, 'beforeunload', function () {
-    Placeholders.disable();
-  });
-
-  //
-  // Utility functions
-  //
-
-  // No-op (used in place of public methods when native support is detected).
-  function noop() {}
-
-  // Avoid IE9 activeElement of death when an iframe is used.
-  //
-  // More info:
-  //  - http://bugs.jquery.com/ticket/13393
-  //  - https://github.com/jquery/jquery/commit/85fc5878b3c6af73f42d61eedf73013e7faae408
-  function safeActiveElement() {
-    try {
-      return document.activeElement;
-    } catch ( err ) {}
-  }
-
-  // Check whether an item is in an array. We don't use Array.prototype.indexOf
-  // so we don't clobber any existing polyfills. This is a really simple
-  // alternative.
-  function inArray( arr, item ) {
-    for ( var i = 0, len = arr.length; i < len; i++ ) {
-      if ( arr[ i ] === item ) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  // Cross-browser DOM event binding
-  function addEventListener( elem, event, fn ) {
-    if ( elem.addEventListener ) {
-      return elem.addEventListener(event, fn, false);
-    }
-    if ( elem.attachEvent ) {
-      return elem.attachEvent('on' + event, fn);
-    }
-  }
-
-  // Move the caret to the index position specified. Assumes that the element
-  // has focus.
-  function moveCaret( elem, index ) {
-    var range;
-    if ( elem.createTextRange ) {
-      range = elem.createTextRange();
-      range.move('character', index);
-      range.select();
-    } else if ( elem.selectionStart ) {
-      elem.focus();
-      elem.setSelectionRange(index, index);
-    }
-  }
-
-  // Attempt to change the type property of an input element.
-  function changeType( elem, type ) {
-    try {
-      elem.type = type;
-      return true;
-    } catch ( e ) {
-      // You can't change input type in IE8 and below.
-      return false;
-    }
-  }
-
-  function handleElem( node, callback ) {
-
-    // Check if the passed in node is an input/textarea (in which case it can't
-    // have any affected descendants).
-    if ( node && node.getAttribute(ATTR_CURRENT_VAL) ) {
-      callback(node);
-    } else {
-
-      // If an element was passed in, get all affected descendants. Otherwise,
-      // get all affected elements in document.
-      var handleInputs = node ? node.getElementsByTagName('input') : inputs;
-      var handleTextareas = node ? node.getElementsByTagName('textarea') : textareas;
-
-      var handleInputsLength = handleInputs ? handleInputs.length : 0;
-      var handleTextareasLength = handleTextareas ? handleTextareas.length : 0;
-
-      // Run the callback for each element.
-      var len = handleInputsLength + handleTextareasLength;
-      var elem;
-      for ( var i = 0; i < len; i++ ) {
-
-        elem = i < handleInputsLength ?
-          handleInputs[ i ] :
-          handleTextareas[ i - handleInputsLength ];
-
-        callback(elem);
-      }
-    }
-  }
-
-  // Return all affected elements to their normal state (remove placeholder
-  // value if present).
-  function disablePlaceholders( node ) {
-    handleElem(node, hidePlaceholder);
-  }
-
-  // Show the placeholder value on all appropriate elements.
-  function enablePlaceholders( node ) {
-    handleElem(node, showPlaceholder);
-  }
-
-  // Hide the placeholder value on a single element. Returns true if the
-  // placeholder was hidden and false if it was not (because it wasn't visible
-  // in the first place).
-  function hidePlaceholder( elem, keydownValue ) {
-
-    var valueChanged = !!keydownValue && elem.value !== keydownValue;
-    var isPlaceholderValue = elem.value === elem.getAttribute(ATTR_CURRENT_VAL);
-
-    if (
-      ( valueChanged || isPlaceholderValue ) &&
-      elem.getAttribute(ATTR_ACTIVE) === 'true'
-    ) {
-
-      elem.removeAttribute(ATTR_ACTIVE);
-      elem.value = elem.value.replace(elem.getAttribute(ATTR_CURRENT_VAL), '');
-      elem.className = elem.className.replace(classNameRegExp, '');
-
-      // Restore the maxlength value. Old FF returns -1 if attribute not set.
-      // See GH-56.
-      var maxLength = elem.getAttribute(ATTR_MAXLENGTH);
-      if ( parseInt(maxLength, 10) >= 0 ) {
-        elem.setAttribute('maxLength', maxLength);
-        elem.removeAttribute(ATTR_MAXLENGTH);
-      }
-
-      // If the polyfill has changed the type of the element we need to change
-      // it back.
-      var type = elem.getAttribute(ATTR_INPUT_TYPE);
-      if ( type ) {
-        elem.type = type;
-      }
-
-      return true;
-    }
-
-    return false;
-  }
-
-  // Show the placeholder value on a single element. Returns true if the
-  // placeholder was shown and false if it was not (because it was already
-  // visible).
-  function showPlaceholder( elem ) {
-
-    var val = elem.getAttribute(ATTR_CURRENT_VAL);
-
-    if ( elem.value === '' && val ) {
-
-      elem.setAttribute(ATTR_ACTIVE, 'true');
-      elem.value = val;
-      elem.className += ' ' + placeholderClassName;
-
-      // Store and remove the maxlength value.
-      var maxLength = elem.getAttribute(ATTR_MAXLENGTH);
-      if ( !maxLength ) {
-        elem.setAttribute(ATTR_MAXLENGTH, elem.maxLength);
-        elem.removeAttribute('maxLength');
-      }
-
-      // If the type of element needs to change, change it (e.g. password
-      // inputs).
-      var type = elem.getAttribute(ATTR_INPUT_TYPE);
-      if ( type ) {
-        elem.type = 'text';
-      } else if ( elem.type === 'password' && changeType(elem, 'text') ) {
-        elem.setAttribute(ATTR_INPUT_TYPE, 'password');
-      }
-
-      return true;
-    }
-
-    return false;
-  }
-
-  // Returns a function that is used as a focus event handler.
-  function makeFocusHandler( elem ) {
-    return function () {
-
-      // Only hide the placeholder value if the (default) hide-on-focus
-      // behaviour is enabled.
-      if (
-        hideOnInput &&
-        elem.value === elem.getAttribute(ATTR_CURRENT_VAL) &&
-        elem.getAttribute(ATTR_ACTIVE) === 'true'
-      ) {
-
-        // Move the caret to the start of the input (this mimics the behaviour
-        // of all browsers that do not hide the placeholder on focus).
-        moveCaret(elem, 0);
-      } else {
-
-        // Remove the placeholder.
-        hidePlaceholder(elem);
-      }
-    };
-  }
-
-  // Returns a function that is used as a blur event handler.
-  function makeBlurHandler( elem ) {
-    return function () {
-      showPlaceholder(elem);
-    };
-  }
-
-  // Returns a function that is used as a submit event handler on form elements
-  // that have children affected by this polyfill.
-  function makeSubmitHandler( form ) {
-    return function () {
-
-        // Turn off placeholders on all appropriate descendant elements.
-        disablePlaceholders(form);
-    };
-  }
-
-  // Functions that are used as a event handlers when the hide-on-input
-  // behaviour has been activated - very basic implementation of the 'input'
-  // event.
-  function makeKeydownHandler( elem ) {
-    return function ( e ) {
-      keydownVal = elem.value;
-
-      // Prevent the use of the arrow keys (try to keep the cursor before the
-      // placeholder).
-      if (
-        elem.getAttribute(ATTR_ACTIVE) === 'true' &&
-        keydownVal === elem.getAttribute(ATTR_CURRENT_VAL) &&
-        inArray(badKeys, e.keyCode)
-      ) {
-        if ( e.preventDefault ) {
-            e.preventDefault();
+    // Check whether an item is in an array (we don't use Array.prototype.indexOf so we don't clobber any existing polyfills - this is a really simple alternative)
+    function inArray(arr, item) {
+        var i, len;
+        for (i = 0, len = arr.length; i < len; i++) {
+            if (arr[i] === item) {
+                return true;
+            }
         }
         return false;
-      }
-    };
-  }
-
-  function makeKeyupHandler(elem) {
-    return function () {
-      hidePlaceholder(elem, keydownVal);
-
-      // If the element is now empty we need to show the placeholder
-      if ( elem.value === '' ) {
-        elem.blur();
-        moveCaret(elem, 0);
-      }
-    };
-  }
-
-  function makeClickHandler(elem) {
-    return function () {
-      if (
-        elem === safeActiveElement() &&
-        elem.value === elem.getAttribute(ATTR_CURRENT_VAL) &&
-        elem.getAttribute(ATTR_ACTIVE) === 'true'
-      ) {
-        moveCaret(elem, 0);
-      }
-    };
-  }
-
-  // Bind event handlers to an element that we need to affect with the
-  // polyfill.
-  function newElement( elem ) {
-
-    // If the element is part of a form, make sure the placeholder string is
-    // not submitted as a value.
-    var form = elem.form;
-    if ( form && typeof form === 'string' ) {
-
-      // Get the real form.
-      form = document.getElementById(form);
-
-      // Set a flag on the form so we know it's been handled (forms can contain
-      // multiple inputs).
-      if ( !form.getAttribute(ATTR_FORM_HANDLED) ) {
-        addEventListener(form, 'submit', makeSubmitHandler(form));
-        form.setAttribute(ATTR_FORM_HANDLED, 'true');
-      }
     }
 
-    // Bind event handlers to the element so we can hide/show the placeholder
-    // as appropriate.
-    addEventListener(elem, 'focus', makeFocusHandler(elem));
-    addEventListener(elem, 'blur', makeBlurHandler(elem));
-
-    // If the placeholder should hide on input rather than on focus we need
-    // additional event handlers
-    if (hideOnInput) {
-      addEventListener(elem, 'keydown', makeKeydownHandler(elem));
-      addEventListener(elem, 'keyup', makeKeyupHandler(elem));
-      addEventListener(elem, 'click', makeClickHandler(elem));
+    // Move the caret to the index position specified. Assumes that the element has focus
+    function moveCaret(elem, index) {
+        var range;
+        if (elem.createTextRange) {
+            range = elem.createTextRange();
+            range.move("character", index);
+            range.select();
+        } else if (elem.selectionStart) {
+            elem.focus();
+            elem.setSelectionRange(index, index);
+        }
     }
 
-    // Remember that we've bound event handlers to this element.
-    elem.setAttribute(ATTR_EVENTS_BOUND, 'true');
-    elem.setAttribute(ATTR_CURRENT_VAL, placeholder);
-
-    // If the element doesn't have a value and is not focussed, set it to the
-    // placeholder string.
-    if ( hideOnInput || elem !== safeActiveElement() ) {
-      showPlaceholder(elem);
+    // Attempt to change the type property of an input element
+    function changeType(elem, type) {
+        try {
+            elem.type = type;
+            return true;
+        } catch (e) {
+            // You can't change input type in IE8 and below
+            return false;
+        }
     }
-  }
 
-}(this) );
-
-( function ( $, global ) {
-
-  'use strict';
-
-  var originalValFn = $.fn.val;
-  var originalPropFn = $.fn.prop;
-
-  if ( !global.Placeholders.nativeSupport ) {
-
-    $.fn.val = function ( val ) {
-      var originalValue = originalValFn.apply(this, arguments);
-      var placeholder = this.eq(0).data('placeholder-value');
-      if (
-        val === undefined &&
-        this.eq(0).data('placeholder-active') &&
-        originalValue === placeholder
-      ) {
-        return '';
-      }
-      return originalValue;
+    // Expose public methods
+    global.Placeholders = {
+        Utils: {
+            addEventListener: addEventListener,
+            inArray: inArray,
+            moveCaret: moveCaret,
+            changeType: changeType
+        }
     };
 
-    $.fn.prop = function ( name, val ) {
-      if (
-        val === undefined &&
-        this.eq(0).data('placeholder-active') &&
-        name === 'value'
-      ) {
-        return '';
-      }
-      return originalPropFn.apply(this, arguments);
-    };
-  }
-}(jQuery, this) );
+}(this));
+
+(function (global) {
+
+    "use strict";
+
+    var validTypes = [
+            "text",
+            "search",
+            "url",
+            "tel",
+            "email",
+            "password",
+            "number",
+            "textarea"
+        ],
+
+        // The list of keycodes that are not allowed when the polyfill is configured to hide-on-input
+        badKeys = [
+
+            // The following keys all cause the caret to jump to the end of the input value
+            27, // Escape
+            33, // Page up
+            34, // Page down
+            35, // End
+            36, // Home
+
+            // Arrow keys allow you to move the caret manually, which should be prevented when the placeholder is visible
+            37, // Left
+            38, // Up
+            39, // Right
+            40, // Down
+
+            // The following keys allow you to modify the placeholder text by removing characters, which should be prevented when the placeholder is visible
+            8, // Backspace
+            46 // Delete
+        ],
+
+        // Styling variables
+        placeholderStyleColor = "#ccc",
+        placeholderClassName = "placeholdersjs",
+        classNameRegExp = new RegExp("(?:^|\\s)" + placeholderClassName + "(?!\\S)"),
+
+        // These will hold references to all elements that can be affected. NodeList objects are live, so we only need to get those references once
+        inputs, textareas,
+
+        // The various data-* attributes used by the polyfill
+        ATTR_CURRENT_VAL = "data-placeholder-value",
+        ATTR_ACTIVE = "data-placeholder-active",
+        ATTR_INPUT_TYPE = "data-placeholder-type",
+        ATTR_FORM_HANDLED = "data-placeholder-submit",
+        ATTR_EVENTS_BOUND = "data-placeholder-bound",
+        ATTR_OPTION_FOCUS = "data-placeholder-focus",
+        ATTR_OPTION_LIVE = "data-placeholder-live",
+        ATTR_MAXLENGTH = "data-placeholder-maxlength",
+
+        // Various other variables used throughout the rest of the script
+        test = document.createElement("input"),
+        head = document.getElementsByTagName("head")[0],
+        root = document.documentElement,
+        Placeholders = global.Placeholders,
+        Utils = Placeholders.Utils,
+        hideOnInput, liveUpdates, keydownVal, styleElem, styleRules, placeholder, timer, form, elem, len, i;
+
+    // No-op (used in place of public methods when native support is detected)
+    function noop() {}
+
+    // Avoid IE9 activeElement of death when an iframe is used.
+    // More info:
+    // http://bugs.jquery.com/ticket/13393
+    // https://github.com/jquery/jquery/commit/85fc5878b3c6af73f42d61eedf73013e7faae408
+    function safeActiveElement() {
+        try {
+            return document.activeElement;
+        } catch (err) {}
+    }
+
+    // Hide the placeholder value on a single element. Returns true if the placeholder was hidden and false if it was not (because it wasn't visible in the first place)
+    function hidePlaceholder(elem, keydownValue) {
+        var type,
+            maxLength,
+            valueChanged = (!!keydownValue && elem.value !== keydownValue),
+            isPlaceholderValue = (elem.value === elem.getAttribute(ATTR_CURRENT_VAL));
+
+        if ((valueChanged || isPlaceholderValue) && elem.getAttribute(ATTR_ACTIVE) === "true") {
+            elem.removeAttribute(ATTR_ACTIVE);
+            elem.value = elem.value.replace(elem.getAttribute(ATTR_CURRENT_VAL), "");
+            elem.className = elem.className.replace(classNameRegExp, "");
+
+            // Restore the maxlength value
+            maxLength = elem.getAttribute(ATTR_MAXLENGTH);
+            if (parseInt(maxLength, 10) >= 0) { // Old FF returns -1 if attribute not set (see GH-56)
+                elem.setAttribute("maxLength", maxLength);
+                elem.removeAttribute(ATTR_MAXLENGTH);
+            }
+
+            // If the polyfill has changed the type of the element we need to change it back
+            type = elem.getAttribute(ATTR_INPUT_TYPE);
+            if (type) {
+                elem.type = type;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    // Show the placeholder value on a single element. Returns true if the placeholder was shown and false if it was not (because it was already visible)
+    function showPlaceholder(elem) {
+        var type,
+            maxLength,
+            val = elem.getAttribute(ATTR_CURRENT_VAL);
+        if (elem.value === "" && val) {
+            elem.setAttribute(ATTR_ACTIVE, "true");
+            elem.value = val;
+            elem.className += " " + placeholderClassName;
+
+            // Store and remove the maxlength value
+            maxLength = elem.getAttribute(ATTR_MAXLENGTH);
+            if (!maxLength) {
+                elem.setAttribute(ATTR_MAXLENGTH, elem.maxLength);
+                elem.removeAttribute("maxLength");
+            }
+
+            // If the type of element needs to change, change it (e.g. password inputs)
+            type = elem.getAttribute(ATTR_INPUT_TYPE);
+            if (type) {
+                elem.type = "text";
+            } else if (elem.type === "password") {
+                if (Utils.changeType(elem, "text")) {
+                    elem.setAttribute(ATTR_INPUT_TYPE, "password");
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
+    function handleElem(node, callback) {
+
+        var handleInputsLength, handleTextareasLength, handleInputs, handleTextareas, elem, len, i;
+
+        // Check if the passed in node is an input/textarea (in which case it can't have any affected descendants)
+        if (node && node.getAttribute(ATTR_CURRENT_VAL)) {
+            callback(node);
+        } else {
+
+            // If an element was passed in, get all affected descendants. Otherwise, get all affected elements in document
+            handleInputs = node ? node.getElementsByTagName("input") : inputs;
+            handleTextareas = node ? node.getElementsByTagName("textarea") : textareas;
+
+            handleInputsLength = handleInputs ? handleInputs.length : 0;
+            handleTextareasLength = handleTextareas ? handleTextareas.length : 0;
+
+            // Run the callback for each element
+            for (i = 0, len = handleInputsLength + handleTextareasLength; i < len; i++) {
+                elem = i < handleInputsLength ? handleInputs[i] : handleTextareas[i - handleInputsLength];
+                callback(elem);
+            }
+        }
+    }
+
+    // Return all affected elements to their normal state (remove placeholder value if present)
+    function disablePlaceholders(node) {
+        handleElem(node, hidePlaceholder);
+    }
+
+    // Show the placeholder value on all appropriate elements
+    function enablePlaceholders(node) {
+        handleElem(node, showPlaceholder);
+    }
+
+    // Returns a function that is used as a focus event handler
+    function makeFocusHandler(elem) {
+        return function () {
+
+            // Only hide the placeholder value if the (default) hide-on-focus behaviour is enabled
+            if (hideOnInput && elem.value === elem.getAttribute(ATTR_CURRENT_VAL) && elem.getAttribute(ATTR_ACTIVE) === "true") {
+
+                // Move the caret to the start of the input (this mimics the behaviour of all browsers that do not hide the placeholder on focus)
+                Utils.moveCaret(elem, 0);
+
+            } else {
+
+                // Remove the placeholder
+                hidePlaceholder(elem);
+            }
+        };
+    }
+
+    // Returns a function that is used as a blur event handler
+    function makeBlurHandler(elem) {
+        return function () {
+            showPlaceholder(elem);
+        };
+    }
+
+    // Functions that are used as a event handlers when the hide-on-input behaviour has been activated - very basic implementation of the "input" event
+    function makeKeydownHandler(elem) {
+        return function (e) {
+            keydownVal = elem.value;
+
+            //Prevent the use of the arrow keys (try to keep the cursor before the placeholder)
+            if (elem.getAttribute(ATTR_ACTIVE) === "true") {
+                if (keydownVal === elem.getAttribute(ATTR_CURRENT_VAL) && Utils.inArray(badKeys, e.keyCode)) {
+                    if (e.preventDefault) {
+                        e.preventDefault();
+                    }
+                    return false;
+                }
+            }
+        };
+    }
+    function makeKeyupHandler(elem) {
+        return function () {
+            hidePlaceholder(elem, keydownVal);
+
+            // If the element is now empty we need to show the placeholder
+            if (elem.value === "") {
+                elem.blur();
+                Utils.moveCaret(elem, 0);
+            }
+        };
+    }
+    function makeClickHandler(elem) {
+        return function () {
+            if (elem === safeActiveElement() && elem.value === elem.getAttribute(ATTR_CURRENT_VAL) && elem.getAttribute(ATTR_ACTIVE) === "true") {
+                Utils.moveCaret(elem, 0);
+            }
+        };
+    }
+
+    // Returns a function that is used as a submit event handler on form elements that have children affected by this polyfill
+    function makeSubmitHandler(form) {
+        return function () {
+
+            // Turn off placeholders on all appropriate descendant elements
+            disablePlaceholders(form);
+        };
+    }
+
+    // Bind event handlers to an element that we need to affect with the polyfill
+    function newElement(elem) {
+
+        // If the element is part of a form, make sure the placeholder string is not submitted as a value
+        if (elem.form) {
+            form = elem.form;
+
+            // If the type of the property is a string then we have a "form" attribute and need to get the real form
+            if (typeof form === "string") {
+                form = document.getElementById(form);
+            }
+
+            // Set a flag on the form so we know it's been handled (forms can contain multiple inputs)
+            if (!form.getAttribute(ATTR_FORM_HANDLED)) {
+                Utils.addEventListener(form, "submit", makeSubmitHandler(form));
+                form.setAttribute(ATTR_FORM_HANDLED, "true");
+            }
+        }
+
+        // Bind event handlers to the element so we can hide/show the placeholder as appropriate
+        Utils.addEventListener(elem, "focus", makeFocusHandler(elem));
+        Utils.addEventListener(elem, "blur", makeBlurHandler(elem));
+
+        // If the placeholder should hide on input rather than on focus we need additional event handlers
+        if (hideOnInput) {
+            Utils.addEventListener(elem, "keydown", makeKeydownHandler(elem));
+            Utils.addEventListener(elem, "keyup", makeKeyupHandler(elem));
+            Utils.addEventListener(elem, "click", makeClickHandler(elem));
+        }
+
+        // Remember that we've bound event handlers to this element
+        elem.setAttribute(ATTR_EVENTS_BOUND, "true");
+        elem.setAttribute(ATTR_CURRENT_VAL, placeholder);
+
+        // If the element doesn't have a value and is not focussed, set it to the placeholder string
+        if (hideOnInput || elem !== safeActiveElement()) {
+            showPlaceholder(elem);
+        }
+    }
+
+    Placeholders.nativeSupport = test.placeholder !== void 0;
+
+    if (!Placeholders.nativeSupport) {
+
+        // Get references to all the input and textarea elements currently in the DOM (live NodeList objects to we only need to do this once)
+        inputs = document.getElementsByTagName("input");
+        textareas = document.getElementsByTagName("textarea");
+
+        // Get any settings declared as data-* attributes on the root element (currently the only options are whether to hide the placeholder on focus or input and whether to auto-update)
+        hideOnInput = root.getAttribute(ATTR_OPTION_FOCUS) === "false";
+        liveUpdates = root.getAttribute(ATTR_OPTION_LIVE) !== "false";
+
+        // Create style element for placeholder styles (instead of directly setting style properties on elements - allows for better flexibility alongside user-defined styles)
+        styleElem = document.createElement("style");
+        styleElem.type = "text/css";
+
+        // Create style rules as text node
+        styleRules = document.createTextNode("." + placeholderClassName + " { color:" + placeholderStyleColor + "; }");
+
+        // Append style rules to newly created stylesheet
+        if (styleElem.styleSheet) {
+            styleElem.styleSheet.cssText = styleRules.nodeValue;
+        } else {
+            styleElem.appendChild(styleRules);
+        }
+
+        // Prepend new style element to the head (before any existing stylesheets, so user-defined rules take precedence)
+        head.insertBefore(styleElem, head.firstChild);
+
+        // Set up the placeholders
+        for (i = 0, len = inputs.length + textareas.length; i < len; i++) {
+            elem = i < inputs.length ? inputs[i] : textareas[i - inputs.length];
+
+            // Get the value of the placeholder attribute, if any. IE10 emulating IE7 fails with getAttribute, hence the use of the attributes node
+            placeholder = elem.attributes.placeholder;
+            if (placeholder) {
+
+                // IE returns an empty object instead of undefined if the attribute is not present
+                placeholder = placeholder.nodeValue;
+
+                // Only apply the polyfill if this element is of a type that supports placeholders, and has a placeholder attribute with a non-empty value
+                if (placeholder && Utils.inArray(validTypes, elem.type)) {
+                    newElement(elem);
+                }
+            }
+        }
+
+        // If enabled, the polyfill will repeatedly check for changed/added elements and apply to those as well
+        timer = setInterval(function () {
+            for (i = 0, len = inputs.length + textareas.length; i < len; i++) {
+                elem = i < inputs.length ? inputs[i] : textareas[i - inputs.length];
+
+                // Only apply the polyfill if this element is of a type that supports placeholders, and has a placeholder attribute with a non-empty value
+                placeholder = elem.attributes.placeholder;
+                if (placeholder) {
+                    placeholder = placeholder.nodeValue;
+                    if (placeholder && Utils.inArray(validTypes, elem.type)) {
+
+                        // If the element hasn't had event handlers bound to it then add them
+                        if (!elem.getAttribute(ATTR_EVENTS_BOUND)) {
+                            newElement(elem);
+                        }
+
+                        // If the placeholder value has changed or not been initialised yet we need to update the display
+                        if (placeholder !== elem.getAttribute(ATTR_CURRENT_VAL) || (elem.type === "password" && !elem.getAttribute(ATTR_INPUT_TYPE))) {
+
+                            // Attempt to change the type of password inputs (fails in IE < 9)
+                            if (elem.type === "password" && !elem.getAttribute(ATTR_INPUT_TYPE) && Utils.changeType(elem, "text")) {
+                                elem.setAttribute(ATTR_INPUT_TYPE, "password");
+                            }
+
+                            // If the placeholder value has changed and the placeholder is currently on display we need to change it
+                            if (elem.value === elem.getAttribute(ATTR_CURRENT_VAL)) {
+                                elem.value = placeholder;
+                            }
+
+                            // Keep a reference to the current placeholder value in case it changes via another script
+                            elem.setAttribute(ATTR_CURRENT_VAL, placeholder);
+                        }
+                    }
+                } else if (elem.getAttribute(ATTR_ACTIVE)) {
+                    hidePlaceholder(elem);
+                    elem.removeAttribute(ATTR_CURRENT_VAL);
+                }
+            }
+
+            // If live updates are not enabled cancel the timer
+            if (!liveUpdates) {
+                clearInterval(timer);
+            }
+        }, 100);
+    }
+
+    Utils.addEventListener(global, "beforeunload", function () {
+        Placeholders.disable();
+    });
+
+    // Expose public methods
+    Placeholders.disable = Placeholders.nativeSupport ? noop : disablePlaceholders;
+    Placeholders.enable = Placeholders.nativeSupport ? noop : enablePlaceholders;
+
+}(this));
+
+(function ($) {
+
+    "use strict";
+
+    var originalValFn = $.fn.val,
+        originalPropFn = $.fn.prop;
+
+    if (!Placeholders.nativeSupport) {
+
+        $.fn.val = function (val) {
+            var originalValue = originalValFn.apply(this, arguments),
+                placeholder = this.eq(0).data("placeholder-value");
+            if (val === undefined && this.eq(0).data("placeholder-active") && originalValue === placeholder) {
+                return "";
+            }
+            return originalValue;
+        };
+
+        $.fn.prop = function (name, val) {
+            if (val === undefined && this.eq(0).data("placeholder-active") && name === "value") {
+                return "";
+            }
+            return originalPropFn.apply(this, arguments);
+        };
+    }
+
+}(jQuery));
 
 
 
-// SVG polyfill
+// SVG4Everybody
 !function(root, factory) {
     "function" == typeof define && define.amd ? // AMD. Register as an anonymous module unless amdModuleId is set
     define([], function() {
         return root.svg4everybody = factory();
     }) : "object" == typeof exports ? module.exports = factory() : root.svg4everybody = factory();
 }(this, function() {
-    /*! svg4everybody v2.0.3 | github.com/jonathantneal/svg4everybody */
+    /*! svg4everybody v2.1.0 | github.com/jonathantneal/svg4everybody */
     function embed(svg, target) {
         // if the target exists
         if (target) {
@@ -3519,620 +3417,6 @@ This test will also return `true` for Firefox 4 Multitouch support.
 //////////////////////////////////////////////////////////////////////////////
 // Optionals plugins
 //////////////////////////////////////////////////////////////////////////////
-
-// jQuery.BEM
-// Small jQuery plugin for comfortable working with HTML made by BEM methodology.
-// ---------------------------------------------------------------------------
-/* @required jQuery */
-
-(function(root, factory) {
-  if(typeof define === "function" && define.amd) {
-    define(['jquery'], factory);
-  } else if(typeof module === 'object' && module.exports) {
-    factory(require('jquery'));
-  } else {
-    factory(root.jQuery);
-  }
-}(this, function($, undefined) {
-
-  /**
-   * Base BEM class.
-   * @constructor
-   */
-  function BEM(config) {
-    this.setConfig(config);
-  };
-
-  /**
-   * Set the config for the plugin
-   * @param {Object} config - defaults in br
-   * @param {String} [config.elemPrefix] - Element prefix (default: '__')
-   * @param {String} [config.modPrefix] - Modifier prefix (default: '_')
-   * @param {String} [config.modDlmtr] - Modifier delimiter (default: '_')
-   * @param {String} [config.namePattern] -
-   *   Pattern to match valid block names (default: '[a-zA-Z0-9-]+')
-   */
-  BEM.prototype.setConfig = function(config) {
-    this.config = $.extend({}, {
-      namePattern: '[a-zA-Z0-9-]+',
-      elemPrefix: '__',
-      modPrefix: '_',
-      modDlmtr: '_'
-    }, config);
-
-    this.blockClassRe = this.buildBlockClassRe();
-    this.elemClassRe = this.buildElemClassRe();
-    this.modClassRe = this.buildModClassRe();
-  };
-
-  /**
-   * Get parent block of element.
-   * @public
-   *
-   * @param {Object} $this
-   * @return {Object}
-   */
-  BEM.prototype.getBlock = function($this) {
-    var blockClass = this.getBlockClass($this)
-      , block = $this.closest('.' + blockClass);
-
-    block.selector = blockClass;
-    return block;
-  };
-
-  /**
-   * Switch block context.
-   * @public
-   *
-   * @param {Object} $this
-   * @param {String} block
-   * @param {String} [elem]
-   * @return {Object}
-   */
-  BEM.prototype.switchBlock = function($this, block, elem) {
-    var elem = elem || null;
-
-    elem
-      ? $this.selector = this.buildSelector({ block: block, elem: elem })
-      : $this.selector = this.buildSelector({ block: block });
-
-    return $this;
-  };
-
-  /**
-   * Find element in block.
-   * @public
-   *
-   * @param  {Object}  $this    DOM element
-   * @param  {String}  elemKey  Element name
-   * @return {Object}
-   */
-  BEM.prototype.findElem = function($this, elemKey) {
-    var blockClass = this.getBlockClass($this)
-      , elemSelector = '.' + this.buildElemClass(blockClass, elemKey)
-      , elem = $this.is(elemSelector) ? $this : $this.find(elemSelector);
-
-    return elem;
-  };
-
-  /**
-   * Get value of modifier.
-   * @public
-   *
-   * @param {Object} $this
-   * @param {String} modKey
-   * @return {String}
-   */
-  BEM.prototype.getMod = function($this, modKey) {
-    var mods = this.extractMods($this.first());
-
-    if (mods[modKey] != undefined) return mods[modKey];
-    return null;
-  };
-
-  /**
-   * Check modifier of element.
-   * @public
-   *
-   * @param {Object} $this
-   * @param {String} modKey
-   * @param {String} [modVal]
-   * @return {Boolean}
-   */
-  BEM.prototype.hasMod = function($this, modKey, modVal) {
-    var mods = this.extractMods($this.first());
-
-    if (modVal) {
-      if (mods[modKey] == modVal) return true;
-    }
-    else {
-      if (mods[modKey]) return true;
-    }
-
-    return false;
-  };
-
-  /**
-   * Set modifier on element.
-   * @public
-   *
-   * @param {Object} $this
-   * @param {String} modKey
-   * @param {String} [modVal]
-   * @param {Object}
-   */
-  BEM.prototype.setMod = function($this, modKey, modVal) {
-    var self = this
-      , selector = $this.selector;
-
-    $this.each(function() {
-      var current = $(this);
-      current.selector = selector;
-
-      var mods = self.extractMods(current)
-        , baseName = self.getBaseClass(current);
-
-      if (mods[modKey] != undefined) {
-        var oldModName = self.buildModClass(baseName, modKey, mods[modKey]);
-        current.removeClass(oldModName);
-      }
-
-      if (modVal !== false) {
-        var newModName = self.buildModClass(baseName, modKey, modVal);
-      }
-
-      current
-        .addClass(newModName)
-        .trigger('setmod', [modKey, modVal]);
-    });
-
-    return $this;
-  };
-
-  /**
-   * Delete modifier on element.
-   * @public
-   *
-   * @param {Object} $this
-   * @param {String} modKey
-   * @param {String} [modVal]
-   * @param {Object}
-   */
-  BEM.prototype.delMod = function($this, modKey, modVal) {
-    var self = this
-      , selector = $this.selector;
-
-    $this.each(function() {
-      var current = $(this);
-      current.selector = selector;
-
-      var mods = self.extractMods(current)
-        , baseName = self.getBaseClass(current);
-
-      if (modVal) {
-        if (mods[modKey] == modVal) {
-          var modName = self.buildModClass(baseName, modKey, mods[modKey]);
-        }
-      }
-      else {
-        var modName = self.buildModClass(baseName, modKey, mods[modKey]);
-      }
-
-      current
-        .removeClass(modName)
-        .trigger('delmod', [modKey, modVal]);
-    });
-
-    return $this;
-  };
-
-  /**
-   * Filtering elements by modifier.
-   * @public
-   *
-   * @param {Object} $this
-   * @param {String} modKey
-   * @param {String} [modVal]
-   * @param {Boolean} [inverse]
-   * @return {Object}
-   */
-  BEM.prototype.byMod = function($this, modKey, modVal, inverse) {
-    var self = this
-      , modVal = modVal || null
-      , inverse = inverse || false
-      , selector = $this.selector
-      , result = $();
-
-    $this.each(function() {
-      var current = $(this);
-      current.selector = selector;
-
-      var mods = self.extractMods(current)
-        , baseName = self.getBaseClass(current);
-
-      if (modVal) {
-        if (mods[modKey] == modVal) {
-          var modName = self.buildModClass(baseName, modKey, mods[modKey]);
-        }
-      }
-      else {
-        if (mods[modKey] != undefined) {
-          var modName = self.buildModClass(baseName, modKey, mods[modKey]);
-        }
-      }
-
-      result = result.add(inverse
-        ? current.not('.' + modName)
-        : current.filter('.' + modName));
-    });
-
-    result.selector = selector;
-    return result;
-  };
-
-  /**
-   * Get block names from element.
-   * @protected
-   *
-   * @param {Object|String} $this
-   * @return {Object}
-   */
-  BEM.prototype.extractBlocks = function($this) {
-    var self = this, result = []
-      , selectors = this.getClasses($this);
-
-    $.each(selectors, function(i, sel) {
-      var type = self.getClassType(sel);
-
-      if (type == 'block') {
-        result.push(sel);
-      }
-      else if (type == 'elem') {
-        var elem = sel.split(self.config.elemPrefix);
-        result.push(elem[0]);
-      }
-    });
-
-    return result;
-  };
-
-  /**
-   * Get element names from element.
-   * @protected
-   *
-   * @param {Object} $this
-   * @return {Object}
-   */
-  BEM.prototype.extractElems = function($this) {
-    var self = this, result = [];
-
-    $.each(self.getClasses($this), function(i, className) {
-      if (self.getClassType(className) == 'elem') {
-        var elemName = className.split(self.config.elemPrefix);
-        result.push(elemName[1]);
-      }
-    });
-
-    return result;
-  };
-
-  /**
-   * Get modifiers from element.
-   * @protected
-   *
-   * @param {Object} $this
-   * @return {Object}
-   */
-  BEM.prototype.extractMods = function($this) {
-    var self = this, result = {};
-
-    $this.each(function() {
-      var $this = $(this);
-
-      $.each(self.getClasses($this), function(i, className) {
-        if (self.getClassType(className) == 'mod') {
-          var re = self.buildModClassRe().exec(className);
-          var modName = re[1].split(self.config.modDlmtr);
-
-          if (modName[1] !== undefined && modName[1] !== false) {
-            var modVal = modName[1];
-          } else {
-            var modVal = true;
-          }
-
-          result[ modName[0] ] = modVal;
-        }
-      });
-    });
-
-    return result;
-  };
-
-  /**
-   * Get classes names from element.
-   * @protected
-   *
-   * @param {Object} $this
-   * @return {Object}
-   */
-  BEM.prototype.getClasses = function($this) {
-    var classes, result = [];
-
-    if (typeof $this == 'object') {
-
-      if ($this.selector.indexOf('.') === 0) {
-        classes = $this.selector.split('.');
-      }
-      else if ($this.attr('class') != undefined) {
-        classes = $this.attr('class').split(' ');
-      }
-      else {
-        return null;
-      }
-
-    }
-    else {
-      classes = $this.split('.');
-    }
-
-    $.each(classes, function(i, className) {
-      if (className != '') result.push($.trim(className));
-    });
-
-    return result;
-  };
-
-  /**
-   * Build regexp for blocks.
-   * @protected
-   *
-   * @return {RegExp}
-   */
-  BEM.prototype.buildBlockClassRe = function() {
-    return new RegExp(
-      '^(' + this.config.namePattern + ')$'
-    );
-  };
-
-  /**
-   * Build regexp for elements.
-   * @protected
-   *
-   * @return {RegExp}
-   */
-  BEM.prototype.buildElemClassRe = function() {
-    return new RegExp(
-      '^' + this.config.namePattern + this.config.elemPrefix + '(' + this.config.namePattern + ')$'
-    );
-  };
-
-  /**
-   * Build regexp for modifiers.
-   * @protected
-   *
-   * @return {RegExp}
-   */
-  BEM.prototype.buildModClassRe = function() {
-    return new RegExp(
-      '^(?:' + this.config.namePattern + '|' + this.config.namePattern + this.config.elemPrefix + this.config.namePattern + ')' + this.config.modPrefix + '(' + this.config.namePattern + '((' + this.config.modDlmtr + this.config.namePattern + ')$|$))'
-    );
-  };
-
-  /**
-   * Build class name for block.
-   * @protected
-   *
-   * @param {String} blockName
-   * @return {String}
-   */
-  BEM.prototype.buildBlockClass = function(blockName) {
-    return blockName;
-  };
-
-  /**
-   * Build class name for element.
-   * @protected
-   *
-   * @param {String} blockName
-   * @param {String} elemKey
-   * @return {String}
-   */
-  BEM.prototype.buildElemClass = function(blockName, elemKey) {
-    return blockName + this.config.elemPrefix + elemKey;
-  };
-
-  /**
-   * Build class name for modifier.
-   * @protected
-   *
-   * @param {String} blockName
-   * @param {String} modKey
-   * @param {String} modVal
-   * @return {String}
-   */
-  BEM.prototype.buildModClass = function(baseClass, modKey, modVal) {
-    if (modVal !== undefined && modVal !== true) {
-      return baseClass + this.config.modPrefix + modKey + this.config.modDlmtr + modVal;
-    } else {
-      return baseClass + this.config.modPrefix + modKey;
-    }
-  };
-
-  /**
-   * Build selector from object or string.
-   * @private
-   *
-   * @param {String|Object}
-   * @param {String}
-   * @return {String}
-   */
-  BEM.prototype.buildSelector = function(selector, prefix) {
-    if (prefix !== '') {
-      var prefix = prefix || '.';
-    }
-
-    if (typeof selector == 'object') {
-      if (selector.block != undefined) {
-        var buildSelector = this.buildBlockClass(selector.block);
-
-        if (selector.elem != undefined) {
-          buildSelector = this.buildElemClass(buildSelector, selector.elem);
-        }
-
-        if (selector.mod != undefined) {
-          var mod = selector.mod.split(':');
-          buildSelector = this.buildModClass(buildSelector, mod[0], mod[1]);
-        }
-      }
-    }
-
-    return buildSelector != undefined
-      ? prefix + buildSelector
-      : prefix + selector;
-  };
-
-  /**
-   * Build class name for block.
-   * @protected
-   *
-   * @param {Object|String} $this
-   * @param {Number} [index]
-   * @return {String}
-   */
-  BEM.prototype.getBlockClass = function($this, index) {
-    var blockClasses = this.extractBlocks($this);
-    var index = index || 0;
-
-    return index <= blockClasses.length - 1
-      ? blockClasses[index]
-      : null;
-  };
-
-  /**
-   * Get base class from element.
-   * @protected
-   *
-   * @param {Object} $this
-   * @return {String}
-   */
-  BEM.prototype.getBaseClass = function($this) {
-    var self = this, baseClass = null;
-    var selectors = this.getClasses($this);
-
-    $.each(selectors, function(i, sel) {
-      var classType = self.getClassType(sel);
-
-      if (classType && classType != 'mod') {
-        baseClass = sel;
-      }
-    });
-
-    return baseClass;
-  };
-
-  /**
-   * Get class type.
-   * @protected
-   *
-   * @param {String} className
-   * @return {String}
-   */
-  BEM.prototype.getClassType = function(className) {
-    if (this.modClassRe.test(className)) {
-      return 'mod';
-    }
-    else if (this.elemClassRe.test(className)) {
-      return 'elem';
-    }
-    else if (this.blockClassRe.test(className)) {
-      return 'block';
-    }
-    return null;
-  };
-
-  /**
-   * Create BEM instance.
-   */
-  $.BEM = new BEM();
-
-  /**
-   * Extend jQuery object.
-   */
-  $.fn.extend({
-    block: function() {
-      return $.BEM.getBlock(this);
-    },
-
-    elem: function(ctx, elemKey) {
-      if (!elemKey) {
-        elemKey = ctx;
-        ctx = null;
-      }
-
-      return $.BEM.findElem(ctx || this, elemKey);
-    },
-
-    ctx: function(block, elem) {
-      return $.BEM.switchBlock(this, block, elem);
-    },
-
-    mod: function(modKey, modVal) {
-      if (typeof modVal == 'undefined') {
-        modVal = null;
-      }
-
-      if (modVal === false) {
-        return $.BEM.delMod(this, modKey);
-      }
-
-      return (modVal != null)
-        ? $.BEM.setMod(this, modKey, modVal)
-        : $.BEM.getMod(this, modKey);
-    },
-
-    setMod: function(modKey, modVal) {
-      return $.BEM.setMod(this, modKey, modVal);
-    },
-
-    delMod: function(modKey, modVal) {
-      return $.BEM.delMod(this, modKey, modVal);
-    },
-
-    hasMod: function(modKey, modVal) {
-      return $.BEM.hasMod(this, modKey, modVal);
-    },
-
-    byMod: function(modKey, modVal) {
-      return $.BEM.byMod(this, modKey, modVal);
-    },
-
-    byNotMod: function(modKey, modVal) {
-      return $.BEM.byMod(this, modKey, modVal, 'inverse');
-    },
-
-    /**
-     * Toggle blocks's or elem's modifier `modKey` between `modVal1` and `modVal2`
-     * @param {String} modKey
-     * @param {String} modVal1
-     * @param {String} modVal2
-     * @return {*}
-     */
-    toggleMod: function (modKey, modVal1, modVal2) {
-      if (this.hasMod(modKey, modVal1)) {
-        return this
-            .delMod(modKey, modVal1)
-            .setMod(modKey, modVal2);
-      } else {
-        return this
-            .delMod(modKey, modVal2)
-            .setMod(modKey, modVal1);
-      }
-    }
-  });
-
-}));
-
-
 
 // Basic table
 // Responsive tables
@@ -4352,35 +3636,11 @@ This test will also return `true` for Firefox 4 Multitouch support.
 
 
 
-// Forms
-// Crosbrowser from elements select, checkbox, radio, file, number
-// ---------------------------------------------------------------------------
-// require plugins/formstyler/jquery.formstyler.js
-
-
-// Ion tabs
-// Powerfull tabs plugin
-// ---------------------------------------------------------------------------
-// require plugins/ion-tabs/ion.tabs.js
-
-
-// Ion Slider
-// Range slider plugin
-// ---------------------------------------------------------------------------
-// require plugins/ion-rangeSlider/ion.rangeSlider.js
-
-
-// Perfect scrollbar
-// Scrollbar plugin
-// ---------------------------------------------------------------------------
-// require plugins/perfect-scrollbar/perfect-scrollbar.js
-
-
 // Remodal
 // Css modal windows
 // ---------------------------------------------------------------------------
 /*
- *  Remodal - v1.0.6
+ *  Remodal - v1.1.0
  *  Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
  *  http://vodkabears.github.io/remodal/
  *
@@ -4460,7 +3720,8 @@ This test will also return `true` for Firefox 4 Multitouch support.
     closeOnCancel: true,
     closeOnEscape: true,
     closeOnOutsideClick: true,
-    modifier: ''
+    modifier: '',
+    appendTo: null
   }, global.REMODAL_GLOBALS && global.REMODAL_GLOBALS.DEFAULTS);
 
   /**
@@ -4582,7 +3843,7 @@ This test will also return `true` for Firefox 4 Multitouch support.
       }
     }
 
-    return num;
+    return max;
   }
 
   /**
@@ -4887,6 +4148,7 @@ This test will also return `true` for Firefox 4 Multitouch support.
    */
   function Remodal($modal, options) {
     var $body = $(document.body);
+    var $appendTo = $body;
     var remodal = this;
 
     remodal.settings = $.extend({}, DEFAULTS, options);
@@ -4895,9 +4157,13 @@ This test will also return `true` for Firefox 4 Multitouch support.
 
     remodal.$overlay = $('.' + namespacify('overlay'));
 
+    if (remodal.settings.appendTo !== null && remodal.settings.appendTo.length) {
+      $appendTo = $(remodal.settings.appendTo);
+    }
+
     if (!remodal.$overlay.length) {
       remodal.$overlay = $('<div>').addClass(namespacify('overlay') + ' ' + namespacify('is', STATES.CLOSED)).hide();
-      $body.append(remodal.$overlay);
+      $appendTo.append(remodal.$overlay);
     }
 
     remodal.$bg = $('.' + namespacify('bg')).addClass(namespacify('is', STATES.CLOSED));
@@ -4917,7 +4183,7 @@ This test will also return `true` for Firefox 4 Multitouch support.
         namespacify('is', STATES.CLOSED))
       .hide()
       .append(remodal.$modal);
-    $body.append(remodal.$wrapper);
+    $appendTo.append(remodal.$wrapper);
 
     // Add the event listener for the close button
     remodal.$wrapper.on('click.' + NAMESPACE, '[data-' + PLUGIN_NAME + '-action="close"]', function(e) {
@@ -5158,102 +4424,6 @@ This test will also return `true` for Firefox 4 Multitouch support.
     $(window).on('hashchange.' + NAMESPACE, handleHashChangeEvent);
   });
 });
-
-
-
-// Sliders
-// ---------------------------------------------------------------------------
-// require plugins/slick/slick.js
-// require plugins/bjqs/bjqs-1.3.js
-
-
-// Share buttons
-// ---------------------------------------------------------------------------
-// require plugins/social-likes/social-likes.js
-
-
-// Gallery
-// ---------------------------------------------------------------------------
-// require plugins/fotorama/fotorama.js
-
-
-// Drag'n drop file uploader
-// ---------------------------------------------------------------------------
-// require plugins/dropzone/dropzone.js
-
-
-// JQuery UI
-// ---------------------------------------------------------------------------
-// UI Core
-// require plugins/jquery-ui/core.js
-// require plugins/jquery-ui/widget.js
-// require plugins/jquery-ui/mouse.js
-// require plugins/jquery-ui/position.js
-
-// Interactions
-// require plugins/jquery-ui/draggable.js
-// require plugins/jquery-ui/droppable.js
-// require plugins/jquery-ui/resizable.js
-// require plugins/jquery-ui/selectable.js
-// require plugins/jquery-ui/sortable.js
-
-// Widgets
-// require plugins/jquery-ui/accordion.js
-// require plugins/jquery-ui/autocomplete.js
-// require plugins/jquery-ui/button.js
-// require plugins/jquery-ui/datepicker.js
-// require plugins/jquery-ui/dialog.js
-// require plugins/jquery-ui/menu.js
-// require plugins/jquery-ui/progressbar.js
-// require plugins/jquery-ui/selectmenu.js
-// require plugins/jquery-ui/slider.js
-// require plugins/jquery-ui/spinner.js
-// require plugins/jquery-ui/tabs.js
-// require plugins/jquery-ui/tooltip.js
-
-// Effects
-// require plugins/jquery-ui/effect.js
-// require plugins/jquery-ui/effect-blind.js
-// require plugins/jquery-ui/effect-bounce.js
-// require plugins/jquery-ui/effect-clip.js
-// require plugins/jquery-ui/effect-drop.js
-// require plugins/jquery-ui/effect-explode.js
-// require plugins/jquery-ui/effect-fade.js
-// require plugins/jquery-ui/effect-fold.js
-// require plugins/jquery-ui/effect-highlight.js
-// require plugins/jquery-ui/effect-puff.js
-// require plugins/jquery-ui/effect-pulsate.js
-// require plugins/jquery-ui/effect-scale.js
-// require plugins/jquery-ui/effect-shake.js
-// require plugins/jquery-ui/effect-size.js
-// require plugins/jquery-ui/effect-slide.js
-// require plugins/jquery-ui/effect-transfer.js
-
-// Language
-// require plugins/jquery-ui/i18n/datepicker-ru.js
-// require plugins/jquery-ui/i18n/datepicker-en-GB.js
-// require plugins/jquery-ui/i18n/datepicker-ky.js
-
-
-// Browser detection library
-// ---------------------------------------------------------------------------
-// require plugins/bowser/bowser.js
-
-
-// Positioned element on the page, and lock within the user's viewport when scrolling
-// ---------------------------------------------------------------------------
-// require plugins/lockfixed/jquery.lockfixed.js
-
-
-// Cross-browser mouse wheel support with delta normalization
-// ---------------------------------------------------------------------------
-// require plugins/mousewheel/jquery.mousewheel.js
-
-
-// Transit
-// ---------------------------------------------------------------------------
-// require plugins/transit/jquery.transit.js
-
 
 
 

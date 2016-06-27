@@ -51,18 +51,18 @@ $(document).ready(function() {
 	})();
 	
 	
-	// Browsehappy
-	(function() {
-		$('.browsehappy').click(function() {
-			$(this).slideUp();
-		});
-	})();
-	
-	
 	// Alert
 	(function() {
 		$('.alert__close').on('click', function() {
 			$(this).closest('.alert').fadeOut();
+		});
+	})();
+	
+	
+	// Browsehappy
+	(function() {
+		$('.browsehappy').click(function() {
+			$(this).slideUp();
 		});
 	})();
 	
@@ -204,7 +204,7 @@ $(document).ready(function() {
 	})();
 	
 	
-	// Forms
+	// Mobile menu
 	(function() {
 		var mmenu = {
 			trigger: $('.mobile-menu-trigger'),
