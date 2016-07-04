@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html class="modernizr_no-js" lang="en">
 
 	<head>
 		<meta charset="utf-8">
@@ -23,35 +23,56 @@
 		<meta property="og:image:height" content="300">
 		<meta property="twitter:description" content="The template for quick start of development with Gulp, Jade and Stylus">
 		<link href="assets/images/content/preview.png" rel="image_src">
-		<link href="/favicons/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57">
-		<link href="/favicons/apple-touch-icon-60x60.png" rel="apple-touch-icon" sizes="60x60">
-		<link href="/favicons/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
-		<link href="/favicons/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76">
-		<link href="/favicons/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
-		<link href="/favicons/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120">
-		<link href="/favicons/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
-		<link href="/favicons/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152">
-		<link href="/favicons/apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180">
-		<link type="image/png" href="/favicons/favicon-32x32.png" rel="icon" sizes="32x32">
-		<link type="image/png" href="/favicons/favicon-194x194.png" rel="icon" sizes="194x194">
-		<link type="image/png" href="/favicons/favicon-96x96.png" rel="icon" sizes="96x96">
-		<link type="image/png" href="/favicons/android-chrome-192x192.png" rel="icon" sizes="192x192">
-		<link type="image/png" href="/favicons/favicon-16x16.png" rel="icon" sizes="16x16">
-		<link href="/favicons/manifest.json" rel="manifest">
-		<link href="/favicons/safari-pinned-tab.svg" rel="mask-icon" color="#71bf44">
+		<link href="assets/favicons/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57">
+		<link href="assets/favicons/apple-touch-icon-60x60.png" rel="apple-touch-icon" sizes="60x60">
+		<link href="assets/favicons/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
+		<link href="assets/favicons/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76">
+		<link href="assets/favicons/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
+		<link href="assets/favicons/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120">
+		<link href="assets/favicons/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
+		<link href="assets/favicons/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152">
+		<link href="assets/favicons/apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180">
+		<link type="image/png" href="assets/favicons/favicon-32x32.png" rel="icon" sizes="32x32">
+		<link type="image/png" href="assets/favicons/favicon-194x194.png" rel="icon" sizes="194x194">
+		<link type="image/png" href="assets/favicons/favicon-96x96.png" rel="icon" sizes="96x96">
+		<link type="image/png" href="assets/favicons/android-chrome-192x192.png" rel="icon" sizes="192x192">
+		<link type="image/png" href="assets/favicons/favicon-16x16.png" rel="icon" sizes="16x16">
+		<link href="assets/favicons/manifest.json" rel="manifest">
+		<link href="assets/favicons/safari-pinned-tab.svg" rel="mask-icon" color="#71bf44">
 		<meta name="apple-mobile-web-app-title" content="Gulp-front">
 		<meta name="application-name" content="Gulp-front">
 		<meta name="msapplication-TileColor" content="#ffffff">
-		<meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+		<meta name="msapplication-TileImage" content="assets/favicons/mstile-144x144.png">
 		<meta name="theme-color" content="#ffffff">
 		<script src="assets/javascripts/jquery-3.0.0.min.js"></script>
+		<style>
+			.demo-icons .icon {
+				display: inline-block;
+				padding: 20px;
+				box-shadow: 0 1px 5px rgba(22, 20, 17, 0.16);
+				width: 34px;
+				height: 34px;
+				margin: 5px;
+			}
+			
+			.demo-icons .flag {
+				width: 34px;
+				height: 26px;
+			}
+			
+			.demo-icons .flag_squared {
+				width: 34px;
+				height: 34px;
+			}
+
+		</style>
 	</head>
 
 	<body class="page">
 		<!--[if lt IE 8]>
 		<p class="browsehappy">Вы используете<strong>устаревший</strong> браузер. Пожалуйста<a href="http://browsehappy.com" target="_blank">обновите браузер</a> для лучшего отображения сайта.</p><![endif]-->
 		<div class="page__mobile-menu">
-			<div class="mobile-menu">
+			<div class="mobile-menu js-link-sroll">
 				<nav class="mobile-menu__menu">
 					<ul>
 						<li class="mobile-menu__item">
@@ -96,41 +117,6 @@
 							</div>
 						</li>
 						<li class="mobile-menu__item">
-							<a class="mobile-menu__link" href="#helpers">
-								<span class="mobile-menu__icon">
-									<svg class="icon icon_add">
-										<use xlink:href="assets/images/icons.svg#add"></use>
-									</svg>
-								</span>
-								<span class="mobile-menu__text">Helpers</span>
-							</a>
-							<div class="mobile-menu__submenu">
-								<ul>
-									<li class="mobile-menu__item">
-										<a class="mobile-menu__submenu-link" href="#modals">Modal windows</a>
-									</li>
-									<li class="mobile-menu__item">
-										<a class="mobile-menu__submenu-link" href="#video">Responsive video</a>
-									</li>
-									<li class="mobile-menu__item">
-										<a class="mobile-menu__submenu-link" href="#social-icons">Social icons module</a>
-									</li>
-									<li class="mobile-menu__item">
-										<a class="mobile-menu__submenu-link" href="#svg-icons">Svg Icons</a>
-									</li>
-									<li class="mobile-menu__item">
-										<a class="mobile-menu__submenu-link" href="#accordion">Accordion</a>
-									</li>
-									<li class="mobile-menu__item">
-										<a class="mobile-menu__submenu-link" href="#pseudo-dropdown">Pseudo dropdown</a>
-									</li>
-									<li class="mobile-menu__item">
-										<a class="mobile-menu__submenu-link" href="#images-helpers">Images helpers</a>
-									</li>
-								</ul>
-							</div>
-						</li>
-						<li class="mobile-menu__item">
 							<a class="mobile-menu__link" href="#forms">
 								<span class="mobile-menu__icon">
 									<svg class="icon icon_input">
@@ -159,8 +145,56 @@
 									<li class="mobile-menu__item">
 										<a class="mobile-menu__submenu-link" href="#captcha">Captcha</a>
 									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="mobile-menu__item">
+							<a class="mobile-menu__link" href="#buttons">
+								<span class="mobile-menu__icon">
+									<svg class="icon icon_cursor">
+										<use xlink:href="assets/images/icons.svg#cursor"></use>
+									</svg>
+								</span>
+								<span class="mobile-menu__text">Buttons</span>
+							</a>
+						</li>
+						<li class="mobile-menu__item">
+							<a class="mobile-menu__link" href="#components">
+								<span class="mobile-menu__icon">
+									<svg class="icon icon_add">
+										<use xlink:href="assets/images/icons.svg#add"></use>
+									</svg>
+								</span>
+								<span class="mobile-menu__text">Components</span>
+							</a>
+							<div class="mobile-menu__submenu">
+								<ul>
 									<li class="mobile-menu__item">
-										<a class="mobile-menu__submenu-link" href="#buttons">Buttons</a>
+										<a class="mobile-menu__submenu-link" href="#tabs">Tabs</a>
+									</li>
+									<li class="mobile-menu__item">
+										<a class="mobile-menu__submenu-link" href="#modals">Modal windows</a>
+									</li>
+									<li class="mobile-menu__item">
+										<a class="mobile-menu__submenu-link" href="#video">Responsive video</a>
+									</li>
+									<li class="mobile-menu__item">
+										<a class="mobile-menu__submenu-link" href="#social-icons">Social icons module</a>
+									</li>
+									<li class="mobile-menu__item">
+										<a class="mobile-menu__submenu-link" href="#flags-icons">Flags Icons</a>
+									</li>
+									<li class="mobile-menu__item">
+										<a class="mobile-menu__submenu-link" href="#svg-icons">Svg Icons</a>
+									</li>
+									<li class="mobile-menu__item">
+										<a class="mobile-menu__submenu-link" href="#accordion">Accordion</a>
+									</li>
+									<li class="mobile-menu__item">
+										<a class="mobile-menu__submenu-link" href="#pseudo-dropdown">Pseudo dropdown</a>
+									</li>
+									<li class="mobile-menu__item">
+										<a class="mobile-menu__submenu-link" href="#images-helpers">Images helpers</a>
 									</li>
 								</ul>
 							</div>
@@ -181,7 +215,7 @@
 		</div>
 		<div class="page__content">
 			<div class="page__wrapper">
-				<div class="page__header" id="page__header">
+				<div class="page__header">
 					<header class="header">
 						<div class="header__top">
 							<div class="header__inner">
@@ -235,36 +269,6 @@
 												</div>
 											</li>
 											<li class="main-menu__item main-menu__item_dropdown">
-												<a class="main-menu__link" href="#helpers">Helpers</a>
-												<div class="main-menu__submenu">
-													<div class="main-menu-submenu">
-														<ul>
-															<li class="main-menu-submenu__item">
-																<a href="#modals">Modal windows</a>
-															</li>
-															<li class="main-menu-submenu__item">
-																<a href="#video">Responsive video</a>
-															</li>
-															<li class="main-menu-submenu__item">
-																<a href="#social-icons">Social icons module</a>
-															</li>
-															<li class="main-menu-submenu__item">
-																<a href="#svg-icons">Svg Icons</a>
-															</li>
-															<li class="main-menu-submenu__item">
-																<a href="#accordion">Accordion</a>
-															</li>
-															<li class="main-menu-submenu__item">
-																<a href="#pseudo-dropdown">Pseudo dropdown</a>
-															</li>
-															<li class="main-menu-submenu__item">
-																<a href="#images-helpers">Images helpers</a>
-															</li>
-														</ul>
-													</div>
-												</div>
-											</li>
-											<li class="main-menu__item main-menu__item_dropdown">
 												<a class="main-menu__link" href="#forms">Forms</a>
 												<div class="main-menu__submenu">
 													<div class="main-menu-submenu">
@@ -287,8 +291,44 @@
 															<li class="main-menu-submenu__item">
 																<a href="#captcha">Captcha</a>
 															</li>
+														</ul>
+													</div>
+												</div>
+											</li>
+											<li class="main-menu__item ">
+												<a class="main-menu__link" href="#buttons">Buttons</a>
+											</li>
+											<li class="main-menu__item main-menu__item_dropdown">
+												<a class="main-menu__link" href="#components">Components</a>
+												<div class="main-menu__submenu">
+													<div class="main-menu-submenu">
+														<ul>
 															<li class="main-menu-submenu__item">
-																<a href="#buttons">Buttons</a>
+																<a href="#tabs">Tabs</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#modals">Modal windows</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#video">Responsive video</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#social-icons">Social icons module</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#flags-icons">Flags Icons</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#svg-icons">Svg Icons</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#accordion">Accordion</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#pseudo-dropdown">Pseudo dropdown</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#images-helpers">Images helpers</a>
 															</li>
 														</ul>
 													</div>
@@ -325,7 +365,7 @@
 								<div class="header-presentation">
 									<h1 class="header-presentation__name">Gulp front</h1>
 									<h2 class="header-presentation__description">A lean and powerful, gulp-based boilerplate for better front-end coding.</h2>
-									<div class="header-presentation__version">v. 5.1.0</div>
+									<div class="header-presentation__version">v. 5.2.0</div>
 									<div class="header-presentation__sub-description">Created &amp; maintained by @zoxon</div>
 									<div class="header-presentation__download">
 										<a class="button button_style_ghost button_color_white button_size_large button_block button_style_rounded" href="//github.com/Zoxon/gulp-front/archive/master.zip" title="Download source from Github">Download</a>
@@ -378,34 +418,6 @@
 													</div>
 												</li>
 												<li class="sidebar-menu__item">
-													<a class="sidebar-menu__link" href="#helpers">Helpers</a>
-													<div class="sidebar-menu__submenu">
-														<ul>
-															<li class="sidebar-menu__item">
-																<a href="#modals">Modal windows</a>
-															</li>
-															<li class="sidebar-menu__item">
-																<a href="#video">Responsive video</a>
-															</li>
-															<li class="sidebar-menu__item">
-																<a href="#social-icons">Social icons module</a>
-															</li>
-															<li class="sidebar-menu__item">
-																<a href="#svg-icons">Svg Icons</a>
-															</li>
-															<li class="sidebar-menu__item">
-																<a href="#accordion">Accordion</a>
-															</li>
-															<li class="sidebar-menu__item">
-																<a href="#pseudo-dropdown">Pseudo dropdown</a>
-															</li>
-															<li class="sidebar-menu__item">
-																<a href="#images-helpers">Images helpers</a>
-															</li>
-														</ul>
-													</div>
-												</li>
-												<li class="sidebar-menu__item">
 													<a class="sidebar-menu__link" href="#forms">Forms</a>
 													<div class="sidebar-menu__submenu">
 														<ul>
@@ -427,8 +439,42 @@
 															<li class="sidebar-menu__item">
 																<a href="#captcha">Captcha</a>
 															</li>
+														</ul>
+													</div>
+												</li>
+												<li class="sidebar-menu__item">
+													<a class="sidebar-menu__link" href="#buttons">Buttons</a>
+												</li>
+												<li class="sidebar-menu__item">
+													<a class="sidebar-menu__link" href="#components">Components</a>
+													<div class="sidebar-menu__submenu">
+														<ul>
 															<li class="sidebar-menu__item">
-																<a href="#buttons">Buttons</a>
+																<a href="#tabs">Tabs</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#modals">Modal windows</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#video">Responsive video</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#social-icons">Social icons module</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#flags-icons">Flags Icons</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#svg-icons">Svg Icons</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#accordion">Accordion</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#pseudo-dropdown">Pseudo dropdown</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#images-helpers">Images helpers</a>
 															</li>
 														</ul>
 													</div>
@@ -443,8 +489,8 @@
 							</aside>
 						</div>
 						<div class="layout__content">
+							<h1 class="page-title">Gulp-front features</h1>
 							<div class="content-wrapper demo">
-								<h1 class="page-title">Gulp-front features</h1>
 								<!-- TYPOGRAPHY-->
 								<section>
 									<h2 id="typography">Typography</h2>
@@ -542,87 +588,6 @@
 										<li>Mauris in erat justo. </li>
 									</ol>
 									<h3 id="tables">Tables</h3>
-									<table>
-										<caption>Table with caption, colgroup, thead, tfoot, and tbody</caption>
-										<colgroup>
-											<col>
-											<col>
-											<col>
-											<col>
-										</colgroup>
-										<thead>
-											<tr>
-												<th>Etiam</th>
-												<th>Pharetra</th>
-												<th>Erat sed</th>
-												<th>Feugiat</th>
-											</tr>
-										</thead>
-										<tfoot>
-											<tr>
-												<th>Etiam</th>
-												<th>Pharetra</th>
-												<th>Erat sed</th>
-												<th>Feugiat</th>
-											</tr>
-										</tfoot>
-										<tbody>
-											<tr>
-												<td>Nam nec tellus</td>
-												<td>8873-1978-8717</td>
-												<td>145.58</td>
-												<td>m³</td>
-											</tr>
-											<tr>
-												<td>Etiam</td>
-												<td>532-8725-9727</td>
-												<td>17800.50</td>
-												<td>m²</td>
-											</tr>
-											<tr>
-												<td>Suspendisse</td>
-												<td>3364-2214-8781</td>
-												<td>312.22</td>
-												<td>$</td>
-											</tr>
-											<tr>
-												<td>Morbi accumsan</td>
-												<td>5547-2212-8884</td>
-												<td>7822.33</td>
-												<td>€</td>
-											</tr>
-											<tr>
-												<td>Condimentum </td>
-												<td>6687-2111-5557</td>
-												<td>25.00</td>
-												<td>444</td>
-											</tr>
-											<tr>
-												<td>Nam nec tellus</td>
-												<td>7898-4460-4557</td>
-												<td>13.25</td>
-												<td>13.25</td>
-											</tr>
-											<tr>
-												<td>Etiam</td>
-												<td>1400-0077-7741</td>
-												<td>140000</td>
-												<td>140000</td>
-											</tr>
-											<tr>
-												<td>Suspendisse</td>
-												<td>1829-9774-6660</td>
-												<td>18.26</td>
-												<td>18.26</td>
-											</tr>
-											<tr>
-												<td>Condimentum </td>
-												<td>6687-2111-5557</td>
-												<td>3.141592653589793238462</td>
-												<td>+V</td>
-											</tr>
-										</tbody>
-									</table>
 									<table class="table">
 										<caption>Table with caption, colgroup, thead, tfoot, and tbody</caption>
 										<colgroup>
@@ -1154,230 +1119,6 @@
 									<hr>
 								</section>
 								<!-- END TYPOGRAPHY-->
-								<!-- HELPERS-->
-								<section>
-									<h2 id="helpers">Helpers and mixins</h2>
-									<h3 id="modals">Modal windows</h3>
-									<button class="button button_style_solid button_color_blue button_style_rounded" data-remodal-target="modal1">Open modal #1</button>
-									<button class="button button_style_solid button_color_blue button_style_rounded" data-remodal-target="modal2">Open modal #2</button>
-									<div class="modal" data-remodal-id="modal1">
-										<div class="modal__wrapper">
-											<button class="modal__close" data-remodal-action="close">
-												<svg class="icon icon_close">
-													<use xlink:href="assets/images/icons.svg#close"></use>
-												</svg>
-											</button>
-											<div class="modal__content">
-												<div style="padding: 35px">
-													<h1 style="margin-top: 0">Simple modal #1</h1>
-													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit unde sint debitis in magnam vel pariatur libero nisi minima. </p>
-													<button class="button button_style_solid button_color_blue button_style_rounded remodal-confirm" data-remodal-action="confirm">OK</button>
-													<button class="button button_style_solid button_color_red button_style_rounded remodal-cancel" data-remodal-action="cancel">Cancel</button>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="modal" data-remodal-id="modal2">
-										<div class="modal__wrapper">
-											<button class="modal__close" data-remodal-action="close">
-												<svg class="icon icon_close">
-													<use xlink:href="assets/images/icons.svg#close"></use>
-												</svg>
-											</button>
-											<div class="modal__content">
-												<div style="padding: 35px">
-													<iframe width="640" src="https://www.youtube.com/embed/dOWFVKb2JqM" height="360" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
-												</div>
-											</div>
-										</div>
-									</div>
-									<h3 id="video">Responsive video</h3>
-									<div class="video-widget video-widget_responsive video-widget_16x9">
-										<iframe width="1280" src="https://www.youtube.com/embed/dOWFVKb2JqM" height="720" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
-									</div>
-									<h3 id="social-icons">Social icons module</h3>
-									<div class="social-icons">
-										<h3 class="social-icons__title">Social icons</h3>
-										<div class="social-icons__list">
-											<ul>
-												<li class="social-icons__item social-icons__item_fb">
-													<a href="#">
-														<svg class="icon icon_fb">
-															<use xlink:href="assets/images/icons.svg#fb"></use>
-														</svg>
-													</a>
-												</li>
-												<li class="social-icons__item social-icons__item_gp">
-													<a href="#">
-														<svg class="icon icon_gp">
-															<use xlink:href="assets/images/icons.svg#gp"></use>
-														</svg>
-													</a>
-												</li>
-												<li class="social-icons__item social-icons__item_tw">
-													<a href="#">
-														<svg class="icon icon_tw">
-															<use xlink:href="assets/images/icons.svg#tw"></use>
-														</svg>
-													</a>
-												</li>
-												<li class="social-icons__item social-icons__item_mr">
-													<a href="#">
-														<svg class="icon icon_mr">
-															<use xlink:href="assets/images/icons.svg#mr"></use>
-														</svg>
-													</a>
-												</li>
-												<li class="social-icons__item social-icons__item_ok">
-													<a href="#">
-														<svg class="icon icon_ok">
-															<use xlink:href="assets/images/icons.svg#ok"></use>
-														</svg>
-													</a>
-												</li>
-												<li class="social-icons__item social-icons__item_vk">
-													<a href="#">
-														<svg class="icon icon_vk">
-															<use xlink:href="assets/images/icons.svg#vk"></use>
-														</svg>
-													</a>
-												</li>
-											</ul>
-										</div>
-									</div>
-									<h3 id="svg-icons">Svg Icons</h3>
-									<style>
-										.demo-icons .icon {
-											display: inline-block;
-											padding: 20px;
-											box-shadow: 0 1px 5px rgba(22, 20, 17, 0.16);
-											width: 34px;
-											height: 34px;
-											margin: 5px;
-										}
-
-									</style>
-									<div class="demo-icons">
-										<svg class="icon icon_chevron-down">
-											<use xlink:href="assets/images/icons.svg#chevron-down"></use>
-										</svg>
-										<svg class="icon icon_chevron-up">
-											<use xlink:href="assets/images/icons.svg#chevron-up"></use>
-										</svg>
-										<svg class="icon icon_chevron-left">
-											<use xlink:href="assets/images/icons.svg#chevron-left"></use>
-										</svg>
-										<svg class="icon icon_chevron-right">
-											<use xlink:href="assets/images/icons.svg#chevron-right"></use>
-										</svg>
-										<svg class="icon icon_github-octocat">
-											<use xlink:href="assets/images/icons.svg#github-octocat"></use>
-										</svg>
-										<svg class="icon icon_hamburger">
-											<use xlink:href="assets/images/icons.svg#hamburger"></use>
-										</svg>
-										<svg class="icon icon_heart">
-											<use xlink:href="assets/images/icons.svg#heart"></use>
-										</svg>
-										<svg class="icon icon_maginifer">
-											<use xlink:href="assets/images/icons.svg#maginifer"></use>
-										</svg>
-										<svg class="icon icon_rss">
-											<use xlink:href="assets/images/icons.svg#rss"></use>
-										</svg>
-										<svg class="icon icon_fb">
-											<use xlink:href="assets/images/icons.svg#fb"></use>
-										</svg>
-										<svg class="icon icon_gp">
-											<use xlink:href="assets/images/icons.svg#gp"></use>
-										</svg>
-										<svg class="icon icon_mr">
-											<use xlink:href="assets/images/icons.svg#mr"></use>
-										</svg>
-										<svg class="icon icon_ok">
-											<use xlink:href="assets/images/icons.svg#ok"></use>
-										</svg>
-										<svg class="icon icon_tw">
-											<use xlink:href="assets/images/icons.svg#tw"></use>
-										</svg>
-										<svg class="icon icon_vk">
-											<use xlink:href="assets/images/icons.svg#vk"></use>
-										</svg>
-									</div>
-									<h3 id="accordion">Accordion</h3>
-									<div class="accordion">
-										<ul>
-											<li class="accordion__item accordion__item_active accordion__item">
-												<div class="accordion__header">Accordion item 1</div>
-												<div class="accordion__content">
-													<p>Accordion item 1 content</p>
-												</div>
-											</li>
-											<li class="accordion__item accordion__item">
-												<div class="accordion__header">Accordion item 2</div>
-												<div class="accordion__content">
-													<p>Accordion item 2 content</p>
-												</div>
-											</li>
-											<li class="accordion__item accordion__item">
-												<div class="accordion__header">Accordion item 3</div>
-												<div class="accordion__content">
-													<p>Accordion item 2 content</p>
-												</div>
-											</li>
-										</ul>
-									</div>
-									<h3 id="pseudo-dropdown">Pseudo dropdown</h3>
-									<div class="pseudo-dropdown">
-										<div class="pseudo-dropdown__trigger"></div>
-										<div class="pseudo-dropdown__list">
-											<div class="pseudo-dropdown-list">
-												<ul>
-													<li class="pseudo-dropdown-list__item" data-value="0">Item 1</li>
-													<li class="pseudo-dropdown-list__item" data-value="1">Item 2</li>
-													<li class="pseudo-dropdown-list__item" data-value="2">Item 3</li>
-													<li class="pseudo-dropdown-list__item pseudo-dropdown-list__item_active" data-value="3">Item 4 - active</li>
-													<li class="pseudo-dropdown-list__item" data-value="4">Item 5</li>
-												</ul>
-											</div>
-										</div>
-									</div>
-									<h3 id="images-helpers">Images helpers</h3>
-									<p>
-										<img class="align-image-left" src="assets/images/content/preview_small.png" alt>
-									</p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
-										unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
-										autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam,
-										consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus
-										ducimus doloremque minima nam!</p>
-									<p class="align-image-center">
-										<img src="assets/images/content/preview_small.png" alt>
-									</p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
-										unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
-										autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam,
-										consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus
-										ducimus doloremque minima nam!</p>
-									<p>
-										<img class="align-image-right" src="assets/images/content/preview_small.png" alt>
-									</p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
-										unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
-										autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam,
-										consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus
-										ducimus doloremque minima nam!</p>
-									<div class="align-image-center">
-										<figure class="image-captioned">
-											<img src="assets/images/content/preview_small.png" alt>
-											<figcaption>Example image description</figcaption>
-										</figure>
-									</div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
-										unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
-										autem soluta velit, maxime delectus! Velit fuga, est vitae.</p>
-								</section>
-								<!--END HELPERS-->
 								<!-- FORMS-->
 								<section>
 									<h2 id="forms">Forms</h2>
@@ -1831,8 +1572,12 @@
 											</div>
 										</div>
 									</form>
-									<h3 id="buttons">Buttons</h3>
-									<h4>Styles</h4>
+								</section>
+								<!-- END FORMS-->
+								<!-- BUTTONS-->
+								<section>
+									<h2 id="buttons">Buttons</h2>
+									<h3>Styles</h3>
 									<h5>Solid</h5>
 									<h6>Rounded</h6>
 									<button class="button button_style_solid button_color_grey button_style_rounded" type="button">Grey</button>
@@ -1901,13 +1646,13 @@
 									<button class="button button_style_ghost button_color_red button_style_pill" type="button">Red</button>
 									<button class="button button_style_ghost button_color_aqua button_style_pill" type="button">Aqua</button>
 									<button class="button button_style_ghost button_color_purple button_style_pill" type="button">Purple</button>
-									<h4>Sizes</h4>
+									<h3>Sizes</h3>
 									<button class="button button_style_solid button_color_blue button_style_rounded button_size_extra-large" type="button">Extra large</button>
 									<button class="button button_style_solid button_color_blue button_style_rounded button_size_large" type="button">Large</button>
 									<button class="button button_style_solid button_color_blue button_style_rounded" type="button">Normal</button>
 									<button class="button button_style_solid button_color_blue button_style_rounded button_size_small" type="button">Small</button>
 									<button class="button button_style_solid button_color_blue button_style_rounded button_size_extra-small" type="button">Extra small</button>
-									<h4>Icon buttons</h4>
+									<h3>Icon buttons</h3>
 									<button class="button button_style_solid button_color_grey button_style_rounded" type="button">
 										<span class="button__text">Grey</span>
 										<svg class="icon icon_chevron-right button__icon">
@@ -1968,7 +1713,7 @@
 										</svg>
 										<span class="button__text">Purple</span>
 									</button>
-									<h4>Tags types</h4>
+									<h3>Tags types</h3>
 									<button class="button button_style_solid button_color_blue button_style_rounded" type="button">Button</button>
 									<a class="button button_style_solid button_color_blue button_style_rounded" href="javascript:void(0);">Link</a>
 									<input class="button button_style_solid button_color_blue button_style_rounded" type="button" value="Input">
@@ -1983,7 +1728,767 @@
 									<button class="button button_style_solid button_color_blue button_style_rounded button_size_small button_block" type="button">Small</button>
 									<button class="button button_style_solid button_color_blue button_style_rounded button_size_extra-small button_block" type="button">Extra small</button>
 								</section>
-								<!-- END FORMS-->
+								<!-- END BUTTONS-->
+								<!-- COMPONENTS-->
+								<section>
+									<h2 id="components">Components</h2>
+									<h3 id="tabs">Tabs</h3>
+									<script>
+										$(document).ready(function()
+										{
+											$.ionTabs("#tab-demo");
+										});
+
+									</script>
+									<div class="tabs tabs_style_default" id="tab-demo" data-name="tab-demo">
+										<ul class="tabs__head">
+											<li class="tabs__tab" data-target="tab-demo__tab1">Tab 1</li>
+											<li class="tabs__tab" data-target="tab-demo__tab2">Tab 2</li>
+											<li class="tabs__tab" data-target="tab-demo__tab3">Tab 3</li>
+										</ul>
+										<div class="tabs__body">
+											<div class="tabs__item" data-name="tab-demo__tab1">
+												<h4>Tab 1 Content demo</h4>
+												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
+											</div>
+											<div class="tabs__item" data-name="tab-demo__tab2">
+												<h4>Tab 2 Content demo</h4>
+												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque alias mollitia iusto voluptatibus minus ut, adipisci magni magnam corporis aut aspernatur facere maiores sunt similique nihil unde est laboriosam reprehenderit.</p>
+											</div>
+											<div class="tabs__item" data-name="tab-demo__tab3">
+												<h4>Tab 3 Content demo</h4>
+												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus fugiat, aliquam! In fugit id sint, nam repellendus possimus sit itaque aspernatur modi facere earum mollitia veritatis officia quo iste nisi.</p>
+											</div>
+										</div>
+										<div class="tabs__preloader"></div>
+									</div>
+									<h3 id="modals">Modal windows</h3>
+									<button class="button button_style_solid button_color_blue button_style_rounded" data-remodal-target="modal1">Open modal #1</button>
+									<button class="button button_style_solid button_color_blue button_style_rounded" data-remodal-target="modal2">Open modal #2</button>
+									<div class="modal" data-remodal-id="modal1">
+										<div class="modal__wrapper">
+											<button class="modal__close" data-remodal-action="close">
+												<svg class="icon icon_close">
+													<use xlink:href="assets/images/icons.svg#close"></use>
+												</svg>
+											</button>
+											<div class="modal__content">
+												<div style="padding: 35px">
+													<h1 style="margin-top: 0">Simple modal #1</h1>
+													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit unde sint debitis in magnam vel pariatur libero nisi minima. </p>
+													<button class="button button_style_solid button_color_blue button_style_rounded remodal-confirm" data-remodal-action="confirm">OK</button>
+													<button class="button button_style_solid button_color_red button_style_rounded remodal-cancel" data-remodal-action="cancel">Cancel</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="modal" data-remodal-id="modal2">
+										<div class="modal__wrapper">
+											<button class="modal__close" data-remodal-action="close">
+												<svg class="icon icon_close">
+													<use xlink:href="assets/images/icons.svg#close"></use>
+												</svg>
+											</button>
+											<div class="modal__content">
+												<div style="padding: 35px">
+													<iframe width="640" src="https://www.youtube.com/embed/dOWFVKb2JqM" height="360" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+												</div>
+											</div>
+										</div>
+									</div>
+									<h3 id="video">Responsive video</h3>
+									<div class="video-widget video-widget_responsive video-widget_16x9">
+										<iframe width="1280" src="https://www.youtube.com/embed/dOWFVKb2JqM" height="720" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+									</div>
+									<h3 id="social-icons">Social icons module</h3>
+									<div class="social-icons">
+										<h3 class="social-icons__title">Social icons</h3>
+										<div class="social-icons__list">
+											<ul>
+												<li class="social-icons__item social-icons__item_fb">
+													<a href="#">
+														<svg class="icon icon_fb">
+															<use xlink:href="assets/images/icons.svg#fb"></use>
+														</svg>
+													</a>
+												</li>
+												<li class="social-icons__item social-icons__item_gp">
+													<a href="#">
+														<svg class="icon icon_gp">
+															<use xlink:href="assets/images/icons.svg#gp"></use>
+														</svg>
+													</a>
+												</li>
+												<li class="social-icons__item social-icons__item_tw">
+													<a href="#">
+														<svg class="icon icon_tw">
+															<use xlink:href="assets/images/icons.svg#tw"></use>
+														</svg>
+													</a>
+												</li>
+												<li class="social-icons__item social-icons__item_mr">
+													<a href="#">
+														<svg class="icon icon_mr">
+															<use xlink:href="assets/images/icons.svg#mr"></use>
+														</svg>
+													</a>
+												</li>
+												<li class="social-icons__item social-icons__item_ok">
+													<a href="#">
+														<svg class="icon icon_ok">
+															<use xlink:href="assets/images/icons.svg#ok"></use>
+														</svg>
+													</a>
+												</li>
+												<li class="social-icons__item social-icons__item_vk">
+													<a href="#">
+														<svg class="icon icon_vk">
+															<use xlink:href="assets/images/icons.svg#vk"></use>
+														</svg>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<h3 id="flags-icons">Flags Icons</h3>
+									<h4>4x3</h4>
+									<div class="demo-icons">
+										<span class="flag flag_ad"></span>
+										<span class="flag flag_ae"></span>
+										<span class="flag flag_af"></span>
+										<span class="flag flag_ag"></span>
+										<span class="flag flag_ai"></span>
+										<span class="flag flag_al"></span>
+										<span class="flag flag_am"></span>
+										<span class="flag flag_ao"></span>
+										<span class="flag flag_aq"></span>
+										<span class="flag flag_ar"></span>
+										<span class="flag flag_as"></span>
+										<span class="flag flag_at"></span>
+										<span class="flag flag_au"></span>
+										<span class="flag flag_aw"></span>
+										<span class="flag flag_ax"></span>
+										<span class="flag flag_az"></span>
+										<span class="flag flag_ba"></span>
+										<span class="flag flag_bb"></span>
+										<span class="flag flag_bd"></span>
+										<span class="flag flag_be"></span>
+										<span class="flag flag_bf"></span>
+										<span class="flag flag_bg"></span>
+										<span class="flag flag_bh"></span>
+										<span class="flag flag_bi"></span>
+										<span class="flag flag_bj"></span>
+										<span class="flag flag_bl"></span>
+										<span class="flag flag_bm"></span>
+										<span class="flag flag_bn"></span>
+										<span class="flag flag_bo"></span>
+										<span class="flag flag_bq"></span>
+										<span class="flag flag_br"></span>
+										<span class="flag flag_bs"></span>
+										<span class="flag flag_bt"></span>
+										<span class="flag flag_bv"></span>
+										<span class="flag flag_bw"></span>
+										<span class="flag flag_by"></span>
+										<span class="flag flag_bz"></span>
+										<span class="flag flag_ca"></span>
+										<span class="flag flag_cc"></span>
+										<span class="flag flag_cd"></span>
+										<span class="flag flag_cf"></span>
+										<span class="flag flag_cg"></span>
+										<span class="flag flag_ch"></span>
+										<span class="flag flag_ci"></span>
+										<span class="flag flag_ck"></span>
+										<span class="flag flag_cl"></span>
+										<span class="flag flag_cm"></span>
+										<span class="flag flag_cn"></span>
+										<span class="flag flag_co"></span>
+										<span class="flag flag_cr"></span>
+										<span class="flag flag_cu"></span>
+										<span class="flag flag_cv"></span>
+										<span class="flag flag_cw"></span>
+										<span class="flag flag_cx"></span>
+										<span class="flag flag_cy"></span>
+										<span class="flag flag_cz"></span>
+										<span class="flag flag_de"></span>
+										<span class="flag flag_dj"></span>
+										<span class="flag flag_dk"></span>
+										<span class="flag flag_dm"></span>
+										<span class="flag flag_do"></span>
+										<span class="flag flag_dz"></span>
+										<span class="flag flag_ec"></span>
+										<span class="flag flag_ee"></span>
+										<span class="flag flag_eg"></span>
+										<span class="flag flag_eh"></span>
+										<span class="flag flag_er"></span>
+										<span class="flag flag_es"></span>
+										<span class="flag flag_et"></span>
+										<span class="flag flag_fi"></span>
+										<span class="flag flag_fj"></span>
+										<span class="flag flag_fk"></span>
+										<span class="flag flag_fm"></span>
+										<span class="flag flag_fo"></span>
+										<span class="flag flag_fr"></span>
+										<span class="flag flag_ga"></span>
+										<span class="flag flag_gb"></span>
+										<span class="flag flag_gd"></span>
+										<span class="flag flag_ge"></span>
+										<span class="flag flag_gf"></span>
+										<span class="flag flag_gg"></span>
+										<span class="flag flag_gh"></span>
+										<span class="flag flag_gi"></span>
+										<span class="flag flag_gl"></span>
+										<span class="flag flag_gm"></span>
+										<span class="flag flag_gn"></span>
+										<span class="flag flag_gp"></span>
+										<span class="flag flag_gq"></span>
+										<span class="flag flag_gr"></span>
+										<span class="flag flag_gs"></span>
+										<span class="flag flag_gt"></span>
+										<span class="flag flag_gu"></span>
+										<span class="flag flag_gw"></span>
+										<span class="flag flag_gy"></span>
+										<span class="flag flag_hk"></span>
+										<span class="flag flag_hm"></span>
+										<span class="flag flag_hn"></span>
+										<span class="flag flag_hr"></span>
+										<span class="flag flag_ht"></span>
+										<span class="flag flag_hu"></span>
+										<span class="flag flag_id"></span>
+										<span class="flag flag_ie"></span>
+										<span class="flag flag_il"></span>
+										<span class="flag flag_im"></span>
+										<span class="flag flag_in"></span>
+										<span class="flag flag_io"></span>
+										<span class="flag flag_iq"></span>
+										<span class="flag flag_ir"></span>
+										<span class="flag flag_is"></span>
+										<span class="flag flag_it"></span>
+										<span class="flag flag_je"></span>
+										<span class="flag flag_jm"></span>
+										<span class="flag flag_jo"></span>
+										<span class="flag flag_jp"></span>
+										<span class="flag flag_ke"></span>
+										<span class="flag flag_kg"></span>
+										<span class="flag flag_kh"></span>
+										<span class="flag flag_ki"></span>
+										<span class="flag flag_km"></span>
+										<span class="flag flag_kn"></span>
+										<span class="flag flag_kp"></span>
+										<span class="flag flag_kr"></span>
+										<span class="flag flag_kw"></span>
+										<span class="flag flag_ky"></span>
+										<span class="flag flag_kz"></span>
+										<span class="flag flag_la"></span>
+										<span class="flag flag_lb"></span>
+										<span class="flag flag_lc"></span>
+										<span class="flag flag_li"></span>
+										<span class="flag flag_lk"></span>
+										<span class="flag flag_lr"></span>
+										<span class="flag flag_ls"></span>
+										<span class="flag flag_lt"></span>
+										<span class="flag flag_lu"></span>
+										<span class="flag flag_lv"></span>
+										<span class="flag flag_ly"></span>
+										<span class="flag flag_ma"></span>
+										<span class="flag flag_mc"></span>
+										<span class="flag flag_md"></span>
+										<span class="flag flag_me"></span>
+										<span class="flag flag_mf"></span>
+										<span class="flag flag_mg"></span>
+										<span class="flag flag_mh"></span>
+										<span class="flag flag_mk"></span>
+										<span class="flag flag_ml"></span>
+										<span class="flag flag_mm"></span>
+										<span class="flag flag_mn"></span>
+										<span class="flag flag_mo"></span>
+										<span class="flag flag_mp"></span>
+										<span class="flag flag_mq"></span>
+										<span class="flag flag_mr"></span>
+										<span class="flag flag_ms"></span>
+										<span class="flag flag_mt"></span>
+										<span class="flag flag_mu"></span>
+										<span class="flag flag_mv"></span>
+										<span class="flag flag_mw"></span>
+										<span class="flag flag_mx"></span>
+										<span class="flag flag_my"></span>
+										<span class="flag flag_mz"></span>
+										<span class="flag flag_na"></span>
+										<span class="flag flag_nc"></span>
+										<span class="flag flag_ne"></span>
+										<span class="flag flag_nf"></span>
+										<span class="flag flag_ng"></span>
+										<span class="flag flag_ni"></span>
+										<span class="flag flag_nl"></span>
+										<span class="flag flag_no"></span>
+										<span class="flag flag_np"></span>
+										<span class="flag flag_nr"></span>
+										<span class="flag flag_nu"></span>
+										<span class="flag flag_nz"></span>
+										<span class="flag flag_om"></span>
+										<span class="flag flag_pa"></span>
+										<span class="flag flag_pe"></span>
+										<span class="flag flag_pf"></span>
+										<span class="flag flag_pg"></span>
+										<span class="flag flag_ph"></span>
+										<span class="flag flag_pk"></span>
+										<span class="flag flag_pl"></span>
+										<span class="flag flag_pm"></span>
+										<span class="flag flag_pn"></span>
+										<span class="flag flag_pr"></span>
+										<span class="flag flag_ps"></span>
+										<span class="flag flag_pt"></span>
+										<span class="flag flag_pw"></span>
+										<span class="flag flag_py"></span>
+										<span class="flag flag_qa"></span>
+										<span class="flag flag_re"></span>
+										<span class="flag flag_ro"></span>
+										<span class="flag flag_rs"></span>
+										<span class="flag flag_ru"></span>
+										<span class="flag flag_rw"></span>
+										<span class="flag flag_sa"></span>
+										<span class="flag flag_sb"></span>
+										<span class="flag flag_sc"></span>
+										<span class="flag flag_sd"></span>
+										<span class="flag flag_se"></span>
+										<span class="flag flag_sg"></span>
+										<span class="flag flag_sh"></span>
+										<span class="flag flag_si"></span>
+										<span class="flag flag_sj"></span>
+										<span class="flag flag_sk"></span>
+										<span class="flag flag_sl"></span>
+										<span class="flag flag_sm"></span>
+										<span class="flag flag_sn"></span>
+										<span class="flag flag_so"></span>
+										<span class="flag flag_sr"></span>
+										<span class="flag flag_ss"></span>
+										<span class="flag flag_st"></span>
+										<span class="flag flag_sv"></span>
+										<span class="flag flag_sx"></span>
+										<span class="flag flag_sy"></span>
+										<span class="flag flag_sz"></span>
+										<span class="flag flag_tc"></span>
+										<span class="flag flag_td"></span>
+										<span class="flag flag_tf"></span>
+										<span class="flag flag_tg"></span>
+										<span class="flag flag_th"></span>
+										<span class="flag flag_tj"></span>
+										<span class="flag flag_tk"></span>
+										<span class="flag flag_tl"></span>
+										<span class="flag flag_tm"></span>
+										<span class="flag flag_tn"></span>
+										<span class="flag flag_to"></span>
+										<span class="flag flag_tr"></span>
+										<span class="flag flag_tt"></span>
+										<span class="flag flag_tv"></span>
+										<span class="flag flag_tw"></span>
+										<span class="flag flag_tz"></span>
+										<span class="flag flag_ua"></span>
+										<span class="flag flag_ug"></span>
+										<span class="flag flag_um"></span>
+										<span class="flag flag_us"></span>
+										<span class="flag flag_uy"></span>
+										<span class="flag flag_uz"></span>
+										<span class="flag flag_va"></span>
+										<span class="flag flag_vc"></span>
+										<span class="flag flag_ve"></span>
+										<span class="flag flag_vg"></span>
+										<span class="flag flag_vi"></span>
+										<span class="flag flag_vn"></span>
+										<span class="flag flag_vu"></span>
+										<span class="flag flag_wf"></span>
+										<span class="flag flag_ws"></span>
+										<span class="flag flag_ye"></span>
+										<span class="flag flag_yt"></span>
+										<span class="flag flag_za"></span>
+										<span class="flag flag_zm"></span>
+										<span class="flag flag_zw"></span>
+										<span class="flag flag_eu"></span>
+										<span class="flag flag_gb-eng"></span>
+										<span class="flag flag_gb-nir"></span>
+										<span class="flag flag_gb-sct"></span>
+										<span class="flag flag_gb-wls"></span>
+										<span class="flag flag_un"></span>
+									</div>
+									<h4>1x1</h4>
+									<div class="demo-icons">
+										<span class="flag flag_squared flag_ad"></span>
+										<span class="flag flag_squared flag_ae"></span>
+										<span class="flag flag_squared flag_af"></span>
+										<span class="flag flag_squared flag_ag"></span>
+										<span class="flag flag_squared flag_ai"></span>
+										<span class="flag flag_squared flag_al"></span>
+										<span class="flag flag_squared flag_am"></span>
+										<span class="flag flag_squared flag_ao"></span>
+										<span class="flag flag_squared flag_aq"></span>
+										<span class="flag flag_squared flag_ar"></span>
+										<span class="flag flag_squared flag_as"></span>
+										<span class="flag flag_squared flag_at"></span>
+										<span class="flag flag_squared flag_au"></span>
+										<span class="flag flag_squared flag_aw"></span>
+										<span class="flag flag_squared flag_ax"></span>
+										<span class="flag flag_squared flag_az"></span>
+										<span class="flag flag_squared flag_ba"></span>
+										<span class="flag flag_squared flag_bb"></span>
+										<span class="flag flag_squared flag_bd"></span>
+										<span class="flag flag_squared flag_be"></span>
+										<span class="flag flag_squared flag_bf"></span>
+										<span class="flag flag_squared flag_bg"></span>
+										<span class="flag flag_squared flag_bh"></span>
+										<span class="flag flag_squared flag_bi"></span>
+										<span class="flag flag_squared flag_bj"></span>
+										<span class="flag flag_squared flag_bl"></span>
+										<span class="flag flag_squared flag_bm"></span>
+										<span class="flag flag_squared flag_bn"></span>
+										<span class="flag flag_squared flag_bo"></span>
+										<span class="flag flag_squared flag_bq"></span>
+										<span class="flag flag_squared flag_br"></span>
+										<span class="flag flag_squared flag_bs"></span>
+										<span class="flag flag_squared flag_bt"></span>
+										<span class="flag flag_squared flag_bv"></span>
+										<span class="flag flag_squared flag_bw"></span>
+										<span class="flag flag_squared flag_by"></span>
+										<span class="flag flag_squared flag_bz"></span>
+										<span class="flag flag_squared flag_ca"></span>
+										<span class="flag flag_squared flag_cc"></span>
+										<span class="flag flag_squared flag_cd"></span>
+										<span class="flag flag_squared flag_cf"></span>
+										<span class="flag flag_squared flag_cg"></span>
+										<span class="flag flag_squared flag_ch"></span>
+										<span class="flag flag_squared flag_ci"></span>
+										<span class="flag flag_squared flag_ck"></span>
+										<span class="flag flag_squared flag_cl"></span>
+										<span class="flag flag_squared flag_cm"></span>
+										<span class="flag flag_squared flag_cn"></span>
+										<span class="flag flag_squared flag_co"></span>
+										<span class="flag flag_squared flag_cr"></span>
+										<span class="flag flag_squared flag_cu"></span>
+										<span class="flag flag_squared flag_cv"></span>
+										<span class="flag flag_squared flag_cw"></span>
+										<span class="flag flag_squared flag_cx"></span>
+										<span class="flag flag_squared flag_cy"></span>
+										<span class="flag flag_squared flag_cz"></span>
+										<span class="flag flag_squared flag_de"></span>
+										<span class="flag flag_squared flag_dj"></span>
+										<span class="flag flag_squared flag_dk"></span>
+										<span class="flag flag_squared flag_dm"></span>
+										<span class="flag flag_squared flag_do"></span>
+										<span class="flag flag_squared flag_dz"></span>
+										<span class="flag flag_squared flag_ec"></span>
+										<span class="flag flag_squared flag_ee"></span>
+										<span class="flag flag_squared flag_eg"></span>
+										<span class="flag flag_squared flag_eh"></span>
+										<span class="flag flag_squared flag_er"></span>
+										<span class="flag flag_squared flag_es"></span>
+										<span class="flag flag_squared flag_et"></span>
+										<span class="flag flag_squared flag_fi"></span>
+										<span class="flag flag_squared flag_fj"></span>
+										<span class="flag flag_squared flag_fk"></span>
+										<span class="flag flag_squared flag_fm"></span>
+										<span class="flag flag_squared flag_fo"></span>
+										<span class="flag flag_squared flag_fr"></span>
+										<span class="flag flag_squared flag_ga"></span>
+										<span class="flag flag_squared flag_gb"></span>
+										<span class="flag flag_squared flag_gd"></span>
+										<span class="flag flag_squared flag_ge"></span>
+										<span class="flag flag_squared flag_gf"></span>
+										<span class="flag flag_squared flag_gg"></span>
+										<span class="flag flag_squared flag_gh"></span>
+										<span class="flag flag_squared flag_gi"></span>
+										<span class="flag flag_squared flag_gl"></span>
+										<span class="flag flag_squared flag_gm"></span>
+										<span class="flag flag_squared flag_gn"></span>
+										<span class="flag flag_squared flag_gp"></span>
+										<span class="flag flag_squared flag_gq"></span>
+										<span class="flag flag_squared flag_gr"></span>
+										<span class="flag flag_squared flag_gs"></span>
+										<span class="flag flag_squared flag_gt"></span>
+										<span class="flag flag_squared flag_gu"></span>
+										<span class="flag flag_squared flag_gw"></span>
+										<span class="flag flag_squared flag_gy"></span>
+										<span class="flag flag_squared flag_hk"></span>
+										<span class="flag flag_squared flag_hm"></span>
+										<span class="flag flag_squared flag_hn"></span>
+										<span class="flag flag_squared flag_hr"></span>
+										<span class="flag flag_squared flag_ht"></span>
+										<span class="flag flag_squared flag_hu"></span>
+										<span class="flag flag_squared flag_id"></span>
+										<span class="flag flag_squared flag_ie"></span>
+										<span class="flag flag_squared flag_il"></span>
+										<span class="flag flag_squared flag_im"></span>
+										<span class="flag flag_squared flag_in"></span>
+										<span class="flag flag_squared flag_io"></span>
+										<span class="flag flag_squared flag_iq"></span>
+										<span class="flag flag_squared flag_ir"></span>
+										<span class="flag flag_squared flag_is"></span>
+										<span class="flag flag_squared flag_it"></span>
+										<span class="flag flag_squared flag_je"></span>
+										<span class="flag flag_squared flag_jm"></span>
+										<span class="flag flag_squared flag_jo"></span>
+										<span class="flag flag_squared flag_jp"></span>
+										<span class="flag flag_squared flag_ke"></span>
+										<span class="flag flag_squared flag_kg"></span>
+										<span class="flag flag_squared flag_kh"></span>
+										<span class="flag flag_squared flag_ki"></span>
+										<span class="flag flag_squared flag_km"></span>
+										<span class="flag flag_squared flag_kn"></span>
+										<span class="flag flag_squared flag_kp"></span>
+										<span class="flag flag_squared flag_kr"></span>
+										<span class="flag flag_squared flag_kw"></span>
+										<span class="flag flag_squared flag_ky"></span>
+										<span class="flag flag_squared flag_kz"></span>
+										<span class="flag flag_squared flag_la"></span>
+										<span class="flag flag_squared flag_lb"></span>
+										<span class="flag flag_squared flag_lc"></span>
+										<span class="flag flag_squared flag_li"></span>
+										<span class="flag flag_squared flag_lk"></span>
+										<span class="flag flag_squared flag_lr"></span>
+										<span class="flag flag_squared flag_ls"></span>
+										<span class="flag flag_squared flag_lt"></span>
+										<span class="flag flag_squared flag_lu"></span>
+										<span class="flag flag_squared flag_lv"></span>
+										<span class="flag flag_squared flag_ly"></span>
+										<span class="flag flag_squared flag_ma"></span>
+										<span class="flag flag_squared flag_mc"></span>
+										<span class="flag flag_squared flag_md"></span>
+										<span class="flag flag_squared flag_me"></span>
+										<span class="flag flag_squared flag_mf"></span>
+										<span class="flag flag_squared flag_mg"></span>
+										<span class="flag flag_squared flag_mh"></span>
+										<span class="flag flag_squared flag_mk"></span>
+										<span class="flag flag_squared flag_ml"></span>
+										<span class="flag flag_squared flag_mm"></span>
+										<span class="flag flag_squared flag_mn"></span>
+										<span class="flag flag_squared flag_mo"></span>
+										<span class="flag flag_squared flag_mp"></span>
+										<span class="flag flag_squared flag_mq"></span>
+										<span class="flag flag_squared flag_mr"></span>
+										<span class="flag flag_squared flag_ms"></span>
+										<span class="flag flag_squared flag_mt"></span>
+										<span class="flag flag_squared flag_mu"></span>
+										<span class="flag flag_squared flag_mv"></span>
+										<span class="flag flag_squared flag_mw"></span>
+										<span class="flag flag_squared flag_mx"></span>
+										<span class="flag flag_squared flag_my"></span>
+										<span class="flag flag_squared flag_mz"></span>
+										<span class="flag flag_squared flag_na"></span>
+										<span class="flag flag_squared flag_nc"></span>
+										<span class="flag flag_squared flag_ne"></span>
+										<span class="flag flag_squared flag_nf"></span>
+										<span class="flag flag_squared flag_ng"></span>
+										<span class="flag flag_squared flag_ni"></span>
+										<span class="flag flag_squared flag_nl"></span>
+										<span class="flag flag_squared flag_no"></span>
+										<span class="flag flag_squared flag_np"></span>
+										<span class="flag flag_squared flag_nr"></span>
+										<span class="flag flag_squared flag_nu"></span>
+										<span class="flag flag_squared flag_nz"></span>
+										<span class="flag flag_squared flag_om"></span>
+										<span class="flag flag_squared flag_pa"></span>
+										<span class="flag flag_squared flag_pe"></span>
+										<span class="flag flag_squared flag_pf"></span>
+										<span class="flag flag_squared flag_pg"></span>
+										<span class="flag flag_squared flag_ph"></span>
+										<span class="flag flag_squared flag_pk"></span>
+										<span class="flag flag_squared flag_pl"></span>
+										<span class="flag flag_squared flag_pm"></span>
+										<span class="flag flag_squared flag_pn"></span>
+										<span class="flag flag_squared flag_pr"></span>
+										<span class="flag flag_squared flag_ps"></span>
+										<span class="flag flag_squared flag_pt"></span>
+										<span class="flag flag_squared flag_pw"></span>
+										<span class="flag flag_squared flag_py"></span>
+										<span class="flag flag_squared flag_qa"></span>
+										<span class="flag flag_squared flag_re"></span>
+										<span class="flag flag_squared flag_ro"></span>
+										<span class="flag flag_squared flag_rs"></span>
+										<span class="flag flag_squared flag_ru"></span>
+										<span class="flag flag_squared flag_rw"></span>
+										<span class="flag flag_squared flag_sa"></span>
+										<span class="flag flag_squared flag_sb"></span>
+										<span class="flag flag_squared flag_sc"></span>
+										<span class="flag flag_squared flag_sd"></span>
+										<span class="flag flag_squared flag_se"></span>
+										<span class="flag flag_squared flag_sg"></span>
+										<span class="flag flag_squared flag_sh"></span>
+										<span class="flag flag_squared flag_si"></span>
+										<span class="flag flag_squared flag_sj"></span>
+										<span class="flag flag_squared flag_sk"></span>
+										<span class="flag flag_squared flag_sl"></span>
+										<span class="flag flag_squared flag_sm"></span>
+										<span class="flag flag_squared flag_sn"></span>
+										<span class="flag flag_squared flag_so"></span>
+										<span class="flag flag_squared flag_sr"></span>
+										<span class="flag flag_squared flag_ss"></span>
+										<span class="flag flag_squared flag_st"></span>
+										<span class="flag flag_squared flag_sv"></span>
+										<span class="flag flag_squared flag_sx"></span>
+										<span class="flag flag_squared flag_sy"></span>
+										<span class="flag flag_squared flag_sz"></span>
+										<span class="flag flag_squared flag_tc"></span>
+										<span class="flag flag_squared flag_td"></span>
+										<span class="flag flag_squared flag_tf"></span>
+										<span class="flag flag_squared flag_tg"></span>
+										<span class="flag flag_squared flag_th"></span>
+										<span class="flag flag_squared flag_tj"></span>
+										<span class="flag flag_squared flag_tk"></span>
+										<span class="flag flag_squared flag_tl"></span>
+										<span class="flag flag_squared flag_tm"></span>
+										<span class="flag flag_squared flag_tn"></span>
+										<span class="flag flag_squared flag_to"></span>
+										<span class="flag flag_squared flag_tr"></span>
+										<span class="flag flag_squared flag_tt"></span>
+										<span class="flag flag_squared flag_tv"></span>
+										<span class="flag flag_squared flag_tw"></span>
+										<span class="flag flag_squared flag_tz"></span>
+										<span class="flag flag_squared flag_ua"></span>
+										<span class="flag flag_squared flag_ug"></span>
+										<span class="flag flag_squared flag_um"></span>
+										<span class="flag flag_squared flag_us"></span>
+										<span class="flag flag_squared flag_uy"></span>
+										<span class="flag flag_squared flag_uz"></span>
+										<span class="flag flag_squared flag_va"></span>
+										<span class="flag flag_squared flag_vc"></span>
+										<span class="flag flag_squared flag_ve"></span>
+										<span class="flag flag_squared flag_vg"></span>
+										<span class="flag flag_squared flag_vi"></span>
+										<span class="flag flag_squared flag_vn"></span>
+										<span class="flag flag_squared flag_vu"></span>
+										<span class="flag flag_squared flag_wf"></span>
+										<span class="flag flag_squared flag_ws"></span>
+										<span class="flag flag_squared flag_ye"></span>
+										<span class="flag flag_squared flag_yt"></span>
+										<span class="flag flag_squared flag_za"></span>
+										<span class="flag flag_squared flag_zm"></span>
+										<span class="flag flag_squared flag_zw"></span>
+										<span class="flag flag_squared flag_eu"></span>
+										<span class="flag flag_squared flag_gb-eng"></span>
+										<span class="flag flag_squared flag_gb-nir"></span>
+										<span class="flag flag_squared flag_gb-sct"></span>
+										<span class="flag flag_squared flag_gb-wls"></span>
+										<span class="flag flag_squared flag_un"></span>
+									</div>
+									<h3 id="svg-icons">Svg Icons</h3>
+									<div class="demo-icons">
+										<svg class="icon icon_chevron-down">
+											<use xlink:href="assets/images/icons.svg#chevron-down"></use>
+										</svg>
+										<svg class="icon icon_chevron-up">
+											<use xlink:href="assets/images/icons.svg#chevron-up"></use>
+										</svg>
+										<svg class="icon icon_chevron-left">
+											<use xlink:href="assets/images/icons.svg#chevron-left"></use>
+										</svg>
+										<svg class="icon icon_chevron-right">
+											<use xlink:href="assets/images/icons.svg#chevron-right"></use>
+										</svg>
+										<svg class="icon icon_github-octocat">
+											<use xlink:href="assets/images/icons.svg#github-octocat"></use>
+										</svg>
+										<svg class="icon icon_hamburger">
+											<use xlink:href="assets/images/icons.svg#hamburger"></use>
+										</svg>
+										<svg class="icon icon_heart">
+											<use xlink:href="assets/images/icons.svg#heart"></use>
+										</svg>
+										<svg class="icon icon_maginifer">
+											<use xlink:href="assets/images/icons.svg#maginifer"></use>
+										</svg>
+										<svg class="icon icon_rss">
+											<use xlink:href="assets/images/icons.svg#rss"></use>
+										</svg>
+										<svg class="icon icon_fb">
+											<use xlink:href="assets/images/icons.svg#fb"></use>
+										</svg>
+										<svg class="icon icon_gp">
+											<use xlink:href="assets/images/icons.svg#gp"></use>
+										</svg>
+										<svg class="icon icon_mr">
+											<use xlink:href="assets/images/icons.svg#mr"></use>
+										</svg>
+										<svg class="icon icon_ok">
+											<use xlink:href="assets/images/icons.svg#ok"></use>
+										</svg>
+										<svg class="icon icon_tw">
+											<use xlink:href="assets/images/icons.svg#tw"></use>
+										</svg>
+										<svg class="icon icon_vk">
+											<use xlink:href="assets/images/icons.svg#vk"></use>
+										</svg>
+									</div>
+									<h3 id="accordion">Accordion</h3>
+									<div class="accordion">
+										<ul>
+											<li class="accordion__item accordion__item_active accordion__item">
+												<div class="accordion__header">Accordion item 1</div>
+												<div class="accordion__content">
+													<p>Accordion item 1 content</p>
+												</div>
+											</li>
+											<li class="accordion__item accordion__item">
+												<div class="accordion__header">Accordion item 2</div>
+												<div class="accordion__content">
+													<p>Accordion item 2 content</p>
+												</div>
+											</li>
+											<li class="accordion__item accordion__item">
+												<div class="accordion__header">Accordion item 3</div>
+												<div class="accordion__content">
+													<p>Accordion item 2 content</p>
+												</div>
+											</li>
+										</ul>
+									</div>
+									<h3 id="pseudo-dropdown">Pseudo dropdown</h3>
+									<div class="pseudo-dropdown">
+										<div class="pseudo-dropdown__trigger"></div>
+										<div class="pseudo-dropdown__list">
+											<div class="pseudo-dropdown-list">
+												<ul>
+													<li class="pseudo-dropdown-list__item" data-value="0">Item 1</li>
+													<li class="pseudo-dropdown-list__item" data-value="1">Item 2</li>
+													<li class="pseudo-dropdown-list__item" data-value="2">Item 3</li>
+													<li class="pseudo-dropdown-list__item pseudo-dropdown-list__item_active" data-value="3">Item 4 - active</li>
+													<li class="pseudo-dropdown-list__item" data-value="4">Item 5</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<h3 id="images-helpers">Images helpers</h3>
+									<p>
+										<img class="align-image-left" src="assets/images/content/preview_small.png" alt>
+									</p>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
+										unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
+										autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam,
+										consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus
+										ducimus doloremque minima nam!</p>
+									<p class="align-image-center">
+										<img src="assets/images/content/preview_small.png" alt>
+									</p>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
+										unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
+										autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam,
+										consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus
+										ducimus doloremque minima nam!</p>
+									<p>
+										<img class="align-image-right" src="assets/images/content/preview_small.png" alt>
+									</p>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
+										unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
+										autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam,
+										consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus
+										ducimus doloremque minima nam!</p>
+									<div class="align-image-center">
+										<figure class="image-captioned">
+											<img src="assets/images/content/preview_small.png" alt>
+											<figcaption>Example image description</figcaption>
+										</figure>
+									</div>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
+										unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
+										autem soluta velit, maxime delectus! Velit fuga, est vitae.</p>
+								</section>
+								<!--END COMPONENTS-->
 								<!-- GRID-->
 								<section>
 									<h2 id="grid">Grid</h2>
@@ -2168,13 +2673,6 @@
 					</div>
 				</div>
 				<div class="page__buffer"></div>
-			</div>
-			<div class="page__footer">
-				<footer class="footer">
-					<div class="footer__inner">
-						<div class="copyright">&copy;&nbsp;2015 Gulp-front</div>
-					</div>
-				</footer>
 			</div>
 		</div>
 		<script src="assets/javascripts/plugins.min.js"></script>
