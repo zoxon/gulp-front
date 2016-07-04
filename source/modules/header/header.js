@@ -3,12 +3,9 @@
 	var $header    = $('.header');
 	var $headerTop = $header.find('.header__top');
 	var $window    = $(window);
-	var marginTop  = 0;
-	var offset     = $headerTop.offset().top;
 	var classAdded = false;
-
-	$window.scroll(function() {
-		if ($window.scrollTop() > offset) {
+	function header() {
+		if ($window.scrollTop() > 0) {
 			if (classAdded === false) {
 				$header.addClass('header_fixed');
 			}
@@ -18,7 +15,11 @@
 			$header.removeClass('header_fixed');
 			classAdded = false;
 		}
-	});
+	}
+
+	header();
+
+	$window.scroll(header);
 
 
 	$('.js-link-sroll a[href^="#"]').on('click',function (event) {
@@ -33,17 +34,9 @@
 		}
 
 		$('html, body').stop().animate({
-			'scrollTop': $target.offset().top - $heder.outerHeight()
+			'scrollTop': $target.offset().top - $heder.outerHeight() - 20
 		}, 900, 'swing', function () {
 			window.location.hash = target;
 		});
-	});
-
-	$('.logo').click(function(event) {
-		event.preventDefault();
-
-		$('html, body').stop().animate({
-			'scrollTop': 0
-		}, 900, 'swing');
 	});
 })();

@@ -1,0 +1,21 @@
+include ../injected/injected
+
+mixin tabs(data)
+	+injected: block
+	script.
+		$(document).ready(function() {
+			$.ionTabs("##{data.id}");
+		});
+
+	.tabs(data-name=data.name id=data.id)&attributes(attributes)
+		ul.tabs__head
+			each tab in data.items
+				li.tabs__tab(data-target=data.name + "__" + tab.name)= tab.title
+		
+		.tabs__body
+			each tab in data.items
+				.tabs__item(data-name=data.name + "__" + tab.name)
+					+if(tab.name)
+						+use(tab.name)
+
+		.tabs__preloader

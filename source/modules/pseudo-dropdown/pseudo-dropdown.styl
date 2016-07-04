@@ -3,24 +3,37 @@
 	position relative
 	display inline-block
 	&__trigger
+		color #333
+		border 1px solid #cdcdcd
+		border-radius 3px
+		background-color #fff
+		font-size 13px
+		line-height 40px
+		height 40px
+		padding 0 37px 0 18px
 		cursor pointer
-		padding 3px 8px
-		display inline-block
-		background #F9F9F9
-		box-shadow 0 1px 5px rgba(22,20,17,.16)
+
+
+		&:hover
+			background #F9F9F9
 
 		&:after
 			content ''
-			display inline-block
-			vertical-align middle
-			width 0
-			height 0
-			border 3px solid transparent
-			border-top-color #333
-			margin-left 4px
-			border-bottom none
+			display block
+			position absolute
+			size 6px
+			border-width 0 1px 1px 0
+			border-style solid
+			transform rotate(45deg)
+			transform-origin 50% 75%
+			right 18px
+			top 50%
+			margin-top -4px
+			transition 150ms all ease-in-out 0s
+
 	&__list
-		min-width 150px
+		min-width 100%
+		width 200px
 		max-width 300px
 		position absolute
 		left 0
@@ -38,13 +51,21 @@
 		opacity 1
 		visibility visible
 
+	&_dropdown_open &__trigger:after
+		transform rotate(225deg)
+
 .pseudo-dropdown-list
 	ul-reset()
 	&__item
 		padding 5px 12px
 		list-style none
 		cursor pointer
+
 	&__item:hover
 	&__item_active
-		background #0074D9
+		background-color #3498da
 		color #fff
+
+	&__item_active
+		&:hover
+			background-color #258bce

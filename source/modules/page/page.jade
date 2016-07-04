@@ -1,0 +1,34 @@
+include ../injected/injected
+include ../browsehappy/browsehappy
+include ../mobile-menu/mobile-menu
+include ../javascripts/javascripts
+
+
+mixin page(data)
+	body.page&attributes(attributes)
+		+browsehappy(browsehappy)
+
+		+injected: block
+		
+		.page__mobile-menu
+			+mobile-menu(mainMenu.default)
+		
+		.page__content
+			.page__wrapper
+				+if('header')
+					.page__header
+						+use('header')
+				
+				+if('main')
+					.page__main
+						+use('main')
+
+				.page__buffer
+			
+			+if('footer')
+				.page__footer
+					+use('footer')
+
+
+		//- Scripts
+		+javascripts()

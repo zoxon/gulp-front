@@ -65,3 +65,6 @@
 //= require remodal/dist/remodal.js
 
 
+// ion.tabs.js
+// ---------------------------------------------------------------------------
+//= require ion.tabs/ion.tabs.js

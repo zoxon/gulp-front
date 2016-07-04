@@ -3,7 +3,7 @@
     projectName: "Gulp-front"
     lang: "en"
     path:
-      favicons: "/favicons"
+      favicons: "assets/favicons"
       styles: "assets/stylesheets"
       scripts: "assets/javascripts"
       images: "assets/images"

@@ -49,7 +49,8 @@
 			$that.toggleClass('pseudo-dropdown_dropdown_open');
 
 			if ($(this).attr('data-value').length > 0) {
-				alert('Selected: "' + $(this).attr('data-value') + '" (' + $triggerText + ')');
+				// alert('Selected: "' + $(this).attr('data-value') + '" (' + $triggerText + ')');
+				console.log('Selected: "' + $(this).attr('data-value') + '" (' + $triggerText + ')');
 			}
 		});
 

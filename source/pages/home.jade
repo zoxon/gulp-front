@@ -1,42 +1,53 @@
+include ../modules/injected/injected
+include ../modules/page/page
+
 include ../modules/head/head
-include ../modules/javascripts/javascripts
 include ../modules/footer/footer
-include ../modules/browsehappy/browsehappy
-include ../modules/mobile-menu/mobile-menu
 include ../modules/header/header
+
 include ../modules/sidebar/sidebar
+include ../modules/page-title/page-title
+
 include ../modules/demo/demo
 
 
 doctype html
-html(class="no-js" lang=config.lang)
+html(class="modernizr_no-js" lang=config.lang)
 
 	head
 		+head(head.home)
+		style
+			:stylus
+				.demo-icons
+					.icon
+						display inline-block
+						padding 20px
+						box-shadow 0 1px 5px rgba(22, 20, 17, 0.16)
+						width 34px
+						height 34px
+						margin 5px
 
-	body.page
-		+browsehappy(browsehappy)
-		
-		.page__mobile-menu
-			+mobile-menu(mainMenu.default)
-		
-		.page__content
-			.page__wrapper
-				.page__header#page__header
-					+header()
+					.flag
+						width 34px
+						height 26px
 
-				.page__main
-					.layout.layout_sidebar_left
-						.layout__sidebar
-							+sidebar()
-						.layout__content
-							+demo()
+						&_squared
+							width 34px
+							height 34px
+
+	+page()
+		+inject('header')
+			+header()
+
+		+inject('main')
+			.layout.layout_sidebar_left
+				.layout__sidebar
+					+sidebar()
+				.layout__content
+					+page-title({"title": "Gulp-front features"})
+					+demo()
+
+		+inject('footer')
+			+footer()
 
 
-				.page__buffer
-
-			.page__footer
-				+footer()
-		
-		//- Scripts
-		+javascripts()

@@ -1,10 +1,10 @@
 include ../alert/alert
 include ../form/form
 include ../page-title/page-title
+include ../tabs/tabs
 
 mixin demo()
 	.content-wrapper.demo
-		+page-title({"title": "Gulp-front features"})
 		// TYPOGRAPHY
 		section
 			h2#typography Typography
@@ -74,80 +74,7 @@ mixin demo()
 				li Mauris in erat justo. 
 			
 			h3#tables Tables
-			table
-				caption Table with caption, colgroup, thead, tfoot, and tbody
-				colgroup
-					col
-					col
-					col
-					col
-				thead
-					tr
-						th Etiam
-						th Pharetra
-						th Erat sed
-						th Feugiat
-				tfoot
-					tr
-						th Etiam
-						th Pharetra
-						th Erat sed
-						th Feugiat
-				tbody
-					tr
-						td Nam nec tellus
-						td 8873-1978-8717
-						td 145.58
-						td m³
 
-					tr
-						td Etiam
-						td 532-8725-9727
-						td 17800.50
-						td m²
-
-					tr
-						td Suspendisse
-						td 3364-2214-8781
-						td 312.22
-						td $
-
-					tr
-						td Morbi accumsan
-						td 5547-2212-8884
-						td 7822.33
-						td €
-
-					tr
-						td Condimentum 
-						td 6687-2111-5557
-						td 25.00
-						td 444
-
-					tr
-						td Nam nec tellus
-						td 7898-4460-4557
-						td 13.25
-						td 13.25
-
-					tr
-						td Etiam
-						td 1400-0077-7741
-						td 140000
-						td 140000
-
-					tr
-						td Suspendisse
-						td 1829-9774-6660
-						td 18.26
-						td 18.26
-
-					tr
-						td Condimentum 
-						td 6687-2111-5557
-						td 3.141592653589793238462
-						td +V
-				
 			table.table
 				caption Table with caption, colgroup, thead, tfoot, and tbody
 				colgroup
@@ -655,102 +582,6 @@ mixin demo()
 
 			hr
 		// END TYPOGRAPHY
-		
-		// HELPERS
-		section
-			h2#helpers Helpers and mixins
-
-			h3#modals Modal windows
-
-			button.button.button_style_solid.button_color_blue.button_style_rounded(data-remodal-target="modal1") Open modal #1
-			button.button.button_style_solid.button_color_blue.button_style_rounded(data-remodal-target="modal2") Open modal #2
-		
-			include ../modal/modal
-			+modal({"id": "modal1", "close": true})
-				div(style="padding: 35px")
-					h1(style="margin-top: 0") Simple modal #1
-					p Lorem ipsum dolor sit amet, consectetur adipisicing elit unde sint debitis in magnam vel pariatur libero nisi minima. 
-
-					button.button.button_style_solid.button_color_blue.button_style_rounded(data-remodal-action="confirm" class="remodal-confirm") OK
-					button.button.button_style_solid.button_color_red.button_style_rounded(data-remodal-action="cancel" class="remodal-cancel") Cancel
-
-			+modal({"id": "modal2", "close": true})
-				div(style="padding: 35px")
-					iframe(width="640" height="360" src="https://www.youtube.com/embed/dOWFVKb2JqM" frameborder="0" allowfullscreen)
-
-			h3#video Responsive video
-			.video-widget.video-widget_responsive.video-widget_16x9
-				iframe(width="1280" height="720" src="https://www.youtube.com/embed/dOWFVKb2JqM" frameborder="0" allowfullscreen)
-
-			h3#social-icons Social icons module
-			include ../social-icons/social-icons
-			+social-icons({"title": "Social icons"})
-
-			h3#svg-icons Svg Icons
-			style
-				:stylus
-					.demo-icons
-						.icon
-							display inline-block
-							padding 20px
-							box-shadow 0 1px 5px rgba(22, 20, 17, 0.16)
-							width 34px
-							height 34px
-							margin 5px
-			.demo-icons
-				include ../icon/icon
-				+icon('chevron-down')
-				+icon('chevron-up')
-				+icon('chevron-left')
-				+icon('chevron-right')
-				+icon('github-octocat')
-				+icon('hamburger')
-				+icon('heart')
-				+icon('maginifer')
-				+icon('rss')
-				+icon('fb')
-				+icon('gp')
-				+icon('mr')
-				+icon('ok')
-				+icon('tw')
-				+icon('vk')
-
-			h3#accordion Accordion
-			include ../accordion/accordion
-			+accordion()
-				+accordion-item({"title": "Accordion item 1", "open": true})
-					p Accordion item 1 content
-				
-				+accordion-item({"title": "Accordion item 2"})
-					p Accordion item 2 content
-
-				+accordion-item({"title": "Accordion item 3"})
-					p Accordion item 2 content
-
-			h3#pseudo-dropdown Pseudo dropdown
-			include ../pseudo-dropdown/pseudo-dropdown
-			+pseudo-dropdown({"list": [{"title": "Item 1"}, {"title": "Item 2"}, {"title": "Item 3"}, {"title": "Item 4 - active", "active": true}, {"title": "Item 5"}]})
-			
-			h3#images-helpers Images helpers
-			p
-				img( src="assets/images/content/preview_small.png", alt="").align-image-left
-			p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam, consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus ducimus doloremque minima nam!
-
-			p.align-image-center
-				img( src="assets/images/content/preview_small.png", alt="")
-			p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam, consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus ducimus doloremque minima nam!
-			
-			p
-				img( src="assets/images/content/preview_small.png", alt="").align-image-right
-			p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam, consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus ducimus doloremque minima nam!
-
-
-			.align-image-center
-				figure.image-captioned
-					img( src="assets/images/content/preview_small.png", alt="")
-					figcaption Example image description
-			p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae autem soluta velit, maxime delectus! Velit fuga, est vitae.
-		//END HELPERS
 
 		// FORMS
 		section
@@ -930,10 +761,12 @@ mixin demo()
 							.form-item__control
 								a(href="javascript:void(0);").form-item__image: img(src="assets/images/captcha.png", alt="Enter text from image")
 								+input({type: "text", "name": "form-demo__captcha", "id": "form-demo__captcha", "placeholder": "Enter text from image"}).input_style_default.form-item__input
+		// END FORMS
 
-
-			h3#buttons Buttons
-			h4 Styles
+		// BUTTONS
+		section
+			h2#buttons Buttons
+			h3 Styles
 			h5 Solid
 			h6 Rounded
 			button(type="button").button.button_style_solid.button_color_grey.button_style_rounded Grey
@@ -1008,14 +841,14 @@ mixin demo()
 			button(type="button").button.button_style_ghost.button_color_aqua.button_style_pill Aqua
 			button(type="button").button.button_style_ghost.button_color_purple.button_style_pill Purple
 			
-			h4 Sizes
+			h3 Sizes
 			button(type="button").button.button_style_solid.button_color_blue.button_style_rounded.button_size_extra-large Extra large
 			button(type="button").button.button_style_solid.button_color_blue.button_style_rounded.button_size_large Large
 			button(type="button").button.button_style_solid.button_color_blue.button_style_rounded Normal
 			button(type="button").button.button_style_solid.button_color_blue.button_style_rounded.button_size_small Small
 			button(type="button").button.button_style_solid.button_color_blue.button_style_rounded.button_size_extra-small Extra small
 			
-			h4 Icon buttons
+			h3 Icon buttons
 			button(type="button").button.button_style_solid.button_color_grey.button_style_rounded
 				span.button__text Grey
 				+icon('chevron-right').button__icon
@@ -1056,7 +889,7 @@ mixin demo()
 				+icon('chevron-left').button__icon
 				span.button__text Purple
 
-			h4 Tags types
+			h3 Tags types
 			button(type="button").button.button_style_solid.button_color_blue.button_style_rounded Button
 			a(href="javascript:void(0);").button.button_style_solid.button_color_blue.button_style_rounded Link
 			input(type="button" value="Input").button.button_style_solid.button_color_blue.button_style_rounded
@@ -1072,9 +905,118 @@ mixin demo()
 			button(type="button").button.button_style_solid.button_color_blue.button_style_rounded.button_block Normal
 			button(type="button").button.button_style_solid.button_color_blue.button_style_rounded.button_size_small.button_block Small
 			button(type="button").button.button_style_solid.button_color_blue.button_style_rounded.button_size_extra-small.button_block Extra small
+		// END BUTTONS
+
+		// COMPONENTS
+		section
+			h2#components Components
+
+			h3#tabs Tabs
+			+tabs({'id': 'tab-demo', 'name': 'tab-demo', 'items': [{'name': 'tab1', 'title': 'Tab 1'}, {'name': 'tab2', 'title': 'Tab 2'}, {'name': 'tab3', 'title': 'Tab 3'}]}).tabs_style_default
+				+inject('tab1')
+					h4 Tab 1 Content demo
+					p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.
+				+inject('tab2')
+					h4 Tab 2 Content demo
+					p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque alias mollitia iusto voluptatibus minus ut, adipisci magni magnam corporis aut aspernatur facere maiores sunt similique nihil unde est laboriosam reprehenderit.
+				+inject('tab3')
+					h4 Tab 3 Content demo
+					p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus fugiat, aliquam! In fugit id sint, nam repellendus possimus sit itaque aspernatur modi facere earum mollitia veritatis officia quo iste nisi.
+
+			h3#modals Modal windows
+
+			button.button.button_style_solid.button_color_blue.button_style_rounded(data-remodal-target="modal1") Open modal #1
+			button.button.button_style_solid.button_color_blue.button_style_rounded(data-remodal-target="modal2") Open modal #2
+		
+			include ../modal/modal
+			+modal({"id": "modal1", "close": true})
+				div(style="padding: 35px")
+					h1(style="margin-top: 0") Simple modal #1
+					p Lorem ipsum dolor sit amet, consectetur adipisicing elit unde sint debitis in magnam vel pariatur libero nisi minima. 
+
+					button.button.button_style_solid.button_color_blue.button_style_rounded(data-remodal-action="confirm" class="remodal-confirm") OK
+					button.button.button_style_solid.button_color_red.button_style_rounded(data-remodal-action="cancel" class="remodal-cancel") Cancel
+
+			+modal({"id": "modal2", "close": true})
+				div(style="padding: 35px")
+					iframe(width="640" height="360" src="https://www.youtube.com/embed/dOWFVKb2JqM" frameborder="0" allowfullscreen)
+
+			h3#video Responsive video
+			.video-widget.video-widget_responsive.video-widget_16x9
+				iframe(width="1280" height="720" src="https://www.youtube.com/embed/dOWFVKb2JqM" frameborder="0" allowfullscreen)
+
+			h3#social-icons Social icons module
+			include ../social-icons/social-icons
+			+social-icons({"title": "Social icons"})
+
+			h3#flags-icons Flags Icons
+
+			h4 4x3
+			.demo-icons
+				each flag in ['ad', 'ae', 'af', 'ag', 'ai', 'al', 'am', 'ao', 'aq', 'ar', 'as', 'at', 'au', 'aw', 'ax', 'az', 'ba', 'bb', 'bd', 'be', 'bf', 'bg', 'bh', 'bi', 'bj', 'bl', 'bm', 'bn', 'bo', 'bq', 'br', 'bs', 'bt', 'bv', 'bw', 'by', 'bz', 'ca', 'cc', 'cd', 'cf', 'cg', 'ch', 'ci', 'ck', 'cl', 'cm', 'cn', 'co', 'cr', 'cu', 'cv', 'cw', 'cx', 'cy', 'cz', 'de', 'dj', 'dk', 'dm', 'do', 'dz', 'ec', 'ee', 'eg', 'eh', 'er', 'es', 'et', 'fi', 'fj', 'fk', 'fm', 'fo', 'fr', 'ga', 'gb', 'gd', 'ge', 'gf', 'gg', 'gh', 'gi', 'gl', 'gm', 'gn', 'gp', 'gq', 'gr', 'gs', 'gt', 'gu', 'gw', 'gy', 'hk', 'hm', 'hn', 'hr', 'ht', 'hu', 'id', 'ie', 'il', 'im', 'in', 'io', 'iq', 'ir', 'is', 'it', 'je', 'jm', 'jo', 'jp', 'ke', 'kg', 'kh', 'ki', 'km', 'kn', 'kp', 'kr', 'kw', 'ky', 'kz', 'la', 'lb', 'lc', 'li', 'lk', 'lr', 'ls', 'lt', 'lu', 'lv', 'ly', 'ma', 'mc', 'md', 'me', 'mf', 'mg', 'mh', 'mk', 'ml', 'mm', 'mn', 'mo', 'mp', 'mq', 'mr', 'ms', 'mt', 'mu', 'mv', 'mw', 'mx', 'my', 'mz', 'na', 'nc', 'ne', 'nf', 'ng', 'ni', 'nl', 'no', 'np', 'nr', 'nu', 'nz', 'om', 'pa', 'pe', 'pf', 'pg', 'ph', 'pk', 'pl', 'pm', 'pn', 'pr', 'ps', 'pt', 'pw', 'py', 'qa', 're', 'ro', 'rs', 'ru', 'rw', 'sa', 'sb', 'sc', 'sd', 'se', 'sg', 'sh', 'si', 'sj', 'sk', 'sl', 'sm', 'sn', 'so', 'sr', 'ss', 'st', 'sv', 'sx', 'sy', 'sz', 'tc', 'td', 'tf', 'tg', 'th', 'tj', 'tk', 'tl', 'tm', 'tn', 'to', 'tr', 'tt', 'tv', 'tw', 'tz', 'ua', 'ug', 'um', 'us', 'uy', 'uz', 'va', 'vc', 've', 'vg', 'vi', 'vn', 'vu', 'wf', 'ws', 'ye', 'yt', 'za', 'zm', 'zw', 'eu', 'gb-eng', 'gb-nir', 'gb-sct', 'gb-wls', 'un']
+					span(class="flag flag_#{flag}")
+			
+			h4 1x1
+			.demo-icons
+				each flag in ['ad', 'ae', 'af', 'ag', 'ai', 'al', 'am', 'ao', 'aq', 'ar', 'as', 'at', 'au', 'aw', 'ax', 'az', 'ba', 'bb', 'bd', 'be', 'bf', 'bg', 'bh', 'bi', 'bj', 'bl', 'bm', 'bn', 'bo', 'bq', 'br', 'bs', 'bt', 'bv', 'bw', 'by', 'bz', 'ca', 'cc', 'cd', 'cf', 'cg', 'ch', 'ci', 'ck', 'cl', 'cm', 'cn', 'co', 'cr', 'cu', 'cv', 'cw', 'cx', 'cy', 'cz', 'de', 'dj', 'dk', 'dm', 'do', 'dz', 'ec', 'ee', 'eg', 'eh', 'er', 'es', 'et', 'fi', 'fj', 'fk', 'fm', 'fo', 'fr', 'ga', 'gb', 'gd', 'ge', 'gf', 'gg', 'gh', 'gi', 'gl', 'gm', 'gn', 'gp', 'gq', 'gr', 'gs', 'gt', 'gu', 'gw', 'gy', 'hk', 'hm', 'hn', 'hr', 'ht', 'hu', 'id', 'ie', 'il', 'im', 'in', 'io', 'iq', 'ir', 'is', 'it', 'je', 'jm', 'jo', 'jp', 'ke', 'kg', 'kh', 'ki', 'km', 'kn', 'kp', 'kr', 'kw', 'ky', 'kz', 'la', 'lb', 'lc', 'li', 'lk', 'lr', 'ls', 'lt', 'lu', 'lv', 'ly', 'ma', 'mc', 'md', 'me', 'mf', 'mg', 'mh', 'mk', 'ml', 'mm', 'mn', 'mo', 'mp', 'mq', 'mr', 'ms', 'mt', 'mu', 'mv', 'mw', 'mx', 'my', 'mz', 'na', 'nc', 'ne', 'nf', 'ng', 'ni', 'nl', 'no', 'np', 'nr', 'nu', 'nz', 'om', 'pa', 'pe', 'pf', 'pg', 'ph', 'pk', 'pl', 'pm', 'pn', 'pr', 'ps', 'pt', 'pw', 'py', 'qa', 're', 'ro', 'rs', 'ru', 'rw', 'sa', 'sb', 'sc', 'sd', 'se', 'sg', 'sh', 'si', 'sj', 'sk', 'sl', 'sm', 'sn', 'so', 'sr', 'ss', 'st', 'sv', 'sx', 'sy', 'sz', 'tc', 'td', 'tf', 'tg', 'th', 'tj', 'tk', 'tl', 'tm', 'tn', 'to', 'tr', 'tt', 'tv', 'tw', 'tz', 'ua', 'ug', 'um', 'us', 'uy', 'uz', 'va', 'vc', 've', 'vg', 'vi', 'vn', 'vu', 'wf', 'ws', 'ye', 'yt', 'za', 'zm', 'zw', 'eu', 'gb-eng', 'gb-nir', 'gb-sct', 'gb-wls', 'un']
+					span(class="flag flag_squared flag_#{flag}")
+
+			h3#svg-icons Svg Icons
+			
+			.demo-icons
+				include ../icon/icon
+				+icon('chevron-down')
+				+icon('chevron-up')
+				+icon('chevron-left')
+				+icon('chevron-right')
+				+icon('github-octocat')
+				+icon('hamburger')
+				+icon('heart')
+				+icon('maginifer')
+				+icon('rss')
+				+icon('fb')
+				+icon('gp')
+				+icon('mr')
+				+icon('ok')
+				+icon('tw')
+				+icon('vk')
+
+			h3#accordion Accordion
+			include ../accordion/accordion
+			+accordion()
+				+accordion-item({"title": "Accordion item 1", "open": true})
+					p Accordion item 1 content
+				
+				+accordion-item({"title": "Accordion item 2"})
+					p Accordion item 2 content
+
+				+accordion-item({"title": "Accordion item 3"})
+					p Accordion item 2 content
+
+			h3#pseudo-dropdown Pseudo dropdown
+			include ../pseudo-dropdown/pseudo-dropdown
+			+pseudo-dropdown({"list": [{"title": "Item 1"}, {"title": "Item 2"}, {"title": "Item 3"}, {"title": "Item 4 - active", "active": true}, {"title": "Item 5"}]})
+			
+			h3#images-helpers Images helpers
+			p
+				img( src="assets/images/content/preview_small.png", alt="").align-image-left
+			p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam, consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus ducimus doloremque minima nam!
+
+			p.align-image-center
+				img( src="assets/images/content/preview_small.png", alt="")
+			p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam, consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus ducimus doloremque minima nam!
+			
+			p
+				img( src="assets/images/content/preview_small.png", alt="").align-image-right
+			p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam, consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus ducimus doloremque minima nam!
 
 
-		// END FORMS
+			.align-image-center
+				figure.image-captioned
+					img( src="assets/images/content/preview_small.png", alt="")
+					figcaption Example image description
+			p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae autem soluta velit, maxime delectus! Velit fuga, est vitae.
+		//END COMPONENTS
 
 		// GRID
 		section

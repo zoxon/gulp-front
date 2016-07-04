@@ -2,4 +2,8 @@ mixin main-menu-submenu(data)
 	.main-menu-submenu&attributes(attributes)
 		ul
 			each ent2, num2 in data
-				li.main-menu-submenu__item: a(href="#{ent2.url}")= ent2.title
+				li.main-menu-submenu__item
+					if data.parent
+						a(href="#{data.parent}#{ent2.url}")= ent2.title
+					else
+						a(href="#{ent2.url}")= ent2.title

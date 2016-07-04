@@ -1,0 +1,95 @@
+// Ion.Tabs
+// http://ionden.com/a/plugins/ion.tabs
+
+// Ion.Tabs: Base
+.tabs
+	position relative
+
+	&__head
+		position relative
+		display block
+		list-style-type none
+		margin 0
+		padding 0
+		z-index 1
+		zoom 1
+		user-select-none()
+		m-cf()
+
+	&__body
+		position relative
+		z-index 2
+
+	&__tab
+		position relative
+		display block
+		float left
+		list-style-type none
+		background none
+		margin 0
+		padding 0
+		cursor pointer
+
+	&__tab_state_active
+		cursor default
+
+	&__icon
+	&__head-text
+		display inline-block
+		vertical-align middle
+
+	&__icon
+		margin-right 6px
+		min-height 30px
+		svg
+			transition 125ms all ease
+			fill currentColor
+
+	&__preloader
+		position relative
+
+
+	&__item
+		position relative
+		display none
+
+	&__item_state_active
+		display block
+
+
+	// Ion.Tabs: Skin default
+	&_style_default
+		margin 0 0 30px
+		& ^[0]__head
+			border-bottom 1px solid #ddd
+
+		& ^[0]__body
+			//
+
+		& ^[0]__tab
+			padding 12px 22px
+			font-size 16px
+			line-height 1.4
+			border-color transparent
+			border-style solid
+			border-width 1px 1px 0 1px
+			padding-bottom 15px
+			border-radius 2px 2px 0 0
+			color #111
+			margin-bottom -1px
+			&:last-child
+				margin-right 0
+
+		& ^[0]__tab_state_active
+			background #fff
+			border-color #ddd
+
+
+		& ^[0]__preloader
+			height 80px
+			background url(../images/tabs__preloader.svg) no-repeat 50% 20px
+			background-size 30px
+
+		& ^[0]__item
+			margin 20px 0
+

@@ -33,32 +33,7 @@
           -
             title: "Text level elements"
             url: "#text-elements"
-      -
-        title: "Helpers"
-        url: "#helpers"
-        icon: "add"
-        submenu:
-          -
-            title: "Modal windows"
-            url: "#modals"
-          -
-            title: "Responsive video"
-            url: "#video"
-          -
-            title: "Social icons module"
-            url: "#social-icons"
-          -
-            title: "Svg Icons"
-            url: "#svg-icons"
-          -
-            title: "Accordion"
-            url: "#accordion"
-          -
-            title: "Pseudo dropdown"
-            url: "#pseudo-dropdown"
-          -
-            title: "Images helpers"
-            url: "#images-helpers"
+
       -
         title: "Forms"
         url: "#forms"
@@ -82,9 +57,45 @@
           -
             title: "Captcha"
             url: "#captcha"
+      -
+        title: "Buttons"
+        url: "#buttons"
+        submenu: false
+        icon: "cursor"
+
+      -
+        title: "Components"
+        url: "#components"
+        icon: "add"
+        submenu:
           -
-            title: "Buttons"
-            url: "#buttons"
+            title: "Tabs"
+            url: "#tabs"
+          -
+            title: "Modal windows"
+            url: "#modals"
+          -
+            title: "Responsive video"
+            url: "#video"
+          -
+            title: "Social icons module"
+            url: "#social-icons"
+          -
+            title: "Flags Icons"
+            url: "#flags-icons"
+          -
+            title: "Svg Icons"
+            url: "#svg-icons"
+          -
+            title: "Accordion"
+            url: "#accordion"
+          -
+            title: "Pseudo dropdown"
+            url: "#pseudo-dropdown"
+          -
+            title: "Images helpers"
+            url: "#images-helpers"
+
       -
         title: "Grid"
         url: "#grid"
