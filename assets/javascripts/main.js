@@ -8,14 +8,6 @@ $(document).ready(function() {
 	$('.table').basictable({baseClass: 'table'});
 
 	// Here insert modules scripts
-	// Alert
-	(function() {
-		$('.alert__close').on('click', function() {
-			$(this).closest('.alert').fadeOut();
-		});
-	})();
-	
-	
 	// Accordion
 	(function() {
 		$('.accordion').each(function(index, el) {
@@ -55,6 +47,14 @@ $(document).ready(function() {
 					$item.removeClass('accordion__item_active');
 				}
 			});
+		});
+	})();
+	
+	
+	// Alert
+	(function() {
+		$('.alert__close').on('click', function() {
+			$(this).closest('.alert').fadeOut();
 		});
 	})();
 	
