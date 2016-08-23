@@ -1,6 +1,6 @@
 {
   "name": "gulp-front",
-  "version": "5.2.1",
+  "version": "5.2.2",
   "description": "The template for quick start of development with Gulp, Jade and Stylus",
   "keywords": [
     "gulp",
@@ -31,6 +31,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp dev",
     "amo": "node tools/module/add.js",
     "rmo": "node tools/module/remove.js"
   },
