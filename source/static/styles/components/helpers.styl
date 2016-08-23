@@ -2,12 +2,7 @@
 	clear both
 
 .clearfix
-	clearfix()
-
-.text-muted
-	&
-	& > *
-		color $base-quiet-color
+	m-cf()
 
 
 .content-wrapper
@@ -65,3 +60,32 @@
 	max-width 100%
 	height auto
 	display block
+
+// Utilities
+.text-muted
+	&
+	& > *
+		color $base-quiet-color
+
+.f-left
+	float left
+
+.f-right
+	float right
+
+.f-none
+	float none
+
+.ta-right
+	text-align right
+
+.ta-center
+	text-align center
+
+.ta-left
+	text-align left
+
+.disabled
+	cursor default
+	opacity .5
+	pointer-events none

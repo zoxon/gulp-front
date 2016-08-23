@@ -1,25 +1,10 @@
-// Mixins.
+////////////////////////////////////////////////////////////
+// Mixins
+////////////////////////////////////////////////////////////
 
-// Clearfix
-m-cf()
-	&:before, &:after
-		display table
-		content ""
+// @font-face
+// ---------------------------------------------------------
 
-	&:after
-		clear both
-
-	.lt-ie8 &
-		zoom 1
-
-
-// Justify
-m-blocks-justify()
-	text-align justify
-	text-justify newspaper
-
-
-// Font-face
 file(file-path, file-name, file-ext)
 	file-path + "/" + file-name + "." + file-ext
 
@@ -48,71 +33,42 @@ font-face( family, file-name, base-path="../fonts", weight = false, style = fals
 		src unquote( join( ", ", fonts ) )
 
 
-// overflow ellipsis
-overflow(value)
-	if (value == ellipsis)
-		white-space nowrap
-		text-overflow ellipsis
-		overflow hidden
-	else
-		overflow value
+
+// Clearfix
+// ---------------------------------------------------------
+m-cf()
+	&:before
+	&:after
+		display table
+		content ""
+
+	&:after
+		clear both
+
+	.lt-ie8 &
+		zoom 1
 
 
-// size 10px 20px
-size( values... )
-	if length( values ) == 1
-		width values[ 0 ] || auto
-		height values[ 0 ] || auto
-	else
-		width values[ 0 ] if values[ 0 ] != false
-		height values[ 1 ] if values[ 1 ] != false
 
+// Text and font mixins
+// ---------------------------------------------------------
+// Justify
+m-blocks-justify()
+	text-align justify
+	text-justify newspaper
 
-// Draw border triangle
-triangle( direction, size, face-color, back-color = transparent )
-	width 0
-	height 0
-	border size solid back-color
-	if direction == up || direction == down-left || direction == down-right
-		border-bottom-color face-color
-	if direction == down || direction == up-left || direction == up-right
-		border-top-color face-color
-	if direction == left || direction == down-right || direction == up-right
-		border-right-color face-color
-	if direction == right || direction == down-left || direction == up-left
-		border-left-color face-color
-
-
-// Set input placeholder style
-placeholder()
-	if selector() == "&"
-		error( "placeholder() must be called from a ruleset!" )
-	&::-webkit-input-placeholder
-		{block}
-	&:-moz-placeholder
-		{block}
-	&::-moz-placeholder
-		{block}
-	&:-ms-input-placeholder
-		{block}
-
-
-// Set user select none
 user-select-none()
 	-webkit-touch-callout none
 	-khtml-user-select none
 	user-select none
 
-
 // Convert pt to px
 pt2px( pt )
 	unit(pt/0.75, px)
 
-
 // Convert photoshop tracking to em
 ps-tracking( val )
 	unit(val/1000, 'em')
-
 
 // Set style of selection
 selection( color )
@@ -129,6 +85,14 @@ selection( color )
 		background transparent
 		{block}
 
+// overflow ellipsis
+overflow(value)
+	if (value == ellipsis)
+		white-space nowrap
+		text-overflow ellipsis
+		overflow hidden
+	else
+		overflow value
 
 // Font rendering OS X
 font-smoothing(active = true)
@@ -139,47 +103,17 @@ font-smoothing(active = true)
 		-webkit-font-smoothing subpixel-antialiased
 		-moz-osx-font-smoothing auto
 
-
-// Count size in persents
-ps(parentSize, childSize)
-	amount = (childSize / parentSize) * 100
-	amount = floor(amount, 2)
-	unit(amount, "%")
-
-
 font-feature()
-	-moz-font-feature-settings: "liga=1, dlig=1"
-	-ms-font-feature-settings: "liga", "dlig"
-	-webkit-font-feature-settings: "liga", "dlig"
-	-o-font-feature-settings: "liga", "dlig"
-	font-feature-settings: "liga", "dlig"
-
+	-moz-font-feature-settings "liga=1, dlig=1"
+	-ms-font-feature-settings "liga", "dlig"
+	-webkit-font-feature-settings "liga", "dlig"
+	-o-font-feature-settings "liga", "dlig"
+	font-feature-settings "liga", "dlig"
 
 hyphens()
-	-webkit-hyphens: auto
-	-moz-hyphens: auto
-	hyphens: auto
-
-
-image-responsive(display = block)
-	display display
-	max-width 100% // Part 1: Set a maximum relative to the parent
-	height auto // Part 2: Scale the height according to the width, otherwise you get stretching
-
-
-ul-reset()
-	ul
-		margin 0
-		padding 0
-		{block}
-
-
-ol-reset()
-	ol
-		margin 0
-		padding 0
-		{block}
-
+	-webkit-hyphens auto
+	-moz-hyphens auto
+	hyphens auto
 
 // _strip-units
 // remove units of a number
@@ -192,7 +126,6 @@ em( value, base = 16 )
 	base = _strip-units( base )
 	value / base * 1em
 
-
 rem( value, base = 16px )
 	u = unit(value)
 	base = _strip-units( base )
@@ -201,6 +134,62 @@ rem( value, base = 16px )
 		return unit(value / base, 'rem')
 	else
 		return unit(value, u)
+
+// Set input placeholder style
+placeholder()
+	if selector() == "&"
+		error( "placeholder() must be called from a ruleset!" )
+	&::-webkit-input-placeholder
+		{block}
+	&:-moz-placeholder
+		{block}
+	&::-moz-placeholder
+		{block}
+	&:-ms-input-placeholder
+		{block}
+
+
+
+// Sizes
+// ---------------------------------------------------------
+// size 10px 20px
+size( values... )
+	if length( values ) == 1
+		width values[ 0 ] || auto
+		height values[ 0 ] || auto
+	else
+		width values[ 0 ] if values[ 0 ] != false
+		height values[ 1 ] if values[ 1 ] != false
+
+// Count size in persents
+ps(parentSize, childSize)
+	amount = (childSize / parentSize) * 100
+	amount = floor(amount, 2)
+	unit(amount, "%")
+
+ratio-box( ratio = 1/1 )
+	ratio = _strip-units( ratio )
+
+	overflow hidden
+	position relative
+
+	// The container's height, as a percentage of the
+	// container's width, is set by assigning
+	// padding-top to a pseudo-element.
+	&:before
+		content ''
+		display block
+		height 0
+		padding-top floor((1 / ratio) * 100%, 2)
+
+
+
+// Images
+// ---------------------------------------------------------
+image-responsive(display = block)
+	display display
+	max-width 100% // Part 1: Set a maximum relative to the parent
+	height auto // Part 2: Scale the height according to the width, otherwise you get stretching
 
 retina-query( media = all, density = 1 )
 	media = join( " ", media )
@@ -227,21 +216,41 @@ retina-image( img-src, size = false, suffix = "@2x" )
 		background-image: url( retina-src )
 		background-size: size
 
-ratio-box( ratio = 1/1 )
-	ratio = _strip-units( ratio )
 
-	overflow hidden
-	position relative
 
-	// The container's height, as a percentage of the
-	// container's width, is set by assigning
-	// padding-top to a pseudo-element.
-	&:before
-		content ''
-		display block
-		height 0
-		padding-top floor((1 / ratio) * 100%, 2)
+// Resets
+// ---------------------------------------------------------
+ul-reset()
+	ul
+		margin 0
+		padding 0
+		{block}
+
+
+ol-reset()
+	ol
+		margin 0
+		padding 0
+		{block}
 
 m-padding()
 	padding-left $mobile-padding
 	padding-right $mobile-padding
+
+
+
+// Other
+// ---------------------------------------------------------
+// Draw border triangle
+triangle( direction, size, face-color, back-color = transparent )
+	width 0
+	height 0
+	border size solid back-color
+	if direction == up || direction == down-left || direction == down-right
+		border-bottom-color face-color
+	if direction == down || direction == up-left || direction == up-right
+		border-top-color face-color
+	if direction == left || direction == down-right || direction == up-right
+		border-right-color face-color
+	if direction == right || direction == down-left || direction == up-left
+		border-left-color face-color
