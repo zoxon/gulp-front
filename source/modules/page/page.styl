@@ -6,6 +6,9 @@
 		background $base-bg-color
 		position relative
 		z-index 2
+		top 0
+		left 0
+		transition 125ms left ease
 
 	&__wrapper
 		min-height 100%
@@ -40,7 +43,6 @@
 		width 80%
 		overflow-y auto
 		-webkit-overflow-scrolling touch
-		display none
 
 	&__cover
 		position absolute
@@ -64,6 +66,3 @@
 	&_mmenu-open &__content
 	&_mmenu-open &__cover
 		left -80%
-
-	&_mmenu-open &__mobile-menu
-		z-index 2

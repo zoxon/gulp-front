@@ -17,19 +17,13 @@
 
 			$('.page').addClass('page_mmenu-open', function(){
 				$('.page').addClass('page_mmenu-open');
-				$('html, body').css({
-					"overflow": "hidden",
-					"height": "auto"
-				});
 			});
 		},
 
 		hide: function(){
 			$('.page').removeClass('page_mmenu-open', function(){
-					mmenu.panel.hide();
-					$('html, body').removeAttr('style');
-					$(this).removeAttr('style');
-				});
+				mmenu.panel.hide();
+			});
 		}
 	};
 
