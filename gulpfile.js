@@ -110,7 +110,7 @@ var options = {
 	},
 
 	htmlPrettify: {
-		'unformatted': ['pre', 'code'],
+		'unformatted': ['pre', 'code', 'textarea'],
 		'indent_with_tabs': true,
 		'preserve_newlines': true,
 		'brace_style': 'expand',
@@ -121,6 +121,7 @@ var options = {
 		title: false,
 		id: '%f',
 		className: '%f',
+		svgClassname: 'icons-sprite',
 		templates: [
 			path.join(__dirname, 'source/static/styles/templates/icons-template.styl'),
 			path.join(__dirname, 'source/static/styles/templates/icons-template.svg')
