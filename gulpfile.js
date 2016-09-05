@@ -18,6 +18,9 @@ var runSequence = require('run-sequence');
 var rupture = require('rupture');
 var spritesmith = require('gulp.spritesmith');
 var stylus = require('stylus');
+var autoprefixer = require('autoprefixer');
+var cssMqpacker = require('css-mqpacker');
+var stylefmt = require('stylefmt');
 
 
 
@@ -82,9 +85,6 @@ var options = {
 	stylus: {
 		use: [
 			rupture(),
-			autoprefixer({
-				cascade: false
-			}),
 			stylusFileExists()
 		],
 		'include css': true
@@ -97,11 +97,6 @@ var options = {
 			__dirname + "/node_modules",
 			__dirname + "/source/static/scripts/plugins"
 		]
-	},
-
-	cssbeautify: {
-		indent: '\t',
-		autosemicolon: true
 	},
 
 	jade: {
@@ -152,8 +147,8 @@ var options = {
 		plugins: [
 			posthtmlAttrsSorter({
 				order: [
-					'class',
 					'id',
+					'class',
 					'name',
 					'data',
 					'ng',
@@ -170,7 +165,17 @@ var options = {
 			})
 		],
 		options: {}
-	}
+	},
+
+	postcss: [
+		autoprefixer({
+			cascade: false
+		}),
+		cssMqpacker({
+			sort: true
+		}),
+		stylefmt()
+	]
 };
 
 gulp.task('cleanup', function (cb) {
@@ -192,9 +197,7 @@ gulp.task('compile-styles', function (cb) {
 	return gulp.src(['*.styl', '!_*.styl'], {cwd: 'source/static/styles'})
 		.pipe($.plumber(options.plumber))
 		.pipe($.stylus(options.stylus))
-		.pipe($.combineMq({beautify: false}))
-		.pipe($.cssbeautify(options.cssbeautify))
-		.pipe($.csscomb())
+		.pipe($.postcss(options.postcss))
 		.pipe(gulp.dest('dest/assets/stylesheets'))
 		.pipe($.csso())
 		.pipe($.rename({suffix: '.min'}))
