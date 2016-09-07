@@ -1,20 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" style="width:0; height:0; visibility:hidden;">
+<svg xmlns="http://www.w3.org/2000/svg" class="icons-sprite">
 	<symbol id="add" viewBox="0 0 16 16">
 		<path fill-rule="evenodd" d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm4 9H9v3H7V9H4V7h3V4h2v3h3v2z"/>
 	</symbol>
-	<symbol id="chevron-down" viewBox="0 0 10 5">
+	<symbol id="chevron-down" viewBox="0 0 10 5" preserveAspectRatio="xMidYMid" >
 		<path d="M5 5L0 1.072.683 0 5 3.391 9.317 0 10 1.072 5 5z"/>
 	</symbol>
-	<symbol id="chevron-left" viewBox="0 0 7.13 14">
+	<symbol id="chevron-left" viewBox="0 0 7.13 14" preserveAspectRatio="xMidYMid" >
 		<path d="M0 7l5.598-7 1.528.956L2.293 7l4.833 6.043L5.598 14 0 7z"/>
 	</symbol>
-	<symbol id="chevron-right" viewBox="0 0 7.12 14">
+	<symbol id="chevron-right" viewBox="0 0 7.12 14" preserveAspectRatio="xMidYMid" >
 		<path d="M7.12 7l-5.598 7-1.528-.957L4.827 7-.006.956 1.522 0 7.12 7z"/>
 	</symbol>
-	<symbol id="chevron-up" viewBox="0 0 10 5">
+	<symbol id="chevron-up" viewBox="0 0 10 5" preserveAspectRatio="xMidYMid" >
 		<path d="M5 0l5 3.928L9.317 5 5 1.609.683 5 0 3.928 5 0z" class="cls-1"/>
 	</symbol>
-	<symbol id="close" viewBox="0 0 16 16">
+	<symbol id="close" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid" >
 		<path d="M16 14.546L14.545 16 8 9.455 1.455 16 0 14.546 6.545 8 0 1.455 1.455 0 8 6.546 14.545 0 16 1.455 9.454 8 16 14.546z" class="cls-1"/>
 	</symbol>
 	<symbol id="cursor" viewBox="0 0 347.451 347.451">
@@ -32,7 +32,7 @@
 	<symbol id="grid" viewBox="0 0 35 35">
 		<path d="M0 0h16v16H0zm19 0h16v16H19zM0 19h16v16H0zm19 0h16v16H19z"/>
 	</symbol>
-	<symbol id="hamburger" viewBox="0 0 20 14">
+	<symbol id="hamburger" viewBox="0 0 20 14" preserveAspectRatio="xMidYMid" >
 		<path d="M0 14v-2h20v2H0zm0-8h20v2H0V6zm0-6h20v2H0V0z"/>
 	</symbol>
 	<symbol id="heart" viewBox="0 0 510 510">
@@ -41,7 +41,7 @@
 	<symbol id="input" viewBox="0 0 41 41">
 		<path d="M27.999 10.5H0v20h27.999v-20zm-4 16H4v-12h19.999v12zM41 6.5v-4H27v4h5v28h-5v4h14v-4h-5v-28h5z"/>
 	</symbol>
-	<symbol id="maginifer" viewBox="0 0 17 17">
+	<symbol id="maginifer" viewBox="0 0 17 17" preserveAspectRatio="xMidYMid" >
 		<path d="M17 15.803L15.803 17l-3.655-3.656C10.866 14.365 9.265 15 7.5 15A7.5 7.5 0 1 1 15 7.5c0 1.765-.635 3.366-1.655 4.647L17 15.803zM7.5 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 1 0 0-11z"/>
 	</symbol>
 	<symbol id="mr" viewBox="0 0 18 18">
@@ -50,7 +50,7 @@
 	<symbol id="ok" viewBox="0 0 18 18">
 		<path fill-rule="evenodd" clip-rule="evenodd" d="M16.2 0H1.8C.8 0 0 .8 0 1.8v14.4c0 1 .8 1.8 1.8 1.8h14.4c1 0 1.8-.8 1.8-1.8V1.8c0-1-.8-1.8-1.8-1.8zM9 2.5c1.9 0 3.4 1.6 3.4 3.6 0 1.9-1.6 3.5-3.5 3.5C7.1 9.5 5.5 7.9 5.6 6c0-2 1.5-3.6 3.4-3.5zm3.9 8.4c-.4.4-.9.8-1.5 1-.5.2-1.1.3-1.7.4l.2.2 2.4 2.4c.3.3.3.6.2.9-.2.3-.5.6-.9.6-.2 0-.4-.1-.6-.3l-1.8-1.8c-.2-.2-.3-.1-.4 0-.6.6-1.2 1.2-1.8 1.9-.3.3-.6.3-.9.2-.3-.2-.6-.5-.5-.9 0-.2.1-.4.3-.6.8-.8 1.6-1.6 2.3-2.4l.2-.2c-1.1-.1-2-.4-2.8-1-.1-.1-.2-.2-.3-.2-.4-.3-.4-.8-.1-1.2.2-.4.6-.4 1.1-.2.1 0 .2.1.2.1 1.5 1.1 3.6 1.1 5.1 0 .2-.1.3-.2.5-.3.4-.1.7 0 .9.4.2.3.1.7-.1 1zM9 7.7c.9 0 1.7-.8 1.7-1.7 0-1-.7-1.7-1.7-1.7-.9 0-1.7.7-1.7 1.7 0 .9.8 1.7 1.7 1.7z"/>
 	</symbol>
-	<symbol id="rss" viewBox="0 0 16 16">
+	<symbol id="rss" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid" >
 		<path d="M15.751 16h-3.113a.248.248 0 0 1-.245-.247c0-6.704-5.448-12.158-12.146-12.158A.247.247 0 0 1 0 3.349V.248C0 .111.111 0 .247 0c8.651 0 15.696 7.023 15.739 15.676l.014.077a.25.25 0 0 1-.249.247zM.247 5.226c5.771 0 10.475 4.682 10.518 10.45l.012.077a.248.248 0 0 1-.248.246H7.506a.246.246 0 0 1-.246-.246c0-3.871-3.148-7.019-7.013-7.019A.248.248 0 0 1 0 8.487V5.474c0-.137.111-.248.247-.248zm2.125 6.028a2.375 2.375 0 0 1 2.372 2.374A2.376 2.376 0 0 1 2.372 16 2.376 2.376 0 0 1 0 13.628a2.375 2.375 0 0 1 2.372-2.374z"/>
 	</symbol>
 	<symbol id="text" viewBox="0 0 475.082 475.082">
@@ -61,5 +61,4 @@
 	</symbol>
 	<symbol id="vk" viewBox="0 0 18 18">
 		<path fill-rule="evenodd" clip-rule="evenodd" d="M16.2 0H1.8C.8 0 0 .8 0 1.8v14.4c0 1 .8 1.8 1.8 1.8h14.4c1 0 1.8-.8 1.8-1.8V1.8c0-1-.8-1.8-1.8-1.8zm-2.5 10.4c.4.4.9.8 1.3 1.3.2.2.3.4.5.7.2.3 0 .7-.3.7h-1.9c-.5 0-.9-.2-1.2-.5-.3-.3-.5-.6-.8-.8l-.3-.3c-.3-.2-.5-.1-.6.2-.2.3-.2.6-.2.9 0 .4-.2.6-.6.6-1 0-1.9-.1-2.7-.6-.7-.4-1.3-1-1.8-1.7C4 9.5 3.2 8 2.5 6.5c-.1-.3 0-.5.4-.5h1.9c.2 0 .3.1.4.4.4.8.8 1.6 1.3 2.3.1.2.3.4.5.5.2.2.4.1.5-.1.1-.2.1-.3.1-.5 0-.6.1-1.1 0-1.7-.1-.4-.3-.6-.7-.7-.1 0-.1-.1 0-.2.1-.2.3-.3.6-.3h2.2c.3.1.3.2.4.6v2.4c0 .1.1.5.3.6.2.1.3-.1.4-.2.5-.5.9-1.2 1.2-1.9.1-.3.3-.6.4-.9.1-.2.2-.3.5-.3h2.3c.3.1.4.2.3.5-.2.5-.5 1-.8 1.4-.3.5-.7.9-1.1 1.4-.3.5-.3.7.1 1.1z"/>
-	</symbol>
-</svg>
+	</symbol></svg>

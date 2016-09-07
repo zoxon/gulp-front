@@ -67,90 +67,40 @@ $(document).ready(function() {
 	})();
 	
 	
-	// Forms
-	(function() {
-		var setFormFieldState = function(block, control) {
-			var $block = $('.' + block);
+	// Input type="file"
+	;(function ( $, window, document, undefined ) {
+		"use strict";
 	
-			$block.each(function(index, el) {
-				var $that = $(this);
-				var $control = $that.find('.' + block + '__' + control);
+		var $files = $('.file');
 	
-				// Focus
-				$control.focusin(function(event) {
-					$(this).parents('.' + block).addClass(block + '_focused');
-				});
+		$files.each(function(index, el) {
+			var $file = $(this);
+			var $label = $file.find('.file__button');
+			var $fileControl = $file.find('.file__control');
+			var labelText = $label.text();
 	
-				$control.focusout(function(event) {
-					$(this).parents('.' + block).removeClass(block + '_focused');
-				});
+			$file.on('change', '.file__control', function(event) {
+				// event.preventDefault();
 	
-				// Checked
-				if ($control.is(':checked')) {
-					$that.addClass(block + '_checked');
+				var fileName = '';
+	
+				if(this.files && this.files.length > 1) {
+					fileName = ($(this).data('multiple-caption') || '').replace('{count}', this.files.length);
+				}
+				else {
+					fileName = event.target.value.split( '\\' ).pop();
 				}
 	
-				$control.click(function(event) {
-					$('input:not(:checked)').parents('.' + block).removeClass(block + '_checked');
-					$('input:checked').parents('.' + block).addClass(block + '_checked');
-				});
-	
-				// Disabled
-				if ($control.is(':disabled')) {
-					$that.addClass(block + '_disabled');
+				if( fileName ) {
+					$label.text(fileName);
 				}
-	
-				// Multiple
-				if ($control.is('[multiple]')) {
-					$that.addClass(block + '_multiple');
-				}
-	
-				$that.addClass(block + '_inited');
-			});
-		};
-	
-	
-		setFormFieldState('select', 'control');
-		setFormFieldState('input', 'control');
-		setFormFieldState('textarea', 'control');
-		setFormFieldState('checkbox', 'control');
-		setFormFieldState('radio', 'control');
-	
-	
-		$('.input').each(function(index, el) {
-			var $input = $(this);
-			var $box = $input.find('.input__box');
-			var $control = $input.find('input[type="file"]');
-			var placeholder = {
-				file: $control.attr('placeholder') || 'Select file...',
-				btn: 'Browse',
-				multiple: 'Files selected: '
-			}
-	
-			if ($control.length > 0) {
-				$input.addClass('input_inited input_type_file');
-	
-				var $fileBtn = $('<span class="input__file-btn">' + placeholder.btn + '</span>').appendTo($box);
-				var $fileName = $('<span class="input__file-name">' + placeholder.file + '</span>').appendTo($box);
-	
-				$fileBtn.add($fileName).on('click', function() {
-					$(this).parents('.input').find('input[type="file"]').click();
-				});
-			}
-	
-			$control.change(function(event) {
-				// Single file
-				if (this.files.length == 1) {
-					$fileName.text(this.files[0].name);
-				}
-				// Multiple files
-				else if (this.files.length > 1) {
-					$fileName.text(placeholder.multiple + this.files.length);
+				else {
+					$label.text(labelText);
 				}
 			});
 		});
 	
-	})();
+	})( jQuery, window, document );
 	
 	
 	// Header
@@ -228,19 +178,13 @@ $(document).ready(function() {
 	
 				$('.page').addClass('page_mmenu-open', function(){
 					$('.page').addClass('page_mmenu-open');
-					$('html, body').css({
-						"overflow": "hidden",
-						"height": "auto"
-					});
 				});
 			},
 	
 			hide: function(){
 				$('.page').removeClass('page_mmenu-open', function(){
-						mmenu.panel.hide();
-						$('html, body').removeAttr('style');
-						$(this).removeAttr('style');
-					});
+					mmenu.panel.hide();
+				});
 			}
 		};
 	
