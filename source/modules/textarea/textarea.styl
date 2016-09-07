@@ -1,0 +1,37 @@
+focus(color)
+	border-color color
+	box-shadow 0 0 3px 1px rgba(color, 0.45)
+
+.textarea
+	&__control
+		width 100%
+		box-sizing border-box
+		transition 125ms border ease-in-out, 125ms box-shadow ease-in-out
+		resize vertical
+
+	&_style_default &__control
+		padding 0 18px
+		font-size 13px
+		color #333
+		background-color #FFF
+		border 1px solid #cdcdcd
+		border-radius 3px
+		min-height 120px
+		height 120px
+		padding 8px 20px
+		+placeholder()
+			font-weight 300
+			color #969596
+
+		&:focus
+			outline none
+			focus(#3498da)
+
+		&:invalid
+			border-color #f64c61
+			&:focus
+				focus(#f64c61)
+
+		&:disabled
+			background-color #f7f7f7
+

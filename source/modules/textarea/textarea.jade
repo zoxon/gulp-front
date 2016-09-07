@@ -1,0 +1,13 @@
+mixin textarea(data)
+	- var textareaClasses = ['textarea']
+
+	if attributes.type
+		- textareaClasses.push(textareaClasses[0] + '_type_' + attributes.type)
+
+	if attributes.class
+		- textareaClasses.push(attributes.class)
+		- delete attributes.class
+
+	span(class=textareaClasses)
+		textarea(cols="30" rows="10")&attributes(attributes).textarea__control
+		

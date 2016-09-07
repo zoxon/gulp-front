@@ -1,0 +1,23 @@
+mixin file(data)
+	- var fileClasses = ['file']
+
+	if attributes.type
+		- fileClasses.push(fileClasses[0] + '_type_' + attributes.type)
+
+	if attributes.class
+		- fileClasses.push(attributes.class)
+		- delete attributes.class
+
+	if attributes.type
+		- attributes.type = "file"
+
+	if !attributes['data-multiple-caption']
+		- attributes['data-multiple-caption'] = "Файлов выбрано: {count}"
+
+	if !attributes['data-button-text']
+		- var buttonText = "Выбрать файл(ы)"
+		- delete attributes['data-button-text']
+
+	label(class=fileClasses)
+		input&attributes(attributes).file__control
+		span.file__button(data-button-text=buttonText) Ничего не выбрано

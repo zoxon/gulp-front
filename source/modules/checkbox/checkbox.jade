@@ -1,0 +1,15 @@
+mixin checkbox(data)
+	- var checkboxClasses = ['checkbox']
+
+	- attributes.type = "checkbox"
+
+	if attributes.class
+		- checkboxClasses.push(attributes.class)
+		- delete attributes.class
+
+
+	label(class=checkboxClasses)
+		input&attributes(attributes).checkbox__control
+		span.checkbox__box
+		span.checkbox__label
+			block

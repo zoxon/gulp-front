@@ -1,0 +1,82 @@
+focus(color)
+	border-color color
+	box-shadow 0 0 3px 1px rgba(color, 0.45)
+
+.select
+	position relative
+	&:after
+		content ''
+		display block
+		position absolute
+		z-index 1
+
+	&__control
+		width 100%
+		box-sizing border-box
+		transition 125ms border ease-in-out, 125ms box-shadow ease-in-out
+		-webkit-appearance none
+		-moz-appearance none
+		appearance none
+
+		&::-ms-expand
+			background-color transparent
+			display none
+			border 0
+
+	&__placeholder
+		display none
+		visibility hidden
+		opacity 0
+		font-size 0
+		height 0
+		border none
+		outline none
+
+	&_multiple &__control
+		height auto !important
+
+	&_multiple:after
+		content none !important
+
+	&_inline &__control
+		width auto
+
+	&_style_default
+		&:after
+			size 6px
+			border-width 0 1px 1px 0
+			border-style solid
+			transform-origin 75% 75%
+			transform rotate(45deg)
+			right 18px
+			top 50%
+			margin-top -4px
+
+	&_style_default &__control
+		height 40px
+		min-height 40px
+		padding 0 37px 0 18px
+		font-size 13px
+		color #333
+		background-color #FFF
+		border 1px solid #cdcdcd
+		border-radius 3px
+		+placeholder()
+			font-weight 300
+			color #969596
+
+		&:focus
+			outline none
+			focus(#3498da)
+
+		&:invalid
+			border-color #f64c61
+			&:focus
+				focus(#f64c61)
+
+		&:disabled
+			background-color #f7f7f7
+
+	&_style_default&_multiple &__control
+		padding 0 18px
+

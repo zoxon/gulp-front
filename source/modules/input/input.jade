@@ -1,0 +1,12 @@
+mixin input(data)
+	- var inputClasses = ['input']
+
+	if attributes.type
+		- inputClasses.push(inputClasses[0] + '_type_' + attributes.type)
+
+	if attributes.class
+		- inputClasses.push(attributes.class)
+		- delete attributes.class
+
+	span(class=inputClasses)
+		input&attributes(attributes).input__control

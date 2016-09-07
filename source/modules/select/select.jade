@@ -1,0 +1,16 @@
+mixin select(data)
+	- var selectClasses = ['select']
+
+	if attributes.multiple
+		- selectClasses.push(selectClasses[0] + '_multiple')
+		
+	if attributes.type
+		- selectClasses.push(selectClasses[0] + '_type_' + attributes.type)
+
+	if attributes.class
+		- selectClasses.push(attributes.class)
+		- delete attributes.class
+
+	span(class=selectClasses)
+		select&attributes(attributes).select__control
+			block

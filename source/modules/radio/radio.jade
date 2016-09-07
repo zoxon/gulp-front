@@ -1,0 +1,15 @@
+mixin radio(data)
+	- var radioClasses = ['radio']
+
+	- attributes.type = "radio"
+
+	if attributes.class
+		- radioClasses.push(attributes.class)
+		- delete attributes.class
+
+
+	label(class=radioClasses)
+		input&attributes(attributes).radio__control
+		span.radio__box
+		span.radio__label
+			block
