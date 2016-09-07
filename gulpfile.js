@@ -18,7 +18,6 @@ var rupture = require('rupture');
 var spritesmith = require('gulp.spritesmith');
 var stylus = require('stylus');
 var autoprefixer = require('autoprefixer');
-var cssMqpacker = require('css-mqpacker');
 var stylefmt = require('stylefmt');
 
 
@@ -170,9 +169,6 @@ var options = {
 		autoprefixer({
 			cascade: false
 		}),
-		cssMqpacker({
-			sort: true
-		}),
 		stylefmt()
 	]
 };
@@ -196,6 +192,7 @@ gulp.task('compile-styles', function (cb) {
 	return gulp.src(['*.styl', '!_*.styl'], {cwd: 'source/static/styles'})
 		.pipe($.plumber(options.plumber))
 		.pipe($.stylus(options.stylus))
+		.pipe($.combineMq({beautify: true}))
 		.pipe($.postcss(options.postcss))
 		.pipe(gulp.dest('dest/assets/stylesheets'))
 		.pipe($.csso())
