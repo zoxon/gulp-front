@@ -16,15 +16,12 @@
 			will-change opacity, transform
 
 	&__control
-		position absolute
-		z-index 1
-		margin 0
-		padding 0
-		opacity 0
-		width 100%
-		height 100%
-		outline none
-		box-sizing border-box
+		//
+
+		&:focus ~ ^[0]__box
+			border-color $form-color-border_focus
+			outline none
+			focus($form-color-border_focus)
 
 		&:checked + ^[0]__box:before
 			opacity 1
@@ -38,8 +35,8 @@
 
 	&_style_default
 		& ^[0]__box
-			size 20px
-			border 1px solid #c3c3c3
+			size ($form-size-input-height / 2)
+			border $form-border_default
 			transition 125ms border-color ease
 			border-radius 50%
 			&:before
@@ -47,7 +44,7 @@
 				top 6px
 				size 8px
 				transform scale(2)
-				background-color #08c
+				background-color $form-color-active
 				border-radius 50%
 				opacity 0
 
@@ -56,7 +53,7 @@
 				transform scale(1)
 
 			&:disabled + ^[0]__box
-				background #FFF - 8%
+				background $form-color-background - 8%
 
 		& ^[0]__label
 			padding-left 32px

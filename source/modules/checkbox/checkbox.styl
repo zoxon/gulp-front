@@ -16,16 +16,11 @@
 			will-change opacity, transform
 
 	&__control
-		position absolute
-		z-index 1
-		margin 0
-		padding 0
-		opacity 0
-		width 100%
-		height 100%
-		outline none
-		box-sizing border-box
-		cursor pointer
+		//
+		&:focus ~ ^[0]__box
+			border-color $form-color-border_focus
+			outline none
+			focus($form-color-border_focus)
 
 		&:checked + ^[0]__box:before
 			opacity 1
@@ -40,7 +35,7 @@
 	&_style_default
 		& ^[0]__box
 			size 20px
-			border 1px solid #c3c3c3
+			border $form-border_default
 			transition 125ms border-color ease
 			&:before
 				top 5px
@@ -49,14 +44,14 @@
 				transform scale(2) rotate(-45deg)
 				border-width 0 0 3px 3px
 				border-style solid
-				border-color #08c
+				border-color $form-color-active
 
 		& ^[0]__control
 			&:checked + ^[0]__box:before
 				transform scale(1) rotate(-45deg)
 
 			&:disabled + ^[0]__box
-				background #FFF - 8%
+				background $form-color-background - 8%
 
 		& ^[0]__label
 			padding-left 32px
@@ -66,8 +61,8 @@
 
 	&_type_toggle-sw&_style_default
 		& ^[0]__box
-			width 40px
-			height 20px
+			width $form-size-input-height
+			height ($form-size-input-height / 2)
 			background-color #dddddd
 			border-radius 50px
 			transition 125ms all ease-in-out
@@ -79,7 +74,7 @@
 				size 18px
 				transform none
 				border none
-				background #fff
+				background $form-color-background
 				box-shadow 0 2px 5px rgba(#000, 0.3)
 				border-radius 50%
 				margin-left 0
@@ -87,16 +82,16 @@
 
 		& ^[0]__control
 			&:checked + ^[0]__box
-				background-color #08c
-				border-color #08c
+				background-color $form-color-active
+				border-color $form-color-active
 
 			&:checked + ^[0]__box:before
 				transform none
 				margin-left 50%
 
 			&:disabled + ^[0]__box
-				background #FFF - 8%
-				border-color #c3c3c3
+				background $form-color-background - 8%
+				border-color $form-color-border
 
 		& ^[0]__label
 			padding-left 52px

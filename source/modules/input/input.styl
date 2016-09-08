@@ -1,36 +1,29 @@
-focus(color)
-	border-color color
-	box-shadow 0 0 3px 1px rgba(color, 0.45)
-
 .input
 	&__control
-		width 100%
-		box-sizing border-box
-		transition 125ms border ease-in-out, 125ms box-shadow ease-in-out
+		//
 
 	&_inline &__control
 		width auto
 
 	&_style_default &__control
-		height 40px
-		padding 0 18px
-		font-size 13px
-		color #333
-		background-color #FFF
-		border 1px solid #cdcdcd
-		border-radius 3px
+		height $form-size-input-height
+		padding 0 $form-padding_horizontal
+		font-size $form-font-size
+		color $form-color-font
+		background-color $form-color-background
+		border $form-border_default
+		border-radius $form-border-radius
 		+placeholder()
-			font-weight 300
-			color #969596
+			color $form-color-placeholder
 
 		&:focus
 			outline none
-			focus(#3498da)
+			focus($form-color-border_focus)
 
 		&:invalid
-			border-color #f64c61
+			border-color $form-color-border_invalid
 			&:focus
-				focus(#f64c61)
+				focus($form-color-border_invalid)
 
 		&:disabled
-			background-color #f7f7f7
+			background-color $form-color-background_disabled

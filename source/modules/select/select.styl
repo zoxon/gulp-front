@@ -1,7 +1,3 @@
-focus(color)
-	border-color color
-	box-shadow 0 0 3px 1px rgba(color, 0.45)
-
 .select
 	position relative
 	&:after
@@ -11,17 +7,7 @@ focus(color)
 		z-index 1
 
 	&__control
-		width 100%
-		box-sizing border-box
-		transition 125ms border ease-in-out, 125ms box-shadow ease-in-out
-		-webkit-appearance none
-		-moz-appearance none
-		appearance none
-
-		&::-ms-expand
-			background-color transparent
-			display none
-			border 0
+		//
 
 	&__placeholder
 		display none
@@ -42,6 +28,9 @@ focus(color)
 		width auto
 
 	&_style_default
+	&_style_default &__placeholder
+		color $form-color-placeholder
+
 		&:after
 			size 6px
 			border-width 0 1px 1px 0
@@ -53,30 +42,29 @@ focus(color)
 			margin-top -4px
 
 	&_style_default &__control
-		height 40px
-		min-height 40px
-		padding 0 37px 0 18px
-		font-size 13px
-		color #333
-		background-color #FFF
-		border 1px solid #cdcdcd
-		border-radius 3px
+		height $form-size-input-height
+		min-height $form-size-input-height
+		padding 0 ($form-padding_horizontal * 2) 0 $form-padding_horizontal
+		font-size $form-font-size
+		color $form-color-font
+		background-color $form-color-background
+		border $form-border_default
+		border-radius $form-border-radius
 		+placeholder()
-			font-weight 300
-			color #969596
+			color $form-color-placeholder
 
 		&:focus
 			outline none
-			focus(#3498da)
+			focus($form-color-border_focus)
 
 		&:invalid
-			border-color #f64c61
+			border-color $form-color-border_invalid
 			&:focus
-				focus(#f64c61)
+				focus($form-color-border_invalid)
 
 		&:disabled
-			background-color #f7f7f7
+			background-color $form-color-background_disabled
 
 	&_style_default&_multiple &__control
-		padding 0 18px
+		padding 0 $form-padding_horizontal
 

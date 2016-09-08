@@ -1,0 +1,30 @@
+.form-control
+	width 100%
+	box-sizing border-box
+	transition 125ms border ease-in-out, 125ms box-shadow ease-in-out
+
+	&_type_textarea
+		resize vertical
+
+	&_type_radio
+	&_type_checkbox
+	&_type_file
+		position absolute
+		z-index 1
+		margin 0
+		padding 0
+		opacity 0
+		height 100%
+		outline none
+		cursor pointer
+
+	&_type_select
+		-webkit-appearance none
+		-moz-appearance none
+		appearance none
+		cursor pointer
+
+		&::-ms-expand
+			background-color transparent
+			display none
+			border 0

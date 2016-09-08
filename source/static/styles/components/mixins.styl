@@ -254,3 +254,8 @@ triangle( direction, size, face-color, back-color = transparent )
 		border-right-color face-color
 	if direction == right || direction == down-left || direction == up-left
 		border-left-color face-color
+
+
+focus(color)
+	border-color color
+	box-shadow 0 0 3px 1px rgba(color, 0.45)
