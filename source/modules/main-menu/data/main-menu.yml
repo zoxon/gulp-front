@@ -96,6 +96,12 @@
             title: "Tooltips"
             url: "#tooltips"
           -
+            title: "Badges"
+            url: "#badges"
+          -
+            title: "Progress Bar"
+            url: "#progress-bar"
+          -
             title: "Images helpers"
             url: "#images-helpers"
 

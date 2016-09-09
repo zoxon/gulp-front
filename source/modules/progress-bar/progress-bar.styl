@@ -1,0 +1,140 @@
+.progress-bar
+	overflow hidden
+	position relative
+	&__bar
+		height 6px
+		position relative
+		width 0
+		will-change width
+		transition 500ms width ease
+
+	&_color_grey
+		background-color #f5f5f5
+		& ^[0]__bar
+			background-color #ebebeb
+
+		&^[0]_indeterminate
+			&:before
+			&:after
+				background-color #ebebeb
+
+	&_color_black
+		background-color #595959 + 60%
+		& ^[0]__bar
+			background-color #383838
+		&^[0]_indeterminate
+			&:before
+			&:after
+				background-color #383838
+
+	&_color_blue
+		background-color #2ea9fa + 60%
+		& ^[0]__bar
+			background-color #3498da
+		&^[0]_indeterminate
+			&:before
+			&:after
+				background-color #3498da
+
+	&_color_dark-blue
+		background-color #235688 + 80%
+		& ^[0]__bar
+			background-color #34495e
+		&^[0]_indeterminate
+			&:before
+			&:after
+				background-color #34495e
+
+	&_color_green
+		background-color #20cf6a + 60%
+		& ^[0]__bar
+			background-color #27ae60
+		&^[0]_indeterminate
+			&:before
+			&:after
+				background-color #27ae60
+
+	&_color_yellow
+		background-color #ffd21b + 60%
+		& ^[0]__bar
+			background-color #f1c40f
+		&^[0]_indeterminate
+			&:before
+			&:after
+				background-color #f1c40f
+
+	&_color_orange
+		background-color #ff8a22 + 60%
+		& ^[0]__bar
+			background-color #e57e22
+		&^[0]_indeterminate
+			&:before
+			&:after
+				background-color #e57e22
+
+	&_color_red
+		background-color #ff503e + 60%
+		& ^[0]__bar
+			background-color #e74c3c
+		&^[0]_indeterminate
+			&:before
+			&:after
+				background-color #e74c3c
+
+	&_color_aqua
+		background-color #1bd9ca + 60%
+		& ^[0]__bar
+			background-color #1abcaf
+		&^[0]_indeterminate
+			&:before
+			&:after
+				background-color #1abcaf
+
+	&_color_purple
+		background-color #b34bde + 60%
+		& ^[0]__bar
+			background-color #9b59b6
+		&^[0]_indeterminate
+			&:before
+			&:after
+				background-color #9b59b6
+
+
+	&_indeterminate
+		& ^[0]__bar
+			width 0 !important
+			will-change initial
+
+		&:before
+		&:after
+			content ''
+			display block
+			position absolute
+			right 0
+			bottom 0
+			height 100%
+			width 0
+			will-change width, left
+
+		&:before
+			animation progress-bar__increase 2s infinite
+
+		&:after
+			animation progress-bar__decrease 2s 0.5s infinite
+
+
+@keyframes progress-bar__increase
+	from
+		left -5%
+		width 5%
+	to
+		left 130%
+		width 100%
+
+@keyframes progress-bar__decrease
+	from
+		left -80%
+		width 80%
+	to
+		left 110%
+		width 10%

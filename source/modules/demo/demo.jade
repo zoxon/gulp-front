@@ -1085,6 +1085,167 @@ mixin demo()
 			div(data-tooltip-target="tooltip-4").tooltip.tooltip_right
 				| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam earum, similique nam repellendus nisi atque nesciunt non tempora labore ad dolorem eligendi dicta. Distinctio maiores deserunt officia eaque dolorem nam!
 
+			h3#badges Badges
+			include ../badge/badge
+
+			h4 Square
+
+			+badge().badge_color_grey
+				| 1
+			
+			+badge().badge_color_black
+				| 99
+
+			+badge().badge_color_blue
+				| 999
+
+			+badge().badge_color_dark-blue
+				| 9999
+
+			+badge().badge_color_green
+				| label
+
+			+badge().badge_color_yellow
+				| 1
+
+			+badge().badge_color_orange
+				| 99
+
+			+badge().badge_color_red
+				| 9999
+
+			+badge().badge_color_aqua
+				| label
+
+			+badge().badge_color_purple
+				| 1
+
+			h4 Rounded
+
+			+badge().badge_color_grey.badge_style_rounded
+				| 1
+			
+			+badge().badge_color_black.badge_style_rounded
+				| 99
+
+			+badge().badge_color_blue.badge_style_rounded
+				| 999
+
+			+badge().badge_color_dark-blue.badge_style_rounded
+				| 9999
+
+			+badge().badge_color_green.badge_style_rounded
+				| label
+
+			+badge().badge_color_yellow.badge_style_rounded
+				| 1
+
+			+badge().badge_color_orange.badge_style_rounded
+				| 99
+
+			+badge().badge_color_red.badge_style_rounded
+				| 9999
+
+			+badge().badge_color_aqua.badge_style_rounded
+				| label
+
+			+badge().badge_color_purple.badge_style_rounded
+				| 1
+
+			h4 Circle
+			
+			+badge().badge_color_grey.badge_style_circle
+				| 1
+			
+			+badge().badge_color_black.badge_style_circle
+				| 99
+
+			+badge().badge_color_blue.badge_style_circle
+				| 999
+
+			+badge().badge_color_dark-blue.badge_style_circle
+				| 9999
+
+			+badge().badge_color_green.badge_style_circle
+				| label
+
+			+badge().badge_color_yellow.badge_style_circle
+				| 1
+
+			+badge().badge_color_orange.badge_style_circle
+				| 99
+
+			+badge().badge_color_red.badge_style_circle
+				| 9999
+
+			+badge().badge_color_aqua.badge_style_circle
+				| label
+
+			+badge().badge_color_purple.badge_style_circle
+				| 1
+
+			h4 Sizes
+			
+
+			+badge().badge_color_blue.badge_style_circle.badge_size_extra-large
+				| extra large
+
+			+badge().badge_color_blue.badge_style_circle.badge_size_large
+				| large
+			
+			+badge().badge_color_blue.badge_style_circle
+				| normal
+
+			+badge().badge_color_blue.badge_style_circle.badge_size_small
+				| small
+
+			+badge().badge_color_blue.badge_style_circle.badge_size_extra-small
+				| extra small
+
+
+
+			h3#progress-bar Progress Bar
+			include ../progress-bar/progress-bar
+			
+			div(style="max-width: 600px;")
+				h4 Custom value and Color
+				
+				+progress-bar(data-progres-value="0.44").progress-bar_color_grey
+				br
+				br
+				+progress-bar(data-progres-value="0.27").progress-bar_color_black
+				br
+				br
+				+progress-bar(data-progres-value="0.68").progress-bar_color_blue
+				br
+				br
+				+progress-bar(data-progres-value="0.85").progress-bar_color_dark-blue
+				br
+				br
+				+progress-bar(data-progres-value="0.15").progress-bar_color_green
+				br
+				br
+				+progress-bar(data-progres-value="0.55").progress-bar_color_yellow
+				br
+				br
+				+progress-bar(data-progres-value="0.77").progress-bar_color_orange
+				br
+				br
+				+progress-bar(data-progres-value="0.44").progress-bar_color_red
+				br
+				br
+				+progress-bar(data-progres-value="0.74").progress-bar_color_aqua
+				br
+				br
+				+progress-bar(data-progres-value="0.68").progress-bar_color_purple
+				
+				h4 Indeterminate
+
+				
+				+progress-bar(data-progres-value="0.68").progress-bar_color_blue.progress-bar_indeterminate
+
+
+
 			h3#images-helpers Images helpers
 			p
 				img( src="assets/images/content/preview_small.png", alt="").align-image-left
