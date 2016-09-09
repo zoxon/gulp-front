@@ -93,6 +93,9 @@
             title: "Pseudo dropdown"
             url: "#pseudo-dropdown"
           -
+            title: "Tooltips"
+            url: "#tooltips"
+          -
             title: "Images helpers"
             url: "#images-helpers"
 

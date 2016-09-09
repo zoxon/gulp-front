@@ -1,0 +1,54 @@
+.tooltip
+	display inline-block
+	background rgba(#616161, 0.9)
+	border-radius 2px
+	padding 8px
+	font-size 12px
+	color #fff
+	max-width 300px
+	position fixed
+	top -500px
+	left -500px
+	z-index 999
+	transform-origin top center
+	opacity 0
+	visibility hidden
+	transition 200ms opacity cubic-bezier(0,0,.2,1)
+	line-height 1.4em
+	&__corner
+	&_bottom &__corner
+		position absolute
+		triangle(up, 5px, rgba(#616161, 0.9))
+		bottom 100%
+		left 50%
+		margin-left -3px
+
+	&_visible
+		opacity 1
+		visibility visible
+
+	&_left &__corner
+		triangle(right, 5px, rgba(#616161, 0.9))
+		left 100%
+		top 50%
+		bottom auto
+		right auto
+		margin-left 0
+		margin-top -3px
+
+	&_top &__corner
+		triangle(down, 5px, rgba(#616161, 0.9))
+		top 100%
+		left 50%
+		bottom auto
+		right auto
+		margin-left -3px
+
+	&_right &__corner
+		triangle(left, 5px, rgba(#616161, 0.9))
+		right 100%
+		top 50%
+		left auto
+		bottom auto
+		margin-left 0
+		margin-top -3px
