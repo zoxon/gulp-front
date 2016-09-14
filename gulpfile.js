@@ -145,8 +145,8 @@ var options = {
 		plugins: [
 			posthtmlAttrsSorter({
 				order: [
-					'id',
 					'class',
+					'id',
 					'name',
 					'data',
 					'ng',
