@@ -1022,6 +1022,7 @@ mixin demo()
 			button.button.button_style_solid.button_color_blue.button_style_rounded(data-remodal-target="modal2") Open modal #2
 		
 			include ../modal/modal
+			include ../embed/embed
 			+modal({"id": "modal1", "close": true})
 				div(style="padding: 35px")
 					h1(style="margin-top: 0") Simple modal #1
@@ -1035,7 +1036,7 @@ mixin demo()
 					iframe(width="640" height="360" src="https://www.youtube.com/embed/dOWFVKb2JqM" frameborder="0" allowfullscreen)
 
 			h3#video Responsive video
-			.video-widget.video-widget_responsive.video-widget_16x9
+			+embed().embed_16x9
 				iframe(width="1280" height="720" src="https://www.youtube.com/embed/dOWFVKb2JqM" frameborder="0" allowfullscreen)
 
 			h3#social-icons Social icons module
@@ -1273,7 +1274,15 @@ mixin demo()
 				
 				+progress-bar(data-progres-value="0.68").progress-bar_color_blue.progress-bar_indeterminate
 
+			h3#spoiler Spoiler
 
+			button(data-spoiler-target="sp1").button.button_style_solid.button_color_blue.button_style_rounded Toggle spoiler
+
+			div(data-spoiler-id="sp1")
+				h1 Simple spoiler
+				p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eius, quae quas nisi numquam ratione nostrum a necessitatibus voluptatibus. Dolor distinctio, culpa doloremque labore vero ex fuga in iure assumenda.
+				p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eius, quae quas nisi numquam ratione nostrum a necessitatibus voluptatibus. Dolor distinctio, culpa doloremque labore vero ex fuga in iure assumenda.
+				p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eius, quae quas nisi numquam ratione nostrum a necessitatibus voluptatibus. Dolor distinctio, culpa doloremque labore vero ex fuga in iure assumenda.
 
 			h3#images-helpers Images helpers
 			p

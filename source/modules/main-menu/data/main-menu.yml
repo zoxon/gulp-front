@@ -102,6 +102,9 @@
             title: "Progress Bar"
             url: "#progress-bar"
           -
+            title: "Spoiler"
+            url: "#spoiler"
+          -
             title: "Images helpers"
             url: "#images-helpers"
 
