@@ -1,0 +1,24 @@
+.button-group
+	font-size 0
+	&__item
+		&:nth-child(n+2):nth-last-child(n+2)
+			border-radius 0
+			margin-left -1px
+
+		&:first-child
+			border-top-right-radius 0
+			border-bottom-right-radius 0
+
+		&:last-child
+			margin-left -1px
+			border-top-left-radius 0
+			border-bottom-left-radius 0
+
+	&_full-width
+		display table
+		width 100%
+		table-layout fixed
+
+	&_full-width &__item
+		display table-cell
+		width 100%

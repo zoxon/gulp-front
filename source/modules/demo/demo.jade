@@ -11,6 +11,7 @@ include ../checkbox-group/checkbox-group
 include ../form/form
 include ../page-title/page-title
 include ../tabs/tabs
+include ../button-group/button-group
 
 mixin demo()
 	.content-wrapper.demo
@@ -969,6 +970,34 @@ mixin demo()
 			button(type="button").button.button_style_solid.button_color_blue.button_style_rounded.button_block Normal
 			button(type="button").button.button_style_solid.button_color_blue.button_style_rounded.button_size_small.button_block Small
 			button(type="button").button.button_style_solid.button_color_blue.button_style_rounded.button_size_extra-small.button_block Extra small
+
+			h3 Buttons group
+			+button-group()
+				button(type="button").button.button_style_solid.button_color_blue.button_style_rounded.button-group__item Blue
+				button(type="button").button.button_style_solid.button_color_blue.button_style_rounded.button-group__item Blue
+				button(type="button").button.button_style_solid.button_color_blue.button_style_rounded.button-group__item Blue
+				button(type="button").button.button_style_solid.button_color_blue.button_style_rounded.button-group__item Blue
+
+			+button-group()
+				button(type="button").button.button_style_ghost.button_color_blue.button_style_rounded.button-group__item Blue
+				button(type="button").button.button_style_solid.button_color_blue.button_style_rounded.button-group__item Blue
+				button(type="button").button.button_style_ghost.button_color_blue.button_style_rounded.button-group__item Blue
+				button(type="button").button.button_style_ghost.button_color_blue.button_style_rounded.button-group__item Blue
+
+			+button-group()
+				button(type="button").button.button_style_solid.button_color_grey.button_style_pill.button-group__item Blue
+				button(type="button").button.button_style_solid.button_color_blue.button_style_pill.button-group__item Blue
+				button(type="button").button.button_style_solid.button_color_grey.button_style_pill.button-group__item Blue
+				button(type="button").button.button_style_solid.button_color_grey.button_style_pill.button-group__item Blue
+				button(type="button").button.button_style_solid.button_color_grey.button_style_pill.button-group__item Blue
+
+			+button-group()
+				button(type="button").button.button_style_ghost.button_color_blue.button_style_pill.button-group__item Blue
+				button(type="button").button.button_style_solid.button_color_blue.button_style_pill.button-group__item Blue
+				button(type="button").button.button_style_ghost.button_color_blue.button_style_pill.button-group__item Blue
+				button(type="button").button.button_style_ghost.button_color_blue.button_style_pill.button-group__item Blue
+				button(type="button").button.button_style_ghost.button_color_blue.button_style_pill.button-group__item Blue
+
 		// END BUTTONS
 
 		// COMPONENTS

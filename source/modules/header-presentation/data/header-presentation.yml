@@ -3,5 +3,5 @@
     default:
       name: "Gulp front"
       description: "A lean and powerful, gulp-based boilerplate for better front-end coding."
-      version: "6.0.3"
+      version: "6.0.4"
       subDescription: "Created & maintained by @zoxon"

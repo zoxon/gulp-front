@@ -18,6 +18,17 @@ html(class="modernizr_no-js" lang=config.lang)
 		+head(head.home)
 		style
 			:stylus
+				.demo
+					.button
+						margin-bottom 20px
+
+					.button-group
+						margin-bottom 20px
+						&__item
+							margin 0
+							&:last-child
+								margin-left -1px
+
 				.demo-icons
 					.icon
 						display inline-block
