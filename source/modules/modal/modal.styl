@@ -51,12 +51,11 @@ html.remodal-is-locked
 	text-align center
 	-webkit-overflow-scrolling touch
 
-
-.remodal-wrapper:after
-	display inline-block
-	height 100%
-	margin-left -0.05em
-	content ""
+	&:after
+		display inline-block
+		height 100%
+		margin-left -0.05em
+		content ""
 
 
 /* Fix iPad, iPhone glitches */
@@ -102,6 +101,8 @@ html.remodal-is-locked
 
 .remodal-wrapper
 	padding 10px 10px 0
+	+below(470px)
+		padding 0
 
 .remodal
 	box-sizing border-box
@@ -110,6 +111,9 @@ html.remodal-is-locked
 	transform translate3d(0, 0, 0)
 	color #2b2e38
 	background #fff
+	transform-origin 50% 50%
+	+below(470px)
+		height 100%
 
 .remodal.remodal-is-opening,
 .remodal.remodal-is-closing
@@ -159,18 +163,19 @@ html.remodal-is-locked
 
 @keyframes remodal-opening-keyframes
 	from
-		transform scale(1.05)
+		margin-bottom 10%
 		opacity 0
 	to
-		transform none
+		margin-bottom 0
 		opacity 1
 
 @keyframes remodal-closing-keyframes
 	from
-		transform none
+		transform translate()
+		margin-bottom 0
 		opacity 1
 	to
-		transform scale(0.95)
+		margin-bottom 10%
 		opacity 0
 
 @keyframes remodal-overlay-opening-keyframes
