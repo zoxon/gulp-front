@@ -11,5 +11,6 @@ mixin checkbox(data)
 	label(class=checkboxClasses)
 		input&attributes(attributes).form-control.form-control_type_checkbox.checkbox__control
 		span.checkbox__box
-		span.checkbox__label
-			block
+		if block
+			span.checkbox__label
+				block
