@@ -29,7 +29,7 @@ let templates = [
 		{
 			type: 'optional',
 			ext: 'js',
-			tpl: '// (function(){\n// \n// }());\n'
+			tpl: '// // {blockName}\n// ;(function ( $, window, document, undefined ) {\n// \t\'use strict\';\n\n// \t// Your code here\n\n// })( jQuery, window, document );\n'
 		},
 		{
 			type: 'optional',
