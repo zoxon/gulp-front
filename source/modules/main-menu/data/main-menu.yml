@@ -90,8 +90,8 @@
             title: "Accordion"
             url: "#accordion"
           -
-            title: "Pseudo dropdown"
-            url: "#pseudo-dropdown"
+            title: "Dropdown"
+            url: "#dropdown"
           -
             title: "Tooltips"
             url: "#tooltips"
