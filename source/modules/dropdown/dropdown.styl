@@ -1,0 +1,75 @@
+.dropdown
+	font-size 13px
+	position relative
+	display inline-block
+
+	&__toggler
+		color #333
+		border 1px solid #cdcdcd
+		border-radius 3px
+		background-color #fff
+		font-size 13px
+		line-height 40px
+		padding 4px 37px 4px 18px
+		cursor pointer
+		user-select-none()
+		transition 125ms background-color ease-in-out
+		&:hover
+			background-color #F9F9F9
+
+	&__caret
+		content ''
+		display block
+		position absolute
+		size 6px
+		border-width 0 1px 1px 0
+		border-style solid
+		transform rotate(45deg)
+		transform-origin 70% 70%
+		right 18px
+		top 50%
+		margin-top -4px
+		transition 150ms all ease-in-out 0s
+
+	&__menu
+		min-width 100%
+		width 200px
+		max-width 300px
+		position absolute
+		left 0
+		top 100%
+		margin-top -20px
+		z-index 100
+		overflow hidden
+		opacity 0
+		visibility hidden
+		transition 125ms all ease-in-out
+		text-align left
+		border-radius 3px
+		background #fff
+		box-shadow 0 0 7px rgba(0, 0, 0, 0.13)
+		max-height 170px
+		overflow-y auto
+		ul-reset()
+
+	&_dropdown_open &__menu
+		opacity 1
+		visibility visible
+		z-index 100
+		margin-top 2px
+
+
+	&_dropdown_open &__caret
+		transform rotate(225deg)
+
+	&_drop_down &__list
+		top 100%
+		margin-top -20px
+
+.dropdown-backdrop
+	position fixed
+	left 0
+	right 0
+	bottom 0
+	top 0
+	z-index 990
