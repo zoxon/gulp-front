@@ -1,13 +1,13 @@
 // Input type="file"
 ;(function ( $, window, document, undefined ) {
-	"use strict";
+	'use strict';
 
 	var $files = $('.file');
 
-	$files.each(function(index, el) {
+	$files.each(function() {
 		var $file = $(this);
 		var $label = $file.find('.file__button');
-		var $fileControl = $file.find('.file__control');
+		// var $fileControl = $file.find('.file__control');
 		var labelText = $label.text();
 
 		$file.on('change', '.file__control', function(event) {

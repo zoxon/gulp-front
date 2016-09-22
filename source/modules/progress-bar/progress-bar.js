@@ -1,10 +1,10 @@
 // progress-bar
 ;(function ( $, window, document, undefined ) {
-	"use strict";
+	'use strict';
 
 	var $progressBars = $('.progress-bar');
 
-	$progressBars.each(function(index, el) {
+	$progressBars.each(function() {
 		var $progress = $(this);
 		var $progressBar = $progress.children('.progress-bar__bar');
 		var value = $progress.data('progres-value');

@@ -1,13 +1,15 @@
-// Accordion
-(function() {
-	$('.accordion').each(function(index, el) {
+// accordion
+;(function ( $, window, document, undefined ) {
+	'use strict';
+
+	$('.accordion').each(function() {
 		var $that = $(this);
-		var $items = $(this).find('.accordion__item');
-		var $headers = $(this).find('.accordion__header');
-		var $contents = $(this).find('.accordion__content');
+		var $items = $that.find('.accordion__item');
+		var $headers = $that.find('.accordion__header');
+		var $contents = $that.find('.accordion__content');
 		var speed = 300;
 
-		$items.each(function(index, el) {
+		$items.each(function() {
 			var findActive = false;
 
 			if (!findActive) {
@@ -38,4 +40,5 @@
 			}
 		});
 	});
-})();
+
+})( jQuery, window, document );

@@ -1,10 +1,10 @@
 // Input type="file"
 ;(function ( $, window, document, undefined ) {
-	"use strict";
+	'use strict';
 
 	var $spoilers = $('[data-spoiler-target]');
 
-	$spoilers.each(function(index, el) {
+	$spoilers.each(function() {
 		var $spoiler = $(this);
 		var targetId = $spoiler.data('spoiler-target');
 		var $target = $('[data-spoiler-id="' + targetId + '"]');
@@ -12,7 +12,7 @@
 
 		$target.hide();
 
-		$spoiler.click(function(event) {
+		$spoiler.click(function() {
 			$target.slideToggle(animationSpeed);
 		});
 	});

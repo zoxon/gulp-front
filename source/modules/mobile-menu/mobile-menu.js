@@ -1,5 +1,5 @@
 // Mobile menu
-(function() {
+;(function ( $, window, document, undefined ) {
 	var mmenu = {
 		trigger: $('.mobile-menu-trigger'),
 		panel: $('.page__mobile-menu'),
@@ -8,15 +8,8 @@
 		menuPosition: 'right',
 
 		show: function(){
-			mmenu.panel.show();
-			var menuWidth = mmenu.panel.width();
-
-			if (mmenu.menuPosition === 'right') {
-				var menuWidth = '-' + menuWidth;
-			}
-
 			$('.page').addClass('page_mmenu-open', function(){
-				$('.page').addClass('page_mmenu-open');
+				mmenu.panel.show();
 			});
 		},
 
@@ -45,7 +38,7 @@
 		}
 	});
 
-	$('.mobile-menu__item').each(function(index, el) {
+	$('.mobile-menu__item').each(function() {
 		var $item = $(this);
 		var $link = $item.find('.mobile-menu__link');
 		var $sumbmenu = $item.find('.mobile-menu__submenu');
@@ -69,4 +62,4 @@
 
 	});
 
-})();
+})( jQuery, window, document );

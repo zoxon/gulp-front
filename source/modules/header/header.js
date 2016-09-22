@@ -1,7 +1,7 @@
 // Header
-(function() {
+;(function ( $, window, document, undefined ) {
 	var $header    = $('.header');
-	var $headerTop = $header.find('.header__top');
+	// var $headerTop = $header.find('.header__top');
 	var $window    = $(window);
 	var classAdded = false;
 	function header() {
@@ -39,4 +39,4 @@
 			window.location.hash = target;
 		});
 	});
-})();
+})( jQuery, window, document );

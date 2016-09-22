@@ -1,6 +1,6 @@
 // Tooltip
 ;(function ( $, window, document, undefined ) {
-	"use strict";
+	'use strict';
 
 	var cssClasses = {
 		visible: 'tooltip_visible',
@@ -12,12 +12,12 @@
 
 	var $tooltips = $('[data-tooltip-id]');
 
-	$tooltips.each(function(index, el) {
+	$tooltips.each(function() {
 		var that = this;
-		var $that = $(this);
+		var $that = $(that);
 		var tooltipId = $that.data('tooltip-id');
 		var $tooltip = $('[data-tooltip-target="' + tooltipId + '"]').first();
-		var $corner = $('<div class="tooltip__corner"></div>').appendTo($tooltip);
+		// var $corner = $('<div class="tooltip__corner"></div>').appendTo($tooltip);
 
 		$that.hover(function() {
 			var props = event.target.getBoundingClientRect();
@@ -25,7 +25,7 @@
 			var top = props.top + (props.height / 2);
 			var marginLeft = -1 * ($tooltip.outerWidth() / 2);
 			var marginTop = -1 * ($tooltip.outerHeight() / 2);
-			var tooltipPos = {}
+			var tooltipPos = {};
 
 			if ($tooltip.hasClass(cssClasses.left) || $tooltip.hasClass(cssClasses.right)) {
 				left = (props.width / 2);
