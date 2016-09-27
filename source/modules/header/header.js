@@ -1,7 +1,8 @@
 // Header
 ;(function ( $, window, document, undefined ) {
+	'use strict';
+
 	var $header    = $('.header');
-	// var $headerTop = $header.find('.header__top');
 	var $window    = $(window);
 	var classAdded = false;
 	function header() {
@@ -39,4 +40,5 @@
 			window.location.hash = target;
 		});
 	});
+
 })( jQuery, window, document );

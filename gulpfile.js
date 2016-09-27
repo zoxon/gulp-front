@@ -233,7 +233,7 @@ gulp.task('combine-modules-data', function (cb) {
 jade.filters.stylus = jstransformer(jstransformerStylus);
 jade.filters.shoutFilter = function (str) {
 	return str + '!!!!';
-}
+};
 
 gulp.task('compile-pages', function (cb) {
 	var jsonData = JSON.parse(fs.readFileSync('./tmp/data.json'));
@@ -372,7 +372,7 @@ gulp.task('build-zip', function() {
 
 gulp.task('publish', function () {
 	return gulp.src('**/*', {cwd: 'dest'})
-		.pipe($.ghPages({branch: 'build'}))
+		.pipe($.ghPages({branch: 'build'}));
 });
 
 // Service tasks
@@ -466,7 +466,7 @@ gulp.task('watch', function (cb) {
 
 	// Modules data
 	$.watch(['source/modules/*/data/*.{json,yml}'], function() {
-		delete $.cached.caches['templates'];
+		delete $.cached.caches.templates;
 		return runSequence('build-html', browserSync.reload);
 	});
 

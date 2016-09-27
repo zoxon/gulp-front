@@ -29,6 +29,10 @@
 // Important plugins
 //////////////////////////////////////////////////////////////////////////////
 
+// JQuery
+// Browser feature detection library for HTML5/CSS3
+//= require jquery/dist/jquery.js
+
 // Modernizr
 // Browser feature detection library for HTML5/CSS3
 //= require modernizr/modernizr-custom-3.2.0.js

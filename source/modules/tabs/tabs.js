@@ -1,9 +1,7 @@
-// Browsehappy
+// Tabs
 ;(function ( $, window, document, undefined ) {
 	'use strict';
 
-	$('.browsehappy').click(function() {
-		$(this).slideUp();
-	});
+	$.ionTabs('.tabs');
 
 })( jQuery, window, document );

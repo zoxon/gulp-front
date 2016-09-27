@@ -604,17 +604,6 @@ mixin demo()
 			+alert(alert.message)
 
 			p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et ab totam, voluptas animi eius ducimus molestiae! Veritatis, atque? Porro praesentium, possimus! Iste architecto cupiditate placeat ab fugiat et adipisci reprehenderit.
-			
-			script.
-				$(function() {
-					$.getJSON("http://ip-api.com/json",
-						function(json) {
-							$('#form-demo__ip').val(json.query);
-							$('#form-demo__city').val(json.city);
-							$('#form-demo__country').val(json.country);
-						}
-					);
-				});
 
 			+form()
 				section.form__section

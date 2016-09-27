@@ -2,10 +2,6 @@ include ../injected/injected
 
 mixin tabs(data)
 	+injected: block
-	script.
-		$(document).ready(function() {
-			$.ionTabs("##{data.id}");
-		});
 
 	.tabs(data-name=data.name id=data.id)&attributes(attributes)
 		ul.tabs__head

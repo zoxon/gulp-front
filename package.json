@@ -92,6 +92,7 @@
     "fastclick": "^1.0.6",
     "placeholders.js": "^3.0.2",
     "remodal": "^1.1.0",
-    "svg4everybody": "^2.1.0"
+    "svg4everybody": "^2.1.0",
+    "jquery": "https://github.com/jquery/jquery-dist/archive/master.tar.gz"
   }
 }
