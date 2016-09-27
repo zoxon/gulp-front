@@ -19,7 +19,12 @@ var spritesmith = require('gulp.spritesmith');
 var stylus = require('stylus');
 var autoprefixer = require('autoprefixer');
 var stylefmt = require('stylefmt');
-
+var postcssSorting = require('postcss-sorting');
+var postcssSortingConfig = JSON.parse(
+		fs.readFileSync(
+			path.join(__dirname, './.postcss-sorting.json')
+		)
+	);
 
 
 // Error handler for gulp-plumber
@@ -169,7 +174,8 @@ var options = {
 		autoprefixer({
 			cascade: false
 		}),
-		stylefmt()
+		stylefmt(),
+		postcssSorting(postcssSortingConfig)
 	]
 };
 
