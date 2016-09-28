@@ -8,7 +8,7 @@ mixin radio(data)
 		- delete attributes.class
 
 
-	label(class=radioClasses)
+	label(class=radioClasses for=attributes.id)
 		input&attributes(attributes).form-control.form-control_type_radio.radio__control
 		span.radio__box
 		if block

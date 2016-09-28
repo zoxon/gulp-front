@@ -87,7 +87,7 @@ mixin demo()
 			h3#tables Tables
 
 			table.table
-				caption Table with caption, colgroup, thead, tfoot, and tbody
+				caption Table with(scope="col") caption, colgroup, thead, tfoot, and tbody
 				colgroup
 					col
 					col
@@ -95,16 +95,16 @@ mixin demo()
 					col
 				thead
 					tr
-						th Etiam
-						th Pharetra
-						th Erat sed
-						th Feugiat
+						th(scope="col") Etiam
+						th(scope="col") Pharetra
+						th(scope="col") Erat sed
+						th(scope="col") Feugiat
 				tfoot
 					tr
-						th Etiam
-						th Pharetra
-						th Erat sed
-						th Feugiat
+						th(scope="col") Etiam
+						th(scope="col") Pharetra
+						th(scope="col") Erat sed
+						th(scope="col") Feugiat
 				tbody
 					tr
 						td Nam nec tellus
@@ -161,7 +161,7 @@ mixin demo()
 						td +V
 
 			table.table.table_striped
-				caption Table with caption, colgroup, thead, tfoot, and tbody
+				caption Table with(scope="col") caption, colgroup, thead, tfoot, and tbody
 				colgroup
 					col
 					col
@@ -169,16 +169,16 @@ mixin demo()
 					col
 				thead
 					tr
-						th Etiam
-						th Pharetra
-						th Erat sed
-						th Feugiat
+						th(scope="col") Etiam
+						th(scope="col") Pharetra
+						th(scope="col") Erat sed
+						th(scope="col") Feugiat
 				tfoot
 					tr
-						th Etiam
-						th Pharetra
-						th Erat sed
-						th Feugiat
+						th(scope="col") Etiam
+						th(scope="col") Pharetra
+						th(scope="col") Erat sed
+						th(scope="col") Feugiat
 				tbody
 					tr
 						td Nam nec tellus
@@ -235,7 +235,7 @@ mixin demo()
 						td +V
 
 			table.table.table_bordered
-				caption Table with caption, colgroup, thead, tfoot, and tbody
+				caption Table with(scope="col") caption, colgroup, thead, tfoot, and tbody
 				colgroup
 					col
 					col
@@ -243,16 +243,16 @@ mixin demo()
 					col
 				thead
 					tr
-						th Etiam
-						th Pharetra
-						th Erat sed
-						th Feugiat
+						th(scope="col") Etiam
+						th(scope="col") Pharetra
+						th(scope="col") Erat sed
+						th(scope="col") Feugiat
 				tfoot
 					tr
-						th Etiam
-						th Pharetra
-						th Erat sed
-						th Feugiat
+						th(scope="col") Etiam
+						th(scope="col") Pharetra
+						th(scope="col") Erat sed
+						th(scope="col") Feugiat
 				tbody
 					tr
 						td Nam nec tellus
@@ -309,7 +309,7 @@ mixin demo()
 						td +V
 
 			table.table.table_horizontal
-				caption Table with caption, colgroup, thead, tfoot, and tbody
+				caption Table with(scope="col") caption, colgroup, thead, tfoot, and tbody
 				colgroup
 					col
 					col
@@ -317,16 +317,16 @@ mixin demo()
 					col
 				thead
 					tr
-						th Etiam
-						th Pharetra
-						th Erat sed
-						th Feugiat
+						th(scope="col") Etiam
+						th(scope="col") Pharetra
+						th(scope="col") Erat sed
+						th(scope="col") Feugiat
 				tfoot
 					tr
-						th Etiam
-						th Pharetra
-						th Erat sed
-						th Feugiat
+						th(scope="col") Etiam
+						th(scope="col") Pharetra
+						th(scope="col") Erat sed
+						th(scope="col") Feugiat
 				tbody
 					tr
 						td Nam nec tellus
@@ -383,7 +383,7 @@ mixin demo()
 						td +V
 
 			table.table.table_striped.table_horizontal
-				caption Table with caption, colgroup, thead, tfoot, and tbody
+				caption Table with(scope="col") caption, colgroup, thead, tfoot, and tbody
 				colgroup
 					col
 					col
@@ -391,16 +391,16 @@ mixin demo()
 					col
 				thead
 					tr
-						th Etiam
-						th Pharetra
-						th Erat sed
-						th Feugiat
+						th(scope="col") Etiam
+						th(scope="col") Pharetra
+						th(scope="col") Erat sed
+						th(scope="col") Feugiat
 				tfoot
 					tr
-						th Etiam
-						th Pharetra
-						th Erat sed
-						th Feugiat
+						th(scope="col") Etiam
+						th(scope="col") Pharetra
+						th(scope="col") Erat sed
+						th(scope="col") Feugiat
 				tbody
 					tr
 						td Nam nec tellus
@@ -457,7 +457,7 @@ mixin demo()
 						td +V
 			
 			table.table.table_striped.table_bordered
-				caption Table with caption, colgroup, thead, tfoot, and tbody
+				caption Table with(scope="col") caption, colgroup, thead, tfoot, and tbody
 				colgroup
 					col
 					col
@@ -465,16 +465,16 @@ mixin demo()
 					col
 				thead
 					tr
-						th Etiam
-						th Pharetra
-						th Erat sed
-						th Feugiat
+						th(scope="col") Etiam
+						th(scope="col") Pharetra
+						th(scope="col") Erat sed
+						th(scope="col") Feugiat
 				tfoot
 					tr
-						th Etiam
-						th Pharetra
-						th Erat sed
-						th Feugiat
+						th(scope="col") Etiam
+						th(scope="col") Pharetra
+						th(scope="col") Erat sed
+						th(scope="col") Feugiat
 				tbody
 					tr
 						td Nam nec tellus
@@ -574,7 +574,7 @@ mixin demo()
 				| and 
 				b b 
 				| for presentational formatting, 
-				abbr abbr 
+				abbr(title="Defines an abbreviation or an acronym") abbr 
 				| abbreviations, cite citations, 
 				code code example
 				| , 
@@ -666,10 +666,9 @@ mixin demo()
 				section.form__section
 					h3#radios-and-checkboxes Radios and Checkboxes
 					+form-item().form__item
-						+inject('label')
-							+label({"text": "Radios"})
 						+inject('control')
 							+radio-group()
+								legend.radio-group__legend Radios
 								+radio(id="form-demo__radio-1" name="form-demo__radio-group-1").radio_style_default.radio-group__item
 									| Normal
 								+radio(id="form-demo__radio-2" name="form-demo__radio-group-1" checked).radio_style_default.radio-group__item
@@ -680,10 +679,9 @@ mixin demo()
 									| Checked and Disabled
 					
 					+form-item().form__item
-						+inject('label')
-							+label({"text": "Radios Inline"})
 						+inject('control')
 							+radio-group().radio-group_inline
+								legend.radio-group__legend Radios Inline
 								+radio(id="form-demo__radio-5" name="form-demo__radio-group-1i").radio_style_default.radio-group__item
 									| Normal
 								+radio(id="form-demo__radio-6" name="form-demo__radio-group-1i" checked).radio_style_default.radio-group__item
@@ -694,10 +692,9 @@ mixin demo()
 									| Checked and Disabled
 
 					+form-item().form__item
-						+inject('label')
-							+label({"text": "Checkboxes"})
 						+inject('control')
 							+checkbox-group()
+								legend.checkbox-group__legend Checkboxes
 								+checkbox(id="form-demo__checkbox-1" name="form-demo__checkbox-group-1").checkbox_style_default.checkbox-group__item
 									| Normal
 								+checkbox(id="form-demo__checkbox-2" name="form-demo__checkbox-group-1" checked).checkbox_style_default.checkbox-group__item
@@ -708,10 +705,9 @@ mixin demo()
 									| Checked and Disabled
 					
 					+form-item().form__item
-						+inject('label')
-							+label({"text": "Checkboxes Inline"})
 						+inject('control')
 							+checkbox-group().checkbox-group_inline
+								legend.checkbox-group__legend Checkboxes Inline
 								+checkbox(id="form-demo__checkbox-5" name="form-demo__checkbox-group-1i").checkbox_style_default.checkbox-group__item
 									| Normal
 								+checkbox(id="form-demo__checkbox-6" name="form-demo__checkbox-group-1i" checked).checkbox_style_default.checkbox-group__item
@@ -722,10 +718,9 @@ mixin demo()
 									| Checked and Disabled
 
 					+form-item().form__item
-						+inject('label')
-							+label({"text": "Toggle Switch"})
 						+inject('control')
 							+checkbox-group()
+								legend.checkbox-group__legend Toggle Switch
 								+checkbox(id="form-demo__checkbox-9" name="form-demo__checkbox-group-3").checkbox_style_default.checkbox_type_toggle-sw.checkbox-group__item
 									| Normal
 								+checkbox(id="form-demo__checkbox-10" name="form-demo__checkbox-group-3" checked).checkbox_style_default.checkbox_type_toggle-sw.checkbox-group__item
@@ -737,7 +732,7 @@ mixin demo()
 
 					+form-item().form__item
 						+inject('label')
-							+label({"text": "Without label"})
+							+label({"text": "Without label", "for": "form-demo__checkbox-13"})
 						+inject('control')
 							+checkbox(id="form-demo__checkbox-13" name="form-demo__checkbox-group-5").checkbox_style_default.checkbox_type_toggle-sw
 
@@ -792,7 +787,7 @@ mixin demo()
 						+inject('label')
 							+label({"for": "form-demo__captcha", "text": "Captcha"})
 						+inject('control')
-							a(href="javascript:void(0);").form-item__image
+							a(href="#").form-item__image
 								img(src="assets/images/captcha.png", alt="Enter text from image")
 							.form-item__input
 								+input(type="text" name="form-demo__captcha" id="form-demo__captcha" placeholder="Enter text from image").input_style_default
@@ -926,12 +921,12 @@ mixin demo()
 
 			h3 Tags types
 			button(type="button").button.button_style_solid.button_color_blue.button_style_rounded Button
-			a(href="javascript:void(0);").button.button_style_solid.button_color_blue.button_style_rounded Link
+			a(href="#").button.button_style_solid.button_color_blue.button_style_rounded Link
 			input(type="button" value="Input").button.button_style_solid.button_color_blue.button_style_rounded
 
 			h4 Disabled buttons
 			button(type="button" disabled).button.button_style_solid.button_color_blue.button_style_rounded Disabled button
-			a(href="javascript:void(0);").button.button_style_solid.button_color_blue.button_style_rounded.button_disabled Disabled link
+			a(href="#").button.button_style_solid.button_color_blue.button_style_rounded.button_disabled Disabled link
 			input(type="button" value="Disabled input" disabled).button.button_style_solid.button_color_blue.button_style_rounded
 
 			h4 Block buttons
@@ -988,8 +983,8 @@ mixin demo()
 
 			h3#modals Modal windows
 
-			button.button.button_style_solid.button_color_blue.button_style_rounded(data-remodal-target="modal1") Open modal #1
-			button.button.button_style_solid.button_color_blue.button_style_rounded(data-remodal-target="modal2") Open modal #2
+			button.button.button_style_solid.button_color_blue.button_style_rounded(data-remodal-target="modal1" type="button") Open modal #1
+			button.button.button_style_solid.button_color_blue.button_style_rounded(data-remodal-target="modal2" type="button") Open modal #2
 		
 			include ../modal/modal
 			include ../embed/embed
@@ -998,8 +993,8 @@ mixin demo()
 					h1(style="margin-top: 0") Simple modal #1
 					p Lorem ipsum dolor sit amet, consectetur adipisicing elit unde sint debitis in magnam vel pariatur libero nisi minima. 
 
-					button.button.button_style_solid.button_color_blue.button_style_rounded(data-remodal-action="confirm" class="remodal-confirm") OK
-					button.button.button_style_solid.button_color_red.button_style_rounded(data-remodal-action="cancel" class="remodal-cancel") Cancel
+					button.button.button_style_solid.button_color_blue.button_style_rounded(data-remodal-action="confirm" class="remodal-confirm" type="button") OK
+					button.button.button_style_solid.button_color_red.button_style_rounded(data-remodal-action="cancel" class="remodal-cancel" type="button") Cancel
 
 			+modal({"id": "modal2", "close": true})
 				div(style="padding: 35px")
@@ -1069,13 +1064,13 @@ mixin demo()
 			h3#tooltips Tooltips
 
 			.ta-center
-				button(data-tooltip-id="tooltip-1").button.button_style_solid.button_color_blue.button_style_rounded Tooltip bottom
+				button(data-tooltip-id="tooltip-1" type="button").button.button_style_solid.button_color_blue.button_style_rounded Tooltip bottom
 				br
-				button(data-tooltip-id="tooltip-2").button.button_style_solid.button_color_green.button_style_rounded Tooltip top
+				button(data-tooltip-id="tooltip-2" type="button").button.button_style_solid.button_color_green.button_style_rounded Tooltip top
 				br
-				button(data-tooltip-id="tooltip-3").button.button_style_solid.button_color_yellow.button_style_rounded Tooltip left
+				button(data-tooltip-id="tooltip-3" type="button").button.button_style_solid.button_color_yellow.button_style_rounded Tooltip left
 				br
-				button(data-tooltip-id="tooltip-4").button.button_style_solid.button_color_orange.button_style_rounded Tooltip right
+				button(data-tooltip-id="tooltip-4" type="button").button.button_style_solid.button_color_orange.button_style_rounded Tooltip right
 			
 			div(data-tooltip-target="tooltip-1").tooltip
 				| Plain text
@@ -1251,7 +1246,7 @@ mixin demo()
 
 			h3#spoiler Spoiler
 
-			button(data-spoiler-target="sp1").button.button_style_solid.button_color_blue.button_style_rounded Toggle spoiler
+			button(data-spoiler-target="sp1" type="button").button.button_style_solid.button_color_blue.button_style_rounded Toggle spoiler
 
 			div(data-spoiler-id="sp1")
 				h1 Simple spoiler
@@ -1261,21 +1256,21 @@ mixin demo()
 
 			h3#images-helpers Images helpers
 			p
-				img( src="assets/images/content/preview_small.png", alt="").align-image-left
+				img(src="assets/images/content/preview_small.png" alt="gulp-front demo image").align-image-left
 			p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam, consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus ducimus doloremque minima nam!
 
 			p.align-image-center
-				img( src="assets/images/content/preview_small.png", alt="")
+				img(src="assets/images/content/preview_small.png" alt="Gulp-front demo image")
 			p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam, consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus ducimus doloremque minima nam!
 			
 			p
-				img( src="assets/images/content/preview_small.png", alt="").align-image-right
+				img(src="assets/images/content/preview_small.png" alt="Gulp-front demo image").align-image-right
 			p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam, consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus ducimus doloremque minima nam!
 
 
 			.align-image-center
-				figure.image-captioned
-					img( src="assets/images/content/preview_small.png", alt="")
+				figure(role="group").image-captioned
+					img(src="assets/images/content/preview_small.png" alt="Gulp-front demo image")
 					figcaption Example image description
 			p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae autem soluta velit, maxime delectus! Velit fuga, est vitae.
 		//END COMPONENTS

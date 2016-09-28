@@ -18,6 +18,6 @@ mixin file(data)
 		- var buttonText = "Выбрать файл(ы)"
 		- delete attributes['data-button-text']
 
-	label(class=fileClasses)
+	label(class=fileClasses for=attributes.id)
 		input&attributes(attributes).form-control.form-control_type_file.file__control
 		span.file__button(data-button-text=buttonText) Ничего не выбрано

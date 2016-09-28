@@ -8,7 +8,7 @@ mixin checkbox(data)
 		- delete attributes.class
 
 
-	label(class=checkboxClasses)
+	label(class=checkboxClasses for=attributes.id)
 		input&attributes(attributes).form-control.form-control_type_checkbox.checkbox__control
 		span.checkbox__box
 		if block
