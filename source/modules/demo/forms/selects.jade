@@ -1,0 +1,32 @@
+include ../../form-item/form-item
+include ../../label/label
+include ../../select/select
+
+-var language = [{"code": "ar_DZ", "label": "جزائري عربي"}, {"code": "ca_ES", "label": "Català"}, {"code": "cs_CZ", "label": "Čeština"}, {"code": "da_DK", "label": "Dansk"}, {"code": "de_DE", "label": "Deutsch"}, {"code": "el_GR", "label": "Ελληνικά"}, {"code": "en_GB", "label": "English (GB)"}, {"code": "en_US", "label": "English (US)"}, {"code": "es_ES", "label": "Español"}, {"code": "et_EE", "label": "Eesti"}, {"code": "fi_FI", "label": "Suomi"}, {"code": "fr_FR", "label": "Français"}, {"code": "gl_GZ", "label": "Galego (Galiza)"}, {"code": "he_IL", "label": "עברית"}, {"code": "hu_HU", "label": "Magyar"}, {"code": "id_ID", "label": "Bahasa Indonesia"}, {"code": "is_IS", "label": "Íslenska"}, {"code": "it_IT", "label": "Italiano"}, {"code": "ja_JP", "label": "日本語"}, {"code": "lv_LV", "label": "Latviešu"}, {"code": "nl_NL", "label": "Nederlands"}, {"code": "no_NO", "label": "Norsk"}, {"code": "pl_PL", "label": "Polski"}, {"code": "pt_PT", "label": "Português"}, {"code": "ro_RO", "label": "Română"}, {"code": "ru_RU", "label": "Русский"}, {"code": "sk_SK", "label": "Slovenčina"}, {"code": "sv_SE", "label": "Svenska"}, {"code": "th_TH", "label": "ไทย"}, {"code": "uk_UA", "label": "Українська"}, {"code": "vi_VN", "label": "Tiếng Việt"}, {"code": "zh_CN", "label": "中文(简体)"}, {"code": "zh_TW", "label": "中文(繁體)"}, {"code": "bg_BG", "label": "Български"}]
+
++form-item().form__item
+	+inject('label')
+		+label({"for": "form-demo__language", "text": "Language"})
+	+inject('control')
+		+select(id="form-demo__language" name="form-demo__language").select_style_default
+			option.select__placeholder Select language...
+			each option in language
+				option(value=option.code)= option.label
+
++form-item().form__item
+	+inject('label')
+		+label({"for": "form-demo__language", "text": "Language"})
+	+inject('control')
+		+select(id="form-demo__language2" name="form-demo__language2" disabled).select_style_default
+			option.select__placeholder Select language...
+			each option in language
+				option(value=option.code)= option.label
+
++form-item().form__item
+	+inject('label')
+		+label({"for": "form-demo__s-language", "text": "Secondary languages"})
+	+inject('control')
+		+select(id="form-demo__language3" name="form-demo__language3" size="10" multiple).select_style_default
+			option.select__placeholder Select language...
+			each option in language
+				option(value=option.code)= option.label

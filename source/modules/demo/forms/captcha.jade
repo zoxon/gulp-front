@@ -1,0 +1,12 @@
+include ../../form-item/form-item
+include ../../label/label
+include ../../input/input
+
++form-item().form-item_captcha.form__item
+	+inject('label')
+		+label({"for": "form-demo__captcha", "text": "Captcha"})
+	+inject('control')
+		a(href="#").form-item__image
+			img(src="assets/images/captcha.png", alt="Enter text from image")
+		.form-item__input
+			+input(type="text" name="form-demo__captcha" id="form-demo__captcha" placeholder="Enter text from image").input_style_default

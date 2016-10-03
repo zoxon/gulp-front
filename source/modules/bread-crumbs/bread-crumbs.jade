@@ -3,11 +3,11 @@ include ../icon/icon
 mixin bread-crumbs(data)
 	.bread-crumbs&attributes(attributes)
 		ul
-			each ent, num in data
-				if (num+1 < data.length)
+			each item, index in data
+				if (index+1 < data.length)
 					li.bread-crumbs__item 
-						a(href="#").bread-crumbs__link= ent
+						a(href="#").bread-crumbs__link= item
 						.bread-crumbs__separator
 							+icon('chevron-right')
 				else
-					li.bread-crumbs__item= ent
+					li.bread-crumbs__item= item

@@ -10,17 +10,11 @@
             title: "Titles & Paragraphs"
             url: "#titles-and-paragraphs"
           -
-            title: "Unordered lists"
-            url: "#unordered-lists"
-          -
-            title: "Ordered lists"
-            url: "#ordered-lists"
+            title: "Lists"
+            url: "#lists"
           -
             title: "Tables"
             url: "#tables"
-          -
-            title: "Images helpers"
-            url: "#images-helpers"
           -
             title: "Quotes"
             url: "#quotes"
@@ -60,8 +54,29 @@
       -
         title: "Buttons"
         url: "#buttons"
-        submenu: false
         icon: "cursor"
+        submenu:
+          -
+            title: "Styles"
+            url: "#buttons-styles"
+          -
+            title: "Sizes"
+            url: "#buttons-sizes"
+          -
+            title: "Icon buttons"
+            url: "#buttons-icon"
+          -
+            title: "Tags types"
+            url: "#buttons-tags"
+          -
+            title: "Disabled buttons"
+            url: "#buttons-disabled"
+          -
+            title: "Block buttons"
+            url: "#buttons-block"
+          -
+            title: "Buttons group"
+            url: "#buttons-group"
 
       -
         title: "Components"
@@ -69,32 +84,11 @@
         icon: "add"
         submenu:
           -
-            title: "Tabs"
-            url: "#tabs"
+            title: "Images helpers"
+            url: "#images-helpers"
           -
-            title: "Modal windows"
-            url: "#modals"
-          -
-            title: "Responsive video"
-            url: "#video"
-          -
-            title: "Social icons module"
-            url: "#social-icons"
-          -
-            title: "Flags Icons"
-            url: "#flags-icons"
-          -
-            title: "Svg Icons"
-            url: "#svg-icons"
-          -
-            title: "Accordion"
-            url: "#accordion"
-          -
-            title: "Dropdown"
-            url: "#dropdown"
-          -
-            title: "Tooltips"
-            url: "#tooltips"
+            title: "Breadcrumbs"
+            url: "#breadcrumbs"
           -
             title: "Pagination"
             url: "#pagination"
@@ -105,11 +99,35 @@
             title: "Progress Bar"
             url: "#progress-bar"
           -
+            title: "Responsive video"
+            url: "#embed"
+          -
+            title: "Social icons"
+            url: "#social-icons"
+          -
+            title: "Tabs"
+            url: "#tabs"
+          -
+            title: "Modal windows"
+            url: "#modals"
+          -
+            title: "Accordion"
+            url: "#accordion"
+          -
+            title: "Dropdown"
+            url: "#dropdown"
+          -
             title: "Spoiler"
             url: "#spoiler"
           -
-            title: "Images helpers"
-            url: "#images-helpers"
+            title: "Tooltips"
+            url: "#tooltips"
+          -
+            title: "Svg Icons"
+            url: "#svg-icons"
+          -
+            title: "Flags Icons"
+            url: "#flags-icons"
 
       -
         title: "Grid"

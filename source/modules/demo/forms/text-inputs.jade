@@ -1,0 +1,57 @@
+include ../../form-item/form-item
+include ../../label/label
+include ../../input/input
+
++form-item().form__item
+	+inject('label')
+		+label({"for": "form-demo__name", "text": "Name"})
+	+inject('control')
+		+input(type="text" name="form-demo__name" id="form-demo__name" value="Nikolas").input_style_default
+
++form-item().form__item
+	+inject('label')
+		+label({"for": "form-demo__ip", "text": "IP address"})
+	+inject('control')
+		+input(type="text" name="form-demo__ip" id="form-demo__ip" disabled).input_style_default
+
++form-item().form__item
+	+inject('label')
+		+label({"for": "form-demo__country", "text": "Country"})
+	+inject('control')
+		+input(type="text" name="form-demo__country" id="form-demo__country").input_style_default
+
++form-item().form__item
+	+inject('label')
+		+label({"for": "form-demo__city", "text": "City"})
+	+inject('control')
+		+input(type="text" name="form-demo__city" id="form-demo__city").input_style_default
+
++form-item().form__item
+	+inject('label')
+		+label({"for": "form-demo__email", "text": "Email"})
+	+inject('control')
+		+input(type="email" name="form-demo__email" id="form-demo__email" placeholder="info@example.com").input_style_default
+
++form-item().form__item
+	+inject('label')
+		+label({"for": "form-demo__url", "text": "Your site URL"})
+	+inject('control')
+		+input(type="url" name="form-demo__url" id="form-demo__url" placeholder="http://www.example.com").input_style_default
+
++form-item().form__item
+	+inject('label')
+		+label({"for": "form-demo__tel", "text": "Your phone"})
+	+inject('control')
+		+input(type="tel" name="form-demo__tel" id="form-demo__tel" placeholder="+123 123-345-6789").input_style_default
+
++form-item().form__item
+	+inject('label')
+		+label({"for": "form-demo__password", "text": "Password"})
+	+inject('control')
+		+input(type="password" name="form-demo__password" id="form-demo__password" placeholder="Enter password").input_style_default
+
++form-item().form__item
+	+inject('label')
+		+label({"for": "form-demo__age", "text": "Your age"})
+	+inject('control')
+		+input(type="number" name="form-demo__number" id="form-demo__number" placeholder="18").input_style_default

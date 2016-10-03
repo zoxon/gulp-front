@@ -1,0 +1,77 @@
+include ../../form-item/form-item
+include ../../label/label
+include ../../radio-group/radio-group
+include ../../radio/radio
+include ../../checkbox-group/checkbox-group
+include ../../checkbox/checkbox
+
++form-item().form__item
+	+inject('control')
+		+radio-group()
+			legend.radio-group__legend Radios
+			+radio(id="form-demo__radio-1" name="form-demo__radio-group-1").radio_style_default.radio-group__item
+				| Normal
+			+radio(id="form-demo__radio-2" name="form-demo__radio-group-1" checked).radio_style_default.radio-group__item
+				| Checked
+			+radio(id="form-demo__radio-3" name="form-demo__radio-group-2" disabled).radio_style_default.radio-group__item
+				| Normal Disabled
+			+radio(id="form-demo__radio-4" name="form-demo__radio-group-2" checked disabled).radio_style_default.radio-group__item
+				| Checked and Disabled
+
++form-item().form__item
+	+inject('control')
+		+radio-group().radio-group_inline
+			legend.radio-group__legend Radios Inline
+			+radio(id="form-demo__radio-5" name="form-demo__radio-group-1i").radio_style_default.radio-group__item
+				| Normal
+			+radio(id="form-demo__radio-6" name="form-demo__radio-group-1i" checked).radio_style_default.radio-group__item
+				| Checked
+			+radio(id="form-demo__radio-7" name="form-demo__radio-group-2i" disabled).radio_style_default.radio-group__item
+				| Normal Disabled
+			+radio(id="form-demo__radio-8" name="form-demo__radio-group-2i" checked disabled).radio_style_default.radio-group__item
+				| Checked and Disabled
+
++form-item().form__item
+	+inject('control')
+		+checkbox-group()
+			legend.checkbox-group__legend Checkboxes
+			+checkbox(id="form-demo__checkbox-1" name="form-demo__checkbox-group-1").checkbox_style_default.checkbox-group__item
+				| Normal
+			+checkbox(id="form-demo__checkbox-2" name="form-demo__checkbox-group-1" checked).checkbox_style_default.checkbox-group__item
+				| Checked
+			+checkbox(id="form-demo__checkbox-3" name="form-demo__checkbox-group-2" disabled).checkbox_style_default.checkbox-group__item
+				| Normal Disabled
+			+checkbox(id="form-demo__checkbox-4" name="form-demo__checkbox-group-2" checked disabled).checkbox_style_default.checkbox-group__item
+				| Checked and Disabled
+
++form-item().form__item
+	+inject('control')
+		+checkbox-group().checkbox-group_inline
+			legend.checkbox-group__legend Checkboxes Inline
+			+checkbox(id="form-demo__checkbox-5" name="form-demo__checkbox-group-1i").checkbox_style_default.checkbox-group__item
+				| Normal
+			+checkbox(id="form-demo__checkbox-6" name="form-demo__checkbox-group-1i" checked).checkbox_style_default.checkbox-group__item
+				| Checked
+			+checkbox(id="form-demo__checkbox-7" name="form-demo__checkbox-group-2i" disabled).checkbox_style_default.checkbox-group__item
+				| Normal Disabled
+			+checkbox(id="form-demo__checkbox-8" name="form-demo__checkbox-group-2i" checked disabled).checkbox_style_default.checkbox-group__item
+				| Checked and Disabled
+
++form-item().form__item
+	+inject('control')
+		+checkbox-group()
+			legend.checkbox-group__legend Toggle Switch
+			+checkbox(id="form-demo__checkbox-9" name="form-demo__checkbox-group-3").checkbox_style_default.checkbox_type_toggle-sw.checkbox-group__item
+				| Normal
+			+checkbox(id="form-demo__checkbox-10" name="form-demo__checkbox-group-3" checked).checkbox_style_default.checkbox_type_toggle-sw.checkbox-group__item
+				| Checked
+			+checkbox(id="form-demo__checkbox-11" name="form-demo__checkbox-group-4" disabled).checkbox_style_default.checkbox_type_toggle-sw.checkbox-group__item
+				| Normal Disabled
+			+checkbox(id="form-demo__checkbox-12" name="form-demo__checkbox-group-4" checked disabled).checkbox_style_default.checkbox_type_toggle-sw.checkbox-group__item
+				| Checked and Disabled
+
++form-item().form__item
+	+inject('label')
+		+label({"text": "Without label", "for": "form-demo__checkbox-13"})
+	+inject('control')
+		+checkbox(id="form-demo__checkbox-13" name="form-demo__checkbox-group-5").checkbox_style_default.checkbox_type_toggle-sw

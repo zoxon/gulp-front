@@ -1,0 +1,36 @@
+include ../../progress-bar/progress-bar
+
+div(style="max-width: 600px;")
+	h4 Custom value and Color
+	
+	+progress-bar(data-progres-value="0.44").progress-bar_color_grey
+	br
+	br
+	+progress-bar(data-progres-value="0.27").progress-bar_color_black
+	br
+	br
+	+progress-bar(data-progres-value="0.68").progress-bar_color_blue
+	br
+	br
+	+progress-bar(data-progres-value="0.85").progress-bar_color_dark-blue
+	br
+	br
+	+progress-bar(data-progres-value="0.15").progress-bar_color_green
+	br
+	br
+	+progress-bar(data-progres-value="0.55").progress-bar_color_yellow
+	br
+	br
+	+progress-bar(data-progres-value="0.77").progress-bar_color_orange
+	br
+	br
+	+progress-bar(data-progres-value="0.44").progress-bar_color_red
+	br
+	br
+	+progress-bar(data-progres-value="0.74").progress-bar_color_aqua
+	br
+	br
+	+progress-bar(data-progres-value="0.68").progress-bar_color_purple
+	
+	h4 Indeterminate
+	+progress-bar(data-progres-value="0.68").progress-bar_color_blue.progress-bar_indeterminate
