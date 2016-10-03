@@ -96,6 +96,9 @@
             title: "Tooltips"
             url: "#tooltips"
           -
+            title: "Pagination"
+            url: "#pagination"
+          -
             title: "Badges"
             url: "#badges"
           -

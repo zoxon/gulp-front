@@ -1085,6 +1085,13 @@ mixin demo()
 			div(data-tooltip-target="tooltip-4").tooltip.tooltip_right
 				| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam earum, similique nam repellendus nisi atque nesciunt non tempora labore ad dolorem eligendi dicta. Distinctio maiores deserunt officia eaque dolorem nam!
 
+			h3#pagination Pagination
+			include ../pagination/pagination
+			+pagination(pagination.default)
+			
+			include ../pager/pager
+			+pager()
+
 			h3#badges Badges
 			include ../badge/badge
 
