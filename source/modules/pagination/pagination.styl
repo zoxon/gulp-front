@@ -1,6 +1,6 @@
 .pagination
-	m-cf()
-	text-align center
+	margin 26px 0
+
 	+ul-reset()
 		display inline-block
 		font-size 0
@@ -10,38 +10,65 @@
 		padding 0
 		display inline-block
 		vertical-align middle
-		font-size 16px
-		font-weight 300
+		font-size 14px
+		color #666
+		text-align center
 
 	&__link
 		&
 		&:visited
-			color #505050
-			padding 8px
-			size 16px
-			display block
+			color currentColor
 			text-decoration none
-			line-height 1
+			display inline-block
+			height 30px
+			min-width 30px
+			line-height 30px
 
 		&:hover
-			color #9d9d9d
+			color currentColor
 			text-decoration none
 
-	&__arrow
-		display inline-block
-		line-height 1
-		vertical-align middle
-		text-align center
-		transition 125ms all ease-in-out
+	&__item_page
+		font-size 12px
+		margin 0 5px
+
+	&__item_page &__link
+		&
+		&:visited
+			border-radius 50px
+			background-color #fff
+			border 1px solid #cdcdcd
 		&:hover
-			background-color #d2d2d2
-			svg
-				fill #fff
-		svg
-			fill #d2d2d2
-			svgSize($chevron-right)
+			background-color #0083ca
+			border-color #0083ca
+			color #fff
+
+	&__item_spacer
+		margin 0
+
+	&__item_spacer &__link
+		&
+		&:visited
+			min-width 20px
+			width 20px
+
+	&__item_active
+		color #fff
 
 	&__item_active &__link
 		&
 		&:visited
-			color #f05050
+			border-color #0083ca
+			background-color #0083ca
+
+	&__item_prev
+		margin-right 10px
+	&__item_next
+		margin-left 10px
+
+	&__item_prev
+	&__item_next
+		& ^[0]__link
+			&:hover
+				color #111
+

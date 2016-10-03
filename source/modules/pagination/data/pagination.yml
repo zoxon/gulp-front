@@ -1,7 +1,28 @@
 ---
   pagination:
-    defaults:
-      pages: "6"
-      active: "4"
-      total: "10"
-      arrows: true
+    default:
+      items:
+        -
+          type: prev
+        -
+          type: item
+          text: 1
+          active: true
+        -
+          type: spacer
+        -
+          type: item
+          text: 8
+        -
+          type: item
+          text: 9
+        -
+          type: item
+          text: 10
+        -
+          type: spacer
+        -
+          type: item
+          text: 999
+        -
+          type: next

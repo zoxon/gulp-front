@@ -2,12 +2,10 @@ include ../icon/icon
 
 mixin pager(data)
 	.pager&attributes(attributes)
-		a(href="#").pager__arrow.pager__arrow_left
-			+icon('chevron-left')
-		.pager__counter
-			span.pager__current= data.current
-			|  из 
-			span.pager__total= data.total
-		a(href="#").pager__arrow.pager__arrow_right
-			+icon('chevron-right')
+		a(href="#").pager__item.pager__item_prev
+			+icon('chevron-left').pager__icon
+			span.pager__text Previous
+		a(href="#").pager__item.pager__item_next
+			span.pager__text Next
+			+icon('chevron-right').pager__icon
 

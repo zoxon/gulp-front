@@ -1,32 +1,35 @@
 include ../icon/icon
 
 mixin pagination(data)
-	nav.pagination&attributes(attributes)
+	// pagination
+	nav(aria-label="pagination").pagination&attributes(attributes)
 		ul
-			if data.arrows
-				li.pagination__item.pagination__arrow.pagination__arrow_prev
-					a(href="#", aria-label="Previous").pagination__link
-						+icon('chevron-left')
-			
-			- for (var i = 0; i < data.pages; i++)
-				- var classes = ['pagination__item']
-				if i == 0
-					- classes.push(classes[0] + '_first')
-				if i == data.pages
-					- classes.push(classes[0] + '_last')
-				if i+1 == data.active
-					- classes.push(classes[0] + '_active')
+			each item in data.items
+				- var itemClasses = ['pagination__item']
+				if item.type == "spacer" || item.type == "next" || item.type == "prev"
+					- itemClasses.push(itemClasses[0] + '_' + item.type)
 
-				li(class=classes)
-					a(href="#").pagination__link= i+1
+				if item.type == "item"
+					- itemClasses.push(itemClasses[0] + '_page')
 
-			li.pagination__item.pagination__item_spacer
-				.pagination__link ...
+				if item.active
+					- itemClasses.push(itemClasses[0] + '_active')
+				
+				li(class=itemClasses)
+					if item.type == "spacer"
+						span.pagination__link ...
 
-			li.pagination__item
-				a(href="#", aria-label="Last").pagination__link= data.total
-			
-			if data.arrows
-				li.pagination__item.pagination__arrow.pagination__arrow_next
-					a(href="#", aria-label="Next").pagination__link
-						+icon('chevron-right')
+					if item.type == "prev"
+						a(href="#" aria-label="Previous page").pagination__link « prev.
+					
+					if item.type == "next"
+						a(href="#" aria-label="Next page").pagination__link next. »
+
+					if item.type == "item"
+						if item.active
+							span.pagination__link= item.text
+							span.sr-only (current)
+						else
+							a(href="#").pagination__link= item.text
+
+	// END pagination
