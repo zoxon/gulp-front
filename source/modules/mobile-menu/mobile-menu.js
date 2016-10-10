@@ -7,14 +7,14 @@
 		cover: true,
 		menuPosition: 'right',
 
-		show: function(){
-			$('.page').addClass('page_mmenu-open', function(){
+		show: function() {
+			$('.page').addClass('page_mmenu-open', function() {
 				mmenu.panel.show();
 			});
 		},
 
-		hide: function(){
-			$('.page').removeClass('page_mmenu-open', function(){
+		hide: function() {
+			$('.page').removeClass('page_mmenu-open', function() {
 				mmenu.panel.hide();
 			});
 		}

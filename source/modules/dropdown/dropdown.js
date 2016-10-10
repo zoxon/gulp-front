@@ -39,7 +39,7 @@
 
 		$(backdrop).remove();
 
-		$(toggle).each(function () {
+		$(toggle).each(function() {
 			var $this = $(this);
 			var $parent = getParent($this);
 			var relatedTarget = { relatedTarget: this };
@@ -48,23 +48,27 @@
 				return;
 			}
 
-			if (event && event.type == 'click' && /input|textarea/i.test(event.target.tagName) && $.contains($parent[0], event.target)) {
+			if (event && event.type === 'click' &&
+				/input|textarea/i.test(event.target.tagName) &&
+				$.contains($parent[ 0 ], event.target)) {
 				return;
 			}
 
 			$parent.trigger(event = $.Event('dropdown.hide', relatedTarget));
 
 			// Выходим, если клик пришелся на элемент внутри .dropdown__menu
-			if (event && event.type == 'click' && /dropdown__menu/i.test(event.toElement.offsetParent.className)) {
+			if (event && event.type === 'click' &&
+				/dropdown__menu/i.test(event.toElement.offsetParent.className)) {
 				return;
 			}
 
 			$this.attr('aria-expanded', 'false');
-			$parent.removeClass('dropdown_dropdown_open').trigger($.Event('dropdown.hidden', relatedTarget));
+			$parent.removeClass('dropdown_dropdown_open')
+				.trigger($.Event('dropdown.hidden', relatedTarget));
 		});
 	}
 
-	Dropdown.prototype.toggle = function (event) {
+	Dropdown.prototype.toggle = function(event) {
 
 		var $this = $(this);
 
@@ -79,6 +83,7 @@
 
 		if (!isActive) {
 			if ('ontouchstart' in document.documentElement) {
+
 				// if mobile we use a backdrop because click events don't delegate
 				$(document.createElement('div'))
 					.addClass('dropdown-backdrop')
@@ -91,13 +96,14 @@
 
 			$this.trigger('focus').attr('aria-expanded', 'true');
 
-			$parent.toggleClass('dropdown_dropdown_open').trigger($.Event('dropdown.shown', relatedTarget));
+			$parent.toggleClass('dropdown_dropdown_open')
+				.trigger($.Event('dropdown.shown', relatedTarget));
 		}
 
 		return false;
 	};
 
-	Dropdown.prototype.keydown = function (event) {
+	Dropdown.prototype.keydown = function(event) {
 		if (!/(38|40|27|32)/.test(event.which) || /input|textarea/i.test(event.target.tagName)) {
 			return;
 		}
@@ -114,8 +120,9 @@
 		var $parent = getParent($this);
 		var isActive = $parent.hasClass('dropdown_dropdown_open');
 
-		if (!isActive && event.which != ESCAPE_KEYCODE || isActive && event.which == ESCAPE_KEYCODE) {
-			if (event.which == ESCAPE_KEYCODE) {
+		if (!isActive && event.which !== ESCAPE_KEYCODE ||
+			isActive && event.which === ESCAPE_KEYCODE) {
+			if (event.which === ESCAPE_KEYCODE) {
 				$parent.find(toggle).trigger('focus');
 			}
 			return $this.trigger('click');
@@ -130,12 +137,12 @@
 		var index = $items.index(event.target);
 
 		// up
-		if (event.which == ARROW_UP_KEYCODE && index > 0) {
+		if (event.which === ARROW_UP_KEYCODE && index > 0) {
 			index--;
 		}
 
 		// down
-		if (event.which == ARROW_DOWN_KEYCODE && index < $items.length - 1) {
+		if (event.which === ARROW_DOWN_KEYCODE && index < $items.length - 1) {
 			index++;
 		}
 
@@ -151,7 +158,7 @@
 	// ==========================
 
 	function Plugin(option) {
-		return this.each(function () {
+		return this.each(function() {
 			var $this = $(this);
 			var data  = $this.data('dropdown');
 
@@ -160,7 +167,7 @@
 			}
 
 			if (typeof option == 'string') {
-				data[option].call($this);
+				data[ option ].call($this);
 			}
 		});
 	}
@@ -174,7 +181,7 @@
 	// DROPDOWN NO CONFLICT
 	// ====================
 
-	$.fn.dropdown.noConflict = function () {
+	$.fn.dropdown.noConflict = function() {
 		$.fn.dropdown = old;
 		return this;
 	};
@@ -185,7 +192,9 @@
 
 	$(document)
 		.on('click.dropdown.data-api', clearMenus)
-		.on('click.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation(); })
+		.on('click.dropdown.data-api', '.dropdown form', function(event) {
+			event.stopPropagation();
+		})
 		.on('click.dropdown.data-api', toggle, Dropdown.prototype.toggle)
 		.on('keydown.dropdown.data-api', toggle, Dropdown.prototype.keydown)
 		.on('keydown.dropdown.data-api', '.dropdown__menu', Dropdown.prototype.keydown);

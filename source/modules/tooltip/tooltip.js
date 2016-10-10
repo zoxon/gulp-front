@@ -17,7 +17,6 @@
 		var $that = $(that);
 		var tooltipId = $that.data('tooltip-id');
 		var $tooltip = $('[data-tooltip-target="' + tooltipId + '"]').first();
-		// var $corner = $('<div class="tooltip__corner"></div>').appendTo($tooltip);
 
 		$that.hover(function() {
 			var props = event.target.getBoundingClientRect();

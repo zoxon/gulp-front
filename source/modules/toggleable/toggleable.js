@@ -5,22 +5,23 @@
 	var $togglers = $('[data-toggleable-target]');
 
 	var toggleable = {
-		getState: function ($elem) {
+		getState: function($elem) {
 			var toggleState = $elem.data('toggleable-state');
 
-			if (typeof toggleState === 'undefined' || (toggleState != 'on' && toggleState != 'off')) {
+			if (typeof toggleState === 'undefined' ||
+				(toggleState !== 'on' && toggleState !== 'off')) {
 				toggleState = 'off';
 			}
 
 			return toggleState;
 		},
 
-		invertState: function (state) {
-			if (state == 'off') {
+		invertState: function(state) {
+			if (state === 'off') {
 				state = 'on';
 			}
 			else {
-				state = 'off'
+				state = 'off';
 			}
 
 			return state;
@@ -30,13 +31,13 @@
 			$target.data('toggleable-state', state).trigger('update.toggleable');
 		},
 
-		setState: function ($button, $target, state) {
+		setState: function($button, $target, state) {
 			toggleable.applyState($button, state);
 			toggleable.applyState($target, state);
 		}
 	};
 
-	$togglers.each(function(index, el) {
+	$togglers.each(function() {
 		var $thisButton = $(this);
 		var toggleState = toggleable.getState($thisButton);
 
@@ -46,7 +47,7 @@
 		// Set current state to target
 		toggleable.setState($thisButton, $target, toggleState);
 
-		$thisButton.on('click', function(event) {
+		$thisButton.on('click', function() {
 			var currentState = toggleable.getState($thisButton);
 			var state = toggleable.invertState(currentState);
 

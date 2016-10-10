@@ -23,7 +23,7 @@
 	$window.scroll(header);
 
 
-	$('.js-link-sroll a[href^="#"]').on('click',function (event) {
+	$('.js-link-sroll a[href^="#"]').on('click', function(event) {
 		event.preventDefault();
 		var $heder = $('.header__top');
 		var target = this.hash;
@@ -36,7 +36,7 @@
 
 		$('html, body').stop().animate({
 			'scrollTop': $target.offset().top - $heder.outerHeight() - 20
-		}, 900, 'swing', function () {
+		}, 900, 'swing', function() {
 			window.location.hash = target;
 		});
 	});
