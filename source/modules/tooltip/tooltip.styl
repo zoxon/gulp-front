@@ -15,40 +15,44 @@
 	visibility hidden
 	transition 200ms opacity cubic-bezier(0,0,.2,1)
 	line-height 1.4em
-	&__corner
-	&_bottom &__corner
-		position absolute
-		triangle(up, 5px, rgba(#616161, 0.9))
-		bottom 100%
-		left 50%
-		margin-left -3px
-
 	&_visible
 		opacity 1
 		visibility visible
 
-	&_left &__corner
-		triangle(right, 5px, rgba(#616161, 0.9))
-		left 100%
-		top 50%
-		bottom auto
-		right auto
-		margin-left 0
-		margin-top -3px
+	&:after
+		content ''
+		position absolute
 
-	&_top &__corner
-		triangle(down, 5px, rgba(#616161, 0.9))
-		top 100%
-		left 50%
-		bottom auto
-		right auto
-		margin-left -3px
+	&_bottom
+	&_top
+		&:after
+			left 50%
 
-	&_right &__corner
-		triangle(left, 5px, rgba(#616161, 0.9))
-		right 100%
-		top 50%
-		left auto
-		bottom auto
-		margin-left 0
-		margin-top -3px
+	&_left
+	&_right
+		&:after
+			top 50%
+
+	&_bottom
+		&:after
+			triangle(up, 5px, rgba(#616161, 0.9))
+			bottom 100%
+			margin-left -3px
+
+	&_top
+		&:after
+			triangle(down, 5px, rgba(#616161, 0.9))
+			top 100%
+			margin-left -3px
+
+	&_left
+		&:after
+			triangle(right, 5px, rgba(#616161, 0.9))
+			left 100%
+			margin-top -3px
+
+	&_right
+		&:after
+			triangle(left, 5px, rgba(#616161, 0.9))
+			right 100%
+			margin-top -3px
