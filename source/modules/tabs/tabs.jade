@@ -3,15 +3,16 @@ include ../injected/injected
 mixin tabs(data)
 	+injected: block
 
-	.tabs(data-name=data.name id=data.id)&attributes(attributes)
-		ul.tabs__head
+	.tabs&attributes(attributes)
+		.tabs__head
 			each tab in data.items
-				li.tabs__tab(data-target=data.name + "__" + tab.name)= tab.title
+				button.tabs__tab(type="button" data-tabs-target=tab.name)= tab.title
 		
 		.tabs__body
 			each tab in data.items
-				.tabs__item(data-name=data.name + "__" + tab.name)
-					+if(tab.name)
+				+if(tab.name)
+					.tabs__panel(data-tabs-id=tab.name)
 						+use(tab.name)
+			
+			.tabs__preloader
 
-		.tabs__preloader

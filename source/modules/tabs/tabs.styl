@@ -30,7 +30,7 @@
 		padding 0
 		cursor pointer
 
-	&__tab_state_active
+	&__tab_active
 		cursor default
 
 	&__icon
@@ -49,11 +49,11 @@
 		position relative
 
 
-	&__item
+	&__panel
 		position relative
 		display none
 
-	&__item_state_active
+	&__panel_active
 		display block
 
 
@@ -80,7 +80,7 @@
 			&:last-child
 				margin-right 0
 
-		& ^[0]__tab_state_active
+		& ^[0]__tab_active
 			background #fff
 			border-color #ddd
 
@@ -90,6 +90,6 @@
 			background url(../images/tabs__preloader.svg) no-repeat 50% 20px
 			background-size 30px
 
-		& ^[0]__item
+		& ^[0]__panel
 			margin 20px 0
 
