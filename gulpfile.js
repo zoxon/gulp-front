@@ -137,13 +137,35 @@ var options = {
 	},
 
 	imagemin: {
-		optimizationLevel: 3,
-		progressive: true,
-		interlaced: true,
-		svgoPlugins: [{removeViewBox: false}],
-		use: [
-			imageminPngquant()
-		]
+		images: {
+			optimizationLevel: 3,
+			progressive: true,
+			interlaced: true,
+			svgoPlugins: [
+				{ cleanupIDs: false },
+				{ removeViewBox: false },
+				{ convertPathData: false },
+				{ mergePaths: false }
+			],
+			use: [
+				imageminPngquant()
+			]
+		},
+
+		icons: {
+			svgoPlugins: [
+				{removeTitle: true},
+				{removeStyleElement: true},
+				{removeAttrs: { attrs: ['id', 'class', 'data-name', 'fill', 'fill-rule'] }},
+				{removeEmptyContainers: true},
+				{sortAttrs: true},
+				{removeUselessDefs: true},
+				{removeEmptyText: true},
+				{removeEditorsNSData: true},
+				{removeEmptyAttrs: true},
+				{removeHiddenElems: true}
+			]
+		}
 	},
 
 	posthtml: {
@@ -177,6 +199,7 @@ var options = {
 		stylefmt(),
 		postcssSorting(postcssSortingConfig)
 	]
+
 };
 
 gulp.task('cleanup', function (cb) {
@@ -258,7 +281,7 @@ gulp.task('copy-modules-img', function (cb) {
 	return gulp.src('**/*.{jpg,gif,svg,png}', {cwd: 'source/modules/*/assets'})
 		.pipe($.plumber(options.plumber))
 		.pipe($.changed('dest/assets/images'))
-		.pipe($.imagemin(options.imagemin))
+		.pipe($.imagemin(options.imagemin.images))
 		.pipe($.flatten())
 		.pipe(gulp.dest('dest/assets/images'));
 });
@@ -282,7 +305,7 @@ gulp.task('copy-assets', function (cb) {
 		// Minify images
 		.pipe(imageFilter)
 		.pipe($.changed('dest/assets'))
-		.pipe($.imagemin(options.imagemin))
+		.pipe($.imagemin(options.imagemin.images))
 		.pipe(imageFilter.restore)
 
 		// Minify JavaScript files
@@ -315,7 +338,7 @@ gulp.task('combine-scripts', function (cb) {
 gulp.task('combine-svg-icons', function (cb) {
 	return gulp.src(['**/*.svg', '!**/_*.svg'], {cwd: 'source/static/icons'})
 		.pipe($.plumber(options.plumber))
-		.pipe($.imagemin(options.imagemin))
+		.pipe($.imagemin(options.imagemin.icons))
 		.pipe($.svgSymbols(options.svgSymbols))
 		.pipe($.if(/\.styl$/, gulp.dest('tmp')))
 		.pipe($.if(/\.svg$/, $.rename('icons.svg')))
@@ -327,7 +350,7 @@ gulp.task('combine-png-sprite', function (cb) {
 		.pipe(spritesmith(options.spritesmith));
 
 	spriteData.img.pipe(buffer())
-		.pipe($.imagemin())
+		.pipe($.imagemin(options.imagemin.images))
 		.pipe(gulp.dest('dest/assets/images'));
 
 	spriteData.css.pipe(buffer())
