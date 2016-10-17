@@ -41,14 +41,10 @@
 				top 5px
 				left 5px
 				size 7px 4px
-				transform scale(2) rotate(-45deg)
+				transform rotate(-45deg)
 				border-width 0 0 3px 3px
 				border-style solid
 				border-color $form-color-active
-
-		& ^[0]__control
-			&:checked + ^[0]__box:before
-				transform scale(1) rotate(-45deg)
 
 			&:disabled + ^[0]__box
 				background $form-color-background - 8%
