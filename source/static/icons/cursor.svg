@@ -1,4 +1,11 @@
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 347.451 347.451" style="enable-background:new 0 0 347.451 347.451;" xml:space="preserve">
-	<polygon points="289.834,194.854 57.617,0 57.617,303.138 123.48,224.061 181.017,347.451 244.459,317.867 186.921,194.478 "/>
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="112" viewBox="0 0 128 112">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ececec;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="Фигура_1" data-name="Фигура 1" class="cls-1" d="M87.412,32.886H0V95.112H87.412V32.886ZM74.924,82.667H12.488V45.331H74.924V82.667ZM128,20.441V8H84.293V20.441H99.9v87.116H84.293V120H128V107.557H112.39V20.441H128Z" transform="translate(0 -8)"/>
 </svg>

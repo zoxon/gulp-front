@@ -1,4 +1,10 @@
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 18 18" enable-background="new 0 0 18 18" xml:space="preserve">
-	<path d="M16.2,0H1.8C0.8,0,0,0.8,0,1.8v14.4c0,1,0.8,1.8,1.8,1.8h14.4c1,0,1.8-0.8,1.8-1.8V1.8C18,0.8,17.2,0,16.2,0L16.2,0z M15.3,1.8v2.7h-1.8c-0.5,0-0.9,0.4-0.9,0.9v1.8h2.7v2.7h-2.7v6.3H9.9V9.9H8.1V7.2h1.8V4.9c0-1.7,1.4-3.1,3.2-3.1H15.3z"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+  <defs>
+    <style>
+      .cls-1 {
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="Фигура_1" data-name="Фигура 1" class="cls-1" d="M16.2,0H1.8A1.793,1.793,0,0,0,0,1.8V16.2A1.793,1.793,0,0,0,1.8,18H16.2A1.793,1.793,0,0,0,18,16.2V1.8A1.793,1.793,0,0,0,16.2,0h0ZM15.3,1.8V4.5H13.5a0.9,0.9,0,0,0-.9.9V7.2h2.7V9.9H12.6v6.3H9.9V9.9H8.1V7.2H9.9V4.9a3.138,3.138,0,0,1,3.2-3.1h2.2Z"/>
 </svg>
