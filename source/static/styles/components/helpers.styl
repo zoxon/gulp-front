@@ -55,7 +55,6 @@
 
 // Add this class to an image to make it fit within it's fluid parent wrapper while maintaining
 // aspect ratio.
-
 .fluid-image
 	max-width 100%
 	height auto
@@ -90,12 +89,29 @@
 	opacity .5
 	pointer-events none
 
+// Hide visually and from screen readers
+.hidden
+	display none !important
+
+
+// Hide only visually, but have it available for screen readers:
+// https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+
+// 1. For long content, line feeds are not interpreted as spaces and small width
+//     causes content to wrap 1 word per line:
+//     https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
 .sr-only
-	position absolute
-	width 1px
+.visuallyhidden
+	border 0
+	clip rect(0 0 0 0)
 	height 1px
-	padding 0
 	margin -1px
 	overflow hidden
-	clip rect(0,0,0,0)
-	border 0
+	padding 0
+	position absolute
+	width 1px
+	white-space nowrap // 1
+
+// Hide visually and from screen readers, but maintain layout
+.invisible
+	visibility hidden

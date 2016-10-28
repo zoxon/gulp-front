@@ -3,29 +3,9 @@
 @import 'components/normalize'
 
 
-////////////////////////////////////////////////////////////
-// Base styles: opinionated defaults
-////////////////////////////////////////////////////////////
-
-html
-	box-sizing border-box
-	font-size ((10px * 100%) / 16px)%
-	+below($media-screen-tablet)
-		font-size ((11px * 100%) / 16px)%
-
-body
-	background $base-bg-color
-	color $base-text-color
-	font-family $base-font-family
-	font-size $base-font-size
-	line-height $base-line-height
-	min-height 100%
-
-
 // Remove the gap between audio, canvas, iframes,
 // images, videos and the bottom of their containers:
 // https://github.com/h5bp/html5-boilerplate/issues/440
-
 audio
 canvas
 iframe
@@ -45,11 +25,6 @@ fieldset
 // Allow only vertical resizing of textareas.
 textarea
 	resize vertical
-
-
-////////////////////////////////////////////////////////////
-// End base styles
-////////////////////////////////////////////////////////////
 
 
 @import 'components/typography'

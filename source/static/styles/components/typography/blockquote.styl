@@ -1,0 +1,22 @@
+blockquote
+	padding ($base-line-height / 2)
+	margin 0 0 $base-line-height
+	border-left 5px solid #eee
+
+	p
+	ul
+	ol
+		&:last-child
+			margin-bottom 0
+
+		&:first-child
+			margin-top 0
+
+	footer
+	small
+		display block
+		font-size 80%
+		line-height $base-line-height
+
+		&:before
+			content '\2014 \00A0' //- em dash, nbsp
