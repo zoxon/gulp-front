@@ -16,8 +16,17 @@ mixin file(data)
 
 	if !attributes['data-button-text']
 		- var buttonText = "Выбрать файл(ы)"
-		- delete attributes['data-button-text']
+	else
+		- var buttonText = attributes['data-button-text']
+	- delete attributes['data-button-text']
+	
+	- var fileText = ''
+	if !attributes['data-file-text']
+		- fileText = "Ничего не выбрано"
+	else
+		- fileText = attributes['data-file-text']
+	- delete attributes['data-file-text']
 
 	label(class=fileClasses for=attributes.id)
 		input&attributes(attributes).form-control.form-control_type_file.file__control
-		span.file__button(data-button-text=buttonText) Ничего не выбрано
+		span.file__button(data-button-text=buttonText)= fileText

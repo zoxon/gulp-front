@@ -23,6 +23,7 @@
 		border-width 1px
 		border-style solid
 		border-color transparent
+		transition 125ms background-color ease-in-out
 		user-select-none()
 		&:before
 			content attr(data-button-text)
@@ -43,3 +44,6 @@
 			color $form-color-background
 			border-radius $form-border-radius
 			background $form-color-active
+
+	&_style_default:hover &__button:before
+		background-color $form-color-active - 20%
