@@ -6,4 +6,5 @@
 		<title><%= icon.title %></title><% }%>
 		<%= icon.svg.content %>
 	</symbol><%
-}); %></svg>
+}); %>
+</svg>
