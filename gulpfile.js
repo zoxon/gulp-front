@@ -137,35 +137,42 @@ var options = {
 	},
 
 	imagemin: {
-		images: {
-			optimizationLevel: 3,
-			progressive: true,
-			interlaced: true,
-			svgoPlugins: [
-				{ cleanupIDs: false },
-				{ removeViewBox: false },
-				{ convertPathData: false },
-				{ mergePaths: false }
-			],
-			use: [
-				imageminPngquant()
-			]
-		},
+		images: [
+			$.imagemin.gifsicle({
+				interlaced: true,
+				optimizationLevel: 3
+			}),
+			$.imagemin.jpegtran({
+				progressive: true
+			}),
+			imageminPngquant(),
+			$.imagemin.svgo({
+				plugins: [
+					{ cleanupIDs: false },
+					{ removeViewBox: false },
+					{ convertPathData: false },
+					{ mergePaths: false }
+				]
+			})
+		],
 
-		icons: {
-			svgoPlugins: [
-				{removeTitle: true},
-				{removeStyleElement: true},
-				{removeAttrs: { attrs: ['id', 'class', 'data-name', 'fill', 'fill-rule'] }},
-				{removeEmptyContainers: true},
-				{sortAttrs: true},
-				{removeUselessDefs: true},
-				{removeEmptyText: true},
-				{removeEditorsNSData: true},
-				{removeEmptyAttrs: true},
-				{removeHiddenElems: true}
-			]
-		}
+		icons: [
+			$.imagemin.svgo({
+				plugins: [
+					{ removeTitle: true },
+					{ removeStyleElement: true },
+					{ removeAttrs: { attrs: ['id', 'class', 'data-name', 'fill', 'fill-rule'] }},
+					{ removeEmptyContainers: true },
+					{ sortAttrs: true },
+					{ removeUselessDefs: true },
+					{ removeEmptyText: true },
+					{ removeEditorsNSData: true },
+					{ removeEmptyAttrs: true },
+					{ removeHiddenElems: true },
+					{ transformsWithOnePath: true }
+				]
+			})
+		]
 	},
 
 	posthtml: {
