@@ -8,6 +8,6 @@ $(document).ready(function() {
 	$('.table').basictable({baseClass: 'table'});
 
 	// Here insert modules scripts
-	//= require tmp/modules.js
+	//= require source/modules/**/*.js
 
 });
