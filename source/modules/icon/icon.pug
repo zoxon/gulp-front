@@ -1,0 +1,3 @@
+mixin icon(name)
+	svg(class="icon icon_" + name)&attributes(attributes)
+		use(xlink:href=config.path.images + "/icons.svg#" + name)

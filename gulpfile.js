@@ -8,9 +8,6 @@ var buffer = require('vinyl-buffer');
 var del = require('del');
 var fs = require('fs');
 var imageminPngquant = require('imagemin-pngquant');
-var jade = require('jade');
-var jstransformer = require('jstransformer');
-var jstransformerStylus = require('jstransformer-stylus');
 var path = require('path');
 var posthtmlAttrsSorter = require('posthtml-attrs-sorter');
 var runSequence = require('run-sequence');
@@ -96,14 +93,13 @@ var options = {
 	include: {
 		hardFail: true,
 		includePaths: [
-			__dirname + "/",
-			__dirname + "/node_modules",
-			__dirname + "/source/static/scripts/plugins"
+			__dirname + '/',
+			__dirname + '/node_modules',
+			__dirname + '/source/static/scripts/plugins'
 		]
 	},
 
-	jade: {
-		jade: jade,
+	pug: {
 		pretty: '\t'
 	},
 
@@ -259,28 +255,15 @@ gulp.task('combine-modules-data', function (cb) {
 		.pipe(gulp.dest('tmp'));
 });
 
-
-jade.filters.stylus = jstransformer(jstransformerStylus);
-jade.filters.shoutFilter = function (str) {
-	return str + '!!!!';
-};
-
 gulp.task('compile-pages', function (cb) {
 	var jsonData = JSON.parse(fs.readFileSync('./tmp/data.json'));
-	options.jade.locals = jsonData;
+	options.pug.locals = jsonData;
 
-	return gulp.src(['**/*.jade', '!**/_*.jade'], {cwd: 'source'})
+	return gulp.src(['**/*.pug', '!**/_*.pug'], {cwd: 'source/pages'})
 		.pipe($.plumber(options.plumber))
-		.pipe($.changed('dest', {extension: '.html'}))
-		.pipe($.if(global.isWatching, $.cached('templates')))
-		.pipe($.jadeInheritance({basedir: 'source'}))
-		.pipe($.filter(function (file) {
-			return !/source[\\\/]modules/.test(file.path);
-		}))
-		.pipe($.jade(options.jade))
+		.pipe($.pug(options.pug))
 		.pipe($.posthtml(options.posthtml.plugins, options.posthtml.options))
 		.pipe($.prettify(options.htmlPrettify))
-		.pipe($.flatten())
 		.pipe(gulp.dest('dest'));
 });
 
@@ -487,28 +470,23 @@ gulp.task('dev', function (cb) {
 });
 
 gulp.task('watch', function (cb) {
-	global.isWatching = true;
-
 	// Modules, pages
-	$.watch('source/**/*.jade', function() {
+	$.watch('source/**/*.pug', function() {
 		return runSequence('compile-pages', browserSync.reload);
 	});
 
 	// Modules data
 	$.watch(['source/modules/*/data/*.{json,yml}'], function() {
-		delete $.cached.caches.templates;
 		return runSequence('build-html', browserSync.reload);
 	});
 
 	// Static styles
 	$.watch('source/static/styles/**/*.styl', function() {
-		// return runSequence('compile-styles');
 		gulp.start('compile-styles');
 	});
 
 	// Modules styles
 	$.watch('source/modules/**/*.styl', function() {
-		// return runSequence('build-css');
 		gulp.start('build-css');
 	});
 

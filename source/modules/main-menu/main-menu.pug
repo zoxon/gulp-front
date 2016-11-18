@@ -4,13 +4,13 @@ mixin main-menu(data)
 	nav.main-menu.js-link-sroll&attributes(attributes)
 		ul
 			each ent, num in data
+				- var itemClasses = ['main-menu__item']
 				if (ent.submenu !== false)
-					- var mainMenuDropdownClass = 'main-menu__item_dropdown'
-				else
-					- var mainMenuDropdownClass = ''
-				li(class="main-menu__item #{mainMenuDropdownClass}")
-					a(href="#{ent.url}").main-menu__link= ent.title
+					- itemClasses.push(itemClasses[0] + '_dropdown')
+
+				li(class=itemClasses)
+					a(href=ent.url).main-menu__link= ent.title
 					if (ent.submenu !== false)
 						.main-menu__submenu
 							+main-menu-submenu(ent.submenu)
-							
+

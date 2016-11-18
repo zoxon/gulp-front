@@ -9,7 +9,7 @@ mixin head(data)
 		meta(content=data.meta.author name="author")
 		meta(content=data.meta.description name="description")
 		meta(content=data.meta.keywords name="keywords")
-	
+
 	if data.mobile
 		meta(content="telephone=no" name="format-detection")
 		meta(name="robots" content="noodp, noydir")
@@ -20,8 +20,8 @@ mixin head(data)
 		meta(content="IE=edge" http-equiv="X-UA-Compatible")
 
 	//- Styles
-	link(rel="stylesheet", href="#{config.path.styles}/reset.min.css")
-	link(rel="stylesheet", href="#{config.path.styles}/main.min.css")
+	link(rel="stylesheet", href=config.path.styles + "/reset.min.css")
+	link(rel="stylesheet", href=config.path.styles + "/main.min.css")
 
 	//- OpenGraph Meta
 	if data.og
@@ -40,17 +40,14 @@ mixin head(data)
 
 	//- Favicon
 	//- Genereted with http://realfavicongenerator.net/
-	link(rel="apple-touch-icon" sizes="180x180" href="#{config.path.favicons}/apple-touch-icon.png")
-	link(rel="icon" type="image/png" href="#{config.path.favicons}/favicon-32x32.png" sizes="32x32")
-	link(rel="icon" type="image/png" href="#{config.path.favicons}/favicon-16x16.png" sizes="16x16")
-	link(rel="manifest" href="#{config.path.favicons}/manifest.json")
-	link(rel="mask-icon" href="#{config.path.favicons}/safari-pinned-tab.svg" color="#ff3333")
-	link(rel="shortcut icon" href="#{config.path.favicons}/favicon.ico")
+	link(rel="apple-touch-icon" sizes="180x180" href=config.path.favicons + "/apple-touch-icon.png")
+	link(rel="icon" type="image/png" href=config.path.favicons + "/favicon-32x32.png" sizes="32x32")
+	link(rel="icon" type="image/png" href=config.path.favicons + "/favicon-16x16.png" sizes="16x16")
+	link(rel="manifest" href=config.path.favicons + "/manifest.json")
+	link(rel="mask-icon" href=config.path.favicons + "/safari-pinned-tab.svg" color="#ff3333")
+	link(rel="shortcut icon" href=config.path.favicons + "/favicon.ico")
 	meta(name="msapplication-TileColor" content="#333366")
-	meta(name="msapplication-TileImage" content="#{config.path.favicons}/mstile-144x144.png")
-	meta(name="msapplication-config" content="#{config.path.favicons}/browserconfig.xml")
+	meta(name="msapplication-TileImage" content=config.path.favicons + "/mstile-144x144.png")
+	meta(name="msapplication-config" content=config.path.favicons + "/browserconfig.xml")
 	meta(name="theme-color" content="#333366")
-	
-	//- JQuery
-	//- script(src="#{config.path.scripts}/jquery-3.0.0.min.js")
 
