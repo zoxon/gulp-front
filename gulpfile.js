@@ -233,24 +233,10 @@ gulp.task('compile-styles', function (cb) {
 		.pipe(browserSync.stream());
 });
 
-gulp.task('compile-modules-yaml', function (cb) {
+gulp.task('combine-data', function (cb) {
 	return gulp.src(['**/*.yml', '!**/_*.yml'], {cwd: 'source/modules/*/data'})
 		.pipe($.plumber(options.plumber))
 		.pipe($.yaml({space: '\t'}))
-		.pipe($.mergeJson('data-yaml.json'))
-		.pipe(gulp.dest('tmp/data'));
-});
-
-gulp.task('combine-modules-json', function (cb) {
-	return gulp.src(['**/*.json', '!**/_*.json'], {cwd: 'source/modules/*/data'})
-		.pipe($.plumber(options.plumber))
-		.pipe($.mergeJson('data-json.json'))
-		.pipe(gulp.dest('tmp/data'));
-});
-
-gulp.task('combine-modules-data', function (cb) {
-	return gulp.src('**/*.json', {cwd: 'tmp/data'})
-		.pipe($.plumber(options.plumber))
 		.pipe($.mergeJson('data.json'))
 		.pipe(gulp.dest('tmp'));
 });
@@ -390,17 +376,6 @@ gulp.task('publish', function () {
 
 // Service tasks
 
-gulp.task('combine-data', function (cb) {
-	return runSequence(
-		[
-			'compile-modules-yaml',
-			'combine-modules-json'
-		],
-		'combine-modules-data',
-		cb
-	);
-});
-
 gulp.task('build-html', function (cb) {
 	return runSequence(
 		'combine-data',
@@ -521,6 +496,6 @@ gulp.task('watch', function (cb) {
 	});
 });
 
-gulp.task('default', function(cb) {
+gulp.task('default', function() {
 	gulp.start('build');
 });
