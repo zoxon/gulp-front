@@ -16,26 +16,35 @@ var spritesmith = require('gulp.spritesmith');
 var autoprefixer = require('autoprefixer');
 var stylefmt = require('stylefmt');
 var postcssSorting = require('postcss-sorting');
-var postcssSortingConfig = JSON.parse(
-		fs.readFileSync(
-			path.join(__dirname, './.postcss-sorting.json')
-		)
-	);
+var postcssSortingConfig = getJsonData('.postcss-sorting.json');
 
+
+// Read json and return object
+function getJsonData(file) {
+	var fs = require('fs');
+	var path = require('path');
+
+	return JSON.parse(
+			fs.readFileSync(
+				path.join(__dirname, file),
+				'utf8'
+			)
+		);
+}
 
 // Error handler for gulp-plumber
-var errorHandler = function(err) {
+function errorHandler(err) {
 	$.util.log([ (err.name + ' in ' + err.plugin).bold.red, '', err.message, '' ].join('\n'));
 
 	this.emit('end');
 };
 
-var correctNumber = function correctNumber(number) {
+function correctNumber(number) {
 	return number < 10 ? '0' + number : number;
 };
 
 // Return timestamp
-var getDateTime = function getDateTime() {
+function getDateTime() {
 	var now = new Date();
 	var year = now.getFullYear();
 	var month = correctNumber(now.getMonth() + 1);
@@ -46,7 +55,7 @@ var getDateTime = function getDateTime() {
 };
 
 // https://github.com/stylus/stylus/issues/1872#issuecomment-86553717
-var stylusFileExists = function() {
+function stylusFileExists() {
 	return function(style) {
 		style.define('file-exists', function(path) {
 			return !!$.stylus.stylus.utils.lookup(path.string, this.paths);
@@ -231,7 +240,8 @@ gulp.task('build:data', function() {
 });
 
 gulp.task('build:pages', function() {
-	var jsonData = JSON.parse(fs.readFileSync('./tmp/data.json'));
+	var jsonData = getJsonData('./tmp/data.json');
+
 	options.pug.locals = jsonData;
 
 	return gulp.src([ '**/*.pug', '!**/_*.pug' ], { cwd: 'source/pages' })
