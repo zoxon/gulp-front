@@ -435,7 +435,7 @@ gulp.task('watch', function() {
 
 	// Static styles
 	$.watch('source/static/styles/**/*.styl', function() {
-		gulp.start('compile-styles');
+		gulp.start('build:css');
 	});
 
 	// Modules styles
