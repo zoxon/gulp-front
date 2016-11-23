@@ -18,7 +18,7 @@ let basePath = 'source/modules/';
 let templates = [
 		{
 			type: 'necessary',
-			ext: 'jade',
+			ext: 'pug',
 			tpl: 'mixin {blockName}(data)\n\t.{blockName}&attributes(attributes)\n\t\t\n'
 		},
 		{
@@ -29,19 +29,13 @@ let templates = [
 		{
 			type: 'optional',
 			ext: 'js',
-			tpl: '// // {blockName}\n// ;(function ( $, window, document, undefined ) {\n// \t\'use strict\';\n\n// \t// Your code here\n\n// })( jQuery, window, document );\n'
+			tpl: '// // {blockName}\n// (function($, window, document, undefined) {\n// \t\'use strict\';\n\n// \t// Your code here\n\n// })(jQuery, window, document);\n'
 		},
 		{
 			type: 'optional',
 			ext: 'yml',
 			path: 'data',
 			tpl: '---\n  {blockName}:\n    default:\n      \n'
-		},
-		{
-			type: 'optional',
-			ext: 'json',
-			path: 'data',
-			tpl: '{\n\t"{blockName}": {\n\t\t"default": {}\n\t}\n}'
 		}
 	];
 
