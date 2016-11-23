@@ -1,5 +1,5 @@
 // progress-bar
-;(function ( $, window, document, undefined ) {
+(function($, window, document, undefined) {
 	'use strict';
 
 	var $progressBars = $('.progress-bar');
@@ -12,4 +12,4 @@
 		$progressBar.css({ 'width': value * 100 + '%' });
 	});
 
-})( jQuery, window, document );
+})(jQuery, window, document);

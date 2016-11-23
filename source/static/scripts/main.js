@@ -5,9 +5,9 @@ $(document).ready(function() {
 
 	FastClick.attach(document.body);
 
-	$('.table').basictable({baseClass: 'table'});
+	$('.table').basictable({ baseClass: 'table' });
 
 	// Here insert modules scripts
-	//= require source/modules/**/*.js
+	//= require source/modules/**/!(_)*.js
 
 });

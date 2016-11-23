@@ -133,30 +133,17 @@ html.remodal-is-locked
 .modal
 	&__close
 		position absolute
-		display block
-		overflow visible
-		margin 0
-		padding 0
-		cursor pointer
-		transition color 0.2s
-		text-decoration none
-		border 0
-		outline 0
-		background transparent
 		z-index 1000
 		right 7px
 		top 7px
-		size 28px
 		font-size 15px
 		padding 6px
-		svg
-			fill #505050
-			size 16px
-			display block
-
+		color #505050
+		line-height 1px
 		&:hover
-			svg
-				fill #000
+		&:active
+		&:focus
+			color #000
 
 	&_type_alert &__content
 		width 556px

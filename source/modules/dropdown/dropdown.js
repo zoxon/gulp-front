@@ -1,5 +1,5 @@
 // dropdown
-;(function ( $, window, document, undefined ) {
+(function($, window, document, undefined) {
 	'use strict';
 
 	var ESCAPE_KEYCODE = 27;
@@ -199,4 +199,4 @@
 		.on('keydown.dropdown.data-api', toggle, Dropdown.prototype.keydown)
 		.on('keydown.dropdown.data-api', '.dropdown__menu', Dropdown.prototype.keydown);
 
-})( jQuery, window, document );
+})(jQuery, window, document);

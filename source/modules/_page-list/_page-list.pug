@@ -1,10 +1,9 @@
 mixin page-list(data)
 	.page-list&attributes(attributes)
 		h1.page-list__title= config.projectName
-		.page-list__list
-			ul
-				each ent, num in data
-					li.page-list__item
-						a(href=ent.url + '.html').page-list__link= ent.title
-						span.page-list__spacer  —
-						span.page-list__file-name= ent.url + '.html'
+		ul.page-list__list
+			each ent, num in data
+				li.page-list__item
+					a(href=ent.url + '.html').page-list__link= ent.title
+					span.page-list__spacer  —
+					span.page-list__file-name= ent.url + '.html'

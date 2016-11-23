@@ -1,5 +1,5 @@
 // Logo
-;(function ( $, window, document, undefined ) {
+(function($, window, document, undefined) {
 	$('.logo').click(function(event) {
 		event.preventDefault();
 
@@ -7,4 +7,4 @@
 			'scrollTop': 0
 		}, 900, 'swing');
 	});
-})( jQuery, window, document );
+})(jQuery, window, document);

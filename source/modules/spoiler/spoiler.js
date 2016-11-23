@@ -1,5 +1,5 @@
-// Input type="file"
-;(function ( $, window, document, undefined ) {
+// spoiler
+(function($, window, document, undefined) {
 	'use strict';
 
 	var $spoilers = $('[data-spoiler-target]');
@@ -17,4 +17,4 @@
 		});
 	});
 
-})( jQuery, window, document );
+})(jQuery, window, document);

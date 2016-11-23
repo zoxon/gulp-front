@@ -1,5 +1,5 @@
 pageList:
   data:
     -
-      title: "Главная"
-      url: "home"
+      title: Главная
+      url: home

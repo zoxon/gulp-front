@@ -1,5 +1,5 @@
 // demo
-;(function ( $, window, document, undefined ) {
+(function($, window, document, undefined) {
 	'use strict';
 
 	$.getJSON('http://ip-api.com/json',
@@ -10,4 +10,4 @@
 		}
 	);
 
-})( jQuery, window, document );
+})(jQuery, window, document);

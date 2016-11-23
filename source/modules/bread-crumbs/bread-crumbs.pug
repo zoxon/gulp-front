@@ -2,12 +2,11 @@ include ../icon/icon
 
 mixin bread-crumbs(data)
 	.bread-crumbs&attributes(attributes)
-		ul
+		ul.bread-crumbs__list
 			each item, index in data
-				if (index+1 < data.length)
-					li.bread-crumbs__item 
-						a(href="#").bread-crumbs__link= item
-						.bread-crumbs__separator
-							+icon('chevron-right')
+				if (item.type === 'link')
+					li.bread-crumbs__item
+						a(href="#").bread-crumbs__link= item.title
+						.bread-crumbs__separator &gt;
 				else
-					li.bread-crumbs__item= item
+					li.bread-crumbs__item= item.title

@@ -2,16 +2,16 @@ include ../../modal/modal
 include ../../embed/embed
 
 
-button.button.button_style_solid.button_color_blue.button_style_rounded(data-remodal-target="modal1" type="button") Open modal #1
-button.button.button_style_solid.button_color_blue.button_style_rounded(data-remodal-target="modal2" type="button") Open modal #2
+button.button.button_size_normal.button_style_solid.button_color_blue.button_style_rounded(data-remodal-target="modal1" type="button") Open modal #1
+button.button.button_size_normal.button_style_solid.button_color_blue.button_style_rounded(data-remodal-target="modal2" type="button") Open modal #2
 
 +modal({"id": "modal1", "close": true})
 	div(style="padding: 35px")
 		h1(style="margin-top: 0") Simple modal #1
-		p Lorem ipsum dolor sit amet, consectetur adipisicing elit unde sint debitis in magnam vel pariatur libero nisi minima. 
+		p Lorem ipsum dolor sit amet, consectetur adipisicing elit unde sint debitis in magnam vel pariatur libero nisi minima.
 
-		button.button.button_style_solid.button_color_blue.button_style_rounded(data-remodal-action="confirm" class="remodal-confirm" type="button") OK
-		button.button.button_style_solid.button_color_red.button_style_rounded(data-remodal-action="cancel" class="remodal-cancel" type="button") Cancel
+		button.button.button_size_normal.button_style_solid.button_color_blue.button_style_rounded(data-remodal-action="confirm" class="remodal-confirm" type="button") OK
+		button.button.button_size_normal.button_style_solid.button_color_red.button_style_rounded(data-remodal-action="cancel" class="remodal-cancel" type="button") Cancel
 
 +modal({"id": "modal2", "close": true})
 	div(style="padding: 35px")

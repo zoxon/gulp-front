@@ -2,32 +2,30 @@ include ../icon/icon
 
 mixin social-icons(data)
 	.social-icons&attributes(attributes)
-		h3.social-icons__title= data.title
-		.social-icons__list
-			ul
-				li.social-icons__item.social-icons__item_fb
-					a(href="#")
-						+icon("fb")
+		ul.social-icons__list
+			li.social-icons__item.social-icons__item_fb
+				a(href="#").social-icons__link
+					+icon("fb").social-icons__icon
 
-				li.social-icons__item.social-icons__item_gp
-					a(href="#")
-						+icon("gp")
+			li.social-icons__item.social-icons__item_gp
+				a(href="#").social-icons__link
+					+icon("gp").social-icons__icon
 
-				li.social-icons__item.social-icons__item_tw
-					a(href="#")
-						+icon("tw")
+			li.social-icons__item.social-icons__item_tw
+				a(href="#").social-icons__link
+					+icon("tw").social-icons__icon
 
-				li.social-icons__item.social-icons__item_mr
-					a(href="#")
-						+icon("mr")
+			li.social-icons__item.social-icons__item_mr
+				a(href="#").social-icons__link
+					+icon("mr").social-icons__icon
 
-				li.social-icons__item.social-icons__item_ok
-					a(href="#")
-						+icon("ok")
-						
-				li.social-icons__item.social-icons__item_vk
-					a(href="#")
-						+icon("vk")
+			li.social-icons__item.social-icons__item_ok
+				a(href="#").social-icons__link
+					+icon("ok").social-icons__icon
+
+			li.social-icons__item.social-icons__item_vk
+				a(href="#").social-icons__link
+					+icon("vk").social-icons__icon
 
 
 

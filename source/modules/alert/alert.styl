@@ -1,5 +1,5 @@
 // Mixins
-alert-style( color )
+alert-style(color)
 	border 1px solid color + 50%
 	background color + 90%
 	.alert
@@ -9,14 +9,11 @@ alert-style( color )
 			color color - 20%
 
 		&__close
-			svg
-				fill color
+			color color
 			&:hover
-				svg
-					fill color - 40%
+				color color - 40%
 
 .alert
-	display block
 	padding 10px 15px
 	border-radius 2px
 	position relative
@@ -31,17 +28,14 @@ alert-style( color )
 		font-size 14px
 
 	&__close
-		font-weight bold
-		text-align center
+		cursor pointer
 		position absolute
+		background-color transparent
+		border none
+		line-height 1px
+		padding 3px
 		right 5px
 		top 5px
-		cursor pointer
-		size 16px
-		padding 3px
-		line-height 1
-		&:hover
-			border-radius 2px
 		svg
 			size 10px
 
@@ -51,16 +45,16 @@ alert-style( color )
 
 .alert_type_error
 .alert_color_red
-	alert-style(color = #e74c3c)
+	alert-style(color: #e74c3c)
 
 .alert_type_success
 .alert_color_green
-	alert-style(color = #187818)
+	alert-style(color: #187818)
 
 .alert_type_info
 .alert_style_blue
-	alert-style(color = #00529c)
+	alert-style(color: #00529c)
 
 .alert_type_message
 .alert_color_grey
-	alert-style(color = #000)
+	alert-style(color: #000)

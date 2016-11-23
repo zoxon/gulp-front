@@ -1,5 +1,5 @@
-// Input type="file"
-;(function ( $, window, document, undefined ) {
+// file
+(function($, window, document, undefined) {
 	'use strict';
 
 	var $files = $('.file');
@@ -31,4 +31,4 @@
 		});
 	});
 
-})( jQuery, window, document );
+})(jQuery, window, document);

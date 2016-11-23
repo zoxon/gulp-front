@@ -1,5 +1,5 @@
 // Header
-;(function ( $, window, document, undefined ) {
+(function($, window, document, undefined) {
 	'use strict';
 
 	var $header    = $('.header');
@@ -41,4 +41,4 @@
 		});
 	});
 
-})( jQuery, window, document );
+})(jQuery, window, document);

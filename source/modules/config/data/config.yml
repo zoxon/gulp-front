@@ -1,10 +1,10 @@
 ---
   config:
-    projectName: "Gulp-front"
-    lang: "en"
+    projectName: Gulp-front
+    lang: en
     path:
-      favicons: "assets/favicons"
-      styles: "assets/stylesheets"
-      scripts: "assets/javascripts"
-      images: "assets/images"
-      fonts: "assets/fonts"
+      favicons: assets/favicons
+      styles: assets/stylesheets
+      scripts: assets/javascripts
+      images: assets/images
+      fonts: assets/fonts

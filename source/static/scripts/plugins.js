@@ -52,6 +52,9 @@
 // SVG4Everybody
 //= require svg4everybody/dist/svg4everybody.js
 
+// Helpers
+//= require helpers/jquery.isset.js
+
 
 //////////////////////////////////////////////////////////////////////////////
 // Optionals plugins

@@ -1,5 +1,5 @@
 // Tabs
-;(function ( $, window, document, undefined ) {
+(function($, window, document, undefined) {
 	'use strict';
 
 	var $tabsContainer = $('.tabs');
@@ -39,4 +39,4 @@
 		});
 	}
 
-})( jQuery, window, document );
+})(jQuery, window, document);

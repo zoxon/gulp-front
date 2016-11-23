@@ -3,17 +3,17 @@ include ../icon/icon
 mixin mobile-menu(data)
 	.mobile-menu.js-link-sroll&attributes(attributes)
 		nav.mobile-menu__menu
-			ul
-				each ent, num in data
+			ul.mobile-menu__list
+				each item in data
 					li.mobile-menu__item
-						a(href=ent.url).mobile-menu__link
+						a(href=item.url).mobile-menu__link
 							span.mobile-menu__icon
-								+icon(ent.icon)
-							span.mobile-menu__text= ent.title
+								+icon(item.icon)
+							span.mobile-menu__text= item.title
 
-						if ent.submenu
+						if item.submenu
 							.mobile-menu__submenu
 								ul
-									each ent2, num2 in ent.submenu
+									each subItem in item.submenu
 										li.mobile-menu__item
-											a(href=ent2.url).mobile-menu__submenu-link= ent2.title
+											a(href=subItem.url).mobile-menu__submenu-link= subItem.title

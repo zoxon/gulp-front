@@ -13,7 +13,7 @@
 		padding 0
 		z-index 1
 		zoom 1
-		user-select-none()
+		user-select none
 		m-cf()
 
 	&__body
@@ -33,18 +33,6 @@
 	&__tab_active
 		cursor default
 
-	&__icon
-	&__head-text
-		display inline-block
-		vertical-align middle
-
-	&__icon
-		margin-right 6px
-		min-height 30px
-		svg
-			transition 125ms all ease
-			fill currentColor
-
 	&__preloader
 		position relative
 
@@ -57,7 +45,7 @@
 		display block
 
 
-	// Ion.Tabs: Skin default
+	// Skin default
 	&_style_default
 		margin 0 0 30px
 		& ^[0]__head

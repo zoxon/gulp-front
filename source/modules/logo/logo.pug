@@ -2,6 +2,5 @@ include ../icon/icon
 
 mixin logo(data)
 	a(href="index.html").logo&attributes(attributes)
-		span.logo__icon
-			+icon('heart')
+		+icon('heart').logo__icon
 		span.logo__name Gulp front

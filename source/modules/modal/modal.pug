@@ -4,7 +4,7 @@ mixin modal(data)
 	.modal(data-remodal-id=data.id)&attributes(attributes)
 		.modal__wrapper
 			if data.close
-				button.modal__close(data-remodal-action="close")
+				button.button.modal__close(data-remodal-action="close")
 					+icon('close')
 
 			.modal__content

@@ -1,5 +1,5 @@
 // toggleable
-;(function ( $, window, document, undefined ) {
+(function($, window, document, undefined) {
 	'use strict';
 
 	var $togglers = $('[data-toggleable-target]');
@@ -56,4 +56,4 @@
 		});
 	});
 
-})( jQuery, window, document );
+})(jQuery, window, document);

@@ -1,5 +1,5 @@
 // Tooltip
-;(function ( $, window, document, undefined ) {
+(function($, window, document, undefined) {
 	'use strict';
 
 	var cssClasses = {
@@ -68,4 +68,4 @@
 		});
 	});
 
-})( jQuery, window, document );
+})(jQuery, window, document);

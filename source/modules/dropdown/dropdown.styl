@@ -12,7 +12,7 @@
 		line-height 40px
 		padding 4px 37px 4px 18px
 		cursor pointer
-		user-select-none()
+		user-select none
 		transition 125ms background-color ease-in-out
 		&:hover
 			background-color #F9F9F9
@@ -50,7 +50,9 @@
 		box-shadow 0 0 7px rgba(0, 0, 0, 0.13)
 		max-height 170px
 		overflow-y auto
-		ul-reset()
+		ul
+			margin 0
+			padding 0
 
 	&_dropdown_open &__menu
 		opacity 1

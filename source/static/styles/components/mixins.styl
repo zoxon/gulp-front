@@ -57,11 +57,6 @@ m-blocks-justify()
 	text-align justify
 	text-justify newspaper
 
-user-select-none()
-	-webkit-touch-callout none
-	-khtml-user-select none
-	user-select none
-
 // Convert pt to px
 pt2px( pt )
 	unit(pt/0.75, px)
@@ -217,19 +212,6 @@ retina-image( img-src, size = false, suffix = "@2x" )
 
 // Resets
 // ---------------------------------------------------------
-ul-reset()
-	ul
-		margin 0
-		padding 0
-		{block}
-
-
-ol-reset()
-	ol
-		margin 0
-		padding 0
-		{block}
-
 m-padding()
 	padding-left $mobile-padding
 	padding-right $mobile-padding

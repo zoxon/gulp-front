@@ -1,5 +1,5 @@
 // accordion
-;(function ( $, window, document, undefined ) {
+(function($, window, document, undefined) {
 	'use strict';
 
 	$('.accordion').each(function() {
@@ -41,4 +41,4 @@
 		});
 	});
 
-})( jQuery, window, document );
+})(jQuery, window, document);

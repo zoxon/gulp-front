@@ -11,5 +11,6 @@ mixin alert(data)
 	div(class=classes)&attributes(attributes)
 		.alert__title= data.title
 		.alert__body= data.text
-		.alert__close
+
+		button(type="button").alert__close
 			+icon("close")
