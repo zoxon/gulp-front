@@ -2,7 +2,7 @@
 
 English description | [Описание на русском](README_RU.md)
 
-*A lean and powerful, gulp-based boilerplate for better front-end coding with [Gulp](http://gulpjs.com/), [Jade](http://jade-lang.com/) and [Stylus](https://learnboost.github.io/stylus/)*
+*A lean and powerful, gulp-based boilerplate for better front-end coding with [Gulp](http://gulpjs.com/), [Pug](https://pugjs.org/) and [Stylus](https://learnboost.github.io/stylus/)*
 
 [![Build Status](https://api.travis-ci.org/zoxon/gulp-front.svg)](https://travis-ci.org/zoxon/gulp-front)
 [![devDependency Status](https://david-dm.org/zoxon/gulp-front/dev-status.svg)](https://david-dm.org/zoxon/gulp-front#info=devDependencies)
@@ -18,15 +18,15 @@ English description | [Описание на русском](README_RU.md)
 ## Benefits & Features
 
 * Fast and easy collector (gulp)
-* Simplest modules realization (js, styl, jade, json and other files) 
+* Simplest modules realization (js, styl, pug, json and other files) 
 * Base modules (bread-crumbs, button, footer, form, form-item, header, input-group, logo, main-menu, page-title, pagination and etc.) 
 * Build of svg sprites for inline connection (gulp-svg-symbols) 
 * Build of png and retina sprites (gulp-spritesmith)
-* Jade mixins for @media (rupture)
+* Pug mixins for @media (rupture)
 * Merging @media and transfer it to the end of the file (css-mqpacker)
 * Server and synchronous site testing in the browser (using the browser-sync)
 * Autosubstitution of vendor prefixes in CSS (autoprefixer)
-* Jade template and HTML preprocessor (gulp-jade)
+* Pug template and HTML preprocessor (gulp-pug)
 * JavaScript files concatenation (gulp-include)
 * CSS formatting (gulp-csscomb)
 * Image compression (gulp-imagemin)
@@ -35,7 +35,7 @@ English description | [Описание на русском](README_RU.md)
 * HTML formatting (gulp-htmlprettify)
 * JavaScript Minification (gulp-uglify)
 * Errors searching and output without stopping gulp (gulp-plumber)
-* Jade mixins for form elements
+* Pug mixins for form elements
 * Customized typography based on normalize.css
 * Mixins for grid (fluid and fixed)
 * Mixins for font-face and others.
@@ -46,42 +46,56 @@ English description | [Описание на русском](README_RU.md)
 ## Quick start
 
 * Install the [node.js](https://nodejs.org)
-
-* Go to the folder with installed nodejs, update npm to the latest version
-
-	```bash
-	cd "C:\Program Files\nodejs"
-	```
-
-	or
-
-	```bash
-	cd "C:\Program Files (x86)\nodejs"
-	```
-
-	and execute
-
-	```bash
-	npm install npm@latest
-	```
-
 * Clone the project or [download](https://github.com/zoxon/gulp-front/archive/master.zip) the file
 
 	```bash
 	git clone git@github.com:zoxon/gulp-front.git my-project && cd my-project
 	```
 
-* Install `gulp` globally (once!)
+* For [Yarn](https://yarnpkg.com)
+	- Install `gulp` globally (once!)
 
-	```bash
-	npm i -g gulp
-	```
+		```bash
+		yarn global add gulp
+		```
 
-* Install dependencies
+	- Install dependencies
 
-	```bash
-	npm i
-	```
+		```bash
+		yarn
+		```
+
+* For [NPM](https://www.npmjs.com)
+	- Update npm to latest version
+		Go to the folder with installed nodejs
+
+		```bash
+		cd "C:\Program Files\nodejs"
+		```
+
+		or
+
+		```bash
+		cd "C:\Program Files (x86)\nodejs"
+		```
+
+		and execute
+
+		```bash
+		npm install npm@latest
+		```
+
+	- Install `gulp` globally (once!)
+
+		```bash
+		npm install gulp -g
+		```
+
+	- Install dependencies
+
+		```bash
+		npm install
+		```
 
 * Start `gulp`
 
@@ -90,6 +104,7 @@ English description | [Описание на русском](README_RU.md)
 	```
 
 * In browser open page with address [`http://localhost:3000/`](http://localhost:3000/)
+
 
 ## Main tasks
 
@@ -102,9 +117,9 @@ English description | [Описание на русском](README_RU.md)
 
 There is a script for add/delete modules in project in gulp-front.
 
-* `npm run amo <moduleName>` - creates an empty module with a help of technologies, such as jade and styl;
-* `npm run amo <moduleName> js yml json` - creates an empty module with a help of jade and styl and also using additional technologies: js, yml and json;
-* `npm run rmo <moduleName>` - Use to delete a module.nologies: js, yml and json;
+* `npm run amo <moduleName>` - creates an empty module with a help of technologies, such as pug and styl;
+* `npm run amo <moduleName> js yml` - creates an empty module with a help of pug and styl and also using additional technologies: js, yml and json;
+* `npm run rmo <moduleName>` - Use to delete a module completely;
 * `npm run rmo <moduleName>` - Use to delete a module.
 
 

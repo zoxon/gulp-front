@@ -2,7 +2,7 @@
 
 [English description](README.md) | Описание на русском
 
-*Шаблон для быстрого старта разработки с [Gulp](http://gulpjs.com/), [Jade](http://jade-lang.com/) и [Stylus](https://learnboost.github.io/stylus/)*
+*Шаблон для быстрого старта разработки с [Gulp](http://gulpjs.com/), [Pug](https://pugjs.org/) и [Stylus](https://learnboost.github.io/stylus/)*
 
 [![Build Status](https://api.travis-ci.org/zoxon/gulp-front.svg)](https://travis-ci.org/zoxon/gulp-front)
 [![devDependency Status](https://david-dm.org/zoxon/gulp-front/dev-status.svg)](https://david-dm.org/zoxon/gulp-front#info=devDependencies)
@@ -18,15 +18,15 @@
 ## Преимущества и возможности
 
 * Быстрый и удобный сборщик (gulp)
-* Простейшие модули (js, styl, jade, json, прочие файлы)
+* Простейшие модули (js, styl, pug, json, прочие файлы)
 * Базовые модули (bread-crumbs, button, footer, form, form-item, header, input-group, logo, main-menu, page-title, pagination и др.)
 * Сборка svg спрайтов для инлайн подлючения (gulp-svg-symbols)
 * Сборка png спрайтов и ретина спрайтов (gulp-spritesmith)
-* Jade миксины для @media (rupture)
+* Pug миксины для @media (rupture)
 * Склейка @media и перенос в конец файла (css-mqpacker)
 * Сервер и синхронное тестирование сайта в браузерах (с помощью browser-sync)
 * Авто-подстановка вендорных префиксов в CSS (autoprefixer)
-* Шаблонизатор Jade и препроцессор HTML (gulp-jade)
+* Шаблонизатор Pug и препроцессор HTML (gulp-pug)
 * Конкатенация JavaScript файлов (gulp-include)
 * Форматирование CSS (gulp-csscomb)
 * Сжатие изображений (gulp-imagemin)
@@ -35,7 +35,7 @@
 * Форматирование HTML (gulp-html-prettify)
 * Минификация JavaScript (gulp-uglify)
 * Перехват и вывод ошибок без остановки gulp (gulp-plumber)
-* Jade миксины для елементов форм
+* Pug миксины для елементов форм
 * Настроенная типографика на базе normalize.css
 * Миксины сетки (fluid и fixed)
 * Миксины для font-face и др.
@@ -46,41 +46,56 @@
 ## Быстрый старт
 
 * Установить [node.js](https://nodejs.org)
-* Зайти в папку с установленной nodejs и обновить npm до последней версии
-
-	```bash
-	cd "C:\Program Files\nodejs"
-	```
-
-	или
-
-	```bash
-	cd "C:\Program Files (x86)\nodejs"
-	```
-
-	в зависимости от того где у вас установленна nodejs, и выполнить
-
-	```bash
-	npm install npm@latest
-	```
-
 * Склонировать проект либо [скачать архив](https://github.com/zoxon/gulp-front/archive/master.zip)
 
 	```bash
 	git clone git@github.com:zoxon/gulp-front.git my-project && cd my-project
 	```
 
-* Установить `gulp` глобально (один раз!)
+* Для [Yarn](https://yarnpkg.com)
+	- Установить `gulp` глобально (один раз!)
 
-	```bash
-	npm i -g gulp
-	```
+		```bash
+		yarn global add gulp
+		```
 
-* Установить зависимости (1 раз на проект)
+	- Установить зависимости (1 раз на проект)
 
-	```bash
-	npm i
-	```
+		```bash
+		yarn
+		```
+
+* Для [NPM](https://www.npmjs.com)
+	- Обновите npm до последней версии
+		Зайти в папку с установленной nodejs
+
+		```bash
+		cd "C:\Program Files\nodejs"
+		```
+
+		или
+
+		```bash
+		cd "C:\Program Files (x86)\nodejs"
+		```
+
+		в зависимости от того где у вас установленна nodejs, и выполнить
+
+		```bash
+		npm install npm@latest
+		```
+
+	- Установить `gulp` глобально (один раз!)
+
+		```bash
+		npm install gulp -g
+		```
+
+	- Установить зависимости (1 раз на проект)
+
+		```bash
+		npm install
+		```
 
 * Запустить `gulp`
 
@@ -89,6 +104,7 @@
 	```
 
 * В браузере откроется страница с проектом, по адрессу [`http://localhost:3000/`](http://localhost:3000/)
+
 
 ## Основные таски
 
@@ -101,8 +117,8 @@
 
 В gulp-front имеется удобный скритп для добавления/удаления модулей в проект.
 
-* `npm run amo <moduleName>` - создает пустой модуль из двух технологий jade и styl
-* `npm run amo <moduleName> js yml json` - создает пустой модуль из двух технологий jade и styl и дополнительных технологий js yml json
+* `npm run amo <moduleName>` - создает пустой модуль из двух технологий pug и styl
+* `npm run amo <moduleName> js yml` - создает пустой модуль из двух технологий pug и styl и дополнительных технологий js yml
 * `npm run rmo <moduleName>` - удаляет модуль
 
 ## Структура папок и файлов
