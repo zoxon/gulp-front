@@ -1,6 +1,5 @@
 // dropdown
-(function($, window, document, undefined) {
-	'use strict';
+(function() {
 
 	var ESCAPE_KEYCODE = 27;
 	var ARROW_UP_KEYCODE = 38;
@@ -199,4 +198,4 @@
 		.on('keydown.dropdown.data-api', toggle, Dropdown.prototype.keydown)
 		.on('keydown.dropdown.data-api', '.dropdown__menu', Dropdown.prototype.keydown);
 
-})(jQuery, window, document);
+})();

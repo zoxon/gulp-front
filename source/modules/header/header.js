@@ -1,10 +1,10 @@
 // Header
-(function($, window, document, undefined) {
-	'use strict';
+(function() {
 
-	var $header    = $('.header');
-	var $window    = $(window);
+	var $header = $('.header');
+	var $window = $(window);
 	var classAdded = false;
+
 	function header() {
 		if ($window.scrollTop() > 0) {
 			if (classAdded === false) {
@@ -41,4 +41,4 @@
 		});
 	});
 
-})(jQuery, window, document);
+})();

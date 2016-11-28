@@ -1,7 +1,7 @@
 // Avoid `console` errors in browsers that lack a console.
 (function() {
 	var method;
-	var noop = function () {};
+	var noop = function() {};
 	var methods = [
 		'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
 		'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
@@ -12,11 +12,11 @@
 	var console = (window.console = window.console || {});
 
 	while (length--) {
-		method = methods[length];
+		method = methods[ length ];
 
 		// Only stub undefined methods.
-		if (!console[method]) {
-			console[method] = noop;
+		if (!console[ method ]) {
+			console[ method ] = noop;
 		}
 	}
 }());
@@ -71,3 +71,6 @@
 // ---------------------------------------------------------------------------
 //= require remodal/dist/remodal.js
 
+
+// jquery-throttle-debounce
+// require jquery-throttle-debounce/jquery.ba-throttle-debounce.js

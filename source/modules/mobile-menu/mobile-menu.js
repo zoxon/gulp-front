@@ -1,5 +1,6 @@
 // Mobile menu
-(function($, window, document, undefined) {
+(function() {
+
 	var mmenu = {
 		trigger: $('.mobile-menu-trigger'),
 		panel: $('.page__mobile-menu'),
@@ -62,4 +63,4 @@
 
 	});
 
-})(jQuery, window, document);
+})();

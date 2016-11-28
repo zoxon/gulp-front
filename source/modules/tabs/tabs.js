@@ -1,10 +1,9 @@
 // Tabs
-(function($, window, document, undefined) {
-	'use strict';
+(function() {
 
 	var $tabsContainer = $('.tabs');
 
-	if ($tabsContainer.length) {
+	if ($tabsContainer.isset()) {
 		$tabsContainer.each(function() {
 			var $container = $(this);
 			var $tabs = $container.find('[data-tabs-target]');
@@ -39,4 +38,4 @@
 		});
 	}
 
-})(jQuery, window, document);
+})();

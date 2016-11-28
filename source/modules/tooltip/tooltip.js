@@ -1,6 +1,5 @@
 // Tooltip
-(function($, window, document, undefined) {
-	'use strict';
+(function() {
 
 	var cssClasses = {
 		visible: 'tooltip_visible',
@@ -12,60 +11,63 @@
 
 	var $tooltips = $('[data-tooltip-id]');
 
-	$tooltips.each(function() {
-		var that = this;
-		var $that = $(that);
-		var tooltipId = $that.data('tooltip-id');
-		var $tooltip = $('[data-tooltip-target="' + tooltipId + '"]').first();
+	if ($tooltips.isset()) {
+		$tooltips.each(function() {
+			var that = this;
+			var $that = $(that);
+			var tooltipId = $that.data('tooltip-id');
+			var $tooltip = $('[data-tooltip-target="' + tooltipId + '"]').first();
 
-		$that.hover(function() {
-			var props = event.target.getBoundingClientRect();
-			var left = props.left + (props.width / 2);
-			var top = props.top + (props.height / 2);
-			var marginLeft = -1 * ($tooltip.outerWidth() / 2);
-			var marginTop = -1 * ($tooltip.outerHeight() / 2);
-			var tooltipPos = {};
+			$that.hover(function() {
+				var props = event.target.getBoundingClientRect();
+				var left = props.left + (props.width / 2);
+				var top = props.top + (props.height / 2);
+				var marginLeft = -1 * ($tooltip.outerWidth() / 2);
+				var marginTop = -1 * ($tooltip.outerHeight() / 2);
+				var tooltipPos = {};
 
-			if ($tooltip.hasClass(cssClasses.left) || $tooltip.hasClass(cssClasses.right)) {
-				left = (props.width / 2);
-				if (top + marginTop < 0) {
-					tooltipPos.top = '0';
-					tooltipPos.marginTop = '0';
+				if ($tooltip.hasClass(cssClasses.left) || $tooltip.hasClass(cssClasses.right)) {
+					left = (props.width / 2);
+					if (top + marginTop < 0) {
+						tooltipPos.top = '0';
+						tooltipPos.marginTop = '0';
+					}
+					else {
+						tooltipPos.top = top + 'px';
+						tooltipPos.marginTop = marginTop + 'px';
+					}
 				}
 				else {
-					tooltipPos.top = top + 'px';
-					tooltipPos.marginTop = marginTop + 'px';
+					if (left + marginLeft < 0) {
+						tooltipPos.left = '0';
+						tooltipPos.marginLeft = '0';
+					}
+					else {
+						tooltipPos.left = left + 'px';
+						tooltipPos.marginLeft = marginLeft + 'px';
+					}
 				}
-			}
-			else {
-				if (left + marginLeft < 0) {
-					tooltipPos.left = '0';
-					tooltipPos.marginLeft = '0';
+
+				if ($tooltip.hasClass(cssClasses.top)) {
+					tooltipPos.top = props.top - $tooltip.outerHeight() - 10 + 'px';
+				}
+				else if ($tooltip.hasClass(cssClasses.right)) {
+					tooltipPos.left = props.left + props.width + 10 + 'px';
+				}
+				else if ($tooltip.hasClass(cssClasses.left)) {
+					tooltipPos.left = props.left - $tooltip.outerWidth() - 10 + 'px';
 				}
 				else {
-					tooltipPos.left = left + 'px';
-					tooltipPos.marginLeft = marginLeft + 'px';
+					tooltipPos.top = props.top + props.height + 10 + 'px';
 				}
-			}
 
-			if ($tooltip.hasClass(cssClasses.top)) {
-				tooltipPos.top = props.top - $tooltip.outerHeight() - 10 + 'px';
-			}
-			else if ($tooltip.hasClass(cssClasses.right)) {
-				tooltipPos.left = props.left + props.width + 10 + 'px';
-			}
-			else if ($tooltip.hasClass(cssClasses.left)) {
-				tooltipPos.left = props.left - $tooltip.outerWidth() - 10 + 'px';
-			}
-			else {
-				tooltipPos.top = props.top + props.height + 10 + 'px';
-			}
+				$tooltip.css(tooltipPos).addClass(cssClasses.visible);
 
-			$tooltip.css(tooltipPos).addClass(cssClasses.visible);
-
-		}, function() {
-			$tooltip.removeClass('tooltip_visible');
+			}, function() {
+				$tooltip.removeClass('tooltip_visible');
+			});
 		});
-	});
+	}
 
-})(jQuery, window, document);
+
+})();

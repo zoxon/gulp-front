@@ -1,6 +1,6 @@
 // alert
-(function($, window, document, undefined) {
-	'use strict';
+(function() {
+
 	var $alerts = $('.alert');
 
 	if ($alerts.isset()) {
@@ -15,4 +15,4 @@
 		});
 	}
 
-})(jQuery, window, document);
+})();

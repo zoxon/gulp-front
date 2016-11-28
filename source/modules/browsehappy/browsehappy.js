@@ -1,9 +1,8 @@
-// Browsehappy
-(function($, window, document, undefined) {
-	'use strict';
+// browsehappy
+(function() {
 
 	$('.browsehappy').click(function() {
 		$(this).slideUp();
 	});
 
-})(jQuery, window, document);
+})();
