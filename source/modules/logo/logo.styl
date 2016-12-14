@@ -2,16 +2,9 @@
 	&
 	&:visited
 		line-height 1
-		line-height normal
-		font-family notoserif
-		font-size 0
-		color #fff
 		font-size 30px
 		text-decoration none
-
-
-	&:hover
-		color #fff - 10%
+		display inline-block
 
 	&:hover &__icon
 		animation heartbeat 2.5s infinite
@@ -19,14 +12,17 @@
 			animation none
 
 	&__name
+	&__icon
 		display inline-block
 		vertical-align middle
 
+
+	&__name
+		font-family notoserif
+		color #fff
+
 	&__icon
 		margin-right 4px
-		display inline-block
-		line-height 24px
-		vertical-align middle
 		color #e74c3c
 		size 27px
 
