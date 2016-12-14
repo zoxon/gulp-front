@@ -238,3 +238,13 @@ triangle( direction, size, face-color, back-color = transparent )
 focus(color)
 	border-color color
 	box-shadow 0 0 3px 1px rgba(color, 0.45)
+
+
+// Media
+// ---------------------------------------------------------
+// @media print mixin
+print()
+	@media print
+		&
+			{block}
+

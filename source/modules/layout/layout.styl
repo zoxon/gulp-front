@@ -1,0 +1,34 @@
+.layout
+	m-cf()
+	&__sidebar
+		width 300px
+		+below($content-width)
+			display none
+
+		+print()
+			display none
+
+	&__content
+		width 830px
+		+below($content-width)
+			width auto
+			m-padding()
+
+		+print()
+			width auto
+
+	&_sidebar_left &__sidebar
+		float left
+
+	&_sidebar_left &__content
+		float right
+		+below($content-width)
+			float none
+
+	&_sidebar_right &__sidebar
+		float right
+
+	&_sidebar_right &__content
+		float left
+		+below($content-width)
+			float none

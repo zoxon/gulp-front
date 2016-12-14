@@ -1,6 +1,9 @@
 .header
 	background linear-gradient(180deg, #2d3e60, #1e3c72 + 10%)
 
+	+print()
+		page-break-after always
+
 	padding 115px 0 35px
 	+below($content-width)
 		padding-top 70px
@@ -26,6 +29,9 @@
 			padding-right 0
 			padding-top 0
 			padding-bottom 0
+
+		+print()
+			display none !important
 
 	&__logo
 	&__menu
