@@ -37,11 +37,11 @@ function errorHandler(err) {
 	$.util.log([ (err.name + ' in ' + err.plugin).bold.red, '', err.message, '' ].join('\n'));
 
 	this.emit('end');
-};
+}
 
 function correctNumber(number) {
 	return number < 10 ? '0' + number : number;
-};
+}
 
 // Return timestamp
 function getDateTime() {
@@ -52,7 +52,7 @@ function getDateTime() {
 	var hours = correctNumber(now.getHours());
 	var minutes = correctNumber(now.getMinutes());
 	return year + '-' + month + '-' + day + '-' + hours + minutes;
-};
+}
 
 // https://github.com/stylus/stylus/issues/1872#issuecomment-86553717
 function stylusFileExists() {
@@ -61,7 +61,7 @@ function stylusFileExists() {
 			return !!$.stylus.stylus.utils.lookup(path.string, this.paths);
 		});
 	};
-};
+}
 
 // Plugins options
 var options = {
@@ -75,8 +75,13 @@ var options = {
 	},
 
 	browserSync: {
-		server: {
-			baseDir: './dest'
+		server: './dest',
+		notify: false,
+		reloadOnRestart: true,
+		snippetOptions: {
+			rule: {
+				match: /<\/body>/i
+			}
 		}
 	},
 
@@ -102,7 +107,7 @@ var options = {
 	},
 
 	htmlPrettify: {
-		'unformatted': ['pre', 'code', 'textarea'],
+		'unformatted': [ 'pre', 'code', 'textarea' ],
 		'indent_with_tabs': true,
 		'preserve_newlines': true,
 		'brace_style': 'expand',
@@ -155,7 +160,7 @@ var options = {
 				plugins: [
 					{ removeTitle: true },
 					{ removeStyleElement: true },
-					{ removeAttrs: { attrs: ['id', 'class', 'data-name', 'fill', 'fill-rule'] }},
+					{ removeAttrs: { attrs: [ 'id', 'class', 'data-name', 'fill', 'fill-rule' ] } },
 					{ removeEmptyContainers: true },
 					{ sortAttrs: true },
 					{ removeUselessDefs: true },
@@ -197,7 +202,9 @@ var options = {
 		autoprefixer({
 			cascade: false
 		}),
-		stylefmt(),
+		stylefmt({
+			configFile: '.stylelintrc'
+		}),
 		postcssSorting(postcssSortingConfig)
 	],
 
@@ -228,7 +235,10 @@ gulp.task('build:css', function() {
 		.pipe($.rename({ suffix: '.min' }))
 		.pipe($.sourcemaps.write('.'))
 		.pipe(gulp.dest('dest/assets/stylesheets'))
-		.pipe(browserSync.stream());
+		.pipe(browserSync.reload({
+			stream: true,
+			match: '**/*.css'
+		}));
 });
 
 gulp.task('build:data', function() {
@@ -435,12 +445,12 @@ gulp.task('watch', function() {
 
 	// Static styles
 	$.watch('source/static/styles/**/*.styl', function() {
-		gulp.start('build:css');
+		return gulp.start('build:css');
 	});
 
 	// Modules styles
 	$.watch('source/modules/**/*.styl', function() {
-		gulp.start('build:css');
+		return gulp.start('build:css');
 	});
 
 	// Static scripts

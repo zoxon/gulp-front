@@ -82,6 +82,7 @@
     "run-sequence": "^1.2.2",
     "rupture": "^0.6.1",
     "stylefmt": "^4.2.3",
+    "stylelint-config-standard": "^15.0.0",
     "vinyl-buffer": "^1.0.0"
   },
   "dependencies": {
