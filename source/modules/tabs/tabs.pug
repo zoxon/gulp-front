@@ -1,18 +1,16 @@
-include ../injected/injected
-
 mixin tabs(data)
-	+injected: block
-
-	.tabs&attributes(attributes)
+	.tabs(data-tabs-name=data.name)&attributes(attributes)
 		.tabs__head
 			each tab in data.items
 				button.tabs__tab(type="button" data-tabs-target=tab.name)= tab.title
-		
+
 		.tabs__body
-			each tab in data.items
+			block
+
+			//- each tab in data.items
 				+if(tab.name)
 					.tabs__panel(data-tabs-id=tab.name)
 						+use(tab.name)
-			
+
 			.tabs__preloader
 

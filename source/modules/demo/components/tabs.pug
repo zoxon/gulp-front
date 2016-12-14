@@ -1,43 +1,43 @@
 include ../../tabs/tabs
 include ../../icon/icon
 
-+tabs({'items': [{'name': 'tab1', 'title': 'Tab 1'}, {'name': 'tab2', 'title': 'Tab 2'}, {'name': 'tab3', 'title': 'Tab 3'}]}).tabs_style_default
-	+inject('tab1')
++tabs({'name': 'tabsgroup1', 'items': [{'name': 'tab1', 'title': 'Tab 1'}, {'name': 'tab2', 'title': 'Tab 2'}, {'name': 'tab3', 'title': 'Tab 3'}]}).tabs_style_default
+	.tabs__panel(data-tabs-id="tab1")
 		h4 Tab 1 Content demo
 		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.
 
-	+inject('tab2')
+	.tabs__panel(data-tabs-id="tab2")
 		h4 Tab 2 Content demo
 		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque alias mollitia iusto voluptatibus minus ut, adipisci magni magnam corporis aut aspernatur facere maiores sunt similique nihil unde est laboriosam reprehenderit.
 
-	+inject('tab3')
+	.tabs__panel(data-tabs-id="tab3")
 		h4 Tab 3 Content demo
 		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus fugiat, aliquam! In fugit id sint, nam repellendus possimus sit itaque aspernatur modi facere earum mollitia veritatis officia quo iste nisi.
 
-+tabs({'items': [{'name': 'tab1', 'title': 'Tab 1'}, {'name': 'tab2', 'title': 'Tab 2'}, {'name': 'tab3', 'title': 'Tab 3'}]}).tabs_style_default
-	+inject('tab1')
++tabs({'name': 'tabsgroup2', 'items': [{'name': 'tab1', 'title': 'Tab 1'}, {'name': 'tab2', 'title': 'Tab 2'}, {'name': 'tab3', 'title': 'Tab 3'}]}).tabs_style_default
+	.tabs__panel(data-tabs-id="tab1")
 		h4 Tab 1 Content demo
 		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.
 
-		button(type="button" data-tabs-target="tab2").button.button_size_normal.button_style_solid.button_color_blue
+		a(href="#tabsgroup2__tab2").button.button_size_normal.button_style_solid.button_color_blue
 			span.button__text Next
 			+icon('chevron-right').button__icon
 
-	+inject('tab2')
+	.tabs__panel(data-tabs-id="tab2")
 		h4 Tab 2 Content demo
 		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque alias mollitia iusto voluptatibus minus ut, adipisci magni magnam corporis aut aspernatur facere maiores sunt similique nihil unde est laboriosam reprehenderit.
 
-		button(type="button" data-tabs-target="tab1").button.button_size_normal.button_style_solid.button_color_blue
+		a(href="#tabsgroup2__tab1").button.button_size_normal.button_style_solid.button_color_blue
 			span.button__text Prev
 			+icon('chevron-left').button__icon
-		button(type="button" data-tabs-target="tab3").button.button_size_normal.button_style_solid.button_color_blue
+		a(href="#tabsgroup2__tab3").button.button_size_normal.button_style_solid.button_color_blue
 			span.button__text Next
 			+icon('chevron-right').button__icon
 
-	+inject('tab3')
+	.tabs__panel(data-tabs-id="tab3")
 		h4 Tab 3 Content demo
 		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus fugiat, aliquam! In fugit id sint, nam repellendus possimus sit itaque aspernatur modi facere earum mollitia veritatis officia quo iste nisi.
 
-		button(type="button" data-tabs-target="tab2").button.button_size_normal.button_style_solid.button_color_blue
+		a(href="#tabsgroup2__tab2").button.button_size_normal.button_style_solid.button_color_blue
 			span.button__text Prev
 			+icon('chevron-left').button__icon
