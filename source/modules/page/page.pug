@@ -9,22 +9,20 @@ mixin page(data)
 		+browsehappy(browsehappy)
 
 		+injected: block
-		
+
 		.page__mobile-menu
 			+mobile-menu(mainMenu.default)
-		
+
 		.page__content
 			.page__wrapper
 				+if('header')
 					.page__header
 						+use('header')
-				
+
 				+if('main')
 					.page__main
 						+use('main')
 
-				.page__buffer
-			
 			+if('footer')
 				.page__footer
 					+use('footer')

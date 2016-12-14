@@ -1,7 +1,7 @@
 include ../main-menu-submenu/main-menu-submenu
 
 mixin main-menu(data)
-	nav.main-menu.js-link-sroll&attributes(attributes)
+	nav.main-menu&attributes(attributes)
 		ul.main-menu__list
 			each item in data
 				- var itemClasses = ['main-menu__item']

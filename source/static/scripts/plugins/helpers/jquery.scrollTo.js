@@ -8,7 +8,7 @@
 			'scrollTop': pos
 		}, speed, cb);
 
-	}
+	};
 
 
 })(jQuery, window, document);

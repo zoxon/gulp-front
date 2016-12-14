@@ -54,7 +54,7 @@
       -
         title: "Buttons"
         url: "#buttons"
-        icon: "cursor"
+        icon: "button"
         submenu:
           -
             title: "Styles"

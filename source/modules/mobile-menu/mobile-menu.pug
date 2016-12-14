@@ -12,8 +12,7 @@ mixin mobile-menu(data)
 							span.mobile-menu__text= item.title
 
 						if item.submenu
-							.mobile-menu__submenu
-								ul
-									each subItem in item.submenu
-										li.mobile-menu__item
-											a(href=subItem.url).mobile-menu__submenu-link= subItem.title
+							ul.mobile-menu__submenu
+								each subItem in item.submenu
+									li.mobile-menu__item
+										a(href=subItem.url).mobile-menu__submenu-link= subItem.title

@@ -1,4 +1,5 @@
 .page
+	position relative
 	&__content
 		transition 125ms all ease-in-out
 		background $base-bg-color
@@ -8,17 +9,6 @@
 		left 0
 		transition 125ms left ease
 
-	&__wrapper
-		min-height 100%
-		margin-bottom -50px
-
-
-	* html &__wrapper
-		height 100%
-
-	&__buffer
-		height 50px
-
 	&__header
 		margin-bottom 50px
 
@@ -26,9 +16,6 @@
 		max-width $content-width
 		margin 0 auto
 		padding-bottom 60px
-
-	&__bread-crumbs
-		//
 
 	&__mobile-menu
 		background-color #f3f3f3
@@ -41,6 +28,10 @@
 		width 80%
 		overflow-y auto
 		-webkit-overflow-scrolling touch
+		transition 125ms all ease-in-out
+		opacity 0
+		visibility hidden
+		z-index 10000
 
 	&__cover
 		position absolute
@@ -51,16 +42,17 @@
 		z-index 9999
 		background-color rgba(#000, 0.3)
 		transition 125ms all ease-in-out
-		visibility hidden
 		opacity 0
+		visibility hidden
 
-	&_mmenu-open
+	&_mobile-menu_open
 		overflow hidden
 
-	&_mmenu-open &__cover
+	&_mobile-menu_open &__cover
+	&_mobile-menu_open &__mobile-menu
 		visibility visible
 		opacity 1
 
-	&_mmenu-open &__content
-	&_mmenu-open &__cover
+	&_mobile-menu_open &__content
+	&_mobile-menu_open &__cover
 		left -80%
