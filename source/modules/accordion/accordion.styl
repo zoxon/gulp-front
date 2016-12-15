@@ -1,14 +1,10 @@
 .accordion
-	ul
-		margin 0
-		padding 0
-
 	&__item
 		padding 0
 		list-style none
 		margin-bottom -1px
 
-	&__header
+	&__trigger
 		position relative
 		color #333
 		font-size 13px
@@ -18,15 +14,19 @@
 		border 1px solid #cdcdcd
 		border-radius 3px
 		cursor pointer
-		&:hover
-			background-color #F9F9F9
+		width 100%
+		box-sizing border-box
+		text-align left
 
-		&:after
+		&:hover
+			background-color #f9f9f9
+
+		&::after
 			transition 150ms all ease-in-out 0s
 			position absolute
 			right 20px
 			top 50%
-			margin-top -4px
+			margin-top -5px
 			content ''
 			display block
 			size 6px
@@ -34,14 +34,15 @@
 			border-color #535353
 			border-style solid
 			transform rotate(45deg)
-			transform-origin 50% 75%
+			transform-origin 75% 75%
 
-	&__content
+	&__pannel
 		display none
 		padding 20px 10px
 
-	&__item_active &__header
-		background-color #F9F9F9
+	&__item_active &__trigger
+		background-color #f9f9f9
 
-	&__item_active &__header:after
-		transform rotate(225deg)
+	&__item_active &__trigger
+		&::after
+			transform rotate(225deg)
