@@ -1,6 +1,7 @@
 mixin dropdown(data)
 	.dropdown&attributes(attributes)
-		button(type="button" role="button" data-dropdown-role="dropdown" aria-haspopup="true" aria-expanded="false").dropdown__toggler Dropdown
+		button(type="button" data-dropdown-role="trigger").dropdown__trigger= data.title
 			span.dropdown__caret
-		.dropdown__menu
+
+		.dropdown__menu(data-dropdown-role="drop-menu")
 			block

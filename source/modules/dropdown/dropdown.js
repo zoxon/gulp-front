@@ -1,201 +1,259 @@
 // dropdown
 (function() {
+	'use strict';
 
-	var ESCAPE_KEYCODE = 27;
-	var ARROW_UP_KEYCODE = 38;
-	var ARROW_DOWN_KEYCODE = 40;
-	var RIGHT_MOUSE_BUTTON_WHICH = 3;
+	/**
+	 * Plugin name
+	 * @type {String}
+	 */
+	var pluginName = 'dropdown';
 
-	var backdrop = '.dropdown-backdrop';
-	var toggle = '[data-dropdown-role="dropdown"]';
-
-	var Dropdown = function (element) {
-		var options = $(this).data('dropdown-options');
-
-		this.options = {};
-
-		this.config = $.extend({}, this.options, options);
-
-		$(element).on('click.dropdown', this.toggle);
+	/**
+	 * Plugin default options
+	 * @type {Object}
+	 */
+	var defaults = {
+		class: {
+			base: 'dropdown',
+			open: 'dropdown_open',
+			disabled: 'dropdown_disabled'
+		}
 	};
 
-	function getParent($this) {
-		var selector = $this.attr('data-target');
+	/**
+	 * Keyboard key codes
+	 * @type {Object}
+	 */
+	var KEYCODE = {
+		LEFT: 37,
+		UP: 38,
+		RIGHT: 39,
+		DOWN: 40,
+		ESCAPE: 27,
+		TAB: 9
+	};
 
-		if (!selector) {
-			selector = $this.attr('href');
-		}
+	/**
+	 * Dropdown constructor
+	 * @constructor
+	 * @param {[jQuery]} element
+	 * @param {[Object]} options
+	 */
+	function Plugin(element, options) {
+		this.element = element;
+		this._name = pluginName;
+		this._defaults = defaults;
 
-		var $parent = selector && $(selector);
+		this.$element = $(this.element);
 
-		return $parent && $parent.length ? $parent : $this.parent();
+		this.metadata = this.$element.data(this._name + '-' + 'options');
+
+		this.options = $.extend( {}, this._defaults, options, this.metadata );
+
+		this.init();
 	}
 
-	function clearMenus(event) {
-		if (event && event.which === RIGHT_MOUSE_BUTTON_WHICH) {
-			return;
+	$.extend(Plugin.prototype, {
+
+		// Initialization logic
+		init: function() {
+			this.buildCache();
+			this.setA11yAttrs();
+
+			if (this.isDisabled()) {
+				this.setDisabledState();
+			}
+			else {
+				this.bindEvents();
+			}
+		},
+
+		// Remove plugin instance completely
+		destroy: function() {
+			this.unbindEvents();
+			this.$element.removeData();
+		},
+
+		// Cache DOM nodes for performance
+		buildCache: function() {
+			this.$trigger = this.$element.find('[data-dropdown-role="trigger"]');
+			this.$dropMenu = this.$element.find('[data-dropdown-role="drop-menu"]');
+			this.focusableElements = this.$dropMenu.find('*[tabindex], a[href]');
+			this.selected = 0;
+			this.triggerId = this._name + '_trigger_' + this.options.count;
+		},
+
+		// Bind events that trigger methods
+		bindEvents: function() {
+			var plugin = this;
+
+			plugin.$trigger.on('click' + '.' + plugin._name, function(event) {
+				plugin.toggle.call(plugin, event);
+			});
+
+			plugin.$trigger.add(this.focusableElements)
+				.on('keydown' + '.' + plugin._name, function(event) {
+					plugin.handleKeydown.call(plugin, event);
+				});
+
+			$(document).on('click' + '.' + plugin._name, function(event) {
+				plugin.outerClickHandler.call(plugin, event);
+			});
+		},
+
+		// Unbind events that trigger methods
+		unbindEvents: function() {
+			this.$element.off('.' + this._name);
+		},
+
+		open: function() {
+			if (!this.isOpen()) {
+				this.$element.addClass(this.options.class.open)
+					.trigger('opened' + '.' + this._name);
+				this.$trigger.attr('aria-expanded', true);
+			}
+		},
+
+		close: function() {
+			this.$element.removeClass(this.options.class.open).trigger('closed' + '.' + this._name);
+			this.$trigger.attr('aria-expanded', false);
+		},
+
+		// Return true when dropdown is open
+		isOpen: function() {
+			var open = false;
+
+			if (this.$element.hasClass(this.options.class.open)) {
+				open = true;
+			}
+
+			return open;
+		},
+
+		// Return true when dropdown disabled
+		isDisabled: function() {
+			var disabled = false;
+
+			if (this.$element.hasClass(this.options.class.disabled)) {
+				disabled = true;
+			}
+
+			return disabled;
+		},
+
+		// Toggle dropdown
+		toggle: function() {
+			if (this.isOpen()) {
+				this.close();
+			}
+			else {
+				this.open();
+			}
+		},
+
+		// Click outside
+		outerClickHandler: function(event) {
+			if (this.isOpen()) {
+				if (!$(event.target).closest(this.$element).length) {
+					this.close();
+				}
+			}
+		},
+
+		// Keydown handler
+		handleKeydown: function(event) {
+
+			if (this.isDisabled()) {
+				return;
+			}
+
+			switch (event.which) {
+
+				case KEYCODE.ESCAPE:
+					// this.close();
+
+					console.log(this.$trigger);
+					this.$trigger.focus();
+
+					break;
+
+				case KEYCODE.UP:
+				case KEYCODE.LEFT:
+
+					event.preventDefault();
+
+					this.open();
+
+					if (this.selected === 0) {
+						this.selected = this.focusableElements.length - 1;
+					}
+					else {
+						this.selected--;
+					}
+					break;
+
+				case KEYCODE.DOWN:
+				case KEYCODE.RIGHT:
+
+					event.preventDefault();
+
+					this.open();
+
+					if (this.selected === this.focusableElements.length - 1) {
+						this.selected = 0;
+					}
+					else {
+						this.selected++;
+					}
+
+					break;
+			}
+
+			this.focusableElements[ this.selected ].focus();
+		},
+
+		setA11yAttrs: function() {
+			this.$trigger.attr({
+				'aria-haspopup': true,
+				'aria-expanded': false,
+				'id': this.triggerId
+			});
+
+			this.$dropMenu.attr({
+				'aria-labelledby': this.triggerId
+			});
+		},
+
+		setDisabledState: function() {
+			this.$element.attr('aria-disabled', true);
+			this.$trigger.attr('disabled', true);
+		},
+
+		// Call calback by name
+		callback: function(name) {
+			var cb = this.options[ name ];
+
+			if ( typeof cb === 'function' ) {
+				cb.call(this.element);
+			}
 		}
 
-		$(backdrop).remove();
+	});
 
-		$(toggle).each(function() {
-			var $this = $(this);
-			var $parent = getParent($this);
-			var relatedTarget = { relatedTarget: this };
+	$.fn[ pluginName ] = function( options ) {
+		return this.each(function(index) {
+			options = $.extend(options, { 'count': index } );
 
-			if (!$parent.hasClass('dropdown_dropdown_open')) {
-				return;
+			if (!$.data(this, 'plugin_' + pluginName)) {
+				$.data(this, 'plugin_' + pluginName,
+					new Plugin( this, options ));
 			}
-
-			if (event && event.type === 'click' &&
-				/input|textarea/i.test(event.target.tagName) &&
-				$.contains($parent[ 0 ], event.target)) {
-				return;
-			}
-
-			$parent.trigger(event = $.Event('dropdown.hide', relatedTarget));
-
-			// Выходим, если клик пришелся на элемент внутри .dropdown__menu
-			if (event && event.type === 'click' &&
-				/dropdown__menu/i.test(event.toElement.offsetParent.className)) {
-				return;
-			}
-
-			$this.attr('aria-expanded', 'false');
-			$parent.removeClass('dropdown_dropdown_open')
-				.trigger($.Event('dropdown.hidden', relatedTarget));
 		});
-	}
-
-	Dropdown.prototype.toggle = function(event) {
-
-		var $this = $(this);
-
-		if ($this.is(':disabled')) {
-			return;
-		}
-
-		var $parent = getParent($this);
-		var isActive = $parent.hasClass('dropdown_dropdown_open');
-
-		clearMenus();
-
-		if (!isActive) {
-			if ('ontouchstart' in document.documentElement) {
-
-				// if mobile we use a backdrop because click events don't delegate
-				$(document.createElement('div'))
-					.addClass('dropdown-backdrop')
-					.insertAfter($(this))
-					.on('click', clearMenus);
-			}
-
-			var relatedTarget = { relatedTarget: this };
-			$parent.trigger(event = $.Event('dropdown.show', relatedTarget));
-
-			$this.trigger('focus').attr('aria-expanded', 'true');
-
-			$parent.toggleClass('dropdown_dropdown_open')
-				.trigger($.Event('dropdown.shown', relatedTarget));
-		}
-
-		return false;
 	};
-
-	Dropdown.prototype.keydown = function(event) {
-		if (!/(38|40|27|32)/.test(event.which) || /input|textarea/i.test(event.target.tagName)) {
-			return;
-		}
-
-		var $this = $(this);
-
-		event.preventDefault();
-		event.stopPropagation();
-
-		if ($this.is(':disabled')) {
-			return;
-		}
-
-		var $parent = getParent($this);
-		var isActive = $parent.hasClass('dropdown_dropdown_open');
-
-		if (!isActive && event.which !== ESCAPE_KEYCODE ||
-			isActive && event.which === ESCAPE_KEYCODE) {
-			if (event.which === ESCAPE_KEYCODE) {
-				$parent.find(toggle).trigger('focus');
-			}
-			return $this.trigger('click');
-		}
-
-		var $items = $parent.find('.dropdown__menu a, .dropdown__menu [tabindex]');
-
-		if (!$items.length) {
-			return;
-		}
-
-		var index = $items.index(event.target);
-
-		// up
-		if (event.which === ARROW_UP_KEYCODE && index > 0) {
-			index--;
-		}
-
-		// down
-		if (event.which === ARROW_DOWN_KEYCODE && index < $items.length - 1) {
-			index++;
-		}
-
-		if (!~index) {
-			index = 0;
-		}
-
-		$items.eq(index).trigger('focus');
-	};
-
-
-	// DROPDOWN PLUGIN DEFINITION
-	// ==========================
-
-	function Plugin(option) {
-		return this.each(function() {
-			var $this = $(this);
-			var data  = $this.data('dropdown');
-
-			if (!data) {
-				$this.data('dropdown', (data = new Dropdown(this)));
-			}
-
-			if (typeof option == 'string') {
-				data[ option ].call($this);
-			}
-		});
-	}
-
-	var old = $.fn.dropdown;
-
-	$.fn.dropdown = Plugin;
-	$.fn.dropdown.Constructor = Dropdown;
-
-
-	// DROPDOWN NO CONFLICT
-	// ====================
-
-	$.fn.dropdown.noConflict = function() {
-		$.fn.dropdown = old;
-		return this;
-	};
-
-
-	// APPLY TO STANDARD DROPDOWN ELEMENTS
-	// ===================================
-
-	$(document)
-		.on('click.dropdown.data-api', clearMenus)
-		.on('click.dropdown.data-api', '.dropdown form', function(event) {
-			event.stopPropagation();
-		})
-		.on('click.dropdown.data-api', toggle, Dropdown.prototype.toggle)
-		.on('keydown.dropdown.data-api', toggle, Dropdown.prototype.keydown)
-		.on('keydown.dropdown.data-api', '.dropdown__menu', Dropdown.prototype.keydown);
 
 })();
+
+
+$(function() {
+	$('.dropdown').dropdown();
+});

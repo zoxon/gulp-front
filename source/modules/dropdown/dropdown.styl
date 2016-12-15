@@ -3,7 +3,7 @@
 	position relative
 	display inline-block
 
-	&__toggler
+	&__trigger
 		color #333
 		border 1px solid #cdcdcd
 		border-radius 3px
@@ -54,24 +54,20 @@
 			margin 0
 			padding 0
 
-	&_dropdown_open &__menu
+	&_open &__menu
 		opacity 1
 		visibility visible
 		z-index 100
 		margin-top 2px
 
 
-	&_dropdown_open &__caret
+	&_open &__caret
 		transform rotate(225deg)
 
 	&_drop_down &__list
 		top 100%
 		margin-top -20px
 
-.dropdown-backdrop
-	position fixed
-	left 0
-	right 0
-	bottom 0
-	top 0
-	z-index 990
+	&_menu_right &__menu
+		left auto
+		right 0
