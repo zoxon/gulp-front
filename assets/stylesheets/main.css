@@ -3674,8 +3674,9 @@ input[type="button"].button_block {
 	opacity: 1;
 }
 
-.checkbox__control:disabled + .checkbox__box {
-	opacity: 0.7;
+.checkbox__control:disabled ~ .checkbox__box,
+.checkbox__control:disabled ~ .checkbox__label {
+	opacity: 0.5;
 }
 
 .checkbox__label {
@@ -3875,6 +3876,7 @@ input[type="button"].button_block {
 	margin-top: -20px;
 	overflow: hidden;
 	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
 
 	text-align: left;
 
@@ -4070,7 +4072,9 @@ input[type="button"].button_block {
 	opacity: 0;
 }
 
-.form-control_type_select {
+.form-control_type_select,
+.form-control_type_input,
+.form-control_type_textarea {
 	cursor: pointer;
 
 	-webkit-appearance: none;
@@ -5327,8 +5331,9 @@ html.remodal-is-locked {
 	opacity: 1;
 }
 
-.radio__control:disabled + .radio__box {
-	opacity: 0.7;
+.radio__control:disabled ~ .radio__box,
+.radio__control:disabled ~ .radio__label {
+	opacity: 0.5;
 }
 
 .radio__label {

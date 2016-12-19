@@ -2,7 +2,9 @@
 
 svg4everybody();
 
-FastClick.attach(document.body);
+$(function() {
+	FastClick.attach(document.body);
+});
 
 $('.table').basictable({ baseClass: 'table' });
 
@@ -767,7 +769,7 @@ $(function() {
 				plugin.onHashchangeHandler.call(plugin);
 			}).trigger('hashchange');
 
-			this.$tabs.on('focus' + '.' + plugin._name, function(event) {
+			this.$tabs.on('focus' + '.' + plugin._name + ' click' + '.' + plugin._name, function(event) {
 				event.preventDefault();
 
 				var id = $(event.target).data('tabs-target');
@@ -1044,7 +1046,7 @@ $(function() {
 			var tooltipId = $that.data('tooltip-id');
 			var $tooltip = $('[data-tooltip-target="' + tooltipId + '"]').first();
 
-			$that.hover(function() {
+			$that.on('mouseenter.tooltip click.tooltip', function(event) {
 				var props = event.target.getBoundingClientRect();
 				var left = props.left + (props.width / 2);
 				var top = props.top + (props.height / 2);
@@ -1088,10 +1090,25 @@ $(function() {
 				}
 
 				$tooltip.css(tooltipPos).addClass(cssClasses.visible);
+			});
 
-			}, function() {
+
+			$that.on('mouseleave.tooltip', function() {
 				$tooltip.removeClass('tooltip_visible');
 			});
+
+			$(document).on('click', function(event) {
+				if (!$(event.target).closest($that).length) {
+					$tooltip.removeClass('tooltip_visible');
+				}
+			});
+
+			$(window).on('scroll touchmove', function() {
+				if ($tooltip.hasClass('tooltip_visible')) {
+					$tooltip.removeClass('tooltip_visible');
+				}
+			});
+
 		});
 	}
 
