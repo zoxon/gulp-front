@@ -26,8 +26,9 @@
 		&:checked + ^[0]__box:before
 			opacity 1
 
-		&:disabled + ^[0]__box
-			opacity 0.7
+		&:disabled ~ ^[0]__box
+		&:disabled ~ ^[0]__label
+			opacity 0.5
 
 
 	&__label
