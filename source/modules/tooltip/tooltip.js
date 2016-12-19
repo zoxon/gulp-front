@@ -18,7 +18,7 @@
 			var tooltipId = $that.data('tooltip-id');
 			var $tooltip = $('[data-tooltip-target="' + tooltipId + '"]').first();
 
-			$that.hover(function() {
+			$that.on('mouseenter.tooltip click.tooltip', function(event) {
 				var props = event.target.getBoundingClientRect();
 				var left = props.left + (props.width / 2);
 				var top = props.top + (props.height / 2);
@@ -62,10 +62,25 @@
 				}
 
 				$tooltip.css(tooltipPos).addClass(cssClasses.visible);
+			});
 
-			}, function() {
+
+			$that.on('mouseleave.tooltip', function() {
 				$tooltip.removeClass('tooltip_visible');
 			});
+
+			$(document).on('click', function(event) {
+				if (!$(event.target).closest($that).length) {
+					$tooltip.removeClass('tooltip_visible');
+				}
+			});
+
+			$(window).on('scroll touchmove', function() {
+				if ($tooltip.hasClass('tooltip_visible')) {
+					$tooltip.removeClass('tooltip_visible');
+				}
+			});
+
 		});
 	}
 
