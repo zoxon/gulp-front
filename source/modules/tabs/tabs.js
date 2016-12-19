@@ -102,7 +102,7 @@
 				plugin.onHashchangeHandler.call(plugin);
 			}).trigger('hashchange');
 
-			this.$tabs.on('focus' + '.' + plugin._name, function(event) {
+			this.$tabs.on('focus' + '.' + plugin._name + ' click' + '.' + plugin._name, function(event) {
 				event.preventDefault();
 
 				var id = $(event.target).data('tabs-target');
