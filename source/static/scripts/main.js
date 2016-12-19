@@ -2,7 +2,9 @@
 
 svg4everybody();
 
-FastClick.attach(document.body);
+$(function() {
+	FastClick.attach(document.body);
+});
 
 $('.table').basictable({ baseClass: 'table' });
 
