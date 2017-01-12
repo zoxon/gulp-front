@@ -1,0 +1,87 @@
+.notification-board
+	position fixed
+	width 250px
+	z-index 9999
+
+	&__item
+		position relative
+
+	&_vertical_top
+		top 60px
+	&_vertical_top &__item
+		margin-top 20px
+
+	&_vertical_bottom
+		bottom 0
+	&_vertical_bottom &__item
+		margin-bottom 20px
+
+	&_vertical_center
+		top 50%
+		transform translate(0, -50%)
+
+
+	&_horizontal_left
+		left 0
+	&_horizontal_left &__item
+		margin-left 20px
+
+	&_horizontal_right
+		right 0
+	&_horizontal_right &__item
+		margin-right 20px
+
+	&_horizontal_center
+		left 50%
+		transform translate(-50%, 0)
+
+
+.notification
+	background-color #fff
+	border-radius 3px
+	padding 10px
+	box-shadow 0 0 7px rgba(#000, 0.13)
+	color #8e98a7
+
+	&__close
+		cursor pointer
+		position absolute
+		right 0
+		top 0
+		height 24px
+		width 24px
+		transition 125ms all ease-in-out
+		text-align center
+		&:after
+			content '\00d7'
+			font-size 1.2em
+			display inline
+
+		&:hover
+			opacity 0.8
+
+	&__content
+		a
+			&
+			&:visited
+				color currentColor
+
+			&:hover
+				text-decoration none
+				color currentColor
+
+	&_type_notice
+		background-color blue
+		color #fff
+
+	&_type_success
+		background-color green
+		color #fff
+
+	&_type_error
+		background-color red
+		color #fff
+
+	&_type_warning
+		background-color yellow
+		color $base-text-color
