@@ -18,11 +18,14 @@
 				var hash = $link.attr('href');
 				var $target = $(hash);
 
-				$('html, body').stop().animate({
-					'scrollTop': $target.offset().top - offset - 20
-				}, animSpeed, 'swing', function() {
-					window.location.hash = hash;
-				});
+				if ($target.isset()) {
+					$('html, body').stop().animate({
+						'scrollTop': $target.offset().top - offset - 20
+					}, animSpeed, 'swing', function() {
+						window.location.hash = hash;
+					});
+				}
+
 			});
 
 		});
