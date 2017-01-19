@@ -43,6 +43,9 @@
             title: "Radios and Checkboxes"
             url: "#radios-and-checkboxes"
           -
+            title: "Input range"
+            url: "#input-range"
+          -
             title: "Selects"
             url: "#selects"
           -
