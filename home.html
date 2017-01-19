@@ -1,0 +1,3388 @@
+<!DOCTYPE html>
+<html class="modernizr_no-js" lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Gulp-front demo :: Gulp-front</title>
+		<meta name="author" content="Velichko Konstantin">
+		<meta name="description" content="The template for quick start of development with Gulp, Jade and Stylus">
+		<meta name="keywords" content="demo, gulp, bem, modules, sprites, svg, jade, stylus, boilerplate, frontend, project, template">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="robots" content="noodp, noydir">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="HandheldFriendly" content="true">
+		<meta content="IE=edge" http-equiv="X-UA-Compatible">
+		<link href="assets/stylesheets/reset.min.css" rel="stylesheet">
+		<link href="assets/stylesheets/main.min.css" rel="stylesheet">
+		<meta property="og:title" content="Gulp-front demo">
+		<meta property="og:url" content="http://zoxon.github.io/gulp-front/">
+		<meta property="og:description" content="The template for quick start of development with Gulp, Jade and Stylus">
+		<meta property="og:image" content="assets/images/content/preview.png">
+		<meta property="og:image:type" content="image/png">
+		<meta property="og:image:width">
+		<meta property="og:image:height" content="300">
+		<meta property="twitter:description" content="The template for quick start of development with Gulp, Jade and Stylus">
+		<link href="assets/images/content/preview.png" rel="image_src">
+		<link href="assets/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+		<link type="image/png" href="assets/favicons/favicon-32x32.png" rel="icon" sizes="32x32">
+		<link type="image/png" href="assets/favicons/favicon-16x16.png" rel="icon" sizes="16x16">
+		<link href="assets/favicons/manifest.json" rel="manifest">
+		<link href="assets/favicons/safari-pinned-tab.svg" rel="mask-icon" color="#ff3333">
+		<link href="assets/favicons/favicon.ico" rel="shortcut icon">
+		<meta name="msapplication-TileColor" content="#333366">
+		<meta name="msapplication-TileImage" content="assets/favicons/mstile-144x144.png">
+		<meta name="msapplication-config" content="assets/favicons/browserconfig.xml">
+		<meta name="theme-color" content="#333366">
+		<style>
+			.demo .button {
+				margin-bottom: 20px;
+			}
+			
+			.demo .button-group {
+				margin-bottom: 20px;
+			}
+			
+			.demo .button-group__item {
+				margin: 0;
+			}
+			
+			.demo .button-group__item:last-child {
+				margin-left: -1px;
+			}
+			
+			.demo-icons .icon {
+				display: inline-block;
+				padding: 20px;
+				box-shadow: 0 1px 5px rgba(22, 20, 17, 0.16);
+				width: 34px;
+				height: 34px;
+				margin: 5px;
+			}
+			
+			.demo-icons .flag {
+				width: 34px;
+				height: 26px;
+			}
+			
+			.demo-icons .flag_squared {
+				width: 34px;
+				height: 34px;
+			}
+
+		</style>
+	</head>
+	<body class="page">
+		<!--[if lt IE 8]>
+		<p class="browsehappy">Вы используете<strong>устаревший</strong> браузер. Пожалуйста<a href="http://browsehappy.com" target="_blank">обновите браузер</a> для лучшего отображения сайта.</p><![endif]-->
+		<div class="page__mobile-menu">
+			<div class="mobile-menu js-link-sroll">
+				<nav class="mobile-menu__menu">
+					<ul class="mobile-menu__list">
+						<li class="mobile-menu__item">
+							<a class="mobile-menu__link" href="#typography">
+								<span class="mobile-menu__icon">
+									<svg class="icon icon_text">
+										<use xlink:href="assets/images/icons.svg#text"></use>
+									</svg>
+								</span>
+								<span class="mobile-menu__text">Typography</span>
+							</a>
+							<ul class="mobile-menu__submenu">
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#titles-and-paragraphs">Titles &amp; Paragraphs</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#lists">Lists</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#tables">Tables</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#quotes">Quotes</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#description-lists">Description lists</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#code">Code</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#text-elements">Text level elements</a>
+								</li>
+							</ul>
+						</li>
+						<li class="mobile-menu__item">
+							<a class="mobile-menu__link" href="#forms">
+								<span class="mobile-menu__icon">
+									<svg class="icon icon_input">
+										<use xlink:href="assets/images/icons.svg#input"></use>
+									</svg>
+								</span>
+								<span class="mobile-menu__text">Forms</span>
+							</a>
+							<ul class="mobile-menu__submenu">
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#messaging">Messaging</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#text-inputs">Text Inputs</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#radios-and-checkboxes">Radios and Checkboxes</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#input-range">Input range</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#selects">Selects</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#textareas-and-files">Textareas and Files</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#captcha">Captcha</a>
+								</li>
+							</ul>
+						</li>
+						<li class="mobile-menu__item">
+							<a class="mobile-menu__link" href="#buttons">
+								<span class="mobile-menu__icon">
+									<svg class="icon icon_button">
+										<use xlink:href="assets/images/icons.svg#button"></use>
+									</svg>
+								</span>
+								<span class="mobile-menu__text">Buttons</span>
+							</a>
+							<ul class="mobile-menu__submenu">
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#buttons-styles">Styles</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#buttons-sizes">Sizes</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#buttons-icon">Icon buttons</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#buttons-tags">Tags types</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#buttons-disabled">Disabled buttons</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#buttons-block">Block buttons</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#buttons-group">Buttons group</a>
+								</li>
+							</ul>
+						</li>
+						<li class="mobile-menu__item">
+							<a class="mobile-menu__link" href="#components">
+								<span class="mobile-menu__icon">
+									<svg class="icon icon_add">
+										<use xlink:href="assets/images/icons.svg#add"></use>
+									</svg>
+								</span>
+								<span class="mobile-menu__text">Components</span>
+							</a>
+							<ul class="mobile-menu__submenu">
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#images-helpers">Images helpers</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#breadcrumbs">Breadcrumbs</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#pagination">Pagination</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#badges">Badges</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#progress-bar">Progress Bar</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#embed">Responsive video</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#social-icons">Social icons</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#tabs">Tabs</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#modals">Modal windows</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#accordion">Accordion</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#dropdown">Dropdown</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#spoiler">Spoiler</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#tooltips">Tooltips</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#svg-icons">Svg Icons</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a class="mobile-menu__submenu-link" href="#flags-icons">Flags Icons</a>
+								</li>
+							</ul>
+						</li>
+						<li class="mobile-menu__item">
+							<a class="mobile-menu__link" href="#grid">
+								<span class="mobile-menu__icon">
+									<svg class="icon icon_grid">
+										<use xlink:href="assets/images/icons.svg#grid"></use>
+									</svg>
+								</span>
+								<span class="mobile-menu__text">Grid</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<div class="page__content">
+			<div class="page__wrapper">
+				<div class="page__header">
+					<header class="header">
+						<div class="header__top">
+							<div class="header__inner">
+								<div class="header__logo">
+									<a class="logo" href="index.html">
+										<svg class="icon icon_heart logo__icon">
+											<use xlink:href="assets/images/icons.svg#heart"></use>
+										</svg>
+										<span class="logo__name">Gulp front</span>
+									</a>
+								</div>
+								<div class="header__menu">
+									<nav class="main-menu">
+										<ul class="main-menu__list">
+											<li class="main-menu__item main-menu__item_dropdown">
+												<a class="main-menu__link" href="#typography">Typography</a>
+												<div class="main-menu__submenu">
+													<div class="main-menu-submenu">
+														<ul class="main-menu-submenu__list">
+															<li class="main-menu-submenu__item">
+																<a href="#titles-and-paragraphs">Titles &amp; Paragraphs</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#lists">Lists</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#tables">Tables</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#quotes">Quotes</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#description-lists">Description lists</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#code">Code</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#text-elements">Text level elements</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</li>
+											<li class="main-menu__item main-menu__item_dropdown">
+												<a class="main-menu__link" href="#forms">Forms</a>
+												<div class="main-menu__submenu">
+													<div class="main-menu-submenu">
+														<ul class="main-menu-submenu__list">
+															<li class="main-menu-submenu__item">
+																<a href="#messaging">Messaging</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#text-inputs">Text Inputs</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#radios-and-checkboxes">Radios and Checkboxes</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#input-range">Input range</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#selects">Selects</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#textareas-and-files">Textareas and Files</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#captcha">Captcha</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</li>
+											<li class="main-menu__item main-menu__item_dropdown">
+												<a class="main-menu__link" href="#buttons">Buttons</a>
+												<div class="main-menu__submenu">
+													<div class="main-menu-submenu">
+														<ul class="main-menu-submenu__list">
+															<li class="main-menu-submenu__item">
+																<a href="#buttons-styles">Styles</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#buttons-sizes">Sizes</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#buttons-icon">Icon buttons</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#buttons-tags">Tags types</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#buttons-disabled">Disabled buttons</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#buttons-block">Block buttons</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#buttons-group">Buttons group</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</li>
+											<li class="main-menu__item main-menu__item_dropdown">
+												<a class="main-menu__link" href="#components">Components</a>
+												<div class="main-menu__submenu">
+													<div class="main-menu-submenu">
+														<ul class="main-menu-submenu__list">
+															<li class="main-menu-submenu__item">
+																<a href="#images-helpers">Images helpers</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#breadcrumbs">Breadcrumbs</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#pagination">Pagination</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#badges">Badges</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#progress-bar">Progress Bar</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#embed">Responsive video</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#social-icons">Social icons</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#tabs">Tabs</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#modals">Modal windows</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#accordion">Accordion</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#dropdown">Dropdown</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#spoiler">Spoiler</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#tooltips">Tooltips</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#svg-icons">Svg Icons</a>
+															</li>
+															<li class="main-menu-submenu__item">
+																<a href="#flags-icons">Flags Icons</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</li>
+											<li class="main-menu__item">
+												<a class="main-menu__link" href="#grid">Grid</a>
+											</li>
+										</ul>
+									</nav>
+								</div>
+								<div class="header__github">
+									<a class="github-button" href="//github.com/Zoxon/gulp-front" title="Watch source on Github" target="_blank">
+										<span class="github-button__icon">
+											<svg class="icon icon_github-octocat">
+												<use xlink:href="assets/images/icons.svg#github-octocat"></use>
+											</svg>
+										</span>
+										<span class="github-button__text">Github</span>
+									</a>
+								</div>
+								<div class="header__mobile-menu-trigger">
+									<button class="button mobile-menu-trigger" type="button">
+										<svg class="icon icon_hamburger">
+											<use xlink:href="assets/images/icons.svg#hamburger"></use>
+										</svg>
+									</button>
+								</div>
+							</div>
+						</div>
+						<div class="header__bottom">
+							<div class="header__inner">
+								<div class="header-presentation">
+									<h1 class="header-presentation__name">Gulp front</h1>
+									<h2 class="header-presentation__description">A lean and powerful, gulp-based boilerplate for better front-end coding.</h2>
+									<div class="header-presentation__version">v. 7.2.0</div>
+									<div class="header-presentation__sub-description">Created &amp; maintained by @zoxon</div>
+									<div class="header-presentation__download">
+										<a class="button button_style_ghost button_color_white button_size_large button_block button_style_rounded" href="https://github.com/Zoxon/gulp-front/archive/master.zip" title="Download source from Github">Download</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</header>
+				</div>
+				<div class="page__main">
+					<div class="layout layout_sidebar_left">
+						<div class="layout__sidebar">
+							<aside class="sidebar">
+								<div class="sidebar__section">
+									<div class="sidebar-menu">
+										<nav class="sidebar-menu__items">
+											<ul>
+												<li class="sidebar-menu__item">
+													<a class="sidebar-menu__link" href="#typography">Typography</a>
+													<div class="sidebar-menu__submenu">
+														<ul>
+															<li class="sidebar-menu__item">
+																<a href="#titles-and-paragraphs">Titles & Paragraphs</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#lists">Lists</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#tables">Tables</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#quotes">Quotes</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#description-lists">Description lists</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#code">Code</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#text-elements">Text level elements</a>
+															</li>
+														</ul>
+													</div>
+												</li>
+												<li class="sidebar-menu__item">
+													<a class="sidebar-menu__link" href="#forms">Forms</a>
+													<div class="sidebar-menu__submenu">
+														<ul>
+															<li class="sidebar-menu__item">
+																<a href="#messaging">Messaging</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#text-inputs">Text Inputs</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#radios-and-checkboxes">Radios and Checkboxes</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#input-range">Input range</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#selects">Selects</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#textareas-and-files">Textareas and Files</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#captcha">Captcha</a>
+															</li>
+														</ul>
+													</div>
+												</li>
+												<li class="sidebar-menu__item">
+													<a class="sidebar-menu__link" href="#buttons">Buttons</a>
+													<div class="sidebar-menu__submenu">
+														<ul>
+															<li class="sidebar-menu__item">
+																<a href="#buttons-styles">Styles</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#buttons-sizes">Sizes</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#buttons-icon">Icon buttons</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#buttons-tags">Tags types</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#buttons-disabled">Disabled buttons</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#buttons-block">Block buttons</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#buttons-group">Buttons group</a>
+															</li>
+														</ul>
+													</div>
+												</li>
+												<li class="sidebar-menu__item">
+													<a class="sidebar-menu__link" href="#components">Components</a>
+													<div class="sidebar-menu__submenu">
+														<ul>
+															<li class="sidebar-menu__item">
+																<a href="#images-helpers">Images helpers</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#breadcrumbs">Breadcrumbs</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#pagination">Pagination</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#badges">Badges</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#progress-bar">Progress Bar</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#embed">Responsive video</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#social-icons">Social icons</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#tabs">Tabs</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#modals">Modal windows</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#accordion">Accordion</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#dropdown">Dropdown</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#spoiler">Spoiler</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#tooltips">Tooltips</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#svg-icons">Svg Icons</a>
+															</li>
+															<li class="sidebar-menu__item">
+																<a href="#flags-icons">Flags Icons</a>
+															</li>
+														</ul>
+													</div>
+												</li>
+												<li class="sidebar-menu__item">
+													<a class="sidebar-menu__link" href="#grid">Grid</a>
+												</li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</aside>
+						</div>
+						<div class="layout__content">
+							<h1 class="page-title">Gulp-front features</h1>
+							<div class="content-wrapper demo">
+								<!-- TYPOGRAPHY-->
+								<section>
+									<h2 id="typography">Typography</h2>
+									<h3 id="titles-and-paragraphs">Titles &amp; Paragraphs</h3>
+									<p>Lorem ipsum dolor sit amet,
+										<a href="#">consectetur adipisicing</a> elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione unde, provident facilis
+										veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde,
+										<a href="#">suscipit molestias odio tempore</a> id alias, aliquam illum fugiat accusantium provident quae autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique
+										repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam, consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates
+										officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus ducimus doloremque minima nam!</p>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam vitae nesciunt repudiandae rem, quae tenetur id, nobis vel esse adipisci consequuntur eos officia, alias nemo exercitationem repellat velit molestias voluptates.</p>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita dolorem odio deleniti dolores, error vel accusamus ipsa adipisci esse libero optio iusto minus, ullam temporibus placeat ea? Quidem nihil, perspiciatis!</p>
+									<h1>H1 Proin
+										<a href="#">gravida</a> nibh vel velit auctor aliquetoin</h1>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
+										unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
+										autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam,
+										consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus
+										ducimus doloremque minima nam!</p>
+									<h2>H2 Aenean sollicitudin, lorem quis bibendum auctor elit</h2>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
+										unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
+										autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam,
+										consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus
+										ducimus doloremque minima nam!</p>
+									<h3>H3 Duis sed odio sit amet nibh vulputate cursus a sit amet.</h3>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
+										unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
+										autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam,
+										consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus
+										ducimus doloremque minima nam!</p>
+									<h4>H4 Morbi accumsan ipsum velit. </h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
+										unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
+										autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam,
+										consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus
+										ducimus doloremque minima nam!</p>
+									<h5>H5 Nam nec tellus a odio tincidunt auctor a ornare odio.</h5>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
+										unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
+										autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam,
+										consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus
+										ducimus doloremque minima nam!</p>
+									<h6>H6 Sed non neque elit. Sed ut imperdiet nisi.</h6>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
+										unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
+										autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam,
+										consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus
+										ducimus doloremque minima nam!</p>
+									<h1>H1 Proin gravida nibh vel velit auctor aliquetoin</h1>
+									<h2>H2 Aenean sollicitudin, lorem quis bibendum auctor</h2>
+									<h3>H3 Duis sed odio sit amet nibh vulputate cursus a sit amet. </h3>
+									<h4>H4 Morbi accumsan ipsum velit. </h4>
+									<h5>H5 Nam nec tellus a odio tincidunt auctor a ornare odio. </h5>
+									<h6>H6 Sed non neque elit. Sed ut imperdiet nisi.</h6>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
+										unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
+										autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam,
+										consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus
+										ducimus doloremque minima nam!</p>
+									<h3 id="lists">Lists</h3>
+									<ul>
+										<li>Proin gravida nibh vel velit auctor aliquet</li>
+										<li>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
+											<ul>
+												<li>Morbi accumsan ipsum velit. Nam nec tellus aitae ass aptent taciti sociosqu ad litora torquent </li>
+												<li>per conubia nostra, per inceptos himenaeos.
+													<ul>
+														<li>Mauris in erat justo. </li>
+														<li>Proin gravida nibh vel velit auctor aliquet</li>
+													</ul>
+												</li>
+												<li>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. </li>
+												<li>Morbi accumsan ipsum velit. Nam nec tellus aitae ass aptent taciti sociosqu ad litora </li>
+											</ul>
+										</li>
+										<li>Yorquent per conubia nostra, per inceptos himenaeos. </li>
+										<li>Mauris in erat justo. </li>
+									</ul>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis nam id facilis, provident doloremque placeat eveniet molestias laboriosam. Optio esse ipsa, neque, hic culpa laborum quisquam magni consequatur quaerat voluptates!</p>
+									<ol>
+										<li>Proin gravida nibh vel velit auctor aliquet</li>
+										<li>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
+											<ol>
+												<li>Morbi accumsan ipsum velit. Nam nec tellus aitae ass aptent taciti sociosqu ad litora torquent </li>
+												<li>per conubia nostra, per inceptos himenaeos.
+													<ol>
+														<li>Mauris in erat justo. </li>
+														<li>Proin gravida nibh vel velit auctor aliquet</li>
+													</ol>
+												</li>
+												<li>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. </li>
+												<li>Morbi accumsan ipsum velit. Nam nec tellus aitae ass aptent taciti sociosqu ad litora </li>
+											</ol>
+										</li>
+										<li>Yorquent per conubia nostra, per inceptos himenaeos. </li>
+										<li>Mauris in erat justo. </li>
+									</ol>
+									<h3 id="tables">Tables</h3>
+									<table class="table">
+										<caption>Table with(scope="col") caption, colgroup, thead, tfoot, and tbody</caption>
+										<colgroup>
+											<col>
+											<col>
+											<col>
+											<col>
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col">Etiam</th>
+												<th scope="col">Pharetra</th>
+												<th scope="col">Erat sed</th>
+												<th scope="col">Feugiat</th>
+											</tr>
+										</thead>
+										<tfoot>
+											<tr>
+												<th scope="col">Etiam</th>
+												<th scope="col">Pharetra</th>
+												<th scope="col">Erat sed</th>
+												<th scope="col">Feugiat</th>
+											</tr>
+										</tfoot>
+										<tbody>
+											<tr>
+												<td>Nam nec tellus</td>
+												<td>8873-1978-8717</td>
+												<td>145.58</td>
+												<td>m³</td>
+											</tr>
+											<tr>
+												<td>Etiam</td>
+												<td>532-8725-9727</td>
+												<td>17800.50</td>
+												<td>m²</td>
+											</tr>
+											<tr>
+												<td>Suspendisse</td>
+												<td>3364-2214-8781</td>
+												<td>312.22</td>
+												<td>$</td>
+											</tr>
+											<tr>
+												<td>Morbi accumsan</td>
+												<td>5547-2212-8884</td>
+												<td>7822.33</td>
+												<td>€</td>
+											</tr>
+											<tr>
+												<td>Condimentum </td>
+												<td>6687-2111-5557</td>
+												<td>25.00</td>
+												<td>444</td>
+											</tr>
+											<tr>
+												<td>Nam nec tellus</td>
+												<td>7898-4460-4557</td>
+												<td>13.25</td>
+												<td>13.25</td>
+											</tr>
+											<tr>
+												<td>Etiam</td>
+												<td>1400-0077-7741</td>
+												<td>140000</td>
+												<td>140000</td>
+											</tr>
+											<tr>
+												<td>Suspendisse</td>
+												<td>1829-9774-6660</td>
+												<td>18.26</td>
+												<td>18.26</td>
+											</tr>
+											<tr>
+												<td>Condimentum </td>
+												<td>6687-2111-5557</td>
+												<td>3.141592653589793238462</td>
+												<td>+V</td>
+											</tr>
+										</tbody>
+									</table>
+									<table class="table table_striped">
+										<caption>Table with(scope="col") caption, colgroup, thead, tfoot, and tbody</caption>
+										<colgroup>
+											<col>
+											<col>
+											<col>
+											<col>
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col">Etiam</th>
+												<th scope="col">Pharetra</th>
+												<th scope="col">Erat sed</th>
+												<th scope="col">Feugiat</th>
+											</tr>
+										</thead>
+										<tfoot>
+											<tr>
+												<th scope="col">Etiam</th>
+												<th scope="col">Pharetra</th>
+												<th scope="col">Erat sed</th>
+												<th scope="col">Feugiat</th>
+											</tr>
+										</tfoot>
+										<tbody>
+											<tr>
+												<td>Nam nec tellus</td>
+												<td>8873-1978-8717</td>
+												<td>145.58</td>
+												<td>m³</td>
+											</tr>
+											<tr>
+												<td>Etiam</td>
+												<td>532-8725-9727</td>
+												<td>17800.50</td>
+												<td>m²</td>
+											</tr>
+											<tr>
+												<td>Suspendisse</td>
+												<td>3364-2214-8781</td>
+												<td>312.22</td>
+												<td>$</td>
+											</tr>
+											<tr>
+												<td>Morbi accumsan</td>
+												<td>5547-2212-8884</td>
+												<td>7822.33</td>
+												<td>€</td>
+											</tr>
+											<tr>
+												<td>Condimentum </td>
+												<td>6687-2111-5557</td>
+												<td>25.00</td>
+												<td>444</td>
+											</tr>
+											<tr>
+												<td>Nam nec tellus</td>
+												<td>7898-4460-4557</td>
+												<td>13.25</td>
+												<td>13.25</td>
+											</tr>
+											<tr>
+												<td>Etiam</td>
+												<td>1400-0077-7741</td>
+												<td>140000</td>
+												<td>140000</td>
+											</tr>
+											<tr>
+												<td>Suspendisse</td>
+												<td>1829-9774-6660</td>
+												<td>18.26</td>
+												<td>18.26</td>
+											</tr>
+											<tr>
+												<td>Condimentum </td>
+												<td>6687-2111-5557</td>
+												<td>3.141592653589793238462</td>
+												<td>+V</td>
+											</tr>
+										</tbody>
+									</table>
+									<table class="table table_bordered">
+										<caption>Table with(scope="col") caption, colgroup, thead, tfoot, and tbody</caption>
+										<colgroup>
+											<col>
+											<col>
+											<col>
+											<col>
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col">Etiam</th>
+												<th scope="col">Pharetra</th>
+												<th scope="col">Erat sed</th>
+												<th scope="col">Feugiat</th>
+											</tr>
+										</thead>
+										<tfoot>
+											<tr>
+												<th scope="col">Etiam</th>
+												<th scope="col">Pharetra</th>
+												<th scope="col">Erat sed</th>
+												<th scope="col">Feugiat</th>
+											</tr>
+										</tfoot>
+										<tbody>
+											<tr>
+												<td>Nam nec tellus</td>
+												<td>8873-1978-8717</td>
+												<td>145.58</td>
+												<td>m³</td>
+											</tr>
+											<tr>
+												<td>Etiam</td>
+												<td>532-8725-9727</td>
+												<td>17800.50</td>
+												<td>m²</td>
+											</tr>
+											<tr>
+												<td>Suspendisse</td>
+												<td>3364-2214-8781</td>
+												<td>312.22</td>
+												<td>$</td>
+											</tr>
+											<tr>
+												<td>Morbi accumsan</td>
+												<td>5547-2212-8884</td>
+												<td>7822.33</td>
+												<td>€</td>
+											</tr>
+											<tr>
+												<td>Condimentum </td>
+												<td>6687-2111-5557</td>
+												<td>25.00</td>
+												<td>444</td>
+											</tr>
+											<tr>
+												<td>Nam nec tellus</td>
+												<td>7898-4460-4557</td>
+												<td>13.25</td>
+												<td>13.25</td>
+											</tr>
+											<tr>
+												<td>Etiam</td>
+												<td>1400-0077-7741</td>
+												<td>140000</td>
+												<td>140000</td>
+											</tr>
+											<tr>
+												<td>Suspendisse</td>
+												<td>1829-9774-6660</td>
+												<td>18.26</td>
+												<td>18.26</td>
+											</tr>
+											<tr>
+												<td>Condimentum </td>
+												<td>6687-2111-5557</td>
+												<td>3.141592653589793238462</td>
+												<td>+V</td>
+											</tr>
+										</tbody>
+									</table>
+									<table class="table table_horizontal">
+										<caption>Table with(scope="col") caption, colgroup, thead, tfoot, and tbody</caption>
+										<colgroup>
+											<col>
+											<col>
+											<col>
+											<col>
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col">Etiam</th>
+												<th scope="col">Pharetra</th>
+												<th scope="col">Erat sed</th>
+												<th scope="col">Feugiat</th>
+											</tr>
+										</thead>
+										<tfoot>
+											<tr>
+												<th scope="col">Etiam</th>
+												<th scope="col">Pharetra</th>
+												<th scope="col">Erat sed</th>
+												<th scope="col">Feugiat</th>
+											</tr>
+										</tfoot>
+										<tbody>
+											<tr>
+												<td>Nam nec tellus</td>
+												<td>8873-1978-8717</td>
+												<td>145.58</td>
+												<td>m³</td>
+											</tr>
+											<tr>
+												<td>Etiam</td>
+												<td>532-8725-9727</td>
+												<td>17800.50</td>
+												<td>m²</td>
+											</tr>
+											<tr>
+												<td>Suspendisse</td>
+												<td>3364-2214-8781</td>
+												<td>312.22</td>
+												<td>$</td>
+											</tr>
+											<tr>
+												<td>Morbi accumsan</td>
+												<td>5547-2212-8884</td>
+												<td>7822.33</td>
+												<td>€</td>
+											</tr>
+											<tr>
+												<td>Condimentum </td>
+												<td>6687-2111-5557</td>
+												<td>25.00</td>
+												<td>444</td>
+											</tr>
+											<tr>
+												<td>Nam nec tellus</td>
+												<td>7898-4460-4557</td>
+												<td>13.25</td>
+												<td>13.25</td>
+											</tr>
+											<tr>
+												<td>Etiam</td>
+												<td>1400-0077-7741</td>
+												<td>140000</td>
+												<td>140000</td>
+											</tr>
+											<tr>
+												<td>Suspendisse</td>
+												<td>1829-9774-6660</td>
+												<td>18.26</td>
+												<td>18.26</td>
+											</tr>
+											<tr>
+												<td>Condimentum </td>
+												<td>6687-2111-5557</td>
+												<td>3.141592653589793238462</td>
+												<td>+V</td>
+											</tr>
+										</tbody>
+									</table>
+									<table class="table table_striped table_horizontal">
+										<caption>Table with(scope="col") caption, colgroup, thead, tfoot, and tbody</caption>
+										<colgroup>
+											<col>
+											<col>
+											<col>
+											<col>
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col">Etiam</th>
+												<th scope="col">Pharetra</th>
+												<th scope="col">Erat sed</th>
+												<th scope="col">Feugiat</th>
+											</tr>
+										</thead>
+										<tfoot>
+											<tr>
+												<th scope="col">Etiam</th>
+												<th scope="col">Pharetra</th>
+												<th scope="col">Erat sed</th>
+												<th scope="col">Feugiat</th>
+											</tr>
+										</tfoot>
+										<tbody>
+											<tr>
+												<td>Nam nec tellus</td>
+												<td>8873-1978-8717</td>
+												<td>145.58</td>
+												<td>m³</td>
+											</tr>
+											<tr>
+												<td>Etiam</td>
+												<td>532-8725-9727</td>
+												<td>17800.50</td>
+												<td>m²</td>
+											</tr>
+											<tr>
+												<td>Suspendisse</td>
+												<td>3364-2214-8781</td>
+												<td>312.22</td>
+												<td>$</td>
+											</tr>
+											<tr>
+												<td>Morbi accumsan</td>
+												<td>5547-2212-8884</td>
+												<td>7822.33</td>
+												<td>€</td>
+											</tr>
+											<tr>
+												<td>Condimentum </td>
+												<td>6687-2111-5557</td>
+												<td>25.00</td>
+												<td>444</td>
+											</tr>
+											<tr>
+												<td>Nam nec tellus</td>
+												<td>7898-4460-4557</td>
+												<td>13.25</td>
+												<td>13.25</td>
+											</tr>
+											<tr>
+												<td>Etiam</td>
+												<td>1400-0077-7741</td>
+												<td>140000</td>
+												<td>140000</td>
+											</tr>
+											<tr>
+												<td>Suspendisse</td>
+												<td>1829-9774-6660</td>
+												<td>18.26</td>
+												<td>18.26</td>
+											</tr>
+											<tr>
+												<td>Condimentum </td>
+												<td>6687-2111-5557</td>
+												<td>3.141592653589793238462</td>
+												<td>+V</td>
+											</tr>
+										</tbody>
+									</table>
+									<table class="table table_striped table_bordered">
+										<caption>Table with(scope="col") caption, colgroup, thead, tfoot, and tbody</caption>
+										<colgroup>
+											<col>
+											<col>
+											<col>
+											<col>
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col">Etiam</th>
+												<th scope="col">Pharetra</th>
+												<th scope="col">Erat sed</th>
+												<th scope="col">Feugiat</th>
+											</tr>
+										</thead>
+										<tfoot>
+											<tr>
+												<th scope="col">Etiam</th>
+												<th scope="col">Pharetra</th>
+												<th scope="col">Erat sed</th>
+												<th scope="col">Feugiat</th>
+											</tr>
+										</tfoot>
+										<tbody>
+											<tr>
+												<td>Nam nec tellus</td>
+												<td>8873-1978-8717</td>
+												<td>145.58</td>
+												<td>m³</td>
+											</tr>
+											<tr>
+												<td>Etiam</td>
+												<td>532-8725-9727</td>
+												<td>17800.50</td>
+												<td>m²</td>
+											</tr>
+											<tr>
+												<td>Suspendisse</td>
+												<td>3364-2214-8781</td>
+												<td>312.22</td>
+												<td>$</td>
+											</tr>
+											<tr>
+												<td>Morbi accumsan</td>
+												<td>5547-2212-8884</td>
+												<td>7822.33</td>
+												<td>€</td>
+											</tr>
+											<tr>
+												<td>Condimentum </td>
+												<td>6687-2111-5557</td>
+												<td>25.00</td>
+												<td>444</td>
+											</tr>
+											<tr>
+												<td>Nam nec tellus</td>
+												<td>7898-4460-4557</td>
+												<td>13.25</td>
+												<td>13.25</td>
+											</tr>
+											<tr>
+												<td>Etiam</td>
+												<td>1400-0077-7741</td>
+												<td>140000</td>
+												<td>140000</td>
+											</tr>
+											<tr>
+												<td>Suspendisse</td>
+												<td>1829-9774-6660</td>
+												<td>18.26</td>
+												<td>18.26</td>
+											</tr>
+											<tr>
+												<td>Condimentum </td>
+												<td>6687-2111-5557</td>
+												<td>3.141592653589793238462</td>
+												<td>+V</td>
+											</tr>
+										</tbody>
+									</table>
+									<h3 id="quotes">Quotes</h3>
+									<blockquote>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+										<footer>
+											<cite>Someone famous</cite>
+										</footer>
+									</blockquote>
+									<h3 id="description-lists">Description lists</h3>
+									<dl>
+										<dt>Description lists</dt>
+										<dd>A description list defines terms and their corresponding descriptions.</dd>
+										<dt>This is a term</dt>
+										<dd>This is a description.</dd>
+										<dt>This is a term</dt>
+										<dd>This is a description.</dd>
+									</dl>
+									<h3 id="code">Code</h3>
+									<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+	&lt;meta charset="UTF-8" /&gt;
+	&lt;title&gt;Sample document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque architecto eius nemo voluptatem assumenda, impedit adipisci beatae modi hic nostrum natus fugiat illo rem quia, consequuntur blanditiis tempora nihil. Voluptatibus.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+									<h3 id="text-elements">Text level elements</h3>
+									<p>Text level
+										<abbr title="HyperText Markup Language">HTML</abbr> elements may be used within other elements. They include:</p>
+									<ul>
+										<li>
+											<a href="#">&lt;a href="#"&gt;link or anchor&lt;/a&gt;</a>
+										</li>
+										<li>
+											<abbr title="Title attribute may be used to provide an expansion of the abbreviation">&lt;abbr&gt;</abbr> represents an abbreviation or acronym</li>
+										<li>
+											<em>&lt;em&gt;</em> for emphasized text</li>
+										<li>
+											<strong>&lt;strong&gt;</strong> for strongly emphasized</li>
+										<li>
+											<dfn>&lt;dfn&gt;</dfn> for definition of a term
+										</li>
+										<li><code>&lt;code&gt;</code> for code fragment</li>
+										<li>
+											<samp>&lt;samp&gt;</samp> for sample text</li>
+										<li>
+											<kbd>&lt;kbd&gt;</kbd> for keyboard input</li>
+										<li>
+											<var>&lt;var&gt;</var> for variable
+										</li>
+										<li>
+											<cite>&lt;cite&gt;</cite> for short citation
+										</li>
+										<li>
+											<i>&lt;i&gt;</i> for italics</li>
+										<li>
+											<b>&lt;b&gt;</b> for bold</li>
+										<li>
+											<u>&lt;u&gt;</u> for underlined text
+										</li>
+										<li>
+											<s>&lt;s&gt;</s>for text that is no longer correct
+										</li>
+										<li>
+											<big>&lt;big&gt;</big> for larger text
+										</li>
+										<li>
+											<small>&lt;small&gt;</small> for smaller text</li>
+										<li>
+											<sup>&lt;sup&gt;</sup> for superscript</li>
+										<li>
+											<sub>&lt;sub&gt;</sub> for subscript</li>
+										<li>
+											<del>&lt;del&gt;</del> for visibly deleted
+										</li>
+										<li>
+											<ins>&lt;ins&gt;</ins> for inserted content</li>
+										<li>
+											<dfn>&lt;dfn&gt;</dfn> for definitions
+										</li>
+										<li>
+											<mark>&lt;mark&gt;</mark> for highlighted passages
+										</li>
+										<li>
+											<hr>&lt;hr&gt; for horizontal line
+										</li>
+									</ul>
+								</section>
+								<!-- END TYPOGRAPHY-->
+								<!-- FORMS-->
+								<section>
+									<h2 id="forms">Forms</h2>
+									<h3 id="messaging">Messaging</h3>
+									<div class="alert alert_type_error">
+										<div class="alert__title">Error message title</div>
+										<div class="alert__body">Error message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum.</div>
+										<button class="alert__close" type="button">
+											<svg class="icon icon_close">
+												<use xlink:href="assets/images/icons.svg#close"></use>
+											</svg>
+										</button>
+									</div>
+									<div class="alert alert_type_success">
+										<div class="alert__title">Success message title</div>
+										<div class="alert__body">Success message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum.</div>
+										<button class="alert__close" type="button">
+											<svg class="icon icon_close">
+												<use xlink:href="assets/images/icons.svg#close"></use>
+											</svg>
+										</button>
+									</div>
+									<div class="alert alert_type_info">
+										<div class="alert__title">Info message title</div>
+										<div class="alert__body">Info message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum.</div>
+										<button class="alert__close" type="button">
+											<svg class="icon icon_close">
+												<use xlink:href="assets/images/icons.svg#close"></use>
+											</svg>
+										</button>
+									</div>
+									<div class="alert alert_type_message">
+										<div class="alert__title">Message message title</div>
+										<div class="alert__body">Message message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum.</div>
+										<button class="alert__close" type="button">
+											<svg class="icon icon_close">
+												<use xlink:href="assets/images/icons.svg#close"></use>
+											</svg>
+										</button>
+									</div>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et ab totam, voluptas animi eius ducimus molestiae! Veritatis, atque? Porro praesentium, possimus! Iste architecto cupiditate placeat ab fugiat et adipisci reprehenderit.</p>
+									<form class="form" method="post" action="#">
+										<section class="form__section">
+											<h3 id="text-inputs">Text Inputs</h3>
+											<div class="form-item form__item">
+												<div class="form-item__label">
+													<label class="label" for="form-demo__name">Name</label>
+												</div>
+												<div class="form-item__control">
+													<span class="input input_type_text input_style_default">
+														<input class="form-control form-control_type_input input__control" id="form-demo__name" name="form-demo__name" type="text" value="Nikolas">
+													</span>
+												</div>
+											</div>
+											<div class="form-item form__item">
+												<div class="form-item__label">
+													<label class="label" for="form-demo__ip">IP address</label>
+												</div>
+												<div class="form-item__control">
+													<span class="input input_type_text input_style_default">
+														<input class="form-control form-control_type_input input__control" id="form-demo__ip" name="form-demo__ip" type="text" disabled="disabled">
+													</span>
+												</div>
+											</div>
+											<div class="form-item form__item">
+												<div class="form-item__label">
+													<label class="label" for="form-demo__country">Country</label>
+												</div>
+												<div class="form-item__control">
+													<span class="input input_type_text input_style_default">
+														<input class="form-control form-control_type_input input__control" id="form-demo__country" name="form-demo__country" type="text">
+													</span>
+												</div>
+											</div>
+											<div class="form-item form__item">
+												<div class="form-item__label">
+													<label class="label" for="form-demo__city">City</label>
+												</div>
+												<div class="form-item__control">
+													<span class="input input_type_text input_style_default">
+														<input class="form-control form-control_type_input input__control" id="form-demo__city" name="form-demo__city" type="text">
+													</span>
+												</div>
+											</div>
+											<div class="form-item form__item">
+												<div class="form-item__label">
+													<label class="label" for="form-demo__email">Email</label>
+												</div>
+												<div class="form-item__control">
+													<span class="input input_type_email input_style_default">
+														<input class="form-control form-control_type_input input__control" id="form-demo__email" name="form-demo__email" type="email" placeholder="info@example.com">
+													</span>
+												</div>
+											</div>
+											<div class="form-item form__item">
+												<div class="form-item__label">
+													<label class="label" for="form-demo__url">Your site URL</label>
+												</div>
+												<div class="form-item__control">
+													<span class="input input_type_url input_style_default">
+														<input class="form-control form-control_type_input input__control" id="form-demo__url" name="form-demo__url" type="url" placeholder="http://www.example.com">
+													</span>
+												</div>
+											</div>
+											<div class="form-item form__item">
+												<div class="form-item__label">
+													<label class="label" for="form-demo__tel">Your phone</label>
+												</div>
+												<div class="form-item__control">
+													<span class="input input_type_tel input_style_default">
+														<input class="form-control form-control_type_input input__control" id="form-demo__tel" name="form-demo__tel" type="tel" placeholder="+123 123-345-6789">
+													</span>
+												</div>
+											</div>
+											<div class="form-item form__item">
+												<div class="form-item__label">
+													<label class="label" for="form-demo__password">Password</label>
+												</div>
+												<div class="form-item__control">
+													<span class="input input_type_password input_style_default">
+														<input class="form-control form-control_type_input input__control" id="form-demo__password" name="form-demo__password" type="password" placeholder="Enter password">
+													</span>
+												</div>
+											</div>
+											<div class="form-item form__item">
+												<div class="form-item__label">
+													<label class="label" for="form-demo__age">Your age</label>
+												</div>
+												<div class="form-item__control">
+													<span class="input input_type_number input_style_default">
+														<input class="form-control form-control_type_input input__control" id="form-demo__number" name="form-demo__number" type="number" placeholder="18">
+													</span>
+												</div>
+											</div>
+										</section>
+										<section class="form__section">
+											<h3 id="radios-and-checkboxes">Radios and Checkboxes</h3>
+											<div class="form-item form__item">
+												<div class="form-item__control">
+													<fieldset class="radio-group">
+														<legend class="radio-group__legend">Radios</legend>
+														<div class="radio-group__item">
+															<label class="radio radio_style_default" for="form-demo__radio-1">
+																<input class="form-control form-control_type_radio radio__control" id="form-demo__radio-1" name="form-demo__radio-group-1" type="radio">
+																<span class="radio__box"></span>
+																<span class="radio__label">Normal</span>
+															</label>
+														</div>
+														<div class="radio-group__item">
+															<label class="radio radio_style_default" for="form-demo__radio-2">
+																<input class="form-control form-control_type_radio radio__control" id="form-demo__radio-2" name="form-demo__radio-group-1" type="radio" checked="checked">
+																<span class="radio__box"></span>
+																<span class="radio__label">Checked</span>
+															</label>
+														</div>
+														<div class="radio-group__item">
+															<label class="radio radio_style_default" for="form-demo__radio-3">
+																<input class="form-control form-control_type_radio radio__control" id="form-demo__radio-3" name="form-demo__radio-group-2" type="radio" disabled="disabled">
+																<span class="radio__box"></span>
+																<span class="radio__label">Normal Disabled</span>
+															</label>
+														</div>
+														<div class="radio-group__item">
+															<label class="radio radio_style_default" for="form-demo__radio-4">
+																<input class="form-control form-control_type_radio radio__control" id="form-demo__radio-4" name="form-demo__radio-group-2" type="radio" checked="checked" disabled="disabled">
+																<span class="radio__box"></span>
+																<span class="radio__label">Checked and Disabled</span>
+															</label>
+														</div>
+													</fieldset>
+												</div>
+											</div>
+											<div class="form-item form__item">
+												<div class="form-item__control">
+													<fieldset class="radio-group radio-group_inline">
+														<legend class="radio-group__legend">Radios Inline</legend>
+														<div class="radio-group__item">
+															<label class="radio radio_style_default" for="form-demo__radio-5">
+																<input class="form-control form-control_type_radio radio__control" id="form-demo__radio-5" name="form-demo__radio-group-1i" type="radio">
+																<span class="radio__box"></span>
+																<span class="radio__label">Normal</span>
+															</label>
+														</div>
+														<div class="radio-group__item">
+															<label class="radio radio_style_default" for="form-demo__radio-6">
+																<input class="form-control form-control_type_radio radio__control" id="form-demo__radio-6" name="form-demo__radio-group-1i" type="radio" checked="checked">
+																<span class="radio__box"></span>
+																<span class="radio__label">Checked</span>
+															</label>
+														</div>
+														<div class="radio-group__item">
+															<label class="radio radio_style_default" for="form-demo__radio-7">
+																<input class="form-control form-control_type_radio radio__control" id="form-demo__radio-7" name="form-demo__radio-group-2i" type="radio" disabled="disabled">
+																<span class="radio__box"></span>
+																<span class="radio__label">Normal Disabled</span>
+															</label>
+														</div>
+														<div class="radio-group__item">
+															<label class="radio radio_style_default" for="form-demo__radio-8">
+																<input class="form-control form-control_type_radio radio__control" id="form-demo__radio-8" name="form-demo__radio-group-2i" type="radio" checked="checked" disabled="disabled">
+																<span class="radio__box"></span>
+																<span class="radio__label">Checked and Disabled</span>
+															</label>
+														</div>
+													</fieldset>
+												</div>
+											</div>
+											<div class="form-item form__item">
+												<div class="form-item__control">
+													<fieldset class="checkbox-group">
+														<legend class="checkbox-group__legend">Checkboxes</legend>
+														<div class="checkbox-group__item">
+															<label class="checkbox checkbox_style_default" for="form-demo__checkbox-1">
+																<input class="form-control form-control_type_checkbox checkbox__control" id="form-demo__checkbox-1" name="form-demo__checkbox-group-1" type="checkbox">
+																<span class="checkbox__box"></span>
+																<span class="checkbox__label">Normal</span>
+															</label>
+														</div>
+														<div class="checkbox-group__item">
+															<label class="checkbox checkbox_style_default" for="form-demo__checkbox-2">
+																<input class="form-control form-control_type_checkbox checkbox__control" id="form-demo__checkbox-2" name="form-demo__checkbox-group-1" type="checkbox" checked="checked">
+																<span class="checkbox__box"></span>
+																<span class="checkbox__label">Checked</span>
+															</label>
+														</div>
+														<div class="checkbox-group__item">
+															<label class="checkbox checkbox_style_default" for="form-demo__checkbox-3">
+																<input class="form-control form-control_type_checkbox checkbox__control" id="form-demo__checkbox-3" name="form-demo__checkbox-group-2" type="checkbox" disabled="disabled">
+																<span class="checkbox__box"></span>
+																<span class="checkbox__label">Normal Disabled</span>
+															</label>
+														</div>
+														<div class="checkbox-group__item">
+															<label class="checkbox checkbox_style_default" for="form-demo__checkbox-4">
+																<input class="form-control form-control_type_checkbox checkbox__control" id="form-demo__checkbox-4" name="form-demo__checkbox-group-2" type="checkbox" checked="checked" disabled="disabled">
+																<span class="checkbox__box"></span>
+																<span class="checkbox__label">Checked and Disabled</span>
+															</label>
+														</div>
+													</fieldset>
+												</div>
+											</div>
+											<div class="form-item form__item">
+												<div class="form-item__control">
+													<fieldset class="checkbox-group checkbox-group_inline">
+														<legend class="checkbox-group__legend">Checkboxes Inline</legend>
+														<div class="checkbox-group__item">
+															<label class="checkbox checkbox_style_default" for="form-demo__checkbox-5">
+																<input class="form-control form-control_type_checkbox checkbox__control" id="form-demo__checkbox-5" name="form-demo__checkbox-group-1i" type="checkbox">
+																<span class="checkbox__box"></span>
+																<span class="checkbox__label">Normal</span>
+															</label>
+														</div>
+														<div class="checkbox-group__item">
+															<label class="checkbox checkbox_style_default" for="form-demo__checkbox-6">
+																<input class="form-control form-control_type_checkbox checkbox__control" id="form-demo__checkbox-6" name="form-demo__checkbox-group-1i" type="checkbox" checked="checked">
+																<span class="checkbox__box"></span>
+																<span class="checkbox__label">Checked</span>
+															</label>
+														</div>
+														<div class="checkbox-group__item">
+															<label class="checkbox checkbox_style_default" for="form-demo__checkbox-7">
+																<input class="form-control form-control_type_checkbox checkbox__control" id="form-demo__checkbox-7" name="form-demo__checkbox-group-2i" type="checkbox" disabled="disabled">
+																<span class="checkbox__box"></span>
+																<span class="checkbox__label">Normal Disabled</span>
+															</label>
+														</div>
+														<div class="checkbox-group__item">
+															<label class="checkbox checkbox_style_default" for="form-demo__checkbox-8">
+																<input class="form-control form-control_type_checkbox checkbox__control" id="form-demo__checkbox-8" name="form-demo__checkbox-group-2i" type="checkbox" checked="checked" disabled="disabled">
+																<span class="checkbox__box"></span>
+																<span class="checkbox__label">Checked and Disabled</span>
+															</label>
+														</div>
+													</fieldset>
+												</div>
+											</div>
+											<div class="form-item form__item">
+												<div class="form-item__control">
+													<fieldset class="checkbox-group">
+														<legend class="checkbox-group__legend">Toggle Switch</legend>
+														<div class="checkbox-group__item">
+															<label class="checkbox checkbox_style_default checkbox_type_toggle-sw" for="form-demo__checkbox-9">
+																<input class="form-control form-control_type_checkbox checkbox__control" id="form-demo__checkbox-9" name="form-demo__checkbox-group-3" type="checkbox">
+																<span class="checkbox__box"></span>
+																<span class="checkbox__label">Normal</span>
+															</label>
+														</div>
+														<div class="checkbox-group__item">
+															<label class="checkbox checkbox_style_default checkbox_type_toggle-sw" for="form-demo__checkbox-10">
+																<input class="form-control form-control_type_checkbox checkbox__control" id="form-demo__checkbox-10" name="form-demo__checkbox-group-3" type="checkbox" checked="checked">
+																<span class="checkbox__box"></span>
+																<span class="checkbox__label">Checked</span>
+															</label>
+														</div>
+														<div class="checkbox-group__item">
+															<label class="checkbox checkbox_style_default checkbox_type_toggle-sw" for="form-demo__checkbox-11">
+																<input class="form-control form-control_type_checkbox checkbox__control" id="form-demo__checkbox-11" name="form-demo__checkbox-group-4" type="checkbox" disabled="disabled">
+																<span class="checkbox__box"></span>
+																<span class="checkbox__label">Normal Disabled</span>
+															</label>
+														</div>
+														<div class="checkbox-group__item">
+															<label class="checkbox checkbox_style_default checkbox_type_toggle-sw" for="form-demo__checkbox-12">
+																<input class="form-control form-control_type_checkbox checkbox__control" id="form-demo__checkbox-12" name="form-demo__checkbox-group-4" type="checkbox" checked="checked" disabled="disabled">
+																<span class="checkbox__box"></span>
+																<span class="checkbox__label">Checked and Disabled</span>
+															</label>
+														</div>
+													</fieldset>
+												</div>
+											</div>
+											<div class="form-item form__item">
+												<div class="form-item__label">
+													<label class="label" for="form-demo__checkbox-13">Without label</label>
+												</div>
+												<div class="form-item__control">
+													<label class="checkbox checkbox_style_default checkbox_type_toggle-sw" for="form-demo__checkbox-13">
+														<input class="form-control form-control_type_checkbox checkbox__control" id="form-demo__checkbox-13" name="form-demo__checkbox-group-5" type="checkbox">
+														<span class="checkbox__box"></span>
+													</label>
+												</div>
+											</div>
+										</section>
+										<section class="form__section">
+											<h3 id="input-range">Input range</h3>
+											<div class="form-item form__item">
+												<div class="form-item__label">
+													<label class="label" for="form-demo__range">Range</label>
+												</div>
+												<div class="form-item__control">
+													<span class="range range_style_default">
+														<input class="form-control form-control_type_range range__control" id="form-demo__range" name="form-demo__range" type="range" value="50">
+													</span>
+												</div>
+											</div>
+											<div class="form-item form__item">
+												<div class="form-item__label">
+													<label class="label" for="form-demo__range2">Range disabled</label>
+												</div>
+												<div class="form-item__control">
+													<span class="range range_style_default">
+														<input class="form-control form-control_type_range range__control" id="form-demo__range2" name="form-demo__range2" type="range" value="35" disabled="disabled">
+													</span>
+												</div>
+											</div>
+										</section>
+										<section class="form__section">
+											<h3 id="selects">Selects</h3>
+											<div class="form-item form__item">
+												<div class="form-item__label">
+													<label class="label" for="form-demo__language">Language</label>
+												</div>
+												<div class="form-item__control">
+													<span class="select select_style_default">
+														<select class="form-control form-control_type_select select__control" id="form-demo__language" name="form-demo__language">
+															<option class="select__placeholder">Select language...</option>
+															<option value="ar_DZ">جزائري عربي</option>
+															<option value="ca_ES">Català</option>
+															<option value="cs_CZ">Čeština</option>
+															<option value="da_DK">Dansk</option>
+															<option value="de_DE">Deutsch</option>
+															<option value="el_GR">Ελληνικά</option>
+															<option value="en_GB">English (GB)</option>
+															<option value="en_US">English (US)</option>
+															<option value="es_ES">Español</option>
+															<option value="et_EE">Eesti</option>
+															<option value="fi_FI">Suomi</option>
+															<option value="fr_FR">Français</option>
+															<option value="gl_GZ">Galego (Galiza)</option>
+															<option value="he_IL">עברית</option>
+															<option value="hu_HU">Magyar</option>
+															<option value="id_ID">Bahasa Indonesia</option>
+															<option value="is_IS">Íslenska</option>
+															<option value="it_IT">Italiano</option>
+															<option value="ja_JP">日本語</option>
+															<option value="lv_LV">Latviešu</option>
+															<option value="nl_NL">Nederlands</option>
+															<option value="no_NO">Norsk</option>
+															<option value="pl_PL">Polski</option>
+															<option value="pt_PT">Português</option>
+															<option value="ro_RO">Română</option>
+															<option value="ru_RU">Русский</option>
+															<option value="sk_SK">Slovenčina</option>
+															<option value="sv_SE">Svenska</option>
+															<option value="th_TH">ไทย</option>
+															<option value="uk_UA">Українська</option>
+															<option value="vi_VN">Tiếng Việt</option>
+															<option value="zh_CN">中文(简体)</option>
+															<option value="zh_TW">中文(繁體)</option>
+															<option value="bg_BG">Български</option>
+														</select>
+													</span>
+												</div>
+											</div>
+											<div class="form-item form__item">
+												<div class="form-item__label">
+													<label class="label" for="form-demo__language">Language</label>
+												</div>
+												<div class="form-item__control">
+													<span class="select select_style_default">
+														<select class="form-control form-control_type_select select__control" id="form-demo__language2" name="form-demo__language2" disabled="disabled">
+															<option class="select__placeholder">Select language...</option>
+															<option value="ar_DZ">جزائري عربي</option>
+															<option value="ca_ES">Català</option>
+															<option value="cs_CZ">Čeština</option>
+															<option value="da_DK">Dansk</option>
+															<option value="de_DE">Deutsch</option>
+															<option value="el_GR">Ελληνικά</option>
+															<option value="en_GB">English (GB)</option>
+															<option value="en_US">English (US)</option>
+															<option value="es_ES">Español</option>
+															<option value="et_EE">Eesti</option>
+															<option value="fi_FI">Suomi</option>
+															<option value="fr_FR">Français</option>
+															<option value="gl_GZ">Galego (Galiza)</option>
+															<option value="he_IL">עברית</option>
+															<option value="hu_HU">Magyar</option>
+															<option value="id_ID">Bahasa Indonesia</option>
+															<option value="is_IS">Íslenska</option>
+															<option value="it_IT">Italiano</option>
+															<option value="ja_JP">日本語</option>
+															<option value="lv_LV">Latviešu</option>
+															<option value="nl_NL">Nederlands</option>
+															<option value="no_NO">Norsk</option>
+															<option value="pl_PL">Polski</option>
+															<option value="pt_PT">Português</option>
+															<option value="ro_RO">Română</option>
+															<option value="ru_RU">Русский</option>
+															<option value="sk_SK">Slovenčina</option>
+															<option value="sv_SE">Svenska</option>
+															<option value="th_TH">ไทย</option>
+															<option value="uk_UA">Українська</option>
+															<option value="vi_VN">Tiếng Việt</option>
+															<option value="zh_CN">中文(简体)</option>
+															<option value="zh_TW">中文(繁體)</option>
+															<option value="bg_BG">Български</option>
+														</select>
+													</span>
+												</div>
+											</div>
+											<div class="form-item form__item">
+												<div class="form-item__label">
+													<label class="label" for="form-demo__s-language">Secondary languages</label>
+												</div>
+												<div class="form-item__control">
+													<span class="select select_multiple select_style_default">
+														<select class="form-control form-control_type_select select__control" id="form-demo__language3" name="form-demo__language3" size="10" multiple="multiple">
+															<option class="select__placeholder">Select language...</option>
+															<option value="ar_DZ">جزائري عربي</option>
+															<option value="ca_ES">Català</option>
+															<option value="cs_CZ">Čeština</option>
+															<option value="da_DK">Dansk</option>
+															<option value="de_DE">Deutsch</option>
+															<option value="el_GR">Ελληνικά</option>
+															<option value="en_GB">English (GB)</option>
+															<option value="en_US">English (US)</option>
+															<option value="es_ES">Español</option>
+															<option value="et_EE">Eesti</option>
+															<option value="fi_FI">Suomi</option>
+															<option value="fr_FR">Français</option>
+															<option value="gl_GZ">Galego (Galiza)</option>
+															<option value="he_IL">עברית</option>
+															<option value="hu_HU">Magyar</option>
+															<option value="id_ID">Bahasa Indonesia</option>
+															<option value="is_IS">Íslenska</option>
+															<option value="it_IT">Italiano</option>
+															<option value="ja_JP">日本語</option>
+															<option value="lv_LV">Latviešu</option>
+															<option value="nl_NL">Nederlands</option>
+															<option value="no_NO">Norsk</option>
+															<option value="pl_PL">Polski</option>
+															<option value="pt_PT">Português</option>
+															<option value="ro_RO">Română</option>
+															<option value="ru_RU">Русский</option>
+															<option value="sk_SK">Slovenčina</option>
+															<option value="sv_SE">Svenska</option>
+															<option value="th_TH">ไทย</option>
+															<option value="uk_UA">Українська</option>
+															<option value="vi_VN">Tiếng Việt</option>
+															<option value="zh_CN">中文(简体)</option>
+															<option value="zh_TW">中文(繁體)</option>
+															<option value="bg_BG">Български</option>
+														</select>
+													</span>
+												</div>
+											</div>
+										</section>
+										<section class="form__section">
+											<h3 id="textareas-and-files">Textareas and Files</h3>
+											<div class="form-item form__item">
+												<div class="form-item__label">
+													<label class="label" for="form-demo__message">Message</label>
+												</div>
+												<div class="form-item__control">
+													<span class="textarea textarea_style_default">
+														<textarea class="form-control form-control_type_textarea textarea__control" id="form-demo__message" name="form-demo__message" cols="30" rows="10" placeholder="Enter message"></textarea></span>
+												</div>
+											</div>
+											<div class="form-item form__item">
+												<div class="form-item__label">
+													<label class="label" for="form-demo__photo2">Photo</label>
+												</div>
+												<div class="form-item__control">
+													<label class="file file_type_text file_style_default" for="form-demo__photo2">
+														<input class="form-control form-control_type_file file__control" id="form-demo__photo2" name="form-demo__photo2" data-multiple-caption="Files selected: {count}" type="file" multiple="multiple">
+														<span class="file__button" data-button-text="Select the file(s)">Nothing is selected</span>
+													</label>
+												</div>
+											</div>
+											<div class="form-item form__item">
+												<div class="form-item__label">
+													<label class="label" for="form-demo__photo">Another language</label>
+												</div>
+												<div class="form-item__control">
+													<label class="file file_type_text file_style_default" for="form-demo__photo">
+														<input class="form-control form-control_type_file file__control" id="form-demo__photo" name="form-demo__photo" data-multiple-caption="Файлов выбрано: {count}" type="file" multiple="multiple">
+														<span class="file__button" data-button-text="Выбрать файл(ы)">Ничего не выбрано</span>
+													</label>
+												</div>
+											</div>
+										</section>
+										<section class="form__section">
+											<h3 id="captcha">Captcha</h3>
+											<div class="form-item form-item_captcha form__item">
+												<div class="form-item__label">
+													<label class="label" for="form-demo__captcha">Captcha</label>
+												</div>
+												<div class="form-item__control">
+													<a class="form-item__image" href="#">
+														<img src="assets/images/captcha.png" alt="Enter text from image">
+													</a>
+													<div class="form-item__input">
+														<span class="input input_type_text input_style_default">
+															<input class="form-control form-control_type_input input__control" id="form-demo__captcha" name="form-demo__captcha" type="text" placeholder="Enter text from image">
+														</span>
+													</div>
+												</div>
+											</div>
+										</section>
+									</form>
+								</section>
+								<!-- END FORMS-->
+								<!-- BUTTONS-->
+								<section>
+									<h2 id="buttons">Buttons</h2>
+									<h3 id="buttons-styles">Styles</h3>
+									<h5>Solid</h5>
+									<h6>Rounded</h6>
+									<button class="button button_size_normal button_style_solid button_color_grey button_style_rounded" type="button">Grey</button>
+									<button class="button button_size_normal button_style_solid button_color_black button_style_rounded" type="button">Black</button>
+									<button class="button button_size_normal button_style_solid button_color_blue button_style_rounded" type="button">Blue</button>
+									<button class="button button_size_normal button_style_solid button_color_dark-blue button_style_rounded" type="button">Dark blue</button>
+									<button class="button button_size_normal button_style_solid button_color_green button_style_rounded" type="button">Green</button>
+									<button class="button button_size_normal button_style_solid button_color_yellow button_style_rounded" type="button">Yellow</button>
+									<button class="button button_size_normal button_style_solid button_color_orange button_style_rounded" type="button">Orange</button>
+									<button class="button button_size_normal button_style_solid button_color_red button_style_rounded" type="button">Red</button>
+									<button class="button button_size_normal button_style_solid button_color_aqua button_style_rounded" type="button">Aqua</button>
+									<button class="button button_size_normal button_style_solid button_color_purple button_style_rounded" type="button">Purple</button>
+									<h6>Flat</h6>
+									<button class="button button_size_normal button_style_solid button_color_grey" type="button">Grey</button>
+									<button class="button button_size_normal button_style_solid button_color_black" type="button">Black</button>
+									<button class="button button_size_normal button_style_solid button_color_blue" type="button">Blue</button>
+									<button class="button button_size_normal button_style_solid button_color_dark-blue" type="button">Dark blue</button>
+									<button class="button button_size_normal button_style_solid button_color_green" type="button">Green</button>
+									<button class="button button_size_normal button_style_solid button_color_yellow" type="button">Yellow</button>
+									<button class="button button_size_normal button_style_solid button_color_orange" type="button">Orange</button>
+									<button class="button button_size_normal button_style_solid button_color_red" type="button">Red</button>
+									<button class="button button_size_normal button_style_solid button_color_aqua" type="button">Aqua</button>
+									<button class="button button_size_normal button_style_solid button_color_purple" type="button">Purple</button>
+									<h6>Pill</h6>
+									<button class="button button_size_normal button_style_solid button_color_grey button_style_pill" type="button">Grey</button>
+									<button class="button button_size_normal button_style_solid button_color_black button_style_pill" type="button">Black</button>
+									<button class="button button_size_normal button_style_solid button_color_blue button_style_pill" type="button">Blue</button>
+									<button class="button button_size_normal button_style_solid button_color_dark-blue button_style_pill" type="button">Dark blue</button>
+									<button class="button button_size_normal button_style_solid button_color_green button_style_pill" type="button">Green</button>
+									<button class="button button_size_normal button_style_solid button_color_yellow button_style_pill" type="button">Yellow</button>
+									<button class="button button_size_normal button_style_solid button_color_orange button_style_pill" type="button">Orange</button>
+									<button class="button button_size_normal button_style_solid button_color_red button_style_pill" type="button">Red</button>
+									<button class="button button_size_normal button_style_solid button_color_aqua button_style_pill" type="button">Aqua</button>
+									<button class="button button_size_normal button_style_solid button_color_purple button_style_pill" type="button">Purple</button>
+									<h5>Ghost</h5>
+									<h6>Rounded</h6>
+									<button class="button button_size_normal button_style_ghost button_color_grey button_style_rounded" type="button">Grey</button>
+									<button class="button button_size_normal button_style_ghost button_color_black button_style_rounded" type="button">Black</button>
+									<button class="button button_size_normal button_style_ghost button_color_blue button_style_rounded" type="button">Blue</button>
+									<button class="button button_size_normal button_style_ghost button_color_dark-blue button_style_rounded" type="button">Dark blue</button>
+									<button class="button button_size_normal button_style_ghost button_color_green button_style_rounded" type="button">Green</button>
+									<button class="button button_size_normal button_style_ghost button_color_yellow button_style_rounded" type="button">Yellow</button>
+									<button class="button button_size_normal button_style_ghost button_color_orange button_style_rounded" type="button">Orange</button>
+									<button class="button button_size_normal button_style_ghost button_color_red button_style_rounded" type="button">Red</button>
+									<button class="button button_size_normal button_style_ghost button_color_aqua button_style_rounded" type="button">Aqua</button>
+									<button class="button button_size_normal button_style_ghost button_color_purple button_style_rounded" type="button">Purple</button>
+									<h6>Flat</h6>
+									<button class="button button_size_normal button_style_ghost button_color_grey" type="button">Grey</button>
+									<button class="button button_size_normal button_style_ghost button_color_black" type="button">Black</button>
+									<button class="button button_size_normal button_style_ghost button_color_blue" type="button">Blue</button>
+									<button class="button button_size_normal button_style_ghost button_color_dark-blue" type="button">Dark blue</button>
+									<button class="button button_size_normal button_style_ghost button_color_green" type="button">Green</button>
+									<button class="button button_size_normal button_style_ghost button_color_yellow" type="button">Yellow</button>
+									<button class="button button_size_normal button_style_ghost button_color_orange" type="button">Orange</button>
+									<button class="button button_size_normal button_style_ghost button_color_red" type="button">Red</button>
+									<button class="button button_size_normal button_style_ghost button_color_aqua" type="button">Aqua</button>
+									<button class="button button_size_normal button_style_ghost button_color_purple" type="button">Purple</button>
+									<h6>Pill</h6>
+									<button class="button button_size_normal button_style_ghost button_color_grey button_style_pill" type="button">Grey</button>
+									<button class="button button_size_normal button_style_ghost button_color_black button_style_pill" type="button">Black</button>
+									<button class="button button_size_normal button_style_ghost button_color_blue button_style_pill" type="button">Blue</button>
+									<button class="button button_size_normal button_style_ghost button_color_dark-blue button_style_pill" type="button">Dark blue</button>
+									<button class="button button_size_normal button_style_ghost button_color_green button_style_pill" type="button">Green</button>
+									<button class="button button_size_normal button_style_ghost button_color_yellow button_style_pill" type="button">Yellow</button>
+									<button class="button button_size_normal button_style_ghost button_color_orange button_style_pill" type="button">Orange</button>
+									<button class="button button_size_normal button_style_ghost button_color_red button_style_pill" type="button">Red</button>
+									<button class="button button_size_normal button_style_ghost button_color_aqua button_style_pill" type="button">Aqua</button>
+									<button class="button button_size_normal button_style_ghost button_color_purple button_style_pill" type="button">Purple</button>
+									<h3 id="buttons-sizes">Sizes</h3>
+									<button class="button button_size_normal button_style_solid button_color_blue button_style_rounded button_size_extra-large" type="button">Extra large</button>
+									<button class="button button_size_normal button_style_solid button_color_blue button_style_rounded button_size_large" type="button">Large</button>
+									<button class="button button_size_normal button_style_solid button_color_blue button_style_rounded" type="button">Normal</button>
+									<button class="button button_size_normal button_style_solid button_color_blue button_style_rounded button_size_small" type="button">Small</button>
+									<button class="button button_size_normal button_style_solid button_color_blue button_style_rounded button_size_extra-small" type="button">Extra small</button>
+									<h3 id="buttons-icon">Icon buttons</h3>
+									<button class="button button_size_normal button_style_solid button_color_grey button_style_rounded" type="button">
+										<span class="button__text">Grey</span>
+										<svg class="icon icon_chevron-right button__icon">
+											<use xlink:href="assets/images/icons.svg#chevron-right"></use>
+										</svg>
+									</button>
+									<button class="button button_size_normal button_style_solid button_color_black button_style_rounded" type="button">
+										<span class="button__text">Black</span>
+										<svg class="icon icon_chevron-right button__icon">
+											<use xlink:href="assets/images/icons.svg#chevron-right"></use>
+										</svg>
+									</button>
+									<button class="button button_size_normal button_style_solid button_color_blue button_style_rounded" type="button">
+										<span class="button__text">Blue</span>
+										<svg class="icon icon_chevron-right button__icon">
+											<use xlink:href="assets/images/icons.svg#chevron-right"></use>
+										</svg>
+									</button>
+									<button class="button button_size_normal button_style_solid button_color_dark-blue button_style_rounded" type="button">
+										<span class="button__text">Dark blue</span>
+										<svg class="icon icon_chevron-right button__icon">
+											<use xlink:href="assets/images/icons.svg#chevron-right"></use>
+										</svg>
+									</button>
+									<button class="button button_size_normal button_style_solid button_color_green button_style_rounded" type="button">
+										<span class="button__text">Green</span>
+										<svg class="icon icon_chevron-right button__icon">
+											<use xlink:href="assets/images/icons.svg#chevron-right"></use>
+										</svg>
+									</button>
+									<button class="button button_size_normal button_style_solid button_color_yellow button_style_rounded" type="button">
+										<svg class="icon icon_chevron-left button__icon">
+											<use xlink:href="assets/images/icons.svg#chevron-left"></use>
+										</svg>
+										<span class="button__text">Yellow</span>
+									</button>
+									<button class="button button_size_normal button_style_solid button_color_orange button_style_rounded" type="button">
+										<svg class="icon icon_chevron-left button__icon">
+											<use xlink:href="assets/images/icons.svg#chevron-left"></use>
+										</svg>
+										<span class="button__text">Orange</span>
+									</button>
+									<button class="button button_size_normal button_style_solid button_color_red button_style_rounded" type="button">
+										<svg class="icon icon_chevron-left button__icon">
+											<use xlink:href="assets/images/icons.svg#chevron-left"></use>
+										</svg>
+										<span class="button__text">Red</span>
+									</button>
+									<button class="button button_size_normal button_style_solid button_color_aqua button_style_rounded" type="button">
+										<svg class="icon icon_chevron-left button__icon">
+											<use xlink:href="assets/images/icons.svg#chevron-left"></use>
+										</svg>
+										<span class="button__text">Aqua</span>
+									</button>
+									<button class="button button_size_normal button_style_solid button_color_purple button_style_rounded" type="button">
+										<svg class="icon icon_chevron-left button__icon">
+											<use xlink:href="assets/images/icons.svg#chevron-left"></use>
+										</svg>
+										<span class="button__text">Purple</span>
+									</button>
+									<h3 id="buttons-tags">Tags types</h3>
+									<button class="button button_size_normal button_style_solid button_color_blue button_style_rounded" type="button">Button</button>
+									<a class="button button_size_normal button_style_solid button_color_blue button_style_rounded" href="#">Link</a>
+									<input class="button button_size_normal button_style_solid button_color_blue button_style_rounded" type="button" value="Input">
+									<h3 id="buttons-disabled">Disabled buttons</h3>
+									<button class="button button_size_normal button_style_solid button_color_blue button_style_rounded" type="button" disabled="disabled">Disabled button</button>
+									<a class="button button_size_normal button_style_solid button_color_blue button_style_rounded button_disabled" href="#">Disabled link</a>
+									<input class="button button_size_normal button_style_solid button_color_blue button_style_rounded" type="button" value="Disabled input" disabled="disabled">
+									<h4 id="buttons-block">Block buttons</h4>
+									<button class="button button_size_normal button_style_solid button_color_blue button_style_rounded button_size_extra-large button_block" type="button">Extra large</button>
+									<button class="button button_size_normal button_style_solid button_color_blue button_style_rounded button_size_large button_block" type="button">Large</button>
+									<button class="button button_size_normal button_style_solid button_color_blue button_style_rounded button_block" type="button">Normal</button>
+									<button class="button button_size_normal button_style_solid button_color_blue button_style_rounded button_size_small button_block" type="button">Small</button>
+									<button class="button button_size_normal button_style_solid button_color_blue button_style_rounded button_size_extra-small button_block" type="button">Extra small</button>
+									<h3 id="buttons-group">Buttons group</h3>
+									<div class="button-group">
+										<button class="button button_size_normal button_style_solid button_color_blue button_style_rounded button-group__item" type="button">Blue</button>
+										<button class="button button_size_normal button_style_solid button_color_blue button_style_rounded button-group__item" type="button">Blue</button>
+										<button class="button button_size_normal button_style_solid button_color_blue button_style_rounded button-group__item" type="button">Blue</button>
+										<button class="button button_size_normal button_style_solid button_color_blue button_style_rounded button-group__item" type="button">Blue</button>
+									</div>
+									<div class="button-group">
+										<button class="button button_size_normal button_style_ghost button_color_blue button_style_rounded button-group__item" type="button">Blue</button>
+										<button class="button button_size_normal button_style_solid button_color_blue button_style_rounded button-group__item" type="button">Blue</button>
+										<button class="button button_size_normal button_style_ghost button_color_blue button_style_rounded button-group__item" type="button">Blue</button>
+										<button class="button button_size_normal button_style_ghost button_color_blue button_style_rounded button-group__item" type="button">Blue</button>
+									</div>
+									<div class="button-group">
+										<button class="button button_size_normal button_style_solid button_color_grey button_style_pill button-group__item" type="button">Blue</button>
+										<button class="button button_size_normal button_style_solid button_color_blue button_style_pill button-group__item" type="button">Blue</button>
+										<button class="button button_size_normal button_style_solid button_color_grey button_style_pill button-group__item" type="button">Blue</button>
+										<button class="button button_size_normal button_style_solid button_color_grey button_style_pill button-group__item" type="button">Blue</button>
+										<button class="button button_size_normal button_style_solid button_color_grey button_style_pill button-group__item" type="button">Blue</button>
+									</div>
+									<div class="button-group">
+										<button class="button button_size_normal button_style_ghost button_color_blue button_style_pill button-group__item" type="button">Blue</button>
+										<button class="button button_size_normal button_style_solid button_color_blue button_style_pill button-group__item" type="button">Blue</button>
+										<button class="button button_size_normal button_style_ghost button_color_blue button_style_pill button-group__item" type="button">Blue</button>
+										<button class="button button_size_normal button_style_ghost button_color_blue button_style_pill button-group__item" type="button">Blue</button>
+										<button class="button button_size_normal button_style_ghost button_color_blue button_style_pill button-group__item" type="button">Blue</button>
+									</div>
+								</section>
+								<!-- END BUTTONS-->
+								<!-- COMPONENTS-->
+								<section>
+									<h2 id="components">Components</h2>
+									<h3 id="images-helpers">Images helpers</h3>
+									<img class="align-image-left" src="assets/images/content/preview_small.png" alt="gulp-front demo image">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
+										unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
+										autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam,
+										consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus
+										ducimus doloremque minima nam!</p>
+									<p class="align-image-center">
+										<img src="assets/images/content/preview_small.png" alt="Gulp-front demo image">
+									</p>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
+										unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
+										autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam,
+										consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus
+										ducimus doloremque minima nam!</p>
+									<img class="align-image-right" src="assets/images/content/preview_small.png" alt="Gulp-front demo image">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
+										unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
+										autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam,
+										consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus
+										ducimus doloremque minima nam!</p>
+									<div class="align-image-center">
+										<figure class="image-captioned" role="group">
+											<img src="assets/images/content/preview_small.png" alt="Gulp-front demo image">
+											<figcaption>Example image description</figcaption>
+										</figure>
+									</div>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
+										unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae
+										autem soluta velit, maxime delectus! Velit fuga, est vitae.</p>
+									<h3 id="breadcrumbs">Breadcrumbs</h3>
+									<div class="bread-crumbs">
+										<ul class="bread-crumbs__list">
+											<li class="bread-crumbs__item">
+												<a class="bread-crumbs__link" href="#">Home</a>
+												<div class="bread-crumbs__separator">&gt;</div>
+											</li>
+											<li class="bread-crumbs__item">
+												<a class="bread-crumbs__link" href="#">Category</a>
+												<div class="bread-crumbs__separator">&gt;</div>
+											</li>
+											<li class="bread-crumbs__item">
+												<a class="bread-crumbs__link" href="#">Subcategory</a>
+												<div class="bread-crumbs__separator">&gt;</div>
+											</li>
+											<li class="bread-crumbs__item">Page</li>
+										</ul>
+									</div>
+									<h3 id="pagination">Pagination</h3>
+									<!-- pagination-->
+									<nav class="pagination" aria-label="pagination">
+										<ul>
+											<li class="pagination__item pagination__item_prev">
+												<a class="pagination__link" href="#" aria-label="Previous page">« prev.</a>
+											</li>
+											<li class="pagination__item pagination__item_page pagination__item_active">
+												<span class="pagination__link">1</span>
+												<span class="sr-only">(current)</span>
+											</li>
+											<li class="pagination__item pagination__item_spacer">
+												<span class="pagination__link">...</span>
+											</li>
+											<li class="pagination__item pagination__item_page">
+												<a class="pagination__link" href="#">8</a>
+											</li>
+											<li class="pagination__item pagination__item_page">
+												<a class="pagination__link" href="#">9</a>
+											</li>
+											<li class="pagination__item pagination__item_page">
+												<a class="pagination__link" href="#">10</a>
+											</li>
+											<li class="pagination__item pagination__item_spacer">
+												<span class="pagination__link">...</span>
+											</li>
+											<li class="pagination__item pagination__item_page">
+												<a class="pagination__link" href="#">999</a>
+											</li>
+											<li class="pagination__item pagination__item_next">
+												<a class="pagination__link" href="#" aria-label="Next page">next. »</a>
+											</li>
+										</ul>
+									</nav>
+									<!-- END pagination-->
+									<div class="pager">
+										<a class="pager__item pager__item_prev" href="#">
+											<svg class="icon icon_chevron-left pager__icon">
+												<use xlink:href="assets/images/icons.svg#chevron-left"></use>
+											</svg>
+											<span class="pager__text">Previous</span>
+										</a>
+										<a class="pager__item pager__item_next" href="#">
+											<span class="pager__text">Next</span>
+											<svg class="icon icon_chevron-right pager__icon">
+												<use xlink:href="assets/images/icons.svg#chevron-right"></use>
+											</svg>
+										</a>
+									</div>
+									<h3 id="badges">Badges</h3>
+									<h4>Square</h4>
+									<div class="badge badge_color_grey">1
+									</div>
+									<div class="badge badge_color_black">99
+									</div>
+									<div class="badge badge_color_blue">999
+									</div>
+									<div class="badge badge_color_dark-blue">9999
+									</div>
+									<div class="badge badge_color_green">label
+									</div>
+									<div class="badge badge_color_yellow">1
+									</div>
+									<div class="badge badge_color_orange">99
+									</div>
+									<div class="badge badge_color_red">9999
+									</div>
+									<div class="badge badge_color_aqua">label
+									</div>
+									<div class="badge badge_color_purple">1
+									</div>
+									<h4>Rounded</h4>
+									<div class="badge badge_color_grey badge_style_rounded">1
+									</div>
+									<div class="badge badge_color_black badge_style_rounded">99
+									</div>
+									<div class="badge badge_color_blue badge_style_rounded">999
+									</div>
+									<div class="badge badge_color_dark-blue badge_style_rounded">9999
+									</div>
+									<div class="badge badge_color_green badge_style_rounded">label
+									</div>
+									<div class="badge badge_color_yellow badge_style_rounded">1
+									</div>
+									<div class="badge badge_color_orange badge_style_rounded">99
+									</div>
+									<div class="badge badge_color_red badge_style_rounded">9999
+									</div>
+									<div class="badge badge_color_aqua badge_style_rounded">label
+									</div>
+									<div class="badge badge_color_purple badge_style_rounded">1
+									</div>
+									<h4>Circle</h4>
+									<div class="badge badge_color_grey badge_style_circle">1
+									</div>
+									<div class="badge badge_color_black badge_style_circle">99
+									</div>
+									<div class="badge badge_color_blue badge_style_circle">999
+									</div>
+									<div class="badge badge_color_dark-blue badge_style_circle">9999
+									</div>
+									<div class="badge badge_color_green badge_style_circle">label
+									</div>
+									<div class="badge badge_color_yellow badge_style_circle">1
+									</div>
+									<div class="badge badge_color_orange badge_style_circle">99
+									</div>
+									<div class="badge badge_color_red badge_style_circle">9999
+									</div>
+									<div class="badge badge_color_aqua badge_style_circle">label
+									</div>
+									<div class="badge badge_color_purple badge_style_circle">1
+									</div>
+									<h4>Sizes</h4>
+									<div class="badge badge_color_blue badge_style_circle badge_size_extra-large">extra large
+									</div>
+									<div class="badge badge_color_blue badge_style_circle badge_size_large">large
+									</div>
+									<div class="badge badge_color_blue badge_style_circle">normal
+									</div>
+									<div class="badge badge_color_blue badge_style_circle badge_size_small">small
+									</div>
+									<div class="badge badge_color_blue badge_style_circle badge_size_extra-small">extra small
+									</div>
+									<h3 id="progress-bar">Progress Bar</h3>
+									<div style="max-width: 600px">
+										<h4>Custom value and Color</h4>
+										<div class="progress-bar progress-bar_color_grey" data-progres-value="0.44">
+											<div class="progress-bar__bar"></div>
+										</div>
+										<br>
+										<br>
+										<div class="progress-bar progress-bar_color_black" data-progres-value="0.27">
+											<div class="progress-bar__bar"></div>
+										</div>
+										<br>
+										<br>
+										<div class="progress-bar progress-bar_color_blue" data-progres-value="0.68">
+											<div class="progress-bar__bar"></div>
+										</div>
+										<br>
+										<br>
+										<div class="progress-bar progress-bar_color_dark-blue" data-progres-value="0.85">
+											<div class="progress-bar__bar"></div>
+										</div>
+										<br>
+										<br>
+										<div class="progress-bar progress-bar_color_green" data-progres-value="0.15">
+											<div class="progress-bar__bar"></div>
+										</div>
+										<br>
+										<br>
+										<div class="progress-bar progress-bar_color_yellow" data-progres-value="0.55">
+											<div class="progress-bar__bar"></div>
+										</div>
+										<br>
+										<br>
+										<div class="progress-bar progress-bar_color_orange" data-progres-value="0.77">
+											<div class="progress-bar__bar"></div>
+										</div>
+										<br>
+										<br>
+										<div class="progress-bar progress-bar_color_red" data-progres-value="0.44">
+											<div class="progress-bar__bar"></div>
+										</div>
+										<br>
+										<br>
+										<div class="progress-bar progress-bar_color_aqua" data-progres-value="0.74">
+											<div class="progress-bar__bar"></div>
+										</div>
+										<br>
+										<br>
+										<div class="progress-bar progress-bar_color_purple" data-progres-value="0.68">
+											<div class="progress-bar__bar"></div>
+										</div>
+										<h4>Indeterminate</h4>
+										<div class="progress-bar progress-bar_color_blue progress-bar_indeterminate" data-progres-value="0.68">
+											<div class="progress-bar__bar"></div>
+										</div>
+									</div>
+									<h3 id="embed">Responsive video</h3>
+									<div class="embed embed_16x9">
+										<iframe width="1280" src="https://www.youtube.com/embed/dOWFVKb2JqM" height="720" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+									</div>
+									<h3 id="social-icons">Social icons</h3>
+									<div class="social-icons">
+										<ul class="social-icons__list">
+											<li class="social-icons__item social-icons__item_fb">
+												<a class="social-icons__link" href="#">
+													<svg class="icon icon_fb social-icons__icon">
+														<use xlink:href="assets/images/icons.svg#fb"></use>
+													</svg>
+												</a>
+											</li>
+											<li class="social-icons__item social-icons__item_gp">
+												<a class="social-icons__link" href="#">
+													<svg class="icon icon_gp social-icons__icon">
+														<use xlink:href="assets/images/icons.svg#gp"></use>
+													</svg>
+												</a>
+											</li>
+											<li class="social-icons__item social-icons__item_tw">
+												<a class="social-icons__link" href="#">
+													<svg class="icon icon_tw social-icons__icon">
+														<use xlink:href="assets/images/icons.svg#tw"></use>
+													</svg>
+												</a>
+											</li>
+											<li class="social-icons__item social-icons__item_mr">
+												<a class="social-icons__link" href="#">
+													<svg class="icon icon_mr social-icons__icon">
+														<use xlink:href="assets/images/icons.svg#mr"></use>
+													</svg>
+												</a>
+											</li>
+											<li class="social-icons__item social-icons__item_ok">
+												<a class="social-icons__link" href="#">
+													<svg class="icon icon_ok social-icons__icon">
+														<use xlink:href="assets/images/icons.svg#ok"></use>
+													</svg>
+												</a>
+											</li>
+											<li class="social-icons__item social-icons__item_vk">
+												<a class="social-icons__link" href="#">
+													<svg class="icon icon_vk social-icons__icon">
+														<use xlink:href="assets/images/icons.svg#vk"></use>
+													</svg>
+												</a>
+											</li>
+										</ul>
+									</div>
+									<h3 id="tabs">Tabs</h3>
+									<div class="tabs tabs_style_default" data-tabs-name="tabsgroup1">
+										<span class="tabs__description visuallyhidden" data-tabs-role="description">Use left and right arrows to navigate between tabs.</span>
+										<div class="tabs__head">
+											<button class="tabs__tab" data-tabs-target="tab1" type="button">Tab 1</button>
+											<button class="tabs__tab" data-tabs-target="tab2" type="button">Tab 2</button>
+											<button class="tabs__tab" data-tabs-target="tab3" type="button">Tab 3</button>
+										</div>
+										<div class="tabs__body">
+											<div class="tabs__panel" data-tabs-id="tab1">
+												<h4>Tab 1 Content demo</h4>
+												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
+											</div>
+											<div class="tabs__panel" data-tabs-id="tab2">
+												<h4>Tab 2 Content demo</h4>
+												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque alias mollitia iusto voluptatibus minus ut, adipisci magni magnam corporis aut aspernatur facere maiores sunt similique nihil unde est laboriosam reprehenderit.</p>
+											</div>
+											<div class="tabs__panel" data-tabs-id="tab3">
+												<h4>Tab 3 Content demo</h4>
+												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus fugiat, aliquam! In fugit id sint, nam repellendus possimus sit itaque aspernatur modi facere earum mollitia veritatis officia quo iste nisi.</p>
+											</div>
+											<div class="tabs__preloader" data-tabs-role="preloader"></div>
+										</div>
+									</div>
+									<div class="tabs tabs_style_default tabs_color_blue" data-tabs-name="tabsgroup2">
+										<span class="tabs__description visuallyhidden" data-tabs-role="description">Use left and right arrows to navigate between tabs.</span>
+										<div class="tabs__head">
+											<button class="tabs__tab" data-tabs-target="tab1" type="button">Tab 1</button>
+											<button class="tabs__tab" data-tabs-target="tab2" type="button">Tab 2</button>
+											<button class="tabs__tab" data-tabs-target="tab3" type="button">Tab 3</button>
+										</div>
+										<div class="tabs__body">
+											<div class="tabs__panel" data-tabs-id="tab1">
+												<h4>Tab 1 Content demo</h4>
+												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
+												<a
+														class="button button_size_normal button_style_solid button_color_blue" href="#tabsgroup2__tab2">
+													<span class="button__text">Next</span>
+													<svg class="icon icon_chevron-right button__icon">
+														<use xlink:href="assets/images/icons.svg#chevron-right"></use>
+													</svg>
+													</a>
+											</div>
+											<div class="tabs__panel" data-tabs-id="tab2">
+												<h4>Tab 2 Content demo</h4>
+												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque alias mollitia iusto voluptatibus minus ut, adipisci magni magnam corporis aut aspernatur facere maiores sunt similique nihil unde est laboriosam reprehenderit.</p>
+												<a class="button button_size_normal button_style_solid button_color_blue"
+														href="#tabsgroup2__tab1">
+													<span class="button__text">Prev</span>
+													<svg class="icon icon_chevron-left button__icon">
+														<use xlink:href="assets/images/icons.svg#chevron-left"></use>
+													</svg>
+												</a>
+												<a class="button button_size_normal button_style_solid button_color_blue" href="#tabsgroup2__tab3">
+													<span class="button__text">Next</span>
+													<svg class="icon icon_chevron-right button__icon">
+														<use xlink:href="assets/images/icons.svg#chevron-right"></use>
+													</svg>
+												</a>
+											</div>
+											<div class="tabs__panel" data-tabs-id="tab3">
+												<h4>Tab 3 Content demo</h4>
+												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus fugiat, aliquam! In fugit id sint, nam repellendus possimus sit itaque aspernatur modi facere earum mollitia veritatis officia quo iste nisi.</p>
+												<a class="button button_size_normal button_style_solid button_color_blue"
+														href="#tabsgroup2__tab2">
+													<span class="button__text">Prev</span>
+													<svg class="icon icon_chevron-left button__icon">
+														<use xlink:href="assets/images/icons.svg#chevron-left"></use>
+													</svg>
+												</a>
+											</div>
+											<div class="tabs__preloader" data-tabs-role="preloader"></div>
+										</div>
+									</div>
+									<h3 id="modals">Modal windows</h3>
+									<button class="button button_size_normal button_style_solid button_color_blue button_style_rounded" data-remodal-target="modal1" type="button">Open modal #1</button>
+									<button class="button button_size_normal button_style_solid button_color_blue button_style_rounded" data-remodal-target="modal2" type="button">Open modal #2</button>
+									<div class="modal" data-remodal-id="modal1">
+										<div class="modal__wrapper">
+											<button class="button modal__close" data-remodal-action="close">
+												<svg class="icon icon_close">
+													<use xlink:href="assets/images/icons.svg#close"></use>
+												</svg>
+											</button>
+											<div class="modal__content">
+												<div style="padding: 35px">
+													<h1 style="margin-top: 0">Simple modal #1</h1>
+													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit unde sint debitis in magnam vel pariatur libero nisi minima.</p>
+													<button class="button button_size_normal button_style_solid button_color_blue button_style_rounded remodal-confirm" data-remodal-action="confirm" type="button">OK</button>
+													<button class="button button_size_normal button_style_solid button_color_red button_style_rounded remodal-cancel" data-remodal-action="cancel" type="button">Cancel</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="modal" data-remodal-id="modal2">
+										<div class="modal__wrapper">
+											<button class="button modal__close" data-remodal-action="close">
+												<svg class="icon icon_close">
+													<use xlink:href="assets/images/icons.svg#close"></use>
+												</svg>
+											</button>
+											<div class="modal__content">
+												<div style="padding: 35px">
+													<iframe width="640" src="https://www.youtube.com/embed/dOWFVKb2JqM" height="360" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+												</div>
+											</div>
+										</div>
+									</div>
+									<h3 id="accordion">Accordion</h3>
+									<h4>Simple accordion</h4>
+									<div class="accordion">
+										<div class="accordion__item accordion__item" data-accordion-role="item">
+											<button class="accordion__trigger" data-accordion-role="trigger" type="button">Accordion item 1</button>
+											<div class="accordion__pannel" data-accordion-role="pannel">
+												<h4>Accordion item 1 content demo</h4>
+												<p>Lorem ipsum dolor sit amet,
+													<a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
+											</div>
+										</div>
+										<div class="accordion__item accordion__item" data-accordion-role="item">
+											<button class="accordion__trigger" data-accordion-role="trigger" type="button">Accordion item 2</button>
+											<div class="accordion__pannel" data-accordion-role="pannel">
+												<h4>Accordion item 2 content demo</h4>
+												<p>Lorem ipsum dolor sit amet,
+													<a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
+											</div>
+										</div>
+										<div class="accordion__item accordion__item" data-accordion-role="item">
+											<button class="accordion__trigger" data-accordion-role="trigger" type="button">Accordion item 3</button>
+											<div class="accordion__pannel" data-accordion-role="pannel">
+												<h4>Accordion item 3 content demo</h4>
+												<p>Lorem ipsum dolor sit amet,
+													<a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
+											</div>
+										</div>
+									</div>
+									<h4>Accordion with open item</h4>
+									<div class="accordion">
+										<div class="accordion__item accordion__item" data-accordion-role="item">
+											<button class="accordion__trigger" data-accordion-role="trigger" type="button">Accordion item 1</button>
+											<div class="accordion__pannel" data-accordion-role="pannel">
+												<h4>Accordion item 1 content demo</h4>
+												<p>Lorem ipsum dolor sit amet,
+													<a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
+											</div>
+										</div>
+										<div class="accordion__item accordion__item accordion__item_open" data-accordion-role="item">
+											<button class="accordion__trigger" data-accordion-role="trigger" type="button">Accordion item 2</button>
+											<div class="accordion__pannel" data-accordion-role="pannel">
+												<h4>Accordion item 2 content demo (open on page lodad)</h4>
+												<p>Lorem ipsum dolor sit amet,
+													<a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
+											</div>
+										</div>
+										<div class="accordion__item accordion__item" data-accordion-role="item">
+											<button class="accordion__trigger" data-accordion-role="trigger" type="button">Accordion item 3</button>
+											<div class="accordion__pannel" data-accordion-role="pannel">
+												<h4>Accordion item 3 content demo</h4>
+												<p>Lorem ipsum dolor sit amet,
+													<a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
+											</div>
+										</div>
+									</div>
+									<h3 id="dropdown">Dropdown</h3>
+									<div class="dropdown">
+										<button class="dropdown__trigger" data-dropdown-role="trigger" type="button">Dropdown
+											<span class="dropdown__caret"></span>
+										</button>
+										<div class="dropdown__menu" data-dropdown-role="drop-menu">
+											<ul class="dropdown-list">
+												<li class="dropdown-list__item" tabindex="0">Item 1</li>
+												<li class="dropdown-list__item" tabindex="0">Item 2</li>
+												<li class="dropdown-list__item" tabindex="0">Item 3</li>
+												<li class="dropdown-list__item" tabindex="0">Item 4</li>
+												<li class="dropdown-list__item" tabindex="0">Item 5</li>
+												<li class="dropdown-list__item" tabindex="0">Item 6</li>
+												<li class="dropdown-list__item" tabindex="0">Item 7</li>
+												<li class="dropdown-list__item" tabindex="0">Item 8</li>
+												<li class="dropdown-list__item" tabindex="0">Item 9</li>
+												<li class="dropdown-list__item" tabindex="0">Item 10</li>
+											</ul>
+										</div>
+									</div>
+									<div class="dropdown dropdown_menu_right">
+										<button class="dropdown__trigger" data-dropdown-role="trigger" type="button">Another Dropdown
+											<span class="dropdown__caret"></span>
+										</button>
+										<div class="dropdown__menu" data-dropdown-role="drop-menu">
+											<ul class="dropdown-list">
+												<li class="dropdown-list__item" tabindex="0">Item 1</li>
+												<li class="dropdown-list__item" tabindex="0">Item 2</li>
+												<li class="dropdown-list__item" tabindex="0">Item 3</li>
+												<li class="dropdown-list__item" tabindex="0">Item 4</li>
+												<li class="dropdown-list__item" tabindex="0">Item 5</li>
+												<li class="dropdown-list__item" tabindex="0">Item 6</li>
+												<li class="dropdown-list__item" tabindex="0">Item 7</li>
+												<li class="dropdown-list__item" tabindex="0">Item 8</li>
+												<li class="dropdown-list__item" tabindex="0">Item 9</li>
+												<li class="dropdown-list__item" tabindex="0">Item 10</li>
+											</ul>
+										</div>
+									</div>
+									<h3 id="spoiler">Spoiler</h3>
+									<button class="button button_size_normal button_style_solid button_color_blue button_style_rounded" data-spoiler-target="sp1" type="button">Toggle spoiler</button>
+									<div data-spoiler-id="sp1">
+										<h1>Simple spoiler</h1>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eius, quae quas nisi numquam ratione nostrum a necessitatibus voluptatibus. Dolor distinctio, culpa doloremque labore vero ex fuga in iure assumenda.</p>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eius, quae quas nisi numquam ratione nostrum a necessitatibus voluptatibus. Dolor distinctio, culpa doloremque labore vero ex fuga in iure assumenda.</p>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eius, quae quas nisi numquam ratione nostrum a necessitatibus voluptatibus. Dolor distinctio, culpa doloremque labore vero ex fuga in iure assumenda.</p>
+									</div>
+									<h3 id="tooltips">Tooltips</h3>
+									<div class="ta-center">
+										<button class="button button_size_normal button_style_solid button_color_blue button_style_rounded" data-tooltip-id="tooltip-1" type="button">Tooltip bottom</button>
+										<br>
+										<button class="button button_size_normal button_style_solid button_color_green button_style_rounded" data-tooltip-id="tooltip-2" type="button">Tooltip top</button>
+										<br>
+										<button class="button button_size_normal button_style_solid button_color_yellow button_style_rounded" data-tooltip-id="tooltip-3" type="button">Tooltip left</button>
+										<br>
+										<button class="button button_size_normal button_style_solid button_color_orange button_style_rounded" data-tooltip-id="tooltip-4" type="button">Tooltip right</button>
+									</div>
+									<div class="tooltip tooltip_bottom" data-tooltip-target="tooltip-1">Plain text</div>
+									<div class="tooltip tooltip_top" data-tooltip-target="tooltip-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam earum, similique nam repellendus nisi atque nesciunt non tempora labore ad dolorem eligendi dicta. Distinctio maiores deserunt officia eaque dolorem nam!</div>
+									<div class="tooltip tooltip_left" data-tooltip-target="tooltip-3">
+										<h3>HTML Tooltip</h3>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit fuga minima aliquam, dicta repellat vero iusto cum, assumenda non illo modi nam vitae officiis maxime molestias, voluptatem nihil numquam explicabo.</p>
+									</div>
+									<div class="tooltip tooltip_right" data-tooltip-target="tooltip-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam earum, similique nam repellendus nisi atque nesciunt non tempora labore ad dolorem eligendi dicta. Distinctio maiores deserunt officia eaque dolorem nam!</div>
+									<h3 id="notifications">Notifications</h3>
+									<button class="button button_size_normal button_style_solid button_color_grey button_style_rounded js-notification-info" type="button">info</button>
+									<button class="button button_size_normal button_style_solid button_color_blue button_style_rounded js-notification-notice" type="button">notice</button>
+									<button class="button button_size_normal button_style_solid button_color_green button_style_rounded js-notification-success" type="button">success</button>
+									<button class="button button_size_normal button_style_solid button_color_red button_style_rounded js-notification-error" type="button">error</button>
+									<button class="button button_size_normal button_style_solid button_color_yellow button_style_rounded js-notification-warning" type="button">warning</button>
+									<h2>Options</h2>
+									<h3>class</h3>
+									<p>A string containing one or more extra CSS classes</p>
+									<ul>
+										<li>Type:
+											<i>string</i>
+										</li>
+										<li>Default:
+											<i>''</i>
+										</li>
+									</ul>
+									<h3>click</h3>
+									<p>Click callback</p>
+									<ul>
+										<li>Type:
+											<i>function</i>
+										</li>
+										<li>Default:
+											<i>none</i>
+										</li>
+									</ul>
+									<h3>content</h3>
+									<p>Notification content</p>
+									<ul>
+										<li>Type:
+											<i>string</i>
+										</li>
+										<li>Default:
+											<i>''</i>
+										</li>
+									</ul>
+									<h3>duration</h3>
+									<p>On screen duration in milliseconds, set it to 0 for sticky</p>
+									<ul>
+										<li>Type:
+											<i>integer</i>
+										</li>
+										<li>Default:
+											<i>5000</i>
+										</li>
+									</ul>
+									<h3>fadeIn</h3>
+									<p>Fade in effect duration in milliseconds</p>
+									<ul>
+										<li>Type:
+											<i>integer</i>
+										</li>
+										<li>Default:
+											<i>400</i>
+										</li>
+									</ul>
+									<h3>fadeOut</h3>
+									<p>Fade out effect duration in milliseconds</p>
+									<ul>
+										<li>Type:
+											<i>integer</i>
+										</li>
+										<li>Default:
+											<i>400</i>
+										</li>
+									</ul>
+									<h3>limit</h3>
+									<p>Visible limit per board, when reached notifications wont be created</p>
+									<ul>
+										<li>Type:
+											<i>integer, boolean</i>
+										</li>
+										<li>Default:
+											<i>false</i>
+										</li>
+									</ul>
+									<h3>queue</h3>
+									<p>If queue is active and limit is reached notifications will be shown when other hides</p>
+									<ul>
+										<li>Type:
+											<i>integer, boolean</i>
+										</li>
+										<li>Default:
+											<i>false</i>
+										</li>
+									</ul>
+									<h3>slideUp</h3>
+									<p>Slide up effect duration in milliseconds</p>
+									<ul>
+										<li>Type:
+											<i>integer</i>
+										</li>
+										<li>Default:
+											<i>200</i>
+										</li>
+									</ul>
+									<h3>horizontal</h3>
+									<p>Horizontal alignment, default right</p>
+									<ul>
+										<li>Type:
+											<i>string</i>
+										</li>
+										<li>Default:
+											<i>''</i>
+										</li>
+									</ul>
+									<h3>vertical</h3>
+									<p>Vertical alignment, default top</p>
+									<ul>
+										<li>Type:
+											<i>string</i>
+										</li>
+										<li>Default:
+											<i>''</i>
+										</li>
+									</ul>
+									<h3 id="svg-icons">Svg Icons</h3>
+									<div class="demo-icons">
+										<svg class="icon icon_chevron-down">
+											<use xlink:href="assets/images/icons.svg#chevron-down"></use>
+										</svg>
+										<svg class="icon icon_chevron-up">
+											<use xlink:href="assets/images/icons.svg#chevron-up"></use>
+										</svg>
+										<svg class="icon icon_chevron-left">
+											<use xlink:href="assets/images/icons.svg#chevron-left"></use>
+										</svg>
+										<svg class="icon icon_chevron-right">
+											<use xlink:href="assets/images/icons.svg#chevron-right"></use>
+										</svg>
+										<svg class="icon icon_github-octocat">
+											<use xlink:href="assets/images/icons.svg#github-octocat"></use>
+										</svg>
+										<svg class="icon icon_hamburger">
+											<use xlink:href="assets/images/icons.svg#hamburger"></use>
+										</svg>
+										<svg class="icon icon_heart">
+											<use xlink:href="assets/images/icons.svg#heart"></use>
+										</svg>
+										<svg class="icon icon_maginifer">
+											<use xlink:href="assets/images/icons.svg#maginifer"></use>
+										</svg>
+										<svg class="icon icon_rss">
+											<use xlink:href="assets/images/icons.svg#rss"></use>
+										</svg>
+										<svg class="icon icon_fb">
+											<use xlink:href="assets/images/icons.svg#fb"></use>
+										</svg>
+										<svg class="icon icon_gp">
+											<use xlink:href="assets/images/icons.svg#gp"></use>
+										</svg>
+										<svg class="icon icon_mr">
+											<use xlink:href="assets/images/icons.svg#mr"></use>
+										</svg>
+										<svg class="icon icon_ok">
+											<use xlink:href="assets/images/icons.svg#ok"></use>
+										</svg>
+										<svg class="icon icon_tw">
+											<use xlink:href="assets/images/icons.svg#tw"></use>
+										</svg>
+										<svg class="icon icon_vk">
+											<use xlink:href="assets/images/icons.svg#vk"></use>
+										</svg>
+									</div>
+									<h3 id="flags-icons">Flags Icons</h3>
+									<h4>4x3</h4>
+									<div class="demo-icons">
+										<span class="flag flag_ad"></span>
+										<span class="flag flag_ae"></span>
+										<span class="flag flag_af"></span>
+										<span class="flag flag_ag"></span>
+										<span class="flag flag_ai"></span>
+										<span class="flag flag_al"></span>
+										<span class="flag flag_am"></span>
+										<span class="flag flag_ao"></span>
+										<span class="flag flag_aq"></span>
+										<span class="flag flag_ar"></span>
+										<span class="flag flag_as"></span>
+										<span class="flag flag_at"></span>
+										<span class="flag flag_au"></span>
+										<span class="flag flag_aw"></span>
+										<span class="flag flag_ax"></span>
+										<span class="flag flag_az"></span>
+										<span class="flag flag_ba"></span>
+										<span class="flag flag_bb"></span>
+										<span class="flag flag_bd"></span>
+										<span class="flag flag_be"></span>
+										<span class="flag flag_bf"></span>
+										<span class="flag flag_bg"></span>
+										<span class="flag flag_bh"></span>
+										<span class="flag flag_bi"></span>
+										<span class="flag flag_bj"></span>
+										<span class="flag flag_bl"></span>
+										<span class="flag flag_bm"></span>
+										<span class="flag flag_bn"></span>
+										<span class="flag flag_bo"></span>
+										<span class="flag flag_bq"></span>
+										<span class="flag flag_br"></span>
+										<span class="flag flag_bs"></span>
+										<span class="flag flag_bt"></span>
+										<span class="flag flag_bv"></span>
+										<span class="flag flag_bw"></span>
+										<span class="flag flag_by"></span>
+										<span class="flag flag_bz"></span>
+										<span class="flag flag_ca"></span>
+										<span class="flag flag_cc"></span>
+										<span class="flag flag_cd"></span>
+										<span class="flag flag_cf"></span>
+										<span class="flag flag_cg"></span>
+										<span class="flag flag_ch"></span>
+										<span class="flag flag_ci"></span>
+										<span class="flag flag_ck"></span>
+										<span class="flag flag_cl"></span>
+										<span class="flag flag_cm"></span>
+										<span class="flag flag_cn"></span>
+										<span class="flag flag_co"></span>
+										<span class="flag flag_cr"></span>
+										<span class="flag flag_cu"></span>
+										<span class="flag flag_cv"></span>
+										<span class="flag flag_cw"></span>
+										<span class="flag flag_cx"></span>
+										<span class="flag flag_cy"></span>
+										<span class="flag flag_cz"></span>
+										<span class="flag flag_de"></span>
+										<span class="flag flag_dj"></span>
+										<span class="flag flag_dk"></span>
+										<span class="flag flag_dm"></span>
+										<span class="flag flag_do"></span>
+										<span class="flag flag_dz"></span>
+										<span class="flag flag_ec"></span>
+										<span class="flag flag_ee"></span>
+										<span class="flag flag_eg"></span>
+										<span class="flag flag_eh"></span>
+										<span class="flag flag_er"></span>
+										<span class="flag flag_es"></span>
+										<span class="flag flag_et"></span>
+										<span class="flag flag_fi"></span>
+										<span class="flag flag_fj"></span>
+										<span class="flag flag_fk"></span>
+										<span class="flag flag_fm"></span>
+										<span class="flag flag_fo"></span>
+										<span class="flag flag_fr"></span>
+										<span class="flag flag_ga"></span>
+										<span class="flag flag_gb"></span>
+										<span class="flag flag_gd"></span>
+										<span class="flag flag_ge"></span>
+										<span class="flag flag_gf"></span>
+										<span class="flag flag_gg"></span>
+										<span class="flag flag_gh"></span>
+										<span class="flag flag_gi"></span>
+										<span class="flag flag_gl"></span>
+										<span class="flag flag_gm"></span>
+										<span class="flag flag_gn"></span>
+										<span class="flag flag_gp"></span>
+										<span class="flag flag_gq"></span>
+										<span class="flag flag_gr"></span>
+										<span class="flag flag_gs"></span>
+										<span class="flag flag_gt"></span>
+										<span class="flag flag_gu"></span>
+										<span class="flag flag_gw"></span>
+										<span class="flag flag_gy"></span>
+										<span class="flag flag_hk"></span>
+										<span class="flag flag_hm"></span>
+										<span class="flag flag_hn"></span>
+										<span class="flag flag_hr"></span>
+										<span class="flag flag_ht"></span>
+										<span class="flag flag_hu"></span>
+										<span class="flag flag_id"></span>
+										<span class="flag flag_ie"></span>
+										<span class="flag flag_il"></span>
+										<span class="flag flag_im"></span>
+										<span class="flag flag_in"></span>
+										<span class="flag flag_io"></span>
+										<span class="flag flag_iq"></span>
+										<span class="flag flag_ir"></span>
+										<span class="flag flag_is"></span>
+										<span class="flag flag_it"></span>
+										<span class="flag flag_je"></span>
+										<span class="flag flag_jm"></span>
+										<span class="flag flag_jo"></span>
+										<span class="flag flag_jp"></span>
+										<span class="flag flag_ke"></span>
+										<span class="flag flag_kg"></span>
+										<span class="flag flag_kh"></span>
+										<span class="flag flag_ki"></span>
+										<span class="flag flag_km"></span>
+										<span class="flag flag_kn"></span>
+										<span class="flag flag_kp"></span>
+										<span class="flag flag_kr"></span>
+										<span class="flag flag_kw"></span>
+										<span class="flag flag_ky"></span>
+										<span class="flag flag_kz"></span>
+										<span class="flag flag_la"></span>
+										<span class="flag flag_lb"></span>
+										<span class="flag flag_lc"></span>
+										<span class="flag flag_li"></span>
+										<span class="flag flag_lk"></span>
+										<span class="flag flag_lr"></span>
+										<span class="flag flag_ls"></span>
+										<span class="flag flag_lt"></span>
+										<span class="flag flag_lu"></span>
+										<span class="flag flag_lv"></span>
+										<span class="flag flag_ly"></span>
+										<span class="flag flag_ma"></span>
+										<span class="flag flag_mc"></span>
+										<span class="flag flag_md"></span>
+										<span class="flag flag_me"></span>
+										<span class="flag flag_mf"></span>
+										<span class="flag flag_mg"></span>
+										<span class="flag flag_mh"></span>
+										<span class="flag flag_mk"></span>
+										<span class="flag flag_ml"></span>
+										<span class="flag flag_mm"></span>
+										<span class="flag flag_mn"></span>
+										<span class="flag flag_mo"></span>
+										<span class="flag flag_mp"></span>
+										<span class="flag flag_mq"></span>
+										<span class="flag flag_mr"></span>
+										<span class="flag flag_ms"></span>
+										<span class="flag flag_mt"></span>
+										<span class="flag flag_mu"></span>
+										<span class="flag flag_mv"></span>
+										<span class="flag flag_mw"></span>
+										<span class="flag flag_mx"></span>
+										<span class="flag flag_my"></span>
+										<span class="flag flag_mz"></span>
+										<span class="flag flag_na"></span>
+										<span class="flag flag_nc"></span>
+										<span class="flag flag_ne"></span>
+										<span class="flag flag_nf"></span>
+										<span class="flag flag_ng"></span>
+										<span class="flag flag_ni"></span>
+										<span class="flag flag_nl"></span>
+										<span class="flag flag_no"></span>
+										<span class="flag flag_np"></span>
+										<span class="flag flag_nr"></span>
+										<span class="flag flag_nu"></span>
+										<span class="flag flag_nz"></span>
+										<span class="flag flag_om"></span>
+										<span class="flag flag_pa"></span>
+										<span class="flag flag_pe"></span>
+										<span class="flag flag_pf"></span>
+										<span class="flag flag_pg"></span>
+										<span class="flag flag_ph"></span>
+										<span class="flag flag_pk"></span>
+										<span class="flag flag_pl"></span>
+										<span class="flag flag_pm"></span>
+										<span class="flag flag_pn"></span>
+										<span class="flag flag_pr"></span>
+										<span class="flag flag_ps"></span>
+										<span class="flag flag_pt"></span>
+										<span class="flag flag_pw"></span>
+										<span class="flag flag_py"></span>
+										<span class="flag flag_qa"></span>
+										<span class="flag flag_re"></span>
+										<span class="flag flag_ro"></span>
+										<span class="flag flag_rs"></span>
+										<span class="flag flag_ru"></span>
+										<span class="flag flag_rw"></span>
+										<span class="flag flag_sa"></span>
+										<span class="flag flag_sb"></span>
+										<span class="flag flag_sc"></span>
+										<span class="flag flag_sd"></span>
+										<span class="flag flag_se"></span>
+										<span class="flag flag_sg"></span>
+										<span class="flag flag_sh"></span>
+										<span class="flag flag_si"></span>
+										<span class="flag flag_sj"></span>
+										<span class="flag flag_sk"></span>
+										<span class="flag flag_sl"></span>
+										<span class="flag flag_sm"></span>
+										<span class="flag flag_sn"></span>
+										<span class="flag flag_so"></span>
+										<span class="flag flag_sr"></span>
+										<span class="flag flag_ss"></span>
+										<span class="flag flag_st"></span>
+										<span class="flag flag_sv"></span>
+										<span class="flag flag_sx"></span>
+										<span class="flag flag_sy"></span>
+										<span class="flag flag_sz"></span>
+										<span class="flag flag_tc"></span>
+										<span class="flag flag_td"></span>
+										<span class="flag flag_tf"></span>
+										<span class="flag flag_tg"></span>
+										<span class="flag flag_th"></span>
+										<span class="flag flag_tj"></span>
+										<span class="flag flag_tk"></span>
+										<span class="flag flag_tl"></span>
+										<span class="flag flag_tm"></span>
+										<span class="flag flag_tn"></span>
+										<span class="flag flag_to"></span>
+										<span class="flag flag_tr"></span>
+										<span class="flag flag_tt"></span>
+										<span class="flag flag_tv"></span>
+										<span class="flag flag_tw"></span>
+										<span class="flag flag_tz"></span>
+										<span class="flag flag_ua"></span>
+										<span class="flag flag_ug"></span>
+										<span class="flag flag_um"></span>
+										<span class="flag flag_us"></span>
+										<span class="flag flag_uy"></span>
+										<span class="flag flag_uz"></span>
+										<span class="flag flag_va"></span>
+										<span class="flag flag_vc"></span>
+										<span class="flag flag_ve"></span>
+										<span class="flag flag_vg"></span>
+										<span class="flag flag_vi"></span>
+										<span class="flag flag_vn"></span>
+										<span class="flag flag_vu"></span>
+										<span class="flag flag_wf"></span>
+										<span class="flag flag_ws"></span>
+										<span class="flag flag_ye"></span>
+										<span class="flag flag_yt"></span>
+										<span class="flag flag_za"></span>
+										<span class="flag flag_zm"></span>
+										<span class="flag flag_zw"></span>
+										<span class="flag flag_eu"></span>
+										<span class="flag flag_gb-eng"></span>
+										<span class="flag flag_gb-nir"></span>
+										<span class="flag flag_gb-sct"></span>
+										<span class="flag flag_gb-wls"></span>
+										<span class="flag flag_un"></span>
+									</div>
+									<h4>1x1</h4>
+									<div class="demo-icons">
+										<span class="flag flag_squared flag_ad"></span>
+										<span class="flag flag_squared flag_ae"></span>
+										<span class="flag flag_squared flag_af"></span>
+										<span class="flag flag_squared flag_ag"></span>
+										<span class="flag flag_squared flag_ai"></span>
+										<span class="flag flag_squared flag_al"></span>
+										<span class="flag flag_squared flag_am"></span>
+										<span class="flag flag_squared flag_ao"></span>
+										<span class="flag flag_squared flag_aq"></span>
+										<span class="flag flag_squared flag_ar"></span>
+										<span class="flag flag_squared flag_as"></span>
+										<span class="flag flag_squared flag_at"></span>
+										<span class="flag flag_squared flag_au"></span>
+										<span class="flag flag_squared flag_aw"></span>
+										<span class="flag flag_squared flag_ax"></span>
+										<span class="flag flag_squared flag_az"></span>
+										<span class="flag flag_squared flag_ba"></span>
+										<span class="flag flag_squared flag_bb"></span>
+										<span class="flag flag_squared flag_bd"></span>
+										<span class="flag flag_squared flag_be"></span>
+										<span class="flag flag_squared flag_bf"></span>
+										<span class="flag flag_squared flag_bg"></span>
+										<span class="flag flag_squared flag_bh"></span>
+										<span class="flag flag_squared flag_bi"></span>
+										<span class="flag flag_squared flag_bj"></span>
+										<span class="flag flag_squared flag_bl"></span>
+										<span class="flag flag_squared flag_bm"></span>
+										<span class="flag flag_squared flag_bn"></span>
+										<span class="flag flag_squared flag_bo"></span>
+										<span class="flag flag_squared flag_bq"></span>
+										<span class="flag flag_squared flag_br"></span>
+										<span class="flag flag_squared flag_bs"></span>
+										<span class="flag flag_squared flag_bt"></span>
+										<span class="flag flag_squared flag_bv"></span>
+										<span class="flag flag_squared flag_bw"></span>
+										<span class="flag flag_squared flag_by"></span>
+										<span class="flag flag_squared flag_bz"></span>
+										<span class="flag flag_squared flag_ca"></span>
+										<span class="flag flag_squared flag_cc"></span>
+										<span class="flag flag_squared flag_cd"></span>
+										<span class="flag flag_squared flag_cf"></span>
+										<span class="flag flag_squared flag_cg"></span>
+										<span class="flag flag_squared flag_ch"></span>
+										<span class="flag flag_squared flag_ci"></span>
+										<span class="flag flag_squared flag_ck"></span>
+										<span class="flag flag_squared flag_cl"></span>
+										<span class="flag flag_squared flag_cm"></span>
+										<span class="flag flag_squared flag_cn"></span>
+										<span class="flag flag_squared flag_co"></span>
+										<span class="flag flag_squared flag_cr"></span>
+										<span class="flag flag_squared flag_cu"></span>
+										<span class="flag flag_squared flag_cv"></span>
+										<span class="flag flag_squared flag_cw"></span>
+										<span class="flag flag_squared flag_cx"></span>
+										<span class="flag flag_squared flag_cy"></span>
+										<span class="flag flag_squared flag_cz"></span>
+										<span class="flag flag_squared flag_de"></span>
+										<span class="flag flag_squared flag_dj"></span>
+										<span class="flag flag_squared flag_dk"></span>
+										<span class="flag flag_squared flag_dm"></span>
+										<span class="flag flag_squared flag_do"></span>
+										<span class="flag flag_squared flag_dz"></span>
+										<span class="flag flag_squared flag_ec"></span>
+										<span class="flag flag_squared flag_ee"></span>
+										<span class="flag flag_squared flag_eg"></span>
+										<span class="flag flag_squared flag_eh"></span>
+										<span class="flag flag_squared flag_er"></span>
+										<span class="flag flag_squared flag_es"></span>
+										<span class="flag flag_squared flag_et"></span>
+										<span class="flag flag_squared flag_fi"></span>
+										<span class="flag flag_squared flag_fj"></span>
+										<span class="flag flag_squared flag_fk"></span>
+										<span class="flag flag_squared flag_fm"></span>
+										<span class="flag flag_squared flag_fo"></span>
+										<span class="flag flag_squared flag_fr"></span>
+										<span class="flag flag_squared flag_ga"></span>
+										<span class="flag flag_squared flag_gb"></span>
+										<span class="flag flag_squared flag_gd"></span>
+										<span class="flag flag_squared flag_ge"></span>
+										<span class="flag flag_squared flag_gf"></span>
+										<span class="flag flag_squared flag_gg"></span>
+										<span class="flag flag_squared flag_gh"></span>
+										<span class="flag flag_squared flag_gi"></span>
+										<span class="flag flag_squared flag_gl"></span>
+										<span class="flag flag_squared flag_gm"></span>
+										<span class="flag flag_squared flag_gn"></span>
+										<span class="flag flag_squared flag_gp"></span>
+										<span class="flag flag_squared flag_gq"></span>
+										<span class="flag flag_squared flag_gr"></span>
+										<span class="flag flag_squared flag_gs"></span>
+										<span class="flag flag_squared flag_gt"></span>
+										<span class="flag flag_squared flag_gu"></span>
+										<span class="flag flag_squared flag_gw"></span>
+										<span class="flag flag_squared flag_gy"></span>
+										<span class="flag flag_squared flag_hk"></span>
+										<span class="flag flag_squared flag_hm"></span>
+										<span class="flag flag_squared flag_hn"></span>
+										<span class="flag flag_squared flag_hr"></span>
+										<span class="flag flag_squared flag_ht"></span>
+										<span class="flag flag_squared flag_hu"></span>
+										<span class="flag flag_squared flag_id"></span>
+										<span class="flag flag_squared flag_ie"></span>
+										<span class="flag flag_squared flag_il"></span>
+										<span class="flag flag_squared flag_im"></span>
+										<span class="flag flag_squared flag_in"></span>
+										<span class="flag flag_squared flag_io"></span>
+										<span class="flag flag_squared flag_iq"></span>
+										<span class="flag flag_squared flag_ir"></span>
+										<span class="flag flag_squared flag_is"></span>
+										<span class="flag flag_squared flag_it"></span>
+										<span class="flag flag_squared flag_je"></span>
+										<span class="flag flag_squared flag_jm"></span>
+										<span class="flag flag_squared flag_jo"></span>
+										<span class="flag flag_squared flag_jp"></span>
+										<span class="flag flag_squared flag_ke"></span>
+										<span class="flag flag_squared flag_kg"></span>
+										<span class="flag flag_squared flag_kh"></span>
+										<span class="flag flag_squared flag_ki"></span>
+										<span class="flag flag_squared flag_km"></span>
+										<span class="flag flag_squared flag_kn"></span>
+										<span class="flag flag_squared flag_kp"></span>
+										<span class="flag flag_squared flag_kr"></span>
+										<span class="flag flag_squared flag_kw"></span>
+										<span class="flag flag_squared flag_ky"></span>
+										<span class="flag flag_squared flag_kz"></span>
+										<span class="flag flag_squared flag_la"></span>
+										<span class="flag flag_squared flag_lb"></span>
+										<span class="flag flag_squared flag_lc"></span>
+										<span class="flag flag_squared flag_li"></span>
+										<span class="flag flag_squared flag_lk"></span>
+										<span class="flag flag_squared flag_lr"></span>
+										<span class="flag flag_squared flag_ls"></span>
+										<span class="flag flag_squared flag_lt"></span>
+										<span class="flag flag_squared flag_lu"></span>
+										<span class="flag flag_squared flag_lv"></span>
+										<span class="flag flag_squared flag_ly"></span>
+										<span class="flag flag_squared flag_ma"></span>
+										<span class="flag flag_squared flag_mc"></span>
+										<span class="flag flag_squared flag_md"></span>
+										<span class="flag flag_squared flag_me"></span>
+										<span class="flag flag_squared flag_mf"></span>
+										<span class="flag flag_squared flag_mg"></span>
+										<span class="flag flag_squared flag_mh"></span>
+										<span class="flag flag_squared flag_mk"></span>
+										<span class="flag flag_squared flag_ml"></span>
+										<span class="flag flag_squared flag_mm"></span>
+										<span class="flag flag_squared flag_mn"></span>
+										<span class="flag flag_squared flag_mo"></span>
+										<span class="flag flag_squared flag_mp"></span>
+										<span class="flag flag_squared flag_mq"></span>
+										<span class="flag flag_squared flag_mr"></span>
+										<span class="flag flag_squared flag_ms"></span>
+										<span class="flag flag_squared flag_mt"></span>
+										<span class="flag flag_squared flag_mu"></span>
+										<span class="flag flag_squared flag_mv"></span>
+										<span class="flag flag_squared flag_mw"></span>
+										<span class="flag flag_squared flag_mx"></span>
+										<span class="flag flag_squared flag_my"></span>
+										<span class="flag flag_squared flag_mz"></span>
+										<span class="flag flag_squared flag_na"></span>
+										<span class="flag flag_squared flag_nc"></span>
+										<span class="flag flag_squared flag_ne"></span>
+										<span class="flag flag_squared flag_nf"></span>
+										<span class="flag flag_squared flag_ng"></span>
+										<span class="flag flag_squared flag_ni"></span>
+										<span class="flag flag_squared flag_nl"></span>
+										<span class="flag flag_squared flag_no"></span>
+										<span class="flag flag_squared flag_np"></span>
+										<span class="flag flag_squared flag_nr"></span>
+										<span class="flag flag_squared flag_nu"></span>
+										<span class="flag flag_squared flag_nz"></span>
+										<span class="flag flag_squared flag_om"></span>
+										<span class="flag flag_squared flag_pa"></span>
+										<span class="flag flag_squared flag_pe"></span>
+										<span class="flag flag_squared flag_pf"></span>
+										<span class="flag flag_squared flag_pg"></span>
+										<span class="flag flag_squared flag_ph"></span>
+										<span class="flag flag_squared flag_pk"></span>
+										<span class="flag flag_squared flag_pl"></span>
+										<span class="flag flag_squared flag_pm"></span>
+										<span class="flag flag_squared flag_pn"></span>
+										<span class="flag flag_squared flag_pr"></span>
+										<span class="flag flag_squared flag_ps"></span>
+										<span class="flag flag_squared flag_pt"></span>
+										<span class="flag flag_squared flag_pw"></span>
+										<span class="flag flag_squared flag_py"></span>
+										<span class="flag flag_squared flag_qa"></span>
+										<span class="flag flag_squared flag_re"></span>
+										<span class="flag flag_squared flag_ro"></span>
+										<span class="flag flag_squared flag_rs"></span>
+										<span class="flag flag_squared flag_ru"></span>
+										<span class="flag flag_squared flag_rw"></span>
+										<span class="flag flag_squared flag_sa"></span>
+										<span class="flag flag_squared flag_sb"></span>
+										<span class="flag flag_squared flag_sc"></span>
+										<span class="flag flag_squared flag_sd"></span>
+										<span class="flag flag_squared flag_se"></span>
+										<span class="flag flag_squared flag_sg"></span>
+										<span class="flag flag_squared flag_sh"></span>
+										<span class="flag flag_squared flag_si"></span>
+										<span class="flag flag_squared flag_sj"></span>
+										<span class="flag flag_squared flag_sk"></span>
+										<span class="flag flag_squared flag_sl"></span>
+										<span class="flag flag_squared flag_sm"></span>
+										<span class="flag flag_squared flag_sn"></span>
+										<span class="flag flag_squared flag_so"></span>
+										<span class="flag flag_squared flag_sr"></span>
+										<span class="flag flag_squared flag_ss"></span>
+										<span class="flag flag_squared flag_st"></span>
+										<span class="flag flag_squared flag_sv"></span>
+										<span class="flag flag_squared flag_sx"></span>
+										<span class="flag flag_squared flag_sy"></span>
+										<span class="flag flag_squared flag_sz"></span>
+										<span class="flag flag_squared flag_tc"></span>
+										<span class="flag flag_squared flag_td"></span>
+										<span class="flag flag_squared flag_tf"></span>
+										<span class="flag flag_squared flag_tg"></span>
+										<span class="flag flag_squared flag_th"></span>
+										<span class="flag flag_squared flag_tj"></span>
+										<span class="flag flag_squared flag_tk"></span>
+										<span class="flag flag_squared flag_tl"></span>
+										<span class="flag flag_squared flag_tm"></span>
+										<span class="flag flag_squared flag_tn"></span>
+										<span class="flag flag_squared flag_to"></span>
+										<span class="flag flag_squared flag_tr"></span>
+										<span class="flag flag_squared flag_tt"></span>
+										<span class="flag flag_squared flag_tv"></span>
+										<span class="flag flag_squared flag_tw"></span>
+										<span class="flag flag_squared flag_tz"></span>
+										<span class="flag flag_squared flag_ua"></span>
+										<span class="flag flag_squared flag_ug"></span>
+										<span class="flag flag_squared flag_um"></span>
+										<span class="flag flag_squared flag_us"></span>
+										<span class="flag flag_squared flag_uy"></span>
+										<span class="flag flag_squared flag_uz"></span>
+										<span class="flag flag_squared flag_va"></span>
+										<span class="flag flag_squared flag_vc"></span>
+										<span class="flag flag_squared flag_ve"></span>
+										<span class="flag flag_squared flag_vg"></span>
+										<span class="flag flag_squared flag_vi"></span>
+										<span class="flag flag_squared flag_vn"></span>
+										<span class="flag flag_squared flag_vu"></span>
+										<span class="flag flag_squared flag_wf"></span>
+										<span class="flag flag_squared flag_ws"></span>
+										<span class="flag flag_squared flag_ye"></span>
+										<span class="flag flag_squared flag_yt"></span>
+										<span class="flag flag_squared flag_za"></span>
+										<span class="flag flag_squared flag_zm"></span>
+										<span class="flag flag_squared flag_zw"></span>
+										<span class="flag flag_squared flag_eu"></span>
+										<span class="flag flag_squared flag_gb-eng"></span>
+										<span class="flag flag_squared flag_gb-nir"></span>
+										<span class="flag flag_squared flag_gb-sct"></span>
+										<span class="flag flag_squared flag_gb-wls"></span>
+										<span class="flag flag_squared flag_un"></span>
+									</div>
+								</section>
+								<!--END COMPONENTS-->
+								<!-- GRID-->
+								<section>
+									<h2 id="grid">Grid</h2>
+									<div class="grid grid_demo">
+										<div class="grid__row">
+											<div class="grid__col">1</div>
+											<div class="grid__col">2</div>
+											<div class="grid__col">3</div>
+											<div class="grid__col">4</div>
+											<div class="grid__col">5</div>
+											<div class="grid__col">6</div>
+											<div class="grid__col">7</div>
+											<div class="grid__col">8</div>
+											<div class="grid__col">9</div>
+											<div class="grid__col">10</div>
+											<div class="grid__col">11</div>
+											<div class="grid__col">12</div>
+										</div>
+										<div class="grid__row">
+											<div class="grid__col grid__col_2">1</div>
+											<div class="grid__col grid__col_2">2</div>
+											<div class="grid__col grid__col_2">3</div>
+											<div class="grid__col grid__col_2">4</div>
+											<div class="grid__col grid__col_2">5</div>
+											<div class="grid__col grid__col_2">6</div>
+										</div>
+										<div class="grid__row">
+											<div class="grid__col grid__col_3">1</div>
+											<div class="grid__col grid__col_3">2</div>
+											<div class="grid__col grid__col_3">3</div>
+											<div class="grid__col grid__col_3">4</div>
+										</div>
+										<div class="grid__row">
+											<div class="grid__col grid__col_4">1</div>
+											<div class="grid__col grid__col_4">2</div>
+											<div class="grid__col grid__col_4">3</div>
+										</div>
+										<div class="grid__row">
+											<div class="grid__col grid__col_6">1</div>
+											<div class="grid__col grid__col_6">2</div>
+										</div>
+										<div class="grid__row">
+											<div class="grid__col grid__col_12">1</div>
+										</div>
+										<div class="grid__row">
+											<div class="grid__col grid__col_1">1</div>
+											<div class="grid__col grid__col_11">2</div>
+										</div>
+										<div class="grid__row">
+											<div class="grid__col grid__col_2">1</div>
+											<div class="grid__col grid__col_10">2</div>
+										</div>
+										<div class="grid__row">
+											<div class="grid__col grid__col_3">1</div>
+											<div class="grid__col grid__col_9">2</div>
+										</div>
+										<div class="grid__row">
+											<div class="grid__col grid__col_4">1</div>
+											<div class="grid__col grid__col_8">2</div>
+										</div>
+										<div class="grid__row">
+											<div class="grid__col grid__col_5">1</div>
+											<div class="grid__col grid__col_7">2</div>
+										</div>
+										<div class="grid__row">
+											<div class="grid__col grid__col_6">1</div>
+											<div class="grid__col grid__col_6">2</div>
+										</div>
+										<div class="grid__row">
+											<div class="grid__col grid__col_7">1</div>
+											<div class="grid__col grid__col_5">2</div>
+										</div>
+										<div class="grid__row">
+											<div class="grid__col grid__col_8">1</div>
+											<div class="grid__col grid__col_4">2</div>
+										</div>
+										<div class="grid__row">
+											<div class="grid__col grid__col_9">1</div>
+											<div class="grid__col grid__col_3">2</div>
+										</div>
+										<div class="grid__row">
+											<div class="grid__col grid__col_10">1</div>
+											<div class="grid__col grid__col_2">2</div>
+										</div>
+										<div class="grid__row">
+											<div class="grid__col grid__col_11">1</div>
+											<div class="grid__col grid__col_1">2</div>
+										</div>
+										<div class="grid__row">
+											<div class="grid__col grid__col_offset_1">1</div>
+											<div class="grid__col">2</div>
+											<div class="grid__col">3</div>
+											<div class="grid__col">4</div>
+											<div class="grid__col">5</div>
+											<div class="grid__col">6</div>
+											<div class="grid__col">7</div>
+											<div class="grid__col">8</div>
+											<div class="grid__col">9</div>
+											<div class="grid__col">10</div>
+											<div class="grid__col">11</div>
+										</div>
+										<div class="grid__row">
+											<div class="grid__col grid__col_offset_2">1</div>
+											<div class="grid__col">2</div>
+											<div class="grid__col">3</div>
+											<div class="grid__col">4</div>
+											<div class="grid__col">5</div>
+											<div class="grid__col">6</div>
+											<div class="grid__col">7</div>
+											<div class="grid__col">8</div>
+											<div class="grid__col">9</div>
+											<div class="grid__col">10</div>
+										</div>
+										<div class="grid__row">
+											<div class="grid__col grid__col_offset_3">1</div>
+											<div class="grid__col">2</div>
+											<div class="grid__col">3</div>
+											<div class="grid__col">4</div>
+											<div class="grid__col">5</div>
+											<div class="grid__col">6</div>
+											<div class="grid__col">7</div>
+											<div class="grid__col">8</div>
+											<div class="grid__col">9</div>
+										</div>
+										<div class="grid__row">
+											<div class="grid__col grid__col_offset_4">1</div>
+											<div class="grid__col">2</div>
+											<div class="grid__col">3</div>
+											<div class="grid__col">4</div>
+											<div class="grid__col">5</div>
+											<div class="grid__col">6</div>
+											<div class="grid__col">7</div>
+											<div class="grid__col">8</div>
+										</div>
+										<div class="grid__row">
+											<div class="grid__col grid__col_offset_5">1</div>
+											<div class="grid__col">2</div>
+											<div class="grid__col">3</div>
+											<div class="grid__col">4</div>
+											<div class="grid__col">5</div>
+											<div class="grid__col">6</div>
+											<div class="grid__col">7</div>
+										</div>
+										<div class="grid__row">
+											<div class="grid__col grid__col_offset_6">1</div>
+											<div class="grid__col">2</div>
+											<div class="grid__col">3</div>
+											<div class="grid__col">4</div>
+											<div class="grid__col">5</div>
+											<div class="grid__col">6</div>
+										</div>
+										<div class="grid__row">
+											<div class="grid__col grid__col_offset_7">1</div>
+											<div class="grid__col">2</div>
+											<div class="grid__col">3</div>
+											<div class="grid__col">4</div>
+											<div class="grid__col">5</div>
+										</div>
+										<div class="grid__row">
+											<div class="grid__col grid__col_offset_8">1</div>
+											<div class="grid__col">2</div>
+											<div class="grid__col">3</div>
+											<div class="grid__col">4</div>
+										</div>
+										<div class="grid__row">
+											<div class="grid__col grid__col_offset_9">1</div>
+											<div class="grid__col">2</div>
+											<div class="grid__col">3</div>
+										</div>
+										<div class="grid__row">
+											<div class="grid__col grid__col_offset_10">1</div>
+											<div class="grid__col">2</div>
+										</div>
+										<div class="grid__row">
+											<div class="grid__col grid__col_offset_11">1</div>
+										</div>
+									</div>
+								</section>
+								<!-- END GRID-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="assets/javascripts/plugins.min.js"></script>
+		<script src="assets/javascripts/main.min.js"></script>
+	</body>
+</html>

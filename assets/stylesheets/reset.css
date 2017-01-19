@@ -247,19 +247,18 @@ textarea {
 }
 
 html {
-	box-sizing: border-box;
+	-webkit-overflow-scrolling: touch;
 
 	font-size: 62.5%;
-}
-
-body {
-	font-size: 1.4rem;
 	line-height: 1.6;
 	font-family: "Noto Sans", sans-serif;
 	color: #222;
-	letter-spacing: 0.01em;
 
 	background: #fff;
+}
+
+body {
+	font-size: 1.4em;
 }
 
 h1,
@@ -268,7 +267,7 @@ h3,
 h4,
 h5,
 h6 {
-	margin: 1.2em 0 0.5em;
+	margin: 1.4em 0 0;
 
 	font-weight: 700;
 	line-height: normal;
@@ -291,35 +290,35 @@ h6 a:visited {
 }
 
 h1 {
-	font-size: 2.8rem;
+	font-size: 2.25em;
 }
 
 h2 {
-	font-size: 2.4rem;
+	font-size: 2em;
 }
 
 h3 {
-	font-size: 2.2rem;
+	font-size: 1.75em;
 }
 
 h4 {
-	font-size: 2rem;
+	font-size: 1.5em;
 }
 
 h5 {
-	font-size: 1.8rem;
+	font-size: 1.25em;
 }
 
 h6 {
-	font-size: 1.6rem;
+	font-size: 1em;
 }
 
 a {
 	color: #0083ca;
 	text-decoration: underline;
 
-	-webkit-transition: 125ms color ease;
-	transition: 125ms color ease;
+	-webkit-transition: 125ms color ease-out;
+	transition: 125ms color ease-out;
 }
 
 a:visited {
@@ -332,8 +331,16 @@ a:hover {
 }
 
 p {
-	margin-top: 2.24rem;
-	margin-bottom: 2.24rem;
+	margin-top: 1.4em;
+	margin-bottom: 1.4em;
+}
+
+p:first-child {
+	margin-top: 0;
+}
+
+p:last-child {
+	margin-bottom: 0;
 }
 
 i,
@@ -390,29 +397,21 @@ ul {
 	padding-left: 2em;
 }
 
-dt,
-dd {
-	line-height: 2.24rem;
-}
-
 dt {
 	font-weight: bold;
 }
 
 dd {
+	margin-bottom: 1.4em;
 	margin-left: 0;
+	padding-left: 1.4em;
 }
 
 pre,
 code {
 	overflow: hidden;
 
-	font-size: 1.4rem;
-	line-height: 2.24rem;
 	font-family: "Consolas", "Courier New", "Nimbus Mono L", monospace;
-	white-space: -moz-pre-wrap;
-	white-space: -o-pre-wrap;
-	white-space: -pre-wrap;
 	white-space: pre-wrap;
 	word-wrap: break-word;
 	-moz-tab-size: 4;
@@ -428,8 +427,8 @@ pre {
 }
 
 blockquote {
-	margin: 0 0 2.24rem;
-	padding: 1.12rem;
+	margin: 0 0 1.4em;
+	padding: 0.7em;
 
 	border-left: 5px solid #eee;
 }
@@ -451,7 +450,7 @@ blockquote small {
 	display: block;
 
 	font-size: 80%;
-	line-height: 2.24rem;
+	line-height: 1.4em;
 }
 
 blockquote footer:before,
@@ -464,7 +463,7 @@ table {
 }
 
 .table {
-	margin: 2.24rem 0;
+	margin: 1.4em 0;
 
 	border-collapse: collapse;
 	border-spacing: 0;
