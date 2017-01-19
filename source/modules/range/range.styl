@@ -1,0 +1,103 @@
+range-thumb()
+	&::-webkit-slider-thumb
+		{block}
+
+	&::-moz-range-thumb
+		{block}
+
+	&::-ms-thumb
+		{block}
+
+
+range-track()
+	&::-webkit-slider-runnable-track
+		{block}
+
+	&::-moz-range-track
+		{block}
+
+.range
+	&__control
+		padding 0
+		margin 0
+		font inherit
+		color inherit
+		background transparent
+		border none
+		vertical-align top
+		outline none
+		-moz-box-sizing border-box
+		box-sizing border-box
+		background-clip padding-box
+		-webkit-appearance none
+		&:focus
+			outline none
+
+		&:disabled
+			opacity 0.5
+			cursor default
+			pointer-events none
+
+		+range-thumb()
+			cursor pointer
+			border none
+
+		&::-webkit-slider-thumb
+			-webkit-appearance none
+
+		+range-track()
+			cursor pointer
+
+		&::-ms-track
+			width 100%
+			background transparent
+			border-color transparent
+			color transparent
+
+
+	&_style_default &__control
+		+range-thumb()
+			size 18px
+			background-color $form-color-background - 5%
+			box-shadow 0 2px 5px rgba(#000, 0.3)
+			border-radius 50%
+			transition 125ms background ease-in-out
+			margin-top -9px
+			&:hover
+			&:active
+			&:focus
+				background $form-color-background - 5%
+
+		&::-ms-thumb
+			margin-top -2px
+
+		&:focus
+			+range-thumb()
+				background $form-color-active
+
+		&::-ms-fill-lower
+			background $form-color-active
+			border-radius 10px
+
+		&::-ms-fill-upper
+			background $form-color-border
+			border-radius 10px
+
+		&::-ms-track
+			background transparent
+			border-color transparent
+			border-width 12px 0
+			color transparent
+			cursor pointer
+			height 3px
+			width 100%
+
+		+range-track()
+			border-radius 50%
+			cursor pointer
+			height 3px
+			background-color $form-color-border
+			border-radius 10px
+			transition 125ms all ease-in-out
+
+

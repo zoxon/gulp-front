@@ -1,0 +1,12 @@
+mixin range(data)
+	- var rangeClasses = ['range']
+
+	if attributes.type
+		- delete attributes.type
+
+	if attributes.class
+		- rangeClasses.push(attributes.class)
+		- delete attributes.class
+
+	span(class=rangeClasses)
+		input(type="range")&attributes(attributes).form-control.form-control_type_range.range__control
