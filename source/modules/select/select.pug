@@ -3,9 +3,9 @@ mixin select(data)
 
 	if attributes.multiple
 		- selectClasses.push(selectClasses[0] + '_multiple')
-		
+
 	if attributes.type
-		- selectClasses.push(selectClasses[0] + '_type_' + attributes.type)
+		- delete attributes.type
 
 	if attributes.class
 		- selectClasses.push(attributes.class)
