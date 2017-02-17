@@ -33,8 +33,28 @@ function getJsonData(file) {
 }
 
 // Error handler for gulp-plumber
-function errorHandler(err) {
-	$.util.log([ (err.name + ' in ' + err.plugin).bold.red, '', err.message, '' ].join('\n'));
+var colors = require('colors');
+var notifier = require('node-notifier');
+
+function errorHandler(error) {
+	var date = new Date();
+	var now = date.toTimeString().split(' ')[0];
+
+	var title = error.name + ' in ' + error.plugin;
+
+	var shortMessage = error.message.split('\n')[0];
+
+	var message = '[' + colors.grey(now) + '] ' +
+		[ title.bold.red, '', error.message, '' ].join('\n');
+
+	console.log(message);
+
+	notifier.notify({
+		title: title,
+		message: shortMessage,
+		icon: path.join(__dirname, 'tools/icons/error.svg')
+	});
+
 
 	this.emit('end');
 }
