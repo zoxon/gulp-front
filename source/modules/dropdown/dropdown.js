@@ -13,6 +13,7 @@
 	 * @type {Object}
 	 */
 	var defaults = {
+		outerClick: true,
 		class: {
 			base: 'dropdown',
 			open: 'dropdown_open',
@@ -153,7 +154,7 @@
 
 		// Click outside
 		outerClickHandler: function(event) {
-			if (this.isOpen()) {
+			if (this.options.outerClick && this.isOpen()) {
 				if (!$(event.target).closest(this.$element).length) {
 					this.close();
 				}
