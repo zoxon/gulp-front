@@ -1,5 +1,5 @@
 // accordion
-(function() {
+(function($) {
 	'use strict';
 
 	/**
@@ -79,7 +79,7 @@
 		},
 
 		// Toggle accordion
-		toggle: function() {
+		toggle: function(event) {
 			var $trigger = $(event.target);
 			var $item = $trigger.parents('[data-accordion-role="item"]');
 			var $pannel = this.getItemPannel($item);
@@ -137,7 +137,7 @@
 	});
 
 	$.fn[ pluginName ] = function( options ) {
-		return this.each(function(index) {
+		return this.each(function() {
 			if (!$.data(this, 'plugin_' + pluginName)) {
 				$.data(this, 'plugin_' + pluginName,
 					new Plugin( this, options ));
@@ -145,7 +145,7 @@
 		});
 	};
 
-})();
+})(jQuery);
 
 $(function() {
 	$('.accordion').accordion();
