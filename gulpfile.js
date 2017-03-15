@@ -8,6 +8,7 @@ var buffer = require('vinyl-buffer');
 var del = require('del');
 var fs = require('fs');
 var imageminPngquant = require('imagemin-pngquant');
+var imageminJpegRecompress = require('imagemin-jpeg-recompress');
 var path = require('path');
 var posthtmlAttrsSorter = require('posthtml-attrs-sorter');
 var runSequence = require('run-sequence');
@@ -141,16 +142,15 @@ var options = {
 				interlaced: true,
 				optimizationLevel: 3
 			}),
-			$.imagemin.jpegtran({
-				progressive: true
+			imageminJpegRecompress({
+				progressive: true,
+				max: 80,
+				min: 70
 			}),
-			imageminPngquant(),
+			imageminPngquant({ quality: '75-85' }),
 			$.imagemin.svgo({
 				plugins: [
-					{ cleanupIDs: false },
-					{ removeViewBox: false },
-					{ convertPathData: false },
-					{ mergePaths: false }
+					{ removeViewBox: false }
 				]
 			})
 		],

@@ -74,6 +74,7 @@
     "gulp-yaml": "^1.0.1",
     "gulp-zip": "^3.2.0",
     "gulp.spritesmith": "^6.2.1",
+    "imagemin-jpeg-recompress": "^5.1.0",
     "imagemin-pngquant": "^5.0.0",
     "jstransformer-stylus": "^1.1.0",
     "mkdirp": "^0.5.1",
