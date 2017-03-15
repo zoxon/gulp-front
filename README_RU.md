@@ -53,10 +53,10 @@
 	```
 
 * Для [Yarn](https://yarnpkg.com)
-	- Установить `gulp` глобально (один раз!)
+	- Установить `gulp-cli` глобально (один раз!)
 
 		```bash
-		yarn global add gulp
+		yarn global add gulp-cli
 		```
 
 	- Установить зависимости (1 раз на проект)
@@ -85,10 +85,10 @@
 		npm install npm@latest
 		```
 
-	- Установить `gulp` глобально (один раз!)
+	- Установить `gulp-cli` глобально (один раз!)
 
 		```bash
-		npm install gulp -g
+		npm install gulp-cli -g
 		```
 
 	- Установить зависимости (1 раз на проект)
@@ -113,13 +113,18 @@
 * `gulp zip` - собирает проект и архивирует его в zip архив
 * `gulp deploy` - собирает проект и шлет в ветку `build` (только для Git)
 
-## Генерация модулей
+## Генератор модулей
 
 В gulp-front имеется удобный скритп для добавления/удаления модулей в проект.
 
-* `npm run amo <moduleName>` - создает пустой модуль из двух технологий pug и styl
-* `npm run amo <moduleName> js yml` - создает пустой модуль из двух технологий pug и styl и дополнительных технологий js yml
-* `npm run rmo <moduleName>` - удаляет модуль
+Для NPM используйте `npm run <command>`, для Yarn используйте `yarn <command>`
+
+* `amo <moduleName>` - создает пустой модуль из двух технологий pug и styl
+* `amo <moduleName> js yml` - создает пустой модуль из двух технологий pug и styl и дополнительных технологий js yml
+* `rmo <moduleName>` - удаляет модуль
+
+Примеры: `npm run amo my-module yml js`, `yarn amo my-other-module`
+
 
 ## Структура папок и файлов
 

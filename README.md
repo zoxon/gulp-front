@@ -53,10 +53,10 @@ English description | [Описание на русском](README_RU.md)
 	```
 
 * For [Yarn](https://yarnpkg.com)
-	- Install `gulp` globally (once!)
+	- Install `gulp-cli` globally (once!)
 
 		```bash
-		yarn global add gulp
+		yarn global add gulp-cli
 		```
 
 	- Install dependencies
@@ -85,10 +85,10 @@ English description | [Описание на русском](README_RU.md)
 		npm install npm@latest
 		```
 
-	- Install `gulp` globally (once!)
+	- Install `gulp-cli` globally (once!)
 
 		```bash
-		npm install gulp -g
+		npm install gulp-cli -g
 		```
 
 	- Install dependencies
@@ -113,14 +113,17 @@ English description | [Описание на русском](README_RU.md)
 * `gulp zip` - compile a project in zip
 * `gulp deploy` - compile a project and push in `build` branch to git repository
 
-## Module generation
+## Module generator
 
 There is a script for add/delete modules in project in gulp-front.
 
-* `npm run amo <moduleName>` - creates an empty module with a help of technologies, such as pug and styl;
-* `npm run amo <moduleName> js yml` - creates an empty module with a help of pug and styl and also using additional technologies: js, yml and json;
-* `npm run rmo <moduleName>` - Use to delete a module completely;
-* `npm run rmo <moduleName>` - Use to delete a module.
+For npm use `npm run <command>`, for Yarn use `yarn <command>`
+
+* `amo <moduleName>` - creates an empty module with a help of technologies, such as pug and styl;
+* `amo <moduleName> js yml` - creates an empty module with a help of pug and styl and also using additional technologies: js, yml and json;
+* `rmo <moduleName>` - Use to delete a module.
+
+Examples: `npm run amo my-module yml js`, `yarn amo my-other-module`
 
 
 ## Files and folders structure
