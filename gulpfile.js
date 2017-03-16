@@ -152,7 +152,7 @@ var options = {
 		cssName: 'sprite.styl',
 		algorithm: 'binary-tree',
 		padding: 8,
-		cssTemplate: './source/static/styles/templates/sprite-template.mustache'
+		cssTemplate: path.join(__dirname, 'source/static/styles/templates/sprite-template.mustache')
 	},
 
 	imagemin: {
@@ -233,12 +233,7 @@ var options = {
 			zeroLengthNoUnit: true
 		}),
 		postcssSorting(postcssSortingConfig)
-	],
-
-	csso: {
-		restructure: true,
-		sourceMap: true
-	}
+	]
 
 };
 
@@ -253,14 +248,9 @@ gulp.task('serve', function() {
 gulp.task('build:css', function() {
 	return gulp.src([ '*.styl', '!_*.styl' ], { cwd: 'source/static/styles' })
 		.pipe($.plumber(options.plumber))
-		.pipe($.sourcemaps.init())
 		.pipe($.stylus(options.stylus))
 		.pipe($.combineMq({ beautify: true }))
 		.pipe($.postcss(options.postcss))
-		.pipe(gulp.dest('dest/assets/stylesheets'))
-		.pipe($.csso(options.csso))
-		.pipe($.rename({ suffix: '.min' }))
-		.pipe($.sourcemaps.write('.'))
 		.pipe(gulp.dest('dest/assets/stylesheets'))
 		.pipe(browserSync.reload({
 			stream: true,
@@ -300,8 +290,6 @@ gulp.task('modules:assets', function() {
 
 gulp.task('build:assets', function() {
 	var imageFilter = $.filter('**/*.{jpg,gif,svg,png}', { restore: true });
-	var scriptsFilter = $.filter([ '**/*.js', '!**/*.min.js' ], { restore: true });
-	var stylesFilter = $.filter([ '**/*.css', '!**/*.min.css' ], { restore: true });
 
 	return gulp.src([ '**/*.*', '!**/_*.*' ], { cwd: 'source/static/assets' })
 		.pipe($.plumber(options.plumber))
@@ -313,19 +301,6 @@ gulp.task('build:assets', function() {
 		.pipe($.imagemin(options.imagemin.images))
 		.pipe(imageFilter.restore)
 
-		// Minify JavaScript files
-		.pipe(scriptsFilter)
-		.pipe(gulp.dest('dest/assets'))
-		.pipe($.uglify())
-		.pipe($.rename({ suffix: '.min' }))
-		.pipe(scriptsFilter.restore)
-
-		// Minify css
-		.pipe(stylesFilter)
-		.pipe($.csso())
-		.pipe($.rename({ suffix: '.min' }))
-		.pipe(stylesFilter.restore)
-
 		// Copy other files
 		.pipe(gulp.dest('dest/assets'));
 });
@@ -333,12 +308,7 @@ gulp.task('build:assets', function() {
 gulp.task('build:scripts', function() {
 	return gulp.src([ '*.js', '!_*.js' ], { cwd: 'source/static/scripts' })
 		.pipe($.plumber(options.plumber))
-		.pipe($.sourcemaps.init())
 		.pipe($.include(options.include))
-		.pipe(gulp.dest('dest/assets/javascripts'))
-		.pipe($.uglify())
-		.pipe($.rename({ suffix: '.min' }))
-		.pipe($.sourcemaps.write('.'))
 		.pipe(gulp.dest('dest/assets/javascripts'));
 });
 
