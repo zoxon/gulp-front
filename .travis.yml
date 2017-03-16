@@ -1,12 +1,6 @@
 language: node_js
 
 
-# https://docs.travis-ci.com/user/multi-os/
-os:
-  - linux
-  - osx
-
-
 node_js:
   - "7"
   - "6"
