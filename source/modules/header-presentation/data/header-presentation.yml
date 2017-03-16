@@ -3,5 +3,5 @@
     default:
       name: Gulp front
       description: A lean and powerful, gulp-based boilerplate for better front-end coding.
-      version: 7.3.0
+      version: 7.4.0
       subDescription: Created & maintained by @zoxon
