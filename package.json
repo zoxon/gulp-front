@@ -71,7 +71,6 @@
     "gulp-stylus": "^2.5.0",
     "gulp-svg-symbols": "^2.0.0",
     "gulp-uglify": "^2.1.0",
-    "gulp-util": "^3.0.8",
     "gulp-watch": "^4.3.9",
     "gulp-yaml": "^1.0.1",
     "gulp-zip": "^4.0.0",
