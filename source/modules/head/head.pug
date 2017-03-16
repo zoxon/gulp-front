@@ -1,44 +1,52 @@
 mixin head(data)
+	-
+		var title = data.title + ' :: ' + config.projectName;
+		var author = "Velichko Konstantin"
+		var description = "The template for quick start of development with Gulp, Jade and Stylus"
+		var keywords = "demo, gulp, bem, modules, sprites, svg, jade, stylus, boilerplate, frontend, project, template"
+		var url = "http://zoxon.github.io/gulp-front/"
+
 	meta(charset="utf-8")
-	title= data.title + ' :: ' + config.projectName
+	meta(name="viewport" content="width=device-width, initial-scale=1.0")
+	meta(content="IE=edge" http-equiv="X-UA-Compatible")
+	// The above 3 meta tags *must* come first in the head;
+	// any other head content must come *after* these tags
 
-	if data.meta
-		if data.meta == "default"
-			- data.meta = head.default.meta
+	// Title
+	title= title
 
-		meta(content=data.meta.author name="author")
-		meta(content=data.meta.description name="description")
-		meta(content=data.meta.keywords name="keywords")
+	// Meta tags
+	meta(name="description" content=description)
+	meta(name="keywords" content=keywords)
 
-	if data.mobile
-		meta(content="telephone=no" name="format-detection")
-		meta(name="robots" content="noodp, noydir")
-		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+	meta(name="format-detection" content="telephone=no")
+	meta(name="format-detection" content="address=no")
+	meta(name="robots" content="noodp, noydir")
 
-		//- This make sence for mobile browsers. It means, that content has been optimized for mobile browsers
-		meta(name="HandheldFriendly" content="true")
-		meta(content="IE=edge" http-equiv="X-UA-Compatible")
+	// iOS: Add to Home Screen
+	meta(name="apple-mobile-web-app-capable" content="yes")
+	meta(name="apple-mobile-web-app-status-bar-style" content="black-translucent")
+	meta(name="apple-mobile-web-app-title" content=config.projectName)
 
-	//- Styles
-	link(rel="stylesheet", href=config.path.styles + "/reset.min.css")
-	link(rel="stylesheet", href=config.path.styles + "/main.min.css")
 
-	//- OpenGraph Meta
-	if data.og
-		if data.og == "default"
-			- data.og = head.default.og
+	// Styles
+	link(rel="stylesheet" href=config.path.styles + "/reset.css")
+	link(rel="stylesheet" href=config.path.styles + "/main.css")
 
-		meta(property="og:title" content=data.title)
-		meta(property="og:url" content=data.og.url)
-		meta(property="og:description" content=data.og.description)
-		meta(property="og:image" content=data.og.image.path)
-		meta(property="og:image:type" content=data.og.image.type)
-		meta(property="og:image:width" content=data.og.image.widht)
-		meta(property="og:image:height" content=data.og.image.height)
-		meta(property="twitter:description" content=data.og.description)
-		link(rel="image_src" href=data.og.image.path)
+	// Facebook / Open Graph
+	// Facebook: https://developers.facebook.com/docs/sharing/webmasters#markup
+	// Open Graph: http://ogp.me/
+	meta(property="fb:app_id" content="387979211564142")
+	meta(property="og:url" content=url + "index.html")
+	meta(property="og:type" content="website")
+	meta(property="og:title" content=data.title)
+	meta(property="og:image" content=url + "assets/images/content/preview.png")
+	meta(property="og:description" content=description)
+	meta(property="og:site_name" content=config.projectName)
+	meta(property="og:locale" content="en_US")
+	meta(property="article:author" content=author)
 
-	//- Favicon
+	// Favicons
 	//- Genereted with http://realfavicongenerator.net/
 	link(rel="apple-touch-icon" sizes="180x180" href=config.path.favicons + "/apple-touch-icon.png")
 	link(rel="icon" type="image/png" href=config.path.favicons + "/favicon-32x32.png" sizes="32x32")
@@ -51,3 +59,5 @@ mixin head(data)
 	meta(name="msapplication-config" content=config.path.favicons + "/browserconfig.xml")
 	meta(name="theme-color" content="#333366")
 
+	// A list of everything that could go in the head of your document
+	// https://github.com/joshbuchea/HEAD
