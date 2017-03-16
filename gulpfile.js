@@ -33,20 +33,21 @@ function getJsonData(file) {
 }
 
 // Error handler for gulp-plumber
-var colors = require('colors');
-var notifier = require('node-notifier');
-
 function errorHandler(error) {
+	var colors = require('colors');
+	var notifier = require('node-notifier');
 	var date = new Date();
-	var now = date.toTimeString().split(' ')[0];
+
+	var now = date.toTimeString().split(' ')[ 0 ];
 
 	var title = error.name + ' in ' + error.plugin;
 
-	var shortMessage = error.message.split('\n')[0];
+	var shortMessage = error.message.split('\n')[ 0 ];
 
 	var message = '[' + colors.grey(now) + '] ' +
 		[ title.bold.red, '', error.message, '' ].join('\n');
 
+	// Print message to console
 	console.log(message);
 
 	notifier.notify({
