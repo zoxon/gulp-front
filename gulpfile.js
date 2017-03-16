@@ -15,8 +15,8 @@ var runSequence = require('run-sequence');
 var rupture = require('rupture');
 var spritesmith = require('gulp.spritesmith');
 var autoprefixer = require('autoprefixer');
-var stylefmt = require('stylefmt');
 var postcssSorting = require('postcss-sorting');
+var perfectionist = require('perfectionist');
 var postcssSortingConfig = getJsonData('.postcss-sorting.json');
 
 
@@ -202,8 +202,16 @@ var options = {
 		autoprefixer({
 			cascade: false
 		}),
-		stylefmt({
-			configFile: '.stylelintrc'
+		perfectionist({
+			cascade: false,
+			colorCase: 'lower',
+			colorShorthand: true,
+			format: 'expanded',
+			indentChar: '\t',
+			indentSize: 1,
+			trimLeadingZero: false,
+			trimTrailingZeros: true,
+			zeroLengthNoUnit: true
 		}),
 		postcssSorting(postcssSortingConfig)
 	],
@@ -245,7 +253,7 @@ gulp.task('build:data', function() {
 	return gulp.src([ '**/*.yml', '!**/_*.yml' ], { cwd: 'source/modules/*/data' })
 		.pipe($.plumber(options.plumber))
 		.pipe($.yaml({ space: '\t' }))
-		.pipe($.mergeJson('data.json'))
+		.pipe($.mergeJson({ fileName: 'data.json' }))
 		.pipe(gulp.dest('tmp'));
 });
 
