@@ -1,12 +1,27 @@
 language: node_js
+
+
+# https://docs.travis-ci.com/user/multi-os/
+os:
+  - linux
+  - osx
+
+
 node_js:
+  - "7"
   - "6"
-  - "5"
-  - "4"
+
+
+cache:
+  yarn: true
+
 
 before_script:
-  - npm install -g gulp
+  - yarn global add gulp-cli
+
+
 script: gulp build
+
 
 # notifications:
 #   email:
