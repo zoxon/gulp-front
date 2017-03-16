@@ -46,6 +46,7 @@
   "devDependencies": {
     "autoprefixer": "^6.7.7",
     "browser-sync": "^2.18.8",
+    "colors": "^1.1.2",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-bump": "^2.7.0",
@@ -79,6 +80,7 @@
     "imagemin-pngquant": "^5.0.0",
     "jstransformer-stylus": "^1.1.0",
     "mkdirp": "^0.5.1",
+    "node-notifier": "^5.0.2",
     "perfectionist": "^2.4.0",
     "postcss-sorting": "^2.0.1",
     "posthtml-attrs-sorter": "^1.1.0",

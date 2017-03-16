@@ -6,7 +6,6 @@ var $ = require('gulp-load-plugins')();
 var browserSync = require('browser-sync').create();
 var buffer = require('vinyl-buffer');
 var del = require('del');
-var fs = require('fs');
 var imageminPngquant = require('imagemin-pngquant');
 var imageminJpegRecompress = require('imagemin-jpeg-recompress');
 var path = require('path');
@@ -23,7 +22,6 @@ var postcssSortingConfig = getJsonData('.postcss-sorting.json');
 // Read json and return object
 function getJsonData(file) {
 	var fs = require('fs');
-	var path = require('path');
 
 	return JSON.parse(
 			fs.readFileSync(
@@ -34,8 +32,29 @@ function getJsonData(file) {
 }
 
 // Error handler for gulp-plumber
-function errorHandler(err) {
-	$.util.log([ (err.name + ' in ' + err.plugin).bold.red, '', err.message, '' ].join('\n'));
+function errorHandler(error) {
+	var colors = require('colors');
+	var notifier = require('node-notifier');
+	var date = new Date();
+
+	var now = date.toTimeString().split(' ')[ 0 ];
+
+	var title = error.name + ' in ' + error.plugin;
+
+	var shortMessage = error.message.split('\n')[ 0 ];
+
+	var message = '[' + colors.grey(now) + '] ' +
+		[ title.bold.red, '', error.message, '' ].join('\n');
+
+	// Print message to console
+	console.log(message);
+
+	notifier.notify({
+		title: title,
+		message: shortMessage,
+		icon: path.join(__dirname, 'tools/icons/error.svg')
+	});
+
 
 	this.emit('end');
 }
