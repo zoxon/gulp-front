@@ -6,236 +6,21 @@ var $ = require('gulp-load-plugins')();
 var browserSync = require('browser-sync').create();
 var buffer = require('vinyl-buffer');
 var del = require('del');
-var imageminPngquant = require('imagemin-pngquant');
-var imageminJpegRecompress = require('imagemin-jpeg-recompress');
 var path = require('path');
-var posthtmlAttrsSorter = require('posthtml-attrs-sorter');
 var runSequence = require('run-sequence');
-var rupture = require('rupture');
 var spritesmith = require('gulp.spritesmith');
-var autoprefixer = require('autoprefixer');
-var postcssSorting = require('postcss-sorting');
-var perfectionist = require('perfectionist');
-var postcssSortingConfig = getJsonData('.postcss-sorting.json');
 
 
 // Read json and return object
-function getJsonData(file) {
-	var fs = require('fs');
+var getJsonData = require('./gulp/util/get-json-data.js');
 
-	return JSON.parse(
-			fs.readFileSync(
-				path.join(__dirname, file),
-				'utf8'
-			)
-		);
-}
-
-// Error handler for gulp-plumber
-function errorHandler(error) {
-	var colors = require('colors');
-	var notifier = require('node-notifier');
-	var date = new Date();
-
-	var now = date.toTimeString().split(' ')[ 0 ];
-
-	var title = error.name + ' in ' + error.plugin;
-
-	var shortMessage = error.message.split('\n')[ 0 ];
-
-	var message = '[' + colors.grey(now) + '] ' +
-		[ title.bold.red, '', error.message, '' ].join('\n');
-
-	// Print message to console
-	console.log(message);
-
-	notifier.notify({
-		title: title,
-		message: shortMessage,
-		icon: path.join(__dirname, 'tools/icons/error.svg')
-	});
-
-
-	this.emit('end');
-}
-
-function correctNumber(number) {
-	return number < 10 ? '0' + number : number;
-}
+var correctNumber = require('./gulp/util/correct-number.js');
 
 // Return timestamp
-function getDateTime() {
-	var now = new Date();
-	var year = now.getFullYear();
-	var month = correctNumber(now.getMonth() + 1);
-	var day = correctNumber(now.getDate());
-	var hours = correctNumber(now.getHours());
-	var minutes = correctNumber(now.getMinutes());
-	return year + '-' + month + '-' + day + '-' + hours + minutes;
-}
-
-// https://github.com/stylus/stylus/issues/1872#issuecomment-86553717
-function stylusFileExists() {
-	return function(style) {
-		style.define('file-exists', function(path) {
-			return !!$.stylus.stylus.utils.lookup(path.string, this.paths);
-		});
-	};
-}
+var getTimestamp = require('./gulp/util/get-timestamp.js');
 
 // Plugins options
-var options = {
-	del: [
-		'dest',
-		'tmp'
-	],
-
-	plumber: {
-		errorHandler: errorHandler
-	},
-
-	browserSync: {
-		server: './dest',
-		notify: false,
-		reloadOnRestart: true,
-		snippetOptions: {
-			rule: {
-				match: /<\/body>/i
-			}
-		}
-	},
-
-	stylus: {
-		use: [
-			rupture(),
-			stylusFileExists()
-		],
-		'include css': true
-	},
-
-	include: {
-		hardFail: true,
-		includePaths: [
-			__dirname + '/',
-			__dirname + '/node_modules',
-			__dirname + '/source/static/scripts/plugins'
-		]
-	},
-
-	pug: {
-		pretty: '\t'
-	},
-
-	htmlPrettify: {
-		'unformatted': [ 'pre', 'code', 'textarea' ],
-		'indent_with_tabs': true,
-		'preserve_newlines': true,
-		'brace_style': 'expand',
-		'end_with_newline': true
-	},
-
-	svgSymbols: {
-		title: false,
-		id: '%f',
-		className: '%f',
-		svgClassname: 'icons-sprite',
-		templates: [
-			path.join(__dirname, 'source/static/styles/templates/icons-template.styl'),
-			path.join(__dirname, 'source/static/styles/templates/icons-template.svg')
-		]
-	},
-
-	spritesmith: {
-		retinaSrcFilter: '**/*@2x.png',
-		imgName: 'sprite.png',
-		retinaImgName: 'sprite@2x.png',
-		cssName: 'sprite.styl',
-		algorithm: 'binary-tree',
-		padding: 8,
-		cssTemplate: path.join(__dirname, 'source/static/styles/templates/sprite-template.mustache')
-	},
-
-	imagemin: {
-		images: [
-			$.imagemin.gifsicle({
-				interlaced: true,
-				optimizationLevel: 3
-			}),
-			imageminJpegRecompress({
-				progressive: true,
-				max: 80,
-				min: 70
-			}),
-			imageminPngquant({ quality: '75-85' }),
-			$.imagemin.svgo({
-				plugins: [
-					{ removeViewBox: false }
-				]
-			})
-		],
-
-		icons: [
-			$.imagemin.svgo({
-				plugins: [
-					{ removeTitle: true },
-					{ removeStyleElement: true },
-					{ removeAttrs: { attrs: [ 'id', 'class', 'data-name', 'fill', 'fill-rule' ] } },
-					{ removeEmptyContainers: true },
-					{ sortAttrs: true },
-					{ removeUselessDefs: true },
-					{ removeEmptyText: true },
-					{ removeEditorsNSData: true },
-					{ removeEmptyAttrs: true },
-					{ removeHiddenElems: true },
-					{ transformsWithOnePath: true }
-				]
-			})
-		]
-	},
-
-	posthtml: {
-		plugins: [
-			posthtmlAttrsSorter({
-				order: [
-					'class',
-					'id',
-					'name',
-					'data',
-					'ng',
-					'src',
-					'for',
-					'type',
-					'href',
-					'values',
-					'title',
-					'alt',
-					'role',
-					'aria'
-				]
-			})
-		],
-		options: {}
-	},
-
-	postcss: [
-		autoprefixer({
-			cascade: false
-		}),
-		perfectionist({
-			cascade: false,
-			colorCase: 'lower',
-			colorShorthand: true,
-			format: 'expanded',
-			indentChar: '\t',
-			indentSize: 1,
-			trimLeadingZero: false,
-			trimTrailingZeros: true,
-			zeroLengthNoUnit: true
-		}),
-		postcssSorting(postcssSortingConfig)
-	]
-
-};
+var options = require('./gulp/options.js')
 
 gulp.task('cleanup', function(cb) {
 	return del(options.del, cb);
@@ -244,6 +29,7 @@ gulp.task('cleanup', function(cb) {
 gulp.task('serve', function() {
 	return browserSync.init(options.browserSync);
 });
+
 
 gulp.task('build:css', function() {
 	return gulp.src([ '*.styl', '!_*.styl' ], { cwd: 'source/static/styles' })
@@ -362,7 +148,7 @@ gulp.task('semver:reset', function() {
 });
 
 gulp.task('build:zip', function() {
-	var datetime = '-' + getDateTime();
+	var datetime = '-' + getTimestamp();
 	var zipName = 'dist' + datetime + '.zip';
 
 	return gulp.src('dest/**/*')
