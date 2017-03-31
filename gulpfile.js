@@ -3,9 +3,9 @@
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 
-var browserSync = require('browser-sync').create();
+
 var buffer = require('vinyl-buffer');
-var del = require('del');
+
 var path = require('path');
 var runSequence = require('run-sequence');
 var spritesmith = require('gulp.spritesmith');
@@ -20,15 +20,14 @@ var correctNumber = require('./gulp/util/correct-number.js');
 var getTimestamp = require('./gulp/util/get-timestamp.js');
 
 // Plugins options
-var options = require('./gulp/options.js')
+var options = require('./gulp/config.js')
 
-gulp.task('cleanup', function(cb) {
-	return del(options.del, cb);
-});
+var requireDir = require('require-dir');
 
-gulp.task('serve', function() {
-	return browserSync.init(options.browserSync);
-});
+requireDir('./gulp/tasks', { recurse: true });
+
+
+
 
 
 gulp.task('build:css', function() {
