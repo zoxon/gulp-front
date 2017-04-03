@@ -6,8 +6,7 @@ var runSequence = require('run-sequence');
 var requireDir = require('require-dir');
 
 // Load all tasks
-requireDir('./gulp/tasks', { recurse: true });
-
+var modules = requireDir('./gulp/tasks');
 
 // Service tasks
 gulp.task('build:html', function(cb) {
