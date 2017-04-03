@@ -1,7 +1,7 @@
 'use strict';
 
 // Error handler for gulp-plumber
-module.exports = function(error) {
+function errorHandler(error) {
 	var colors = require('colors');
 	var notifier = require('node-notifier');
 	var path = require('path');
@@ -29,3 +29,6 @@ module.exports = function(error) {
 
 	this.emit('end');
 }
+
+
+module.exports = errorHandler;

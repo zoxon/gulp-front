@@ -1,7 +1,9 @@
 'use strict';
 
+var correctNumber = require('./correct-number.js');
+
 // Return timestamp
-module.exports = function() {
+function getTimestamp() {
 	var now = new Date();
 	var year = now.getFullYear();
 	var month = correctNumber(now.getMonth() + 1);
@@ -10,3 +12,6 @@ module.exports = function() {
 	var minutes = correctNumber(now.getMinutes());
 	return year + '-' + month + '-' + day + '-' + hours + minutes;
 }
+
+
+module.exports = getTimestamp;

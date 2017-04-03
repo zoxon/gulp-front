@@ -1,7 +1,7 @@
 'use strict';
 
 // https://github.com/stylus/stylus/issues/1872#issuecomment-86553717
-module.exports = function() {
+function stylusFileExists() {
 	var stylus = require('gulp-stylus');
 
 	return function(style) {
@@ -10,3 +10,5 @@ module.exports = function() {
 		});
 	};
 }
+
+module.exports = stylusFileExists;

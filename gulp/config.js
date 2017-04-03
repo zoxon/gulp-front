@@ -164,5 +164,9 @@ module.exports = {
 			zeroLengthNoUnit: true
 		}),
 		postcssSorting(postcssSortingConfig)
-	]
+	],
+
+	ghPages: {
+		branch: 'build'
+	}
 };

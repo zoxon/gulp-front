@@ -1,7 +1,7 @@
 'use strict';
 
 // Read json and return object
-module.exports = function(file) {
+function getJsonData(file) {
 	var fs = require('fs');
 	var path = require('path');
 	var cwd = process.cwd();
@@ -13,3 +13,5 @@ module.exports = function(file) {
 		)
 	);
 }
+
+module.exports = getJsonData;
