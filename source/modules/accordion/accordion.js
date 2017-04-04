@@ -15,9 +15,9 @@
 	var defaults = {
 		class: {
 			base: 'accordion',
-			open: 'accordion__item_open'
+			open: 'accordion__item_active'
 		},
-		speed: 300,
+		speed: false, // if speed is set use jquery slide up/down animation
 		onOpen: function() {},
 		onClose: function() {}
 	};
@@ -87,13 +87,19 @@
 			if (!$item.hasClass(this.options.class.open)) {
 				this.$items.removeClass(this.options.class.open);
 				$item.addClass(this.options.class.open);
-				this.$pannels.slideUp(this.options.speed);
-				$pannel.slideDown(this.options.speed);
+
+				if (this.options.speed) {
+					this.$pannels.slideUp(this.options.speed);
+					$pannel.slideDown(this.options.speed);
+				}
+
 				this.$element.trigger('opened' + '.' + this._name);
 				this.callback('onOpen');
 			}
 			else {
-				$pannel.slideUp(this.options.speed);
+				if (this.options.speed) {
+					$pannel.slideUp(this.options.speed);
+				}
 				$item.removeClass(this.options.class.open);
 				this.$element.trigger('closed' + '.' + this._name);
 				this.callback('onClose');

@@ -7,7 +7,7 @@ mixin accordion-item(data)
 	if data.open
 		- classes.push(classes[0] + '_open')
 
-	.accordion__item(class=classes data-accordion-role="item")&attributes(attributes)
+	div(class=classes data-accordion-role="item")&attributes(attributes)
 		button(type="button" data-accordion-role="trigger").accordion__trigger= data.title
-		.accordion__pannel(data-accordion-role="pannel")
+		.accordion__pannel(data-accordion-role="pannel").content-wrapper
 			block

@@ -37,11 +37,20 @@
 			transform-origin 75% 75%
 
 	&__pannel
-		display none
-		padding 20px 10px
+		padding 0 10px
+		transition 250ms all cubic-bezier(0.5, 0, 0.1, 1)
+		height 0
+		visibility hidden
+		opacity 0
+		overflow hidden
 
-	&__item_active &__trigger
-		background-color #f9f9f9
+	&__item_active &__pannel
+		padding-top 20px
+		padding-bottom 20px
+		height auto
+		visibility visible
+		overflow auto
+		opacity 1
 
 	&__item_active &__trigger
 		&::after
