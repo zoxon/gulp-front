@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/zoxon/gulp-front.png?label=ready&title=Ready)](https://waffle.io/zoxon/gulp-front)
 # Gulp Front
 
 English description | [Описание на русском](README_RU.md)
