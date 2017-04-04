@@ -1,10 +1,10 @@
 'use strict';
 
-var gulp = require('gulp');
-var options = require('../config.js');
-var browserSync = require('browser-sync').create();
+var browserSync = require('browser-sync').create('default');
 
+module.exports = function(options) {
+	return function() {
+		return browserSync.init(options.browserSync);
+	}
+}
 
-gulp.task('serve', function() {
-	return browserSync.init(options.browserSync);
-});

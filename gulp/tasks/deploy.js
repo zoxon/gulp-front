@@ -1,10 +1,13 @@
 'use strict';
 
-var gulp = require('gulp');
-var options = require('../config.js');
-var ghPages = require('gulp-gh-pages');
+var runSequence = require('run-sequence');
 
-gulp.task('deploy:publish', function() {
-	return gulp.src('**/*', { cwd: 'dest' })
-		.pipe(ghPages(options.ghPages));
-});
+module.exports = function() {
+	return function(callback) {
+		return runSequence(
+			'build',
+			'deploy:publish',
+			callback
+		);
+	}
+}

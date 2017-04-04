@@ -6,7 +6,10 @@ module.exports = function() {
 	return function(callback) {
 		return runSequence(
 			'build',
-			'build:zip',
+			[
+				'serve',
+				'watch'
+			],
 			callback
 		);
 	}

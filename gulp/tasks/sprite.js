@@ -1,21 +1,23 @@
 'use strict';
 
 var gulp = require('gulp');
-var options = require('../config.js');
 var spritesmith = require('gulp.spritesmith');
 var imagemin = require('gulp-imagemin');
 var buffer = require('vinyl-buffer');
 
-gulp.task('build:sprite', function() {
-	var spriteData = gulp.src([ '**/*.png', '!**/_*.png' ], { cwd: 'source/static/sprite' })
-		.pipe(spritesmith(options.spritesmith));
 
-	spriteData.img.pipe(buffer())
-		.pipe(imagemin(options.imagemin.images))
-		.pipe(gulp.dest('dest/assets/images'));
+module.exports = function(options) {
+	return function() {
+		var spriteData = gulp.src([ '**/*.png', '!**/_*.png' ], { cwd: 'source/static/sprite' })
+			.pipe(spritesmith(options.spritesmith));
 
-	spriteData.css.pipe(buffer())
-		.pipe(gulp.dest('tmp'));
+		spriteData.img.pipe(buffer())
+			.pipe(imagemin(options.imagemin.images))
+			.pipe(gulp.dest('dest/assets/images'));
 
-	return spriteData.img.pipe(buffer());
-});
+		spriteData.css.pipe(buffer())
+			.pipe(gulp.dest('tmp'));
+
+		return spriteData.img.pipe(buffer());
+	}
+}

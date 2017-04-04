@@ -1,118 +1,35 @@
 'use strict';
 
 var gulp = require('gulp');
-var watch = require('gulp-watch');
-var runSequence = require('run-sequence');
-var requireDir = require('require-dir');
+var loadTask = require('./gulp/util/load-task.js');
 
-// Load all tasks
-var modules = requireDir('./gulp/tasks');
+loadTask('cleanup', './gulp/tasks/cleanup.js');
+loadTask('serve', './gulp/tasks/serve.js');
+loadTask('build:css', './gulp/tasks/css.js');
+loadTask('build:data', './gulp/tasks/data.js');
+loadTask('build:pages', './gulp/tasks/pages.js');
+loadTask('build:assets', './gulp/tasks/assets.js');
+loadTask('modules:assets', './gulp/tasks/modules/assets.js');
+loadTask('build:scripts', './gulp/tasks/scripts.js');
+loadTask('build:icons', './gulp/tasks/icons.js');
+loadTask('build:sprite', './gulp/tasks/sprite.js');
+loadTask('deploy:publish', './gulp/tasks/publish.js');
+loadTask('build:zip', './gulp/tasks/build-zip.js');
+
+// Semver
+loadTask('semver:patch', './gulp/tasks/semver/patch.js');
+loadTask('semver:minor', './gulp/tasks/semver/minor.js');
+loadTask('semver:major', './gulp/tasks/semver/major.js');
+loadTask('semver:reset', './gulp/tasks/semver/reset.js');
 
 // Service tasks
-gulp.task('build:html', function(cb) {
-	return runSequence(
-		'build:data',
-		'build:pages',
-		cb
-	);
-});
+loadTask('build:html', './gulp/tasks/html.js');
+loadTask('build', './gulp/tasks/build.js');
+loadTask('zip', './gulp/tasks/zip.js');
+loadTask('deploy', './gulp/tasks/deploy.js');
+loadTask('dev', './gulp/tasks/dev.js');
+loadTask('watch', './gulp/tasks/watch.js');
 
-// Main tasks
-gulp.task('build', function(cb) {
-	return runSequence(
-		'cleanup',
-		[
-			'build:html',
-			'build:icons',
-			'build:sprite',
-			'modules:assets',
-			'build:assets',
-			'build:scripts'
-		],
-		'build:css',
-		cb
-	);
-});
-
-gulp.task('zip', function(cb) {
-	return runSequence(
-		'build',
-		'build:zip',
-		cb
-	);
-});
-
-gulp.task('deploy', function(cb) {
-	return runSequence(
-		'build',
-		'deploy:publish',
-		cb
-	);
-});
-
-gulp.task('dev', function(cb) {
-	return runSequence(
-		'build',
-		[
-			'serve',
-			'watch'
-		],
-		cb
-	);
-});
-
-gulp.task('watch', function() {
-
-	// Modules, pages
-	watch('source/**/*.pug', function() {
-		return runSequence('build:pages', browserSync.reload);
-	});
-
-	// Modules data
-	watch([ 'source/modules/*/data/*.yml' ], function() {
-		return runSequence('build:html', browserSync.reload);
-	});
-
-	// Static styles
-	watch('source/static/styles/**/*.styl', function() {
-		return gulp.start('build:css');
-	});
-
-	// Modules styles
-	watch('source/modules/**/*.styl', function() {
-		return gulp.start('build:css');
-	});
-
-	// Static scripts
-	watch('source/static/scripts/**/*.js', function() {
-		return runSequence('build:scripts', browserSync.reload);
-	});
-
-	// Modules scripts
-	watch('source/modules/*/*.js', function() {
-		return runSequence('build:scripts', browserSync.reload);
-	});
-
-	// Modules images
-	watch('source/modules/*/assets/**/*.{jpg,gif,svg,png}', function() {
-		return runSequence('modules:assets', browserSync.reload);
-	});
-
-	// Static files
-	watch('source/static/assets/**/*', function() {
-		return runSequence('build:assets', browserSync.reload);
-	});
-
-	// Svg icons
-	watch('source/static/icons/**/*.svg', function() {
-		return runSequence('build:icons', 'build:css', browserSync.reload);
-	});
-
-	// Png sprites
-	watch('source/static/sprite/**/*.png', function() {
-		return runSequence('build:sprite', browserSync.reload);
-	});
-});
 
 gulp.task('default', function() {
 	gulp.start('build');
