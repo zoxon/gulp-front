@@ -24,10 +24,6 @@
     "type": "git",
     "url": "https://github.com/zoxon/gulp-front.git"
   },
-  "licenses": {
-    "type": "MIT",
-    "url": "https://github.com/zoxon/gulp-front/blob/master/LICENSE"
-  },
   "bugs": {
     "url": "https://github.com/zoxon/gulp-front/issues"
   },
