@@ -6,15 +6,23 @@
 
 
 .content-wrapper
-	img[align="left"]
-	img[style*="float: left"]
-	img[style*="float:left"]
-		margin 5px 15px 0px 0px
+	m-cf()
 
-	img[align="right"]
-	img[style*="float: right"]
-	img[style*="float:right"]
-		margin 5px 0px 0px 15px
+	> *:first-child
+		margin-top 0 !important
+
+	> *:last-child
+		margin-bottom 0 !important
+
+	// Anchors like <a name="examples">. These sometimes end up wrapped around
+	// text when users mistakenly forget to close the tag or use self-closing tag
+	// syntax. We don't want them to appear like links.
+	// FIXME: a:not(:link):not(:visited) would be a little clearer here (and
+	// possibly faster to match), but it breaks styling of <a href> elements due
+	// to https://bugs.webkit.org/show_bug.cgi?id=142737.
+	a:not([href])
+		color inherit
+		text-decoration none
 
 .align-image-center
 	text-align center
