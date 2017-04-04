@@ -267,9 +267,7 @@ gulp.task('build:data', function() {
 });
 
 gulp.task('build:pages', function() {
-	var jsonData = getJsonData('./tmp/data.json');
-
-	options.pug.locals = jsonData;
+	options.pug.locals = getJsonData('./tmp/data.json');
 
 	return gulp.src([ '**/*.pug', '!**/_*.pug' ], { cwd: 'source/pages' })
 		.pipe($.plumber(options.plumber))
