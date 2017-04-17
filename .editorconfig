@@ -12,9 +12,9 @@ charset = utf-8
 trim_trailing_whitespace = all
 insert_final_newline = true
 
-[*.jade]
+[*.{jade,pug}]
 trim_trailing_whitespace = false
 
-[{*.json,.stylelintrc,*.yml}]
+[{*.json,*.yml,.stylelintrc,.htmlhintrc}]
 indent_style = space
 indent_size = 2
