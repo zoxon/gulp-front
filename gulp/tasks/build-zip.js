@@ -12,10 +12,10 @@ var cwdDirName = path.basename(cwd) || 'dist';
 var zipName = toCamelCase(cwdDirName) + datetime + '.zip';
 
 
-module.exports = function(options) {
+module.exports = function() {
 	return function() {
 		return gulp.src('dest/**/*')
 			.pipe(zip(zipName))
 			.pipe(gulp.dest('zip'));
-	}
-}
+	};
+};

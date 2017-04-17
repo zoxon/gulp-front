@@ -9,9 +9,15 @@ var gulpIf = require('gulp-if');
 var path = require('path');
 var cwd = process.cwd();
 var getJsonData = require('../util/get-json-data.js');
+var config = require('../config.js');
+var options = {
+	plumber: config.plumber(),
+	pug: config.pug(),
+	posthtml: config.posthtml(),
+	htmlPrettify: config.htmlPrettify()
+};
 
-
-module.exports = function(options) {
+module.exports = function() {
 	return function() {
 		var jsonData = getJsonData('./tmp/data.json');
 
@@ -23,5 +29,5 @@ module.exports = function(options) {
 			.pipe(posthtml(options.posthtml.plugins, options.posthtml.options))
 			.pipe(prettify(options.htmlPrettify))
 			.pipe(gulp.dest('dest'));
-	}
-}
+	};
+};

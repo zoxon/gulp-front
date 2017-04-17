@@ -17,5 +17,5 @@ module.exports = function() {
 			'build:css',
 			callback
 		);
-	}
-}
+	};
+};

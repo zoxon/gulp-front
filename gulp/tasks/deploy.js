@@ -9,5 +9,5 @@ module.exports = function() {
 			'deploy:publish',
 			callback
 		);
-	}
-}
+	};
+};

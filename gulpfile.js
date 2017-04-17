@@ -3,6 +3,7 @@
 var gulp = require('gulp');
 var loadTask = require('./gulp/util/load-task.js');
 
+// Main tasks
 loadTask('cleanup', './gulp/tasks/cleanup.js');
 loadTask('serve', './gulp/tasks/serve.js');
 loadTask('build:css', './gulp/tasks/css.js');

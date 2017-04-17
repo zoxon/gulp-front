@@ -5,10 +5,13 @@ var plumber = require('gulp-plumber');
 var filter = require('gulp-filter');
 var changed = require('gulp-changed');
 var imagemin = require('gulp-imagemin');
-var flatten = require('gulp-flatten');
+var config = require('../config.js');
+var options = {
+	plumber: config.plumber(),
+	imagemin: config.imagemin()
+};
 
-
-module.exports = function(options) {
+module.exports = function() {
 	return function() {
 		var imageFilter = filter('**/*.{jpg,gif,svg,png}', { restore: true });
 
@@ -24,5 +27,5 @@ module.exports = function(options) {
 
 			// Copy other files
 			.pipe(gulp.dest('dest/assets'));
-	}
-}
+	};
+};

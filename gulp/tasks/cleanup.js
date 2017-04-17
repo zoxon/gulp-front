@@ -2,10 +2,11 @@
 
 var gulp = require('gulp');
 var del = require('del');
+var options = require('../config.js').del();
 
 
-module.exports = function(options) {
+module.exports = function() {
 	return function(callback) {
-		return del(options.del, callback);
-	}
-}
+		return del(options, callback);
+	};
+};
