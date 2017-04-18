@@ -33,6 +33,4 @@ loadTask('dev', './gulp/tasks/dev.js');
 loadTask('watch', './gulp/tasks/watch.js');
 
 
-gulp.task('default', function() {
-	gulp.start('build');
-});
+gulp.task('default', gulp.series('build'));

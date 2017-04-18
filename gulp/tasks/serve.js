@@ -1,6 +1,6 @@
 'use strict';
 
-var browserSync = require('browser-sync').create('default');
+var browserSync = require('../util/get-bs-instance.js');
 
 var config = require('../config.js');
 var options = {

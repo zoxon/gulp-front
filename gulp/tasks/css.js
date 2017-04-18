@@ -5,7 +5,7 @@ var plumber = require('gulp-plumber');
 var stylus = require('gulp-stylus');
 var combineMq = require('gulp-combine-mq');
 var postcss = require('gulp-postcss');
-var browserSync = require('browser-sync').create();
+var browserSync = require('../util/get-bs-instance.js');
 var config = require('../config.js');
 var options = {
 	plumber: config.plumber(),
@@ -22,10 +22,7 @@ module.exports = function() {
 			.pipe(combineMq({ beautify: true }))
 			.pipe(postcss(options.postcss))
 			.pipe(gulp.dest('dest/assets/stylesheets'))
-			.pipe(browserSync.reload({
-				stream: true,
-				match: '**/*.css'
-			}));
+			.pipe(browserSync.stream({ match: '**/*.css' }));
 	};
 };
 
