@@ -1,16 +1,13 @@
 'use strict';
 
-var runSequence = require('run-sequence');
+var gulp = require('gulp');
 
 module.exports = function() {
-	return function(callback) {
-		return runSequence(
-			'build',
-			[
-				'serve',
-				'watch'
-			],
-			callback
-		);
-	};
+	return gulp.series(
+		'build',
+		gulp.parallel(
+			'serve',
+			'watch'
+		)
+	);
 };

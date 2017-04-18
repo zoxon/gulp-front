@@ -1,13 +1,10 @@
 'use strict';
 
-var runSequence = require('run-sequence');
+var gulp = require('gulp');
 
 module.exports = function() {
-	return function(callback) {
-		return runSequence(
-			'build',
-			'build:zip',
-			callback
-		);
-	}
-}
+	return gulp.series(
+		'build',
+		'build:zip'
+	);
+};

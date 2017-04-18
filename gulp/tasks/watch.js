@@ -1,64 +1,71 @@
 'use strict';
 
 var gulp = require('gulp');
-var watch = require('gulp-watch');
-var runSequence = require('run-sequence');
-var browserSync = require('browser-sync').get('default');
+var browserSync = require('../util/get-bs-instance.js');
+var reload = browserSync.reload;
 
 
 module.exports = function() {
-	return function(callback) {
-		global.watch = true;
+	return function() {
 
 		// Modules, pages
-		var templates = watch('source/**/*.pug', function() {
-			return gulp.start('build:pages');
-		});
+		gulp.watch(
+			'source/**/*.pug',
+			gulp.series('build:pages', reload)
+		);
 
 		// Modules data
-		watch([ 'source/modules/*/data/*.yml' ], function() {
-			return gulp.start('build:html');
-		});
+		gulp.watch(
+			'source/modules/*/data/*.yml',
+			gulp.series('build:html', reload)
+		);
 
 		// Static styles
-		watch('source/static/styles/**/*.styl', function() {
-			return gulp.start('build:css');
-		});
+		gulp.watch(
+			'source/static/styles/**/*.styl',
+			gulp.series('build:css')
+		);
 
 		// Modules styles
-		watch('source/modules/**/*.styl', function() {
-			return gulp.start('build:css');
-		});
+		gulp.watch(
+			'source/modules/**/*.styl',
+			gulp.series('build:css')
+		);
 
 		// Static scripts
-		watch('source/static/scripts/**/*.js', function() {
-			return gulp.start('build:scripts');
-		});
+		gulp.watch(
+			'source/static/scripts/**/*.js',
+			gulp.series('build:scripts', reload)
+		);
 
 		// Modules scripts
-		watch('source/modules/*/*.js', function() {
-			return gulp.start('build:scripts');
-		});
+		gulp.watch(
+			'source/modules/*/*.js',
+			gulp.series('build:scripts', reload)
+		);
 
 		// Modules images
-		watch('source/modules/*/assets/**/*.{jpg,gif,svg,png}', function() {
-			return gulp.start('modules:assets');
-		});
+		gulp.watch(
+			'source/modules/*/assets/**/*.{jpg,gif,svg,png}',
+			gulp.series('modules:assets', reload)
+		);
 
 		// Static files
-		watch('source/static/assets/**/*', function() {
-			return gulp.start('build:assets');
-		});
+		gulp.watch(
+			'source/static/assets/**/*',
+			gulp.series('build:assets', reload)
+		);
 
 		// Svg icons
-		watch('source/static/icons/**/*.svg', function() {
-			return runSequence('build:icons', 'build:css');
-		});
+		gulp.watch(
+			'source/static/icons/**/*.svg',
+			gulp.series('build:icons', 'build:css', reload)
+		);
 
 		// Png sprites
-		watch('source/static/sprite/**/*.png', function() {
-			return gulp.start('build:sprite');
-		});
-	}
-}
-
+		gulp.watch(
+			'source/static/sprite/**/*.png',
+			gulp.series('build:sprite', reload)
+		);
+	};
+};

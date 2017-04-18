@@ -1,21 +1,19 @@
 'use strict';
-
-var runSequence = require('run-sequence');
+var gulp = require('gulp');
 
 module.exports = function() {
-	return function(callback) {
-		return runSequence(
-			'cleanup',
-			[
+	return gulp.series(
+		'cleanup',
+		gulp.series(
+			gulp.parallel(
 				'build:html',
 				'build:icons',
 				'build:sprite',
 				'modules:assets',
 				'build:assets',
 				'build:scripts'
-			],
-			'build:css',
-			callback
-		);
-	};
+			),
+			'build:css'
+		)
+	);
 };
