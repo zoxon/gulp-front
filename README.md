@@ -65,6 +65,14 @@ English description | [Описание на русском](README_RU.md)
 		yarn
 		```
 
+	- Start `gulp`
+
+		```bash
+		yarn start
+		# or
+		yarn dev
+		```
+
 * For [NPM](https://www.npmjs.com)
 	- Update npm to latest version
 		Go to the folder with installed nodejs
@@ -97,21 +105,23 @@ English description | [Описание на русском](README_RU.md)
 		npm install
 		```
 
-* Start `gulp`
+	- Start `gulp`
 
-	```bash
-	gulp dev
-	```
+		```bash
+		npm start
+		```
 
 * In browser open page with address [`http://localhost:3000/`](http://localhost:3000/)
 
 
 ## Main tasks
 
-* `gulp dev` - launches watchers and server
-* `gulp build` - compile a project
-* `gulp zip` - compile a project in zip
-* `gulp deploy` - compile a project and push in `build` branch to git repository
+For npm use `npm run <command>`, for Yarn use `yarn <command>`
+
+* `dev` - launches watchers and server
+* `build` - compile a project
+* `zip` - compile a project in zip
+* `deploy` - compile a project and push in `build` branch to git repository
 
 ## Module generator
 

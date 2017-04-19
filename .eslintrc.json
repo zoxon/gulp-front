@@ -1,6 +1,11 @@
 {
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    },
     "env": {
-        "browser": true
+        "browser": true,
+        "node": true
     },
     "extends": "eslint:recommended",
     "rules": {
