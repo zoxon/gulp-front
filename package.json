@@ -32,6 +32,7 @@
     "start": "gulp dev",
     "build": "gulp build --production",
     "deploy": "gulp deploy --production",
+    "zip": "gulp zip --production",
     "dev": "npm run start",
     "amo": "node tools/module/add.js",
     "rmo": "node tools/module/remove.js"
