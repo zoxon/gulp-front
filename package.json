@@ -69,6 +69,7 @@
     "imagemin-jpeg-recompress": "^5.1.0",
     "imagemin-pngquant": "^5.0.0",
     "jstransformer-stylus": "^1.1.0",
+    "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
     "node-notifier": "^5.0.2",
     "perfectionist": "^2.4.0",
