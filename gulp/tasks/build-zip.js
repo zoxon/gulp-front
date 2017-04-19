@@ -2,7 +2,7 @@
 
 var gulp = require('gulp');
 var zip = require('gulp-zip');
-var getTimestamp = require('../util/get-timestamp.js')
+var getTimestamp = require('../util/get-timestamp.js');
 var path = require('path');
 var cwd = process.cwd();
 var toCamelCase = require('../util/to-camel-case.js');

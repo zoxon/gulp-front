@@ -29,8 +29,10 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "yarn build",
     "start": "gulp dev",
+    "build": "gulp build --production",
+    "deploy": "gulp deploy --production",
+    "dev": "npm run start",
     "amo": "node tools/module/add.js",
     "rmo": "node tools/module/remove.js"
   },
@@ -66,8 +68,10 @@
     "gulp-yaml": "^1.0.1",
     "gulp-zip": "^4.0.0",
     "gulp.spritesmith": "^6.3.0",
+    "gulplog": "^1.0.0",
     "imagemin-jpeg-recompress": "^5.1.0",
     "imagemin-pngquant": "^5.0.0",
+    "jquery": "^3.2.1",
     "jstransformer-stylus": "^1.1.0",
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
@@ -76,13 +80,15 @@
     "postcss-sorting": "^2.0.1",
     "posthtml-attrs-sorter": "^1.1.0",
     "rupture": "^0.6.1",
-    "vinyl-buffer": "^1.0.0"
+    "vinyl-buffer": "^1.0.0",
+    "webpack": "^2.4.1",
+    "webpack-stream": "^3.2.0"
   },
   "dependencies": {
     "fastclick": "^1.0.6",
-    "jquery": "https://github.com/jquery/jquery-dist/archive/master.tar.gz",
     "placeholders.js": "^3.0.2",
     "remodal": "^1.1.1",
-    "svg4everybody": "^2.1.7"
+    "svg4everybody": "^2.1.7",
+    "throttle-debounce": "^1.0.1"
   }
 }

@@ -6,11 +6,11 @@ var NODE_ENV = (env.production || env.prod) ? 'production' : 'development';
 var isDevelopment = NODE_ENV === 'development';
 
 
-var outputFileName = isDevelopment ? '[name].js' : '[name]-[chunkhash:10].min.js';
+var outputFileName = '[name].js';
 
 var options = {
 	entry: {
-		vendor: [ 'jquery', './plugins.js' ],
+		vendor: [ 'jquery', './vendor.js' ],
 		main: './main.js'
 	},
 	output: {
