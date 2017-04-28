@@ -12,7 +12,7 @@ loadTask('build:css', './gulp/tasks/css.js');
 loadTask('build:data', './gulp/tasks/data.js');
 loadTask('build:pages', './gulp/tasks/pages.js');
 loadTask('build:assets', './gulp/tasks/assets.js');
-loadTask('modules:assets', './gulp/tasks/modules/assets.js');
+loadTask('modules:images', './gulp/tasks/modules/images.js');
 loadTask('build:scripts', './gulp/tasks/scripts.js');
 loadTask('build:icons', './gulp/tasks/icons.js');
 loadTask('build:sprite', './gulp/tasks/sprite.js');

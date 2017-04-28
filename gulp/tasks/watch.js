@@ -43,8 +43,8 @@ module.exports = function() {
 
 		// Modules images
 		gulp.watch(
-			'source/modules/*/assets/**/*.{jpg,gif,svg,png}',
-			gulp.series('modules:assets', 'reload')
+			'source/modules/*/images/*.{jpg,gif,svg,png}',
+			gulp.series('modules:images', 'reload')
 		);
 
 		// Static files

@@ -9,7 +9,7 @@ module.exports = function() {
 				'build:html',
 				'build:icons',
 				'build:sprite',
-				'modules:assets',
+				'modules:images',
 				'build:assets',
 				'build:scripts'
 			),
