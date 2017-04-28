@@ -49,13 +49,13 @@
     "del": "^2.2.2",
     "gulp": "gulpjs/gulp#4.0",
     "gulp-bump": "^2.7.0",
-    "gulp-changed": "^2.0.0",
+    "gulp-changed": "^3.0.0",
     "gulp-combine-mq": "^0.4.0",
     "gulp-filter": "^5.0.0",
     "gulp-flatten": "^0.3.1",
     "gulp-gh-pages": "^0.5.4",
     "gulp-if": "^2.0.1",
-    "gulp-imagemin": "^3.0.3",
+    "gulp-imagemin": "^3.2.0",
     "gulp-include": "^2.3.1",
     "gulp-merge-json": "^1.0.0",
     "gulp-plumber": "^1.1.0",
@@ -89,7 +89,7 @@
     "fastclick": "^1.0.6",
     "placeholders.js": "^3.0.2",
     "remodal": "^1.1.1",
-    "svg4everybody": "^2.1.7",
+    "svg4everybody": "^2.1.8",
     "throttle-debounce": "^1.0.1"
   }
 }
