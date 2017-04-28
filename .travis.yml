@@ -14,7 +14,7 @@ before_script:
   - yarn global add gulp-cli
 
 
-script: gulp build
+script: yarn build
 
 
 # notifications:
