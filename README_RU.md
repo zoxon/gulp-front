@@ -4,8 +4,8 @@
 
 *Шаблон для быстрого старта разработки с [Gulp](http://gulpjs.com/), [Pug](https://pugjs.org/) и [Stylus](https://learnboost.github.io/stylus/)*
 
-[![Build Status](https://api.travis-ci.org/zoxon/gulp-front.svg)](https://travis-ci.org/zoxon/gulp-front)
-[![devDependency Status](https://david-dm.org/zoxon/gulp-front/dev-status.svg)](https://david-dm.org/zoxon/gulp-front#info=devDependencies)
+[![Build Status](https://travis-ci.org/zoxon/gulp-front.svg?branch=master)](https://travis-ci.org/zoxon/gulp-front/builds)
+[![devDependency Status](https://david-dm.org/zoxon/gulp-front/dev-status.svg)](https://david-dm.org/zoxon/gulp-front?type=dev)
 [![GitHub issues](https://img.shields.io/github/issues/zoxon/gulp-front.svg?style=flat)](https://github.com/zoxon/gulp-front/issues)
 [![GitHub forks](https://img.shields.io/github/forks/zoxon/gulp-front.svg?style=flat)](https://github.com/zoxon/gulp-front/network)
 [![GitHub stars](https://img.shields.io/github/stars/zoxon/gulp-front.svg?style=flat)](https://github.com/zoxon/gulp-front/stargazers)
