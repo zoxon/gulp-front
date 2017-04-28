@@ -1,9 +1,6 @@
 'use strict';
 
 var gulp = require('gulp');
-var browserSync = require('../util/get-bs-instance.js');
-var reload = browserSync.reload;
-
 
 module.exports = function() {
 	return function() {
@@ -11,13 +8,13 @@ module.exports = function() {
 		// Modules, pages
 		gulp.watch(
 			'source/**/*.pug',
-			gulp.series('build:pages', reload)
+			gulp.series('build:pages', 'reload')
 		);
 
 		// Modules data
 		gulp.watch(
 			'source/modules/*/data/*.yml',
-			gulp.series('build:html', reload)
+			gulp.series('build:html', 'reload')
 		);
 
 		// Static styles
@@ -35,37 +32,37 @@ module.exports = function() {
 		// Static scripts
 		gulp.watch(
 			'source/static/scripts/**/*.js',
-			gulp.series('build:scripts', reload)
+			gulp.series('build:scripts', 'reload')
 		);
 
 		// Modules scripts
 		gulp.watch(
 			'source/modules/*/*.js',
-			gulp.series('build:scripts', reload)
+			gulp.series('build:scripts', 'reload')
 		);
 
 		// Modules images
 		gulp.watch(
 			'source/modules/*/assets/**/*.{jpg,gif,svg,png}',
-			gulp.series('modules:assets', reload)
+			gulp.series('modules:assets', 'reload')
 		);
 
 		// Static files
 		gulp.watch(
 			'source/static/assets/**/*',
-			gulp.series('build:assets', reload)
+			gulp.series('build:assets', 'reload')
 		);
 
 		// Svg icons
 		gulp.watch(
 			'source/static/icons/**/*.svg',
-			gulp.series('build:icons', 'build:css', reload)
+			gulp.series('build:icons', 'build:css', 'reload')
 		);
 
 		// Png sprites
 		gulp.watch(
 			'source/static/sprite/**/*.png',
-			gulp.series('build:sprite', reload)
+			gulp.series('build:sprite', 'reload')
 		);
 	};
 };

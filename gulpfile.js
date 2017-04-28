@@ -7,6 +7,7 @@ var loadTask = require('./gulp/util/load-task.js');
 // Main tasks
 loadTask('cleanup', './gulp/tasks/cleanup.js');
 loadTask('serve', './gulp/tasks/serve.js');
+loadTask('reload', './gulp/tasks/reload.js');
 loadTask('build:css', './gulp/tasks/css.js');
 loadTask('build:data', './gulp/tasks/data.js');
 loadTask('build:pages', './gulp/tasks/pages.js');
