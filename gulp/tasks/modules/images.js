@@ -9,8 +9,7 @@ var path = require('path');
 var config = require('../../config.js');
 var options = {
 	plumber: config.plumber(),
-	imagemin: config.imagemin(),
-	postcss: config.postcss()
+	imagemin: config.imagemin()
 };
 
 

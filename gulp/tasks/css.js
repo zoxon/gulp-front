@@ -9,8 +9,7 @@ var browserSync = require('../util/get-bs-instance.js');
 var config = require('../config.js');
 var options = {
 	plumber: config.plumber(),
-	stylus: config.stylus(),
-	postcss: config.postcss()
+	stylus: config.stylus()
 };
 
 
@@ -20,7 +19,7 @@ module.exports = function() {
 			.pipe(plumber(options.plumber))
 			.pipe(stylus(options.stylus))
 			.pipe(combineMq({ beautify: true }))
-			.pipe(postcss(options.postcss))
+			.pipe(postcss())
 			.pipe(gulp.dest('dest/assets/stylesheets'))
 			.pipe(browserSync.stream({ match: '**/*.css' }));
 	};
