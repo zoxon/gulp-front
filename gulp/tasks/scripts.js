@@ -24,6 +24,7 @@ module.exports = function() {
 			}
 
 			// https://webpack.js.org/api/node/#stats-object
+			// https://webpack.js.org/configuration/stats/
 			gulplog[ stats.hasErrors() ? 'error' : 'info' ](stats.toString({
 				chunks: false,  // Makes the build much quieter
 				colors: true    // Shows colors in the console

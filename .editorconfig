@@ -15,6 +15,6 @@ insert_final_newline = true
 [*.{jade,pug}]
 trim_trailing_whitespace = false
 
-[{*.json,*.yml,.stylelintrc,.htmlhintrc}]
+[{*.json,*.yml,.stylelintrc,.htmlhintrc,.babelrc}]
 indent_style = space
 indent_size = 2

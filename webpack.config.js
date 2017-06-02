@@ -20,10 +20,17 @@ var options = {
 		library: '[name]'
 	},
 	watch: isDevelopment,
-	devtool: isDevelopment ? 'eval' : 'source-map',
+	devtool: isDevelopment ? 'eval-source-map' : 'source-map',
 	context: path.resolve(__dirname, 'source/static/scripts'),
 	module: {
-		noParse: /\/node_modules\/(jquery|backbone)/
+		noParse: /\/node_modules\/(jquery|backbone)/,
+		rules: [
+			{
+				test: /\.(js|jsx)$/,
+				exclude: /node_modules/,
+				loaders: ['babel-loader']
+			}
+		]
 	}
 };
 
@@ -34,7 +41,8 @@ options.plugins = [
 		filename: outputFileName
 	}),
 	new webpack.DefinePlugin({
-		NODE_ENV: JSON.stringify(NODE_ENV)
+		NODE_ENV: JSON.stringify(NODE_ENV),
+		'process.env.NODE_ENV': JSON.stringify(NODE_ENV)
 	}),
 	new webpack.ProvidePlugin({
 		$: 'jquery',
@@ -67,7 +75,8 @@ else {
 				dead_code: true,
 				evaluate: true,
 				if_return: true,
-				join_vars: true
+				join_vars: true,
+				sourceMap: true
 			},
 			output: {
 				comments: false
@@ -77,4 +86,3 @@ else {
 }
 
 module.exports = options;
-
