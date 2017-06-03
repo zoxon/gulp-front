@@ -6,7 +6,7 @@ import imagemin from 'gulp-imagemin';
 import { plumberConfig, imageminConfig } from '../config';
 
 const imageFilter = filter('**/*.{jpg,gif,svg,png}', { restore: true });
-const assets = () =>
+export const assets = () =>
 	gulp.src([ '**/*.*', '!**/_*.*' ], { cwd: 'source/static/assets' })
 		.pipe(plumber(plumberConfig))
 		.pipe(changed('dest/assets'))
@@ -20,4 +20,7 @@ const assets = () =>
 		// Copy other files
 		.pipe(gulp.dest('dest/assets'));
 
-export default assets;
+export const staticFiles = () =>
+	gulp.src('**/{*,.*}', { cwd: 'source/static/public' })
+		.pipe(plumber(plumberConfig))
+		.pipe(gulp.dest('dest'));
