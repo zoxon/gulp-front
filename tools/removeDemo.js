@@ -23,8 +23,8 @@ const pathsToRemove = [
 const filesToCreate = [
 	{
 		path: './source/pages/home.pug',
-		content: `
-include ../modules/injected/injected
+		content:
+`include ../modules/injected/injected
 include ../modules/page/page
 
 include ../modules/head/head
@@ -50,10 +50,10 @@ html(class="no-js" lang=config.lang)
 	},
 	{
 		path: './source/modules/header/header.pug',
-		content: `
-mixin header(data)
-header.header&attributes(attributes)
-	//
+		content:
+`mixin header(data)
+	header.header&attributes(attributes)
+		//-
 `
 	},
 	{
