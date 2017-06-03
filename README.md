@@ -15,33 +15,14 @@ English description | [Описание на русском](README_RU.md)
 ## Demo
 [zoxon.github.io/gulp-front](http://zoxon.github.io/gulp-front/)
 
-## Benefits & Features
+## Core features
 
-* Fast and easy collector (gulp)
-* Simplest modules realization (js, styl, pug, json and other files) 
-* Base modules (bread-crumbs, button, footer, form, form-item, header, input-group, logo, main-menu, page-title, pagination and etc.) 
-* Build of svg sprites for inline connection (gulp-svg-symbols) 
-* Build of png and retina sprites (gulp-spritesmith)
-* Pug mixins for @media (rupture)
-* Merging @media and transfer it to the end of the file (css-mqpacker)
-* Server and synchronous site testing in the browser (using the browser-sync)
-* Autosubstitution of vendor prefixes in CSS (autoprefixer)
-* Pug template and HTML preprocessor (gulp-pug)
-* JavaScript files concatenation (gulp-include)
-* CSS formatting (gulp-csscomb)
-* Image compression (gulp-imagemin)
-* CSS preprocessor (gulp-stylus)
-* CSS minification (gulp-csso)
-* HTML formatting (gulp-htmlprettify)
-* JavaScript Minification (gulp-uglify)
-* Errors searching and output without stopping gulp (gulp-plumber)
-* Pug mixins for form elements
-* Customized typography based on normalize.css
-* Mixins for grid (fluid and fixed)
-* Mixins for font-face and others.
-* Customized configs for Travis CI and EditorConfig
-* Compiled files package in zip
-
+* Modern and fast build tool
+* Module based BEM CSS framework
+* Automatic icon system based on SVG Symbols
+* Easy PNG Sprites generation (including @2x)
+* A convenient @media mixins
+* Smart image compression
 
 ## Quick start
 
