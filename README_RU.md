@@ -15,33 +15,14 @@
 ## Демо
 [zoxon.github.io/gulp-front](http://zoxon.github.io/gulp-front/)
 
-## Преимущества и возможности
+## Основные преимущества
 
-* Быстрый и удобный сборщик (gulp)
-* Простейшие модули (js, styl, pug, json, прочие файлы)
-* Базовые модули (bread-crumbs, button, footer, form, form-item, header, input-group, logo, main-menu, page-title, pagination и др.)
-* Сборка svg спрайтов для инлайн подлючения (gulp-svg-symbols)
-* Сборка png спрайтов и ретина спрайтов (gulp-spritesmith)
-* Pug миксины для @media (rupture)
-* Склейка @media и перенос в конец файла (css-mqpacker)
-* Сервер и синхронное тестирование сайта в браузерах (с помощью browser-sync)
-* Авто-подстановка вендорных префиксов в CSS (autoprefixer)
-* Шаблонизатор Pug и препроцессор HTML (gulp-pug)
-* Конкатенация JavaScript файлов (gulp-include)
-* Форматирование CSS (gulp-csscomb)
-* Сжатие изображений (gulp-imagemin)
-* Препроцессор CSS (gulp-stylus)
-* Минификация CSS (gulp-csso)
-* Форматирование HTML (gulp-html-prettify)
-* Минификация JavaScript (gulp-uglify)
-* Перехват и вывод ошибок без остановки gulp (gulp-plumber)
-* Pug миксины для елементов форм
-* Настроенная типографика на базе normalize.css
-* Миксины сетки (fluid и fixed)
-* Миксины для font-face и др.
-* Настроенные конфиги для TravisCI и EditorConfig
-* Упаковка скомпилированных файлов в zip архив
-
+* Современная и быстрая система сборки
+* Модульный БЭМ CSS фреймворк
+* Автоматическая иконочная система основанная на SVG
+* Простая генерация PNG Спрайтов (включая @2x)
+* Удобные @media миксины
+* Умная минимизация картинок
 
 ## Быстрый старт
 
