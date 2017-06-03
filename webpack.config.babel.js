@@ -1,14 +1,14 @@
-var path = require('path');
-var webpack = require('webpack');
+import path from 'path';
+import webpack from 'webpack';
 
-var env = require('./gulp/util/env.js');
-var NODE_ENV = (env.production || env.prod) ? 'production' : 'development';
-var isDevelopment = NODE_ENV === 'development';
+import env from './gulp/util/env.js';
+const NODE_ENV = (env.production || env.prod) ? 'production' : 'development';
+const isDevelopment = NODE_ENV === 'development';
 
 
-var outputFileName = '[name].js';
+const outputFileName = '[name].js';
 
-var options = {
+let options = {
 	entry: {
 		vendor: [ 'jquery', './vendor.js' ],
 		main: './main.js'
@@ -75,8 +75,7 @@ else {
 				dead_code: true,
 				evaluate: true,
 				if_return: true,
-				join_vars: true,
-				sourceMap: true
+				join_vars: true
 			},
 			output: {
 				comments: false
@@ -85,4 +84,4 @@ else {
 	);
 }
 
-module.exports = options;
+export default options;

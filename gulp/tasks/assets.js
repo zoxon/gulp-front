@@ -1,31 +1,23 @@
-'use strict';
+import gulp from 'gulp';
+import plumber from 'gulp-plumber';
+import filter from 'gulp-filter';
+import changed from 'gulp-changed';
+import imagemin from 'gulp-imagemin';
+import { plumberConfig, imageminConfig } from '../config';
 
-var gulp = require('gulp');
-var plumber = require('gulp-plumber');
-var filter = require('gulp-filter');
-var changed = require('gulp-changed');
-var imagemin = require('gulp-imagemin');
-var config = require('../config.js');
-var options = {
-	plumber: config.plumber(),
-	imagemin: config.imagemin()
-};
+const imageFilter = filter('**/*.{jpg,gif,svg,png}', { restore: true });
+const assets = () =>
+	gulp.src([ '**/*.*', '!**/_*.*' ], { cwd: 'source/static/assets' })
+		.pipe(plumber(plumberConfig))
+		.pipe(changed('dest/assets'))
 
-module.exports = function() {
-	return function() {
-		var imageFilter = filter('**/*.{jpg,gif,svg,png}', { restore: true });
+		// Minify images
+		.pipe(imageFilter)
+		.pipe(changed('dest/assets'))
+		.pipe(imagemin(imageminConfig.images))
+		.pipe(imageFilter.restore)
 
-		return gulp.src([ '**/*.*', '!**/_*.*' ], { cwd: 'source/static/assets' })
-			.pipe(plumber(options.plumber))
-			.pipe(changed('dest/assets'))
+		// Copy other files
+		.pipe(gulp.dest('dest/assets'));
 
-			// Minify images
-			.pipe(imageFilter)
-			.pipe(changed('dest/assets'))
-			.pipe(imagemin(options.imagemin.images))
-			.pipe(imageFilter.restore)
-
-			// Copy other files
-			.pipe(gulp.dest('dest/assets'));
-	};
-};
+export default assets;

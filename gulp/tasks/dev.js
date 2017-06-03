@@ -1,13 +1,14 @@
-'use strict';
+import { series, parallel } from 'gulp';
+import { serve } from '../tasks/server';
+import build from '../tasks/build';
+import watch from '../tasks/watch';
 
-var gulp = require('gulp');
+const dev = series(
+	build,
+	parallel(
+		serve,
+		watch
+	)
+);
 
-module.exports = function() {
-	return gulp.series(
-		'build',
-		gulp.parallel(
-			'serve',
-			'watch'
-		)
-	);
-};
+export default dev;

@@ -1,19 +1,28 @@
 'use strict';
-var gulp = require('gulp');
+import { series, parallel } from 'gulp';
+import cleanup from '../tasks/cleanup';
+import { html } from '../tasks/html';
+import icons from '../tasks/icons';
+import sprite from '../tasks/sprite';
+import moduleImages from '../tasks/moduleImages';
+import assets from '../tasks/assets';
+import scripts from '../tasks/scripts';
+import css from '../tasks/css';
 
-module.exports = function() {
-	return gulp.series(
-		'cleanup',
-		gulp.series(
-			gulp.parallel(
-				'build:html',
-				'build:icons',
-				'build:sprite',
-				'modules:images',
-				'build:assets',
-				'build:scripts'
-			),
-			'build:css'
-		)
-	);
-};
+
+const build = series(
+	cleanup,
+	series(
+		parallel(
+			html,
+			icons,
+			sprite,
+			moduleImages,
+			assets,
+			scripts
+		),
+		css
+	)
+);
+
+export default build;

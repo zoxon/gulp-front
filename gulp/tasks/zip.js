@@ -1,10 +1,15 @@
-'use strict';
+import gulp from 'gulp';
+import gulpZip from 'gulp-zip';
+import getZipFileName from '../util/getZipFileName';
+import build from '../tasks/build';
 
-var gulp = require('gulp');
 
-module.exports = function() {
-	return gulp.series(
-		'build',
-		'build:zip'
-	);
-};
+export const buildZip = () =>
+	gulp.src('dest/**/*')
+		.pipe(gulpZip(getZipFileName()))
+		.pipe(gulp.dest('zip'));
+
+export const zip = gulp.series(
+	build,
+	buildZip
+);

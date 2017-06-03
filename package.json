@@ -48,6 +48,7 @@
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.0.0",
     "babel-preset-env": "^1.5.1",
+    "babel-register": "^6.24.1",
     "browser-sync": "^2.18.8",
     "colors": "^1.1.2",
     "del": "^2.2.2",
@@ -92,6 +93,7 @@
     "webpack-stream": "^3.2.0"
   },
   "dependencies": {
+    "change-case": "^3.0.1",
     "fastclick": "^1.0.6",
     "placeholders.js": "^3.0.2",
     "remodal": "^1.1.1",

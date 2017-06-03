@@ -1,12 +1,6 @@
-'use strict';
+import del from 'del';
+import { delConfig } from '../config';
 
-var gulp = require('gulp');
-var del = require('del');
-var options = require('../config.js').del();
+const cleanup = callback => del(delConfig, callback);
 
-
-module.exports = function() {
-	return function(callback) {
-		return del(options, callback);
-	};
-};
+export default cleanup;

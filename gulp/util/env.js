@@ -1,6 +1,4 @@
-'use strict';
+import parseArgs from 'minimist';
+const argv = parseArgs(process.argv.slice(2));
 
-var parseArgs = require('minimist');
-var argv = parseArgs(process.argv.slice(2));
-
-module.exports = argv;
+export default argv;
