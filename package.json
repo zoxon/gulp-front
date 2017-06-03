@@ -34,8 +34,9 @@
     "deploy": "gulp deploy --production",
     "zip": "gulp zip --production",
     "dev": "npm run start",
-    "amo": "node tools/module/add.js",
-    "rmo": "node tools/module/remove.js"
+    "remove-demo": "babel-node ./tools/removeDemo.js",
+    "amo": "node ./tools/module/add.js",
+    "rmo": "node ./tools/module/remove.js"
   },
   "engines": {
     "node": ">=4.0.0",
@@ -89,6 +90,7 @@
     "postcss-reporter": "^3.0.0",
     "postcss-sorting": "^2.0.1",
     "posthtml-attrs-sorter": "^1.1.0",
+    "rimraf": "^2.6.1",
     "rupture": "^0.6.1",
     "vinyl-buffer": "^1.0.0",
     "webpack": "^2.4.1",
