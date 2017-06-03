@@ -9,10 +9,12 @@ task('zip', zip);
 task('dev', dev);
 
 // Semver
-import {major, minor, patch, reset} from './gulp/tasks/semver';
+import { major, minor, patch, reset } from './gulp/tasks/semver';
 
 task('semver:major', major);
 task('semver:minor', minor);
 task('semver:patch', patch);
 task('semver:reset', reset);
-task('default', series('build'));
+
+// Default task
+task('default', series('dev'));

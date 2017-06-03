@@ -12,17 +12,16 @@ import {
 } from '../config';
 import data from '../tasks/data';
 
-pugConfig.locals = getJsonData('./tmp/data.json');
-export const pages = () =>
-	gulp.src([ '**/*.pug', '!**/_*.pug' ], { cwd: 'source/pages' })
+export const pages = () => {
+	pugConfig.locals = getJsonData('./tmp/data.json');
+
+	return gulp.src([ '**/*.pug', '!**/_*.pug' ], { cwd: 'source/pages' })
 		.pipe(plumber(plumberConfig))
 		.pipe(pug(pugConfig))
 		.pipe(posthtml(posthtmlConfig.plugins, posthtmlConfig.options))
 		.pipe(prettify(htmlPrettifyConfig))
 		.pipe(gulp.dest('dest'));
-
-gulp.task('pages', pages);
-
+};
 
 export const html =
 	gulp.series(
