@@ -6,7 +6,7 @@ import scripts from '../tasks/scripts';
 import icons from '../tasks/icons';
 import sprite from '../tasks/sprite';
 import moduleImages from '../tasks/moduleImages';
-import assets from '../tasks/assets';
+import { assets, staticFiles } from '../tasks/assets';
 
 const watch = () => {
 
@@ -52,7 +52,7 @@ const watch = () => {
 		gulp.series(moduleImages, reload)
 	);
 
-	// Static files
+	// Assets
 	gulp.watch(
 		'source/static/assets/**/*',
 		gulp.series(assets, reload)
@@ -68,6 +68,12 @@ const watch = () => {
 	gulp.watch(
 		'source/static/sprite/**/*.png',
 		gulp.series(sprite, reload)
+	);
+
+	// Static files
+	gulp.watch(
+		'source/static/public/**/{*,.*}',
+		gulp.series(staticFiles)
 	);
 };
 

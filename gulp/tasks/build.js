@@ -5,7 +5,7 @@ import { html } from '../tasks/html';
 import icons from '../tasks/icons';
 import sprite from '../tasks/sprite';
 import moduleImages from '../tasks/moduleImages';
-import assets from '../tasks/assets';
+import { assets, staticFiles } from '../tasks/assets';
 import scripts from '../tasks/scripts';
 import css from '../tasks/css';
 
@@ -19,6 +19,7 @@ const build = series(
 			sprite,
 			moduleImages,
 			assets,
+			staticFiles,
 			scripts
 		),
 		css
