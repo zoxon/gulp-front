@@ -7,6 +7,10 @@ import colors from 'colors';
 
 const pathsToRemove = [
 	'./source/modules/demo',
+	'./source/modules/header-presentation',
+	'./source/modules/github-button',
+	'./source/modules/header/*',
+	'./source/modules/logo/logo.js',
 	'./source/pages/home.pug',
 	'./source/static/assets/favicons/*',
 	'./source/static/assets/fonts/*',
@@ -42,8 +46,19 @@ html(class="no-js" lang=config.lang)
 
 		+inject('footer')
 			+footer()
-
-		`
+`
+	},
+	{
+		path: './source/modules/header/header.pug',
+		content: `
+mixin header(data)
+header.header&attributes(attributes)
+	//
+`
+	},
+	{
+		path: './source/modules/header/header.styl',
+		content: '.header\n\t//\n'
 	}
 ];
 

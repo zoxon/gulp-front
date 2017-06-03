@@ -29,12 +29,12 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "gulp dev",
+    "start": "babel-node gulp gulpfile.js dev",
     "build": "gulp build --production",
     "deploy": "gulp deploy --production",
     "zip": "gulp zip --production",
     "dev": "npm run start",
-    "remove-demo": "node ./tools/removeDemo.babel.js",
+    "remove-demo": "babel-node ./tools/removeDemo.js",
     "amo": "node tools/module/add.js",
     "rmo": "node tools/module/remove.js"
   },
