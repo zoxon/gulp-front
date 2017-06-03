@@ -103,6 +103,7 @@ For npm use `npm run <command>`, for Yarn use `yarn <command>`
 * `build` - compile a project
 * `zip` - compile a project in zip
 * `deploy` - compile a project and push in `build` branch to git repository
+* `remove-demo` - remove demo app
 
 ## Module generator
 
