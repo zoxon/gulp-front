@@ -1,5 +1,5 @@
 import bs from 'browser-sync';
 
-const instance = (bs.has('default')) ? bs.get('default') : bs.create('default');
+const instance = bs.has('server') ? bs.get('server') : bs.create('server');
 
 export default instance;

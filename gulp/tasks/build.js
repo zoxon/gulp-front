@@ -1,13 +1,13 @@
 'use strict';
 import { series, parallel } from 'gulp';
-import cleanup from '../tasks/cleanup';
-import { html } from '../tasks/html';
-import icons from '../tasks/icons';
-import sprite from '../tasks/sprite';
-import moduleImages from '../tasks/moduleImages';
-import { assets, staticFiles } from '../tasks/assets';
-import scripts from '../tasks/scripts';
-import css from '../tasks/css';
+import cleanup from './cleanup';
+import { html } from './html';
+import icons from './icons';
+import sprite from './sprite';
+import moduleImages from './moduleImages';
+import { assets, staticFiles } from './assets';
+import scripts from './scripts';
+import css from './css';
 
 
 const build = series(

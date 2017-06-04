@@ -1,12 +1,12 @@
 import { series, parallel } from 'gulp';
-import { serve } from '../tasks/server';
-import build from '../tasks/build';
-import watch from '../tasks/watch';
+import { server } from './server';
+import build from './build';
+import watch from './watch';
 
 const dev = series(
 	build,
 	parallel(
-		serve,
+		server,
 		watch
 	)
 );

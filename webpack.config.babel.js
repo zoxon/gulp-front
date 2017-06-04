@@ -19,14 +19,14 @@ let options = {
 		publicPath: '/assets/javascripts/',
 		library: '[name]'
 	},
-	watch: isDevelopment,
+	// watch: isDevelopment,
 	devtool: isDevelopment ? 'eval-source-map' : 'source-map',
 	context: path.resolve(__dirname, 'source/static/scripts'),
 	module: {
 		noParse: /\/node_modules\/(jquery|backbone)/,
 		rules: [
 			{
-				test: /\.(js|jsx)$/,
+				test: /\.js$/,
 				exclude: /node_modules/,
 				loaders: ['babel-loader']
 			}

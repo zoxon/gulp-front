@@ -3,8 +3,8 @@ import plumber from 'gulp-plumber';
 import stylus from 'gulp-stylus';
 import combineMq from 'gulp-combine-mq';
 import postcss from 'gulp-postcss';
-import browserSync from '../util/getBrowserSyncInstance';
 import { plumberConfig, stylusConfig } from '../config';
+import bs from '../util/getBrowserSyncInstance';
 
 
 const css = () =>
@@ -14,6 +14,6 @@ const css = () =>
 		.pipe(combineMq({ beautify: true }))
 		.pipe(postcss())
 		.pipe(gulp.dest('dest/assets/stylesheets'))
-		.pipe(browserSync.stream({ match: '**/*.css' }));
+		.pipe(bs.reload({ stream: true }));
 
 export default css;

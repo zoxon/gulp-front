@@ -10,7 +10,7 @@ import {
 	posthtmlConfig,
 	htmlPrettifyConfig
 } from '../config';
-import data from '../tasks/data';
+import data from './data';
 
 export const pages = () => {
 	pugConfig.locals = getJsonData('./tmp/data.json');
