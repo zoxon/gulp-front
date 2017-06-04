@@ -22,10 +22,14 @@ export const browserSyncConfig = {
 	}
 };
 
+// https://github.com/jescalan/accord/blob/master/docs/stylus.md
 export const stylusConfig = {
 	use: [
 		require('rupture')(),
 		require('./util/stylusFileExists')()
+	],
+	include: [
+		path.join(CWD, 'node_modules')
 	],
 	'include css': true
 };
