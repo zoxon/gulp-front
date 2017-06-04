@@ -1,5 +1,6 @@
 // Header
 (function() {
+	var debounce = require('throttle-debounce').debounce;
 
 	function headerScrollHandler() {
 		var top = $(window).scrollTop();
@@ -12,7 +13,7 @@
 		$('.header').toggleClass('header_fixed', fixed);
 	}
 
-	$(window).on('scroll', $.debounce( 150, headerScrollHandler ))
+	$(window).on('scroll', debounce( 66, headerScrollHandler ))
 		.trigger('scroll');
 
 })();

@@ -4,8 +4,8 @@ English description | [Описание на русском](README_RU.md)
 
 *A lean and powerful, gulp-based boilerplate for better front-end coding with [Gulp](http://gulpjs.com/), [Pug](https://pugjs.org/) and [Stylus](https://learnboost.github.io/stylus/)*
 
-[![Build Status](https://api.travis-ci.org/zoxon/gulp-front.svg)](https://travis-ci.org/zoxon/gulp-front)
-[![devDependency Status](https://david-dm.org/zoxon/gulp-front/dev-status.svg)](https://david-dm.org/zoxon/gulp-front#info=devDependencies)
+[![Build Status](https://travis-ci.org/zoxon/gulp-front.svg?branch=master)](https://travis-ci.org/zoxon/gulp-front/builds)
+[![devDependency Status](https://david-dm.org/zoxon/gulp-front/dev-status.svg)](https://david-dm.org/zoxon/gulp-front?type=dev)
 [![GitHub issues](https://img.shields.io/github/issues/zoxon/gulp-front.svg?style=flat)](https://github.com/zoxon/gulp-front/issues)
 [![GitHub forks](https://img.shields.io/github/forks/zoxon/gulp-front.svg?style=flat)](https://github.com/zoxon/gulp-front/network)
 [![GitHub stars](https://img.shields.io/github/stars/zoxon/gulp-front.svg?style=flat)](https://github.com/zoxon/gulp-front/stargazers)
@@ -15,33 +15,14 @@ English description | [Описание на русском](README_RU.md)
 ## Demo
 [zoxon.github.io/gulp-front](http://zoxon.github.io/gulp-front/)
 
-## Benefits & Features
+## Core features
 
-* Fast and easy collector (gulp)
-* Simplest modules realization (js, styl, pug, json and other files) 
-* Base modules (bread-crumbs, button, footer, form, form-item, header, input-group, logo, main-menu, page-title, pagination and etc.) 
-* Build of svg sprites for inline connection (gulp-svg-symbols) 
-* Build of png and retina sprites (gulp-spritesmith)
-* Pug mixins for @media (rupture)
-* Merging @media and transfer it to the end of the file (css-mqpacker)
-* Server and synchronous site testing in the browser (using the browser-sync)
-* Autosubstitution of vendor prefixes in CSS (autoprefixer)
-* Pug template and HTML preprocessor (gulp-pug)
-* JavaScript files concatenation (gulp-include)
-* CSS formatting (gulp-csscomb)
-* Image compression (gulp-imagemin)
-* CSS preprocessor (gulp-stylus)
-* CSS minification (gulp-csso)
-* HTML formatting (gulp-htmlprettify)
-* JavaScript Minification (gulp-uglify)
-* Errors searching and output without stopping gulp (gulp-plumber)
-* Pug mixins for form elements
-* Customized typography based on normalize.css
-* Mixins for grid (fluid and fixed)
-* Mixins for font-face and others.
-* Customized configs for Travis CI and EditorConfig
-* Compiled files package in zip
-
+* Modern and fast build tool
+* Module based BEM CSS framework
+* Automatic icon system based on SVG Symbols
+* Easy PNG Sprites generation (including @2x)
+* A convenient @media mixins
+* Smart image compression
 
 ## Quick start
 
@@ -63,6 +44,14 @@ English description | [Описание на русском](README_RU.md)
 
 		```bash
 		yarn
+		```
+
+	- Start `gulp`
+
+		```bash
+		yarn start
+		# or
+		yarn dev
 		```
 
 * For [NPM](https://www.npmjs.com)
@@ -97,21 +86,24 @@ English description | [Описание на русском](README_RU.md)
 		npm install
 		```
 
-* Start `gulp`
+	- Start `gulp`
 
-	```bash
-	gulp dev
-	```
+		```bash
+		npm start
+		```
 
 * In browser open page with address [`http://localhost:3000/`](http://localhost:3000/)
 
 
 ## Main tasks
 
-* `gulp dev` - launches watchers and server
-* `gulp build` - compile a project
-* `gulp zip` - compile a project in zip
-* `gulp deploy` - compile a project and push in `build` branch to git repository
+For npm use `npm run <command>`, for Yarn use `yarn <command>`
+
+* `dev` - launches watchers and server
+* `build` - compile a project
+* `zip` - compile a project in zip
+* `deploy` - compile a project and push in `build` branch to git repository
+* `remove-demo` - remove demo app
 
 ## Module generator
 
