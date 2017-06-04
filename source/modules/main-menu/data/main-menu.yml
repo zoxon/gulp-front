@@ -128,9 +128,3 @@
           -
             title: "Svg Icons"
             url: "#svg-icons"
-
-      -
-        title: "Grid"
-        url: "#grid"
-        icon: "grid"
-        submenu: false
