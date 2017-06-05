@@ -8,7 +8,7 @@ import { plumberConfig, imageminConfig } from '../config';
 export const assets = () => {
 	const imageFilter = filter('**/*.{jpg,gif,svg,png}', { restore: true });
 
-	gulp.src([ '**/*.*', '!**/_*.*' ], { cwd: 'source/static/assets' })
+	return gulp.src([ '**/*.*', '!**/_*.*' ], { cwd: 'source/static/assets' })
 		.pipe(plumber(plumberConfig))
 		.pipe(changed('dest/assets'))
 
