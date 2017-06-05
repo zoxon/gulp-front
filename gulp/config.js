@@ -130,5 +130,5 @@ export const posthtmlConfig = {
 };
 
 export const ghPagesConfig = {
-	branch: 'build'
+	branch: 'gh-pages'
 };

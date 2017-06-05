@@ -8,7 +8,7 @@ export const publish = () =>
 	src('**/*', { cwd: 'dest' })
 		.pipe(ghPages(ghPagesConfig));
 
-export const deploy = () =>
+export const deploy =
 	series(
 		build,
 		publish
