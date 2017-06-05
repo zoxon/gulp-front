@@ -1,6 +1,6 @@
 {
   "name": "gulp-front",
-  "version": "8.0.0",
+  "version": "8.0.2",
   "description": "The template for quick start of development with Gulp, Jade and Stylus",
   "keywords": [
     "gulp",
