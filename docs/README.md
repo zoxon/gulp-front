@@ -30,31 +30,30 @@
 	```sh
 	git clone git@github.com:zoxon/gulp-front.git --depth 1 my-project
 	```
-3. Install `gulp-cli` globally (once!)
+3. Go to project folder and run
 	```sh
-	npm install gulp-cli -g
+	npm run setup
 	```
-4. Install dependencies
-	```bash
-	npm install
-	```
-5. Start `gulp`
-	```bash
+4. Start dev server
+	```sh
 	npm start
 	```
-6. In browser open page with address [`http://localhost:3000/`](http://localhost:3000/)
+5. In browser open page with address [`http://localhost:3000/`](http://localhost:3000/)
+
 
 <a name="development"></a>
 ## Development
 
-1. Run `npm run remove-demo`. This command delete demo app.
-2. Run `npm start` to see your app at localhost:3000
+1. Run `npm run cleanup`. This command delete demo app.
+2. Run `npm start` to see your app at [`http://localhost:3000/`](http://localhost:3000/)
+
 
 <a name="building-and-deploying"></a>
 ## Building and Deploying
 
 1. Run `npm run build`, which will compile all the necessary files to the `dest` folder.
 2. Upload the contents of the `dest` folder to your web server's root folder.
+
 
 <a name="structure"></a>
 ## Structure
@@ -113,7 +112,6 @@ gulp-front/                             # Project root
 └── yarn.lock                           # YARN Lock file
 ```
 
-
 <a name="css"></a>
 ## CSS
 
@@ -127,12 +125,14 @@ gulp-front/                             # Project root
 	- [postcss-sorting](https://github.com/hudochenkov/postcss-sorting) - Keep rules and at-rules content in order
 	- [postcss-reporter](https://github.com/postcss/postcss-reporter) - Log PostCSS messages in the console
 
+
 <a name="html"></a>
 ## HTML
 
 * [Pug (ex Jade)](https://pugjs.org/) - Robust, elegant, feature rich template engine
 * [PostHTML](https://github.com/posthtml/posthtml) - Tool to transform HTML/XML with JS plugins
 * [gulp-prettify](https://github.com/jonschlinkert/gulp-prettify) - `js-beautify` gulp wrapper
+
 
 <a name="js"></a>
 ## JS
@@ -141,12 +141,14 @@ gulp-front/                             # Project root
 * [npm](https://www.npmjs.com/) - package manager
 * [ES6](http://es6-features.org/) and [Babel](https://babeljs.io/)
 
+
 <a name="png-sprites"></a>
 ## PNG Sprites
 
 For converting a set of images into a spritesheet add your image to `source/static/sprite` folder.
 Spritesheet generates with the help of [gulp.spritesmith](https://github.com/twolfson/gulp.spritesmith)
 Retina spritesheets/templates are supported too.
+
 
 <a name="svg-symbol-sprites"></a>
 ## SVG Symbol Sprites
@@ -160,6 +162,7 @@ Example:
 
 Spritesheet generates with plugin [gulp-svg-symbols](https://github.com/Hiswe/gulp-svg-symbols)
 
+
 <a name="data"></a>
 ## DATA
 
@@ -167,8 +170,10 @@ All data in modules stores in `data/*.yaml` files
 
 [YAML](http://yaml.org/) Ain't Markup Language
 
+
 <a name="command-line-commands"></a>
 ## Command Line Commands
+
 
 <a name="initialization"></a>
 ### Initialization
@@ -177,6 +182,7 @@ All data in modules stores in `data/*.yaml` files
 npm install gulp -g
 npm install
 ```
+
 
 <a name="development"></a>
 ### Development
@@ -194,7 +200,7 @@ npm start
 Remove demo app.
 
 ```sh
-npm run remove-demo
+npm run cleanup
 ```
 
 
@@ -217,6 +223,7 @@ Create `build` branch in your git repository and push compilled files.
 npm run deploy
 ```
 
+
 <a name="zip"></a>
 ### Zip
 
@@ -228,17 +235,19 @@ npm run zip
 
 
 <a name="module-generator"></a>
-### Module generator
+### Generator
 
-There is a script for add/delete modules in project in gulp-front.
+Create empty module by name in `source/modules` folder
 
-For npm use `npm run <command>`, for Yarn use `yarn <command>`
+By default generate only `*.pug` and `*.styl` files.
 
-* `amo <moduleName>` - creates an empty module with a help of technologies, such as pug and styl;
-* `amo <moduleName> js yml` - creates an empty module with a help of pug and styl and also using additional technologies: js, yml and json;
-* `rmo <moduleName>` - Use to delete a module.
+You can call `amo` with additional params like `js` and `yml`
 
-Examples: `npm run amo my-module yml js`, `yarn amo my-other-module`
+
+```sh
+npm run amo <module-name> [js || yml]
+```
+
 
 <a name="license"></a>
 ## License
