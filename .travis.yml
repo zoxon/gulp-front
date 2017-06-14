@@ -15,7 +15,7 @@ before_script:
   - yarn install
 
 
-script: npm start
+script: npm run build
 
 
 # notifications:
