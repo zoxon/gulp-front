@@ -12,10 +12,10 @@ cache:
 
 
 before_script:
-  - yarn global add gulp-cli
+  - yarn install
 
 
-script: yarn build
+script: npm start
 
 
 # notifications:
