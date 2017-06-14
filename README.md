@@ -2,7 +2,7 @@
 
 English description | [Описание на русском](README_RU.md)
 
-*A lean and powerful, gulp-based boilerplate for better front-end coding with [Gulp](http://gulpjs.com/), [Pug](https://pugjs.org/) and [Stylus](https://learnboost.github.io/stylus/)*
+*A lean and powerful, gulp-based boilerplate for better front-end coding with [Gulp](http://gulpjs.com/), [Pug](https://pugjs.org/) and [Stylus](http://stylus-lang.com/)*
 
 [![Build Status](https://travis-ci.org/zoxon/gulp-front.svg?branch=master)](https://travis-ci.org/zoxon/gulp-front/builds)
 [![devDependency Status](https://david-dm.org/zoxon/gulp-front/dev-status.svg)](https://david-dm.org/zoxon/gulp-front?type=dev)
@@ -15,6 +15,10 @@ English description | [Описание на русском](README_RU.md)
 ## Demo
 [zoxon.github.io/gulp-front](http://zoxon.github.io/gulp-front/)
 
+## Documentation
+
+[Documentation](docs/README.md)
+
 ## Core features
 
 * Modern and fast build tool
@@ -24,75 +28,26 @@ English description | [Описание на русском](README_RU.md)
 * A convenient @media mixins
 * Smart image compression
 
-## Quick start
+## Quickstart
 
-* Install the [node.js](https://nodejs.org)
-* Clone the project or [download](https://github.com/zoxon/gulp-front/archive/master.zip) the file
-
-	```bash
-	git clone git@github.com:zoxon/gulp-front.git my-project && cd my-project
+1. Install the [node.js](https://nodejs.org)
+2. Clone the project or [download](https://github.com/zoxon/gulp-front/archive/master.zip) the file
+	```sh
+	git clone git@github.com:zoxon/gulp-front.git --depth 1 my-project
 	```
-
-* For [Yarn](https://yarnpkg.com)
-	- Install `gulp-cli` globally (once!)
-
-		```bash
-		yarn global add gulp-cli
-		```
-
-	- Install dependencies
-
-		```bash
-		yarn
-		```
-
-	- Start `gulp`
-
-		```bash
-		yarn start
-		# or
-		yarn dev
-		```
-
-* For [NPM](https://www.npmjs.com)
-	- Update npm to latest version
-		Go to the folder with installed nodejs
-
-		```bash
-		cd "C:\Program Files\nodejs"
-		```
-
-		or
-
-		```bash
-		cd "C:\Program Files (x86)\nodejs"
-		```
-
-		and execute
-
-		```bash
-		npm install npm@latest
-		```
-
-	- Install `gulp-cli` globally (once!)
-
-		```bash
-		npm install gulp-cli -g
-		```
-
-	- Install dependencies
-
-		```bash
-		npm install
-		```
-
-	- Start `gulp`
-
-		```bash
-		npm start
-		```
-
-* In browser open page with address [`http://localhost:3000/`](http://localhost:3000/)
+3. Install `gulp-cli` globally (once!)
+	```sh
+	npm install gulp-cli -g
+	```
+4. Install dependencies
+	```bash
+	npm install
+	```
+5. Start `gulp`
+	```bash
+	npm start
+	```
+6. In browser open page with address [`http://localhost:3000/`](http://localhost:3000/)
 
 
 ## Main tasks
@@ -123,32 +78,49 @@ Examples: `npm run amo my-module yml js`, `yarn amo my-other-module`
 ```
 gulp-front/                             # Project root
 ├── dest                                # Compiled files
+├── docs                                # Documentation
+├── gulp                                # Gulpfile tasks and config
 ├── source                              # Source files
 │   ├── modules                         # Modules folder
 │   ├── pages                           # Pages
 │   └── static                          # Static files
 │       ├── assets                      # Other files
+│       ├── icons                       # SVG icons files
+│       ├── public                      # Root files
 │       ├── scripts                     # JavaScript files
+│       │   ├── helpers                 # JavaScript helpers
 │       │   ├── plugins                 # JavaScript plgins and libs
 │       │   ├── main.js                 # Main JavaScript file
-│       │   └── plugins.js              # Plugins assemblage file
+│       │   └── vendor.js               # Plugins assemblage file
+│       └── sprite                      # PNG Sprite files
 │       └── styles                      # Static styles
 │           ├── components              # Componetns
 │           ├── plugins                 # Plugins styles
+│           ├── templates               # Sysytem used templates
 │           ├── _common.styl            # Different styles
-│           ├── _media.styl             # @media
 │           ├── _variables.styl         # Variables
 │           ├── main.styl               # Main styles
 │           └── reset.styl              # Styles reset + typography
 ├── tmp                                 # Temp folder
+├── tools                               # Gulp-front tools
 ├── zip                                 # Folder with zip archives
-├── package.json                        # Dependencies for node.js
-├── .csscomb.json                       # csscomb config
+├── .babelrc                            # Babel config file
+├── .browserslistrc                     # Browserlist config
 ├── .editorconfig                       # EditorConfig
+├── .eslintrc.json                      # ESLint config
+├── .gitignore                          # Files ignored by GIT
+├── .htmlhintrc                         # Settings for HTMLHint
+├── .npmignore                          # Files ignored by npm
+├── .postcss-sorting.json               # postcss-sorting config
 ├── .travis.yml                         # TravisCI config
-├── gulpfile.js                         # gulp.js config
+├── gulpfile.babel.js                   # gulp.js config
 ├── LICENSE                             # License
-└── README.md                           # File you read
+├── package.json                        # Dependencies for node.js
+├── postcss.config.js                   # PostCSS config
+├── README.md                           # English readme file
+├── README_RU.md                        # Russian readme file
+├── webpack.config.babel.js             # Webpack config
+└── yarn.lock                           # YARN Lock file
 ```
 
 ## License
