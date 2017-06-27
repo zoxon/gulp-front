@@ -1,5 +1,3 @@
-var postcssSortingConfig = require('./.postcss-sorting.json');
-
 module.exports = {
   plugins: {
     'autoprefixer': {
@@ -16,7 +14,7 @@ module.exports = {
       trimTrailingZeros: true,
       zeroLengthNoUnit: true
     },
-    'postcss-sorting': postcssSortingConfig,
+    'stylefmt': {},
     'postcss-reporter': {}
   }
 };
