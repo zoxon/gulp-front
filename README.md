@@ -1,8 +1,6 @@
 # Gulp Front
 
-English description | [Описание на русском](README_RU.md)
-
-*A lean and powerful, gulp-based boilerplate for better front-end coding with [Gulp](http://gulpjs.com/), [Pug](https://pugjs.org/) and [Stylus](https://learnboost.github.io/stylus/)*
+*A lean and powerful, gulp-based boilerplate for better front-end coding with [Gulp](http://gulpjs.com/), [Pug](https://pugjs.org/) and [Stylus](http://stylus-lang.com/)*
 
 [![Build Status](https://travis-ci.org/zoxon/gulp-front.svg?branch=master)](https://travis-ci.org/zoxon/gulp-front/builds)
 [![devDependency Status](https://david-dm.org/zoxon/gulp-front/dev-status.svg)](https://david-dm.org/zoxon/gulp-front?type=dev)
@@ -12,8 +10,15 @@ English description | [Описание на русском](README_RU.md)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/zoxon/gulp-front/blob/master/LICENSE)
 [![Join the chat at https://gitter.im/zoxon/gulp-front](https://img.shields.io/badge/gitter-join%20chat-green.svg?style=flat)](https://gitter.im/zoxon/gulp-front?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+
 ## Demo
 [zoxon.github.io/gulp-front](http://zoxon.github.io/gulp-front/)
+
+
+## Documentation
+
+More information see in [docs](docs/README.md) folder
+
 
 ## Core features
 
@@ -24,131 +29,44 @@ English description | [Описание на русском](README_RU.md)
 * A convenient @media mixins
 * Smart image compression
 
-## Quick start
 
-* Install the [node.js](https://nodejs.org)
-* Clone the project or [download](https://github.com/zoxon/gulp-front/archive/master.zip) the file
+## Quickstart
 
-	```bash
-	git clone git@github.com:zoxon/gulp-front.git my-project && cd my-project
+1. Install the [node.js](https://nodejs.org)
+2. Clone the project or [download](https://github.com/zoxon/gulp-front/archive/master.zip) the file
+	```sh
+	git clone git@github.com:zoxon/gulp-front.git --depth 1 my-project
 	```
-
-* For [Yarn](https://yarnpkg.com)
-	- Install `gulp-cli` globally (once!)
-
-		```bash
-		yarn global add gulp-cli
-		```
-
-	- Install dependencies
-
-		```bash
-		yarn
-		```
-
-	- Start `gulp`
-
-		```bash
-		yarn start
-		# or
-		yarn dev
-		```
-
-* For [NPM](https://www.npmjs.com)
-	- Update npm to latest version
-		Go to the folder with installed nodejs
-
-		```bash
-		cd "C:\Program Files\nodejs"
-		```
-
-		or
-
-		```bash
-		cd "C:\Program Files (x86)\nodejs"
-		```
-
-		and execute
-
-		```bash
-		npm install npm@latest
-		```
-
-	- Install `gulp-cli` globally (once!)
-
-		```bash
-		npm install gulp-cli -g
-		```
-
-	- Install dependencies
-
-		```bash
-		npm install
-		```
-
-	- Start `gulp`
-
-		```bash
-		npm start
-		```
-
-* In browser open page with address [`http://localhost:3000/`](http://localhost:3000/)
+3. Go to project folder and run
+	```bash
+	npm run setup
+	```
+4. Start dev server
+	```bash
+	npm start
+	```
+5. In browser open page with address [`http://localhost:3000/`](http://localhost:3000/)
 
 
 ## Main tasks
 
-For npm use `npm run <command>`, for Yarn use `yarn <command>`
+* `npm run dev` - launches watchers and server
+* `npm run build` - compile a project
+* `npm run zip` - compile a project in zip
+* `npm run deploy` - compile a project and push in `build` branch to git repository
+* `npm run cleanup` - remove demo app
 
-* `dev` - launches watchers and server
-* `build` - compile a project
-* `zip` - compile a project in zip
-* `deploy` - compile a project and push in `build` branch to git repository
-* `remove-demo` - remove demo app
 
 ## Module generator
 
-There is a script for add/delete modules in project in gulp-front.
+Create empty module by name in `source/modules` folder
 
-For npm use `npm run <command>`, for Yarn use `yarn <command>`
+By default generate only `*.pug` and `*.styl` files.
 
-* `amo <moduleName>` - creates an empty module with a help of technologies, such as pug and styl;
-* `amo <moduleName> js yml` - creates an empty module with a help of pug and styl and also using additional technologies: js, yml and json;
-* `rmo <moduleName>` - Use to delete a module.
+You can call `amo` with additional params like `js` and `yml`
 
-Examples: `npm run amo my-module yml js`, `yarn amo my-other-module`
-
-
-## Files and folders structure
-
-```
-gulp-front/                             # Project root
-├── dest                                # Compiled files
-├── source                              # Source files
-│   ├── modules                         # Modules folder
-│   ├── pages                           # Pages
-│   └── static                          # Static files
-│       ├── assets                      # Other files
-│       ├── scripts                     # JavaScript files
-│       │   ├── plugins                 # JavaScript plgins and libs
-│       │   ├── main.js                 # Main JavaScript file
-│       │   └── plugins.js              # Plugins assemblage file
-│       └── styles                      # Static styles
-│           ├── components              # Componetns
-│           ├── plugins                 # Plugins styles
-│           ├── _common.styl            # Different styles
-│           ├── _media.styl             # @media
-│           ├── _variables.styl         # Variables
-│           ├── main.styl               # Main styles
-│           └── reset.styl              # Styles reset + typography
-├── tmp                                 # Temp folder
-├── zip                                 # Folder with zip archives
-├── package.json                        # Dependencies for node.js
-├── .csscomb.json                       # csscomb config
-├── .editorconfig                       # EditorConfig
-├── .travis.yml                         # TravisCI config
-├── gulpfile.js                         # gulp.js config
-├── LICENSE                             # License
-└── README.md                           # File you read
+```sh
+npm run amo <module-name> [js || yml]
 ```
 
 ## License
