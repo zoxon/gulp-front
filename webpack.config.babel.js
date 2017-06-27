@@ -1,10 +1,7 @@
 import path from 'path';
 import webpack from 'webpack';
 
-import env from './gulp/util/env.js';
-const NODE_ENV = (env.production || env.prod) ? 'production' : 'development';
-const isDevelopment = NODE_ENV === 'development';
-
+import { NODE_ENV, isDevelopment } from './gulp/util/env.js';
 
 const outputFileName = '[name].js';
 
@@ -60,6 +57,7 @@ if (isDevelopment) {
 else {
 	options.plugins.push(
 		new webpack.NoEmitOnErrorsPlugin(),
+		new webpack.optimize.ModuleConcatenationPlugin(),
 		new webpack.LoaderOptionsPlugin({
 			minimize: true,
 			debug: false

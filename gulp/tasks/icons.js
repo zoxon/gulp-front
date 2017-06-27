@@ -4,6 +4,7 @@ import imagemin from 'gulp-imagemin';
 import svgSymbols from 'gulp-svg-symbols';
 import gulpIf from 'gulp-if';
 import gulpRename from 'gulp-rename';
+import { isDevelopment } from '../util/env';
 import {
 	plumberConfig,
 	imageminConfig,
@@ -13,7 +14,7 @@ import {
 const icons = () =>
 	gulp.src([ '**/*.svg', '!**/_*.svg' ], { cwd: 'source/static/icons' })
 		.pipe(plumber(plumberConfig))
-		.pipe(imagemin(imageminConfig.icons))
+		.pipe(gulpIf(!isDevelopment, imagemin(imageminConfig.icons)))
 		.pipe(svgSymbols(svgSymbolsConfig))
 		.pipe(gulpIf(/\.styl$/, gulp.dest('tmp')))
 		.pipe(gulpIf(/\.svg$/, gulpRename('icons.svg')))

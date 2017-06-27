@@ -1,22 +1,23 @@
 import gulp from 'gulp';
 import plumber from 'gulp-plumber';
-import filter from 'gulp-filter';
+import gulpIf from 'gulp-if';
 import changed from 'gulp-changed';
 import imagemin from 'gulp-imagemin';
 import { plumberConfig, imageminConfig } from '../config';
+import { isDevelopment } from '../util/env';
 
 export const assets = () => {
-	const imageFilter = filter('**/*.{jpg,gif,svg,png}', { restore: true });
-
 	return gulp.src([ '**/*.*', '!**/_*.*' ], { cwd: 'source/static/assets' })
 		.pipe(plumber(plumberConfig))
 		.pipe(changed('dest/assets'))
 
 		// Minify images
-		.pipe(imageFilter)
-		.pipe(changed('dest/assets'))
-		.pipe(imagemin(imageminConfig.images))
-		.pipe(imageFilter.restore)
+		.pipe(
+			gulpIf(
+				!isDevelopment,
+				imagemin(imageminConfig.images)
+			)
+		)
 
 		// Copy other files
 		.pipe(gulp.dest('dest/assets'));

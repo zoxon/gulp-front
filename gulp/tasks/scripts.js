@@ -20,6 +20,7 @@ const scripts = callback => {
 		// https://webpack.js.org/configuration/stats/
 		gulplog[ stats.hasErrors() ? 'error' : 'info' ](stats.toString({
 			chunks: false,  // Makes the build much quieter
+			modules: false,
 			colors: true    // Shows colors in the console
 		}));
 	}
