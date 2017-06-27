@@ -1,4 +1,4 @@
-import parseArgs from 'minimist';
-const argv = parseArgs(process.argv.slice(2));
+import argv from './argv';
 
-export default argv;
+export const NODE_ENV = (argv.production || argv.prod) ? 'production' : 'development';
+export const isDevelopment = NODE_ENV === 'development';
