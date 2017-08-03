@@ -101,6 +101,7 @@
     "webpack-stream": "^3.2.0"
   },
   "dependencies": {
+    "animejs": "^2.0.2",
     "change-case": "^3.0.1",
     "fastclick": "^1.0.6",
     "jquery": "^3.2.1",
