@@ -1,12 +1,5 @@
-'use strict';
+import init from '../../modules/_utils/plugin-init';
+import Alert from '../../modules/alert/alert';
 
-// Modules
-var cache = {};
+init('.alert', Alert);
 
-function importAll(r) {
-	r.keys().forEach(function(key) {
-		cache[ key ] = r(key);
-	});
-}
-
-importAll(require.context('../../modules/', true, /^[^\_]*\.js/));
