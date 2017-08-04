@@ -25,7 +25,7 @@ const scripts = callback => {
 		}));
 	}
 
-	return gulp.src([ '*.js', '!_*.js' ], { cwd: 'source/static/scripts' })
+	return gulp.src([ '**/*.js', '!**/_*.js' ], { cwd: 'source/static/scripts' })
 		.pipe(plumber(plumberConfig))
 		.pipe(webpackStream(webpackConfig, webpack, done))
 		.pipe(gulp.dest('dest/assets/javascripts'))

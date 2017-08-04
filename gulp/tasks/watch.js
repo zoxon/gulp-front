@@ -42,7 +42,7 @@ const watch = () => {
 
 	// Modules scripts
 	gulp.watch(
-		'source/modules/*/*.js',
+		'source/modules/**/*.js',
 		gulp.series(scripts, reload)
 	);
 
