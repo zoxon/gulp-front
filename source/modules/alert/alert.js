@@ -1,6 +1,19 @@
 import hide from '../_utils/animations/hide';
 
+/**
+ * Simple alert message with close button
+ *
+ * @export
+ * @class Alert
+ */
 export default class Alert {
+
+	/**
+	 * Creates an instance of Alert.
+	 * @param {element} element
+	 * @param {object} options
+	 * @memberof Alert
+	 */
 	constructor(element, options) {
 		this.element = element;
 		this.name = 'alert';
@@ -31,6 +44,12 @@ export default class Alert {
 		this.$close.addEventListener('click', event => this.onClick.call(this, event));
 	}
 
+	/**
+	 * Handle click on close button
+	 *
+	 * @param {event} event
+	 * @memberof Alert
+	 */
 	onClick(event) {
 		event.preventDefault();
 		hide(this.element);
