@@ -15,8 +15,7 @@ function hide(el) {
 			el.style.overflow = 'hidden';
 		},
 		complete() {
-			el.style.visibility = 'hidden';
-			el.remove();
+			el.style.display = 'none';
 		}
 	});
 }
