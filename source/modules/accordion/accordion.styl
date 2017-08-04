@@ -44,7 +44,7 @@
 		opacity 0
 		overflow hidden
 
-	&__item_active &__pannel
+	[data-plugin-accordion-item-open="true"] &__pannel
 		padding-top 20px
 		padding-bottom 20px
 		height auto
@@ -52,6 +52,6 @@
 		overflow auto
 		opacity 1
 
-	&__item_active &__trigger
+	[data-plugin-accordion-item-open="true"] &__trigger
 		&::after
 			transform rotate(225deg)
