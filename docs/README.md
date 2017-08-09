@@ -1,6 +1,6 @@
 # Documentation
 
-# Table of Contents
+## Table of Contents
 * [Quickstart](#quickstart)
 * [Development](#development)
 * [Building and Deploying](#building-and-deploying)
