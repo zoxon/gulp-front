@@ -94,7 +94,7 @@
 			this.$notification.animate({ opacity: .01 }, this.options.fadeOut, function() {
 				var queued = queue.shift();
 				if (queued) {
-					$.createNotification(queued);
+					$.Notification(queued);
 				}
 			});
 			this.$notification.slideUp(this.options.slideUp, function() {
@@ -146,8 +146,8 @@
 
 	var queue = [];
 
-	$.notification = function(options) {
-		var options = $.extend( {}, defaults, options );
+	$.notification = function(_options) {
+		var options = $.extend( {}, defaults, _options );
 
 		// get notification container (aka board)
 		var boardClasses = [ 'notification-board' ];
