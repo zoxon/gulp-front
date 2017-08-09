@@ -126,5 +126,8 @@
             title: "Tooltips"
             url: "#tooltips"
           -
+            title: "Notifications"
+            url: "#notifications"
+          -
             title: "Svg Icons"
             url: "#svg-icons"

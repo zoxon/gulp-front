@@ -107,7 +107,6 @@ gulp-front/                             # Project root
 ├── package.json                        # Dependencies for node.js
 ├── postcss.config.js                   # PostCSS config
 ├── README.md                           # English readme file
-├── README_RU.md                        # Russian readme file
 ├── webpack.config.babel.js             # Webpack config
 └── yarn.lock                           # YARN Lock file
 ```
@@ -137,7 +136,7 @@ gulp-front/                             # Project root
 <a name="js"></a>
 ## JS
 
-* [Webpack 2](https://webpack.js.org/) - module bundler
+* [Webpack 3](https://webpack.js.org/) - module bundler
 * [npm](https://www.npmjs.com/) - package manager
 * [ES6](http://es6-features.org/) and [Babel](https://babeljs.io/)
 
