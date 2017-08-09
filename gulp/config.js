@@ -1,14 +1,24 @@
 import path from 'path';
 const CWD = process.cwd();
+
 import gulpImagemin from 'gulp-imagemin';
+import imageminJpegRecompress from 'imagemin-jpeg-recompress';
+import imageminPngquant from 'imagemin-pngquant';
+import posthtmlAttrsSorter from 'posthtml-attrs-sorter';
+import rupture from 'rupture';
+
+import errorHandler from './util/errorHandler';
+import stylusFileExists from './util/stylusFileExists';
+
 
 export const delConfig = [
 	'dest',
 	'tmp'
 ];
 
+
 export const plumberConfig = {
-	errorHandler: require('./util/errorHandler.js')
+	errorHandler
 };
 
 export const browserSyncConfig = {
@@ -22,11 +32,12 @@ export const browserSyncConfig = {
 	}
 };
 
+
 // https://github.com/jescalan/accord/blob/master/docs/stylus.md
 export const stylusConfig = {
 	use: [
-		require('rupture')(),
-		require('./util/stylusFileExists')()
+		rupture(),
+		stylusFileExists()
 	],
 	include: [
 		path.join(CWD, 'node_modules')
@@ -67,18 +78,19 @@ export const spritesmithConfig = {
 	cssTemplate: path.join(CWD, 'source/static/styles/templates/sprite-template.mustache')
 };
 
+
 export const imageminConfig = {
 	images: [
 		gulpImagemin.gifsicle({
 			interlaced: true,
 			optimizationLevel: 3
 		}),
-		require('imagemin-jpeg-recompress')({
+		imageminJpegRecompress({
 			progressive: true,
 			max: 80,
 			min: 70
 		}),
-		require('imagemin-pngquant')({ quality: '75-85' }),
+		imageminPngquant({ quality: '75-85' }),
 		gulpImagemin.svgo({
 			plugins: [
 				{ removeViewBox: false }
@@ -105,9 +117,10 @@ export const imageminConfig = {
 	]
 };
 
+
 export const posthtmlConfig = {
 	plugins: [
-		require('posthtml-attrs-sorter')({
+		posthtmlAttrsSorter({
 			order: [
 				'class',
 				'id',
