@@ -1,4 +1,9 @@
-'use strict';
+// Avoid `console` errors in browsers that lack a console.
+import './helpers/console.polyfill';
+
+// Precache Service Worker
+import './helpers/sw-precache-registration';
+
 
 // Modules
 var cache = {};
