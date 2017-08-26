@@ -8,6 +8,7 @@ import moduleImages from './moduleImages';
 import { assets, staticFiles } from './assets';
 import scripts from './scripts';
 import css from './css';
+import serviceWorker from './serviceWorker';
 
 
 const build = series(
@@ -22,7 +23,8 @@ const build = series(
 			staticFiles,
 			scripts
 		),
-		css
+		css,
+		serviceWorker
 	)
 );
 
