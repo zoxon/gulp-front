@@ -1,18 +1,18 @@
 // alert
 (function() {
 
-	var $alerts = $('.alert');
+  var $alerts = $('.alert');
 
-	if ($alerts.isset()) {
-		$alerts.each(function() {
-			var $alert = $(this);
-			var $close = $alert.find('.alert__close');
+  if ($alerts.isset()) {
+    $alerts.each(function() {
+      var $alert = $(this);
+      var $close = $alert.find('.alert__close');
 
-			$close.on('click', function(event) {
-				event.preventDefault();
-				$alert.fadeOut();
-			});
-		});
-	}
+      $close.on('click', function(event) {
+        event.preventDefault();
+        $alert.fadeOut();
+      });
+    });
+  }
 
 })();

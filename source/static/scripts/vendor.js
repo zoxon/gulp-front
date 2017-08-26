@@ -6,7 +6,7 @@ import './helpers/console.polyfill.js';
 // Remove delay between a physical tap and the firing of a click event on mobile browsers.
 import FastClick from 'fastclick';
 $(() => {
-	FastClick.attach(document.body);
+  FastClick.attach(document.body);
 });
 
 
@@ -24,7 +24,7 @@ import './plugins/helpers/jquery.isset.js';
 import './plugins/basictable/jquery.basictable.js';
 
 $(() => {
-	$('.table').basictable({ baseClass: 'table' });
+  $('.table').basictable({ baseClass: 'table' });
 });
 
 
