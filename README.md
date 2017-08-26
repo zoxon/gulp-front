@@ -1,5 +1,7 @@
 # Gulp Front
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/zoxon/gulp-front.svg)](https://greenkeeper.io/)
+
 *A lean and powerful, gulp-based boilerplate for better front-end coding with [Gulp](http://gulpjs.com/), [Pug](https://pugjs.org/) and [Stylus](http://stylus-lang.com/)*
 
 [![Build Status](https://travis-ci.org/zoxon/gulp-front.svg?branch=master)](https://travis-ci.org/zoxon/gulp-front/builds)
