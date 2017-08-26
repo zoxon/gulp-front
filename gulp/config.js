@@ -60,8 +60,8 @@ export const svgSymbolsConfig =  {
   className: '%f',
   svgClassname: 'icons-sprite',
   templates: [
-    path.join(CWD, 'source/static/styles/templates/icons-template.styl'),
-    path.join(CWD, 'source/static/styles/templates/icons-template.svg')
+    path.join(CWD, 'gulp/templates/icons-template.styl'),
+    path.join(CWD, 'gulp/templates/icons-template.svg')
   ]
 };
 
@@ -72,7 +72,7 @@ export const spritesmithConfig = {
   cssName: 'sprite.styl',
   algorithm: 'binary-tree',
   padding: 8,
-  cssTemplate: path.join(CWD, 'source/static/styles/templates/sprite-template.mustache')
+  cssTemplate: path.join(CWD, 'gulp/templates/sprite-template.mustache')
 };
 
 
