@@ -4,7 +4,7 @@
       "stylelint-order"
     ],
     "rules": {
-        "indentation": "tab",
+        "indentation": 2,
         "no-duplicate-selectors": true,
         "color-hex-case": "lower",
         "color-hex-length": "short",

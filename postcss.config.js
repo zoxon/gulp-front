@@ -8,8 +8,8 @@ module.exports = {
       colorCase: 'lower',
       colorShorthand: true,
       format: 'expanded',
-      indentChar: '\t',
-      indentSize: 1,
+      indentChar: ' ',
+      indentSize: 2,
       trimLeadingZero: false,
       trimTrailingZeros: true,
       zeroLengthNoUnit: true
