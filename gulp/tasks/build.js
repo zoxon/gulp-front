@@ -12,20 +12,20 @@ import serviceWorker from './serviceWorker';
 
 
 const build = series(
-	cleanup,
-	series(
-		parallel(
-			html,
-			icons,
-			sprite,
-			moduleImages,
-			assets,
-			staticFiles,
-			scripts
-		),
-		css,
-		serviceWorker
-	)
+  cleanup,
+  series(
+    parallel(
+      html,
+      icons,
+      sprite,
+      moduleImages,
+      assets,
+      staticFiles,
+      scripts
+    ),
+    css,
+    serviceWorker
+  )
 );
 
 export default build;

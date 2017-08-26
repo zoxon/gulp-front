@@ -6,10 +6,10 @@ import { plumberConfig } from '../config';
 
 
 const data = () =>
-	gulp.src([ '**/*.yml', '!**/_*.yml' ], { cwd: 'source/modules/*/data' })
-		.pipe(plumber(plumberConfig))
-		.pipe(yaml({ space: '\t' }))
-		.pipe(mergeJson({ fileName: 'data.json' }))
-		.pipe(gulp.dest('tmp'));
+  gulp.src([ '**/*.yml', '!**/_*.yml' ], { cwd: 'source/modules/*/data' })
+    .pipe(plumber(plumberConfig))
+    .pipe(yaml({ space: '\t' }))
+    .pipe(mergeJson({ fileName: 'data.json' }))
+    .pipe(gulp.dest('tmp'));
 
 export default data;

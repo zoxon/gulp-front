@@ -7,23 +7,23 @@ import { plumberConfig, imageminConfig } from '../config';
 import { isDevelopment } from '../util/env';
 
 export const assets = () => {
-	return gulp.src([ '**/*.*', '!**/_*.*' ], { cwd: 'source/static/assets' })
-		.pipe(plumber(plumberConfig))
-		.pipe(changed('dest/assets'))
+  return gulp.src([ '**/*.*', '!**/_*.*' ], { cwd: 'source/static/assets' })
+    .pipe(plumber(plumberConfig))
+    .pipe(changed('dest/assets'))
 
-		// Minify images
-		.pipe(
-			gulpIf(
-				!isDevelopment,
-				imagemin(imageminConfig.images)
-			)
-		)
+    // Minify images
+    .pipe(
+      gulpIf(
+        !isDevelopment,
+        imagemin(imageminConfig.images)
+      )
+    )
 
-		// Copy other files
-		.pipe(gulp.dest('dest/assets'));
+    // Copy other files
+    .pipe(gulp.dest('dest/assets'));
 };
 
 export const staticFiles = () =>
-	gulp.src('**/{*,.*}', { cwd: 'source/static/public' })
-		.pipe(plumber(plumberConfig))
-		.pipe(gulp.dest('dest'));
+  gulp.src('**/{*,.*}', { cwd: 'source/static/public' })
+    .pipe(plumber(plumberConfig))
+    .pipe(gulp.dest('dest'));

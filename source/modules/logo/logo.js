@@ -1,12 +1,12 @@
 // Logo
 (function() {
 
-	$('.logo').click(function(event) {
-		event.preventDefault();
+  $('.logo').click(function(event) {
+    event.preventDefault();
 
-		$('html, body').stop().animate({
-			'scrollTop': 0
-		}, 900, 'swing');
-	});
+    $('html, body').stop().animate({
+      'scrollTop': 0
+    }, 900, 'swing');
+  });
 
 })();

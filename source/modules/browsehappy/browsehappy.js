@@ -1,8 +1,8 @@
 // browsehappy
 (function() {
 
-	$('.browsehappy').click(function() {
-		$(this).slideUp();
-	});
+  $('.browsehappy').click(function() {
+    $(this).slideUp();
+  });
 
 })();

@@ -1,7 +1,7 @@
 {
-	// Default options
-	'functions': true,
-	'variableNameTransforms': ['underscored']
+  // Default options
+  'functions': true,
+  'variableNameTransforms': ['underscored']
 }
 
 {{#extend "stylus"}}
@@ -60,19 +60,19 @@ ${{retina_groups_info.strings.name}} ={{#each retina_groups}} ${{strings.name_gr
 
 
 spriteBackgroundSize($sprite) {
-	background-size $sprite[6] $sprite[7]
+  background-size $sprite[6] $sprite[7]
 }
 
 retinaSprite($retina_group) {
-	$normal_sprite = $retina_group[1]
-	$retina_sprite = $retina_group[2]
-	sprite($normal_sprite)
+  $normal_sprite = $retina_group[1]
+  $retina_sprite = $retina_group[2]
+  sprite($normal_sprite)
 
-	@media (-webkit-min-device-pixel-ratio: 2),
-				 (min-resolution: 192dpi) {
-		spriteImage($retina_sprite)
-		spriteBackgroundSize($normal_sprite)
-	}
+  @media (-webkit-min-device-pixel-ratio: 2),
+         (min-resolution: 192dpi) {
+    spriteImage($retina_sprite)
+    spriteBackgroundSize($normal_sprite)
+  }
 }
 {{/if}}
 {{/content}}
@@ -86,12 +86,12 @@ retinaSprite($retina_group) {
 // retinaSprites($retina_groups)
 
 retinaSprites($retina_groups) {
-	for $retina_group in $retina_groups {
-		$sprite_name = $retina_group[0];
-		.{$sprite_name} {
-			retinaSprite $retina_group
-		}
-	}
+  for $retina_group in $retina_groups {
+    $sprite_name = $retina_group[0];
+    .{$sprite_name} {
+      retinaSprite $retina_group
+    }
+  }
 }
 {{/if}}
 {{/content}}

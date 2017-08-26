@@ -7,20 +7,20 @@ import { spritesmithConfig, imageminConfig } from '../config';
 import { isDevelopment } from '../util/env';
 
 const srpite = () => {
-	let spriteData = gulp.src(
-		[ '**/*.png', '!**/_*.png' ],
-		{ cwd: 'source/static/sprite' }
-	)
-		.pipe(spritesmith(spritesmithConfig));
+  let spriteData = gulp.src(
+    [ '**/*.png', '!**/_*.png' ],
+    { cwd: 'source/static/sprite' }
+  )
+    .pipe(spritesmith(spritesmithConfig));
 
-	spriteData.img.pipe(buffer())
-		.pipe(gulpIf(!isDevelopment, imagemin(imageminConfig.images)))
-		.pipe(gulp.dest('dest/assets/images'));
+  spriteData.img.pipe(buffer())
+    .pipe(gulpIf(!isDevelopment, imagemin(imageminConfig.images)))
+    .pipe(gulp.dest('dest/assets/images'));
 
-	spriteData.css.pipe(buffer())
-		.pipe(gulp.dest('tmp'));
+  spriteData.css.pipe(buffer())
+    .pipe(gulp.dest('tmp'));
 
-	return spriteData.img.pipe(buffer());
+  return spriteData.img.pipe(buffer());
 };
 
 export default srpite;
