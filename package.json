@@ -89,16 +89,16 @@
     "mkdirp": "^0.5.1",
     "node-notifier": "^5.0.2",
     "perfectionist": "^2.4.0",
-    "postcss-reporter": "^4.0.0",
+    "postcss-reporter": "^5.0.0",
     "posthtml-attrs-sorter": "^1.1.0",
     "rimraf": "^2.6.1",
     "rupture": "^0.6.1",
     "stylefmt": "^6.0.0",
-    "stylelint-config-standard": "^16.0.0",
-    "stylelint-order": "^0.5.0",
+    "stylelint-config-standard": "^17.0.0",
+    "stylelint-order": "^0.6.0",
     "vinyl-buffer": "^1.0.0",
     "webpack": "^3.0.0",
-    "webpack-stream": "^3.2.0"
+    "webpack-stream": "^4.0.0"
   },
   "dependencies": {
     "change-case": "^3.0.1",
