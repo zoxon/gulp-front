@@ -45,13 +45,10 @@ export const stylusConfig = {
 	'include css': true
 };
 
-export const pugConfig = {
-	pretty: '\t'
-};
-
 export const htmlPrettifyConfig = {
-	'unformatted': [ 'pre', 'code', 'textarea' ],
-	'indent_with_tabs': true,
+  'unformatted': [ 'pre', 'code', 'textarea' ],
+  indent_char: ' ',
+  indent_size: 2,
 	'preserve_newlines': true,
 	'brace_style': 'expand',
 	'end_with_newline': true

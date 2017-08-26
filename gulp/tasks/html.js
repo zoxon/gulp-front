@@ -6,14 +6,15 @@ import prettify from 'gulp-prettify';
 import getJsonData from '../util/getJsonData';
 import {
 	plumberConfig,
-	pugConfig,
 	posthtmlConfig,
 	htmlPrettifyConfig
 } from '../config';
 import data from './data';
 
 export const pages = () => {
-	pugConfig.locals = getJsonData('./tmp/data.json');
+	const pugConfig = {
+    locals: getJsonData('./tmp/data.json')
+  };
 
 	return gulp.src([ '**/*.pug', '!**/_*.pug' ], { cwd: 'source/pages' })
 		.pipe(plumber(plumberConfig))
