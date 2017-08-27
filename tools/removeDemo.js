@@ -34,26 +34,26 @@ include ../modules/header/header
 doctype html
 html(class="no-js" lang=config.lang)
 
-  head
-    +head(head.home)
+	head
+		+head(head.home)
 
-  +page()
-    +inject('header')
-      +header()
+	+page()
+		+inject('header')
+			+header()
 
-    +inject('main')
-      h1 Home page
+		+inject('main')
+			h1 Home page
 
-    +inject('footer')
-      +footer()
+		+inject('footer')
+			+footer()
 `
   },
   {
     path: './source/modules/header/header.pug',
     content:
 `mixin header(data)
-  header.header&attributes(attributes)
-    //-
+	header.header&attributes(attributes)
+		//-
 `
   },
   {
