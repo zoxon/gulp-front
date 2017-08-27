@@ -1,4 +1,4 @@
 // Remodal
 $(function() {
-	$('[data-remodal-id]').remodal();
+  $('[data-remodal-id]').remodal();
 });

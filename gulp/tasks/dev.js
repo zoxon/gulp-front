@@ -4,11 +4,11 @@ import build from './build';
 import watch from './watch';
 
 const dev = series(
-	build,
-	parallel(
-		server,
-		watch
-	)
+  build,
+  parallel(
+    server,
+    watch
+  )
 );
 
 export default dev;

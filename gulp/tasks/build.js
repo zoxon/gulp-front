@@ -8,22 +8,24 @@ import moduleImages from './moduleImages';
 import { assets, staticFiles } from './assets';
 import scripts from './scripts';
 import css from './css';
+import serviceWorker from './serviceWorker';
 
 
 const build = series(
-	cleanup,
-	series(
-		parallel(
-			html,
-			icons,
-			sprite,
-			moduleImages,
-			assets,
-			staticFiles,
-			scripts
-		),
-		css
-	)
+  cleanup,
+  series(
+    parallel(
+      html,
+      icons,
+      sprite,
+      moduleImages,
+      assets,
+      staticFiles,
+      scripts
+    ),
+    css,
+    serviceWorker
+  )
 );
 
 export default build;

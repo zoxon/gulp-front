@@ -5,26 +5,27 @@ import posthtml from 'gulp-posthtml';
 import prettify from 'gulp-prettify';
 import getJsonData from '../util/getJsonData';
 import {
-	plumberConfig,
-	pugConfig,
-	posthtmlConfig,
-	htmlPrettifyConfig
+  plumberConfig,
+  posthtmlConfig,
+  htmlPrettifyConfig
 } from '../config';
 import data from './data';
 
 export const pages = () => {
-	pugConfig.locals = getJsonData('./tmp/data.json');
+  const pugConfig = {
+    locals: getJsonData('./tmp/data.json')
+  };
 
-	return gulp.src([ '**/*.pug', '!**/_*.pug' ], { cwd: 'source/pages' })
-		.pipe(plumber(plumberConfig))
-		.pipe(pug(pugConfig))
-		.pipe(posthtml(posthtmlConfig.plugins, posthtmlConfig.options))
-		.pipe(prettify(htmlPrettifyConfig))
-		.pipe(gulp.dest('dest'));
+  return gulp.src([ '**/*.pug', '!**/_*.pug' ], { cwd: 'source/pages' })
+    .pipe(plumber(plumberConfig))
+    .pipe(pug(pugConfig))
+    .pipe(posthtml(posthtmlConfig.plugins, posthtmlConfig.options))
+    .pipe(prettify(htmlPrettifyConfig))
+    .pipe(gulp.dest('dest'));
 };
 
 export const html =
-	gulp.series(
-		data,
-		pages
-	);
+  gulp.series(
+    data,
+    pages
+  );

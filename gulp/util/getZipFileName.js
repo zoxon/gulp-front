@@ -4,8 +4,8 @@ import {camelCase} from 'change-case';
 const CWD = process.cwd();
 
 const getZipFileName = () => {
-	const cwdDirName = path.basename(CWD) || 'dist';
-	return camelCase(cwdDirName) + '-' + getTimestamp() + '.zip';
+  const cwdDirName = path.basename(CWD) || 'dist';
+  return camelCase(cwdDirName) + '-' + getTimestamp() + '.zip';
 };
 
 export default getZipFileName;
