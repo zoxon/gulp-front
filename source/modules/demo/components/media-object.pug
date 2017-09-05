@@ -1,0 +1,115 @@
+include ../../media-object/media-object
+include ../../avatar/avatar
+
+p "Media object" module helper for easily creating blocks with text and image, like comments, any lists and etc.
+
+h4 Example usage in `comment` module
+style
+	:stylus
+		.comment
+			&__avatar
+				//
+			&__text
+				margin 0 10px
+			&__message
+				font-size 14px
+				line-height 20px
+				margin-bottom 10px
+
+			&__meta
+				font-size 13px
+
+			&__name
+				&
+				&:visited
+					font-weight bold
+					display inline-block
+					margin-right 5px
+					color #000
+					text-decoration none
+
+			&__date
+				display inline-block
+				color silver
+
+h5 Top
+.comment.media-object.media-object_image_top
+	.comment__avatar.media-object__image
+		+avatar({"image": "https://unsplash.it/240/240?image=1027", "title": "User Name"}).avatar_style_circle.avatar_size_small
+	.comment__text.media-object__body
+		.comment__meta
+			a(href="#").comment__name User Name
+			time(datetime="2017-12-20 08:30:45").comment__date 1 day ago
+		.comment__message Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, temporibus quam iste totam nam natus debitis quae, rem nulla, culpa delectus. Nam ex iusto repellat et fuga ullam omnis velit!
+		.comment__controls
+			button(type="button").button.button_style_flat.button_color_blue.button_size_small Reply
+			button(type="button").button.button_style_flat.button_color_blue.button_size_small Quote
+			button(type="button").button.button_style_flat.button_color_red.button_size_small Report
+
+.comment.media-object.media-object_image_top
+	.comment__text.media-object__body
+		.comment__meta
+			a(href="#").comment__name User Name
+			time(datetime="2017-12-20 08:30:45").comment__date 1 day ago
+		.comment__message Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, temporibus quam iste totam nam natus debitis quae, rem nulla, culpa delectus. Nam ex iusto repellat et fuga ullam omnis velit!
+		.comment__controls
+			button(type="button").button.button_style_flat.button_color_blue.button_size_small Reply
+			button(type="button").button.button_style_flat.button_color_blue.button_size_small Quote
+			button(type="button").button.button_style_flat.button_color_red.button_size_small Report
+	.comment__avatar.media-object__image
+		+avatar({"image": "https://unsplash.it/240/240?image=1027", "title": "User Name"}).avatar_style_circle.avatar_size_small
+
+h5 Center
+.comment.media-object.media-object_image_center
+	.comment__avatar.media-object__image
+		+avatar({"image": "https://unsplash.it/240/240?image=1027", "title": "User Name"}).avatar_style_circle.avatar_size_small
+	.comment__text.media-object__body
+		.comment__meta
+			a(href="#").comment__name User Name
+			time(datetime="2017-12-20 08:30:45").comment__date 1 day ago
+		.comment__message Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, temporibus quam iste totam nam natus debitis quae, rem nulla, culpa delectus. Nam ex iusto repellat et fuga ullam omnis velit!
+		.comment__controls
+			button(type="button").button.button_style_flat.button_color_blue.button_size_small Reply
+			button(type="button").button.button_style_flat.button_color_blue.button_size_small Quote
+			button(type="button").button.button_style_flat.button_color_red.button_size_small Report
+
+.comment.media-object.media-object_image_center
+	.comment__text.media-object__body
+		.comment__meta
+			a(href="#").comment__name User Name
+			time(datetime="2017-12-20 08:30:45").comment__date 1 day ago
+		.comment__message Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, temporibus quam iste totam nam natus debitis quae, rem nulla, culpa delectus. Nam ex iusto repellat et fuga ullam omnis velit!
+		.comment__controls
+			button(type="button").button.button_style_flat.button_color_blue.button_size_small Reply
+			button(type="button").button.button_style_flat.button_color_blue.button_size_small Quote
+			button(type="button").button.button_style_flat.button_color_red.button_size_small Report
+	.comment__avatar.media-object__image
+		+avatar({"image": "https://unsplash.it/240/240?image=1027", "title": "User Name"}).avatar_style_circle.avatar_size_small
+
+h5 Bottom
+.comment.media-object.media-object_image_bottom
+	.comment__avatar.media-object__image
+		+avatar({"image": "https://unsplash.it/240/240?image=1027", "title": "User Name"}).avatar_style_circle.avatar_size_small
+	.comment__text.media-object__body
+		.comment__meta
+			a(href="#").comment__name User Name
+			time(datetime="2017-12-20 08:30:45").comment__date 1 day ago
+		.comment__message Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, temporibus quam iste totam nam natus debitis quae, rem nulla, culpa delectus. Nam ex iusto repellat et fuga ullam omnis velit!
+		.comment__controls
+			button(type="button").button.button_style_flat.button_color_blue.button_size_small Reply
+			button(type="button").button.button_style_flat.button_color_blue.button_size_small Quote
+			button(type="button").button.button_style_flat.button_color_red.button_size_small Report
+
+
+.comment.media-object.media-object_image_bottom
+	.comment__text.media-object__body
+		.comment__meta
+			a(href="#").comment__name User Name
+			time(datetime="2017-12-20 08:30:45").comment__date 1 day ago
+		.comment__message Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, temporibus quam iste totam nam natus debitis quae, rem nulla, culpa delectus. Nam ex iusto repellat et fuga ullam omnis velit!
+		.comment__controls
+			button(type="button").button.button_style_flat.button_color_blue.button_size_small Reply
+			button(type="button").button.button_style_flat.button_color_blue.button_size_small Quote
+			button(type="button").button.button_style_flat.button_color_red.button_size_small Report
+	.comment__avatar.media-object__image
+		+avatar({"image": "https://unsplash.it/240/240?image=1027", "title": "User Name"}).avatar_style_circle.avatar_size_small
