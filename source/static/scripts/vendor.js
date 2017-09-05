@@ -19,14 +19,5 @@ svg4everybody();
 import './plugins/helpers/jquery.isset.js';
 
 
-// Basic table
-// Responsive tables
-import './plugins/basictable/jquery.basictable.js';
-
-$(() => {
-  $('.table').basictable({ baseClass: 'table' });
-});
-
-
 // Remodal
 import 'remodal';
