@@ -2,132 +2,138 @@
   mainMenu:
     default:
       -
-        title: "Typography"
-        url: "#typography"
-        icon: "text"
+        title: Typography
+        url: typography
+        icon: text
         submenu:
           -
-            title: "Titles & Paragraphs"
-            url: "#titles-and-paragraphs"
+            title: Titles & Paragraphs
+            url: titles-and-paragraphs
           -
-            title: "Lists"
-            url: "#lists"
+            title: Lists
+            url: lists
           -
-            title: "Tables"
-            url: "#tables"
+            title: Quotes
+            url: quotes
           -
-            title: "Quotes"
-            url: "#quotes"
+            title: Description lists
+            url: description-lists
           -
-            title: "Description lists"
-            url: "#description-lists"
+            title: Code
+            url: code
           -
-            title: "Code"
-            url: "#code"
-          -
-            title: "Text level elements"
-            url: "#text-elements"
+            title: Text level elements
+            url: text-elements
 
       -
-        title: "Forms"
-        url: "#forms"
-        icon: "input"
+        title: Forms
+        url: forms
+        icon: input
         submenu:
           -
-            title: "Messaging"
-            url: "#messaging"
+            title: Messaging
+            url: messaging
           -
-            title: "Text Inputs"
-            url: "#text-inputs"
+            title: Text Inputs
+            url: text-inputs
           -
-            title: "Radios and Checkboxes"
-            url: "#radios-and-checkboxes"
+            title: Radios and Checkboxes
+            url: radios-and-checkboxes
           -
-            title: "Input range"
-            url: "#input-range"
+            title: Input range
+            url: input-range
           -
-            title: "Selects"
-            url: "#selects"
+            title: Selects
+            url: selects
           -
-            title: "Textareas and Files"
-            url: "#textareas-and-files"
+            title: Textareas and Files
+            url: textareas-and-files
           -
-            title: "Captcha"
-            url: "#captcha"
+            title: Captcha
+            url: captcha
       -
-        title: "Buttons"
-        url: "#buttons"
-        icon: "button"
+        title: Buttons
+        url: buttons
+        icon: button
         submenu:
           -
-            title: "Styles"
-            url: "#buttons-styles"
+            title: Styles
+            url: buttons-styles
           -
-            title: "Sizes"
-            url: "#buttons-sizes"
+            title: Sizes
+            url: buttons-sizes
           -
-            title: "Icon buttons"
-            url: "#buttons-icon"
+            title: Icon buttons
+            url: buttons-icon
           -
-            title: "Tags types"
-            url: "#buttons-tags"
+            title: Tags types
+            url: buttons-tags
           -
-            title: "Disabled buttons"
-            url: "#buttons-disabled"
+            title: Disabled buttons
+            url: buttons-disabled
           -
-            title: "Block buttons"
-            url: "#buttons-block"
+            title: Block buttons
+            url: buttons-block
           -
-            title: "Buttons group"
-            url: "#buttons-group"
+            title: Buttons group
+            url: buttons-group
 
       -
-        title: "Components"
-        url: "#components"
-        icon: "add"
+        title: Components
+        url: components
+        icon: add
         submenu:
           -
-            title: "Images helpers"
-            url: "#images-helpers"
+            title: Images helpers
+            url: images-helpers
           -
-            title: "Breadcrumbs"
-            url: "#breadcrumbs"
+            title: Tables
+            url: tables
           -
-            title: "Pagination"
-            url: "#pagination"
+            title: Breadcrumbs
+            url: breadcrumbs
           -
-            title: "Badges"
-            url: "#badges"
+            title: Pagination
+            url: pagination
           -
-            title: "Progress Bar"
-            url: "#progress-bar"
+            title: Badges
+            url: badges
           -
-            title: "Responsive video"
-            url: "#embed"
+            title: Progress Bar
+            url: progress-bar
           -
-            title: "Social icons"
-            url: "#social-icons"
+            title: Responsive video
+            url: embed
           -
-            title: "Tabs"
-            url: "#tabs"
+            title: Social icons
+            url: social-icons
           -
-            title: "Modal windows"
-            url: "#modals"
+            title: Tabs
+            url: tabs
           -
-            title: "Accordion"
-            url: "#accordion"
+            title: Modal windows
+            url: modals
           -
-            title: "Dropdown"
-            url: "#dropdown"
+            title: Accordion
+            url: accordion
           -
-            title: "Spoiler"
-            url: "#spoiler"
+            title: Dropdown
+            url: dropdown
           -
-            title: "Tooltips"
-            url: "#tooltips"
+            title: Spoiler
+            url: spoiler
           -
-            title: "Notifications"
-            url: "#notifications"
+            title: Tooltips
+            url: tooltips
           -
-            title: "Svg Icons"
-            url: "#svg-icons"
+            title: Notifications
+            url: notifications
+          -
+            title: Svg Icons
+            url: svg-icons
+          -
+            title: Avatars
+            url: avatars
+          -
+            title: Media object
+            url: media-object

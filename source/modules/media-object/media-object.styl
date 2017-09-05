@@ -1,0 +1,27 @@
+.media-object
+	display flex
+
+	&__body
+	&__image
+		flex 1
+
+	&__image
+		flex 0 1 auto
+
+	&__body
+		//
+
+	&_image_top
+		& ^[0]__body
+		& ^[0]__image
+			align-self flex-start
+
+	&_image_center
+		& ^[0]__body
+		& ^[0]__image
+			align-self center
+
+	&_image_bottom
+		& ^[0]__body
+		& ^[0]__image
+			align-self flex-end
