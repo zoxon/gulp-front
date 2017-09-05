@@ -13,9 +13,6 @@
             title: Lists
             url: lists
           -
-            title: Tables
-            url: tables
-          -
             title: Quotes
             url: quotes
           -
@@ -89,6 +86,9 @@
           -
             title: Images helpers
             url: images-helpers
+          -
+            title: Tables
+            url: tables
           -
             title: Breadcrumbs
             url: breadcrumbs
