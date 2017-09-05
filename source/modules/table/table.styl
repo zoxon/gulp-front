@@ -1,0 +1,111 @@
+$table-border-color                         = #e6e6e6
+$table-head-border-color                    = #fff
+$table-back-color                           = #264b8f + 90%
+$table-stripe-color                         = #f7f7f7
+$table-font-color                           = $base-text-color
+
+
+.table
+	margin $base-line-height 0
+	border-collapse collapse
+	border-spacing 0
+	empty-cells show
+	border 1px solid $table-border-color
+
+	caption
+		color $table-font-color
+		font-style italic
+		font-size 85%
+		line-height 1
+		padding 1em 0
+		text-align center
+
+	td
+	th
+		border-left 1px solid $table-border-color
+		border-width 0 0 0 1px
+		font-size inherit
+		margin 0
+		overflow visible
+		padding 0.5em 1em
+		font-weight normal
+		&:first-child
+			border-left-width 0
+
+	thead
+	tfoot
+		background-color $table-back-color
+		color $table-font-color
+		text-align left
+		vertical-align bottom
+		if $table-head-border-color
+			td
+			th
+				border-color $table-head-border-color
+
+
+	td
+		background-color transparent
+
+	// Horizontal stripes
+	&_striped
+		tr:nth-child(2n-1)
+			td
+				background-color $table-stripe-color
+
+	// All cels bordered
+	&_bordered
+		td
+			border-bottom 1px solid $table-border-color
+
+		tbody
+		thead
+			> tr:last-child
+				> td
+					border-bottom-width: 0
+
+	// Horizontal borders
+	&_horizontal
+		td
+		th
+			border-width 0 0 1px 0
+			border-bottom 1px solid $table-border-color
+
+		tbody
+		thead
+			> tr:last-child
+				> td
+					border-bottom-width 0
+
+	// Responsive tables
+	&_responsive
+		+below($media-screen-tablet)
+			thead
+			tfoot
+				display none
+
+			caption
+				display block
+
+			tbody
+				tr
+					border-bottom 1px solid $table-border-color
+				td
+					border none
+					display block
+					vertical-align top
+
+					&:before
+						content attr(data-th) ": "
+						font-weight bold
+						display block
+
+					& ^[0]__content
+						vertical-align top
+						display block
+
+					&:first-child
+						padding-top 1.5em
+
+					&:last-child
+						padding-bottom 1.5em
