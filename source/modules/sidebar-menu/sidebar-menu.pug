@@ -4,10 +4,10 @@ mixin sidebar-menu(data)
 			ul
 				each item in data
 					li.sidebar-menu__item
-						a(href=item.url).sidebar-menu__link!= item.title
+						a(href='#' + item.url).sidebar-menu__link!= item.title
 						if (item.submenu !== false)
 							.sidebar-menu__submenu
 								ul
 									each submenu in item.submenu
 										li.sidebar-menu__item
-											a(href=submenu.url)!= submenu.title
+											a(href='#' + submenu.url)!= submenu.title
