@@ -1,76 +1,49 @@
 .pagination
 	margin 26px 0
 
-	ul
-		margin 0
-		padding 0
+	&__controls
 		display inline-block
-		font-size 0
 
-	&__item
-		list-style none
-		padding 0
-		display inline-block
-		vertical-align middle
-		font-size 14px
-		color #666
-		text-align center
+	&__controls_backward
+		//
 
-	&__link
+	&__controls_forward
+		//
+
+	&__control
+	&__page
 		&
 		&:visited
+			display inline-block
+			vertical-align middle
+			text-align center
 			color currentColor
 			text-decoration none
 			display inline-block
-			height 30px
-			min-width 30px
-			line-height 30px
+			height 2.5em
+			min-width 18px
+			line-height 2.5em
+			border-radius 50em
+			background-color #fff
+			border 1px solid #cdcdcd
+			padding-left 0.7em
+			padding-right 0.7em
 
 		&:hover
 			color currentColor
 			text-decoration none
-
-	&__item_page
-		font-size 12px
-		margin 0 5px
-
-	&__item_page &__link
-		&
-		&:visited
-			border-radius 50px
-			background-color #fff
-			border 1px solid #cdcdcd
-		&:hover
 			background-color #0083ca
 			border-color #0083ca
 			color #fff
 
-	&__item_spacer
-		margin 0
+	&__page
+		//
 
-	&__item_spacer &__link
-		&
-		&:visited
-			min-width 20px
-			width 20px
-
-	&__item_active
+	&__page_current
+		background-color #0083ca
+		border-color #0083ca
 		color #fff
 
-	&__item_active &__link
-		&
-		&:visited
-			border-color #0083ca
-			background-color #0083ca
-
-	&__item_prev
-		margin-right 10px
-	&__item_next
-		margin-left 10px
-
-	&__item_prev
-	&__item_next
-		& ^[0]__link
-			&:hover
-				color #111
-
+	&__ellipsis
+		color #666
+		padding 0 1em
