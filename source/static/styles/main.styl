@@ -1,8 +1,9 @@
-// Project variables
-@import '_variables'
+@import 'core/variables' // System variables
+@import '_variables' // Project variables
 
-// Project mixins
-@import 'components/mixins'
+
+@import 'core/mixins' // System mixins
+@import '_mixins' // Project mixins
 
 
 // Svg icons
@@ -13,13 +14,9 @@
 @import '../../../tmp/sprite.styl' if file-exists('../../../tmp/sprite.styl')
 
 
-// Components
-@import 'components/index'
-
-
 // Plugins
-// @import 'plugins/plugin-example.css'
-// @import 'plugins/plugin-example.styl'
+// @import 'plugin-name/plugin-style.css'
+// @import 'plugin-name/plugin-style.styl'
 
 
 // Modules
