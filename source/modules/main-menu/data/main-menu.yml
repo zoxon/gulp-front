@@ -24,7 +24,6 @@
           -
             title: Text level elements
             url: text-elements
-
       -
         title: Forms
         url: forms
@@ -77,15 +76,11 @@
           -
             title: Buttons group
             url: buttons-group
-
       -
         title: Components
         url: components
         icon: add
         submenu:
-          -
-            title: Images helpers
-            url: images-helpers
           -
             title: Tables
             url: tables
