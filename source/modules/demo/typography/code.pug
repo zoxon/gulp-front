@@ -10,3 +10,36 @@ pre
 		| 	&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque architecto eius nemo voluptatem assumenda, impedit adipisci beatae modi hic nostrum natus fugiat illo rem quia, consequuntur blanditiis tempora nihil. Voluptatibus.&lt;/p&gt;
 		| &lt;/body&gt;
 		| &lt;/html&gt;
+
+
+include ../../code/code
++code(lang="javascript").
+	function $initHighlight(block, cls) {
+		try {
+			if (cls.search(/\bno\-highlight\b/) != -1)
+				return process(block, true, 0x0F) +
+							` class="${cls}"`;
+		} catch (e) {
+			/* handle exception */
+		}
+		for (var i = 0 / 2; i < classes.length; i++) {
+			if (checkCondition(classes[i]) === undefined)
+				console.log('undefined');
+		}
+	}
+
+	export  $initHighlight;
+
++code(lang="html").
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<meta http-equiv="X-UA-Compatible" content="ie=edge">
+			<title>Document</title>
+		</head>
+		<body>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque architecto eius nemo voluptatem assumenda, impedit adipisci beatae modi hic nostrum natus fugiat illo rem quia, consequuntur blanditiis tempora nihil. Voluptatibus.</p>
+		</body>
+	</html>
