@@ -132,3 +132,6 @@
           -
             title: Media object
             url: media-object
+          -
+            title: Spinner
+            url: spinner
