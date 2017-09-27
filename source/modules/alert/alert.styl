@@ -1,17 +1,17 @@
 // Mixins
-alert-style(color)
-	border 1px solid color + 50%
-	background color + 90%
+alert-style(background-color, font-color)
+	border 1px solid background-color - 20%
+	background background-color
 	.alert
 		&__title
 		&__close
 		&__body
-			color color - 20%
+			color font-color
 
 		&__close
-			color color
+			color font-color
 			&:hover
-				color color - 40%
+				color font-color - 40%
 
 .alert
 	padding 10px 15px
@@ -40,21 +40,87 @@ alert-style(color)
 			size 10px
 
 
+	&_color_gray
+		alert-style(
+			background-color: $gray-6,
+			font-color: #fff
+		)
 
+	&_color_black
+		alert-style(
+			background-color: $gray-9,
+			font-color: #fff
+		)
 
+	&_color_red
+		alert-style(
+			background-color: $red-6,
+			font-color: #fff
+		)
 
-.alert_type_error
-.alert_color_red
-	alert-style(color: #e74c3c)
+	&_color_pink
+		alert-style(
+			background-color: $pink-6,
+			font-color: #fff
+		)
 
-.alert_type_success
-.alert_color_green
-	alert-style(color: #187818)
+	&_color_grape
+		alert-style(
+			background-color: $grape-6,
+			font-color: #fff
+		)
 
-.alert_type_info
-.alert_style_blue
-	alert-style(color: #00529c)
+	&_color_violet
+		alert-style(
+			background-color: $violet-6,
+			font-color: #fff
+		)
 
-.alert_type_message
-.alert_color_grey
-	alert-style(color: #000)
+	&_color_indigo
+		alert-style(
+			background-color: $indigo-6,
+			font-color: #fff
+		)
+
+	&_color_blue
+		alert-style(
+			background-color: $blue-6,
+			font-color: #fff
+		)
+
+	&_color_cyan
+		alert-style(
+			background-color: $cyan-6,
+			font-color: #fff
+		)
+
+	&_color_teal
+		alert-style(
+			background-color: $teal-6,
+			font-color: #fff
+		)
+
+	&_color_green
+		alert-style(
+			background-color: $green-6,
+			font-color: #fff
+		)
+
+	&_color_lime
+		alert-style(
+			background-color: $lime-6,
+			font-color: #fff
+		)
+
+	&_color_yellow
+		alert-style(
+			background-color: $yellow-6,
+			font-color: #fff
+		)
+
+	&_color_orange
+		alert-style(
+			background-color: $orange-6,
+			font-color: #fff
+		)
+
