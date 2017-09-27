@@ -1,13 +1,27 @@
 //-//////////////////////////////////////////////////////////
 //- Mixins
 //-//////////////////////////////////////////////////////////
-button-style(color, color-hover, background, background-hover, border, border-hover)
-	&
-	&:visited
+button-style(
+		color = false,
+		color-hover = false,
+		background-color = false,
+		background-color-hover = false,
+		background-image = false,
+		background-image-hover = false,
+		border-color = false,
+		border-color-hover = false
+	)
+	if color
 		color color
-		background-color background
-		if border
-			border-color border
+
+	if background-image
+		background-image background-image
+
+	if background-color
+		background-color background-color
+
+	if border-color
+		border-color border-color
 
 	&:focus
 	&:hover
@@ -17,38 +31,19 @@ button-style(color, color-hover, background, background-hover, border, border-ho
 		else
 			color color
 
-		if background-hover
-			background-color background-hover
+		if background-image-hover
+			background-image background-image-hover
+
+		if background-color-hover
+			background-color background-color-hover
 		else
-			background-color background - 10%
+			background-color background-color - 10%
 
-		if border-hover
-			border-color border-hover
+		if border-color-hover
+			border-color border-color-hover
 		else
-			if border
-				border-color border - 25%
-
-	&:active
-		background-image none
-
-	&.button
-		&_disabled
-		&[disabled]
-			&
-			&:hover
-			&:focus
-			&:active
-				color color
-				background-color background
-				if border
-					border-color border
-
-button-size(padding, font-size, line-height)
-	padding padding
-	font-size font-size
-	if line-height
-		line-height line-height
-
+			if border-color
+				border-color border-color - 25%
 
 //-//////////////////////////////////////////////////////////
 //- Base style
@@ -68,16 +63,14 @@ button-size(padding, font-size, line-height)
 	border-radius 0
 	white-space nowrap
 	line-height normal
-	-webkit-user-drag none
-	-webkit-user-select none
-	-moz-user-select none
-	-ms-user-select none
 	user-select none
 	box-sizing border-box
 	text-decoration none
 	background-color transparent
 	padding 0
-	transition 125ms all ease-in-out
+	transition-duration 125ms
+	transition-timing-function ease-in-out
+	transition-property color, border-color, background-color, background-image
 
 	&__icon
 	&__text
@@ -90,16 +83,12 @@ button-size(padding, font-size, line-height)
 
 	&__icon
 		fill currentColor
-
-	&:focus
-	&:active:focus
-		outline thin dotted
-		outline 5px auto -webkit-focus-ring-color
-		outline-offset -2px
+		svg
+		img
+			height 1em
 
 	&:hover
 	&:focus
-		color #333333
 		text-decoration none
 
 	&:active
@@ -121,58 +110,46 @@ button-size(padding, font-size, line-height)
 	a&_disabled
 		pointer-events none
 
-//- Block button
-.button_block
-	display: block;
-	width: 100%;
-
-	& + &
-		// margin-top: 10px;
-
-	input[type="submit"]&
-	input[type="reset"]&
-	input[type="button"]&
-		width: 100%;
+	//- Block button
+	&_block
+		display block
+		width 100%
 
 
 //-//////////////////////////////////////////////////////////
 //- Button sizes
 //-//////////////////////////////////////////////////////////
+.button
+	padding 0.5em 1em
+	line-height 1.6
 
-.button_size_normal
-	button-size(
-		padding: 12px 22px,
-		font-size: 16px,
-		line-height: 1.4
-	)
+	&_size_extra-extra-small
+	&_size_xxs
+		font-size 25%
 
-.button_size_extra-large
-	button-size(
-		padding: 20px 26px,
-		font-size: 20px,
-		line-height: 1.4
-	)
+	&_size_extra-small
+	&_size_xs
+		font-size 50%
 
-.button_size_large
-	button-size(
-		padding: 16px 24px,
-		font-size: 18px,
-		line-height: 1.4
-	)
+	&_size_small
+	&_size_s
+		font-size 75%
 
-.button_size_small
-	button-size(
-		padding: 8px 16px,
-		font-size: 14px,
-		line-height: 1.4
-	)
+	&_size_medium
+	&_size_m
+		font-size 100%
 
-.button_size_extra-small
-	button-size(
-		padding: 4px 10px,
-		font-size: 12px,
-		line-height: 1.4
-	)
+	&_size_large
+	&_size_l
+		font-size 125%
+
+	&_size_extra-large
+	&_size_xl
+		font-size 150%
+
+	&_size_extra-extra-large
+	&_size_xxl
+		font-size 175%
 
 
 //-//////////////////////////////////////////////////////////
@@ -188,104 +165,102 @@ button-size(padding, font-size, line-height)
 	border-radius 100px
 
 // Solid
-.button_style_solid.button_color_grey
+.button_style_solid.button_color_gray
 	button-style(
-		color: #666,
-		color-hover: false,
-		background: #ebebeb,
-		background-hover: #f5f5f5,
-		border: false,
-		border-hover: false
+		color: $gray-6,
+		background-color: $gray-2,
+		background-color-hover: $gray-3
 	)
 
 .button_style_solid.button_color_black
 	button-style(
 		color: #fff,
-		color-hover: false,
-		background: #383838,
-		background-hover: #595959,
-		border: false,
-		border-hover: false
-	)
-
-.button_style_solid.button_color_blue
-	button-style(
-		color: #fff,
-		color-hover: false,
-		background: #3498da,
-		background-hover: #2ea9fa,
-		border: false,
-		border-hover: false
-	)
-
-.button_style_solid.button_color_dark-blue
-	button-style(
-		color: #fff,
-		color-hover: false,
-		background: #34495e,
-		background-hover: #235688,
-		border: false,
-		border-hover: false
-	)
-
-.button_style_solid.button_color_green
-	button-style(
-		color: #fff,
-		color-hover: false,
-		background: #27ae60,
-		background-hover: #20cf6a,
-		border: false,
-		border-hover: false
-	)
-
-.button_style_solid.button_color_yellow
-	button-style(
-		color: #fff,
-		color-hover: false,
-		background: #f1c40f,
-		background-hover: #ffd21b,
-		border: false,
-		border-hover: false
-	)
-
-.button_style_solid.button_color_orange
-	button-style(
-		color: #fff,
-		color-hover: false,
-		background: #e57e22,
-		background-hover: #ff8a22,
-		border: false,
-		border-hover: false
+		background-color: $gray-9,
+		background-color-hover: $gray-8
 	)
 
 .button_style_solid.button_color_red
 	button-style(
 		color: #fff,
-		color-hover: false,
-		background: #e74c3c,
-		background-hover: #ff503e,
-		border: false,
-		border-hover: false
+		background-color: $red-6,
+		background-color-hover: $red-5,
 	)
 
-.button_style_solid.button_color_aqua
+.button_style_solid.button_color_pink
 	button-style(
 		color: #fff,
-		color-hover: false,
-		background: #1abcaf,
-		background-hover: #1bd9ca,
-		border: false,
-		border-hover: false
+		background-color: $pink-6,
+		background-color-hover: $pink-5,
 	)
 
-.button_style_solid.button_color_purple
+.button_style_solid.button_color_grape
 	button-style(
 		color: #fff,
-		color-hover: false,
-		background: #9b59b6,
-		background-hover: #b34bde,
-		border: false,
-		border-hover: false
+		background-color: $grape-6,
+		background-color-hover: $grape-5
+	)
+
+.button_style_solid.button_color_violet
+	button-style(
+		color: #fff,
+		background-color: $violet-6,
+		background-color-hover: $violet-5
+	)
+
+.button_style_solid.button_color_indigo
+	button-style(
+		color: #fff,
+		background-color: $indigo-6,
+		background-color-hover: $indigo-5
+	)
+
+.button_style_solid.button_color_blue
+	button-style(
+		color: #fff,
+		background-color: $blue-6,
+		background-color-hover: $blue-5
+	)
+
+.button_style_solid.button_color_cyan
+	button-style(
+		color: #fff,
+		background-color: $cyan-6,
+		background-color-hover: $cyan-5
+	)
+
+.button_style_solid.button_color_teal
+	button-style(
+		color: #fff,
+		background-color: $teal-6,
+		background-color-hover: $teal-5
+	)
+
+.button_style_solid.button_color_green
+	button-style(
+		color: #fff,
+		background-color: $green-6,
+		background-color-hover: $green-5
+	)
+
+.button_style_solid.button_color_lime
+	button-style(
+		color: #fff,
+		background-color: $lime-6,
+		background-color-hover: $lime-5
+	)
+
+.button_style_solid.button_color_yellow
+	button-style(
+		color: #fff,
+		background-color: $yellow-6,
+		background-color-hover: $yellow-5
+	)
+
+.button_style_solid.button_color_orange
+	button-style(
+		color: #fff,
+		background-color: $orange-6,
+		background-color-hover: $orange-5
 	)
 
 // Ghost
@@ -296,210 +271,255 @@ button-size(padding, font-size, line-height)
 .button_style_ghost.button_color_white
 	button-style(
 		color: #fff,
-		color-hover: #333,
-		background: transparent,
-		background-hover: #fff,
-		border: #fff,
-		border-hover: #fff
+		color-hover: $gray-7,
+		background-color: transparent,
+		background-color-hover: #fff,
+		border-color: #fff,
+		border-color-hover: #fff
 	)
 
-.button_style_ghost.button_color_grey
+.button_style_ghost.button_color_gray
 	button-style(
-		color: #666,
-		color-hover: false,
-		background: transparent,
-		background-hover: #ebebeb,
-		border: #ebebeb,
-		border-hover: #ebebeb
+		color: $gray-6,
+		color-hover: #fff,
+		background-color: transparent,
+		background-color-hover: $gray-7,
+		border-color: $gray-6,
+		border-color-hover: $gray-7
 	)
 
 .button_style_ghost.button_color_black
 	button-style(
-		color: #383838,
+		color: $gray-9,
 		color-hover: #fff,
-		background: transparent,
-		background-hover: #383838,
-		border: #383838,
-		border-hover: #383838
-	)
-
-.button_style_ghost.button_color_blue
-	button-style(
-		color: #3498da,
-		color-hover: #fff,
-		background: transparent,
-		background-hover: #3498da,
-		border: #3498da,
-		border-hover: #3498da
-	)
-
-.button_style_ghost.button_color_dark-blue
-	button-style(
-		color: #34495e,
-		color-hover: #fff,
-		background: transparent,
-		background-hover: #34495e,
-		border: #34495e,
-		border-hover: #34495e
-	)
-
-.button_style_ghost.button_color_green
-	button-style(
-		color: #27ae60,
-		color-hover: #fff,
-		background: transparent,
-		background-hover: #27ae60,
-		border: #27ae60,
-		border-hover: #27ae60
-	)
-
-.button_style_ghost.button_color_yellow
-	button-style(
-		color: #f1c40f,
-		color-hover: #fff,
-		background: transparent,
-		background-hover: #f1c40f,
-		border: #f1c40f,
-		border-hover: #f1c40f
-	)
-
-.button_style_ghost.button_color_orange
-	button-style(
-		color: #e57e22,
-		color-hover: #fff,
-		background: transparent,
-		background-hover: #e57e22,
-		border: #e57e22,
-		border-hover: #e57e22
+		background-color: transparent,
+		background-color-hover: $gray-9,
+		border-color: $gray-9,
+		border-color-hover: $gray-9
 	)
 
 .button_style_ghost.button_color_red
 	button-style(
-		color: #e74c3c,
+		color: $red-6,
 		color-hover: #fff,
-		background: transparent,
-		background-hover: #e74c3c,
-		border: #e74c3c,
-		border-hover: #e74c3c
+		background-color: transparent,
+		background-color-hover: $red-6,
+		border-color: $red-6,
+		border-color-hover: $red-6
 	)
 
-.button_style_ghost.button_color_aqua
+.button_style_ghost.button_color_pink
 	button-style(
-		color: #1abcaf,
+		color: $pink-6,
 		color-hover: #fff,
-		background: transparent,
-		background-hover: #1abcaf,
-		border: #1abcaf,
-		border-hover: #1abcaf
+		background-color: transparent,
+		background-color-hover: $pink-6,
+		border-color: $pink-6,
+		border-color-hover: $pink-6
 	)
 
-.button_style_ghost.button_color_purple
+.button_style_ghost.button_color_grape
 	button-style(
-		color: #9b59b6,
+		color: $grape-6,
 		color-hover: #fff,
-		background: transparent,
-		background-hover: #9b59b6,
-		border: #9b59b6,
-		border-hover: #9b59b6
+		background-color: transparent,
+		background-color-hover: $grape-6,
+		border-color: $grape-6,
+		border-color-hover: $grape-6
 	)
 
-// Flat
-.button_style_flat.button_color_grey
+.button_style_ghost.button_color_violet
 	button-style(
-		color: #666,
-		color-hover: #000,
-		background: transparent,
-		background-hover: false,
-		border: false,
-		border-hover: false
+		color: $violet-6,
+		color-hover: #fff,
+		background-color: transparent,
+		background-color-hover: $violet-6,
+		border-color: $violet-6,
+		border-color-hover: $violet-6
 	)
 
-.button_style_flat.button_color_black
+.button_style_ghost.button_color_indigo
 	button-style(
-		color: #595959,
-		color-hover: #383838,
-		background: transparent,
-		background-hover: false,
-		border: false,
-		border-hover: false
+		color: $indigo-6,
+		color-hover: #fff,
+		background-color: transparent,
+		background-color-hover: $indigo-6,
+		border-color: $indigo-6,
+		border-color-hover: $indigo-6
 	)
 
-.button_style_flat.button_color_blue
+.button_style_ghost.button_color_blue
 	button-style(
-		color: #2ea9fa,
-		color-hover: #3498da,
-		background: transparent,
-		background-hover: false,
-		border: false,
-		border-hover: false
+		color: $blue-6,
+		color-hover: #fff,
+		background-color: transparent,
+		background-color-hover: $blue-6,
+		border-color: $blue-6,
+		border-color-hover: $blue-6
 	)
 
-.button_style_flat.button_color_dark-blue
+.button_style_ghost.button_color_cyan
 	button-style(
-		color: #235688,
-		color-hover: #34495e,
-		background: transparent,
-		background-hover: false,
-		border: false,
-		border-hover: false
+		color: $cyan-6,
+		color-hover: #fff,
+		background-color: transparent,
+		background-color-hover: $cyan-6,
+		border-color: $cyan-6,
+		border-color-hover: $cyan-6
 	)
 
-.button_style_flat.button_color_green
+.button_style_ghost.button_color_teal
 	button-style(
-		color: #20cf6a,
-		color-hover: #27ae60,
-		background: transparent,
-		background-hover: false,
-		border: false,
-		border-hover: false
+		color: $teal-6,
+		color-hover: #fff,
+		background-color: transparent,
+		background-color-hover: $teal-6,
+		border-color: $teal-6,
+		border-color-hover: $teal-6
 	)
 
-.button_style_flat.button_color_yellow
+.button_style_ghost.button_color_green
 	button-style(
-		color: #ffd21b,
-		color-hover: #f1c40f,
-		background: transparent,
-		background-hover: false,
-		border: false,
-		border-hover: false
+		color: $green-6,
+		color-hover: #fff,
+		background-color: transparent,
+		background-color-hover: $green-6,
+		border-color: $green-6,
+		border-color-hover: $green-6
 	)
 
-.button_style_flat.button_color_orange
+.button_style_ghost.button_color_lime
 	button-style(
-		color: #ff8a22,
-		color-hover: #e57e22,
-		background: transparent,
-		background-hover: false,
-		border: false,
-		border-hover: false
+		color: $lime-6,
+		color-hover: #fff,
+		background-color: transparent,
+		background-color-hover: $lime-6,
+		border-color: $lime-6,
+		border-color-hover: $lime-6
 	)
 
-.button_style_flat.button_color_red
+.button_style_ghost.button_color_yellow
 	button-style(
-		color: #ff503e,
-		color-hover: #e74c3c,
-		background: transparent,
-		background-hover: false,
-		border: false,
-		border-hover: false
+		color: $yellow-6,
+		color-hover: #fff,
+		background-color: transparent,
+		background-color-hover: $yellow-6,
+		border-color: $yellow-6,
+		border-color-hover: $yellow-6
 	)
 
-.button_style_flat.button_color_aqua
+.button_style_ghost.button_color_orange
 	button-style(
-		color: #1bd9ca,
-		color-hover: #1abcaf,
-		background: transparent,
-		background-hover: false,
-		border: false,
-		border-hover: false
+		color: $orange-6,
+		color-hover: #fff,
+		background-color: transparent,
+		background-color-hover: $orange-6,
+		border-color: $orange-6,
+		border-color-hover: $orange-6
 	)
 
-.button_style_flat.button_color_purple
+// Gradient
+.button_style_gradient
+	background-image linear-gradient(transparent, transparent 40%, transparent)
+	&:focus
+	&:hover
+	&:active
+		background-image linear-gradient(transparent, rgba(0,0,0,.05) 40%, rgba(0,0,0,.1))
+
+.button_style_gradient.button_color_gray
 	button-style(
-		color: #b34bde,
-		color-hover: #9b59b6,
-		background: transparent,
-		background-hover: false,
-		border: false,
-		border-hover: false
+		color: $gray-6,
+		background-color: $gray-2,
+		background-color-hover: $gray-3
+	)
+
+.button_style_gradient.button_color_black
+	button-style(
+		color: #fff,
+		background-color: $gray-9,
+		background-color-hover: $gray-8
+	)
+
+.button_style_gradient.button_color_red
+	button-style(
+		color: #fff,
+		background-color: $red-6,
+		background-color-hover: $red-5,
+	)
+
+.button_style_gradient.button_color_pink
+	button-style(
+		color: #fff,
+		background-color: $pink-6,
+		background-color-hover: $pink-5,
+	)
+
+.button_style_gradient.button_color_grape
+	button-style(
+		color: #fff,
+		background-color: $grape-6,
+		background-color-hover: $grape-5
+	)
+
+.button_style_gradient.button_color_violet
+	button-style(
+		color: #fff,
+		background-color: $violet-6,
+		background-color-hover: $violet-5
+	)
+
+.button_style_gradient.button_color_indigo
+	button-style(
+		color: #fff,
+		background-color: $indigo-6,
+		background-color-hover: $indigo-5
+	)
+
+.button_style_gradient.button_color_blue
+	button-style(
+		color: #fff,
+		background-color: $blue-6,
+		background-color-hover: $blue-5
+	)
+
+.button_style_gradient.button_color_cyan
+	button-style(
+		color: #fff,
+		background-color: $cyan-6,
+		background-color-hover: $cyan-5
+	)
+
+.button_style_gradient.button_color_teal
+	button-style(
+		color: #fff,
+		background-color: $teal-6,
+		background-color-hover: $teal-5
+	)
+
+.button_style_gradient.button_color_green
+	button-style(
+		color: #fff,
+		background-color: $green-6,
+		background-color-hover: $green-5
+	)
+
+.button_style_gradient.button_color_lime
+	button-style(
+		color: #fff,
+		background-color: $lime-6,
+		background-color-hover: $lime-5
+	)
+
+.button_style_gradient.button_color_yellow
+	button-style(
+		color: #fff,
+		background-color: $yellow-6,
+		background-color-hover: $yellow-5
+	)
+
+.button_style_gradient.button_color_orange
+	button-style(
+		color: #fff,
+		background-color: $orange-6,
+		background-color-hover: $orange-5
 	)
