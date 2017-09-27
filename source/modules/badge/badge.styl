@@ -2,73 +2,104 @@
 	display inline-block
 	position relative
 	vertical-align baseline
-	line-height 1
 	text-decoration none
 	text-transform none
 	white-space nowrap
-	padding 5px 8px
+	text-align center
+	min-width 1.6em
+	padding 0.3em
 
 	// colors
-	&_color_grey
-		color #666
-		background-color #f5f5f5
-
-	&_color_black
+	&_style_solid&_color_gray
 		color #fff
-		background-color #383838
+		background-color $gray-6
 
-	&_color_blue
+	&_style_solid&_color_black
 		color #fff
-		background-color #3498da
+		background-color $gray-9
 
-	&_color_dark-blue
+	&_style_solid&_color_red
 		color #fff
-		background-color #34495e
+		background-color $red-6
 
-	&_color_green
+	&_style_solid&_color_pink
 		color #fff
-		background-color #27ae60
+		background-color $pink-6
 
-	&_color_yellow
+	&_style_solid&_color_grape
 		color #fff
-		background-color #f1c40f
+		background-color $grape-6
 
-	&_color_orange
+	&_style_solid&_color_violet
 		color #fff
-		background-color #e57e22
+		background-color $violet-6
 
-	&_color_red
+	&_style_solid&_color_indigo
 		color #fff
-		background-color #e74c3c
+		background-color $indigo-6
 
-	&_color_aqua
+	&_style_solid&_color_blue
 		color #fff
-		background-color #1abcaf
+		background-color $blue-6
 
-	&_color_purple
+	&_style_solid&_color_cyan
 		color #fff
-		background-color #9b59b6
+		background-color $cyan-6
+
+	&_style_solid&_color_teal
+		color #fff
+		background-color $teal-6
+
+	&_style_solid&_color_green
+		color #fff
+		background-color $green-6
+
+	&_style_solid&_color_lime
+		color #fff
+		background-color $lime-6
+
+	&_style_solid&_color_yellow
+		color #fff
+		background-color $yellow-6
+
+	&_style_solid&_color_orange
+		color #fff
+		background-color $orange-6
+
+
 
 	// styles
 	&_style_rounded
-		border-radius 3px
+		border-radius 0.25em
 
 	&_style_circle
 		border-radius 1.45em
 
 	// sizes
-	&_size_extra-large
-		font-size 20px
-		padding 8px 13px
-
-	&_size_large
-		font-size 18px
-		padding 6px 10px
-
-	&_size_small
-		font-size 12px
-		padding 4px 7px
+	&_size_extra-extra-small
+	&_size_xxs
+		font-size 25%
 
 	&_size_extra-small
-		font-size 10px
-		padding 3px 5px
+	&_size_xs
+		font-size 50%
+
+	&_size_small
+	&_size_s
+		font-size 75%
+
+	&_size_medium
+	&_size_m
+		font-size 100%
+
+	&_size_large
+	&_size_l
+		font-size 125%
+
+	&_size_extra-large
+	&_size_xl
+		font-size 150%
+
+	&_size_extra-extra-large
+	&_size_xxl
+		font-size 175%
