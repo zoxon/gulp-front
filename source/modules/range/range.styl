@@ -1,6 +1,6 @@
-range-thumb()
+range-slider-thumb()
 	&::-webkit-slider-thumb
-		{block}
+			{block}
 
 	&::-moz-range-thumb
 		{block}
@@ -8,96 +8,77 @@ range-thumb()
 	&::-ms-thumb
 		{block}
 
-
-range-track()
+range-runnable-track()
 	&::-webkit-slider-runnable-track
 		{block}
 
 	&::-moz-range-track
 		{block}
 
+	&::-ms-track
+		{block}
+
+
 .range
 	&__control
+		align-self center
 		padding 0
-		margin 0
-		font inherit
-		color inherit
-		background transparent
-		border none
-		vertical-align top
-		outline none
-		-moz-box-sizing border-box
-		box-sizing border-box
-		background-clip padding-box
-		-webkit-appearance none
-		&:focus
-			outline none
+		width 100%
+		height 2em
+		border-radius 0.25rem
+		border 0
+		background none
+		font-size inherit
+		cursor pointer
 
 		&:disabled
 			opacity 0.5
 			cursor default
 			pointer-events none
 
-		+range-thumb()
-			cursor pointer
-			border none
-
-		&::-webkit-slider-thumb
-			-webkit-appearance none
-
-		+range-track()
-			cursor pointer
+		// track
+		+range-runnable-track()
+			box-sizing border-box
+			width 100%
 
 		&::-ms-track
-			width 100%
-			background transparent
-			border-color transparent
 			color transparent
 
-
-	&_style_default &__control
-		+range-thumb()
-			size 18px
-			background-color $form-color-background - 5%
-			box-shadow 0 2px 5px rgba(#000, 0.3)
-			border-radius 50%
-			transition 125ms background ease-in-out
-			margin-top -9px
-			&:hover
-			&:active
-			&:focus
-				background $form-color-background - 5%
-
-		&::-ms-thumb
-			margin-top -2px
-
-		&:focus
-			+range-thumb()
-				background $form-color-active
+		// thumb
+		+range-slider-thumb()
+			box-sizing border-box
+			padding 0
+			box-shadow none
+			cursor ew-resize
 
 		&::-ms-fill-lower
-			background $form-color-active
-			border-radius 10px
+		&::-ms-tooltip
+			display none
 
-		&::-ms-fill-upper
-			background $form-color-border
-			border-radius 10px
+	&_style_default &__control
+		appearance none
 
-		&::-ms-track
-			background transparent
-			border-color transparent
-			border-width 12px 0
-			color transparent
-			cursor pointer
-			height 3px
-			width 100%
+		&::-webkit-slider-runnable-track,
+		&::-webkit-slider-thumb
+			-webkit-appearance none  /* stylelint-disable-line property-no-vendor-prefix */
 
-		+range-track()
+
+		// track
+		+range-runnable-track()
 			border-radius 50%
 			cursor pointer
-			height 3px
+			height 0.25em
 			background-color $form-color-border
 			border-radius 10px
 			transition 125ms all ease-in-out
 
+		// thumb
+		+range-slider-thumb()
+			size 1.25em
+			background-color $form-color-background - 5%
+			box-shadow 0 2px 5px rgba(#000, 0.3)
+			border-radius 50%
+			transition 125ms background ease-in-out
 
+		&::-webkit-slider-thumb
+			margin-top -0.5em

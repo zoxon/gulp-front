@@ -16,7 +16,6 @@ let options = {
     publicPath: '/assets/javascripts/',
     library: '[name]'
   },
-  // watch: isDevelopment,
   devtool: isDevelopment ? 'eval-source-map' : 'source-map',
   context: path.resolve(__dirname, 'source/static/scripts'),
   module: {
@@ -63,6 +62,7 @@ else {
       debug: false
     }),
     new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
       compress: {
         warnings: false,
         screw_ie8: true,

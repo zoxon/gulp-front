@@ -7,7 +7,7 @@
     $progressBars.each(function() {
       var $progress = $(this);
       var $progressBar = $progress.children('.progress-bar__bar');
-      var value = $progress.data('progres-value');
+      var value = $progress.data('progress-value');
 
       $progressBar.css({ 'width': value * 100 + '%' });
     });

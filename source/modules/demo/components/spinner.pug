@@ -1,0 +1,68 @@
+include ../../spinner/spinner
+
+h4 Styles
+.demo-grid
+	.demo-grid__item
+		.demo-grid-item
+			.demo-grid-item__container
+				+spinner().spinner_style_1.spinner_color_blue
+			.demo-grid-item__title style 1
+	
+	.demo-grid__item
+		.demo-grid-item
+			.demo-grid-item__container
+				+spinner().spinner_style_2.spinner_color_blue
+			.demo-grid-item__title style 2
+
+h4 Sizes
+.demo-grid
+	.demo-grid__item
+		.demo-grid-item
+			.demo-grid-item__container
+				+spinner().spinner_style_1.spinner_size_extra-extra-small.spinner_color_blue
+			.demo-grid-item__title xxs
+
+	.demo-grid__item
+		.demo-grid-item
+			.demo-grid-item__container
+				+spinner().spinner_style_1.spinner_size_extra-small.spinner_color_blue
+			.demo-grid-item__title xs
+
+	.demo-grid__item
+		.demo-grid-item
+			.demo-grid-item__container
+				+spinner().spinner_style_1.spinner_size_small.spinner_color_blue
+			.demo-grid-item__title s
+	
+	.demo-grid__item
+		.demo-grid-item
+			.demo-grid-item__container
+				+spinner().spinner_style_1.spinner_size_medium.spinner_color_blue
+			.demo-grid-item__title m
+	
+	.demo-grid__item
+		.demo-grid-item
+			.demo-grid-item__container
+				+spinner().spinner_style_1.spinner_size_large.spinner_color_blue
+			.demo-grid-item__title l
+	
+	.demo-grid__item
+		.demo-grid-item
+			.demo-grid-item__container
+				+spinner().spinner_style_1.spinner_size_extra-large.spinner_color_blue
+			.demo-grid-item__title xl
+	
+	.demo-grid__item
+		.demo-grid-item
+			.demo-grid-item__container
+				+spinner().spinner_style_1.spinner_size_extra-extra-large.spinner_color_blue
+			.demo-grid-item__title xxl
+
+h4 Colors
+.demo-grid
+	each color in ['gray', 'black', 'red', 'pink', 'grape', 'violet', 'indigo', 'blue', 'cyan', 'teal', 'green', 'lime', 'yellow', 'orange']
+		.demo-grid__item
+			.demo-grid-item
+				.demo-grid-item__container
+					+spinner(class="spinner_color_" + color).spinner_style_1
+				.demo-grid-item__title= color

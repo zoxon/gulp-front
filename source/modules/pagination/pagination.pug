@@ -1,35 +1,16 @@
 include ../icon/icon
 
 mixin pagination(data)
-	// pagination
-	nav(aria-label="pagination").pagination&attributes(attributes)
-		ul
-			each item in data.items
-				- var itemClasses = ['pagination__item']
-				if item.type == "spacer" || item.type == "next" || item.type == "prev"
-					- itemClasses.push(itemClasses[0] + '_' + item.type)
-
-				if item.type == "item"
-					- itemClasses.push(itemClasses[0] + '_page')
-
-				if item.active
-					- itemClasses.push(itemClasses[0] + '_active')
-				
-				li(class=itemClasses)
-					if item.type == "spacer"
-						span.pagination__link ...
-
-					if item.type == "prev"
-						a(href="#" aria-label="Previous page").pagination__link « prev.
-					
-					if item.type == "next"
-						a(href="#" aria-label="Next page").pagination__link next. »
-
-					if item.type == "item"
-						if item.active
-							span.pagination__link= item.text
-							span.sr-only (current)
-						else
-							a(href="#").pagination__link= item.text
-
-	// END pagination
+	.pagination&attributes(attributes)
+		.pagination__controls.pagination__controls_backward
+			a(href="#").pagination__control «
+			a(href="#").pagination__control ‹
+		.pagination__controls
+			span.pagination__ellipsis …
+			a(href="#").pagination__page 4
+			span.pagination__page.pagination__page_current 5
+			a(href="#").pagination__page 6
+			span.pagination__ellipsis …
+		.pagination__controls.pagination__controls_forward
+			a(href="#").pagination__control ›
+			a(href="#").pagination__control »

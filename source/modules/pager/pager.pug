@@ -1,11 +1,4 @@
-include ../icon/icon
-
 mixin pager(data)
 	.pager&attributes(attributes)
-		a(href="#").pager__item.pager__item_prev
-			+icon('chevron-left').pager__icon
-			span.pager__text Previous
-		a(href="#").pager__item.pager__item_next
-			span.pager__text Next
-			+icon('chevron-right').pager__icon
-
+		a(href="#").pager__control.pager__control_backward « Oldest
+		a(href="#").pager__control.pager__control_forward Newest »

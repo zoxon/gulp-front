@@ -1,0 +1,10 @@
+include ../_util/_util
+
+mixin code(data)
+	- var lang = attributes.lang || '';
+	- delete attributes.lang;
+
+	pre.code&attributes(attributes)
+		code.code__container(class='code_lang_' + lang)
+			+_block-escape()
+				block

@@ -1,0 +1,135 @@
+@keyframes spinner_rotate
+	0%
+		transform rotate(0)
+	100%
+		transform rotate(360deg)
+
+spinner-style1-color($color)
+	border 0.25em solid $color
+	border-right-color transparent
+
+spinner-style2-color($color)
+	border 0.25em solid rgba($color, 0.25)
+	border-top-color $color
+
+.spinner
+	position relative
+	size 3em
+	border-radius 50%
+	animation spinner_rotate 1s linear infinite
+	display inline-block
+
+	// style1
+	&_style_1&_color_gray
+		spinner-style1-color($gray-6)
+
+	&_style_1&_color_black
+		spinner-style1-color($gray-8)
+
+	&_style_1&_color_red
+		spinner-style1-color($red-6)
+
+	&_style_1&_color_pink
+		spinner-style1-color($pink-6)
+
+	&_style_1&_color_grape
+		spinner-style1-color($grape-6)
+
+	&_style_1&_color_violet
+		spinner-style1-color($violet-6)
+
+	&_style_1&_color_indigo
+		spinner-style1-color($indigo-6)
+
+	&_style_1&_color_blue
+		spinner-style1-color($blue-6)
+
+	&_style_1&_color_cyan
+		spinner-style1-color($cyan-6)
+
+	&_style_1&_color_teal
+		spinner-style1-color($teal-6)
+
+	&_style_1&_color_green
+		spinner-style1-color($green-6)
+
+	&_style_1&_color_lime
+		spinner-style1-color($lime-6)
+
+	&_style_1&_color_yellow
+		spinner-style1-color($yellow-6)
+
+	&_style_1&_color_orange
+		spinner-style1-color($orange-6)
+
+	//style 2
+	&_style_2&_color_gray
+		spinner-style2-color($gray-6)
+
+	&_style_2&_color_black
+		spinner-style2-color($gray-8)
+
+	&_style_2&_color_red
+		spinner-style2-color($red-6)
+
+	&_style_2&_color_pink
+		spinner-style2-color($pink-6)
+
+	&_style_2&_color_grape
+		spinner-style2-color($grape-6)
+
+	&_style_2&_color_violet
+		spinner-style2-color($violet-6)
+
+	&_style_2&_color_indigo
+		spinner-style2-color($indigo-6)
+
+	&_style_2&_color_blue
+		spinner-style2-color($blue-6)
+
+	&_style_2&_color_cyan
+		spinner-style2-color($cyan-6)
+
+	&_style_2&_color_teal
+		spinner-style2-color($teal-6)
+
+	&_style_2&_color_green
+		spinner-style2-color($green-6)
+
+	&_style_2&_color_lime
+		spinner-style2-color($lime-6)
+
+	&_style_2&_color_yellow
+		spinner-style2-color($yellow-6)
+
+	&_style_2&_color_orange
+		spinner-style2-color($orange-6)
+
+	// sizes
+	&_size_extra-extra-small
+	&_size_xxs
+		font-size 25%
+
+	&_size_extra-small
+	&_size_xs
+		font-size 50%
+
+	&_size_small
+	&_size_s
+		font-size 75%
+
+	&_size_medium
+	&_size_m
+		font-size 100%
+
+	&_size_large
+	&_size_l
+		font-size 125%
+
+	&_size_extra-large
+	&_size_xl
+		font-size 150%
+
+	&_size_extra-extra-large
+	&_size_xxl
+		font-size 175%

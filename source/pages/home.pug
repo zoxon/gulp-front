@@ -45,6 +45,29 @@ html(class="no-js" lang=config.lang)
 						&_squared
 							width 34px
 							height 34px
+				
+				.demo-grid
+
+					&__item
+						display inline-block
+						box-sizing border-box
+						margin 10px
+				
+				.demo-grid-item
+					display flex
+					flex-direction column
+					justify-content space-between
+					text-align center
+
+					&__container
+						height 100%
+						display flex
+						justify-content center
+						align-items center
+						margin-bottom 1em
+						//
+					&__title
+						color #666
 
 	+page()
 		+inject('header')
