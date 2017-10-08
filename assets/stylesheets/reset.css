@@ -10,12 +10,12 @@
  */
 
 html {
-	line-height: 1.15;
-	/* 1 */
-	-ms-text-size-adjust: 100%;
-	/* 2 */
-	-webkit-text-size-adjust: 100%;
-	/* 2 */
+  line-height: 1.15;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
 }
 
 /* Sections
@@ -26,15 +26,20 @@ html {
  */
 
 body {
-	margin: 0;
+  margin: 0;
 }
 
 /**
  * Add the correct display in IE 9-.
  */
 
-article, aside, footer, header, nav, section {
-	display: block;
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block;
 }
 
 /**
@@ -43,9 +48,9 @@ article, aside, footer, header, nav, section {
  */
 
 h1 {
-	margin: 0.67em 0;
+  margin: 0.67em 0;
 
-	font-size: 2em;
+  font-size: 2em;
 }
 
 /* Grouping content
@@ -56,9 +61,11 @@ h1 {
  * 1. Add the correct display in IE.
  */
 
-figcaption, figure, main {
-	/* 1 */
-	display: block;
+figcaption,
+figure,
+main {
+  /* 1 */
+  display: block;
 }
 
 /**
@@ -66,7 +73,7 @@ figcaption, figure, main {
  */
 
 figure {
-	margin: 1em 40px;
+  margin: 1em 40px;
 }
 
 /**
@@ -75,13 +82,13 @@ figure {
  */
 
 hr {
-	-webkit-box-sizing: content-box;
-	box-sizing: content-box;
-	/* 1 */
-	height: 0;
-	/* 1 */
-	overflow: visible;
-	/* 2 */
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
 }
 
 /**
@@ -90,10 +97,10 @@ hr {
  */
 
 pre {
-	/* 1 */
-	font-size: 1em;
-	font-family: monospace, monospace;
-	/* 2 */
+  /* 1 */
+  font-size: 1em;
+  font-family: monospace, monospace;
+  /* 2 */
 }
 
 /* Text-level semantics
@@ -105,10 +112,10 @@ pre {
  */
 
 a {
-	background-color: transparent;
-	/* 1 */
-	-webkit-text-decoration-skip: objects;
-	/* 2 */
+  background-color: transparent;
+  /* 1 */
+  -webkit-text-decoration-skip: objects;
+  /* 2 */
 }
 
 /**
@@ -117,29 +124,32 @@ a {
  */
 
 abbr[title] {
-	/* 1 */
-	text-decoration: underline;
-	/* 2 */
-	text-decoration: underline dotted;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  -webkit-text-decoration: underline dotted;
+  text-decoration: underline dotted;
 
-	border-bottom: none;
-	/* 2 */
+  border-bottom: none;
+  /* 2 */
 }
 
 /**
  * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
  */
 
-b, strong {
-	font-weight: inherit;
+b,
+strong {
+  font-weight: inherit;
 }
 
 /**
  * Add the correct font weight in Chrome, Edge, and Safari.
  */
 
-b, strong {
-	font-weight: bolder;
+b,
+strong {
+  font-weight: bolder;
 }
 
 /**
@@ -147,11 +157,13 @@ b, strong {
  * 2. Correct the odd `em` font sizing in all browsers.
  */
 
-code, kbd, samp {
-	/* 1 */
-	font-size: 1em;
-	font-family: monospace, monospace;
-	/* 2 */
+code,
+kbd,
+samp {
+  /* 1 */
+  font-size: 1em;
+  font-family: monospace, monospace;
+  /* 2 */
 }
 
 /**
@@ -159,7 +171,7 @@ code, kbd, samp {
  */
 
 dfn {
-	font-style: italic;
+  font-style: italic;
 }
 
 /**
@@ -167,9 +179,9 @@ dfn {
  */
 
 mark {
-	color: #000;
+  color: #000;
 
-	background-color: #ff0;
+  background-color: #ff0;
 }
 
 /**
@@ -177,7 +189,7 @@ mark {
  */
 
 small {
-	font-size: 80%;
+  font-size: 80%;
 }
 
 /**
@@ -185,20 +197,21 @@ small {
  * all browsers.
  */
 
-sub, sup {
-	position: relative;
+sub,
+sup {
+  position: relative;
 
-	font-size: 75%;
-	line-height: 0;
-	vertical-align: baseline;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
 }
 
 sub {
-	bottom: -0.25em;
+  bottom: -0.25em;
 }
 
 sup {
-	top: -0.5em;
+  top: -0.5em;
 }
 
 /* Embedded content
@@ -208,8 +221,9 @@ sup {
  * Add the correct display in IE 9-.
  */
 
-audio, video {
-	display: inline-block;
+audio,
+video {
+  display: inline-block;
 }
 
 /**
@@ -217,8 +231,8 @@ audio, video {
  */
 
 audio:not([controls]) {
-	display: none;
-	height: 0;
+  display: none;
+  height: 0;
 }
 
 /**
@@ -226,7 +240,7 @@ audio:not([controls]) {
  */
 
 img {
-	border-style: none;
+  border-style: none;
 }
 
 /**
@@ -234,7 +248,7 @@ img {
  */
 
 svg:not(:root) {
-	overflow: hidden;
+  overflow: hidden;
 }
 
 /* Forms
@@ -245,15 +259,19 @@ svg:not(:root) {
  * 2. Remove the margin in Firefox and Safari.
  */
 
-button, input, optgroup, select, textarea {
-	/* 1 */
-	margin: 0;
-	/* 1 */
-	font-size: 100%;
-	/* 1 */
-	line-height: 1.15;
-	font-family: sans-serif;
-	/* 2 */
+button,
+input,
+optgroup,
+select,
+textarea {
+  /* 1 */
+  margin: 0;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  font-family: sans-serif;
+  /* 2 */
 }
 
 /**
@@ -261,9 +279,10 @@ button, input, optgroup, select, textarea {
  * 1. Show the overflow in Edge.
  */
 
-button, input {
-	/* 1 */
-	overflow: visible;
+button,
+input {
+  /* 1 */
+  overflow: visible;
 }
 
 /**
@@ -271,9 +290,10 @@ button, input {
  * 1. Remove the inheritance of text transform in Firefox.
  */
 
-button, select {
-	/* 1 */
-	text-transform: none;
+button,
+select {
+  /* 1 */
+  text-transform: none;
 }
 
 /**
@@ -282,29 +302,36 @@ button, select {
  * 2. Correct the inability to style clickable types in iOS and Safari.
  */
 
-button, html [type="button"], [type="reset"], [type="submit"] {
-	-webkit-appearance: button;
-	/* 2 */
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
 }
 
 /**
  * Remove the inner border and padding in Firefox.
  */
 
-button::-moz-focus-inner, [type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner {
-	padding: 0;
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  padding: 0;
 
-	border-style: none;
+  border-style: none;
 }
 
 /**
  * Restore the focus styles unset by the previous rule.
  */
 
-button:-moz-focusring, [type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring, [type="submit"]:-moz-focusring {
-	outline: 1px dotted ButtonText;
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
 }
 
 /**
@@ -312,7 +339,7 @@ button:-moz-focusring, [type="button"]:-moz-focusring,
  */
 
 fieldset {
-	padding: 0.35em 0.75em 0.625em;
+  padding: 0.35em 0.75em 0.625em;
 }
 
 /**
@@ -323,19 +350,19 @@ fieldset {
  */
 
 legend {
-	/* 2 */
-	display: table;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	/* 1 */
-	max-width: 100%;
-	/* 1 */
-	padding: 0;
-	/* 1 */
-	color: inherit;
-	/* 3 */
-	white-space: normal;
-	/* 1 */
+  /* 2 */
+  display: table;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 1 */
+  color: inherit;
+  /* 3 */
+  white-space: normal;
+  /* 1 */
 }
 
 /**
@@ -344,10 +371,10 @@ legend {
  */
 
 progress {
-	display: inline-block;
-	/* 1 */
-	vertical-align: baseline;
-	/* 2 */
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */
 }
 
 /**
@@ -355,7 +382,7 @@ progress {
  */
 
 textarea {
-	overflow: auto;
+  overflow: auto;
 }
 
 /**
@@ -363,12 +390,13 @@ textarea {
  * 2. Remove the padding in IE 10-.
  */
 
-[type="checkbox"], [type="radio"] {
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	/* 1 */
-	padding: 0;
-	/* 2 */
+[type="checkbox"],
+[type="radio"] {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
 }
 
 /**
@@ -377,7 +405,7 @@ textarea {
 
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
-	height: auto;
+  height: auto;
 }
 
 /**
@@ -386,11 +414,11 @@ textarea {
  */
 
 [type="search"] {
-	/* 1 */
-	outline-offset: -2px;
+  /* 1 */
+  outline-offset: -2px;
 
-	-webkit-appearance: textfield;
-	/* 2 */
+  -webkit-appearance: textfield;
+  /* 2 */
 }
 
 /**
@@ -399,7 +427,7 @@ textarea {
 
 [type="search"]::-webkit-search-cancel-button,
 [type="search"]::-webkit-search-decoration {
-	-webkit-appearance: none;
+  -webkit-appearance: none;
 }
 
 /**
@@ -408,11 +436,11 @@ textarea {
  */
 
 ::-webkit-file-upload-button {
-	/* 1 */
-	font: inherit;
+  /* 1 */
+  font: inherit;
 
-	-webkit-appearance: button;
-	/* 2 */
+  -webkit-appearance: button;
+  /* 2 */
 }
 
 /* Interactive
@@ -423,8 +451,9 @@ textarea {
  * 1. Add the correct display in Edge, IE, and Firefox.
  */
 
-details, menu {
-	display: block;
+details,
+menu {
+  display: block;
 }
 
 /*
@@ -432,7 +461,7 @@ details, menu {
  */
 
 summary {
-	display: list-item;
+  display: list-item;
 }
 
 /* Scripting
@@ -443,7 +472,7 @@ summary {
  */
 
 canvas {
-	display: inline-block;
+  display: inline-block;
 }
 
 /**
@@ -451,7 +480,7 @@ canvas {
  */
 
 template {
-	display: none;
+  display: none;
 }
 
 /* Hidden
@@ -462,627 +491,517 @@ template {
  */
 
 [hidden] {
-	display: none;
+  display: none;
 }
 
-audio, canvas, iframe, img, svg, video {
-	vertical-align: middle;
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
 }
 
 fieldset {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 
-	border: 0;
+  border: 0;
 }
 
 textarea {
-	resize: vertical;
+  resize: vertical;
 }
 
 html {
-	font-size: 62.5%;
-	line-height: 1.6;
-	font-family: "Noto Sans", sans-serif;
-	color: #222;
+  font-size: 62.5%;
+  line-height: 1.6;
+  font-family: "Noto Sans", sans-serif;
+  color: #212529;
 
-	background: #fff;
-	-webkit-overflow-scrolling: touch;
+  background: #fff;
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
-	font-size: 1.6em;
+  font-size: 1.6em;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	margin: 1.6em 0 0.5em;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 1.6em 0 0.5em;
 
-	font-weight: 700;
-	line-height: normal;
-	font-family: "Noto Serif", serif;
+  font-weight: 700;
+  line-height: normal;
+  font-family: "Noto Serif", serif;
 }
 
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, h1 a:visited, h2 a:visited, h3 a:visited,
-h4 a:visited, h5 a:visited, h6 a:visited {
-	color: inherit;
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a,
+h1 a:visited,
+h2 a:visited,
+h3 a:visited,
+h4 a:visited,
+h5 a:visited,
+h6 a:visited {
+  color: inherit;
 }
 
 h1 {
-	font-size: 2.25em;
+  font-size: 2.25em;
 }
 
 h2 {
-	font-size: 2em;
+  font-size: 2em;
 }
 
 h3 {
-	font-size: 1.75em;
+  font-size: 1.75em;
 }
 
 h4 {
-	font-size: 1.5em;
+  font-size: 1.5em;
 }
 
 h5 {
-	font-size: 1.25em;
+  font-size: 1.25em;
 }
 
 h6 {
-	font-size: 1em;
+  font-size: 1em;
 }
 
 a {
-	color: #0083ca;
-	text-decoration: underline;
+  color: #1c7cd6;
+  text-decoration: underline;
 
-	-webkit-transition: 125ms color ease-out;
-	-o-transition: 125ms color ease-out;
-	transition: 125ms color ease-out;
+  -webkit-transition: 125ms color ease-out;
+  -o-transition: 125ms color ease-out;
+  transition: 125ms color ease-out;
 }
 
 a:visited {
-	color: #0097e9;
+  color: #9c36b5;
 }
 
 a:hover {
-	color: #e11;
-	text-decoration: none;
+  color: #f03e3e;
+  text-decoration: none;
 }
 
 p {
-	margin-top: 1.6em;
-	margin-bottom: 1.6em;
+  margin-top: 1.6em;
+  margin-bottom: 1.6em;
 }
 
 p:first-child {
-	margin-top: 0;
+  margin-top: 0;
 }
 
 p:last-child {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
 
-i, em {
-	font-style: italic;
+i,
+em {
+  font-style: italic;
 }
 
-b, strong {
-	font-weight: bold;
+b,
+strong {
+  font-weight: bold;
 }
 
 q {
-	font-style: italic;
+  font-style: italic;
 
-	quotes: "«" "»";
+  quotes: "«" "»";
 }
 
 q q {
-	font-style: italic;
+  font-style: italic;
 
-	quotes: "„" "“";
+  quotes: "„" "“";
 }
 
-mark, kbd, code {
-	display: inline-block;
-	padding: 0 4px;
+mark,
+kbd,
+code {
+  display: inline-block;
+  padding: 0 4px;
 
-	vertical-align: middle;
+  vertical-align: middle;
 
-	border-radius: 3px;
+  border-radius: 3px;
 }
 
 kbd {
-	color: #fff;
+  color: #fff;
 
-	background-color: #222;
+  background-color: #222;
 }
 
 hr {
-	display: block;
-	height: 1px;
-	margin: 1em 0;
-	padding: 0;
+  display: block;
+  height: 1px;
+  margin: 1em 0;
+  padding: 0;
 
-	border: 0;
-	border-top: 1px solid #ccc;
-}
-
-ol, ul {
-	padding-left: 2em;
-}
-
-dt {
-	font-weight: bold;
-}
-
-dd {
-	margin-bottom: 1.6em;
-	margin-left: 0;
-	padding-left: 1.6em;
-}
-
-pre, code {
-	overflow: hidden;
-
-	font-family: "Consolas", "Courier New", "Nimbus Mono L", monospace;
-	white-space: pre-wrap;
-	word-wrap: break-word;
-	-moz-tab-size: 4;
-	-o-tab-size: 4;
-	tab-size: 4;
-
-	background-color: #eee;
-}
-
-pre {
-	padding: 1em;
-
-	border-radius: 3px;
-}
-
-blockquote {
-	margin: 0 0 1.6em;
-	padding: 0.8em;
-
-	border-left: 5px solid #eee;
-}
-
-blockquote p:last-child, blockquote ul:last-child, blockquote ol:last-child {
-	margin-bottom: 0;
-}
-
-blockquote p:first-child, blockquote ul:first-child, blockquote ol:first-child {
-	margin-top: 0;
-}
-
-blockquote footer, blockquote small {
-	display: block;
-
-	font-size: 80%;
-	line-height: 1.6em;
-}
-
-blockquote footer:before, blockquote small:before {
-	content: '\2014 \00A0';
+  border: 0;
+  border-top: 1px solid #ccc;
 }
 
 table {
-	width: 100%;
+  width: 100%;
 }
 
-.table {
-	margin: 1.6em 0;
-
-	border-collapse: collapse;
-	border-spacing: 0;
-	empty-cells: show;
-
-	border: 1px solid #e6e6e6;
+ol,
+ul {
+  padding-left: 2em;
 }
 
-.table caption {
-	padding: 1em 0;
-
-	font-size: 85%;
-	line-height: 1;
-	text-align: center;
-	color: #222;
-	font-style: italic;
+dt {
+  font-weight: bold;
 }
 
-.table td, .table th {
-	margin: 0;
-	padding: 0.5em 1em;
-	overflow: visible;
-
-	font-weight: normal;
-	font-size: inherit;
-
-	border-width: 0 0 0 1px;
-	border-left: 1px solid #e6e6e6;
+dd {
+  margin-bottom: 1.6em;
+  margin-left: 0;
+  padding-left: 1.6em;
 }
 
-.table td:first-child, .table th:first-child {
-	border-left-width: 0;
+pre,
+code {
+  overflow: hidden;
+
+  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  background-color: #eee;
 }
 
-.table thead, .table tfoot {
-	vertical-align: bottom;
-	text-align: left;
-	color: #222;
+pre {
+  padding: 1em;
 
-	background-color: #e5ecf8;
+  border-radius: 3px;
 }
 
-.table thead td, .table tfoot td, .table thead th, .table tfoot th {
-	border-color: #fff;
+blockquote {
+  margin: 0 0 1.6em;
+  padding: 0.8em;
+
+  border-left: 5px solid #eee;
 }
 
-.table td {
-	background-color: transparent;
+blockquote p:last-child,
+blockquote ul:last-child,
+blockquote ol:last-child {
+  margin-bottom: 0;
 }
 
-.table_striped tr:nth-child(2n-1) td {
-	background-color: #f7f7f7;
+blockquote p:first-child,
+blockquote ul:first-child,
+blockquote ol:first-child {
+  margin-top: 0;
 }
 
-.table_bordered td {
-	border-bottom: 1px solid #e6e6e6;
+blockquote footer,
+blockquote small {
+  display: block;
+
+  font-size: 80%;
+  line-height: 1.6em;
 }
 
-.table_bordered tbody > tr:last-child > td,
-.table_bordered thead > tr:last-child > td {
-	border-bottom-width: 0;
+blockquote footer:before,
+blockquote small:before {
+  content: '\2014 \00A0';
 }
 
-.table_horizontal td, .table_horizontal th {
-	border-width: 0 0 1px 0;
-	border-bottom: 1px solid #e6e6e6;
-}
+.clearfix:before,
+.clearfix:after {
+  content: "";
 
-.table_horizontal tbody > tr:last-child > td,
-.table_horizontal thead > tr:last-child > td {
-	border-bottom-width: 0;
-}
-
-.table_responsive thead, .table_responsive tfoot {
-	display: none;
-}
-
-.table_responsive caption {
-	display: block;
-}
-
-.table_responsive tbody tr {
-	border-bottom: 1px solid #e6e6e6;
-}
-
-.table_responsive tbody td {
-	display: block;
-
-	vertical-align: top;
-
-	border: none;
-}
-
-.table_responsive tbody td:before {
-	content: attr(data-th) ": ";
-
-	display: block;
-
-	font-weight: bold;
-}
-
-.table_responsive tbody td.table__hide {
-	display: none;
-}
-
-.table_responsive tbody td .table__content {
-	display: block;
-
-	vertical-align: top;
-}
-
-.table_responsive tbody td:first-child {
-	padding-top: 1.5em;
-}
-
-.table_responsive tbody td:last-child {
-	padding-bottom: 1.5em;
-}
-
-.table_responsive .table__wrapper_active {
-	max-height: 310px;
-	overflow: auto;
-	-webkit-overflow-scrolling: touch;
-}
-
-.clear {
-	clear: both;
-}
-
-.clearfix:before, .clearfix:after {
-	content: "";
-
-	display: table;
+  display: table;
 }
 
 .clearfix:after {
-	clear: both;
+  clear: both;
 }
 
-.lt-ie8 .clearfix {
-	zoom: 1;
-}
+.content-wrapper:before,
+.content-wrapper:after {
+  content: "";
 
-.content-wrapper:before, .content-wrapper:after {
-	content: "";
-
-	display: table;
+  display: table;
 }
 
 .content-wrapper:after {
-	clear: both;
-}
-
-.lt-ie8 .content-wrapper {
-	zoom: 1;
+  clear: both;
 }
 
 .content-wrapper > *:first-child {
-	margin-top: 0 !important;
+  margin-top: 0 !important;
 }
 
 .content-wrapper > *:last-child {
-	margin-bottom: 0 !important;
-}
-
-.content-wrapper a:not([href]) {
-	color: inherit;
-	text-decoration: none;
-}
-
-.align-image-center {
-	text-align: center;
-}
-
-.align-image-left {
-	float: left;
-	margin: 5px 15px 0 0;
-}
-
-.align-image-right {
-	float: right;
-	margin: 5px 0 0 15px;
-}
-
-.image-captioned {
-	margin-bottom: 20px;
-}
-
-.image-captioned figcaption {
-	font-size: 1em;
-	color: #454545;
-	font-style: oblique;
-}
-
-.align-image-left, .align-image-right, .align-image-center img {
-	max-width: 100%;
-}
-
-.fluid-image {
-	display: block;
-	max-width: 100%;
-	height: auto;
-}
-
-.text-muted, .text-muted > * {
-	color: #ccc;
-}
-
-.f-left {
-	float: left;
-}
-
-.f-right {
-	float: right;
-}
-
-.f-none {
-	float: none;
-}
-
-.ta-right {
-	text-align: right;
-}
-
-.ta-center {
-	text-align: center;
-}
-
-.ta-left {
-	text-align: left;
+  margin-bottom: 0 !important;
 }
 
 .disabled {
-	cursor: default;
-	opacity: 0.5;
+  cursor: default;
+  opacity: 0.5;
 
-	pointer-events: none;
+  pointer-events: none;
+}
+
+.f-left {
+  float: left;
+}
+
+.f-right {
+  float: right;
+}
+
+.f-none {
+  float: none;
 }
 
 .hidden {
-	display: none !important;
+  display: none !important;
 }
 
-.sr-only, .visuallyhidden {
-	position: absolute;
-
-	width: 1px;
-	height: 1px;
-	margin: -1px;
-	padding: 0;
-	overflow: hidden;
-
-	white-space: nowrap;
-
-	border: 0;
-
-	clip: rect(0 0 0 0);
+.hyphenate {
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  overflow-wrap: break-word;
 }
 
 .invisible {
-	visibility: hidden;
+  visibility: hidden;
+}
+
+.ta-right {
+  text-align: right;
+}
+
+.ta-center {
+  text-align: center;
+}
+
+.ta-left {
+  text-align: left;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.caps {
+  font-variant: small-caps;
+}
+
+.visuallyhidden {
+  display: inline-block;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  border: 0;
+
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  position: static;
+
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+
+  white-space: inherit;
+
+  clip: auto;
+  -webkit-clip-path: none;
+  clip-path: none;
 }
 
 @font-face {
-	font-family: "Noto Sans";
-	src: url("../fonts/noto/sans/regular.eot");
-	src: url("../fonts/noto/sans/regular.eot?#iefix") format("embedded-opentype"),
-         url("../fonts/noto/sans/regular.woff2") format("woff2"),
-         url("../fonts/noto/sans/regular.woff") format("woff"),
-         url("../fonts/noto/sans/regular.ttf") format("truetype");
+  font-family: "Noto Sans";
+  src: url("../fonts/noto/sans/regular.eot");
+  src: url("../fonts/noto/sans/regular.eot?#iefix") format("embedded-opentype"), url("../fonts/noto/sans/regular.woff2") format("woff2"), url("../fonts/noto/sans/regular.woff") format("woff"), url("../fonts/noto/sans/regular.ttf") format("truetype");
 }
 
 @font-face {
-	font-family: "Noto Sans";
-	font-style: italic;
-	src: url("../fonts/noto/sans/italic.eot");
-	src: url("../fonts/noto/sans/italic.eot?#iefix") format("embedded-opentype"),
-         url("../fonts/noto/sans/italic.woff2") format("woff2"),
-         url("../fonts/noto/sans/italic.woff") format("woff"),
-         url("../fonts/noto/sans/italic.ttf") format("truetype");
+  font-family: "Noto Sans";
+  font-style: italic;
+  src: url("../fonts/noto/sans/italic.eot");
+  src: url("../fonts/noto/sans/italic.eot?#iefix") format("embedded-opentype"), url("../fonts/noto/sans/italic.woff2") format("woff2"), url("../fonts/noto/sans/italic.woff") format("woff"), url("../fonts/noto/sans/italic.ttf") format("truetype");
 }
 
 @font-face {
-	font-weight: bold;
-	font-family: "Noto Sans";
-	src: url("../fonts/noto/sans/bold.eot");
-	src: url("../fonts/noto/sans/bold.eot?#iefix") format("embedded-opentype"),
-         url("../fonts/noto/sans/bold.woff2") format("woff2"),
-         url("../fonts/noto/sans/bold.woff") format("woff"),
-         url("../fonts/noto/sans/bold.ttf") format("truetype");
+  font-weight: bold;
+  font-family: "Noto Sans";
+  src: url("../fonts/noto/sans/bold.eot");
+  src: url("../fonts/noto/sans/bold.eot?#iefix") format("embedded-opentype"), url("../fonts/noto/sans/bold.woff2") format("woff2"), url("../fonts/noto/sans/bold.woff") format("woff"), url("../fonts/noto/sans/bold.ttf") format("truetype");
 }
 
 @font-face {
-	font-weight: bold;
-	font-family: "Noto Sans";
-	font-style: italic;
-	src: url("../fonts/noto/sans/bolditalic.eot");
-	src: url("../fonts/noto/sans/bolditalic.eot?#iefix") format("embedded-opentype"),
-         url("../fonts/noto/sans/bolditalic.woff2") format("woff2"),
-         url("../fonts/noto/sans/bolditalic.woff") format("woff"),
-         url("../fonts/noto/sans/bolditalic.ttf") format("truetype");
+  font-weight: bold;
+  font-family: "Noto Sans";
+  font-style: italic;
+  src: url("../fonts/noto/sans/bolditalic.eot");
+  src: url("../fonts/noto/sans/bolditalic.eot?#iefix") format("embedded-opentype"), url("../fonts/noto/sans/bolditalic.woff2") format("woff2"), url("../fonts/noto/sans/bolditalic.woff") format("woff"), url("../fonts/noto/sans/bolditalic.ttf") format("truetype");
 }
 
 @font-face {
-	font-family: "Noto Serif";
-	src: url("../fonts/noto/serif/regular.eot");
-	src: url("../fonts/noto/serif/regular.eot?#iefix") format("embedded-opentype"),
-         url("../fonts/noto/serif/regular.woff2") format("woff2"),
-         url("../fonts/noto/serif/regular.woff") format("woff"),
-         url("../fonts/noto/serif/regular.ttf") format("truetype");
+  font-family: "Noto Serif";
+  src: url("../fonts/noto/serif/regular.eot");
+  src: url("../fonts/noto/serif/regular.eot?#iefix") format("embedded-opentype"), url("../fonts/noto/serif/regular.woff2") format("woff2"), url("../fonts/noto/serif/regular.woff") format("woff"), url("../fonts/noto/serif/regular.ttf") format("truetype");
 }
 
 @font-face {
-	font-family: "Noto Serif";
-	font-style: italic;
-	src: url("../fonts/noto/serif/italic.eot");
-	src: url("../fonts/noto/serif/italic.eot?#iefix") format("embedded-opentype"),
-         url("../fonts/noto/serif/italic.woff2") format("woff2"),
-         url("../fonts/noto/serif/italic.woff") format("woff"),
-         url("../fonts/noto/serif/italic.ttf") format("truetype");
+  font-family: "Noto Serif";
+  font-style: italic;
+  src: url("../fonts/noto/serif/italic.eot");
+  src: url("../fonts/noto/serif/italic.eot?#iefix") format("embedded-opentype"), url("../fonts/noto/serif/italic.woff2") format("woff2"), url("../fonts/noto/serif/italic.woff") format("woff"), url("../fonts/noto/serif/italic.ttf") format("truetype");
 }
 
 @font-face {
-	font-weight: bold;
-	font-family: "Noto Serif";
-	src: url("../fonts/noto/serif/bold.eot");
-	src: url("../fonts/noto/serif/bold.eot?#iefix") format("embedded-opentype"),
-         url("../fonts/noto/serif/bold.woff2") format("woff2"),
-         url("../fonts/noto/serif/bold.woff") format("woff"),
-         url("../fonts/noto/serif/bold.ttf") format("truetype");
+  font-weight: bold;
+  font-family: "Noto Serif";
+  src: url("../fonts/noto/serif/bold.eot");
+  src: url("../fonts/noto/serif/bold.eot?#iefix") format("embedded-opentype"), url("../fonts/noto/serif/bold.woff2") format("woff2"), url("../fonts/noto/serif/bold.woff") format("woff"), url("../fonts/noto/serif/bold.ttf") format("truetype");
 }
 
 @font-face {
-	font-weight: bold;
-	font-family: "Noto Serif";
-	font-style: italic;
-	src: url("../fonts/noto/serif/bolditalic.eot");
-	src: url("../fonts/noto/serif/bolditalic.eot?#iefix") format("embedded-opentype"),
-         url("../fonts/noto/serif/bolditalic.woff2") format("woff2"),
-         url("../fonts/noto/serif/bolditalic.woff") format("woff"),
-         url("../fonts/noto/serif/bolditalic.ttf") format("truetype");
-}
-
-@media only screen and (max-width: 830px) {
-	.align-image-left, .align-image-right, .align-image-center img {
-		display: block;
-		float: none;
-		height: auto;
-		margin: 1em 0;
-	}
+  font-weight: bold;
+  font-family: "Noto Serif";
+  font-style: italic;
+  src: url("../fonts/noto/serif/bolditalic.eot");
+  src: url("../fonts/noto/serif/bolditalic.eot?#iefix") format("embedded-opentype"), url("../fonts/noto/serif/bolditalic.woff2") format("woff2"), url("../fonts/noto/serif/bolditalic.woff") format("woff"), url("../fonts/noto/serif/bolditalic.ttf") format("truetype");
 }
 
 @media only screen and (max-width: 768px) {
-	html {
-		font-size: 68.75%;
-	}
-}
-
-@media only screen and (max-width: 375px) {
-	.image-captioned {
-		display: block;
-		float: none;
-		width: 100%;
-		height: auto;
-		margin-right: 0;
-		margin-left: 0;
-	}
+  html {
+    font-size: 68.75%;
+  }
 }
 
 @media print {
-	*, *:before, *:after, *:first-letter, p:first-line, div:first-line,
- blockquote:first-line, li:first-line {
-		color: #000 !important;
-		text-shadow: none !important;
+  .print-hidden {
+    display: none !important;
+  }
 
-		background: transparent !important;
-		/* Black prints faster: http://www.sanbeiji.com/archives/953 */
-		-webkit-box-shadow: none !important;
-		box-shadow: none !important;
-	}
-	a, a:visited {
-		text-decoration: underline;
-	}
-	a[href]:after {
-		content: " (" attr(href) ")";
-	}
-	abbr[title]:after {
-		content: " (" attr(title) ")";
-	}
-	a[href^="#"]:after, a[href^="javascript:"]:after {
-		content: "";
-	}
-	pre {
-		white-space: pre-wrap !important;
-	}
-	pre, blockquote {
-		page-break-inside: avoid;
+  .print-invisible {
+    visibility: hidden !important;
+  }
 
-		border: 1px solid #999;
-	}
-	thead {
-		display: table-header-group;
-	}
-	tr, img {
-		page-break-inside: avoid;
-	}
-	p, h2, h3 {
-		orphans: 3;
-		widows: 3;
-	}
-	h2, h3 {
-		page-break-after: avoid;
-	}
+  *,
+  *:before,
+  *:after {
+    color: #000 !important;
+    text-shadow: none !important;
+
+    background: transparent !important;
+    /* Black prints faster: http://www.sanbeiji.com/archives/953 */
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+  }
+
+  pre,
+  blockquote {
+    page-break-inside: avoid;
+
+    border: 1px solid #999;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
+@media not print () {
+  .print-visible {
+    display: none !important;
+  }
 }
