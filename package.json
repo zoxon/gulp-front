@@ -105,6 +105,7 @@
     "change-case": "^3.0.1",
     "fastclick": "^1.0.6",
     "jquery": "^3.2.1",
+    "js-cookie": "^2.1.4",
     "normalize.css": "^7.0.0",
     "placeholders.js": "^3.0.2",
     "remodal": "^1.1.1",
