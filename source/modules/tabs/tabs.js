@@ -153,17 +153,13 @@ export default class Tabs {
 
     if (hash !== "") {
       let hashData = this.parseHash(hash);
-      console.log(hashData);
 
       let tabsContainer = document.querySelector(
         "[" + this.options.tabsNameAttrName + '="' + hashData.name + '"]'
       );
 
-      console.log(tabsContainer);
-
       if (tabsContainer.length) {
         if (typeof hashData.id !== undefined) {
-          console.log("here");
           this.open(hashData.name, hashData.id);
         } else {
           this.open(hashData.name, this.firstTabId);
