@@ -2,20 +2,20 @@ include ../../tabs/tabs
 include ../../icon/icon
 
 +tabs({'name': 'tabsgroup1', 'items': [{'name': 'tab1', 'title': 'Tab 1'}, {'name': 'tab2', 'title': 'Tab 2'}, {'name': 'tab3', 'title': 'Tab 3'}]}).tabs_style_default
-	.tabs__panel(data-tabs-id="tab1")
+	.tabs__panel(data-panel-id="tab1")
 		h4 Tab 1 Content demo
 		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.
 
-	.tabs__panel(data-tabs-id="tab2")
+	.tabs__panel(data-panel-id="tab2")
 		h4 Tab 2 Content demo
 		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque alias mollitia iusto voluptatibus minus ut, adipisci magni magnam corporis aut aspernatur facere maiores sunt similique nihil unde est laboriosam reprehenderit.
 
-	.tabs__panel(data-tabs-id="tab3")
+	.tabs__panel(data-panel-id="tab3")
 		h4 Tab 3 Content demo
 		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus fugiat, aliquam! In fugit id sint, nam repellendus possimus sit itaque aspernatur modi facere earum mollitia veritatis officia quo iste nisi.
 
 +tabs({'name': 'tabsgroup2', 'items': [{'name': 'tab1', 'title': 'Tab 1'}, {'name': 'tab2', 'title': 'Tab 2'}, {'name': 'tab3', 'title': 'Tab 3'}]}).tabs_style_default.tabs_color_blue
-	.tabs__panel(data-tabs-id="tab1")
+	.tabs__panel(data-panel-id="tab1")
 		h4 Tab 1 Content demo
 		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.
 
@@ -23,7 +23,7 @@ include ../../icon/icon
 			span.button__text Next
 			+icon('chevron-right').button__icon
 
-	.tabs__panel(data-tabs-id="tab2")
+	.tabs__panel(data-panel-id="tab2")
 		h4 Tab 2 Content demo
 		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque alias mollitia iusto voluptatibus minus ut, adipisci magni magnam corporis aut aspernatur facere maiores sunt similique nihil unde est laboriosam reprehenderit.
 
@@ -34,7 +34,7 @@ include ../../icon/icon
 			span.button__text Next
 			+icon('chevron-right').button__icon
 
-	.tabs__panel(data-tabs-id="tab3")
+	.tabs__panel(data-panel-id="tab3")
 		h4 Tab 3 Content demo
 		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus fugiat, aliquam! In fugit id sint, nam repellendus possimus sit itaque aspernatur modi facere earum mollitia veritatis officia quo iste nisi.
 
