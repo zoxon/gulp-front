@@ -236,7 +236,7 @@ export default class Tabs {
       tab.setAttribute("tabindex", "-1");
       tab.setAttribute("role", "tab");
       tab.setAttribute("aria-selected", "false");
-      tab.setAttribute("aria-controls", this.panelI);
+      tab.setAttribute("aria-controls", this.panelId);
     });
 
     Array.prototype.forEach.call(this.panels, panel => {
