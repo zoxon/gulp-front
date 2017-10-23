@@ -1,5 +1,6 @@
 import siblings from "../_utils/dom/siblings";
 import simulate from "../_utils/event/simulate";
+import { mapAttributes } from "../_utils/dom/attr";
 
 let KEYCODE = {
   LEFT: 37,
@@ -12,11 +13,13 @@ let KEYCODE = {
   SPACE: 32
 };
 
+let instances = 0;
+
 export default class Tabs {
   constructor(element, options) {
     this.element = element;
     this.name = "tabs";
-    this.count = (Tabs.count || 0) + 1;
+    this.count = instances++;
 
     this._defaults = {
       activeTabClassName: "tabs__tab_active",
@@ -111,14 +114,18 @@ export default class Tabs {
       "[" + this.options.panelsIdAttrName + '="' + id + '"]'
     );
 
-    targetTab.setAttribute("tabindex", 0);
-    targetTab.setAttribute("aria-selected", "true");
+    mapAttributes(targetTab, {
+      tabindex: "0",
+      "aria-selected": "true"
+    });
     targetTab.classList.add(this.options.activeTabClassName);
 
     const targetTabSiblings = siblings(targetTab);
     Array.prototype.forEach.call(targetTabSiblings, tab => {
-      tab.setAttribute("tabindex", "-1");
-      tab.setAttribute("aria-selected", "false");
+      mapAttributes(tab, {
+        tabindex: "-1",
+        "aria-selected": "false"
+      });
       tab.classList.remove(this.options.activeTabClassName);
     });
 
@@ -232,18 +239,22 @@ export default class Tabs {
     this.description.setAttribute("id", this.descId);
 
     Array.prototype.forEach.call(this.tabs, tab => {
-      tab.setAttribute("id", this.triggerId);
-      tab.setAttribute("tabindex", "-1");
-      tab.setAttribute("role", "tab");
-      tab.setAttribute("aria-selected", "false");
-      tab.setAttribute("aria-controls", this.panelId);
+      mapAttributes(tab, {
+        id: this.triggerId,
+        tabindex: "-1",
+        role: "tab",
+        "aria-selected": "false",
+        "aria-controls": this.panelId
+      });
     });
 
     Array.prototype.forEach.call(this.panels, panel => {
-      panel.setAttribute("id", this.panelId);
-      panel.setAttribute("role", "tabpanel");
-      panel.setAttribute("aria-hidden", "true");
-      panel.setAttribute("aria-labelledby", this.triggerId);
+      mapAttributes(panel, {
+        id: this.panelId,
+        role: "tabpanel",
+        "aria-hidden": "true",
+        "aria-labelledby": this.triggerId
+      });
     });
   }
 }
