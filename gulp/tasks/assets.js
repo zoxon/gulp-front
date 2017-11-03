@@ -1,29 +1,23 @@
-import gulp from 'gulp';
-import plumber from 'gulp-plumber';
-import gulpIf from 'gulp-if';
-import changed from 'gulp-changed';
-import imagemin from 'gulp-imagemin';
-import { plumberConfig, imageminConfig } from '../config';
-import { isDevelopment } from '../util/env';
+import gulp from "gulp";
+import plumber from "gulp-plumber";
+import gulpIf from "gulp-if";
+import changed from "gulp-changed";
+import imagemin from "gulp-imagemin";
+
+import { plumberConfig, imageminConfig } from "../config";
+import { isDevelopment } from "../util/env";
 
 export const assets = () => {
-  return gulp.src([ '**/*.*', '!**/_*.*' ], { cwd: 'source/static/assets' })
+  return gulp
+    .src(["**/*.*", "!**/_*.*"], { cwd: "source/static/assets" })
     .pipe(plumber(plumberConfig))
-    .pipe(changed('dest/assets'))
-
-    // Minify images
-    .pipe(
-      gulpIf(
-        !isDevelopment,
-        imagemin(imageminConfig.images)
-      )
-    )
-
-    // Copy other files
-    .pipe(gulp.dest('dest/assets'));
+    .pipe(changed("dest/assets"))
+    .pipe(gulpIf(!isDevelopment, imagemin(imageminConfig.images)))
+    .pipe(gulp.dest("dest/assets"));
 };
 
 export const staticFiles = () =>
-  gulp.src('**/{*,.*}', { cwd: 'source/static/public' })
+  gulp
+    .src("**/{*,.*}", { cwd: "source/static/public" })
     .pipe(plumber(plumberConfig))
-    .pipe(gulp.dest('dest'));
+    .pipe(gulp.dest("dest"));
