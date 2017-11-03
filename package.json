@@ -56,6 +56,7 @@
     "colors": "^1.1.2",
     "cross-env": "^5.0.5",
     "del": "^3.0.0",
+    "emitty": "^1.4.0",
     "eslint": "^4.7.2",
     "eslint-plugin-import": "^2.7.0",
     "gulp": "gulpjs/gulp#4.0",
