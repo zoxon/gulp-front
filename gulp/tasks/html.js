@@ -9,9 +9,6 @@ import { setup as emittySetup } from "emitty";
 import getJsonData from "../util/getJsonData";
 import { plumberConfig, posthtmlConfig, htmlPrettifyConfig } from "../config";
 import data from "./data";
-import errorHandler from "../util/errorHandler";
-
-const emittyPug = emittySetup("source/pages", "pug");
 
 export const pages = () => {
   const pugConfig = {
@@ -19,7 +16,9 @@ export const pages = () => {
   };
 
   return new Promise((resolve, reject) => {
-    emittyPug
+    const emittyPug = emittySetup("source/pages", "pug");
+
+    return emittyPug
       .scan(global.emittyChangedFile)
       .then(() => {
         gulp
