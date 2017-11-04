@@ -1,5 +1,6 @@
-import del from 'del';
-import { delConfig } from '../config';
+import del from "del";
+
+import { delConfig } from "../config";
 
 const cleanup = callback => del(delConfig, callback);
 
