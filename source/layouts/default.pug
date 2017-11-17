@@ -1,0 +1,26 @@
+extends page
+
+include ../modules/browsehappy/browsehappy
+include ../modules/mobile-menu/mobile-menu
+include ../modules/javascripts/javascripts
+include ../modules/head/head
+
+
+block page
+	.page__mobile-menu
+		+mobile-menu(mainMenu.default)
+
+	.page__content
+		.page__wrapper
+			.page__header
+				block header
+
+			.page__main
+				block main
+
+		.page__footer
+			block footer
+
+
+
+
