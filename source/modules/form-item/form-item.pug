@@ -1,13 +1,5 @@
-include ../injected/injected
-
 mixin form-item(data)
 	.form-item&attributes(attributes)
-		+injected: block
-
-		+if('label')
-			.form-item__label
-				+use('label')
-		
-		+if('control')
-			.form-item__control
-				+use('control')
+		block
+		//- .form-item__label
+		//- .form-item__control

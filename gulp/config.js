@@ -36,7 +36,7 @@ export const stylusConfig = {
 };
 
 export const htmlPrettifyConfig = {
-  unformatted: ["pre", "code", "textarea"],
+  unformatted: ["pre", "code", "textarea", "script"],
   indent_char: " ",
   indent_size: 2,
   preserve_newlines: true,

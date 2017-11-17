@@ -3,9 +3,9 @@ include ../../label/label
 include ../../input/input
 
 +form-item().form-item_captcha.form__item
-	+inject('label')
+	.form-item__label
 		+label({"for": "form-demo__captcha", "text": "Captcha"})
-	+inject('control')
+	.form-item__control
 		a(href="#").form-item__image
 			img(src="assets/images/form__captcha.png", alt="Enter text from image")
 		.form-item__input

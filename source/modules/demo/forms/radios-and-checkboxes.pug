@@ -6,7 +6,7 @@ include ../../checkbox-group/checkbox-group
 include ../../checkbox/checkbox
 
 +form-item().form__item
-	+inject('control')
+	.form-item__control
 		+radio-group()
 			legend.radio-group__legend Radios
 			.radio-group__item
@@ -19,7 +19,7 @@ include ../../checkbox/checkbox
 				+radio(id="form-demo__radio-4" name="form-demo__radio-group-2" checked disabled).radio_style_default Checked and Disabled
 
 +form-item().form__item
-	+inject('control')
+	.form-item__control
 		+radio-group().radio-group_inline
 			legend.radio-group__legend Radios Inline
 			.radio-group__item
@@ -32,7 +32,7 @@ include ../../checkbox/checkbox
 				+radio(id="form-demo__radio-8" name="form-demo__radio-group-2i" checked disabled).radio_style_default Checked and Disabled
 
 +form-item().form__item
-	+inject('control')
+	.form-item__control
 		+checkbox-group()
 			legend.checkbox-group__legend Checkboxes
 			.checkbox-group__item
@@ -45,7 +45,7 @@ include ../../checkbox/checkbox
 				+checkbox(id="form-demo__checkbox-4" name="form-demo__checkbox-group-2" checked disabled).checkbox_style_default Checked and Disabled
 
 +form-item().form__item
-	+inject('control')
+	.form-item__control
 		+checkbox-group().checkbox-group_inline
 			legend.checkbox-group__legend Checkboxes Inline
 			.checkbox-group__item
@@ -58,7 +58,7 @@ include ../../checkbox/checkbox
 				+checkbox(id="form-demo__checkbox-8" name="form-demo__checkbox-group-2i" checked disabled).checkbox_style_default Checked and Disabled
 
 +form-item().form__item
-	+inject('control')
+	.form-item__control
 		+checkbox-group()
 			legend.checkbox-group__legend Toggle Switch
 			.checkbox-group__item
@@ -71,7 +71,7 @@ include ../../checkbox/checkbox
 				+checkbox(id="form-demo__checkbox-12" name="form-demo__checkbox-group-4" checked disabled).checkbox_style_default.checkbox_type_toggle-sw Checked and Disabled
 
 +form-item().form__item
-	+inject('label')
+	.form-item__label
 		+label({"text": "Without label", "for": "form-demo__checkbox-13"})
-	+inject('control')
+	.form-item__control
 		+checkbox(id="form-demo__checkbox-13" name="form-demo__checkbox-group-5").checkbox_style_default.checkbox_type_toggle-sw

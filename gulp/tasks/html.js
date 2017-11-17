@@ -15,9 +15,9 @@ export const pages = () => {
     locals: getJsonData("./tmp/data.json")
   };
 
-  return new Promise((resolve, reject) => {
-    const emittyPug = emittySetup("source/pages", "pug");
+  const emittyPug = emittySetup("source/pages", "pug");
 
+  return new Promise((resolve, reject) => {
     return emittyPug
       .scan(global.emittyChangedFile)
       .then(() => {
