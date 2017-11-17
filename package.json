@@ -1,7 +1,8 @@
 {
   "name": "gulp-front",
   "version": "8.3.0",
-  "description": "The template for quick start of development with Gulp.js, Pug.js and Stylus",
+  "description":
+    "The template for quick start of development with Gulp.js, Pug.js and Stylus",
   "keywords": [
     "gulp",
     "bem",
@@ -18,7 +19,8 @@
     "template"
   ],
   "homepage": "https://github.com/zoxon/gulp-front",
-  "author": "Velicko Konstantin <zoxon.box@gmail.com> (https://github.com/zoxon)",
+  "author":
+    "Velicko Konstantin <zoxon.box@gmail.com> (https://github.com/zoxon)",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -49,7 +51,7 @@
     "autoprefixer": "^7.1.6",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
-    "babel-eslint": "^8.0.1",
+    "babel-eslint": "^8.0.2",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "browser-sync": "^2.18.13",
@@ -57,7 +59,7 @@
     "cross-env": "^5.1.1",
     "del": "^3.0.0",
     "emitty": "^1.4.0",
-    "eslint": "^4.10.0",
+    "eslint": "^4.11.0",
     "eslint-plugin-import": "^2.8.0",
     "gulp": "gulpjs/gulp#4.0",
     "gulp-bump": "^2.8.0",
@@ -65,7 +67,7 @@
     "gulp-combine-mq": "^0.4.0",
     "gulp-gh-pages": "^0.5.4",
     "gulp-if": "^2.0.1",
-    "gulp-imagemin": "^3.4.0",
+    "gulp-imagemin": "^4.0.0",
     "gulp-include": "^2.3.1",
     "gulp-merge-json": "^1.2.0",
     "gulp-plumber": "^1.1.0",
@@ -79,7 +81,7 @@
     "gulp-watch": "^4.3.11",
     "gulp-yaml": "^1.0.1",
     "gulp-zip": "^4.0.0",
-    "gulp.spritesmith": "^6.5.1",
+    "gulp.spritesmith": "^6.7.0",
     "gulplog": "^1.0.0",
     "imagemin-jpeg-recompress": "^5.1.0",
     "imagemin-pngquant": "^5.0.0",
@@ -91,7 +93,7 @@
     "postcss-reporter": "^5.0.0",
     "posthtml-attrs-sorter": "^1.1.0",
     "rimraf": "^2.6.2",
-    "rupture": "^0.6.1",
+    "rupture": "^0.7.1",
     "stylefmt": "^6.0.0",
     "stylelint-config-standard": "^17.0.0",
     "stylelint-order": "^0.7.0",
