@@ -1,11 +1,9 @@
-include ../modules/head/head
+extends ../layouts/default
+
 include ../modules/_page-list/_page-list
 
-doctype html
-html(class="no-js" lang=config.lang)
-
-	head
-		+head(head.index)
+block head
+	- title = "Pages list"
 
 	style
 		:stylus
@@ -15,5 +13,5 @@ html(class="no-js" lang=config.lang)
 			@import "../static/styles/_mixins.styl"
 			@import "../modules/_page-list/_page-list.styl"
 
-	body.page
-		+page-list(pageList.data)
+block page
+	+page-list(pageList.data)

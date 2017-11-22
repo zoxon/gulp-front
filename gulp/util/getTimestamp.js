@@ -1,4 +1,4 @@
-import correctNumber from './correctNumber';
+import correctNumber from "./correctNumber";
 
 // Return timestamp
 const getTimestamp = () => {
@@ -9,7 +9,7 @@ const getTimestamp = () => {
   const hours = correctNumber(now.getHours());
   const minutes = correctNumber(now.getMinutes());
 
-  return year + '-' + month + '-' + day + '-' + hours + minutes;
+  return `${year}-${month}-${day}-${hours}${minutes}`;
 };
 
 export default getTimestamp;

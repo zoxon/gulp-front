@@ -4,20 +4,20 @@ include ../../textarea/textarea
 include ../../file/file
 
 +form-item().form__item
-	+inject('label')
+	.form-item__label
 		+label({"for": "form-demo__message", "text": "Message"})
-	+inject('control')
+	.form-item__control
 		+textarea(id="form-demo__message" name="form-demo__message" placeholder="Enter message").textarea_style_default
 
 +form-item().form__item
-	+inject('label')
+	.form-item__label
 		+label({"for": "form-demo__photo2", "text": "Photo"})
-	+inject('control')
+	.form-item__control
 		+file(type="text" name="form-demo__photo2" id="form-demo__photo2" data-multiple-caption="Files selected: {count}" data-button-text="Select the file(s)" data-file-text="Nothing is selected" multiple).file_style_default
 
 +form-item().form__item
-	+inject('label')
+	.form-item__label
 		+label({"for": "form-demo__photo", "text": "Another language"})
-	+inject('control')
+	.form-item__control
 		+file(type="text" name="form-demo__photo" id="form-demo__photo" multiple).file_style_default
 

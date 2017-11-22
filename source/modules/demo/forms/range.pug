@@ -3,13 +3,13 @@ include ../../label/label
 include ../../range/range
 
 +form-item().form__item
-	+inject('label')
+	.form-item__label
 		+label({"for": "form-demo__range", "text": "Range"})
-	+inject('control')
+	.form-item__control
 		+range(type="text" name="form-demo__range" id="form-demo__range" value="50").range_style_default
 
 +form-item().form__item
-	+inject('label')
+	.form-item__label
 		+label({"for": "form-demo__range2", "text": "Range disabled"})
-	+inject('control')
+	.form-item__control
 		+range(type="text" name="form-demo__range2" id="form-demo__range2" value="35" disabled).range_style_default
