@@ -96,7 +96,7 @@
     "rupture": "^0.7.1",
     "stylefmt": "^6.0.0",
     "stylelint-config-standard": "^17.0.0",
-    "stylelint-order": "^0.7.0",
+    "stylelint-order": "^0.8.0",
     "sw-precache": "^5.2.0",
     "vinyl-buffer": "^1.0.0",
     "webpack": "^3.8.1",
