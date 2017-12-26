@@ -10,3 +10,4 @@ init(".browsehappy", Browsehappy);
 init(".tabs", Tabs);
 
 import "../../modules/demo/demo";
+import "../../modules/header/header";

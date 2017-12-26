@@ -1,7 +1,6 @@
 import Notification from "../notification/notification";
 
-const $ = selector => document.querySelector(selector);
-const $$ = selector => document.querySelectorAll(selector);
+import { $ } from "../_utils/dom/select";
 
 fetch("http://ip-api.com/json")
   .then(response => response.json())
@@ -30,9 +29,12 @@ $(".js-notification-notice").addEventListener("click", () => {
 });
 
 $(".js-notification-success").addEventListener("click", () => {
-  notificationBoard.show("Three line test test message test message test long message lorem ipsum", {
-    className: "notification_type_success"
-  });
+  notificationBoard.show(
+    "Three line test test message test message test long message lorem ipsum",
+    {
+      className: "notification_type_success"
+    }
+  );
 });
 
 $(".js-notification-error").addEventListener("click", () => {
