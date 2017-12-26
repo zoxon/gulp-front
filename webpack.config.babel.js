@@ -7,7 +7,7 @@ const outputFileName = "[name].js";
 
 let options = {
   entry: {
-    vendor: ["jquery", "./vendor.js"],
+    vendor: ["./vendor.js"],
     main: "./main.js"
   },
   output: {
@@ -45,11 +45,6 @@ options.plugins = [
   new webpack.DefinePlugin({
     NODE_ENV: JSON.stringify(NODE_ENV),
     "process.env.NODE_ENV": JSON.stringify(NODE_ENV)
-  }),
-  new webpack.ProvidePlugin({
-    $: "jquery",
-    jQuery: "jquery",
-    "window.jQuery": "jquery"
   })
 ];
 
