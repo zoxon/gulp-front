@@ -1,4 +1,4 @@
-import siblings from "../_utils/dom/siblings";
+import getSiblings from "../_utils/dom/getSiblings";
 import simulate from "../_utils/event/simulate";
 import { mapAttributes } from "../_utils/dom/attr";
 
@@ -120,7 +120,7 @@ export default class Tabs {
     });
     targetTab.classList.add(this.options.activeTabClassName);
 
-    const targetTabSiblings = siblings(targetTab);
+    const targetTabSiblings = getSiblings(targetTab);
     Array.prototype.forEach.call(targetTabSiblings, tab => {
       mapAttributes(tab, {
         tabindex: "-1",
@@ -132,7 +132,7 @@ export default class Tabs {
     targetPanel.setAttribute("aria-hidden", "false");
     targetPanel.classList.add(this.options.activePanelClassName);
 
-    const targetPanelSiblings = siblings(targetPanel);
+    const targetPanelSiblings = getSiblings(targetPanel);
     Array.prototype.forEach.call(targetPanelSiblings, panel => {
       panel.setAttribute("aria-hidden", "true");
       panel.classList.remove(this.options.activePanelClassName);

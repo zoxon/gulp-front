@@ -1,5 +1,6 @@
 import "../polyfill/matches";
 
+/*! getParents.js | (c) 2017 Chris Ferdinandi | MIT License | http://github.com/cferdinandi/getParents */
 /**
  * Get all of an element's parent elements up the DOM tree
  * @param  {Node}   elem     The element

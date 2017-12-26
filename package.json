@@ -109,6 +109,8 @@
     "normalize.css": "^7.0.0",
     "placeholders.js": "^3.0.2",
     "remodal": "^1.1.1",
+    "scroll": "^2.0.1",
+    "scroll-doc": "^0.2.1",
     "svg4everybody": "^2.1.8",
     "throttle-debounce": "^1.0.1"
   }
