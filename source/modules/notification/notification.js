@@ -1,230 +1,147 @@
-// notification
-(function() {
-	'use strict';
-
-	var defaults = {
-		class: '',
-		click: function() {},
-		content: '',
-		duration: 5000,
-		fadeIn: 400,
-		fadeOut: 600,
-		limit: false,
-		queue: false,
-		slideUp: 200,
-		horizontal: 'right',
-		vertical: 'top',
-		afterShow: function() {},
-		afterClose: function() {}
-	};
+import animationEndSelect from "../_utils/animations/animationEndSelect";
+import createElement from "../_utils/dom/createElement";
+import getParents from "../_utils/dom/getParrents";
 
 
-	function Notification(board, options) {
+class Notification {
+  constructor(options = {}) {
+    // List of notifications currently active
+    this.notifications = [];
 
-		this.board = board;
-		this._defaults = defaults;
-		this.options = options;
+    this.name = "notification";
 
-		this.init();
-	}
+    this.defaults = {
+      delay: 3000,
+      containerClassName: "notification-container",
+      containerItemClassName: "notification-container__item"
+    };
 
-	$.extend(Notification.prototype, {
+    this.options = {
+      ...this.defaults,
+      ...options
+    };
 
-		init: function() {
-			var plugin = this;
-			this.$notification = this.createNotification();
-			this.$notificationClose = this.$notification.children('.notification__close');
+    this.init();
+  }
 
-			this.bindEvents();
+  init() {
+    this.container = this.createNotificationContainer();
+  }
 
-			if (this.options.duration) {
+  createNotificationContainer() {
+    const notificationContainer = createElement("div", {
+      className: this.options.containerClassName
+    });
+    document.body.appendChild(notificationContainer);
 
-				// hide timer
-				setTimeout(function() {
-					if (plugin.$notification.hasClass('hover')) {
+    return notificationContainer;
+  }
 
-						// hovering, do not hide now
-						plugin.$notification.addClass('pending');
-					}
-					else {
-						plugin.hide.call(plugin);
-					}
-				}, this.options.duration);
-			}
-		},
+  close(notification) {
+    notification.hide();
 
-		// Bind events that trigger methods
-		bindEvents: function() {
-			var plugin = this;
+    let index = this.notifications.indexOf(notification);
+    this.notifications.splice(index, 1);
+  }
 
-			this.$notification.on('click', function() {
-				plugin.options.click.call(plugin);
-			});
+  show(message, _options) {
+    const options = {
+      delay: this.options.delay,
+      ..._options
+    };
 
-			// helper classes to avoid hide when hover
-			this.$notification.on('mouseenter', function() {
-				plugin.mouseenterItemHandler.call(plugin);
-			});
+    const notification = new NotificationItem(this.container);
+    let item = notification.show(message, {
+      ...options,
+      className: options.className + " " + this.options.containerItemClassName
+    });
 
-			this.$notification.on('mouseleave', function() {
-				plugin.mouseleaveItemHandler.call(plugin);
-			});
+    this.container.appendChild(item);
+    this.notifications.push(item);
 
-			// close button bind
-			this.$notificationClose.on('click', function() {
-				plugin.hide.call(plugin);
-			});
+    setTimeout(() => {
+      this.close(notification);
+    }, options.delay);
+  }
+}
 
-		},
+class NotificationItem {
+  constructor(container) {
+    this.name = "notificationItem";
+    this.container = container;
 
-		// build notification template
-		createNotification: function() {
-			var itemTemplate =
-				'<div class="notification-board__item notification ' + this.options.class + '" style="display:none">' +
-					'<button type="button" class="button notification__close"></button>' +
-					'<div class="notification__content">' + this.options.content + '</div>' +
-				'</div>';
+    this.defaults = {
+      delay: 3000,
+      close: true,
+      className: "",
+      containerClassName: "notification",
+      disappearClassName: "notification_disappear",
+      closeClassName: "notification__close",
+      messageClassName: "notification__message"
+    };
 
-			return $(itemTemplate);
-		},
+    this.init();
+  }
 
-		hide: function() {
-			var plugin = this;
-			this.$notification.addClass('hiding');
-			this.$notification.animate({ opacity: .01 }, this.options.fadeOut, function() {
-				var queued = queue.shift();
-				if (queued) {
-					$.createNotification(queued);
-				}
-			});
-			this.$notification.slideUp(this.options.slideUp, function() {
-				$(this).remove();
-				plugin.callback('afterClose');
-			});
-		},
+  init() {
+    // this.close = this.element.querySelector("." + this.options.closeClassName);
+    this.animationEnd = animationEndSelect();
+  }
 
-		// show in board
-		show: function() {
-			this.$notification[ this.options.vertical === 'top' ? 'appendTo' : 'prependTo' ](this.board);
-			this.$notification.fadeIn(this.options.fadeIn, this.callback('afterShow'));
-		},
+  build(message, options) {
+    let close = null;
 
-		mouseenterItemHandler: function() {
-			this.$notification.addClass('hover');
-			if (this.$notification.hasClass('hiding')) {
+    if (options.close) {
+      close = createElement("button", {
+        className: this.defaults.closeClassName,
+        type: "button"
+      });
+    }
 
-				// recover
-				this.$notification.stop(true);
+    let notification = createElement(
+      "div",
+      { className: this.defaults.containerClassName + " " + options.className },
+      close,
+      createElement(
+        "div",
+        { className: this.defaults.messageClassName },
+        message
+      )
+    );
 
-				// reset slideUp, could not find a better way to achieve this
-				this.$notification.attr('style', 'opacity: ' + this.$notification.css('opacity'));
-				this.$notification.animate({ opacity: 1 }, this.options.fadeIn);
-				this.$notification.removeClass('hiding');
-				this.$notification.addClass('pending');
-			}
-		},
+    this.notification = notification;
 
-		mouseleaveItemHandler: function() {
-			if (this.$notification.hasClass('pending')) {
+    if (close) {
+      close.addEventListener("click", () => {
+        this.hide();
+      });
+    }
 
-				// hide was pending
-				this.hide();
-			}
-			this.$notification.removeClass('hover');
-		},
+    return notification;
+  }
 
-		// Universal calback call
-		callback: function(name) {
+  show(message, _options) {
+    const options = {
+      ...this.defaults,
+      ..._options
+    };
 
-			var cb = this.options[ name ];
+    let item = this.build(message, options);
 
-			if ( typeof cb === 'function' ) {
-				cb.call(this.element);
-			}
-		}
-	});
+    this.element = item;
 
-	var queue = [];
+    return item;
+  }
 
-	$.notification = function(options) {
-		var options = $.extend( {}, defaults, options );
+  hide() {
+    this.element.classList.add(this.defaults.disappearClassName);
 
-		// get notification container (aka board)
-		var boardClasses = [ 'notification-board' ];
-		boardClasses.push( boardClasses[ 0 ] + '_horizontal_' + options.horizontal);
-		boardClasses.push( boardClasses[ 0 ] + '_vertical_' + options.vertical);
+    this.element.addEventListener(this.animationEnd, event => {
+      if (event.target == this.element) {
+        this.container.removeChild(this.element);
+      }
+    });
+  }
+}
 
-		var board = $('.' + boardClasses.join('.'));
-
-		if (!board.length) {
-			board = $('<div class="' + boardClasses.join(' ') + '" />');
-			board.appendTo('body');
-		}
-		if (options.limit && board.children('.notification:not(.hiding)').length >= options.limit) {
-
-			// limit reached
-			if (options.queue) {
-				queue.push(options);
-			}
-			return;
-		}
-
-		// create new notification and show
-		var notification = new Notification(board, options);
-
-		notification.show(board);
-		return notification;
-	};
-
-
-})();
-
-
-$(function() {
-	var content = 'Lorem ipsum dolor sit amet, consectetur.<br>Test html <a href="#">elements</a>';
-
-	$('.js-notification-info').click(function(event) {
-		event.preventDefault();
-
-		$.notification({
-			content: content
-		});
-	});
-
-	$('.js-notification-notice').click(function(event) {
-		event.preventDefault();
-
-		$.notification({
-			content: content,
-			class: 'notification_type_notice'
-		});
-	});
-
-	$('.js-notification-success').click(function(event) {
-		event.preventDefault();
-
-		$.notification({
-			content: content,
-			class: 'notification_type_success'
-		});
-	});
-
-	$('.js-notification-error').click(function(event) {
-		event.preventDefault();
-
-		$.notification({
-			content: content,
-			class: 'notification_type_error'
-		});
-	});
-
-	$('.js-notification-warning').click(function(event) {
-		event.preventDefault();
-
-		$.notification({
-			content: content,
-			class: 'notification_type_warning'
-		});
-	});
-
-});
+export default Notification;

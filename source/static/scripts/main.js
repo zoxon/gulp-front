@@ -8,3 +8,5 @@ init(".alert", Alert);
 init(".accordion", Accordion);
 init(".browsehappy", Browsehappy);
 init(".tabs", Tabs);
+
+import "../../modules/demo/demo";
