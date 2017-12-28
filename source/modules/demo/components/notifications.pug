@@ -4,93 +4,121 @@ button(type="button").button.button_size_normal.button_style_solid.button_color_
 button(type="button").button.button_size_normal.button_style_solid.button_color_red.button_style_rounded.js-notification-error error
 button(type="button").button.button_size_normal.button_style_solid.button_color_yellow.button_style_rounded.js-notification-warning warning
 
-h2 Options
-h3 class
-p A string containing one or more extra CSS classes
-ul
-	li Type:
-		i string
-	li Default:
-		i ''
+h4 Example
+//- https://github.com/markdown-it/markdown-it#init-with-presets-and-options
+:markdown-it(langPrefix='highlight-' quotes='“”‘’' linkify typographer html)
+	1. Create notification board
+		```js
+		const notificationBoard = new Notification({
+			delay: 40000
+		});
+		```
 
-h3 click
-p Click callback
-ul
-	li Type:
-		i function
-	li Default:
-		i none
+	2. Create and show notification message
+		```js
+		const button = document.querySelector("button");
+		button.addEventListener("click", () => {
+			notificationBoard.show("Short test message", {
+				className: "notification_type_info"
+			});
+		});
+		```
 
-h3 content
-p Notification content
+h4 Options
+h5 Notification
 ul
-	li Type:
-		i string
-	li Default:
-		i ''
+	li
+		b delay
+		br
+		| Delay for closing event in milliseconds (ms).
+		ul
+			li Type:
+				i number
+			li Default:
+				i 3000
+	li
+		b containerClassName
+		br
+		| Notification board container class name
+		ul
+			li Type:
+				i string
+			li Default:
+				i "notification-container"
+	li
+		b containerItemClassName
+		br
+		| Notification board container item class name
+		ul
+			li Type:
+				i string
+			li Default:
+				i "notification-container__item"
 
-h3 duration
-p On screen duration in milliseconds, set it to 0 for sticky
+h5 NotificationItem
 ul
-	li Type:
-		i integer
-	li Default:
-		i 5000
+	li
+		b delay
+		br
+		| Delay for closing event in milliseconds (ms).
+		ul
+			li Type:
+				i number
+			li Default:
+				i 3000
+	li
+		b close
+		br
+		| Show close button when true
+		ul
+			li Type:
+				i bollean
+			li Default:
+				i true
+	li
+		b className
+		br
+		| Custom class/classes name added to notification item
+		ul
+			li Type:
+				i string
+			li Default:
+				i ""
+	li
+		b containerClassName
+		br
+		| Notificiation item container class name
+		ul
+			li Type:
+				i string
+			li Default:
+				i "notification"
+	li
+		b disappearClassName
+		br
+		| Class name added when notification disappear
+		ul
+			li Type:
+				i string
+			li Default:
+				i "notification_disappear"
+	li
+		b closeClassName
+		br
+		| Class name to close button
+		ul
+			li Type:
+				i string
+			li Default:
+				i "notification__close"
+	li
+		b messageClassName
+		br
+		| Class name added to message
+		ul
+			li Type:
+				i string
+			li Default:
+				i "notification__message"
 
-
-h3 fadeIn
-p Fade in effect duration in milliseconds
-ul
-	li Type:
-		i integer
-	li Default:
-		i 400
-
-h3 fadeOut
-p Fade out effect duration in milliseconds
-ul
-	li Type:
-		i integer
-	li Default:
-		i 400
-
-h3 limit
-p Visible limit per board, when reached notifications wont be created
-ul
-	li Type:
-		i integer, boolean
-	li Default:
-		i false
-
-h3 queue
-p If queue is active and limit is reached notifications will be shown when other hides
-ul
-	li Type:
-		i integer, boolean
-	li Default:
-		i false
-
-h3 slideUp
-p Slide up effect duration in milliseconds
-ul
-	li Type:
-		i integer
-	li Default:
-		i 200
-
-h3 horizontal
-p Horizontal alignment, default right
-ul
-	li Type:
-		i string
-	li Default:
-		i ''
-
-h3 vertical
-p Vertical alignment, default top
-ul
-	li Type:
-		i string
-	li Default:
-		i ''
 

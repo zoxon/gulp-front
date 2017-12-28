@@ -1,7 +1,5 @@
 import animationEndSelect from "../_utils/animations/animationEndSelect";
 import createElement from "../_utils/dom/createElement";
-import getParents from "../_utils/dom/getParrents";
-
 
 class Notification {
   constructor(options = {}) {
