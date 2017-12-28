@@ -84,6 +84,7 @@
     "gulplog": "^1.0.0",
     "imagemin-jpeg-recompress": "^5.1.0",
     "imagemin-pngquant": "^5.0.0",
+    "jstransformer-markdown-it": "^2.0.0",
     "jstransformer-stylus": "^1.1.0",
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
@@ -112,6 +113,7 @@
     "scroll": "^2.0.1",
     "scroll-doc": "^0.2.1",
     "svg4everybody": "^2.1.8",
-    "throttle-debounce": "^1.0.1"
+    "throttle-debounce": "^1.0.1",
+    "tooltip.js": "^1.1.7"
   }
 }
