@@ -1,58 +1,73 @@
+$offset = 10px
+
 .tooltip
-	display inline-block
+	position absolute
 	background rgba(#616161, 0.9)
-	border-radius 2px
-	padding 8px
-	font-size 12px
 	color #fff
-	max-width 300px
-	position fixed
-	top -500px
-	left -500px
-	z-index 999
-	transform-origin top center
-	opacity 0
-	visibility hidden
-	transition 200ms opacity cubic-bezier(0,0,.2,1)
-	line-height 1.4em
-	&_visible
-		opacity 1
-		visibility visible
+	min-width 150px
+	max-width 450px
+	border-radius 3px
+	box-shadow 0 0 2px rgba(0,0,0,0.5)
+	padding 8px
 
-	&:after
-		content ''
+	&__arrow
+		width 0
+		height 0
+		border-style solid
 		position absolute
+		margin 5px
+		border-color rgba(#616161, 0.9)
 
-	&_bottom
-	&_top
-		&:after
-			left 50%
+	&[x-placement^="top"]
+		margin-bottom $offset
 
-	&_left
-	&_right
-		&:after
-			top 50%
+		& ^[0]__arrow
+			border-width 5px 5px 0 5px
+			border-left-color transparent
+			border-right-color transparent
+			border-bottom-color transparent
+			bottom -5px
+			left calc(50% - 5px)
+			margin-top 0
+			margin-bottom 0
 
-	&_bottom
-		&:after
-			triangle(up, 5px, rgba(#616161, 0.9))
-			bottom 100%
-			margin-left -3px
+	&[x-placement^="bottom"]
+		margin-top $offset
 
-	&_top
-		&:after
-			triangle(down, 5px, rgba(#616161, 0.9))
-			top 100%
-			margin-left -3px
+		& ^[0]__arrow
+			border-width 0 5px 5px 5px
+			border-left-color transparent
+			border-right-color transparent
+			border-top-color transparent
+			top -5px
+			left calc(50% - 5px)
+			margin-top 0
+			margin-bottom 0
 
-	&_left
-		&:after
-			triangle(right, 5px, rgba(#616161, 0.9))
-			left 100%
-			margin-top -3px
 
-	&_right
-		&:after
-			triangle(left, 5px, rgba(#616161, 0.9))
-			right 100%
-			margin-top -3px
+	&[x-placement^="right"]
+		margin-left $offset
+
+		& ^[0]__arrow
+			border-width 5px 5px 5px 0
+			border-left-color transparent
+			border-top-color transparent
+			border-bottom-color transparent
+			left -5px
+			top calc(50% - 5px)
+			margin-left 0
+			margin-right 0
+
+	&[x-placement^="left"]
+		margin-right $offset
+
+		& ^[0]__arrow
+			border-width 5px 0 5px 5px
+			border-top-color transparent
+			border-right-color transparent
+			border-bottom-color transparent
+			right -5px
+			top calc(50% - 5px)
+			margin-left 0
+			margin-right 0
+

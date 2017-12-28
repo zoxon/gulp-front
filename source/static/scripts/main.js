@@ -13,3 +13,4 @@ import "../../modules/demo/demo";
 import "../../modules/header/header";
 import "../../modules/main-menu/main-menu";
 import "../../modules/logo/logo";
+import "../../modules/tooltip/tooltip";
