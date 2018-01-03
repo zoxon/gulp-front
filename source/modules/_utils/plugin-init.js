@@ -1,9 +1,15 @@
-function init(selector, Plugin, options = {}) {
-	const elements = document.querySelectorAll(selector);
+function init(Plugin) {
+  return function(selector, options = {}) {
+    let elements = document.documentElement;
 
-	Array.prototype.forEach.call(elements, element => {
-		return new Plugin(element, options);
-	});
+    if (selector) {
+      elements = document.querySelectorAll(selector);
+    }
+
+    Array.prototype.forEach.call(elements, element => {
+      return new Plugin(element, options);
+    });
+  };
 }
 
 export default init;

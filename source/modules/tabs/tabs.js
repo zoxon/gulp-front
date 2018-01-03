@@ -1,3 +1,4 @@
+import init from "../_utils/plugin-init";
 import getSiblings from "../_utils/dom/getSiblings";
 import simulate from "../_utils/event/simulate";
 import { mapAttributes } from "../_utils/dom/attr";
@@ -15,7 +16,7 @@ let KEYCODE = {
 
 let instances = 0;
 
-export default class Tabs {
+class Tabs {
   constructor(element, options) {
     this.element = element;
     this.name = "tabs";
@@ -258,3 +259,5 @@ export default class Tabs {
     });
   }
 }
+
+export default init(Tabs);

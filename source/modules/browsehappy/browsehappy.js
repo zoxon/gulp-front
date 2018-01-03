@@ -1,7 +1,8 @@
+import init from "../_utils/plugin-init";
 import hide from "../_utils/animations/hide";
 import cookie from "js-cookie";
 
-export default class Browsehappy {
+class Browsehappy {
   constructor(element, options) {
     this.element = element;
     this.name = "browsehappy";
@@ -46,3 +47,5 @@ export default class Browsehappy {
     });
   }
 }
+
+export default init(Browsehappy);
