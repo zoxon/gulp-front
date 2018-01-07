@@ -78,7 +78,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-stylus": "^2.5.0",
     "gulp-svg-symbols": "^2.0.0",
-    "gulp-watch": "^4.3.11",
+    "gulp-watch": "^5.0.0",
     "gulp-yaml": "^1.0.1",
     "gulp-zip": "^4.0.0",
     "gulp.spritesmith": "^6.7.0",
