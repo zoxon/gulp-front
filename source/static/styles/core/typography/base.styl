@@ -1,12 +1,21 @@
 html
-	font-family $base-font-family
-	line-height 1.6
-	background $base-bg-color
-	color $base-text-color
-	-webkit-overflow-scrolling touch
+body
+	height 100%
+
+html
 	font-size ((10px * 100%) / 16px)%
 	+below($media-screen-tablet)
 		font-size ((11px * 100%) / 16px)%
 
 body
+	margin 0
+	padding 0
+	overflow-x hidden
+	-webkit-overflow-scrolling touch
+	min-width 320px
+	font-smoothing antialiased
 	font-size $base-font-size
+	font-family $base-font-family
+	line-height 1.6
+	background $base-bg-color
+	color $base-text-color
