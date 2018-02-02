@@ -4476,10 +4476,6 @@ jpegtran-bin@^3.0.0:
     bin-wrapper "^3.0.0"
     logalot "^2.0.0"
 
-jquery@*:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
-
 js-base64@^2.1.9:
   version "2.1.9"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.1.9.tgz#f0e80ae039a4bd654b5f281fc93f04a914a7fcce"
@@ -5267,6 +5263,10 @@ micromatch@2.3.11, micromatch@^2.1.5, micromatch@^2.3.11, micromatch@^2.3.7:
     object.omit "^2.0.0"
     parse-glob "^3.0.4"
     regex-cache "^0.4.2"
+
+micromodal@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/micromodal/-/micromodal-0.3.0.tgz#dbd6e5a3a15d9b0d51b2b30a0163702df197cf6d"
 
 miller-rabin@^4.0.0:
   version "4.0.0"
@@ -6669,12 +6669,6 @@ regjsparser@^0.1.4:
   resolved "https://registry.yarnpkg.com/regjsparser/-/regjsparser-0.1.5.tgz#7ee8f84dc6fa792d3fd0ae228d24bd949ead205c"
   dependencies:
     jsesc "~0.5.0"
-
-remodal@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/remodal/-/remodal-1.1.1.tgz#00f580b09417b2b7e7a425b17327ec10f3d596c3"
-  dependencies:
-    jquery "*"
 
 remove-trailing-separator@^1.0.1:
   version "1.0.1"

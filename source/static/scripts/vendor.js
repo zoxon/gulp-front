@@ -22,6 +22,3 @@ import "./helpers/console.polyfill.js";
 // $(() => {
 // 	$('.table').basictable({ baseClass: 'table' });
 // });
-
-// Remodal
-// import 'remodal';

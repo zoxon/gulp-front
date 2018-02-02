@@ -1,0 +1,32 @@
+include ../icon/icon
+
+mixin dialog()
+	-
+		const id = attributes.id
+		const title = attributes.title
+		const close = attributes.close || true
+
+		delete attributes.name
+		delete attributes.title
+		delete attributes.close
+
+		if (!name || !title) {
+			console.error("Please set name and title for `dialog` module")
+		}
+
+		const titleId = `${id}-dialog__title`;
+
+	.dialog(role="dialog" aria-modal="true" aria-labelledby=titleId)&attributes(attributes)
+		header.dialog__header
+			h2.dialog__title(id=titleId)= title
+			if close
+				button(type="button" data-micromodal-close).dialog__close
+					+icon(name="close" title="Close" data-micromodal-close)
+					span.visuallyhidden Close this dialog window
+
+		main.dialog__content
+			block
+
+		footer.dialog__footer
+			button.button.button_size_normal.button_style_solid.button_color_blue.button_style_rounded(type="button") Continue
+			button.button.button_size_normal.button_style_solid.button_color_red.button_style_rounded(data-micromodal-close aria-label="Close this dialog window") Close
