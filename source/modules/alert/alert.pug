@@ -13,4 +13,5 @@ mixin alert(data)
 		.alert__body= data.text
 
 		button(type="button" data-plugin-alert="close").alert__close
-			+icon("close")
+			+icon(name="close" title="Close")
+			span.visuallyhidden Close this message

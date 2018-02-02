@@ -8,7 +8,7 @@ mixin mobile-menu(data)
 					li.mobile-menu__item
 						a(href=item.url).mobile-menu__link
 							span.mobile-menu__icon
-								+icon(item.icon)
+								+icon(name=item.icon title=item.title)
 							span.mobile-menu__text= item.title
 
 						if item.submenu

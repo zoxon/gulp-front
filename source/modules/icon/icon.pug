@@ -1,3 +1,17 @@
-mixin icon(name)
-	svg(class="icon icon_" + name)&attributes(attributes)
-		use(xlink:href=config.path.images + "/icons.svg#" + name)
+mixin icon()
+	-
+		const name = attributes.name
+		const title = attributes.title
+
+		delete attributes.name
+		delete attributes.title
+
+		if (!name || !title) {
+			console.error("Please set name and title for `icon` module")
+		}
+	
+	//- Accessible markup for SVG Sprite Icons
+	//- https://gist.github.com/davidhund/564331193e1085208d7e
+	svg(class=`icon icon_${name}` role="img")&attributes(attributes)
+		title= title
+		use(xlink:href=`${config.path.images}/icons.svg#${name}`)
