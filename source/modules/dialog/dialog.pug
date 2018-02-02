@@ -6,12 +6,15 @@ mixin dialog()
 		const title = attributes.title
 		const close = attributes.close || true
 
-		delete attributes.name
 		delete attributes.title
 		delete attributes.close
 
-		if (!name || !title) {
-			console.error("Please set name and title for `dialog` module")
+		if (!title) {
+			console.warn("The `title` attribute for `dialog` module is required")
+		}
+
+		if (!id) {
+			id = '_' + Math.random().toString(36).substr(2, 9);
 		}
 
 		const titleId = `${id}-dialog__title`;
