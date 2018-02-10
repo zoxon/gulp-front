@@ -4,11 +4,13 @@ function init(Plugin) {
 
     if (selector) {
       elements = document.querySelectorAll(selector);
+
+      return [].map.call(elements, element => {
+        return new Plugin(element, options);
+      });
     }
 
-    return [].map.call(elements, element => {
-      return new Plugin(element, options);
-    });
+    return new Plugin(options);
   };
 }
 
