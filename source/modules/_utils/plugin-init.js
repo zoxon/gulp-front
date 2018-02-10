@@ -6,7 +6,7 @@ function init(Plugin) {
       elements = document.querySelectorAll(selector);
     }
 
-    Array.prototype.forEach.call(elements, element => {
+    return [].map.call(elements, element => {
       return new Plugin(element, options);
     });
   };
