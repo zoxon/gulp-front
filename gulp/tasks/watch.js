@@ -13,11 +13,7 @@ const watch = () => {
   global.watch = true;
 
   // Modules, pages
-  gulp
-    .watch("source/**/*.pug", gulp.series(pages, reload))
-    .on("all", (event, filepath) => {
-      global.emittyChangedFile = filepath;
-    });
+  gulp.watch("source/**/*.pug", gulp.series(pages, reload));
 
   // Modules data
   gulp.watch("source/modules/*/data/*.yml", gulp.series(html, reload));

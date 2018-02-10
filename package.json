@@ -1,8 +1,7 @@
 {
   "name": "gulp-front",
   "version": "8.4.0",
-  "description":
-    "The template for quick start of development with Gulp.js, Pug.js and Stylus",
+  "description": "The template for quick start of development with Gulp.js, Pug.js and Stylus",
   "keywords": [
     "gulp",
     "bem",
@@ -19,8 +18,7 @@
     "template"
   ],
   "homepage": "https://github.com/zoxon/gulp-front",
-  "author":
-    "Velicko Konstantin <zoxon.box@gmail.com> (https://github.com/zoxon)",
+  "author": "Velicko Konstantin <zoxon.box@gmail.com> (https://github.com/zoxon)",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -58,7 +56,6 @@
     "colors": "^1.1.2",
     "cross-env": "^5.1.1",
     "del": "^3.0.0",
-    "emitty": "^1.4.0",
     "eslint": "^4.11.0",
     "eslint-plugin-import": "^2.8.0",
     "gulp": "gulpjs/gulp#4.0",
@@ -66,7 +63,7 @@
     "gulp-changed": "^3.1.1",
     "gulp-combine-mq": "^0.4.0",
     "gulp-gh-pages": "^0.5.4",
-    "gulp-if": "^2.0.1",
+    "gulp-if": "^2.0.2",
     "gulp-imagemin": "^4.0.0",
     "gulp-include": "^2.3.1",
     "gulp-merge-json": "^1.2.0",
