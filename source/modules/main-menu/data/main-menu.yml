@@ -135,3 +135,6 @@
           -
             title: Spinner
             url: spinner
+          -
+            title: Card
+            url: card

@@ -1,0 +1,86 @@
+include ../../card/card
+
+.card-demo
+	+card({
+		text: {
+			title: "Text only card example",
+			subtitle: "Tex block subtitle",
+			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
+		}
+	})
+
+	+card({
+		header: {
+			image: "assets/images/card__user.jpg",
+			title: "Taylor Price",
+			subtitle: "Consectetur adipisicing elit"
+		},
+		text: {
+			title: "Header and text card example",
+			subtitle: "Tex block subtitle",
+			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
+		}
+	})
+
+	+card({
+		text: {
+			title: "Text and actions card example",
+			subtitle: "Tex block subtitle",
+			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
+		},
+		actions: true
+	})
+
+	+card({
+		media: {
+			image: "assets/images/card__media.jpg",
+			title: "Lorem ipsum dolor, sit amet consectetur adipisicing elit",
+			subtitle: "Author: Tyler Lastovich"
+		}
+	})
+
+	+card({
+		media: {
+			image: "assets/images/card__media.jpg"
+		},
+		text: {
+			title: "Image and text card example",
+			subtitle: "Tex block subtitle",
+			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
+		},
+	})
+
+	+card({
+		header: {
+			image: "assets/images/card__user.jpg",
+			title: "Taylor Price",
+			subtitle: "Consectetur adipisicing elit"
+		},
+		media: {
+			image: "assets/images/card__media.jpg"
+		},
+		text: {
+			title: "Image, text and header card example",
+			subtitle: "Tex block subtitle",
+			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
+		},
+	})
+
+	+card({
+		header: {
+			image: "assets/images/card__user.jpg",
+			title: "Taylor Price",
+			subtitle: "Consectetur adipisicing elit"
+		},
+		media: {
+			image: "assets/images/card__media.jpg",
+			title: "Lorem ipsum dolor, sit amet consectetur adipisicing elit",
+			subtitle: "Author: Tyler Lastovich"
+		},
+		text: {
+			title: "Dignissimos nobis quia itaque ea hic",
+			subtitle: "Alias quod consequuntur",
+			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
+		},
+		actions: true
+	})
