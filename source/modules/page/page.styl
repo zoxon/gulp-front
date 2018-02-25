@@ -33,7 +33,7 @@
 		visibility hidden
 		z-index 1
 
-	&__cover
+	&__overlay
 		position absolute
 		left 0
 		top 0
@@ -45,14 +45,3 @@
 		opacity 0
 		visibility hidden
 
-	&_mobile-menu_open
-		overflow hidden
-
-	&_mobile-menu_open &__cover
-	&_mobile-menu_open &__mobile-menu
-		visibility visible
-		opacity 1
-
-	&_mobile-menu_open &__content
-	&_mobile-menu_open &__cover
-		left -80%

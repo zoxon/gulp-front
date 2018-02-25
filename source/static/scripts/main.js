@@ -4,6 +4,7 @@ import Browsehappy from "../../modules/browsehappy/browsehappy";
 // import Tabs from "../../modules/tabs/tabs";
 import ProgressBar from "../../modules/progress-bar/progress-bar";
 import Spoiler from "../../modules/spoiler/spoiler";
+import Offcanvas from "../../modules/offcanvas/offcanvas";
 
 Alert(".alert");
 Accordion(".accordion");
@@ -11,6 +12,7 @@ Browsehappy(".browsehappy");
 // Tabs(".tabs");
 ProgressBar(".progress-bar");
 Spoiler();
+Offcanvas();
 
 import "../../modules/demo/demo";
 import "../../modules/header/header";
