@@ -1,20 +1,20 @@
 module.exports = {
   plugins: {
-    'autoprefixer': {
+    autoprefixer: {
       cascade: false
     },
-    'perfectionist': {
+    perfectionist: {
       cascade: false,
-      colorCase: 'lower',
+      colorCase: "lower",
       colorShorthand: true,
-      format: 'expanded',
-      indentChar: ' ',
+      format: "expanded",
+      indentChar: " ",
       indentSize: 2,
       trimLeadingZero: false,
       trimTrailingZeros: true,
       zeroLengthNoUnit: true
     },
-    'stylefmt': {},
-    'postcss-reporter': {}
+    stylefmt: {},
+    "postcss-reporter": {}
   }
 };
