@@ -1,30 +1,30 @@
-import path from 'path';
-import webpack from 'webpack';
+import path from "path";
+import webpack from "webpack";
 
-import { NODE_ENV, isDevelopment } from './gulp/util/env.js';
+import { NODE_ENV, isDevelopment } from "./gulp/util/env.js";
 
-const outputFileName = '[name].js';
+const outputFileName = "[name].js";
 
 let options = {
   entry: {
-    vendor: [ 'jquery', './vendor.js' ],
-    main: './main.js'
+    vendor: ["jquery", "./vendor.js"],
+    main: "./main.js"
   },
   output: {
     filename: outputFileName,
-    path: __dirname + '/dest/assets/javascripts',
-    publicPath: '/assets/javascripts/',
-    library: '[name]'
+    path: __dirname + "/dest/assets/javascripts",
+    publicPath: "/assets/javascripts/",
+    library: "[name]"
   },
-  devtool: isDevelopment ? 'eval-source-map' : 'source-map',
-  context: path.resolve(__dirname, 'source/static/scripts'),
+  devtool: isDevelopment ? "eval-source-map" : "source-map",
+  context: path.resolve(__dirname, "source/static/scripts"),
   module: {
     noParse: /\/node_modules\/(jquery|backbone)/,
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loaders: ['babel-loader']
+        loaders: ["babel-loader"]
       }
     ]
   }
@@ -32,18 +32,18 @@ let options = {
 
 options.plugins = [
   new webpack.optimize.CommonsChunkPlugin({
-    name: 'vendor',
+    name: "vendor",
     minChunks: Infinity,
     filename: outputFileName
   }),
   new webpack.DefinePlugin({
     NODE_ENV: JSON.stringify(NODE_ENV),
-    'process.env.NODE_ENV': JSON.stringify(NODE_ENV)
+    "process.env.NODE_ENV": JSON.stringify(NODE_ENV)
   }),
   new webpack.ProvidePlugin({
-    $: 'jquery',
-    jQuery: 'jquery',
-    'window.jQuery': 'jquery'
+    $: "jquery",
+    jQuery: "jquery",
+    "window.jQuery": "jquery"
   })
 ];
 
@@ -52,8 +52,7 @@ if (isDevelopment) {
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin()
   );
-}
-else {
+} else {
   options.plugins.push(
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.optimize.ModuleConcatenationPlugin(),
