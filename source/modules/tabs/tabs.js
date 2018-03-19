@@ -53,20 +53,22 @@ class Tabs {
   }
 
   buildCache() {
-    this.tabsName = this.element.getAttribute(this.options.tabsNameAttrName);
-    this.tabs = this.element.querySelectorAll(
-      "[" + this.options.tabsIdAttrName + "]"
-    );
+    const {
+      tabsNameAttrName,
+      tabsIdAttrName,
+      panelsIdAttrName,
+      preloaderSelector,
+      descriptionSelector
+    } = this.options;
+
+    this.tabsName = this.element.getAttribute(tabsNameAttrName);
+    this.tabs = this.element.querySelectorAll(`[${tabsIdAttrName}]`);
     this.firstTab = this.tabs[0];
-    this.firstTabId = this.firstTab.getAttribute(this.options.tabsIdAttrName);
-    this.panels = this.element.querySelectorAll(
-      "[" + this.options.panelsIdAttrName + "]"
-    );
+    this.firstTabId = this.firstTab.getAttribute(tabsIdAttrName);
+    this.panels = this.element.querySelectorAll(`[${panelsIdAttrName}]`);
     this.panelId = this.name + "__panel_index-" + this.count;
-    this.preloader = this.element.querySelector(this.options.preloaderSelector);
-    this.description = this.element.querySelector(
-      this.options.descriptionSelector
-    );
+    this.preloader = this.element.querySelector(preloaderSelector);
+    this.description = this.element.querySelector(descriptionSelector);
     this.descId =
       this.name + "__description_index-" + Math.ceil(Math.random() * 1000);
     this.triggerId = this.name + "__trigger_index-" + this.count;
@@ -74,7 +76,7 @@ class Tabs {
   }
 
   bindEvents() {
-    let plugin = this;
+    const plugin = this;
 
     ["hashchange", "onpopstate"].forEach(eventName => {
       window.addEventListener(eventName, () => {
@@ -105,21 +107,29 @@ class Tabs {
   }
 
   open(tabsName, id) {
-    let tabsContainer = document.querySelector(
-      "[" + this.options.tabsNameAttrName + '="' + tabsName + '"]'
+    const {
+      tabsNameAttrName,
+      tabsIdAttrName,
+      panelsIdAttrName,
+      activeTabClassName,
+      activePanelClassName
+    } = this.options;
+
+    const tabsContainer = document.querySelector(
+      `[${tabsNameAttrName}="${tabsName}"]`
     );
-    let targetTab = tabsContainer.querySelector(
-      "[" + this.options.tabsIdAttrName + '="' + id + '"]'
+    const targetTab = tabsContainer.querySelector(
+      `[${tabsIdAttrName}="${id}"]`
     );
-    let targetPanel = tabsContainer.querySelector(
-      "[" + this.options.panelsIdAttrName + '="' + id + '"]'
+    const targetPanel = tabsContainer.querySelector(
+      `[${panelsIdAttrName}="${id}"]`
     );
 
     mapAttributes(targetTab, {
       tabindex: "0",
       "aria-selected": "true"
     });
-    targetTab.classList.add(this.options.activeTabClassName);
+    targetTab.classList.add(activeTabClassName);
 
     const targetTabSiblings = getSiblings(targetTab);
     Array.prototype.forEach.call(targetTabSiblings, tab => {
@@ -127,16 +137,16 @@ class Tabs {
         tabindex: "-1",
         "aria-selected": "false"
       });
-      tab.classList.remove(this.options.activeTabClassName);
+      tab.classList.remove(activeTabClassName);
     });
 
     targetPanel.setAttribute("aria-hidden", "false");
-    targetPanel.classList.add(this.options.activePanelClassName);
+    targetPanel.classList.add(activePanelClassName);
 
     const targetPanelSiblings = getSiblings(targetPanel);
     Array.prototype.forEach.call(targetPanelSiblings, panel => {
       panel.setAttribute("aria-hidden", "true");
-      panel.classList.remove(this.options.activePanelClassName);
+      panel.classList.remove(activePanelClassName);
     });
 
     simulate("change", window);
@@ -151,8 +161,8 @@ class Tabs {
   parseHash(hash) {
     let data = hash.split("__");
     return {
-      name: data[0],
-      id: data[1]
+      name: data[0] || null,
+      id: data[1] || null
     };
   }
 
@@ -160,18 +170,14 @@ class Tabs {
     let hash = window.location.hash.replace("#", "");
 
     if (hash !== "") {
-      let hashData = this.parseHash(hash);
+      let { name, id } = this.parseHash(hash);
 
       let tabsContainer = document.querySelector(
-        "[" + this.options.tabsNameAttrName + '="' + hashData.name + '"]'
+        `[${this.options.tabsNameAttrName}="${name}"]`
       );
 
-      if (tabsContainer.length) {
-        if (typeof hashData.id !== undefined) {
-          this.open(hashData.name, hashData.id);
-        } else {
-          this.open(hashData.name, this.firstTabId);
-        }
+      if (tabsContainer && name) {
+        this.open(name, id ? id : this.firstTabId);
       }
     }
   }

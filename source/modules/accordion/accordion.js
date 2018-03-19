@@ -1,18 +1,6 @@
 import init from "../_utils/plugin-init";
 
-/**
- * Simple accordion plugin
- *
- * @export
- * @class Accordion
- */
 class Accordion {
-  /**
-   * Creates an instance of Accordion.
-   * @param {element} element
-   * @param {object} options
-   * @memberof Accordion
-   */
   constructor(element, options) {
     this.element = element;
     this.name = "accordion";
@@ -43,40 +31,33 @@ class Accordion {
     }"]`;
     this.itemActiveMark = `data-plugin-${this.name}-item-${this.options.open}`;
 
-    this.$items = this.element.querySelectorAll(this.itemSelector);
+    this.items = this.element.querySelectorAll(this.itemSelector);
   }
 
   bindEvents() {
-    [].forEach.call(this.$items, $item => {
-      const $trigger = $item.querySelector(this.triggerSelector);
+    Array.prototype.forEach.call(this.items, item => {
+      const trigger = item.querySelector(this.triggerSelector);
       const that = this;
 
-      $trigger.addEventListener("click", event => {
-        that.triggerOnClick.call(that, event, $item);
+      trigger.addEventListener("click", event => {
+        that.triggerOnClick.call(that, event, item);
       });
     });
   }
 
-  /**
-   * Handle item trigger click
-   *
-   * @param {event} event
-   * @param {element} $item
-   * @memberof Accordion
-   */
-  triggerOnClick(event, $item) {
+  triggerOnClick(event, item) {
     event.preventDefault();
 
     const that = this;
 
     const isOpen =
-      $item.getAttribute(this.itemActiveMark) === "true" ? true : false;
+      item.getAttribute(this.itemActiveMark) === "true" ? true : false;
 
-    [].forEach.call(that.$items, $item => {
-      $item.setAttribute(that.itemActiveMark, false);
+    Array.prototype.forEach.call(that.items, item => {
+      item.setAttribute(that.itemActiveMark, false);
     });
 
-    $item.setAttribute(this.itemActiveMark, !isOpen);
+    item.setAttribute(this.itemActiveMark, !isOpen);
   }
 }
 

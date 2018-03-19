@@ -1,10 +1,6 @@
-import scroll from "scroll";
-import scrollDoc from "scroll-doc";
-
+import scrollTo from "../_utils/scrollTo";
 import getOffsetTop from "../_utils/dom/getOffsetTop";
 import { $ } from "../_utils/dom/select";
-
-const page = scrollDoc();
 
 const mainMenu = $(".main-menu");
 const links = mainMenu.querySelectorAll('a[href^="#"]');
@@ -22,16 +18,14 @@ Array.prototype.forEach.call(links, link => {
     if (target) {
       let options = { duration };
       const to = getOffsetTop(target) - offset;
-      const cancel = scroll.top(page, to, options, () => {
-        if (history.pushState) {
-          history.pushState(null, null, hash);
-        } else {
-          location.hash = hash;
-        }
-        page.removeEventListener("wheel", cancel);
-      });
 
-      page.addEventListener("wheel", cancel);
+      scrollTo({ to, options });
+
+      if (history.pushState) {
+        history.pushState(null, null, hash);
+      } else {
+        location.hash = hash;
+      }
     }
   });
 });

@@ -31,7 +31,7 @@ class Offcanvas {
   bindEvents() {
     const plugin = this;
 
-    [].forEach.call(this.triggers, trigger => {
+    Array.prototype.forEach.call(this.triggers, trigger => {
       trigger.addEventListener("click", function() {
         plugin.triggerClickHandler.call(plugin);
       });
@@ -56,7 +56,7 @@ class Offcanvas {
     this.menu.setAttribute("aria-hidden", "true");
     this.container.setAttribute("data-offcanvas-hidden", "true");
     this.overlay.setAttribute("data-offcanvas-hidden", "true");
-    [].forEach.call(this.triggers, trigger => {
+    Array.prototype.forEach.call(this.triggers, trigger => {
       trigger.setAttribute("aria-expanded", "false");
     });
   }
@@ -65,7 +65,7 @@ class Offcanvas {
     this.menu.setAttribute("aria-hidden", "false");
     this.container.setAttribute("data-offcanvas-hidden", "false");
     this.overlay.setAttribute("data-offcanvas-hidden", "false");
-    [].forEach.call(this.triggers, trigger => {
+    Array.prototype.forEach.call(this.triggers, trigger => {
       trigger.setAttribute("aria-expanded", "true");
     });
   }
@@ -86,7 +86,7 @@ class Offcanvas {
       id
     });
 
-    [].forEach.call(this.triggers, trigger => {
+    Array.prototype.forEach.call(this.triggers, trigger => {
       mapAttributes(trigger, {
         role: "button",
         "aria-pressed": "false",

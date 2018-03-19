@@ -26,10 +26,11 @@ class Spoiler {
 
   bindEvents() {
     const plugin = this;
+    const { targetAttribute, idAttribute } = this.options;
 
-    [].forEach.call(this.triggers, trigger => {
-      const targetId = trigger.getAttribute(this.options.targetAttribute);
-      const target = $(`[${this.options.idAttribute}="${targetId}"]`);
+    Array.prototype.forEach.call(this.triggers, trigger => {
+      const targetId = trigger.getAttribute(targetAttribute);
+      const target = $(`[${idAttribute}="${targetId}"]`);
 
       plugin.hide({ target, trigger });
       plugin.setIds({ target, trigger });

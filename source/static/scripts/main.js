@@ -1,7 +1,7 @@
 import Alert from "../../modules/alert/alert";
 import Accordion from "../../modules/accordion/accordion";
 import Browsehappy from "../../modules/browsehappy/browsehappy";
-// import Tabs from "../../modules/tabs/tabs";
+import Tabs from "../../modules/tabs/tabs";
 import ProgressBar from "../../modules/progress-bar/progress-bar";
 import Spoiler from "../../modules/spoiler/spoiler";
 import Offcanvas from "../../modules/offcanvas/offcanvas";
@@ -10,7 +10,7 @@ import File from "../../modules/file/file";
 Alert(".alert");
 Accordion(".accordion");
 Browsehappy(".browsehappy");
-// Tabs(".tabs");
+Tabs(".tabs");
 ProgressBar(".progress-bar");
 Spoiler();
 Offcanvas();

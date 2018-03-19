@@ -19,8 +19,10 @@ class ProgressBar {
   }
 
   buildCache() {
-    this.bar = this.element.querySelector(this.options.barSelector);
-    this.value = this.element.getAttribute(this.options.valueAttribute) || 0;
+    const { barSelector, valueAttribute } = this.options;
+
+    this.bar = this.element.querySelector(barSelector);
+    this.value = this.element.getAttribute(valueAttribute) || 0;
   }
 
   setBarWidth() {
