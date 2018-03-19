@@ -3,7 +3,10 @@
  * document.body.appendChild(el);
  */
 
-const createElement = (type, props, ...children) => {
+const isObject = value => Object(value) === value;
+const isDomNode = object => isObject(object) && object.nodeType > 0;
+
+export const createElement = (type, props, ...children) => {
   if (type.constructor === Function) {
     return type(props);
   }
@@ -31,4 +34,10 @@ const createElement = (type, props, ...children) => {
   return el;
 };
 
-export default createElement;
+export const render = (element, rootComponent) => {
+  if (!isDomNode(element)) {
+    throw new Error("First parameter should be a DOM Node");
+  }
+
+  return element.appendChild(rootComponent());
+};
