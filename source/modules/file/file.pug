@@ -1,32 +1,12 @@
 mixin file(data)
-	- var fileClasses = ['file']
+	- var baseClassName = 'file';
+	- var fileClasses = [baseClassName, `${baseClassName}_type_file` ]
 
-	if attributes.type
-		- fileClasses.push(fileClasses[0] + '_type_' + attributes.type)
+	- attributes.type = "file"
 
 	if attributes.class
 		- fileClasses.push(attributes.class)
 		- delete attributes.class
 
-	if attributes.type
-		- attributes.type = "file"
-
-	if !attributes['data-multiple-caption']
-		- attributes['data-multiple-caption'] = "Файлов выбрано: {count}"
-
-	if !attributes['data-button-text']
-		- var buttonText = "Выбрать файл(ы)"
-	else
-		- var buttonText = attributes['data-button-text']
-	- delete attributes['data-button-text']
-	
-	- var fileText = ''
-	if !attributes['data-file-text']
-		- fileText = "Ничего не выбрано"
-	else
-		- fileText = attributes['data-file-text']
-	- delete attributes['data-file-text']
-
 	label(class=fileClasses for=attributes.id)
 		input&attributes(attributes).form-control.form-control_type_file.file__control
-		span.file__button(data-button-text=buttonText)= fileText

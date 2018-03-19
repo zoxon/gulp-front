@@ -13,11 +13,11 @@ include ../../file/file
 	+inject('label')
 		+label({"for": "form-demo__photo2", "text": "Photo"})
 	+inject('control')
-		+file(type="text" name="form-demo__photo2" id="form-demo__photo2" data-multiple-caption="Files selected: {count}" data-button-text="Select the file(s)" data-file-text="Nothing is selected" multiple).file_style_default
+		+file(type="text" name="form-demo__photo2" id="form-demo__photo2" multiple).file_style_default
 
 +form-item().form__item
 	+inject('label')
-		+label({"for": "form-demo__photo", "text": "Another language"})
+		+label({"for": "form-demo__photo", "text": "Compact style"})
 	+inject('control')
-		+file(type="text" name="form-demo__photo" id="form-demo__photo" multiple).file_style_default
+		+file(type="text" name="form-demo__photo" id="form-demo__photo" multiple).file_style_default.file_style_compact
 
