@@ -2,17 +2,7 @@ import init from "../_utils/plugin-init";
 import getSiblings from "../_utils/dom/getSiblings";
 import simulate from "../_utils/event/simulate";
 import { mapAttributes } from "../_utils/dom/attr";
-
-let KEYCODE = {
-  LEFT: 37,
-  UP: 38,
-  RIGHT: 39,
-  DOWN: 40,
-  HOME: 36,
-  END: 35,
-  ENTER: 13,
-  SPACE: 32
-};
+import { KEYCODES } from "../_utils/constants";
 
 let instances = 0;
 
@@ -187,8 +177,8 @@ class Tabs {
     let last = this.tabs.length - 1;
 
     switch (event.which) {
-      case KEYCODE.LEFT:
-      case KEYCODE.UP:
+      case KEYCODES.LEFT:
+      case KEYCODES.UP:
         event.preventDefault();
         event.stopPropagation();
 
@@ -200,8 +190,8 @@ class Tabs {
 
         break;
 
-      case KEYCODE.RIGHT:
-      case KEYCODE.DOWN:
+      case KEYCODES.RIGHT:
+      case KEYCODES.DOWN:
         event.preventDefault();
         event.stopPropagation();
 
@@ -213,7 +203,7 @@ class Tabs {
 
         break;
 
-      case KEYCODE.HOME:
+      case KEYCODES.HOME:
         event.preventDefault();
         event.stopPropagation();
 
@@ -221,7 +211,7 @@ class Tabs {
 
         break;
 
-      case KEYCODE.END:
+      case KEYCODES.END:
         event.preventDefault();
         event.stopPropagation();
 
@@ -229,8 +219,8 @@ class Tabs {
 
         break;
 
-      case KEYCODE.ENTER:
-      case KEYCODE.SPACE:
+      case KEYCODES.ENTER:
+      case KEYCODES.SPACE:
         event.preventDefault();
         event.stopPropagation();
 
