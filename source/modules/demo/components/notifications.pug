@@ -5,24 +5,23 @@ button(type="button").button.button_size_normal.button_style_solid.button_color_
 button(type="button").button.button_size_normal.button_style_solid.button_color_yellow.button_style_rounded.js-notification-warning warning
 
 h4 Example
-//- https://github.com/markdown-it/markdown-it#init-with-presets-and-options
-:markdown-it(langPrefix='highlight-' quotes='“”‘’' linkify typographer html)
-	1. Create notification board
-		```js
-		const notificationBoard = new Notification({
-			delay: 40000
-		});
-		```
+ul
+	li Create notification board
+		pre
+			code.
+				const notificationBoard = new Notification({
+					delay: 40000
+				});
 
-	2. Create and show notification message
-		```js
-		const button = document.querySelector("button");
-		button.addEventListener("click", () => {
-			notificationBoard.show("Short test message", {
-				className: "notification_type_info"
-			});
-		});
-		```
+	li Create and show notification message
+		pre
+			code.
+				const button = document.querySelector("button");
+				button.addEventListener("click", () => {
+					notificationBoard.show("Short test message", {
+						className: "notification_type_info"
+					});
+				});
 
 h4 Options
 h5 Notification

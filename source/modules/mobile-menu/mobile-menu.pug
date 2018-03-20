@@ -6,7 +6,7 @@ mixin mobile-menu(data)
 			ul.mobile-menu__list
 				each item in data
 					li.mobile-menu__item
-						a(href=item.url).mobile-menu__link
+						a(href=`#${item.url}`).mobile-menu__link
 							span.mobile-menu__icon
 								+icon(name=item.icon title=item.title)
 							span.mobile-menu__text= item.title
@@ -15,4 +15,4 @@ mixin mobile-menu(data)
 							ul.mobile-menu__submenu
 								each subItem in item.submenu
 									li.mobile-menu__item
-										a(href=subItem.url).mobile-menu__submenu-link= subItem.title
+										a(href=`#${subItem.url}`).mobile-menu__submenu-link= subItem.title

@@ -12,12 +12,12 @@ include ../../file/file
 +form-item().form__item
 	.form-item__label
 		+label({"for": "form-demo__photo2", "text": "Photo"})
-	+inject('control')
+	.form-item__control
 		+file(type="text" name="form-demo__photo2" id="form-demo__photo2" multiple).file_style_default
 
 +form-item().form__item
-	+inject('label')
+	.form-item__label
 		+label({"for": "form-demo__photo", "text": "Compact style"})
-	+inject('control')
+	.form-item__control
 		+file(type="text" name="form-demo__photo" id="form-demo__photo" multiple).file_style_default.file_style_compact
 

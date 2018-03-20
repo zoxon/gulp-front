@@ -7,7 +7,7 @@ include ../modules/head/head
 
 
 block page
-	.page__mobile-menu
+	.page__mobile-menu(data-offcanvas-menu aria-hidden="true")
 		+mobile-menu(mainMenu.default)
 
 	.page__content
@@ -20,6 +20,8 @@ block page
 
 		.page__footer
 			block footer
+	
+	.page__overlay(data-offcanvas-overlay)
 
 
 
