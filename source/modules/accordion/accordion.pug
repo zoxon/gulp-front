@@ -3,11 +3,10 @@ mixin accordion(data)
 		block
 
 mixin accordion-item(data)
-	- var classes = ['accordion__item']
-	if data.open
-		- classes.push(classes[0] + '_open')
-
-	div(class=classes data-accordion-role="item")&attributes(attributes)
-		button(type="button" data-accordion-role="trigger").accordion__trigger= data.title
-		.accordion__pannel(data-accordion-role="pannel").content-wrapper
+	.accordion__item(
+		data-plugin-accordion="item" 
+		data-plugin-accordion-item-open!=`${data.open || false}`
+	)&attributes(attributes)
+		button(type="button" data-plugin-accordion="trigger").accordion__trigger= data.title
+		.accordion__pannel.content-wrapper
 			block

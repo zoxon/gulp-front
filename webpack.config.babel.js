@@ -7,7 +7,7 @@ const outputFileName = "[name].js";
 
 let options = {
   entry: {
-    vendor: ["jquery", "./vendor.js"],
+    vendor: ["./vendor.js"],
     main: "./main.js"
   },
   output: {
@@ -16,6 +16,12 @@ let options = {
     publicPath: "/assets/javascripts/",
     library: "[name]"
   },
+  resolve: {
+    modules: ["source", "node_modules"],
+    extensions: ["*", ".js", ".json"],
+    mainFields: ["browser", "jsnext:main", "main"]
+  },
+  // watch: isDevelopment,
   devtool: isDevelopment ? "eval-source-map" : "source-map",
   context: path.resolve(__dirname, "source/static/scripts"),
   module: {
@@ -39,11 +45,6 @@ options.plugins = [
   new webpack.DefinePlugin({
     NODE_ENV: JSON.stringify(NODE_ENV),
     "process.env.NODE_ENV": JSON.stringify(NODE_ENV)
-  }),
-  new webpack.ProvidePlugin({
-    $: "jquery",
-    jQuery: "jquery",
-    "window.jQuery": "jquery"
   })
 ];
 

@@ -1,12 +1,3 @@
-// Logo
-(function() {
+import ScrollTop from "../scroll-top/scroll-top";
 
-  $('.logo').click(function(event) {
-    event.preventDefault();
-
-    $('html, body').stop().animate({
-      'scrollTop': 0
-    }, 900, 'swing');
-  });
-
-})();
+ScrollTop(".logo");

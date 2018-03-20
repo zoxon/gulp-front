@@ -12,12 +12,12 @@ include ../../file/file
 +form-item().form__item
 	.form-item__label
 		+label({"for": "form-demo__photo2", "text": "Photo"})
-	.form-item__control
-		+file(type="text" name="form-demo__photo2" id="form-demo__photo2" data-multiple-caption="Files selected: {count}" data-button-text="Select the file(s)" data-file-text="Nothing is selected" multiple).file_style_default
+	+inject('control')
+		+file(type="text" name="form-demo__photo2" id="form-demo__photo2" multiple).file_style_default
 
 +form-item().form__item
-	.form-item__label
-		+label({"for": "form-demo__photo", "text": "Another language"})
-	.form-item__control
-		+file(type="text" name="form-demo__photo" id="form-demo__photo" multiple).file_style_default
+	+inject('label')
+		+label({"for": "form-demo__photo", "text": "Compact style"})
+	+inject('control')
+		+file(type="text" name="form-demo__photo" id="form-demo__photo" multiple).file_style_default.file_style_compact
 

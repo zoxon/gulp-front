@@ -1,0 +1,33 @@
+include ../injected/injected
+include ../browsehappy/browsehappy
+include ../mobile-menu/mobile-menu
+include ../javascripts/javascripts
+
+
+mixin page(data)
+	body.page(data-offcanvas-container)&attributes(attributes)
+		+browsehappy(browsehappy)
+
+		+injected: block
+
+		.page__mobile-menu(data-offcanvas-menu aria-hidden="true")
+			+mobile-menu(mainMenu.default)
+
+		.page__content
+			.page__wrapper
+				+if('header')
+					.page__header
+						+use('header')
+
+				+if('main')
+					.page__main
+						+use('main')
+
+			+if('footer')
+				.page__footer
+					+use('footer')
+
+		.page__overlay(data-offcanvas-overlay)
+		
+		//- Scripts
+		+javascripts()

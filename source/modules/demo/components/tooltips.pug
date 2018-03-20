@@ -1,21 +1,25 @@
 .ta-center
-	button(data-tooltip-id="tooltip-1" type="button").button.button_size_normal.button_style_solid.button_color_blue.button_style_rounded Tooltip bottom
+	button(data-tooltip-id="tooltip-top" data-tooltip-placement="top" type="button").button.button_size_normal.button_style_solid.button_color_green.button_style_rounded Tooltip top
 	br
-	button(data-tooltip-id="tooltip-2" type="button").button.button_size_normal.button_style_solid.button_color_green.button_style_rounded Tooltip top
 	br
-	button(data-tooltip-id="tooltip-3" type="button").button.button_size_normal.button_style_solid.button_color_yellow.button_style_rounded Tooltip left
+	button(data-tooltip-id="tooltip-bottom" data-tooltip-placement="bottom" type="button").button.button_size_normal.button_style_solid.button_color_blue.button_style_rounded Tooltip bottom
 	br
-	button(data-tooltip-id="tooltip-4" type="button").button.button_size_normal.button_style_solid.button_color_orange.button_style_rounded Tooltip right
+	br
+	button(data-tooltip-id="tooltip-left" data-tooltip-placement="left" type="button").button.button_size_normal.button_style_solid.button_color_yellow.button_style_rounded Tooltip left
+	br
+	br
+	button(data-tooltip-id="tooltip-right" data-tooltip-placement="right" type="button").button.button_size_normal.button_style_solid.button_color_orange.button_style_rounded Tooltip right
 
-div(data-tooltip-target="tooltip-1").tooltip.tooltip_bottom
+div(data-tooltip-target="tooltip-left").hidden
 	| Plain text
 
-div(data-tooltip-target="tooltip-2").tooltip.tooltip_top
+div(data-tooltip-target="tooltip-top").hidden
 	| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam earum, similique nam repellendus nisi atque nesciunt non tempora labore ad dolorem eligendi dicta. Distinctio maiores deserunt officia eaque dolorem nam!
 
-div(data-tooltip-target="tooltip-3").tooltip.tooltip_left
-	h3 HTML Tooltip
+div(data-tooltip-target="tooltip-bottom").hidden
+	h3(style="margin-top: 0") HTML Tooltip
+	img(src="http://via.placeholder.com/350x150", alt="Image example")
 	p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit fuga minima aliquam, dicta repellat vero iusto cum, assumenda non illo modi nam vitae officiis maxime molestias, voluptatem nihil numquam explicabo.
 
-div(data-tooltip-target="tooltip-4").tooltip.tooltip_right
-	| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam earum, similique nam repellendus nisi atque nesciunt non tempora labore ad dolorem eligendi dicta. Distinctio maiores deserunt officia eaque dolorem nam!
+div(data-tooltip-target="tooltip-right").hidden
+	| Lorem ipsum dolor sit amet

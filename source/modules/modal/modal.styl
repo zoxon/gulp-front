@@ -1,187 +1,65 @@
-/*
- *  Remodal - v1.0.6
- *  Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
- *  http://vodkabears.github.io/remodal/
- *
- *  Made by Ilya Makarov
- *  Under MIT License
- */
-
-/* ==========================================================================
- Remodal's necessary styles
- ========================================================================== */
-
-/* Hide scroll bar */
-
-html.remodal-is-locked
-	overflow hidden
-	touch-action none
-
-
-/* Anti FOUC */
-
-.remodal,
-[data-remodal-id]
-	display none
-
-
-/* Necessary styles of the overlay */
-
-.remodal-overlay
-	position fixed
-	z-index 9999
-	top -5000px
-	right -5000px
-	bottom -5000px
-	left -5000px
-	display none
-
-
-/* Necessary styles of the wrapper */
-
-.remodal-wrapper
-	position fixed
-	z-index 10000
-	top 0
-	right 0
-	bottom 0
-	left 0
-	display none
-	overflow auto
-	text-align center
-	-webkit-overflow-scrolling touch
-
-	&:after
-		display inline-block
-		height 100%
-		margin-left -0.05em
-		content ""
-
-
-/* Fix iPad, iPhone glitches */
-
-.remodal-overlay,
-.remodal-wrapper
-	backface-visibility hidden
-
-
-/* Necessary styles of the modal dialog */
-
-.remodal
-	position relative
-	outline none
-	text-size-adjust 100%
-	text-align left
-
-
-.remodal-is-initialized
-	/* Disable Anti-FOUC */
-	display inline-block
-
-
-
-// Modal styles
-.remodal-bg.remodal-is-opening,
-.remodal-bg.remodal-is-opened
-	filter blur(3px)
-
-.remodal-overlay
-	background rgba(43, 46, 56, 0.9)
-
-.remodal-overlay.remodal-is-opening,
-.remodal-overlay.remodal-is-closing
-	animation-duration 0.3s
-	animation-fill-mode forwards
-
-.remodal-overlay.remodal-is-opening
-	animation-name remodal-overlay-opening-keyframes
-
-.remodal-overlay.remodal-is-closing
-	animation-name remodal-overlay-closing-keyframes
-
-.remodal-wrapper
-	padding 10px 10px 0
-	+below(470px)
-		padding 0
-
-.remodal
-	box-sizing border-box
-	// width 100%
-	// padding 20px
-	transform translate3d(0, 0, 0)
-	color #2b2e38
-	background #fff
-	transform-origin 50% 50%
-	+below(470px)
-		height 100%
-
-.remodal.remodal-is-opening,
-.remodal.remodal-is-closing
-	animation-duration 0.3s
-	animation-fill-mode forwards
-
-.remodal.remodal-is-opening
-	animation-name remodal-opening-keyframes
-
-.remodal.remodal-is-closing
-	animation-name remodal-closing-keyframes
-
-.remodal,
-.remodal-wrapper:after
-	vertical-align middle
-
 .modal
-	&__close
-		position absolute
-		z-index 1000
-		right 7px
-		top 7px
-		font-size 15px
-		padding 6px
-		color #505050
-		line-height 1px
-		&:hover
-		&:active
-		&:focus
-			color #000
+	display none
+	&__overlay
+		position fixed
+		z-index 10000
+		top 0
+		left 0
+		right 0
+		bottom 0
+		background rgba(0,0,0,0.6)
+		display flex
+		justify-content center
+		align-items center
 
-	&_type_alert &__content
-		width 556px
+	&.is-open
+		display block
 
-@keyframes remodal-opening-keyframes
+	&_animation_slide 
+		display none
+
+	&_animation_slide.is-open
+		display block
+
+	&_animation_slide[aria-hidden="false"] &__overlay 
+		animation modal__fadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1)
+
+	&_animation_slide[aria-hidden="false"] &__container 
+		animation modal__slideIn .3s cubic-bezier(0, 0, .2, 1)
+	
+	&_animation_slide[aria-hidden="true"] &__overlay 
+		animation modal__fadeOut .3s cubic-bezier(0.0, 0.0, 0.2, 1)
+
+	&_animation_slide[aria-hidden="true"] &__container 
+		animation modal__slideOut .3s cubic-bezier(0, 0, .2, 1)
+
+	&_animation_slide &__container,
+	&_animation_slide &__overlay 
+		will-change transform
+
+@keyframes modal__fadeIn 
 	from
-		margin-bottom 10%
 		opacity 0
 	to
-		margin-bottom 0
 		opacity 1
 
-@keyframes remodal-closing-keyframes
-	from
-		margin-bottom 0
-		opacity 1
-	to
-		margin-bottom 10%
-		opacity 0
 
-@keyframes remodal-overlay-opening-keyframes
-	from
-		opacity 0
-	to
-		opacity 1
-
-@keyframes remodal-overlay-closing-keyframes
+@keyframes modal__fadeOut 
 	from
 		opacity 1
 	to
 		opacity 0
 
-@media only screen and (min-width 641px)
-	.remodal
-		max-width 1396px
 
-.lt-ie9 .remodal-overlay
-	background #2b2e38
+@keyframes modal__slideIn 
+	from
+		transform translateY(20px)
+	to
+		transform translateY(0)
 
-.lt-ie9 .remodal
-	width 700px
+
+@keyframes modal__slideOut 
+	from
+		transform translateY(0)
+	to
+		transform translateY(-20px)

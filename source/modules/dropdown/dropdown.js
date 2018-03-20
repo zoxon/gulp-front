@@ -1,260 +1,187 @@
-// dropdown
-(function() {
-  'use strict';
+import is from "is_js";
 
-  /**
-   * Plugin name
-   * @type {String}
-   */
-  var pluginName = 'dropdown';
+import init from "../_utils/plugin-init";
+import { mapAttributes } from "../_utils/dom/attr";
+import { KEYCODES } from "../_utils/constants";
 
-  /**
-   * Plugin default options
-   * @type {Object}
-   */
-  var defaults = {
-    outerClick: true,
-    class: {
-      base: 'dropdown',
-      open: 'dropdown_open',
-      disabled: 'dropdown_disabled'
-    }
-  };
-
-  /**
-   * Keyboard key codes
-   * @type {Object}
-   */
-  var KEYCODE = {
-    LEFT: 37,
-    UP: 38,
-    RIGHT: 39,
-    DOWN: 40,
-    ESCAPE: 27,
-    TAB: 9
-  };
-
-  /**
-   * Dropdown constructor
-   * @constructor
-   * @param {[jQuery]} element
-   * @param {[Object]} options
-   */
-  function Plugin(element, options) {
+class Dropdown {
+  constructor(element, options) {
     this.element = element;
-    this._name = pluginName;
-    this._defaults = defaults;
+    this.name = "dropdown";
 
-    this.$element = $(this.element);
+    this._defaults = {
+      outerClickClose: true,
+      menuClickClose: true,
+      class: {
+        base: "dropdown",
+        open: "dropdown_open",
+        disabled: "dropdown_disabled"
+      }
+    };
 
-    this.metadata = this.$element.data(this._name + '-' + 'options');
-
-    this.options = $.extend( {}, this._defaults, options, this.metadata );
+    this.options = {
+      ...options,
+      ...this._defaults
+    };
 
     this.init();
   }
 
-  $.extend(Plugin.prototype, {
+  init() {
+    this.buildCache();
+    this.setA11yAttrs();
 
-    // Initialization logic
-    init: function() {
-      this.buildCache();
-      this.setA11yAttrs();
+    if (this.isDisabled()) {
+      this.setDisabledState();
+    } else {
+      this.bindEvents();
+    }
+  }
 
-      if (this.isDisabled()) {
-        this.setDisabledState();
-      }
-      else {
-        this.bindEvents();
-      }
-    },
+  buildCache() {
+    this.trigger = this.element.querySelector('[data-dropdown-role="trigger"]');
+    this.dropMenu = this.element.querySelector(
+      '[data-dropdown-role="drop-menu"]'
+    );
+    this.focusableElements = this.dropMenu.querySelectorAll(
+      "*[tabindex], a[href]"
+    );
+    this.selected = 0;
+    this.triggerId = `${this.name}_trigger_this.options.count`;
+  }
 
-    // Remove plugin instance completely
-    destroy: function() {
-      this.unbindEvents();
-      this.$element.removeData();
-    },
+  bindEvents() {
+    const plugin = this;
 
-    // Cache DOM nodes for performance
-    buildCache: function() {
-      this.$trigger = this.$element.find('[data-dropdown-role="trigger"]');
-      this.$dropMenu = this.$element.find('[data-dropdown-role="drop-menu"]');
-      this.focusableElements = this.$dropMenu.find('*[tabindex], a[href]');
-      this.selected = 0;
-      this.triggerId = this._name + '_trigger_' + this.options.count;
-    },
+    this.trigger.addEventListener("click", event => {
+      this.toggle.call(this, event);
+    });
 
-    // Bind events that trigger methods
-    bindEvents: function() {
-      var plugin = this;
+    [plugin.trigger, this.focusableElements].forEach(elementSet => {
+      let _elementSet = is.domNode(elementSet) ? [elementSet] : elementSet;
 
-      plugin.$trigger.on('click' + '.' + plugin._name, function(event) {
-        plugin.toggle.call(plugin, event);
-      });
-
-      plugin.$trigger.add(this.focusableElements)
-        .on('keydown' + '.' + plugin._name, function(event) {
+      Array.prototype.forEach.call(_elementSet, element =>
+        element.addEventListener("keydown", function(event) {
           plugin.handleKeydown.call(plugin, event);
-        });
+        })
+      );
+    });
 
-      $(document).on('click' + '.' + plugin._name, function(event) {
-        plugin.outerClickHandler.call(plugin, event);
-      });
-    },
-
-    // Unbind events that trigger methods
-    unbindEvents: function() {
-      this.$element.off('.' + this._name);
-    },
-
-    open: function() {
-      if (!this.isOpen()) {
-        this.$element.addClass(this.options.class.open)
-          .trigger('opened' + '.' + this._name);
-        this.$trigger.attr('aria-expanded', true);
-      }
-    },
-
-    close: function() {
-      this.$element.removeClass(this.options.class.open).trigger('closed' + '.' + this._name);
-      this.$trigger.attr('aria-expanded', false);
-    },
-
-    // Return true when dropdown is open
-    isOpen: function() {
-      var open = false;
-
-      if (this.$element.hasClass(this.options.class.open)) {
-        open = true;
-      }
-
-      return open;
-    },
-
-    // Return true when dropdown disabled
-    isDisabled: function() {
-      var disabled = false;
-
-      if (this.$element.hasClass(this.options.class.disabled)) {
-        disabled = true;
-      }
-
-      return disabled;
-    },
-
-    // Toggle dropdown
-    toggle: function() {
-      if (this.isOpen()) {
+    this.dropMenu.addEventListener("click", () => {
+      if (this.options.menuClickClose) {
         this.close();
       }
-      else {
-        this.open();
-      }
-    },
+    });
 
-    // Click outside
-    outerClickHandler: function(event) {
-      if (this.options.outerClick && this.isOpen()) {
-        if (!$(event.target).closest(this.$element).length) {
-          this.close();
-        }
-      }
-    },
+    document.addEventListener("click", event => {
+      this.outerClickHandler.call(this, event);
+    });
+  }
 
-    // Keydown handler
-    handleKeydown: function(event) {
+  open() {
+    if (!this.isOpen()) {
+      this.element.classList.add(this.options.class.open);
+      this.trigger.setAttribute("aria-expanded", true);
+    }
+  }
 
-      if (this.isDisabled()) {
-        return;
-      }
+  close() {
+    this.element.classList.remove(this.options.class.open);
+    this.trigger.setAttribute("aria-expanded", false);
+  }
 
-      switch (event.which) {
+  isOpen() {
+    return this.element.classList.contains(this.options.class.open);
+  }
 
-        case KEYCODE.ESCAPE:
-          // this.close();
+  isDisabled() {
+    return this.element.classList.contains(this.options.class.disabled);
+  }
 
-          console.log(this.$trigger);
-          this.$trigger.focus();
+  toggle() {
+    this.isOpen() ? this.close() : this.open();
+  }
 
-          break;
-
-        case KEYCODE.UP:
-        case KEYCODE.LEFT:
-
-          event.preventDefault();
-
-          this.open();
-
-          if (this.selected === 0) {
-            this.selected = this.focusableElements.length - 1;
-          }
-          else {
-            this.selected--;
-          }
-          break;
-
-        case KEYCODE.DOWN:
-        case KEYCODE.RIGHT:
-
-          event.preventDefault();
-
-          this.open();
-
-          if (this.selected === this.focusableElements.length - 1) {
-            this.selected = 0;
-          }
-          else {
-            this.selected++;
-          }
-
-          break;
-      }
-
-      this.focusableElements[ this.selected ].focus();
-    },
-
-    setA11yAttrs: function() {
-      this.$trigger.attr({
-        'aria-haspopup': true,
-        'aria-expanded': false,
-        'id': this.triggerId
-      });
-
-      this.$dropMenu.attr({
-        'aria-labelledby': this.triggerId
-      });
-    },
-
-    setDisabledState: function() {
-      this.$element.attr('aria-disabled', true);
-      this.$trigger.attr('disabled', true);
-    },
-
-    // Call calback by name
-    callback: function(name) {
-      var cb = this.options[ name ];
-
-      if ( typeof cb === 'function' ) {
-        cb.call(this.element);
+  outerClickHandler(event) {
+    if (this.options.outerClickClose && this.isOpen()) {
+      const isClickInside = this.element.contains(event.target);
+      if (!isClickInside) {
+        this.close();
       }
     }
+  }
 
-  });
+  handleKeydown(event) {
+    const focusableLength = this.focusableElements.length;
+    const which = event.which;
 
-  $.fn[ pluginName ] = function( options ) {
-    return this.each(function(index) {
-      options = $.extend(options, { 'count': index } );
+    if (this.isDisabled()) {
+      return;
+    }
 
-      if (!$.data(this, 'plugin_' + pluginName)) {
-        $.data(this, 'plugin_' + pluginName,
-          new Plugin( this, options ));
-      }
+    if (which === KEYCODES.ESCAPE) {
+      this.trigger.focus();
+      this.close();
+      return;
+    }
+
+    switch (which) {
+      case KEYCODES.ENTER:
+      case KEYCODES.SPACE:
+        this.close();
+        break;
+
+      case KEYCODES.UP:
+      case KEYCODES.LEFT:
+        event.preventDefault();
+        this.open();
+
+        if (this.selected === 0) {
+          this.selected = focusableLength - 1;
+        } else {
+          this.selected--;
+        }
+        break;
+
+      case KEYCODES.DOWN:
+      case KEYCODES.RIGHT:
+        event.preventDefault();
+        this.open();
+
+        if (this.selected === focusableLength - 1) {
+          this.selected = 0;
+        } else {
+          this.selected++;
+        }
+
+        break;
+    }
+
+    this.focusableElements[this.selected].focus();
+  }
+
+  setA11yAttrs() {
+    mapAttributes(this.trigger, {
+      "aria-haspopup": true,
+      "aria-expanded": false,
+      id: this.triggerId
     });
-  };
 
-})();
+    this.dropMenu.setAttribute("aria-labelledby", this.triggerId);
+  }
 
+  setDisabledState() {
+    this.element.setAttribute("aria-disabled", true);
+    this.trigger.setAttribute("disabled", true);
+  }
 
-$(function() {
-  $('.dropdown').dropdown();
-});
+  callback(name) {
+    const cb = this.options[name];
+
+    if (typeof cb === "function") {
+      cb.call(this.element);
+    }
+  }
+}
+
+export default init(Dropdown);

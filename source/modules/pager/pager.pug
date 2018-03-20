@@ -1,4 +1,9 @@
 mixin pager(data)
 	.pager&attributes(attributes)
-		a(href="#").pager__control.pager__control_backward « Oldest
-		a(href="#").pager__control.pager__control_forward Newest »
+		a(href="#").pager__item.pager__item_prev
+			+icon(name="chevron-left" title="Chevron left").pager__icon
+			span.pager__text Previous
+		a(href="#").pager__item.pager__item_next
+			span.pager__text Next
+			+icon(name="chevron-right" title="Chevron right").pager__icon
+

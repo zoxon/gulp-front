@@ -1,19 +1,17 @@
-// Header
-(function() {
-  var debounce = require('throttle-debounce').debounce;
+import { debounce } from "throttle-debounce";
+import { $ } from "../_utils/dom/select";
 
-  function headerScrollHandler() {
-    var top = $(window).scrollTop();
-    var fixed = false;
+function headerScrollHandler() {
+  let top = Math.abs(document.body.getBoundingClientRect().y);
+  let fixed = false;
 
-    if (top > 0) {
-      fixed = true;
-    }
-
-    $('.header').toggleClass('header_fixed', fixed);
+  if (top > 0) {
+    fixed = true;
   }
 
-  $(window).on('scroll', debounce( 66, headerScrollHandler ))
-    .trigger('scroll');
+  $(".header").classList.toggle("header_fixed", fixed);
+}
 
-})();
+window.addEventListener("scroll", debounce(66, headerScrollHandler));
+
+headerScrollHandler();
