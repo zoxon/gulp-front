@@ -10,6 +10,8 @@ import Spoiler from "../../modules/spoiler/spoiler";
 import Offcanvas from "../../modules/offcanvas/offcanvas";
 import File from "../../modules/file/file";
 import Dropdown from "../../modules/dropdown/dropdown";
+import Code from "../../modules/code/code";
+import Table from "../../modules/table/table";
 
 Alert(".alert");
 Accordion(".accordion");
@@ -20,6 +22,8 @@ Spoiler();
 Offcanvas();
 File(".file");
 Dropdown(".dropdown");
+Code("pre.code");
+Table(".table");
 
 import "../../modules/demo/demo";
 import "../../modules/header/header";
