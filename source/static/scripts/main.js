@@ -6,6 +6,7 @@ import ProgressBar from "../../modules/progress-bar/progress-bar";
 import Spoiler from "../../modules/spoiler/spoiler";
 import Offcanvas from "../../modules/offcanvas/offcanvas";
 import File from "../../modules/file/file";
+import Dropdown from "../../modules/dropdown/dropdown";
 
 Alert(".alert");
 Accordion(".accordion");
@@ -15,6 +16,7 @@ ProgressBar(".progress-bar");
 Spoiler();
 Offcanvas();
 File(".file");
+Dropdown(".dropdown");
 
 import "../../modules/demo/demo";
 import "../../modules/header/header";
