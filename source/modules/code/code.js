@@ -1,22 +1,55 @@
-const code = document.querySelectorAll('pre.code > code');
+import init from "../_utils/plugin-init";
 
-Array.prototype.forEach.call(code, element => {
-  const lines = element.innerHTML.split('\n');
-  let code = '';
-  const linesCount = lines.length;
+class Code {
+  constructor(element, options) {
+    this.element = element;
+    this.name = "code";
 
-  lines.forEach((line, index) => {
-    const wrapLine = line => '<div class="code__line">' + line + '</div>';
+    this._defaults = {
+      baseClassName: "code",
+      lineClassName: "code__line"
+    };
 
-    if (line.length > 0) {
-      code += wrapLine(line);
-    }
-    else {
-      if (linesCount !== index + 1) {
-        code += wrapLine(' ');
+    this.options = {
+      ...options,
+      ...this._defaults
+    };
+
+    this.init();
+  }
+
+  init() {
+    this.buildCache();
+    this.wrapLines();
+  }
+
+  buildCache() {
+    this.code = this.element.querySelector("code");
+    this.lines = this.code.innerHTML.split("\n");
+  }
+
+  wrapLines() {
+    this.element.innerHTML = this.generateNewCode();
+  }
+
+  generateNewCode() {
+    let code = "";
+    const linesCount = this.lines.length;
+
+    this.lines.forEach((line, index) => {
+      const wrapLine = line => `<div class="code__line">${line}</div>`;
+
+      if (line.length > 0) {
+        code += wrapLine(line);
+      } else {
+        if (linesCount !== index + 1) {
+          code += wrapLine(" ");
+        }
       }
-    }
-  });
+    });
 
-  element.innerHTML = code;
-});
+    return code;
+  }
+}
+
+export default init(Code);
