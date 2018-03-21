@@ -1,0 +1,12 @@
+{
+  "insertColons": false,
+  "insertSemicolons": false,
+  "insertBraces": false,
+  "selectorSeparator": "\n",
+  "quoteChar": "'",
+  "sortProperties": "grouped",
+  "alwaysUseImport": true,
+  "alwaysUseNoneOverZero": true,
+  "alwaysUseZeroWithoutUnit": true,
+  "reduceMarginAndPaddingValues": true
+}

@@ -40,11 +40,16 @@
     "amo": "node ./tools/module/add.js",
     "rmo": "node ./tools/module/remove.js",
     "precommit": "lint-staged",
-    "prettify": "prettier --write \"**/*.{js,json,jsx,ts,css,less,scss,md,markdown}\""
+    "prettify": "prettier --write \"**/*.{js,json,jsx,ts,css,less,scss,md,markdown}\"",
+    "prettify:stylus": "stylus-supremacy format ./source/**/*.styl --replace --options ./tools/stylus-supremacy.config.json"
   },
   "lint-staged": {
-    "**/*.{js,json,jsx,ts,css,less,scss,md,markdown}": [
+    "*.{js,json,jsx,ts,tsx,css,less,scss,md,markdown}": [
       "prettier --write",
+      "git add"
+    ],
+    "*.styl": [
+      "stylus-supremacy format --replace --options ./tools/stylus-supremacy.config.json",
       "git add"
     ]
   },
@@ -110,6 +115,7 @@
     "stylefmt": "^6.0.0",
     "stylelint-config-standard": "^17.0.0",
     "stylelint-order": "^0.7.0",
+    "stylus-supremacy": "^2.9.1",
     "sw-precache": "^5.2.0",
     "vinyl-buffer": "^1.0.0",
     "webpack": "^4.1.1",
