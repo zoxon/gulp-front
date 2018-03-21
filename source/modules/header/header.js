@@ -1,4 +1,4 @@
-import { debounce } from "throttle-debounce";
+import debounce from "lodash/debounce";
 import { $ } from "../_utils/dom/select";
 
 function headerScrollHandler() {
@@ -12,6 +12,6 @@ function headerScrollHandler() {
   $(".header").classList.toggle("header_fixed", fixed);
 }
 
-window.addEventListener("scroll", debounce(66, headerScrollHandler));
+window.addEventListener("scroll", debounce(headerScrollHandler, 66));
 
 headerScrollHandler();

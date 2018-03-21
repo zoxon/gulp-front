@@ -1,6 +1,3 @@
-// Precache Service Worker
-import "./helpers/sw-precache-registration";
-
 import Alert from "../../modules/alert/alert";
 import Accordion from "../../modules/accordion/accordion";
 import Browsehappy from "../../modules/browsehappy/browsehappy";
