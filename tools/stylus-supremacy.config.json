@@ -2,6 +2,7 @@
   "insertColons": false,
   "insertSemicolons": false,
   "insertBraces": false,
+  "insertParenthesisAroundIfCondition": false,
   "selectorSeparator": "\n",
   "quoteChar": "'",
   "sortProperties": "grouped",
