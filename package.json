@@ -38,7 +38,15 @@
     "cleanup": "babel-node ./tools/removeDemo.js",
     "setup": "npm install",
     "amo": "node ./tools/module/add.js",
-    "rmo": "node ./tools/module/remove.js"
+    "rmo": "node ./tools/module/remove.js",
+    "precommit": "lint-staged",
+    "prettify": "prettier --write \"**/*.{js,json,jsx,ts,css,less,scss,md,markdown}\""
+  },
+  "lint-staged": {
+    "**/*.{js,json,jsx,ts,css,less,scss,md,markdown}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "engines": {
     "node": ">=6.0.0",
@@ -85,15 +93,18 @@
     "gulp.spritesmith": "^6.7.0",
     "gulplog": "^1.0.0",
     "happypack": "^5.0.0-beta.1",
+    "husky": "^0.14.3",
     "imagemin-jpeg-recompress": "^5.1.0",
     "imagemin-pngquant": "^5.0.0",
     "jstransformer-stylus": "^1.4.0",
+    "lint-staged": "^7.0.0",
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
     "node-notifier": "^5.0.2",
     "perfectionist": "^2.4.0",
     "postcss-reporter": "^5.0.0",
     "posthtml-attrs-sorter": "^1.1.0",
+    "prettier": "^1.11.1",
     "rimraf": "^2.6.2",
     "rupture": "^0.7.1",
     "stylefmt": "^6.0.0",
