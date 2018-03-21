@@ -8,7 +8,7 @@
 * [Structure](#structure)
 * [CSS](#css)
 * [HTML](#html)
-* [JS](#js)
+* [JavaScript](#javascript)
 * [PNG Sprites](#png-sprites)
 * [SVG Symbol Sprites](#svg-symbol-sprites)
 * [DATA](#data)
@@ -26,34 +26,34 @@
 
 ## Quickstart
 
-1. Install the [node.js](https://nodejs.org)
-2. Clone the project or [download](https://github.com/zoxon/gulp-front/archive/master.zip) the file
-   ```sh
-   git clone git@github.com:zoxon/gulp-front.git --depth 1 my-project
-   ```
-3. Go to project folder and run
-   ```sh
-   npm run setup
-   ```
-4. Start dev server
-   ```sh
-   npm start
-   ```
-5. In browser open page with address [`http://localhost:3000/`](http://localhost:3000/)
+1.  Install the [node.js](https://nodejs.org)
+2.  Clone the project or [download](https://github.com/zoxon/gulp-front/archive/master.zip) the file
+    ```sh
+    git clone git@github.com:zoxon/gulp-front.git --depth 1 my-project
+    ```
+3.  Go to project folder and run
+    ```sh
+    npm run setup
+    ```
+4.  Start dev server
+    ```sh
+    npm start
+    ```
+5.  In browser open page with address [`http://localhost:3000/`](http://localhost:3000/)
 
 <a name="development"></a>
 
 ## Development
 
-1. Run `npm run cleanup`. This command delete demo app.
-2. Run `npm start` to see your app at [`http://localhost:3000/`](http://localhost:3000/)
+1.  Run `npm run cleanup`. This command delete demo app.
+2.  Run `npm start` to see your app at [`http://localhost:3000/`](http://localhost:3000/)
 
 <a name="building-and-deploying"></a>
 
 ## Building and Deploying
 
-1. Run `npm run build`, which will compile all the necessary files to the `dest` folder.
-2. Upload the contents of the `dest` folder to your web server's root folder.
+1.  Run `npm run build`, which will compile all the necessary files to the `dest` folder.
+2.  Upload the contents of the `dest` folder to your web server's root folder.
 
 <a name="structure"></a>
 
@@ -134,13 +134,30 @@ gulp-front/                             # Project root
 * [PostHTML](https://github.com/posthtml/posthtml) - Tool to transform HTML/XML with JS plugins
 * [gulp-prettify](https://github.com/jonschlinkert/gulp-prettify) - `js-beautify` gulp wrapper
 
-<a name="js"></a>
+<a name="javascript"></a>
 
-## JS
+## JavaScript
 
-* [Webpack 3](https://webpack.js.org/) - module bundler
-* [npm](https://www.npmjs.com/) - package manager
-* [ES6](http://es6-features.org/) and [Babel](https://babeljs.io/)
+* Tools
+  * [Node.js](https://nodejs.org/) - JavaScript runtime
+  * [Webpack 4](https://webpack.js.org/) - module bundler
+  * [npm](https://www.npmjs.com/) - package manager
+  * [Yarn](https://yarnpkg.com/lang/en/) - package manager
+  * [ECMAScript 6](http://es6-features.org/) and [Babel](https://babeljs.io/)
+  * [Service Worker Precache](https://github.com/GoogleChromeLabs/sw-precache) - service worker that precaches resources
+* Libraries
+  * [anime.js](http://animejs.com/) - lightweight JavaScript animation library
+  * [FastClick](https://github.com/ftlabs/fastclick) - remove 300ms delay on mobile browsers
+  * [is.js](https://github.com/arasatasaygin/is.js) - Micro check library
+  * [JavaScript Cookie](https://github.com/js-cookie/js-cookie) - JavaScript API for handling cookies
+  * [Micromodal](https://github.com/ghosh/micromodal) - accessible modal dialogs
+  * [Nano ID](https://github.com/ai/nanoid) - unique string ID generator
+  * [scroll](https://github.com/michaelrhodes/scroll) - animates an element’s scrollTop or scrollLeft position
+  * [Lodash](https://lodash.com/) - utility library delivering modularity, performance & extras
+  * [tooltip.js](https://popper.js.org/tooltip-examples.html) - dead simple tooltips, powered by popper.js
+* Polyfills
+  * [svg4everybody](https://github.com/jonathantneal/svg4everybody) - adds SVG External Content support to all browsers.
+  * [babel-polyfill](https://babeljs.io/docs/usage/polyfill/)
 
 <a name="png-sprites"></a>
 
@@ -159,9 +176,9 @@ Then you can use icon mixin call in your template.
 
 Example:
 
-1. You copy file icon-name.svg to `source/static/icons` folder.
-2. In any _pug_ template, import icon mixin `include ../icon/icon`
-3. Use `+icon("icon-name")` to render icon
+1.  You copy file icon-name.svg to `source/static/icons` folder.
+2.  In any _pug_ template, import icon mixin `include ../icon/icon`
+3.  Use `+icon("icon-name")` to render icon
 
 Spritesheet generates with plugin [gulp-svg-symbols](https://github.com/Hiswe/gulp-svg-symbols)
 
