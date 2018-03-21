@@ -10,3 +10,6 @@ FastClick.attach(document.body);
 
 // SVG4Everybody
 svg4everybody();
+
+// eslint-disable-next-line global-require
+import "./helpers/sw-precache-registration";
