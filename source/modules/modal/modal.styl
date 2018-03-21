@@ -15,50 +15,50 @@
 	&.is-open
 		display block
 
-	&_animation_slide 
+	&_animation_slide
 		display none
 
 	&_animation_slide.is-open
 		display block
 
-	&_animation_slide[aria-hidden="false"] &__overlay 
+	&_animation_slide[aria-hidden="false"] &__overlay
 		animation modal__fadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1)
 
-	&_animation_slide[aria-hidden="false"] &__container 
+	&_animation_slide[aria-hidden="false"] &__container
 		animation modal__slideIn .3s cubic-bezier(0, 0, .2, 1)
-	
-	&_animation_slide[aria-hidden="true"] &__overlay 
+
+	&_animation_slide[aria-hidden="true"] &__overlay
 		animation modal__fadeOut .3s cubic-bezier(0.0, 0.0, 0.2, 1)
 
-	&_animation_slide[aria-hidden="true"] &__container 
+	&_animation_slide[aria-hidden="true"] &__container
 		animation modal__slideOut .3s cubic-bezier(0, 0, .2, 1)
 
 	&_animation_slide &__container,
-	&_animation_slide &__overlay 
+	&_animation_slide &__overlay
 		will-change transform
 
-@keyframes modal__fadeIn 
+@keyframes modal__fadeIn
 	from
 		opacity 0
 	to
 		opacity 1
 
 
-@keyframes modal__fadeOut 
+@keyframes modal__fadeOut
 	from
 		opacity 1
 	to
 		opacity 0
 
 
-@keyframes modal__slideIn 
+@keyframes modal__slideIn
 	from
 		transform translateY(20px)
 	to
 		transform translateY(0)
 
 
-@keyframes modal__slideOut 
+@keyframes modal__slideOut
 	from
 		transform translateY(0)
 	to

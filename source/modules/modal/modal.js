@@ -1,5 +1,5 @@
 import MicroModal from "micromodal";
 
 MicroModal.init({
-  hasAnimation: true
+  awaitCloseAnimation: true
 });
