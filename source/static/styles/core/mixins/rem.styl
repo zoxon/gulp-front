@@ -1,8 +1,8 @@
-rem(value, base = 16px)
+rem( value, base = 16px )
 	u = unit(value)
-	base = _strip-units(base)
+	base = _strip-units( base )
 
-	if (u == 'px')
-		return unit((value / base), 'rem')
+	if (u is 'px')
+		return unit(value / base, 'rem')
 	else
 		return unit(value, u)

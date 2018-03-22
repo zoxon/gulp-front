@@ -1,6 +1,6 @@
 range-slider-thumb()
 	&::-webkit-slider-thumb
-		{block}
+			{block}
 
 	&::-moz-range-thumb
 		{block}
@@ -18,14 +18,15 @@ range-runnable-track()
 	&::-ms-track
 		{block}
 
+
 .range
 	&__control
 		align-self center
 		padding 0
 		width 100%
 		height 2em
-		border none
 		border-radius 0.25rem
+		border 0
 		background none
 		font-size inherit
 		cursor pointer
@@ -57,25 +58,26 @@ range-runnable-track()
 	&_style_default &__control
 		appearance none
 
-		&::-webkit-slider-runnable-track
+		&::-webkit-slider-runnable-track,
 		&::-webkit-slider-thumb
-			-webkit-appearance none /* stylelint-disable-line property-no-vendor-prefix */
+			-webkit-appearance none  /* stylelint-disable-line property-no-vendor-prefix */
+
 
 		// track
 		+range-runnable-track()
-			height 0.25em
 			border-radius 50%
-			border-radius 10px
-			background-color $form-color-border
 			cursor pointer
+			height 0.25em
+			background-color $form-color-border
+			border-radius 10px
 			transition 125ms all ease-in-out
 
 		// thumb
 		+range-slider-thumb()
 			size 1.25em
-			border-radius 50%
 			background-color $form-color-background - 5%
 			box-shadow 0 2px 5px rgba(#000, 0.3)
+			border-radius 50%
 			transition 125ms background ease-in-out
 
 		&::-webkit-slider-thumb

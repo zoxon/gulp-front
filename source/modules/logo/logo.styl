@@ -1,14 +1,13 @@
 .logo
 	&
 	&:visited
-		display inline-block
-		text-decoration none
-		font-size 30px
 		line-height 1
+		font-size 30px
+		text-decoration none
+		display inline-block
 
 	&:hover &__icon
 		animation heartbeat 2.5s infinite
-
 		+below(750px)
 			animation none
 
@@ -17,17 +16,19 @@
 		display inline-block
 		vertical-align middle
 
+
 	&__name
-		color #fff
 		font-family notoserif
+		color #fff
 
 	&__icon
 		margin-right 4px
-		size 27px
 		color #e74c3c
+		size 27px
 
 		+below(750px)
 			animation heartbeat 2.5s infinite 5s
+
 
 // animation heartbeat 2.5s infinite
 @keyframes heartbeat

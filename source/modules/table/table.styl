@@ -1,34 +1,34 @@
-$table-border-color = #e6e6e6
-$table-head-border-color = #fff
-$table-back-color = #264b8f + 90%
-$table-stripe-color = #f7f7f7
-$table-font-color = $base-text-color
+$table-border-color                         = #e6e6e6
+$table-head-border-color                    = #fff
+$table-back-color                           = #264b8f + 90%
+$table-stripe-color                         = #f7f7f7
+$table-font-color                           = $base-text-color
+
 
 .table
 	margin $base-line-height 0
-	border 1px solid $table-border-color
-	border-spacing 0
 	border-collapse collapse
+	border-spacing 0
 	empty-cells show
+	border 1px solid $table-border-color
 
 	caption
-		padding 1em 0
 		color $table-font-color
-		text-align center
 		font-style italic
 		font-size 85%
 		line-height 1
+		padding 1em 0
+		text-align center
 
 	td
 	th
-		overflow visible
-		margin 0
-		padding 0.5em 1em
-		border-width 0 0 0 1px
 		border-left 1px solid $table-border-color
-		font-weight normal
+		border-width 0 0 0 1px
 		font-size inherit
-
+		margin 0
+		overflow visible
+		padding 0.5em 1em
+		font-weight normal
 		&:first-child
 			border-left-width 0
 
@@ -36,13 +36,13 @@ $table-font-color = $base-text-color
 	tfoot
 		background-color $table-back-color
 		color $table-font-color
-		vertical-align bottom
 		text-align left
-
+		vertical-align bottom
 		if $table-head-border-color
 			td
 			th
 				border-color $table-head-border-color
+
 
 	td
 		background-color transparent
@@ -62,7 +62,7 @@ $table-font-color = $base-text-color
 		thead
 			> tr:last-child
 				> td
-					border-bottom-width 0
+					border-bottom-width: 0
 
 	// Horizontal borders
 	&_horizontal
@@ -90,20 +90,19 @@ $table-font-color = $base-text-color
 			tbody
 				tr
 					border-bottom 1px solid $table-border-color
-
 				td
-					display block
 					border none
+					display block
 					vertical-align top
 
 					&:before
-						display block
-						content attr(data-th) ': '
+						content attr(data-th) ": "
 						font-weight bold
+						display block
 
 					& ^[0]__content
-						display block
 						vertical-align top
+						display block
 
 					&:first-child
 						padding-top 1.5em

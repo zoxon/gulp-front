@@ -1,7 +1,16 @@
-// -//////////////////////////////////////////////////////////
-// - Mixins
-// -//////////////////////////////////////////////////////////
-button-style(color = false, color-hover = false, background-color = false, background-color-hover = false, background-image = false, background-image-hover = false, border-color = false, border-color-hover = false)
+//-//////////////////////////////////////////////////////////
+//- Mixins
+//-//////////////////////////////////////////////////////////
+button-style(
+		color = false,
+		color-hover = false,
+		background-color = false,
+		background-color-hover = false,
+		background-image = false,
+		background-image-hover = false,
+		border-color = false,
+		border-color-hover = false
+	)
 	if color
 		color color
 
@@ -36,32 +45,32 @@ button-style(color = false, color-hover = false, background-color = false, backg
 			if border-color
 				border-color border-color - 25%
 
-// -//////////////////////////////////////////////////////////
-// - Base style
-// -//////////////////////////////////////////////////////////
+//-//////////////////////////////////////////////////////////
+//- Base style
+//-//////////////////////////////////////////////////////////
 .button
 	display inline-block
-	box-sizing border-box
 	margin-bottom 0
-	padding 0
-	border-width 1px
-	border-style solid
-	border-color transparent
-	border-radius 0
-	background-color transparent
-	background-image none
-	vertical-align middle
-	text-align center
-	text-decoration none
-	white-space nowrap
 	font-weight normal
-	line-height normal
-	cursor pointer
-	transition-timing-function ease-in-out
-	transition-duration 125ms
-	transition-property color, border-color, background-color, background-image
-	user-select none
+	text-align center
+	vertical-align middle
 	touch-action manipulation
+	cursor pointer
+	background-image none
+	border-color transparent
+	border-style solid
+	border-width 1px
+	border-radius 0
+	white-space nowrap
+	line-height normal
+	user-select none
+	box-sizing border-box
+	text-decoration none
+	background-color transparent
+	padding 0
+	transition-duration 125ms
+	transition-timing-function ease-in-out
+	transition-property color, border-color, background-color, background-image
 
 	&__icon
 	&__text
@@ -74,7 +83,6 @@ button-style(color = false, color-hover = false, background-color = false, backg
 
 	&__icon
 		fill currentColor
-
 		svg
 		img
 			height 1em
@@ -85,7 +93,7 @@ button-style(color = false, color-hover = false, background-color = false, backg
 
 	&:active
 	&_active
-		outline none
+		outline 0
 		background-image none
 		box-shadow inset 0 3px 5px rgba(#000, 0.125)
 
@@ -95,21 +103,22 @@ button-style(color = false, color-hover = false, background-color = false, backg
 		&:hover
 		&:focus
 		&:active
-			outline none
-			box-shadow none
 			opacity 0.65
+			box-shadow none
+			outline none
 
 	a&_disabled
 		pointer-events none
 
-	// - Block button
+	//- Block button
 	&_block
 		display block
 		width 100%
 
-// -//////////////////////////////////////////////////////////
-// - Button sizes
-// -//////////////////////////////////////////////////////////
+
+//-//////////////////////////////////////////////////////////
+//- Button sizes
+//-//////////////////////////////////////////////////////////
 .button
 	padding 0.5em 1em
 	line-height 1.6
@@ -142,9 +151,10 @@ button-style(color = false, color-hover = false, background-color = false, backg
 	&_size_xxl
 		font-size 175%
 
-// -//////////////////////////////////////////////////////////
-// - Styles and colors
-// -//////////////////////////////////////////////////////////
+
+//-//////////////////////////////////////////////////////////
+//- Styles and colors
+//-//////////////////////////////////////////////////////////
 
 // Rounded
 .button_style_rounded
@@ -156,46 +166,102 @@ button-style(color = false, color-hover = false, background-color = false, backg
 
 // Solid
 .button_style_solid.button_color_gray
-	button-style(color: $gray-6, background-color: $gray-2, background-color-hover: $gray-3)
+	button-style(
+		color: $gray-6,
+		background-color: $gray-2,
+		background-color-hover: $gray-3
+	)
 
 .button_style_solid.button_color_black
-	button-style(color: #fff, background-color: $gray-9, background-color-hover: $gray-8)
+	button-style(
+		color: #fff,
+		background-color: $gray-9,
+		background-color-hover: $gray-8
+	)
 
 .button_style_solid.button_color_red
-	button-style(, color: #fff, background-color: $red-6, background-color-hover: $red-5)
+	button-style(
+		color: #fff,
+		background-color: $red-6,
+		background-color-hover: $red-5,
+	)
 
 .button_style_solid.button_color_pink
-	button-style(, color: #fff, background-color: $pink-6, background-color-hover: $pink-5)
+	button-style(
+		color: #fff,
+		background-color: $pink-6,
+		background-color-hover: $pink-5,
+	)
 
 .button_style_solid.button_color_grape
-	button-style(color: #fff, background-color: $grape-6, background-color-hover: $grape-5)
+	button-style(
+		color: #fff,
+		background-color: $grape-6,
+		background-color-hover: $grape-5
+	)
 
 .button_style_solid.button_color_violet
-	button-style(color: #fff, background-color: $violet-6, background-color-hover: $violet-5)
+	button-style(
+		color: #fff,
+		background-color: $violet-6,
+		background-color-hover: $violet-5
+	)
 
 .button_style_solid.button_color_indigo
-	button-style(color: #fff, background-color: $indigo-6, background-color-hover: $indigo-5)
+	button-style(
+		color: #fff,
+		background-color: $indigo-6,
+		background-color-hover: $indigo-5
+	)
 
 .button_style_solid.button_color_blue
-	button-style(color: #fff, background-color: $blue-6, background-color-hover: $blue-5)
+	button-style(
+		color: #fff,
+		background-color: $blue-6,
+		background-color-hover: $blue-5
+	)
 
 .button_style_solid.button_color_cyan
-	button-style(color: #fff, background-color: $cyan-6, background-color-hover: $cyan-5)
+	button-style(
+		color: #fff,
+		background-color: $cyan-6,
+		background-color-hover: $cyan-5
+	)
 
 .button_style_solid.button_color_teal
-	button-style(color: #fff, background-color: $teal-6, background-color-hover: $teal-5)
+	button-style(
+		color: #fff,
+		background-color: $teal-6,
+		background-color-hover: $teal-5
+	)
 
 .button_style_solid.button_color_green
-	button-style(color: #fff, background-color: $green-6, background-color-hover: $green-5)
+	button-style(
+		color: #fff,
+		background-color: $green-6,
+		background-color-hover: $green-5
+	)
 
 .button_style_solid.button_color_lime
-	button-style(color: #fff, background-color: $lime-6, background-color-hover: $lime-5)
+	button-style(
+		color: #fff,
+		background-color: $lime-6,
+		background-color-hover: $lime-5
+	)
 
 .button_style_solid.button_color_yellow
-	button-style(color: #fff, background-color: $yellow-6, background-color-hover: $yellow-5)
+	button-style(
+		color: #fff,
+		background-color: $yellow-6,
+		background-color-hover: $yellow-5
+	)
 
 .button_style_solid.button_color_orange
-	button-style(color: #fff, background-color: $orange-6, background-color-hover: $orange-5)
+	button-style(
+		color: #fff,
+		background-color: $orange-6,
+		background-color-hover: $orange-5
+	)
 
 // Ghost
 .button_style_ghost
@@ -203,97 +269,257 @@ button-style(color = false, color-hover = false, background-color = false, backg
 	border-style solid
 
 .button_style_ghost.button_color_white
-	button-style(color: #fff, color-hover: $gray-7, background-color: transparent, background-color-hover: #fff, border-color: #fff, border-color-hover: #fff)
+	button-style(
+		color: #fff,
+		color-hover: $gray-7,
+		background-color: transparent,
+		background-color-hover: #fff,
+		border-color: #fff,
+		border-color-hover: #fff
+	)
 
 .button_style_ghost.button_color_gray
-	button-style(color: $gray-6, color-hover: #fff, background-color: transparent, background-color-hover: $gray-7, border-color: $gray-6, border-color-hover: $gray-7)
+	button-style(
+		color: $gray-6,
+		color-hover: #fff,
+		background-color: transparent,
+		background-color-hover: $gray-7,
+		border-color: $gray-6,
+		border-color-hover: $gray-7
+	)
 
 .button_style_ghost.button_color_black
-	button-style(color: $gray-9, color-hover: #fff, background-color: transparent, background-color-hover: $gray-9, border-color: $gray-9, border-color-hover: $gray-9)
+	button-style(
+		color: $gray-9,
+		color-hover: #fff,
+		background-color: transparent,
+		background-color-hover: $gray-9,
+		border-color: $gray-9,
+		border-color-hover: $gray-9
+	)
 
 .button_style_ghost.button_color_red
-	button-style(color: $red-6, color-hover: #fff, background-color: transparent, background-color-hover: $red-6, border-color: $red-6, border-color-hover: $red-6)
+	button-style(
+		color: $red-6,
+		color-hover: #fff,
+		background-color: transparent,
+		background-color-hover: $red-6,
+		border-color: $red-6,
+		border-color-hover: $red-6
+	)
 
 .button_style_ghost.button_color_pink
-	button-style(color: $pink-6, color-hover: #fff, background-color: transparent, background-color-hover: $pink-6, border-color: $pink-6, border-color-hover: $pink-6)
+	button-style(
+		color: $pink-6,
+		color-hover: #fff,
+		background-color: transparent,
+		background-color-hover: $pink-6,
+		border-color: $pink-6,
+		border-color-hover: $pink-6
+	)
 
 .button_style_ghost.button_color_grape
-	button-style(color: $grape-6, color-hover: #fff, background-color: transparent, background-color-hover: $grape-6, border-color: $grape-6, border-color-hover: $grape-6)
+	button-style(
+		color: $grape-6,
+		color-hover: #fff,
+		background-color: transparent,
+		background-color-hover: $grape-6,
+		border-color: $grape-6,
+		border-color-hover: $grape-6
+	)
 
 .button_style_ghost.button_color_violet
-	button-style(color: $violet-6, color-hover: #fff, background-color: transparent, background-color-hover: $violet-6, border-color: $violet-6, border-color-hover: $violet-6)
+	button-style(
+		color: $violet-6,
+		color-hover: #fff,
+		background-color: transparent,
+		background-color-hover: $violet-6,
+		border-color: $violet-6,
+		border-color-hover: $violet-6
+	)
 
 .button_style_ghost.button_color_indigo
-	button-style(color: $indigo-6, color-hover: #fff, background-color: transparent, background-color-hover: $indigo-6, border-color: $indigo-6, border-color-hover: $indigo-6)
+	button-style(
+		color: $indigo-6,
+		color-hover: #fff,
+		background-color: transparent,
+		background-color-hover: $indigo-6,
+		border-color: $indigo-6,
+		border-color-hover: $indigo-6
+	)
 
 .button_style_ghost.button_color_blue
-	button-style(color: $blue-6, color-hover: #fff, background-color: transparent, background-color-hover: $blue-6, border-color: $blue-6, border-color-hover: $blue-6)
+	button-style(
+		color: $blue-6,
+		color-hover: #fff,
+		background-color: transparent,
+		background-color-hover: $blue-6,
+		border-color: $blue-6,
+		border-color-hover: $blue-6
+	)
 
 .button_style_ghost.button_color_cyan
-	button-style(color: $cyan-6, color-hover: #fff, background-color: transparent, background-color-hover: $cyan-6, border-color: $cyan-6, border-color-hover: $cyan-6)
+	button-style(
+		color: $cyan-6,
+		color-hover: #fff,
+		background-color: transparent,
+		background-color-hover: $cyan-6,
+		border-color: $cyan-6,
+		border-color-hover: $cyan-6
+	)
 
 .button_style_ghost.button_color_teal
-	button-style(color: $teal-6, color-hover: #fff, background-color: transparent, background-color-hover: $teal-6, border-color: $teal-6, border-color-hover: $teal-6)
+	button-style(
+		color: $teal-6,
+		color-hover: #fff,
+		background-color: transparent,
+		background-color-hover: $teal-6,
+		border-color: $teal-6,
+		border-color-hover: $teal-6
+	)
 
 .button_style_ghost.button_color_green
-	button-style(color: $green-6, color-hover: #fff, background-color: transparent, background-color-hover: $green-6, border-color: $green-6, border-color-hover: $green-6)
+	button-style(
+		color: $green-6,
+		color-hover: #fff,
+		background-color: transparent,
+		background-color-hover: $green-6,
+		border-color: $green-6,
+		border-color-hover: $green-6
+	)
 
 .button_style_ghost.button_color_lime
-	button-style(color: $lime-6, color-hover: #fff, background-color: transparent, background-color-hover: $lime-6, border-color: $lime-6, border-color-hover: $lime-6)
+	button-style(
+		color: $lime-6,
+		color-hover: #fff,
+		background-color: transparent,
+		background-color-hover: $lime-6,
+		border-color: $lime-6,
+		border-color-hover: $lime-6
+	)
 
 .button_style_ghost.button_color_yellow
-	button-style(color: $yellow-6, color-hover: #fff, background-color: transparent, background-color-hover: $yellow-6, border-color: $yellow-6, border-color-hover: $yellow-6)
+	button-style(
+		color: $yellow-6,
+		color-hover: #fff,
+		background-color: transparent,
+		background-color-hover: $yellow-6,
+		border-color: $yellow-6,
+		border-color-hover: $yellow-6
+	)
 
 .button_style_ghost.button_color_orange
-	button-style(color: $orange-6, color-hover: #fff, background-color: transparent, background-color-hover: $orange-6, border-color: $orange-6, border-color-hover: $orange-6)
+	button-style(
+		color: $orange-6,
+		color-hover: #fff,
+		background-color: transparent,
+		background-color-hover: $orange-6,
+		border-color: $orange-6,
+		border-color-hover: $orange-6
+	)
 
 // Gradient
 .button_style_gradient
 	background-image linear-gradient(transparent, transparent 40%, transparent)
-
 	&:focus
 	&:hover
 	&:active
-		background-image linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1))
+		background-image linear-gradient(transparent, rgba(0,0,0,.05) 40%, rgba(0,0,0,.1))
 
 .button_style_gradient.button_color_gray
-	button-style(color: $gray-6, background-color: $gray-2, background-color-hover: $gray-3)
+	button-style(
+		color: $gray-6,
+		background-color: $gray-2,
+		background-color-hover: $gray-3
+	)
 
 .button_style_gradient.button_color_black
-	button-style(color: #fff, background-color: $gray-9, background-color-hover: $gray-8)
+	button-style(
+		color: #fff,
+		background-color: $gray-9,
+		background-color-hover: $gray-8
+	)
 
 .button_style_gradient.button_color_red
-	button-style(, color: #fff, background-color: $red-6, background-color-hover: $red-5)
+	button-style(
+		color: #fff,
+		background-color: $red-6,
+		background-color-hover: $red-5,
+	)
 
 .button_style_gradient.button_color_pink
-	button-style(, color: #fff, background-color: $pink-6, background-color-hover: $pink-5)
+	button-style(
+		color: #fff,
+		background-color: $pink-6,
+		background-color-hover: $pink-5,
+	)
 
 .button_style_gradient.button_color_grape
-	button-style(color: #fff, background-color: $grape-6, background-color-hover: $grape-5)
+	button-style(
+		color: #fff,
+		background-color: $grape-6,
+		background-color-hover: $grape-5
+	)
 
 .button_style_gradient.button_color_violet
-	button-style(color: #fff, background-color: $violet-6, background-color-hover: $violet-5)
+	button-style(
+		color: #fff,
+		background-color: $violet-6,
+		background-color-hover: $violet-5
+	)
 
 .button_style_gradient.button_color_indigo
-	button-style(color: #fff, background-color: $indigo-6, background-color-hover: $indigo-5)
+	button-style(
+		color: #fff,
+		background-color: $indigo-6,
+		background-color-hover: $indigo-5
+	)
 
 .button_style_gradient.button_color_blue
-	button-style(color: #fff, background-color: $blue-6, background-color-hover: $blue-5)
+	button-style(
+		color: #fff,
+		background-color: $blue-6,
+		background-color-hover: $blue-5
+	)
 
 .button_style_gradient.button_color_cyan
-	button-style(color: #fff, background-color: $cyan-6, background-color-hover: $cyan-5)
+	button-style(
+		color: #fff,
+		background-color: $cyan-6,
+		background-color-hover: $cyan-5
+	)
 
 .button_style_gradient.button_color_teal
-	button-style(color: #fff, background-color: $teal-6, background-color-hover: $teal-5)
+	button-style(
+		color: #fff,
+		background-color: $teal-6,
+		background-color-hover: $teal-5
+	)
 
 .button_style_gradient.button_color_green
-	button-style(color: #fff, background-color: $green-6, background-color-hover: $green-5)
+	button-style(
+		color: #fff,
+		background-color: $green-6,
+		background-color-hover: $green-5
+	)
 
 .button_style_gradient.button_color_lime
-	button-style(color: #fff, background-color: $lime-6, background-color-hover: $lime-5)
+	button-style(
+		color: #fff,
+		background-color: $lime-6,
+		background-color-hover: $lime-5
+	)
 
 .button_style_gradient.button_color_yellow
-	button-style(color: #fff, background-color: $yellow-6, background-color-hover: $yellow-5)
+	button-style(
+		color: #fff,
+		background-color: $yellow-6,
+		background-color-hover: $yellow-5
+	)
 
 .button_style_gradient.button_color_orange
-	button-style(color: #fff, background-color: $orange-6, background-color-hover: $orange-5)
+	button-style(
+		color: #fff,
+		background-color: $orange-6,
+		background-color-hover: $orange-5
+	)

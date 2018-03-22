@@ -2,7 +2,6 @@
 	from
 		left -3%
 		width 5%
-
 	to
 		left 130%
 		width 100%
@@ -11,14 +10,12 @@
 	from
 		left -80%
 		width 80%
-
 	to
 		left 110%
 		width 10%
 
 progress-bar-style(background-color, progress-bar-color)
 	background-color background-color
-
 	& ^[0]__bar
 		background-color progress-bar-color
 
@@ -28,15 +25,14 @@ progress-bar-style(background-color, progress-bar-color)
 			background-color progress-bar-color
 
 .progress-bar
-	position relative
 	overflow hidden
-
+	position relative
 	&__bar
+		height 6px
 		position relative
 		width 0
-		height 6px
-		transition 500ms width ease
 		will-change width
+		transition 500ms width ease
 
 	&_indeterminate
 		& ^[0]__bar
@@ -45,13 +41,13 @@ progress-bar-style(background-color, progress-bar-color)
 
 		&:before
 		&:after
+			content ''
+			display block
 			position absolute
 			right 0
 			bottom 0
-			display block
-			width 0
 			height 100%
-			content ''
+			width 0
 			will-change width, left
 
 		&:before
@@ -61,43 +57,86 @@ progress-bar-style(background-color, progress-bar-color)
 			animation progress-bar__decrease 2s 0.5s infinite
 
 	&_color_gray
-		progress-bar-style(background-color: $gray-3, progress-bar-color: $gray-5)
+		progress-bar-style(
+			background-color: $gray-3,
+			progress-bar-color: $gray-5
+		)
 
 	&_color_black
-		progress-bar-style(background-color: $gray-6, progress-bar-color: $gray-7)
+		progress-bar-style(
+			background-color: $gray-6,
+			progress-bar-color: $gray-7
+		)
 
 	&_color_red
-		progress-bar-style(background-color: $red-3, progress-bar-color: $red-6)
+		progress-bar-style(
+			background-color: $red-3,
+			progress-bar-color: $red-6
+		)
 
 	&_color_pink
-		progress-bar-style(background-color: $pink-3, progress-bar-color: $pink-6)
+		progress-bar-style(
+			background-color: $pink-3,
+			progress-bar-color: $pink-6
+		)
 
 	&_color_grape
-		progress-bar-style(background-color: $grape-3, progress-bar-color: $grape-6)
+		progress-bar-style(
+			background-color: $grape-3,
+			progress-bar-color: $grape-6
+		)
 
 	&_color_violet
-		progress-bar-style(background-color: $violet-3, progress-bar-color: $violet-6)
+		progress-bar-style(
+			background-color: $violet-3,
+			progress-bar-color: $violet-6
+		)
 
 	&_color_indigo
-		progress-bar-style(background-color: $indigo-3, progress-bar-color: $indigo-6)
+		progress-bar-style(
+			background-color: $indigo-3,
+			progress-bar-color: $indigo-6
+		)
 
 	&_color_blue
-		progress-bar-style(background-color: $blue-3, progress-bar-color: $blue-6)
+		progress-bar-style(
+			background-color: $blue-3,
+			progress-bar-color: $blue-6
+		)
 
 	&_color_cyan
-		progress-bar-style(background-color: $cyan-3, progress-bar-color: $cyan-6)
+		progress-bar-style(
+			background-color: $cyan-3,
+			progress-bar-color: $cyan-6
+		)
 
 	&_color_teal
-		progress-bar-style(background-color: $teal-3, progress-bar-color: $teal-6)
+		progress-bar-style(
+			background-color: $teal-3,
+			progress-bar-color: $teal-6
+		)
 
 	&_color_green
-		progress-bar-style(background-color: $green-3, progress-bar-color: $green-6)
+		progress-bar-style(
+			background-color: $green-3,
+			progress-bar-color: $green-6
+		)
 
 	&_color_lime
-		progress-bar-style(background-color: $lime-3, progress-bar-color: $lime-6)
+		progress-bar-style(
+			background-color: $lime-3,
+			progress-bar-color: $lime-6
+		)
 
 	&_color_yellow
-		progress-bar-style(background-color: $yellow-3, progress-bar-color: $yellow-6)
+		progress-bar-style(
+			background-color: $yellow-3,
+			progress-bar-color: $yellow-6
+		)
 
 	&_color_orange
-		progress-bar-style(background-color: $orange-3, progress-bar-color: $orange-6)
+		progress-bar-style(
+			background-color: $orange-3,
+			progress-bar-color: $orange-6
+		)
+

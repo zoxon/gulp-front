@@ -1,16 +1,12 @@
 // Set input placeholder style
 placeholder()
-	if selector() == '&'
-		error('placeholder() must be called from a ruleset!')
-
+	if selector() == "&"
+		error( "placeholder() must be called from a ruleset!" )
 	&::-webkit-input-placeholder
 		{block}
-
 	&:-moz-placeholder
 		{block}
-
 	&::-moz-placeholder
 		{block}
-
 	&:-ms-input-placeholder
 		{block}
