@@ -1,5 +1,5 @@
-import animationEndSelect from "../_utils/animations/animationEndSelect";
 import { createElement } from "../_utils/dom/createElement";
+import { animationEndEventName } from "../_utils/event/aninmation";
 
 class Notification {
   constructor(options = {}) {
@@ -38,7 +38,7 @@ class Notification {
   close(notification) {
     notification.hide();
 
-    let index = this.notifications.indexOf(notification);
+    const index = this.notifications.indexOf(notification);
     this.notifications.splice(index, 1);
   }
 
@@ -49,9 +49,9 @@ class Notification {
     };
 
     const notification = new NotificationItem(this.container);
-    let item = notification.show(message, {
+    const item = notification.show(message, {
       ...options,
-      className: options.className + " " + this.options.containerItemClassName
+      className: `${options.className} ${this.options.containerItemClassName}`
     });
 
     this.container.appendChild(item);
@@ -82,8 +82,7 @@ class NotificationItem {
   }
 
   init() {
-    // this.close = this.element.querySelector("." + this.options.closeClassName);
-    this.animationEnd = animationEndSelect();
+    this.animationEnd = animationEndEventName();
   }
 
   build(message, options) {
@@ -96,9 +95,9 @@ class NotificationItem {
       });
     }
 
-    let notification = createElement(
+    const notification = createElement(
       "div",
-      { className: this.defaults.containerClassName + " " + options.className },
+      { className: `${this.defaults.containerClassName} ${options.className}` },
       close,
       createElement(
         "div",
@@ -124,7 +123,7 @@ class NotificationItem {
       ..._options
     };
 
-    let item = this.build(message, options);
+    const item = this.build(message, options);
 
     this.element = item;
 
