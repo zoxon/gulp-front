@@ -8,6 +8,5 @@
   "sortProperties": "grouped",
   "alwaysUseImport": true,
   "alwaysUseNoneOverZero": true,
-  "alwaysUseZeroWithoutUnit": true,
   "reduceMarginAndPaddingValues": true
 }
