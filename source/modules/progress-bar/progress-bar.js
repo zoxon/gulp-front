@@ -1,10 +1,11 @@
 import init from "../_utils/plugin-init";
+import { createElement } from "../_utils/dom/createElement";
 
 class ProgressBar {
   constructor(element, options) {
     this._defaults = {
       valueAttribute: "data-progress-value",
-      barSelector: ".progress-bar__bar"
+      barClassName: "progress-bar__bar"
     };
 
     this.element = element;
@@ -19,14 +20,15 @@ class ProgressBar {
   }
 
   buildCache() {
-    const { barSelector, valueAttribute } = this.options;
+    const { barClassName, valueAttribute } = this.options;
 
-    this.bar = this.element.querySelector(barSelector);
+    this.bar = createElement("div", { className: barClassName });
     this.value = this.element.getAttribute(valueAttribute) || 0;
   }
 
   setBarWidth() {
     this.bar.style.width = this.value * 100 + "%";
+    this.element.appendChild(this.bar);
   }
 }
 
