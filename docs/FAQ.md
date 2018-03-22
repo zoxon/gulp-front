@@ -12,7 +12,7 @@
 
 ## How to update npm to latest version?
 
-1. Go to the folder with installed nodejs
+1.  Go to the folder with installed nodejs
 
 ```bash
 cd "C:\Program Files\nodejs"
@@ -20,7 +20,7 @@ cd "C:\Program Files\nodejs"
 cd "C:\Program Files (x86)\nodejs"
 ```
 
-2. Install lattest version of npm
+2.  Install lattest version of npm
 
 ```bash
 npm install npm@latest

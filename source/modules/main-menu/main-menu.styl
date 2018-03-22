@@ -1,23 +1,23 @@
 .main-menu
 	&__list
-		padding 0
 		margin 0
+		padding 0
 
 	&__item
+		position relative
+		float left
 		padding 0 20px 0 0
 		list-style none
-		font-family notoserif
 		font-size 14px
-		float left
-		position relative
+		font-family notoserif
 
 	&__link
 		&
 		&:visited
 			display block
-			text-decoration none
-			color #fff
 			padding 8px 11px 7px
+			color #fff
+			text-decoration none
 			transition 125ms all ease-in-out
 
 		&:hover
@@ -25,27 +25,27 @@
 			text-decoration underline
 
 	&__submenu
-		visibility hidden
-		opacity 0
-		transition 125ms all ease-in-out
 		position absolute
 		top 37px
 		left 0
-		background #fff
-		width 250px
 		z-index 1
-		border-radius 0 2px 2px 2px
+		visibility hidden
 		overflow hidden
+		width 250px
+		border-radius 0 2px 2px 2px
+		background #fff
+		opacity 0
+		transition 125ms all ease-in-out
 
 	&__item:hover &__submenu
 		visibility visible
 		opacity 1
 
 	&__item_dropdown &__link:after
-		content ''
 		display inline-block
 		margin-left 6px
-		triangle( down, 3px, #fff)
+		content ''
+		triangle(down, 3px, #fff)
 		vertical-align middle
 
 	&__item_dropdown:hover &__link
@@ -54,13 +54,12 @@
 			border-radius 2px 2px 0 0
 			background #fff
 			color #111
+
 		&:after
-			triangle( up, 3px, #111)
+			triangle(up, 3px, #111)
 			margin-bottom 4px
 
 	.header_fixed &__submenu
 		border 1px solid #ddd
 		border-top none
-		box-shadow 0px 2px 3px rgba(#000, 0.04)
-
-
+		box-shadow 0 2px 3px rgba(#000, 0.04)

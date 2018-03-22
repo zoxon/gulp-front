@@ -1,16 +1,17 @@
 .modal
 	display none
+
 	&__overlay
 		position fixed
-		z-index 10000
 		top 0
-		left 0
 		right 0
 		bottom 0
-		background rgba(0,0,0,0.6)
+		left 0
+		z-index 10000
 		display flex
 		justify-content center
 		align-items center
+		background rgba(0, 0, 0, 0.6)
 
 	&.is-open
 		display block
@@ -21,45 +22,46 @@
 	&_animation_slide.is-open
 		display block
 
-	&_animation_slide[aria-hidden="false"] &__overlay
-		animation modal__fadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1)
+	&_animation_slide[aria-hidden='false'] &__overlay
+		animation modal__fadeIn 0.3s cubic-bezier(0, 0, 0.2, 1)
 
-	&_animation_slide[aria-hidden="false"] &__container
-		animation modal__slideIn .3s cubic-bezier(0, 0, .2, 1)
+	&_animation_slide[aria-hidden='false'] &__container
+		animation modal__slideIn 0.3s cubic-bezier(0, 0, 0.2, 1)
 
-	&_animation_slide[aria-hidden="true"] &__overlay
-		animation modal__fadeOut .3s cubic-bezier(0.0, 0.0, 0.2, 1)
+	&_animation_slide[aria-hidden='true'] &__overlay
+		animation modal__fadeOut 0.3s cubic-bezier(0, 0, 0.2, 1)
 
-	&_animation_slide[aria-hidden="true"] &__container
-		animation modal__slideOut .3s cubic-bezier(0, 0, .2, 1)
+	&_animation_slide[aria-hidden='true'] &__container
+		animation modal__slideOut 0.3s cubic-bezier(0, 0, 0.2, 1)
 
-	&_animation_slide &__container,
+	&_animation_slide &__container
 	&_animation_slide &__overlay
 		will-change transform
 
 @keyframes modal__fadeIn
 	from
 		opacity 0
+
 	to
 		opacity 1
-
 
 @keyframes modal__fadeOut
 	from
 		opacity 1
+
 	to
 		opacity 0
-
 
 @keyframes modal__slideIn
 	from
 		transform translateY(20px)
+
 	to
 		transform translateY(0)
-
 
 @keyframes modal__slideOut
 	from
 		transform translateY(0)
+
 	to
 		transform translateY(-20px)

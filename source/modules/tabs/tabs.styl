@@ -3,11 +3,11 @@
 
 	&__head
 		position relative
+		z-index 1
 		display block
-		list-style-type none
 		margin 0
 		padding 0
-		z-index 1
+		list-style-type none
 		zoom 1
 		user-select none
 		clearfix()
@@ -20,10 +20,10 @@
 		position relative
 		display block
 		float left
-		list-style-type none
-		background none
 		margin 0
 		padding 0
+		background none
+		list-style-type none
 		cursor pointer
 
 	&__tab_active
@@ -39,47 +39,46 @@
 	&__panel_active
 		display block
 
-
 	// Skin default
 	&_style_default
 		margin 0 0 30px
+
 		& ^[0]__head
 			border-bottom 1px solid #ddd
 
 		& ^[0]__body
-			//
+			// 
 
 		& ^[0]__tab
+			margin-bottom -1px
 			padding 12px 22px
-			font-size 16px
-			line-height 1.4
-			border-color transparent
-			border-style solid
-			border-width 1px 1px 0 1px
 			padding-bottom 15px
+			border-width 1px 1px 0 1px
+			border-style solid
+			border-color transparent
 			border-radius 2px 2px 0 0
 			color #111
-			margin-bottom -1px
+			font-size 16px
+			line-height 1.4
+
 			&:last-child
 				margin-right 0
 
 		& ^[0]__tab_active
-			background #fff
 			border-color #ddd
-
+			background #fff
 
 		& ^[0]__preloader
 			height 80px
-			background url(../images/tabs__preloader.svg) no-repeat 50% 20px
+			background url('../images/tabs__preloader.svg') no-repeat 50% 20px
 			background-size 30px
 
 		& ^[0]__panel
 			margin 20px 0
 
-
 	&_style_default&_color_blue
 		& ^[0]__tab_active
 			border-color #2ea9fa
+
 		& ^[0]__head
 			border-color #2ea9fa
-

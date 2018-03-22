@@ -1,66 +1,67 @@
 .dropdown
-	font-size 13px
 	position relative
 	display inline-block
+	font-size 13px
 
 	&__trigger
-		color #333
+		padding 4px 37px 4px 18px
 		border 1px solid #cdcdcd
 		border-radius 3px
 		background-color #fff
+		color #333
 		font-size 13px
 		line-height 40px
-		padding 4px 37px 4px 18px
 		cursor pointer
-		user-select none
 		transition 125ms background-color ease-in-out
+		user-select none
+
 		&:hover
 			background-color #F9F9F9
 
 	&__caret
-		content ''
-		display block
 		position absolute
+		top 50%
+		right 18px
+		display block
+		margin-top -4px
 		size 6px
 		border-width 0 1px 1px 0
 		border-style solid
+		content ''
+		transition 150ms all ease-in-out 0
 		transform rotate(45deg)
 		transform-origin 70% 70%
-		right 18px
-		top 50%
-		margin-top -4px
-		transition 150ms all ease-in-out 0s
 
 	&__menu
-		min-width 100%
-		width 200px
-		max-width 300px
 		position absolute
-		left 0
 		top 100%
-		margin-top -20px
+		left 0
 		z-index 100
-		overflow hidden
-		opacity 0
 		visibility hidden
-		transition 125ms all ease-in-out
-		text-align left
+		overflow hidden
+		overflow-y auto
+		margin-top -20px
+		min-width 100%
+		max-width 300px
+		max-height 170px
+		width 200px
 		border-radius 3px
 		background #fff
 		box-shadow 0 0 7px rgba(0, 0, 0, 0.13)
-		max-height 170px
-		overflow-y auto
+		text-align left
+		opacity 0
+		transition 125ms all ease-in-out
 		-webkit-overflow-scrolling touch
+
 		ul
 			margin 0
 			padding 0
 
 	&_open &__menu
-		opacity 1
-		visibility visible
 		z-index 100
+		visibility visible
 		margin-top 2px
-
+		opacity 1
 
 	&_open &__caret
 		transform rotate(225deg)
@@ -70,5 +71,5 @@
 		margin-top -20px
 
 	&_menu_right &__menu
-		left auto
 		right 0
+		left auto

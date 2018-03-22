@@ -1,20 +1,21 @@
 .github-button
 	&
 	&:visited
-		padding 3px 10px
 		display inline-block
-		font-size 0
+		padding 3px 10px
+		border 1px solid transparent
+		border-radius 2px
 		color #fff
 		text-decoration none
-		border 1px solid transparent
-		transition .3s background ease-in-out
 		text-decoration none
-		border-radius 2px
+		font-size 0
+		transition 0.3s background ease-in-out
 
 	&:hover
-		text-decoration none
-		color #333
 		background #fff
+		color #333
+		text-decoration none
+
 		svg
 			fill #333
 
@@ -28,8 +29,9 @@
 		font-family notoserif
 
 	&__icon
-		transition all 300ms ease-in-out 0s
 		margin-right 7px
+		transition all 300ms ease-in-out 0
+
 		svg
 			size 16px
 			fill #fff

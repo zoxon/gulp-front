@@ -1,18 +1,19 @@
 .input
 	&__control
-		//
+		// 
 
 	&_inline &__control
 		width auto
 
 	&_style_default &__control
-		height $form-size-input-height
 		padding 0 $form-padding_horizontal
-		font-size $form-font-size
-		color $form-color-font
-		background-color $form-color-background
+		height $form-size-input-height
 		border $form-border_default
 		border-radius $form-border-radius
+		background-color $form-color-background
+		color $form-color-font
+		font-size $form-font-size
+
 		+placeholder()
 			color $form-color-placeholder
 
@@ -22,6 +23,7 @@
 
 		&:invalid
 			border-color $form-color-border_invalid
+
 			&:focus
 				focus($form-color-border_invalid)
 

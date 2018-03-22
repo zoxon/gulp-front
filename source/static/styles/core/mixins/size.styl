@@ -1,7 +1,17 @@
-size( values... )
-	if length( values ) == 1
-		width values[ 0 ] || auto
-		height values[ 0 ] || auto
+/*
+ * Size mixin
+ * e.g size: 20px 10px => width: 20px; height: 10px
+ */
+size(numbers...)
+	regex = '^[^%]*%[^%]*$'
+	parsed = unit(numbers[0])
+	type = match(regex, parsed) ? '%' : 'px'
+
+	if length(numbers) > 1
+		parsedH = unit(numbers[1])
+		typeH = match(regex, parsedH) ? '%' : 'px'
+		width unit(numbers[0], type)
+		height unit(numbers[1], typeH)
 	else
-		width values[ 0 ] if values[ 0 ] != false
-		height values[ 1 ] if values[ 1 ] != false
+		width unit(numbers, type)
+		height unit(numbers, type)
