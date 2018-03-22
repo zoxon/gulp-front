@@ -1,22 +1,23 @@
 .select
 	position relative
+
 	&:after
-		content ''
-		display block
 		position absolute
 		z-index 1
+		display block
+		content ''
 
 	&__control
-		//
+		// 
 
 	&__placeholder
 		display none
 		visibility hidden
-		opacity 0
-		font-size 0
 		height 0
-		border none
 		outline none
+		border none
+		font-size 0
+		opacity 0
 
 	&_multiple &__control
 		height auto !important
@@ -32,24 +33,25 @@
 		color $form-color-placeholder
 
 		&:after
+			top 50%
+			right 18px
+			margin-top -4px
 			size 6px
 			border-width 0 1px 1px 0
 			border-style solid
-			transform-origin 75% 75%
 			transform rotate(45deg)
-			right 18px
-			top 50%
-			margin-top -4px
+			transform-origin 75% 75%
 
 	&_style_default &__control
-		height $form-size-input-height
-		min-height $form-size-input-height
 		padding 0 ($form-padding_horizontal * 2) 0 $form-padding_horizontal
-		font-size $form-font-size
-		color $form-color-font
-		background-color $form-color-background
+		min-height $form-size-input-height
+		height $form-size-input-height
 		border $form-border_default
 		border-radius $form-border-radius
+		background-color $form-color-background
+		color $form-color-font
+		font-size $form-font-size
+
 		+placeholder()
 			color $form-color-placeholder
 
@@ -59,6 +61,7 @@
 
 		&:invalid
 			border-color $form-color-border_invalid
+
 			&:focus
 				focus($form-color-border_invalid)
 
@@ -67,4 +70,3 @@
 
 	&_style_default&_multiple &__control
 		padding 0 $form-padding_horizontal
-

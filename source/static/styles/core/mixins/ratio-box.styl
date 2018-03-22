@@ -1,14 +1,13 @@
-ratio-box( ratio = 1/1 )
-	ratio = _strip-units( ratio )
-
-	overflow hidden
+ratio-box(ratio = (1 / 1))
+	ratio = _strip-units(ratio)
 	position relative
+	overflow hidden
 
 	// The container's height, as a percentage of the
 	// container's width, is set by assigning
 	// padding-top to a pseudo-element.
 	&:before
-		content ''
 		display block
-		height 0
 		padding-top floor((1 / ratio) * 100%, 2)
+		height 0
+		content ''

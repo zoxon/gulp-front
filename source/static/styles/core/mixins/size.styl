@@ -10,7 +10,6 @@ size(numbers...)
 	if length(numbers) > 1
 		parsedH = unit(numbers[1])
 		typeH = match(regex, parsedH) ? '%' : 'px'
-
 		width unit(numbers[0], type)
 		height unit(numbers[1], typeH)
 	else

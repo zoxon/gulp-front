@@ -1,26 +1,27 @@
 .checkbox
 	position relative
-	cursor pointer
 	display inline-block
+	cursor pointer
 
 	&__box
-		display block
 		position absolute
-		left 0
 		top 0
+		left 0
+		display block
+
 		&:before
-			content ''
-			display block
-			transition 125ms all ease
 			position absolute
+			display block
+			content ''
 			opacity 0
+			transition 125ms all ease
 			will-change opacity, transform
 
 	&__control
-		//
+		// 
 		&:focus ~ ^[0]__box
-			border-color $form-color-border_focus
 			outline none
+			border-color $form-color-border_focus
 			focus($form-color-border_focus)
 
 		&:checked + ^[0]__box:before
@@ -30,7 +31,6 @@
 		&:disabled ~ ^[0]__label
 			opacity 0.5
 
-
 	&__label
 		user-select none
 
@@ -39,20 +39,22 @@
 			size 20px
 			border $form-border_default
 			transition 125ms border-color ease
+
 			&:before
 				top 5px
 				left 5px
 				size 7px 4px
-				transform rotate(-45deg)
 				border-width 0 0 3px 3px
 				border-style solid
 				border-color $form-color-active
+				transform rotate(-45deg)
 
 			&:disabled + ^[0]__box
 				background $form-color-background - 8%
 
 		& ^[0]__label
 			padding-left 32px
+
 			+below(1024px)
 				padding-top 10px
 				padding-bottom 10px
@@ -60,38 +62,40 @@
 	&_type_toggle-sw&_style_default
 		min-width 42px
 		min-height 22px
+
 		& ^[0]__box
 			width $form-size-input-height
 			height ($form-size-input-height / 2)
-			background-color #dddddd
 			border-radius 50px
+			background-color #dddddd
 			transition 125ms all ease-in-out
+
 			&:before
-				display block
 				top 1px
-				left 1px
 				bottom 1px
+				left 1px
+				display block
+				margin-left 0
 				size 18px
-				transform none
 				border none
+				border-radius 50%
 				background $form-color-background
 				box-shadow 0 2px 5px rgba(#000, 0.3)
-				border-radius 50%
-				margin-left 0
 				opacity 1
+				transform none
 
 		& ^[0]__control
 			&:checked + ^[0]__box
-				background-color $form-color-active
 				border-color $form-color-active
+				background-color $form-color-active
 
 			&:checked + ^[0]__box:before
-				transform none
 				margin-left 50%
+				transform none
 
 			&:disabled + ^[0]__box
-				background $form-color-background - 8%
 				border-color $form-color-border
+				background $form-color-background - 8%
 
 		& ^[0]__label
 			padding-left 52px

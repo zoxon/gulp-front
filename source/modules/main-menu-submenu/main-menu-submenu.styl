@@ -1,16 +1,17 @@
 .main-menu-submenu
-	max-height 70vh
 	overflow-y auto
+	max-height 70vh
 
 	&__list
 		margin 0
 		padding 0
 
 	&__item
-		list-style none
-		background none
 		padding 0
+		background none
+		list-style none
 		font-family notosans
+
 		a
 			&
 			&:visited
@@ -25,12 +26,12 @@
 				color #414141
 
 			&:active
+				box-shadow inset 0 3px 5px rgba(0, 0, 0, 0.125)
 				color #2d3e60
-				box-shadow inset 0 3px 5px rgba(0,0,0,0.125)
 
 	&__item_active
 		a
 			&
 			&:visited
-				color #fff
 				background #2d3e60 + 20%
+				color #fff

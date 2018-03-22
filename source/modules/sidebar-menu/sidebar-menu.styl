@@ -7,53 +7,54 @@
 		padding 0
 
 	&__item
-		font-size 14px
-		padding 0 0 18px 0
+		padding 0 0 18px
 		list-style none
+		font-size 14px
 
 	&__link
 		&
 		&:visited
-			font-weight bold
+			position relative
 			display block
 			padding 6px 20px 8px
-			text-decoration none
 			color #2d3e60
+			text-decoration none
+			font-weight bold
 			transition 125ms all ease-in-out
-			position relative
+
 		&:hover
 			color blue
 
 		&:before
-			content ''
-			display block
 			position absolute
-			left 0
 			bottom 0
-			height 1px
+			left 0
+			display block
 			width 0
-			transition width 0s ease, background .5s ease
+			height 1px
+			content ''
+			transition width 0 ease, background 0.5s ease
 
 		&:after
-			content ''
-			display block
 			position absolute
 			right 0
 			bottom 0
-			height 1px
+			display block
 			width 0
+			height 1px
 			background blue
-			transition width .5s ease
+			content ''
+			transition width 0.5s ease
 
 		&:hover:before
 			width 100%
 			background blue
-			transition width .5s ease
+			transition width 0.5s ease
 
 		&:hover:after
 			width 100%
 			background transparent
-			transition all 0s ease
+			transition all 0 ease
 
 	&__submenu &__item
 		padding 6px 30px 8px
@@ -61,14 +62,12 @@
 	&__submenu a
 		&
 		&:visited
-			text-decoration none
-			color #323232
-			transition 125ms all ease-in-out
-			display block
 			position relative
+			display block
+			color #323232
+			text-decoration none
+			transition 125ms all ease-in-out
 
 		&:hover
-			text-decoration underline
 			color blue
-
-
+			text-decoration underline

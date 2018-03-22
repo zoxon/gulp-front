@@ -1,46 +1,45 @@
 $horizontal-padding = 30px
 
 .dialog
-	max-width 800px
-	max-height 100vh
 	overflow-y auto
 	box-sizing border-box
-	background-color #fff
+	max-width 800px
+	max-height 100vh
 	border-radius 4px
+	background-color #fff
 	background-clip padding-box
 	box-shadow 0 2px 8px rgba(0, 0, 0, 0.15)
 
 	&__header
+		position relative
 		display block
 		justify-content space-between
 		align-items center
-		position relative
 
 	&__title
+		overflow ellipsis
 		margin 0
+		padding 16px ($horizontal-padding * 2) 15px $horizontal-padding
+		border-bottom 1px solid #e8e8e8
+		color #000 + 20%
+		font-weight bold
+		font-weight bold
 		font-size 1.5em
 		font-family notosans
-		font-weight bold
-		padding 16px ($horizontal-padding * 2) 15px $horizontal-padding
-		color #000 + 20%
-		border-bottom 1px solid #e8e8e8
-		font-weight bold
-		overflow ellipsis
 
 	&__close
-		background transparent
-		border 0
 		position absolute
-		right 10px
 		top 50%
+		right 10px
 		margin-top -22px
 		padding 10px
+		border none
+		background transparent
 		color #000 + 35%
 
 	&__content
 		padding $horizontal-padding
 		color #000 + 35%
-	
+
 	&__footer
 		padding 0 $horizontal-padding $horizontal-padding
-
