@@ -37,7 +37,9 @@ class Offcanvas {
       });
     });
 
-    this.overlay.addEventListener("click", () => this.hide());
+    if (this.overlay) {
+      this.overlay.addEventListener("click", () => this.hide());
+    }
   }
 
   triggerClickHandler() {
@@ -79,20 +81,24 @@ class Offcanvas {
 
     this.container.setAttribute("data-offcanvas-hidden", "true");
 
-    mapAttributes(this.menu, {
-      role: "dialog",
-      tabindex: "-1",
-      "aria-hidden": "true",
-      id
-    });
-
-    Array.prototype.forEach.call(this.triggers, trigger => {
-      mapAttributes(trigger, {
-        role: "button",
-        "aria-pressed": "false",
-        "aria-expanded": "false"
+    if (this.menu) {
+      mapAttributes(this.menu, {
+        role: "dialog",
+        tabindex: "-1",
+        "aria-hidden": "true",
+        id
       });
-    });
+    }
+
+    if (this.triggers && this.triggers.length > 0) {
+      Array.prototype.forEach.call(this.triggers, trigger => {
+        mapAttributes(trigger, {
+          role: "button",
+          "aria-pressed": "false",
+          "aria-expanded": "false"
+        });
+      });
+    }
   }
 }
 

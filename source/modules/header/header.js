@@ -1,17 +1,45 @@
 import debounce from "lodash/debounce";
-import { $ } from "../_utils/dom/select";
+import init from "../_utils/plugin-init";
 
-function headerScrollHandler() {
-  let top = Math.abs(document.body.getBoundingClientRect().y);
-  let fixed = false;
+class Header {
+  constructor(element, options) {
+    this.element = element;
+    this.name = "header";
 
-  if (top > 0) {
-    fixed = true;
+    this._defaults = {
+      fixedClassName: "header_fixed"
+    };
+
+    this.options = {
+      ...options,
+      ...this._defaults
+    };
+
+    this.init();
   }
 
-  $(".header").classList.toggle("header_fixed", fixed);
+  init() {
+    this.bindEvents();
+    this.headerScrollHandler();
+  }
+
+  bindEvents() {
+    window.addEventListener(
+      "scroll",
+      debounce(this.headerScrollHandler.bind(this), 66)
+    );
+  }
+
+  headerScrollHandler() {
+    let top = Math.abs(document.body.getBoundingClientRect().y);
+    let fixed = false;
+
+    if (top > 0) {
+      fixed = true;
+    }
+
+    this.element.classList.toggle(this.options.fixedClassName, fixed);
+  }
 }
 
-window.addEventListener("scroll", debounce(headerScrollHandler, 66));
-
-headerScrollHandler();
+export default init(Header);
