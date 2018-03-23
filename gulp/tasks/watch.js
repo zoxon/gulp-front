@@ -28,11 +28,11 @@ const watch = () => {
   gulp.watch("source/static/scripts/**/*.js", gulp.series(scripts, reload));
 
   // Modules scripts
-  gulp.watch("source/modules/*/*.js", gulp.series(scripts, reload));
+  gulp.watch("source/modules/**/*.js", gulp.series(scripts, reload));
 
   // Modules images
   gulp.watch(
-    "source/modules/*/images/*.{jpg,gif,svg,png}",
+    "source/modules/*/images/**/*.{jpg,gif,svg,png}",
     gulp.series(moduleImages, reload)
   );
 
