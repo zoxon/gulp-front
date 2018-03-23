@@ -4,6 +4,7 @@ include ../modules/browsehappy/browsehappy
 include ../modules/mobile-menu/mobile-menu
 include ../modules/javascripts/javascripts
 include ../modules/head/head
+include ../modules/scroll-top/scroll-top
 
 
 block page
@@ -22,6 +23,8 @@ block page
 			block footer
 	
 	.page__overlay(data-offcanvas-overlay)
+
+	+scroll-top()
 
 
 

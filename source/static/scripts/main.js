@@ -1,3 +1,9 @@
+import "../../modules/demo/demo";
+import "../../modules/main-menu/main-menu";
+import "../../modules/logo/logo";
+import "../../modules/tooltip/tooltip";
+import "../../modules/modal/modal";
+
 import Alert from "../../modules/alert/alert";
 import Accordion from "../../modules/accordion/accordion";
 import Browsehappy from "../../modules/browsehappy/browsehappy";
@@ -9,6 +15,7 @@ import File from "../../modules/file/file";
 import Dropdown from "../../modules/dropdown/dropdown";
 import Code from "../../modules/code/code";
 import Table from "../../modules/table/table";
+import Header from "../../modules/header/header";
 
 Alert(".alert");
 Accordion(".accordion");
@@ -21,10 +28,4 @@ File(".file");
 Dropdown(".dropdown");
 Code("pre.code");
 Table(".table");
-
-import "../../modules/demo/demo";
-import "../../modules/header/header";
-import "../../modules/main-menu/main-menu";
-import "../../modules/logo/logo";
-import "../../modules/tooltip/tooltip";
-import "../../modules/modal/modal";
+Header(".header");
