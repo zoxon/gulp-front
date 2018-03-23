@@ -3,4 +3,4 @@ mixin main-menu-submenu(data)
 		ul.main-menu-submenu__list
 			each item in data
 				li.main-menu-submenu__item
-					a(href='#' + item.url)= item.title
+					a(href=`#${item.url}`).main-menu-submenu__link= item.title

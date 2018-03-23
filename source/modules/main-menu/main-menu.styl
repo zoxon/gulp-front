@@ -1,66 +1,93 @@
 .main-menu
 	&__list
-		padding 0
+		display flex
+		justify-content space-between
+		align-items center
 		margin 0
+		padding 0
 
 	&__item
-		padding 0 20px 0 0
-		list-style none
-		font-family notoserif
-		font-size 14px
-		float left
 		position relative
+		margin-right em(20px)
+		padding 0 em(20px) 0 0
+		list-style none
+
+	&__item_dropdown
+		&::before
+			position absolute
+			top 100%
+			left 0
+			display block
+			width 100%
+			height 100%
+			content ''
+			cursor pointer
 
 	&__link
 		&
 		&:visited
-			display block
-			text-decoration none
-			color #fff
-			padding 8px 11px 7px
-			transition 125ms all ease-in-out
-
 		&:hover
-			color #fff
-			text-decoration underline
+			display block
+			padding 8px 11px 7px
+			color $gray-9
+			text-decoration none
+			text-transform uppercase
+			letter-spacing em(1px)
+			font-weight 500
+			font-size em(12px)
 
 	&__submenu
-		visibility hidden
-		opacity 0
-		transition 125ms all ease-in-out
 		position absolute
-		top 37px
+		top 54px
 		left 0
-		background #fff
-		width 250px
 		z-index 1
-		border-radius 0 2px 2px 2px
+		visibility hidden
 		overflow hidden
+		padding 0.5em 0
+		width 250px
+		background #fff
+		box-shadow 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23)
+		opacity 0
+		transition 125ms ease
+		transition-property opacity, visibility
+		will-change opacity, visibility
 
 	&__item:hover &__submenu
 		visibility visible
 		opacity 1
 
-	&__item_dropdown &__link:after
-		content ''
-		display inline-block
-		margin-left 6px
-		triangle( down, 3px, #fff)
-		vertical-align middle
+	&__item_dropdown &__link
+		&::before
+		&::after
+			position absolute
+			position absolute
+			top 12px
+			left 100%
+			display inline-block
+			margin-left -12px
+			width 2px
+			height 6px
+			border-bottom 8px solid $blue-6
+			background-color transparent
+			content ''
+			transition 220ms ease
+			transform rotate(0)
+
+		&::before
+			transform rotate(-135deg)
+
+		&::after
+			transform rotate(135deg)
 
 	&__item_dropdown:hover &__link
 		&
 		&:visited
 			border-radius 2px 2px 0 0
 			background #fff
-			color #111
+			color $gray-9
+
+		&:before
+			transform translate(0, -4px) rotate(-45deg)
+
 		&:after
-			triangle( up, 3px, #111)
-			margin-bottom 4px
-
-	.header_fixed &__submenu
-		border 1px solid #ddd
-		border-top none
-		box-shadow 0px 2px 3px rgba(#000, 0.04)
-
-
+			transform translate(0, -4px) rotate(45deg)

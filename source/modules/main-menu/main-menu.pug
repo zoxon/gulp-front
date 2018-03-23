@@ -10,7 +10,7 @@ mixin main-menu(data)
 					- itemClasses.push(itemClasses[0] + '_dropdown')
 
 				li(class=itemClasses)
-					a(href='#' + item.url).main-menu__link= item.title
+					a(href=`#${item.url}`).main-menu__link= item.title
 
 					if item.submenu !== false
 						.main-menu__submenu
