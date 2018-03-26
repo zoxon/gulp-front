@@ -1,4 +1,5 @@
 include ../logo/logo
+include ../button/button
 include ../main-menu/main-menu
 include ../header-presentation/header-presentation
 include ../mobile-menu-trigger/mobile-menu-trigger
@@ -11,11 +12,12 @@ mixin header(data)
 		.header__menu
 			+main-menu(mainMenu.default)
 
-		a(
-			href="//github.com/zoxon/gulp-front"
+		+button(
+			to="//github.com/zoxon/gulp-front"
 			target="_blank"
 			title="Source on Github"
-		).header__github-button.button.button_icon
+			icon
+		).header__github-button
 			+icon(name="github-octocat" title="Github octocat mark")
 			span.visuallyhidden Github repository
 

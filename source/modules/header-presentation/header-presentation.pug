@@ -1,3 +1,5 @@
+include ../button/button
+
 mixin header-presentation(data)
 	.header-presentation(
 		data-0="opacity: 1; transform: translateY(0px);" 
@@ -7,4 +9,4 @@ mixin header-presentation(data)
 		p.header-presentation__description= data.description
 		.header-presentation__version= 'v. ' + data.version
 		.header-presentation__sub-description= data.subDescription
-		a(href="https://github.com/zoxon/gulp-front/archive/master.zip" title="Download source from Github").button.button_style_ghost.button_color_black.button_size_large.button_block.button_style_rounded.header-presentation__download Download
+		+button(to="#quick-start" color="black" style="ghost rounded" size="large" block).header-presentation__download Getting Started
