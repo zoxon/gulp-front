@@ -6,13 +6,14 @@ mixin main-menu(data)
 			each item in data
 				- var itemClasses = ['main-menu__item']
 
-				if item.submenu !== false
+				if item.submenu
 					- itemClasses.push(itemClasses[0] + '_dropdown')
 
 				li(class=itemClasses)
-					a(href=`#${item.url}`).main-menu__link= item.title
+					a(href=`${item.url}.html`).main-menu__link= item.title
 
-					if item.submenu !== false
+					if item.submenu
+						- item.submenu.parent = item.url
 						.main-menu__submenu
 							+main-menu-submenu(item.submenu)
 

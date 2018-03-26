@@ -2,6 +2,10 @@
   mainMenu:
     default:
       -
+        title: Home
+        url: home
+        icon: heart
+      -
         title: Typography
         url: typography
         icon: text

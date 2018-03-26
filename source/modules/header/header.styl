@@ -5,6 +5,9 @@
 	background #fff
 	box-shadow 0 2px 6px 0 rgba(#b0bac5, 0.6)
 
+	+below($media-screen-tablet)
+		padding 0 0 0 $mobile-padding
+
 	+print()
 		display none !important
 		page-break-after always
@@ -13,12 +16,14 @@
 		margin-right 5em
 
 	&__menu
-		// 
+		+below($media-screen-tablet)
+			display none
 
 	&__mobile-menu-trigger
 		display none
+		margin-left auto
 
-		+below(750px)
+		+below($media-screen-tablet)
 			display block
 
 	&__github-button
@@ -27,6 +32,9 @@
 			margin-left auto
 			padding 0.5em
 			color $blue-6
+
+			+below($media-screen-tablet)
+				display none
 
 		&:hover
 			color $blue-8

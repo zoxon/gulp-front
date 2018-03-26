@@ -1,34 +1,35 @@
-$table-border-color                         = #e6e6e6
-$table-head-border-color                    = #fff
-$table-back-color                           = #264b8f + 90%
-$table-stripe-color                         = #f7f7f7
-$table-font-color                           = $base-text-color
-
+$table-border-color = $gray-4
+$table-head-border-color = $table-border-color
+$table-head-border = true
+$table-back-color = $blue-0
+$table-stripe-color = $gray-1
+$table-font-color = $base-text-color
 
 .table
 	margin $base-line-height 0
-	border-collapse collapse
-	border-spacing 0
-	empty-cells show
 	border 1px solid $table-border-color
+	border-spacing 0
+	border-collapse collapse
+	empty-cells show
 
 	caption
+		padding 1em 0
 		color $table-font-color
+		text-align center
 		font-style italic
 		font-size 85%
 		line-height 1
-		padding 1em 0
-		text-align center
 
 	td
 	th
-		border-left 1px solid $table-border-color
-		border-width 0 0 0 1px
-		font-size inherit
-		margin 0
 		overflow visible
+		margin 0
 		padding 0.5em 1em
+		border-width 0 0 0 1px
+		border-left 1px solid $table-border-color
 		font-weight normal
+		font-size inherit
+
 		&:first-child
 			border-left-width 0
 
@@ -36,13 +37,13 @@ $table-font-color                           = $base-text-color
 	tfoot
 		background-color $table-back-color
 		color $table-font-color
-		text-align left
 		vertical-align bottom
+		text-align left
+
 		if $table-head-border-color
 			td
 			th
 				border-color $table-head-border-color
-
 
 	td
 		background-color transparent
@@ -62,7 +63,8 @@ $table-font-color                           = $base-text-color
 		thead
 			> tr:last-child
 				> td
-					border-bottom-width: 0
+					if !$table-head-border
+						border-bottom-width 0
 
 	// Horizontal borders
 	&_horizontal
@@ -75,7 +77,8 @@ $table-font-color                           = $base-text-color
 		thead
 			> tr:last-child
 				> td
-					border-bottom-width 0
+					if !$table-head-border
+						border-bottom-width 0
 
 	// Responsive tables
 	&_responsive
@@ -90,19 +93,20 @@ $table-font-color                           = $base-text-color
 			tbody
 				tr
 					border-bottom 1px solid $table-border-color
+
 				td
-					border none
 					display block
+					border none
 					vertical-align top
 
 					&:before
-						content attr(data-th) ": "
-						font-weight bold
 						display block
+						content attr(data-th) ': '
+						font-weight bold
 
 					& ^[0]__content
-						vertical-align top
 						display block
+						vertical-align top
 
 					&:first-child
 						padding-top 1.5em

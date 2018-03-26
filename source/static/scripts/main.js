@@ -5,11 +5,50 @@ import ScrollReveal from "scrollreveal";
 
 import ready from "../../modules/_utils/dom/ready";
 
+import Alert from "../../modules/alert/alert";
+import Accordion from "../../modules/accordion/accordion";
+import Browsehappy from "../../modules/browsehappy/browsehappy";
+import Tabs from "../../modules/tabs/tabs";
+import ProgressBar from "../../modules/progress-bar/progress-bar";
+import Spoiler from "../../modules/spoiler/spoiler";
+import Offcanvas from "../../modules/offcanvas/offcanvas";
+import File from "../../modules/file/file";
+import Dropdown from "../../modules/dropdown/dropdown";
+import Code from "../../modules/code/code";
+import Table from "../../modules/table/table";
+import Header from "../../modules/header/header";
+import ScrollTop from "../../modules/scroll-top/scroll-top";
+
+Alert(".alert");
+Accordion(".accordion");
+Browsehappy(".browsehappy");
+Tabs(".tabs");
+ProgressBar(".progress-bar");
+Spoiler();
+Offcanvas();
+File(".file");
+Dropdown(".dropdown");
+Code("pre.code");
+Table(".table");
+Header(".header");
+ScrollTop(".scroll-top");
+
+import "../../modules/demo/demo";
+import "../../modules/main-menu/main-menu";
+import "../../modules/logo/logo";
+import "../../modules/tooltip/tooltip";
+import "../../modules/modal/modal";
+
 ready(function() {
   FastClick.attach(document.body);
   svg4everybody();
 
-  skrollr.init();
+  skrollr.init({
+    mobileCheck: function() {
+      //hack - forces mobile version to be off
+      return false;
+    }
+  });
 
   window.sr = ScrollReveal();
 
@@ -44,35 +83,3 @@ ready(function() {
     afterReset: function(e) {}
   });
 });
-
-import "../../modules/demo/demo";
-import "../../modules/main-menu/main-menu";
-import "../../modules/logo/logo";
-import "../../modules/tooltip/tooltip";
-import "../../modules/modal/modal";
-
-import Alert from "../../modules/alert/alert";
-import Accordion from "../../modules/accordion/accordion";
-import Browsehappy from "../../modules/browsehappy/browsehappy";
-import Tabs from "../../modules/tabs/tabs";
-import ProgressBar from "../../modules/progress-bar/progress-bar";
-import Spoiler from "../../modules/spoiler/spoiler";
-import Offcanvas from "../../modules/offcanvas/offcanvas";
-import File from "../../modules/file/file";
-import Dropdown from "../../modules/dropdown/dropdown";
-import Code from "../../modules/code/code";
-import Table from "../../modules/table/table";
-import Header from "../../modules/header/header";
-
-Alert(".alert");
-Accordion(".accordion");
-Browsehappy(".browsehappy");
-Tabs(".tabs");
-ProgressBar(".progress-bar");
-Spoiler();
-Offcanvas();
-File(".file");
-Dropdown(".dropdown");
-Code("pre.code");
-Table(".table");
-Header(".header");

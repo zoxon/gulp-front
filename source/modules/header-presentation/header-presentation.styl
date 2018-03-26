@@ -1,13 +1,15 @@
 .header-presentation
-	padding 4em 0
+	padding-top 4em
+	padding-bottom 4em
 	background linear-gradient(to bottom, #D5DEE7 0%, #E8EBF2 50%, #E2E7ED 100%), linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 50%, rgba(255, 255, 255, 0.02) 61%, rgba(0, 0, 0, 0.02) 73%), linear-gradient(33deg, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%)
 	text-align center
 	font-weight 300
-	// background $blue-6
-	// background-image linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%)
 	transform translateZ(0)
 	will-change opacity, transform
 	background-blend-mode normal, color-burn
+
+	+below($content-width)
+		m-padding()
 
 	&__name
 		margin 0

@@ -20,6 +20,12 @@
 		font-weight 300
 		font-size em(22px)
 
+		+below($media-screen-desktop)
+			display none
+
+		+below($media-screen-tablet)
+			display block
+
 	&__icon
 		size 27px
 		color $red-6

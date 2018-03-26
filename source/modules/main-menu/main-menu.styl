@@ -9,7 +9,7 @@
 	&__item
 		position relative
 		margin-right em(20px)
-		padding 0 em(20px) 0 0
+		padding 0
 		list-style none
 
 	&__item_dropdown
@@ -28,7 +28,7 @@
 		&:visited
 		&:hover
 			display block
-			padding 8px 11px 7px
+			padding 1em em(32px) 1em 0.5em
 			color $gray-9
 			text-decoration none
 			text-transform uppercase
@@ -38,7 +38,7 @@
 
 	&__submenu
 		position absolute
-		top 54px
+		top 100%
 		left 0
 		z-index 1
 		visibility hidden
@@ -61,7 +61,7 @@
 		&::after
 			position absolute
 			position absolute
-			top 12px
+			top 15px
 			left 100%
 			display inline-block
 			margin-left -12px

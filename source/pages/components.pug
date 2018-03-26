@@ -1,0 +1,71 @@
+extends ../layouts/default
+
+include ../modules/footer/footer
+include ../modules/header/header
+
+block head
+	- title = "Components"
+	
+block header
+	+header()
+
+block main
+	h1#components Components
+
+	.demo.demo_components
+		h2#breadcrumbs Breadcrumbs
+		include ../modules/demo/components/breadcrumbs
+
+		h2#pagination Pagination
+		include ../modules/demo/components/pagination
+
+		h2#badges Badges
+		include ../modules/demo/components/badges
+
+		h2#progress-bar Progress Bar
+		include ../modules/demo/components/progress-bar
+
+		h2#embed Responsive video
+		include ../modules/demo/components/embed
+
+		h2#social-icons Social icons
+		include ../modules/demo/components/social-icons
+
+		h2#tabs Tabs
+		include ../modules/demo/components/tabs
+
+		h2#modals Modal windows
+		include ../modules/demo/components/modals
+
+		h2#accordion Accordion
+		include ../modules/demo/components/accordion
+
+		h2#dropdown Dropdown
+		include ../modules/demo/components/dropdown
+
+		h2#spoiler Spoiler
+		include ../modules/demo/components/spoiler
+
+		h2#tooltips Tooltips
+		include ../modules/demo/components/tooltips
+
+		h2#notifications Notifications
+		include ../modules/demo/components/notifications
+
+		h2#svg-icons Svg Icons
+		include ../modules/demo/components/svg-icons
+		
+		h2#avatars Avatars
+		include ../modules/demo/components/avatars
+
+		h2#media-object Media object
+		include ../modules/demo/components/media-object
+
+		h2#spinner Spinner
+		include ../modules/demo/components/spinner
+
+		h2#card Card
+		include ../modules/demo/components/card
+
+block footer
+	+footer(footer.default)

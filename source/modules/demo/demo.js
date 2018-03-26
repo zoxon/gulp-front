@@ -2,9 +2,10 @@ import Notification from "../notification/notification";
 
 import { $ } from "../_utils/dom/select";
 
-const demo = $(".demo");
+const formDemo = $(".demo_form");
+const componentsDemo = $(".demo_components");
 
-if (demo) {
+if (formDemo) {
   fetch("http://ip-api.com/json")
     .then(response => response.json())
     .then(json => {
@@ -13,7 +14,9 @@ if (demo) {
       $("#form-demo__country").value = json.country;
     })
     .catch(err => console.log(err));
+}
 
+if (componentsDemo) {
   // Notifications
   const notificationBoard = new Notification({
     delay: 40000
