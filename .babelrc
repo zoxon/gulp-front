@@ -1,3 +1,26 @@
 {
-  "presets": ["env", "stage-1"]
+  "presets": [
+    [
+      "env",
+      {
+        "useBuiltIns": true
+      }
+    ],
+    "stage-1"
+  ],
+  "plugins": [
+    [
+      "transform-imports",
+      {
+        "react-bootstrap": {
+          "transform": "react-bootstrap/lib/${member}",
+          "preventFullImport": true
+        },
+        "lodash": {
+          "transform": "lodash/${member}",
+          "preventFullImport": true
+        }
+      }
+    ]
+  ]
 }

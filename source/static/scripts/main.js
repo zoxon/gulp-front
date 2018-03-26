@@ -1,3 +1,50 @@
+import FastClick from "fastclick";
+import svg4everybody from "svg4everybody";
+import skrollr from "skrollr";
+import ScrollReveal from "scrollreveal";
+
+import ready from "../../modules/_utils/dom/ready";
+
+ready(function() {
+  FastClick.attach(document.body);
+  svg4everybody();
+
+  skrollr.init();
+
+  window.sr = ScrollReveal();
+
+  /* globals sr */
+  sr.reveal(".js-appearing-item", {
+    origin: "bottom",
+    distance: "10%",
+    duration: 500,
+    delay: 100,
+    rotate: {
+      x: 0,
+      y: 0,
+      z: 0
+    },
+    opacity: 0.1,
+    scale: 0.99,
+    easing: "cubic-bezier(0.6, 0.2, 0.1, 1)",
+    container: window.document.documentElement,
+    mobile: !1,
+    reset: !1,
+    useDelay: "always",
+    viewFactor: 0.2,
+    viewOffset: {
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0
+    },
+    beforeReveal: function(e) {},
+    beforeReset: function(e) {},
+    afterReveal: function(e) {},
+    afterReset: function(e) {}
+  });
+});
+
 import "../../modules/demo/demo";
 import "../../modules/main-menu/main-menu";
 import "../../modules/logo/logo";

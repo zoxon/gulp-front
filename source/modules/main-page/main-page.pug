@@ -1,0 +1,11 @@
+include ../features-list/features-list
+include ../quick-start/quick-start
+
+mixin main-page(data)
+	.main-page&attributes(attributes)
+		section.main-page__section.main-page__section_features
+			h2.main-page__title Benefits &amp; Features
+			+features-list(featuresList.default)
+		section.main-page__section.main-page__section_quick-start
+			h2.main-page__title Quick start
+			+quick-start()

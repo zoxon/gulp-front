@@ -1,27 +1,17 @@
-extends ../layouts/default
+extends ../layouts/home
 
 include ../modules/footer/footer
 include ../modules/header/header
-
-include ../modules/sidebar/sidebar
-include ../modules/page-title/page-title
-
-include ../modules/demo/demo
-
+include ../modules/main-page/main-page
 
 block head
-	- title = "Gulp-front Demo"
+	- title = "Gulp-front"
 	
 block header
 	+header()
 
 block main
-	.layout.layout_sidebar_left
-		.layout__sidebar
-			+sidebar()
-		.layout__content
-			+page-title({"title": "Gulp-front features"})
-			+demo()
+	+main-page()
 
 block footer
-	+footer()
+	+footer(footer.default)
