@@ -1,3 +1,16 @@
-button(type="button" disabled).button.button_size_normal.button_style_solid.button_color_blue.button_style_rounded Disabled button
-a(href="#").button.button_size_normal.button_style_solid.button_color_blue.button_style_rounded.button_disabled Disabled link
-input(type="button" value="Disabled input" disabled).button.button_size_normal.button_style_solid.button_color_blue.button_style_rounded
+include ../../button/button
+
++button(
+	size="normal" 
+	style="solid rounded" 
+	color="blue" 
+	disabled
+) Disabled button
+
++button(
+	to="#" 
+	size="normal" 
+	style="solid rounded" 
+	color="blue" 
+	disabled
+) Disabled link

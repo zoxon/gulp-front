@@ -85,6 +85,7 @@ export const imageminConfig = {
   icons: [
     gulpImagemin.svgo({
       plugins: [
+        { removeViewBox: false },
         { removeTitle: true },
         { removeStyleElement: true },
         {

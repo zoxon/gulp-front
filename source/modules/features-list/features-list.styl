@@ -1,0 +1,23 @@
+.features-list
+	&__list
+		display flex
+		flex-wrap wrap
+		justify-content center
+		align-items baseline
+		margin 0
+		padding 0
+
+		+below($media-screen-tablet)
+			display block
+
+	&__item
+		margin-bottom 4em
+		width 33%
+		list-style none
+
+		+below($content-width)
+			width 50%
+
+		+below($media-screen-tablet)
+			margin-bottom 1em
+			width auto

@@ -1,0 +1,8 @@
+include ../icon/icon
+
+mixin features-list-item(data)
+	.features-list-item&attributes(attributes)
+		.features-list-item__icon
+			+icon(name=data.icon title=data.title)
+		h3.features-list-item__title= data.title
+		p.features-list-item__description!= data.description

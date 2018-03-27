@@ -1,6 +1,4 @@
 .form-control
-	width 100%
-	box-sizing border-box
 	transition 125ms border ease-in-out, 125ms box-shadow ease-in-out
 
 	&_type_textarea
@@ -12,9 +10,9 @@
 		z-index 1
 		margin 0
 		padding 0
-		opacity 0
 		height 100%
 		outline none
+		opacity 0
 		cursor pointer
 
 	&_type_input
@@ -22,10 +20,10 @@
 	&_type_select
 		appearance none
 
-
 	&_type_select
 		cursor pointer
+
 		&::-ms-expand
-			background-color transparent
 			display none
-			border 0
+			border none
+			background-color transparent

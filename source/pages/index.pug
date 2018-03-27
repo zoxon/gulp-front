@@ -1,17 +1,17 @@
-extends ../layouts/default
+extends ../layouts/home
 
-include ../modules/_page-list/_page-list
+include ../modules/footer/footer
+include ../modules/header/header
+include ../modules/main-page/main-page
 
 block head
-	- title = "Pages list"
+	- title = "Gulp-front"
+	
+block header
+	+header()
 
-	style
-		:stylus
-			@import "../static/styles/core/variables.styl"
-			@import "../static/styles/_variables.styl"
-			@import "../static/styles/core/mixins.styl"
-			@import "../static/styles/_mixins.styl"
-			@import "../modules/_page-list/_page-list.styl"
+block main
+	+main-page()
 
-block page
-	+page-list(pageList.data)
+block footer
+	+footer(footer.default)

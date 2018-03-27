@@ -20,7 +20,10 @@ let options = {
     publicPath: "/assets/javascripts/"
   },
   resolve: {
-    modules: ["node_modules", path.join(__dirname, "soruce")]
+    modules: ["node_modules", path.join(__dirname, "soruce")],
+    alias: {
+      "lodash-es": "lodash"
+    }
   },
   devtool: isDevelopment ? "eval-source-map" : "source-map",
   context: path.resolve(__dirname, "source/static/scripts"),

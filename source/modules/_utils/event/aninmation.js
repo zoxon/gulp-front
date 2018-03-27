@@ -26,13 +26,13 @@ const animationIterationEventNames = {
 const testEvent = props => {
   const el = document.createElement("span");
 
-  Object.keys(props).forEach(prop => {
-    if (el.style[prop] !== undefined) {
+  for (const prop in props) {
+    if (typeof el.style[prop] !== "undefined") {
       return props[prop];
     }
+  }
 
-    return false;
-  });
+  return false;
 };
 
 export const transitionEndEventName = () => testEvent(transitionEndEventNames);

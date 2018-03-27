@@ -1,0 +1,8 @@
+include ../features-list-item/features-list-item
+
+mixin features-list(data)
+	.features-list&attributes(attributes)
+		ul.features-list__list
+			each item in data.list
+				li.features-list__item.js-appearing-item
+					+features-list-item(item)

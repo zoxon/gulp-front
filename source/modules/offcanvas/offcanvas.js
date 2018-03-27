@@ -11,6 +11,7 @@ class Offcanvas {
       containerSelector: "[data-offcanvas-container]",
       overlaySelector: "[data-offcanvas-overlay]"
     };
+
     this.options = Object.assign({}, this._defaults, options);
     this.init();
   }

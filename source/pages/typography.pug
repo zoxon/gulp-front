@@ -1,0 +1,38 @@
+extends ../layouts/default
+
+include ../modules/footer/footer
+include ../modules/header/header
+
+block head
+	- title = "Typography"
+	
+block header
+	+header()
+
+block main
+	h1#typography Typography
+
+	.demo.demo_typography
+		h2#titles-and-paragraphs Titles &amp; Paragraphs
+		include ../modules/demo/typography/titles-and-paragraphs
+
+		h2#lists Lists
+		include ../modules/demo/typography/lists
+
+		h2#quotes Quotes
+		include ../modules/demo/typography/quotes
+
+		h2#description-lists Description lists
+		include ../modules/demo/typography/dl
+
+		h2#code Code
+		include ../modules/demo/typography/code
+
+		h2#tables Tables
+		include ../modules/demo/typography/tables
+
+		h2#text-elements Text level elements
+		include ../modules/demo/typography/text-elements
+
+block footer
+	+footer(footer.default)

@@ -22,6 +22,9 @@
             title: Code
             url: code
           -
+            title: Tables
+            url: tables
+          -
             title: Text level elements
             url: text-elements
       -
@@ -81,9 +84,6 @@
         url: components
         icon: add
         submenu:
-          -
-            title: Tables
-            url: tables
           -
             title: Breadcrumbs
             url: breadcrumbs

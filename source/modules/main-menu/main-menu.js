@@ -5,7 +5,7 @@ import { $ } from "../_utils/dom/select";
 const mainMenu = $(".main-menu");
 if (mainMenu) {
   const links = mainMenu.querySelectorAll('a[href^="#"]');
-  const headerHeight = parseInt($(".header__top").offsetHeight);
+  const headerHeight = parseInt($(".header").offsetHeight);
   const duration = 700;
   const offset = headerHeight + 20;
 

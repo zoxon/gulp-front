@@ -1,9 +1,9 @@
 import init from "../_utils/plugin-init";
 
-class Plugin {
+class #{blockname.pascalCase} {
   constructor(element, options) {
     this.element = element;
-    this.name = "plugin";
+    this.name = "#{blockname.dashCase}";
 
     this._defaults = {};
 
@@ -22,9 +22,7 @@ class Plugin {
 
   buildCache() {}
 
-  bindEvents() {
-    const plugin = this;
-  }
+  bindEvents() {}
 }
 
-export default init(Plugin);
+export default init(#{blockname.pascalCase});

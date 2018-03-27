@@ -22,7 +22,6 @@ class Table {
 
   init() {
     this.buildCache();
-    this.bindEvents();
     this.updateCells();
     this.setInited();
   }
@@ -30,10 +29,6 @@ class Table {
   buildCache() {
     this.cells = this.element.querySelectorAll("td");
     this.headings = this.element.querySelectorAll(this.findHeadings());
-  }
-
-  bindEvents() {
-    this.element.addEventListener("click", () => this.someOtherFunction());
   }
 
   findHeadings() {

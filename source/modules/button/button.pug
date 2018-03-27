@@ -1,0 +1,62 @@
+mixin button()
+	-
+		let baseClassName = "button";
+		let buttonTag = "button";
+		let classes = [];
+
+		attributes.type = attributes.type || "button";
+		let color = attributes.color;
+		let to = attributes.to;
+		let size = attributes.size;
+		let style = attributes.style;
+		let blockAttr = attributes.block;
+		let icon = attributes.icon;
+
+		delete attributes.color;
+		delete attributes.to;
+		delete attributes.size;
+		delete attributes.style;
+		delete attributes.icon;
+		delete attributes.block;
+		delete attributes.icon;
+
+		function setClassName(key, value) {
+			let className = value
+				? `${baseClassName}_${key}_${value}`
+				: `${baseClassName}_${key}`;
+
+			classes.push(className);
+		}
+
+		function convertAttrToClassName(value, mod) {
+			if (value) {
+				let attrs = value.split(" ");
+				attrs.forEach(function(attr) {
+					setClassName(mod, attr);
+				});
+			}
+		}
+
+		// set base class
+		classes.push(baseClassName);
+
+		if (to) {
+			buttonTag = "a";
+			attributes.href = to;
+			delete attributes.type;
+		}
+
+		if (blockAttr) {
+			setClassName("block");
+		}
+
+		if (icon) {
+			setClassName("icon");
+		}
+
+		convertAttrToClassName(color, "color");
+		convertAttrToClassName(style, "style");
+		convertAttrToClassName(size, "size");
+
+	#{buttonTag}(class=classes)&attributes(attributes)
+		block

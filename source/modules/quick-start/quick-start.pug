@@ -1,0 +1,24 @@
+mixin quick-start(data)
+	.quick-start&attributes(attributes)
+		.quick-start__body
+			ol
+				li.js-appearing-item Uou need to install 
+					a(href="https://nodejs.org") Node.js
+					|  with version equal to 6 or higher.
+				li.js-appearing-item Clone the project or 
+					a(href="https://github.com/zoxon/gulp-front/archive/master.zip" title="Download source from Github") download single file
+					pre
+						code.
+							git clone git@github.com:zoxon/gulp-front.git  --depth 1 project-name
+
+				li.js-appearing-item Goto in project folder root and install dependencies
+					pre
+						code.
+							npm run setup
+				li.js-appearing-item Start dev server
+					pre
+						code.
+							npm start
+
+			p.js-appearing-item In browser open page with address 
+				code http://localhost:3000

@@ -5,19 +5,46 @@ include ../../file/file
 
 +form-item().form__item
 	.form-item__label
-		+label({"for": "form-demo__message", "text": "Message"})
+		+label(for="form-demo__textarea-inline") Inline Textarea
 	.form-item__control
-		+textarea(id="form-demo__message" name="form-demo__message" placeholder="Enter message").textarea_style_default
+		+textarea(
+			id="form-demo__textarea-inline" 
+			name="form-demo__textarea-inline" 
+			placeholder="Enter message"
+		).textarea_style_default.textarea_inline
+
 
 +form-item().form__item
 	.form-item__label
-		+label({"for": "form-demo__photo2", "text": "Photo"})
+		+label(for="form-demo__textarea-block") Full width Textarea
 	.form-item__control
-		+file(type="text" name="form-demo__photo2" id="form-demo__photo2" multiple).file_style_default
+		+textarea(
+			id="form-demo__textarea-block" 
+			name="form-demo__textarea-block" 
+			placeholder="Enter message"
+		).textarea_style_default.textarea_inline
+
 
 +form-item().form__item
 	.form-item__label
-		+label({"for": "form-demo__photo", "text": "Compact style"})
+		+label(for="form-demo__file") File
 	.form-item__control
-		+file(type="text" name="form-demo__photo" id="form-demo__photo" multiple).file_style_default.file_style_compact
+		+file(
+			type="text" 
+			name="form-demo__file" 
+			id="form-demo__file" 
+			multiple
+		).file_style_default
+
+
++form-item().form__item
+	.form-item__label
+		+label(for="form-demo__file-compact") File compact style
+	.form-item__control
+		+file(
+			type="text" 
+			name="form-demo__file-compact" 
+			id="form-demo__file-compact" 
+			multiple
+		).file_style_default.file_style_compact
 
