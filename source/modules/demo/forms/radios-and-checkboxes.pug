@@ -4,68 +4,157 @@ include ../../fieldset/fieldset
 include ../../radio/radio
 include ../../checkbox/checkbox
 
+
 +form-item().form__item
 	.form-item__control
 		+fieldset({ "legend": "Radios" })
 			.fieldset__item
-				+radio(id="form-demo__radio-1" name="form-demo__radio-group-1").radio_style_default Normal
+				+radio(
+					id="form-demo__radio-1" 
+					name="form-demo__radio-group-1"
+				).radio_style_default Normal
 			.fieldset__item
-				+radio(id="form-demo__radio-2" name="form-demo__radio-group-1" checked).radio_style_default Checked
+				+radio(
+					id="form-demo__radio-2" 
+					name="form-demo__radio-group-1" 
+					checked
+				).radio_style_default Checked
 			.fieldset__item
-				+radio(id="form-demo__radio-3" name="form-demo__radio-group-2" disabled).radio_style_default Normal Disabled
+				+radio(
+					id="form-demo__radio-3" 
+					name="form-demo__radio-group-2" 
+					disabled
+				).radio_style_default Normal Disabled
 			.fieldset__item
-				+radio(id="form-demo__radio-4" name="form-demo__radio-group-2" checked disabled).radio_style_default Checked and Disabled
+				+radio(
+					id="form-demo__radio-4" 
+					name="form-demo__radio-group-2" 
+					checked 
+					disabled
+				).radio_style_default Checked and Disabled
+
 
 +form-item().form__item
 	.form-item__control
 		+fieldset({ "legend": "Radios Inline" }).fieldset_inline
 			.fieldset__item
-				+radio(id="form-demo__radio-5" name="form-demo__radio-group-1i").radio_style_default Normal
+				+radio(
+					id="form-demo__radio-5" 
+					name="form-demo__radio-group-1i"
+				).radio_style_default Normal
 			.fieldset__item
-				+radio(id="form-demo__radio-6" name="form-demo__radio-group-1i" checked).radio_style_default Checked
+				+radio(
+					id="form-demo__radio-6" 
+					name="form-demo__radio-group-1i" 
+					checked
+				).radio_style_default Checked
 			.fieldset__item
-				+radio(id="form-demo__radio-7" name="form-demo__radio-group-2i" disabled).radio_style_default Normal Disabled
+				+radio(
+					id="form-demo__radio-7" 
+					name="form-demo__radio-group-2i" 
+					disabled
+				).radio_style_default Normal Disabled
 			.fieldset__item
-				+radio(id="form-demo__radio-8" name="form-demo__radio-group-2i" checked disabled).radio_style_default Checked and Disabled
+				+radio(
+					id="form-demo__radio-8" 
+					name="form-demo__radio-group-2i" 
+					checked 
+					disabled
+				).radio_style_default Checked and Disabled
+
 
 +form-item().form__item
 	.form-item__control
 		+fieldset({ "legend": "Checkboxes" })
 			.fieldset__item
-				+checkbox(id="form-demo__checkbox-1" name="form-demo__checkbox-group-1").checkbox_style_default Normal
+				+checkbox(
+					id="form-demo__checkbox-1" 
+					name="form-demo__checkbox-group-1"
+				).checkbox_style_default Normal
 			.fieldset__item
-				+checkbox(id="form-demo__checkbox-2" name="form-demo__checkbox-group-1" checked).checkbox_style_default Checked
+				+checkbox(
+					id="form-demo__checkbox-2" 
+					name="form-demo__checkbox-group-1" 
+					checked
+				).checkbox_style_default Checked
 			.fieldset__item
-				+checkbox(id="form-demo__checkbox-3" name="form-demo__checkbox-group-2" disabled).checkbox_style_default Normal Disabled
+				+checkbox(
+					id="form-demo__checkbox-3" 
+					name="form-demo__checkbox-group-2" 
+					disabled
+				).checkbox_style_default Normal Disabled
 			.fieldset__item
-				+checkbox(id="form-demo__checkbox-4" name="form-demo__checkbox-group-2" checked disabled).checkbox_style_default Checked and Disabled
+				+checkbox(
+					id="form-demo__checkbox-4" 
+					name="form-demo__checkbox-group-2" 
+					checked 
+					disabled
+				).checkbox_style_default Checked and Disabled
+
 
 +form-item().form__item
 	.form-item__control
 		+fieldset({ "legend": "Checkboxes Inline" }).fieldset_inline
 			.fieldset__item
-				+checkbox(id="form-demo__checkbox-5" name="form-demo__checkbox-group-1i").checkbox_style_default Normal
+				+checkbox(
+					id="form-demo__checkbox-5" 
+					name="form-demo__checkbox-group-1i"
+				).checkbox_style_default Normal
 			.fieldset__item
-				+checkbox(id="form-demo__checkbox-6" name="form-demo__checkbox-group-1i" checked).checkbox_style_default Checked
+				+checkbox(
+					id="form-demo__checkbox-6" 
+					name="form-demo__checkbox-group-1i" 
+					checked
+				).checkbox_style_default Checked
 			.fieldset__item
-				+checkbox(id="form-demo__checkbox-7" name="form-demo__checkbox-group-2i" disabled).checkbox_style_default Normal Disabled
+				+checkbox(
+					id="form-demo__checkbox-7" 
+					name="form-demo__checkbox-group-2i" 
+					disabled
+				).checkbox_style_default Normal Disabled
 			.fieldset__item
-				+checkbox(id="form-demo__checkbox-8" name="form-demo__checkbox-group-2i" checked disabled).checkbox_style_default Checked and Disabled
+				+checkbox(
+					id="form-demo__checkbox-8" 
+					name="form-demo__checkbox-group-2i" 
+					checked 
+					disabled
+				).checkbox_style_default Checked and Disabled
+
 
 +form-item().form__item
 	.form-item__control
 		+fieldset({ "legend": "Toggle Switch" })
 			.fieldset__item
-				+checkbox(id="form-demo__checkbox-9" name="form-demo__checkbox-group-3").checkbox_style_default.checkbox_type_toggle-sw Normal
+				+checkbox(
+					id="form-demo__checkbox-9" 
+					name="form-demo__checkbox-group-3"
+				).checkbox_style_default.checkbox_type_toggle-sw Normal
 			.fieldset__item
-				+checkbox(id="form-demo__checkbox-10" name="form-demo__checkbox-group-3" checked).checkbox_style_default.checkbox_type_toggle-sw Checked
+				+checkbox(
+					id="form-demo__checkbox-10" 
+					name="form-demo__checkbox-group-3" 
+					checked
+				).checkbox_style_default.checkbox_type_toggle-sw Checked
 			.fieldset__item
-				+checkbox(id="form-demo__checkbox-11" name="form-demo__checkbox-group-4" disabled).checkbox_style_default.checkbox_type_toggle-sw Normal Disabled
+				+checkbox(
+					id="form-demo__checkbox-11" 
+					name="form-demo__checkbox-group-4" 
+					disabled
+				).checkbox_style_default.checkbox_type_toggle-sw Normal Disabled
 			.fieldset__item
-				+checkbox(id="form-demo__checkbox-12" name="form-demo__checkbox-group-4" checked disabled).checkbox_style_default.checkbox_type_toggle-sw Checked and Disabled
+				+checkbox(
+					id="form-demo__checkbox-12" 
+					name="form-demo__checkbox-group-4" 
+					checked 
+					disabled
+				).checkbox_style_default.checkbox_type_toggle-sw Checked and Disabled
+
 
 +form-item().form__item
 	.form-item__label
-		+label({"text": "Without label", "for": "form-demo__checkbox-13"})
+		+label(for="form-demo__checkbox-13") Without label
 	.form-item__control
-		+checkbox(id="form-demo__checkbox-13" name="form-demo__checkbox-group-5").checkbox_style_default.checkbox_type_toggle-sw
+		+checkbox(
+			id="form-demo__checkbox-13" 
+			name="form-demo__checkbox-group-5"
+		).checkbox_style_default.checkbox_type_toggle-sw

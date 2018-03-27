@@ -2,14 +2,27 @@ include ../../form-item/form-item
 include ../../label/label
 include ../../range/range
 
-+form-item().form__item
-	.form-item__label
-		+label({"for": "form-demo__range", "text": "Range"})
-	.form-item__control
-		+range(type="text" name="form-demo__range" id="form-demo__range" value="50").range_style_default
 
 +form-item().form__item
 	.form-item__label
-		+label({"for": "form-demo__range2", "text": "Range disabled"})
+		+label(for="form-demo__range") Range
 	.form-item__control
-		+range(type="text" name="form-demo__range2" id="form-demo__range2" value="35" disabled).range_style_default
+		+range(
+			type="text" 
+			name="form-demo__range" 
+			id="form-demo__range" 
+			value="50"
+		).range_style_default
+
+
++form-item().form__item
+	.form-item__label
+		+label(for="form-demo__range-disabled") Range disabled
+	.form-item__control
+		+range(
+			type="text" 
+			name="form-demo__range-disabled" 
+			id="form-demo__range-disabled" 
+			value="35" 
+			disabled
+		).range_style_default

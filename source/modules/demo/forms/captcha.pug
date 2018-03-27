@@ -4,9 +4,17 @@ include ../../input/input
 
 +form-item().form-item_captcha.form__item
 	.form-item__label
-		+label({"for": "form-demo__captcha", "text": "Captcha"})
+		+label(for="form-demo__captcha") Captcha
 	.form-item__control
-		a(href="#").form-item__image
-			img(src="assets/images/form__captcha.png", alt="Enter text from image")
+		a(href="#" title="Click here to refresh image").form-item__image
+			img(
+				src="assets/images/form__captcha.png" 
+				alt="Enter text from image"
+			)
 		.form-item__input
-			+input(type="text" name="form-demo__captcha" id="form-demo__captcha" placeholder="Enter text from image").input_style_default
+			+input(
+				type="text" 
+				name="form-demo__captcha" 
+				id="form-demo__captcha" 
+				placeholder="Enter text from image"
+			).input_style_default

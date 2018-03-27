@@ -2,19 +2,7 @@ import Notification from "../notification/notification";
 
 import { $ } from "../_utils/dom/select";
 
-const formsDemo = $(".demo_forms");
 const componentsDemo = $(".demo_components");
-
-if (formsDemo) {
-  fetch("http://ip-api.com/json")
-    .then(response => response.json())
-    .then(json => {
-      $("#form-demo__ip").value = json.query;
-      $("#form-demo__city").value = json.city;
-      $("#form-demo__country").value = json.country;
-    })
-    .catch(err => console.log(err));
-}
 
 if (componentsDemo) {
   // Notifications
