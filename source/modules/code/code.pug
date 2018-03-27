@@ -1,4 +1,4 @@
-include ../_util/_util
+include ../_utils/utils
 
 mixin code(data)
 	- var lang = attributes.lang || '';
@@ -6,5 +6,5 @@ mixin code(data)
 
 	pre.code&attributes(attributes)
 		code.code__container(class='code_lang_' + lang)
-			+_block-escape()
+			+block-escape()
 				block

@@ -35,7 +35,6 @@ ScrollTop(".scroll-top");
 
 import "../../modules/demo/demo";
 import "../../modules/main-menu/main-menu";
-import "../../modules/logo/logo";
 import "../../modules/tooltip/tooltip";
 import "../../modules/modal/modal";
 
