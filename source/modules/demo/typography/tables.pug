@@ -1,4 +1,15 @@
-- var tables = [['table'], ['table', 'table_striped'], ['table', 'table_bordered'], ['table', 'table_horizontal'], ['table', 'table_striped', 'table_horizontal'], ['table', 'table_striped', 'table_bordered'] ];
+-
+	var tables = [
+		[],
+		['table'], 
+		['table', 'table_vertical'], 
+		['table', 'table_vertical', 'table_striped'], 
+		['table', 'table_horizontal'], 
+		['table', 'table_horizontal', 'table_striped'], 
+		['table', 'table_bordered'], 
+		['table', 'table_bordered', 'table_striped'] 
+	];
+
 each table in tables
 	table(class=table)
 		caption Table with(scope="col") caption, colgroup, thead, tfoot, and tbody

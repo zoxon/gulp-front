@@ -2,36 +2,32 @@ $table-border-color = $gray-4
 $table-head-border-color = $table-border-color
 $table-head-border = true
 $table-back-color = $blue-0
-$table-stripe-color = $gray-1
-$table-font-color = $base-text-color
+$table-stripe-color = $gray-0
 
 .table
 	margin $base-line-height 0
-	border 1px solid $table-border-color
+	width 100%
 	border-spacing 0
 	border-collapse collapse
 	empty-cells show
 
 	caption
 		padding 1em 0
-		color $table-font-color
+		color inherit
 		text-align center
 		font-style italic
-		font-size 85%
-		line-height 1
+		font-size 90%
 
 	td
 	th
 		overflow visible
 		margin 0
 		padding 0.5em 1em
-		border-width 0 0 0 1px
-		border-left 1px solid $table-border-color
+		border-width 0
+		border-style solid
+		border-color $table-border-color
 		font-weight normal
 		font-size inherit
-
-		&:first-child
-			border-left-width 0
 
 	thead
 	tfoot
@@ -40,13 +36,25 @@ $table-font-color = $base-text-color
 		vertical-align bottom
 		text-align left
 
-		if $table-head-border-color
-			td
-			th
+		td
+		th
+			font-weight 500
+
+			if $table-head-border-color
 				border-color $table-head-border-color
 
 	td
 		background-color transparent
+
+	&_vertical
+		border 1px solid $table-border-color
+
+		td
+		th
+			border-width 0 0 0 1px
+
+			&:first-child
+				border-left-width 0
 
 	// Horizontal stripes
 	&_striped
@@ -56,6 +64,9 @@ $table-font-color = $base-text-color
 
 	// All cels bordered
 	&_bordered
+		border 1px solid $table-border-color
+
+		th
 		td
 			border-bottom 1px solid $table-border-color
 
@@ -68,6 +79,8 @@ $table-font-color = $base-text-color
 
 	// Horizontal borders
 	&_horizontal
+		border 1px solid $table-border-color
+
 		td
 		th
 			border-width 0 0 1px 0

@@ -2,10 +2,10 @@ import Notification from "../notification/notification";
 
 import { $ } from "../_utils/dom/select";
 
-const formDemo = $(".demo_form");
+const formsDemo = $(".demo_forms");
 const componentsDemo = $(".demo_components");
 
-if (formDemo) {
+if (formsDemo) {
   fetch("http://ip-api.com/json")
     .then(response => response.json())
     .then(json => {
