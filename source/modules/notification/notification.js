@@ -83,6 +83,7 @@ class NotificationItem {
 
   init() {
     this.animationEnd = animationEndEventName();
+    console.log(this);
   }
 
   build(message, options) {

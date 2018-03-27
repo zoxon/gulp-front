@@ -20,7 +20,6 @@ class ScrollTop {
 
   init() {
     this.bindEvents();
-    console.log(this);
   }
 
   bindEvents() {
