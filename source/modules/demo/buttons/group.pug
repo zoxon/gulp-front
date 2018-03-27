@@ -1,28 +1,78 @@
+include ../../button/button
 include ../../button-group/button-group
 
 
 +button-group()
-	button(type="button").button.button_size_normal.button_style_solid.button_color_blue.button_style_rounded.button-group__item Blue
-	button(type="button").button.button_size_normal.button_style_solid.button_color_blue.button_style_rounded.button-group__item Blue
-	button(type="button").button.button_size_normal.button_style_solid.button_color_blue.button_style_rounded.button-group__item Blue
-	button(type="button").button.button_size_normal.button_style_solid.button_color_blue.button_style_rounded.button-group__item Blue
+	+button(
+		size="normal"
+		style="solid rounded"
+		color="blue"
+		icon
+	).button-group__item
+		+icon(name="add")
+		span Add
+
+	+button(
+		size="normal"
+		style="solid rounded"
+		color="blue"
+		icon
+	).button-group__item
+		+icon(name="button")
+
+	+button(
+		size="normal"
+		style="solid rounded"
+		color="blue"
+		icon
+	).button-group__item
+		span Search
+		+icon(name="maginifer")
+
 
 +button-group()
-	button(type="button").button.button_size_normal.button_style_ghost.button_color_blue.button_style_rounded.button-group__item Blue
-	button(type="button").button.button_size_normal.button_style_solid.button_color_blue.button_style_rounded.button-group__item Blue
-	button(type="button").button.button_size_normal.button_style_ghost.button_color_blue.button_style_rounded.button-group__item Blue
-	button(type="button").button.button_size_normal.button_style_ghost.button_color_blue.button_style_rounded.button-group__item Blue
+	+button(
+		size="normal"
+		style="ghost rounded"
+		color="blue"
+		icon
+	).button-group__item
+		+icon(name="add")
+	+button(
+		size="normal"
+		style="ghost rounded"
+		color="blue"
+		icon
+	).button-group__item
+		+icon(name="button")
+	+button(
+		size="normal"
+		style="ghost rounded"
+		color="blue"
+		icon
+	).button-group__item
+		+icon(name="maginifer")
+
 
 +button-group()
-	button(type="button").button.button_size_normal.button_style_solid.button_color_gray.button_style_pill.button-group__item Blue
-	button(type="button").button.button_size_normal.button_style_solid.button_color_blue.button_style_pill.button-group__item Blue
-	button(type="button").button.button_size_normal.button_style_solid.button_color_gray.button_style_pill.button-group__item Blue
-	button(type="button").button.button_size_normal.button_style_solid.button_color_gray.button_style_pill.button-group__item Blue
-	button(type="button").button.button_size_normal.button_style_solid.button_color_gray.button_style_pill.button-group__item Blue
-
-+button-group()
-	button(type="button").button.button_size_normal.button_style_ghost.button_color_blue.button_style_pill.button-group__item Blue
-	button(type="button").button.button_size_normal.button_style_solid.button_color_blue.button_style_pill.button-group__item Blue
-	button(type="button").button.button_size_normal.button_style_ghost.button_color_blue.button_style_pill.button-group__item Blue
-	button(type="button").button.button_size_normal.button_style_ghost.button_color_blue.button_style_pill.button-group__item Blue
-	button(type="button").button.button_size_normal.button_style_ghost.button_color_blue.button_style_pill.button-group__item Blue
+	+button(
+		size="normal"
+		style="ghost pill"
+		color="blue"
+		icon
+	).button-group__item
+		span Add
+	+button(
+		size="normal"
+		style="ghost pill"
+		color="blue"
+		icon
+	).button-group__item
+		span Play
+	+button(
+		size="normal"
+		style="ghost pill"
+		color="blue"
+		icon
+	).button-group__item
+		span Search
