@@ -1,6 +1,8 @@
 mixin head(data)
 	-
-		var title = data.title + ' :: ' + config.projectName;
+		var title = data.title 
+			? data.title + ' :: ' + config.projectName 
+			: config.projectName;
 		var author = "Velichko Konstantin"
 		var description = "The template for quick start of development with Gulp, Jade and Stylus"
 		var keywords = "demo, gulp, bem, modules, sprites, svg, jade, stylus, boilerplate, frontend, project, template"
