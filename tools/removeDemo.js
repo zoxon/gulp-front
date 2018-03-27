@@ -9,6 +9,7 @@ const pathsToRemove = [
   "./source/modules/demo",
   "./source/modules/header-presentation",
   "./source/modules/header/*",
+  "./source/modules/footer/*",
   "./source/pages/index.pug",
   "./source/pages/buttons.pug",
   "./source/pages/components.pug",
@@ -72,7 +73,21 @@ block head
 			@import "../modules/_page-list/_page-list.styl"
 
 block page
-  +page-list(pageList.data)
+	+page-list(pageList.data)
+`
+  },
+  {
+    path: "./source/modules/footer.pug",
+    content: `mixin footer(data)
+	footer.footer&attributes(attributes)
+		p &copy; You copyright
+`
+  },
+  {
+    path: "./source/modules/stylus.pug",
+    content: `mixin footer(data)
+	.footer
+		//
 `
   }
 ];
