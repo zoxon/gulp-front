@@ -1,0 +1,23 @@
+[data-offcanvas-container]
+	transition 125ms left ease-in-out
+	will-change left
+
+	&[data-offcanvas-hidden='false']
+		left -80%
+
+	&[data-offcanvas-hidden='true']
+		left 0
+
+[data-offcanvas-overlay]
+	&[data-offcanvas-hidden='false']
+		visibility visible
+		opacity 1
+
+[data-offcanvas-menu]
+	&[aria-hidden='true']
+		visibility hidden
+		opacity 0
+
+	&[aria-hidden='false']
+		visibility visible
+		opacity 1

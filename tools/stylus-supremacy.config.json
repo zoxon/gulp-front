@@ -1,0 +1,13 @@
+{
+  "insertColons": false,
+  "insertSemicolons": false,
+  "insertBraces": false,
+  "insertParenthesisAroundIfCondition": false,
+  "selectorSeparator": "\n",
+  "quoteChar": "'",
+  "sortProperties": "grouped",
+  "alwaysUseImport": true,
+  "alwaysUseNoneOverZero": true,
+  "reduceMarginAndPaddingValues": true,
+  "ignoreFiles": ["gulp/**/icons-template.styl"]
+}

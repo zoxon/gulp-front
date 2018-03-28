@@ -45,14 +45,19 @@ export const htmlPrettifyConfig = {
 };
 
 export const svgSymbolsConfig = {
-  title: false,
   id: "%f",
-  className: "%f",
-  svgClassname: "icons-sprite",
   templates: [
     path.join(CWD, "gulp/templates/icons-template.styl"),
     path.join(CWD, "gulp/templates/icons-template.svg")
-  ]
+    // "default-svg"
+  ],
+  slug: function(name) {
+    return name;
+  },
+  svgAttrs: {
+    class: "icons-sprite",
+    xmlns: "http://www.w3.org/2000/svg"
+  }
 };
 
 export const spritesmithConfig = {
@@ -85,6 +90,7 @@ export const imageminConfig = {
   icons: [
     gulpImagemin.svgo({
       plugins: [
+        { removeViewBox: false },
         { removeTitle: true },
         { removeStyleElement: true },
         {

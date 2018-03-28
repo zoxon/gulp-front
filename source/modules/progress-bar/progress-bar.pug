@@ -1,3 +1,7 @@
 mixin progress-bar(data)
+	-
+		attributes["data-progress-value"] = attributes.value || 0;
+		delete attributes.value;
+
 	.progress-bar&attributes(attributes)
-		.progress-bar__bar
+		.progress-bar__bar(style="width: 0%")

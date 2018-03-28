@@ -1,0 +1,41 @@
+---
+  featuresList:
+    default:
+      iconPrefix: 'landing_'
+      list:
+        -
+          icon: bem
+          title: BEM
+          description: The <a href="https://en.bem.info/">BEM methodology</a> helps to create extendable and reusable interface components.
+        -
+          icon: module
+          title: Modular architecture
+          description: Create and use HTML/CSS/JS in accordance with the principles of DRY
+        -
+          icon: cube
+          title: Built-in modules
+          description: Extensive set of modules which meet in 90% of all websites
+        -
+          icon: gear
+          title: Preprocessors and postprocessors
+          description: Simple and clean HTML and CSS syntax with superpowers
+        -
+          icon: text-file
+          title: Customized typography
+          description: The most important thing on the website is text and we took care of it
+        -
+          icon: vector
+          title: Your personal iconset
+          description: Create your own set of SVG icons. Only what you need and no fonts.
+        -
+          icon: picture
+          title: Easy to use sprite system
+          description: Just copy images to a folder and get sprite and @2x srpite
+        -
+          icon: phone
+          title: Simple media queries
+          description: You can easily create mobile version or adapt your current version of your website with the help of convenient mixins
+        -
+          icon: documentation
+          title: Documentation
+          description: Yes, we have a documentation :)

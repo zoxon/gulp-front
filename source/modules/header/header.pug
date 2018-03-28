@@ -1,25 +1,25 @@
 include ../logo/logo
+include ../button/button
 include ../main-menu/main-menu
-include ../github-button/github-button
 include ../header-presentation/header-presentation
 include ../mobile-menu-trigger/mobile-menu-trigger
 
 mixin header(data)
 	header.header&attributes(attributes)
-		.header__top
-			.header__inner
-				.header__logo
-					+logo()
+		.header__logo
+			+logo()
 
-				.header__menu
-					+main-menu(mainMenu.default)
+		.header__menu
+			+main-menu(mainMenu.default)
 
-				.header__github
-					+github-button()
+		+button(
+			to="//github.com/zoxon/gulp-front"
+			target="_blank"
+			title="Source on Github"
+			icon
+		).header__github-button
+			+icon(name="github-octocat" title="Github octocat mark")
+			span.visuallyhidden Github repository
 
-				.header__mobile-menu-trigger
-					+mobile-menu-trigger()
-
-		.header__bottom
-			.header__inner
-				+header-presentation(headerPresentation.default)
+		.header__mobile-menu-trigger
+			+mobile-menu-trigger()

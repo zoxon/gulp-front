@@ -1,4 +1,5 @@
-// Remodal
-$(function() {
-  $('[data-remodal-id]').remodal();
+import MicroModal from "micromodal";
+
+MicroModal.init({
+  awaitCloseAnimation: true
 });

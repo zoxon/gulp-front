@@ -4,10 +4,11 @@ include ../modules/browsehappy/browsehappy
 include ../modules/mobile-menu/mobile-menu
 include ../modules/javascripts/javascripts
 include ../modules/head/head
+include ../modules/scroll-top/scroll-top
 
 
 block page
-	.page__mobile-menu
+	.page__mobile-menu(data-offcanvas-menu aria-hidden="true")
 		+mobile-menu(mainMenu.default)
 
 	.page__content
@@ -20,6 +21,10 @@ block page
 
 		.page__footer
 			block footer
+	
+	.page__overlay(data-offcanvas-overlay)
+
+	+scroll-top()
 
 
 

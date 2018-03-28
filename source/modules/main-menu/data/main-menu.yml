@@ -4,7 +4,6 @@
       -
         title: Typography
         url: typography
-        icon: text
         submenu:
           -
             title: Titles & Paragraphs
@@ -22,12 +21,14 @@
             title: Code
             url: code
           -
+            title: Tables
+            url: tables
+          -
             title: Text level elements
             url: text-elements
       -
         title: Forms
         url: forms
-        icon: input
         submenu:
           -
             title: Messaging
@@ -53,7 +54,6 @@
       -
         title: Buttons
         url: buttons
-        icon: button
         submenu:
           -
             title: Styles
@@ -79,11 +79,7 @@
       -
         title: Components
         url: components
-        icon: add
         submenu:
-          -
-            title: Tables
-            url: tables
           -
             title: Breadcrumbs
             url: breadcrumbs
@@ -135,3 +131,9 @@
           -
             title: Spinner
             url: spinner
+          -
+            title: Card
+            url: card
+      -
+        title: Documentation
+        url: docs

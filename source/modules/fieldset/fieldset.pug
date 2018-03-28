@@ -1,0 +1,5 @@
+mixin fieldset(data)
+	fieldset.fieldset&attributes(attributes)
+		if data.legend
+			legend.fieldset__legend= data.legend
+		block

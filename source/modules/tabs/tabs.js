@@ -1,285 +1,259 @@
-// tabs
-(function() {
-  "use strict";
+import init from "../_utils/plugin-init";
+import getSiblings from "../_utils/dom/getSiblings";
+import simulate from "../_utils/event/simulate";
+import { mapAttributes } from "../_utils/dom/attr";
+import { KEYCODES } from "../_utils/constants";
 
-  /**
-   * Plugin name
-   * @type {String}
-   */
-  let pluginName = "tabs";
+let instances = 0;
 
-  /**
-   * Plugin default options
-   * @type {Object}
-   */
-  let defaults = {
-    tabActiveClassName: "tabs__tab_active",
-    panelActiveClassName: "tabs__panel_active"
-  };
-
-  /**
-   * Keyboard key codes
-   * @type {Object}
-   */
-  let KEYCODE = {
-    LEFT: 37,
-    UP: 38,
-    RIGHT: 39,
-    DOWN: 40,
-    HOME: 36,
-    END: 35,
-    ENTER: 13,
-    SPACE: 32
-  };
-
-  /**
-   * Tabs constructor
-   * @constructor
-   * @param {[jQuery]} element
-   * @param {[Object]} options
-   */
-  function Plugin(element, options) {
+class Tabs {
+  constructor(element, options) {
     this.element = element;
-    this._name = pluginName;
-    this._defaults = defaults;
+    this.name = "tabs";
+    this.count = instances++;
 
-    this.options = $.extend({}, this._defaults, options);
+    this._defaults = {
+      activeTabClassName: "tabs__tab_active",
+      activePanelClassName: "tabs__panel_active",
+      descriptionSelector: "[data-tabs-description]",
+      preloaderSelector: "[data-tabs-preloader]",
+      tabsIdAttrName: "data-tab-id",
+      panelsIdAttrName: "data-panel-id",
+      tabsNameAttrName: "data-tabs-name"
+    };
+
+    this.options = {
+      ...options,
+      ...this._defaults
+    };
 
     this.init();
   }
 
-  // Avoid Plugin.prototype conflicts
-  $.extend(Plugin.prototype, {
-    // Initialization logic
-    init: function() {
-      this.buildCache();
-      this.bindEvents();
+  init() {
+    this.buildCache();
+    this.bindEvents();
 
-      this.setA11yAttrs();
+    this.setA11yAttrs();
 
-      this.hidePreloader();
-      this.open(this.tabsName, this.firstTabId);
+    this.hidePreloader();
+    this.open(this.tabsName, this.firstTabId);
 
-      this.$first.attr("aria-describedby", this.descId);
-    },
+    this.firstTab.setAttribute("aria-describedby", this.descId);
+  }
 
-    // Remove plugin instance completely
-    destroy: function() {
-      this.unbindEvents();
-      this.$element.removeData();
-    },
+  buildCache() {
+    const {
+      tabsNameAttrName,
+      tabsIdAttrName,
+      panelsIdAttrName,
+      preloaderSelector,
+      descriptionSelector
+    } = this.options;
 
-    // Cache DOM nodes for performance
-    buildCache: function() {
-      this.$element = $(this.element);
-      this.$tabs = this.$element.find("[data-tabs-target]");
-      this.$first = this.$tabs.first();
-      this.$panels = this.$element.find("[data-tabs-id]");
-      this.$preloader = this.$element.find('[data-tabs-role="preloader"]');
-      this.$desc = this.$element.find('[data-tabs-role="description"]');
-      this.tabsName = this.$element.data("tabs-name");
-      this.firstTabId = this.$tabs.eq(0).data("tabs-target");
+    this.tabsName = this.element.getAttribute(tabsNameAttrName);
+    this.tabs = this.element.querySelectorAll(`[${tabsIdAttrName}]`);
+    this.firstTab = this.tabs[0];
+    this.firstTabId = this.firstTab.getAttribute(tabsIdAttrName);
+    this.panels = this.element.querySelectorAll(`[${panelsIdAttrName}]`);
+    this.panelId = this.name + "__panel_index-" + this.count;
+    this.preloader = this.element.querySelector(preloaderSelector);
+    this.description = this.element.querySelector(descriptionSelector);
+    this.descId =
+      this.name + "__description_index-" + Math.ceil(Math.random() * 1000);
+    this.triggerId = this.name + "__trigger_index-" + this.count;
+    this.selected = 0;
+  }
 
-      this.descId =
-        this._name + "__description_index-" + Math.ceil(Math.random() * 1000);
-      this.panelId = this._name + "__panel_index-" + this.options.count;
-      this.triggerId = this._name + "__trigger_index-" + this.options.count;
-      this.selected = 0;
-    },
+  bindEvents() {
+    const plugin = this;
 
-    // Bind events that trigger methods
-    bindEvents: function() {
-      let plugin = this;
+    ["hashchange", "onpopstate"].forEach(eventName => {
+      window.addEventListener(eventName, () => {
+        plugin.onHashchangeHandler.call(plugin);
+      });
 
-      $(window)
-        .on("hashchange onpopstate", function() {
-          plugin.onHashchangeHandler.call(plugin);
-        })
-        .trigger("hashchange");
+      simulate(eventName, window);
+    });
 
-      this.$tabs.on(
-        "focus" + "." + plugin._name + " click" + "." + plugin._name,
-        function(event) {
+    ["focus", "click"].forEach(eventName => {
+      Array.prototype.forEach.call(plugin.tabs, tab => {
+        tab.addEventListener(eventName, event => {
           event.preventDefault();
 
-          let id = $(event.target).data("tabs-target");
-
+          let id = event.target.getAttribute(this.options.tabsIdAttrName);
           plugin.open(plugin.tabsName, id);
 
           window.location.hash = plugin.tabsName + "__" + id;
-        }
-      );
+        });
+      });
+    });
 
-      this.$tabs.on("keydown" + "." + plugin._name, function(event) {
+    Array.prototype.forEach.call(plugin.tabs, tab => {
+      tab.addEventListener("keydown", event => {
         plugin.handleKeydown.call(plugin, event);
       });
-    },
+    });
+  }
 
-    // Unbind events that trigger methods
-    unbindEvents: function() {
-      this.$element.off("." + this._name);
-    },
+  open(tabsName, id) {
+    const {
+      tabsNameAttrName,
+      tabsIdAttrName,
+      panelsIdAttrName,
+      activeTabClassName,
+      activePanelClassName
+    } = this.options;
 
-    open: function(tabsName, id) {
-      let $tabsContainer = $('[data-tabs-name="' + tabsName + '"]');
-      let $targetTab = $tabsContainer.find('[data-tabs-target="' + id + '"]');
-      let $targetPanel = $tabsContainer.find('[data-tabs-id="' + id + '"]');
+    const tabsContainer = document.querySelector(
+      `[${tabsNameAttrName}="${tabsName}"]`
+    );
+    const targetTab = tabsContainer.querySelector(
+      `[${tabsIdAttrName}="${id}"]`
+    );
+    const targetPanel = tabsContainer.querySelector(
+      `[${panelsIdAttrName}="${id}"]`
+    );
 
-      $targetTab
-        .attr({
-          tabindex: 0,
-          "aria-selected": "true"
-        })
-        .addClass(this.options.tabActiveClassName)
-        .siblings()
-        .attr({
-          tabindex: -1,
-          "aria-selected": "false"
-        })
-        .removeClass(this.options.tabActiveClassName);
+    mapAttributes(targetTab, {
+      tabindex: "0",
+      "aria-selected": "true"
+    });
+    targetTab.classList.add(activeTabClassName);
 
-      $targetPanel
-        .attr("aria-hidden", "false")
-        .addClass(this.options.panelActiveClassName)
-        .siblings()
-        .attr("aria-hidden", "true")
-        .removeClass(this.options.panelActiveClassName);
+    const targetTabSiblings = getSiblings(targetTab);
+    Array.prototype.forEach.call(targetTabSiblings, tab => {
+      mapAttributes(tab, {
+        tabindex: "-1",
+        "aria-selected": "false"
+      });
+      tab.classList.remove(activeTabClassName);
+    });
 
-      $(window).trigger("change" + "." + this._name);
-    },
+    targetPanel.setAttribute("aria-hidden", "false");
+    targetPanel.classList.add(activePanelClassName);
 
-    hidePreloader: function() {
-      if (this.$preloader) {
-        this.$preloader.hide();
+    const targetPanelSiblings = getSiblings(targetPanel);
+    Array.prototype.forEach.call(targetPanelSiblings, panel => {
+      panel.setAttribute("aria-hidden", "true");
+      panel.classList.remove(activePanelClassName);
+    });
+
+    simulate("change", window);
+  }
+
+  hidePreloader() {
+    if (this.preloader) {
+      this.preloader.style.display = "none";
+    }
+  }
+
+  parseHash(hash) {
+    let data = hash.split("__");
+    return {
+      name: data[0] || null,
+      id: data[1] || null
+    };
+  }
+
+  onHashchangeHandler() {
+    let hash = window.location.hash.replace("#", "");
+
+    if (hash !== "") {
+      let { name, id } = this.parseHash(hash);
+
+      let tabsContainer = document.querySelector(
+        `[${this.options.tabsNameAttrName}="${name}"]`
+      );
+
+      if (tabsContainer && name) {
+        this.open(name, id ? id : this.firstTabId);
       }
-    },
+    }
+  }
 
-    parseHash: function(hash) {
-      let data = hash.split("__");
-      return {
-        name: data[0],
-        id: data[1]
-      };
-    },
+  handleKeydown(event) {
+    let first = 0;
+    let last = this.tabs.length - 1;
 
-    onHashchangeHandler: function() {
-      let hash = window.location.hash.replace("#", "");
+    switch (event.which) {
+      case KEYCODES.LEFT:
+      case KEYCODES.UP:
+        event.preventDefault();
+        event.stopPropagation();
 
-      if (hash !== "") {
-        let hashData = this.parseHash(hash);
-
-        let $tabsContainer = $('[data-tabs-name="' + hashData.name + '"]');
-
-        if ($tabsContainer.length) {
-          if (typeof hashData.id !== undefined) {
-            this.open(hashData.name, hashData.id);
-          } else {
-            this.open(hashData.name, this.firstTabId);
-          }
-        }
-      }
-    },
-
-    handleKeydown: function(event) {
-      let first = 0;
-      let last = this.$tabs.length - 1;
-
-      switch (event.which) {
-        case KEYCODE.LEFT:
-        case KEYCODE.UP:
-          event.preventDefault();
-          event.stopPropagation();
-
-          if (this.selected === first) {
-            this.selected = last;
-          } else {
-            this.selected--;
-          }
-
-          break;
-
-        case KEYCODE.RIGHT:
-        case KEYCODE.DOWN:
-          event.preventDefault();
-          event.stopPropagation();
-
-          if (this.selected >= last) {
-            this.selected = first;
-          } else {
-            this.selected++;
-          }
-
-          break;
-
-        case KEYCODE.HOME:
-          event.preventDefault();
-          event.stopPropagation();
-
-          this.selected = first;
-
-          break;
-
-        case KEYCODE.END:
-          event.preventDefault();
-          event.stopPropagation();
-
+        if (this.selected === first) {
           this.selected = last;
+        } else {
+          this.selected--;
+        }
 
-          break;
+        break;
 
-        case KEYCODE.ENTER:
-        case KEYCODE.SPACE:
-          event.preventDefault();
-          event.stopPropagation();
+      case KEYCODES.RIGHT:
+      case KEYCODES.DOWN:
+        event.preventDefault();
+        event.stopPropagation();
 
-          break;
-      }
+        if (this.selected >= last) {
+          this.selected = first;
+        } else {
+          this.selected++;
+        }
 
-      this.$tabs[this.selected].focus();
-    },
+        break;
 
-    setA11yAttrs: function() {
-      this.$tabs.parent().attr("role", "tablist");
+      case KEYCODES.HOME:
+        event.preventDefault();
+        event.stopPropagation();
 
-      this.$desc.attr("id", this.descId);
+        this.selected = first;
 
-      this.$tabs.attr({
+        break;
+
+      case KEYCODES.END:
+        event.preventDefault();
+        event.stopPropagation();
+
+        this.selected = last;
+
+        break;
+
+      case KEYCODES.ENTER:
+      case KEYCODES.SPACE:
+        event.preventDefault();
+        event.stopPropagation();
+
+        break;
+    }
+
+    this.tabs[this.selected].focus();
+  }
+
+  setA11yAttrs() {
+    this.tabs[0].parentNode.setAttribute("role", "tablist");
+
+    this.description.setAttribute("id", this.descId);
+
+    Array.prototype.forEach.call(this.tabs, tab => {
+      mapAttributes(tab, {
         id: this.triggerId,
         tabindex: "-1",
         role: "tab",
         "aria-selected": "false",
         "aria-controls": this.panelId
       });
+    });
 
-      this.$panels.attr({
+    Array.prototype.forEach.call(this.panels, panel => {
+      mapAttributes(panel, {
         id: this.panelId,
         role: "tabpanel",
         "aria-hidden": "true",
         "aria-labelledby": this.triggerId
       });
-    },
-
-    // Universal calback call
-    callback: function(name) {
-      let cb = this.options[name];
-
-      if (typeof cb === "function") {
-        cb.call(this.element);
-      }
-    }
-  });
-
-  $.fn[pluginName] = function(options) {
-    return this.each(function(index) {
-      options = $.extend(options, { count: index });
-
-      if (!$.data(this, "plugin_" + pluginName)) {
-        $.data(this, "plugin_" + pluginName, new Plugin(this, options));
-      }
     });
-  };
-})();
+  }
+}
 
-$(function() {
-  $(".tabs").tabs();
-});
+export default init(Tabs);

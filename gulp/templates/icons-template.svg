@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg"<% if(svgClassname) {%> class="<%= svgClassname %>"<% } %>><% if(defs) {%>
+<svg<%= attributesToString(svgAttrs) %>><% if(defs) {%>
   <defs>
     <%= defs %>
   </defs><% } %><% _.forEach( icons, function( icon ){ %>

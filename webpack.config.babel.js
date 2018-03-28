@@ -1,85 +1,71 @@
-import path from 'path';
-import webpack from 'webpack';
+import path from "path";
+import webpack from "webpack";
+import CaseSensitivePathsPlugin from "case-sensitive-paths-webpack-plugin";
+import CircularDependencyPlugin from "circular-dependency-plugin";
+import DuplicatePackageCheckerPlugin from "duplicate-package-checker-webpack-plugin";
+import HappyPack from "happypack";
 
-import { NODE_ENV, isDevelopment } from './gulp/util/env.js';
-
-const outputFileName = '[name].js';
+const NODE_ENV = process.env.NODE_ENV ? "production" : "development";
+const isDevelopment = NODE_ENV === "development";
 
 let options = {
+  mode: NODE_ENV,
   entry: {
-    vendor: [ 'jquery', './vendor.js' ],
-    main: './main.js'
+    vendor: ["babel-polyfill", "./vendor.js"],
+    main: "./main.js"
   },
   output: {
-    filename: outputFileName,
-    path: __dirname + '/dest/assets/javascripts',
-    publicPath: '/assets/javascripts/',
-    library: '[name]'
+    filename: "[name].js",
+    path: path.join(__dirname + "/dest/assets/javascripts"),
+    publicPath: "/assets/javascripts/"
   },
-  devtool: isDevelopment ? 'eval-source-map' : 'source-map',
-  context: path.resolve(__dirname, 'source/static/scripts'),
+  resolve: {
+    modules: ["node_modules", path.join(__dirname, "soruce")],
+    alias: {
+      "lodash-es": "lodash"
+    }
+  },
+  devtool: isDevelopment ? "eval-source-map" : "source-map",
+  context: path.resolve(__dirname, "source/static/scripts"),
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendor",
+          chunks: "all"
+        }
+      }
+    }
+  },
   module: {
     noParse: /\/node_modules\/(jquery|backbone)/,
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loaders: ['babel-loader']
+        use: {
+          loader: "happypack/loader"
+        }
       }
     ]
-  }
-};
-
-options.plugins = [
-  new webpack.optimize.CommonsChunkPlugin({
-    name: 'vendor',
-    minChunks: Infinity,
-    filename: outputFileName
-  }),
-  new webpack.DefinePlugin({
-    NODE_ENV: JSON.stringify(NODE_ENV),
-    'process.env.NODE_ENV': JSON.stringify(NODE_ENV)
-  }),
-  new webpack.ProvidePlugin({
-    $: 'jquery',
-    jQuery: 'jquery',
-    'window.jQuery': 'jquery'
-  })
-];
-
-if (isDevelopment) {
-  options.plugins.push(
-    new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
-  );
-}
-else {
-  options.plugins.push(
-    new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.optimize.ModuleConcatenationPlugin(),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
-      debug: false
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      "process.env.NODE_ENV": JSON.stringify(NODE_ENV)
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false,
-        screw_ie8: true,
-        conditionals: true,
-        unused: true,
-        comparisons: true,
-        sequences: true,
-        dead_code: true,
-        evaluate: true,
-        if_return: true,
-        join_vars: true
-      },
-      output: {
-        comments: false
-      }
+    new CaseSensitivePathsPlugin(),
+    new CircularDependencyPlugin({
+      // exclude detection of files based on a RegExp
+      exclude: /a\.js|node_modules/,
+      // add errors to webpack instead of warnings
+      failOnError: true
+    }),
+    new DuplicatePackageCheckerPlugin(),
+    new HappyPack({
+      loaders: ["babel-loader"]
     })
-  );
-}
+  ]
+};
 
 export default options;

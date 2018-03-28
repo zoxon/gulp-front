@@ -1,34 +1,33 @@
-// main-menu
-(function() {
+import scrollTo from "../_utils/scrollTo";
+import getOffsetTop from "../_utils/dom/getOffsetTop";
+import { $ } from "../_utils/dom/select";
 
-  var $mainMenus = $('.main-menu');
+const mainMenu = $(".main-menu");
+if (mainMenu) {
+  const links = mainMenu.querySelectorAll('a[href^="#"]');
+  const headerHeight = parseInt($(".header").offsetHeight);
+  const duration = 700;
+  const offset = headerHeight + 20;
 
-  if ($mainMenus.isset()) {
-    $mainMenus.each(function() {
-      var $menu = $(this);
-      var $links = $menu.find('a[href^="#"]');
-      var offset = parseInt($('.header__top').outerHeight());
-      var animSpeed = 700;
+  Array.prototype.forEach.call(links, link => {
+    link.addEventListener("click", event => {
+      event.preventDefault();
 
-      // Scroll on click
-      $links.on('click', function(event) {
-        event.preventDefault();
-        var $link = $(this);
+      const hash = link.getAttribute("href");
+      const target = $(hash);
 
-        var hash = $link.attr('href');
-        var $target = $(hash);
+      if (target) {
+        let options = { duration };
+        const to = getOffsetTop(target) - offset;
 
-        if ($target.isset()) {
-          $('html, body').stop().animate({
-            'scrollTop': $target.offset().top - offset - 20
-          }, animSpeed, 'swing', function() {
-            window.location.hash = hash;
-          });
+        scrollTo({ to, options });
+
+        if (history.pushState) {
+          history.pushState(null, null, hash);
+        } else {
+          location.hash = hash;
         }
-
-      });
-
+      }
     });
-  }
-
-})();
+  });
+}

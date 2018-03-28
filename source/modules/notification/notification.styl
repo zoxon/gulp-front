@@ -1,87 +1,175 @@
-.notification-board
+@keyframes fadeinup
+	0%
+		opacity 0
+		transform translateY(-15px)
+
+	30%
+		opacity 0.8
+		transform translateY(-3px)
+
+	100%
+		opacity 1
+		transform translateY(0)
+
+@keyframes fadeoutdown
+	0%
+		opacity 1
+		transform translateY(0)
+
+	30%
+		opacity 0.2
+		transform translateY(-3px)
+
+	100%
+		opacity 0
+		transform translateY(-15px)
+
+@keyframes appear
+	0%
+		opacity 0
+
+	30%
+		opacity 0.5
+
+	100%
+		opacity 0.8
+
+@keyframes disappear
+	0%
+		opacity 0.8
+
+	30%
+		opacity 0.1
+
+	100%
+		opacity 0
+
+.notification-container
 	position fixed
-	width 250px
+	right 30px
+	bottom 20px
 	z-index 9999
+	width 25%
+	color white
+
+	+below(736px)
+		right 0
+		left 0
+		display block
+		margin 0 auto
+		width 90%
 
 	&__item
 		position relative
-
-	&_vertical_top
-		top 60px
-	&_vertical_top &__item
-		margin-top 20px
-
-	&_vertical_bottom
-		bottom 0
-	&_vertical_bottom &__item
-		margin-bottom 20px
-
-	&_vertical_center
-		top 50%
-		transform translate(0, -50%)
-
-
-	&_horizontal_left
-		left 0
-	&_horizontal_left &__item
-		margin-left 20px
-
-	&_horizontal_right
-		right 0
-	&_horizontal_right &__item
-		margin-right 20px
-
-	&_horizontal_center
-		left 50%
-		transform translate(-50%, 0)
-
+		margin-bottom 15px
+		transition-timing-function ease
+		transition-duration 125ms
+		transition-property all
 
 .notification
-	background-color #fff
+	position relative
+	padding 15px 15px 15px 60px
 	border-radius 3px
-	padding 10px
-	box-shadow 0 0 7px rgba(#000, 0.13)
-	color #8e98a7
+	background-color #fff
+	box-shadow 0px 1px 3px 0px rgba(0, 0, 0, 0.45)
+	color rgba(#000, 0.4)
+	animation fadeinup 0.3s forwards
+
+	&::before
+		position absolute
+		top 16px
+		left 20px
+		size 24px
+		background-position 0 0
+		background-repeat no-repeat
+		content ''
+		opacity 0
+		animation appear 0.5s forwards
+		animation-delay 0.25s
 
 	&__close
-		cursor pointer
 		position absolute
-		right 0
 		top 0
-		height 24px
+		right 0
+		margin 0
+		padding 0
 		width 24px
-		transition 125ms all ease-in-out
+		height 24px
+		border none
+		background transparent
+		color inherit
 		text-align center
+		cursor pointer
+		transition 125ms all ease-in-out
+
 		&:after
+			display inline
+			color currentColor
 			content '\00d7'
 			font-size 1.2em
-			display inline
 
 		&:hover
 			opacity 0.8
 
-	&__content
+	&__message
+		opacity 0
+		animation fadeinup 0.3s forwards
+		animation-delay 0.15s
+
 		a
 			&
 			&:visited
 				color currentColor
 
 			&:hover
-				text-decoration none
 				color currentColor
+				text-decoration none
+
+	&_disappear
+		animation fadeoutdown 0.3s 1 forwards
+		animation-delay 0.25s
+
+		& ^[0]__message
+			opacity 1
+			animation fadeoutdown 0.3s 1 forwards
+			animation-delay 0.1s
+
+		& ^[0]::before
+			opacity 1
+			animation disappear 0.3s 1 forwards
+
+	&_type_info
+		&::before
+			filter opacity(0.4)
+			background-image url('../images/notification__info.svg')
 
 	&_type_notice
 		background-color blue
 		color #fff
 
+		&::before
+			filter invert(1)
+			background-image url('../images/notification__notice.svg')
+
 	&_type_success
 		background-color green
 		color #fff
+
+		&::before
+			filter invert(1)
+			background-image url('../images/notification__success.svg')
 
 	&_type_error
 		background-color red
 		color #fff
 
+		&::before
+			filter invert(1)
+			background-image url('../images/notification__error.svg')
+
 	&_type_warning
 		background-color yellow
 		color $base-text-color
+
+		&::before
+			background-image url('../images/notification__warning.svg')

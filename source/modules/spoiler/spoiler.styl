@@ -1,2 +1,16 @@
 [data-spoiler-id]
-	display none
+	&[aria-hidden]
+		visibility visible
+		overflow hidden
+		max-height 50rem
+		opacity 1
+		transition visibility 0s ease 0s, max-height 0.65s ease-out 0s, opacity 0.65s ease-in 0s
+
+	&[aria-hidden=true]
+		visibility hidden
+		max-height 0
+		opacity 0
+		transition-delay 1s, 0s, 0s
+
+	&[style][aria-hidden=true]
+		max-height 0 !important

@@ -1,43 +1,31 @@
 .mobile-menu
-	padding 20px 0
+	padding 1.5em 0
 
 	&__list
 		margin 0
 		padding 0
 
 	&__item
-		padding 0 0 20px 0
+		padding 0 0 1.5em
 		list-style none
-
-	&__icon
-	&__text
-		display inline-block
-		vertical-align middle
-
-	&__icon
-		padding-right 6px
-		svg
-			display block
-			size 16px
 
 	&__link
 		&
 		&:visited
+			display block
+			padding 1em 1.5em
+			color $base-text-color
 			vertical-align middle
 			text-decoration none
-			color #222
-			display block
-			padding 12px 20px
+			font-size 1em
 			line-height normal
-			font-size 18px
 
 		&:hover
-			color #222
+			color $base-text-color
 
 	&__submenu
-		display none
 		margin 0
-		padding 0 20px
+		padding 0 2em
 
 	&__submenu &__item
 		padding-bottom 0
@@ -48,12 +36,12 @@
 	&__submenu-link
 		&
 		&:visited
-			font-size 14px
 			display block
-			padding 10px 20px
+			padding 1em 1.5em
+			border-bottom 1px solid $gray-3
+			color $base-text-color
 			text-decoration none
-			color #505050
-			border-bottom 1px solid #e2e3e4
+			font-size 0.8em
 
 		&:hover
-			color #2d3e60
+			color $base-text-color

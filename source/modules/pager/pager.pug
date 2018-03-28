@@ -1,4 +1,22 @@
+include ../button/button
+include ../icon/icon
+
 mixin pager(data)
 	.pager&attributes(attributes)
-		a(href="#").pager__control.pager__control_backward « Oldest
-		a(href="#").pager__control.pager__control_forward Newest »
+		+button(
+			to="#"
+			size="normal"
+			style="solid rounded"
+			color="blue"
+		).pager__item.pager__item_prev
+			+icon(name="chevron_left" title="Chevron left")
+			span Previous
+		+button(
+			to="#"
+			size="normal"
+			style="solid rounded"
+			color="blue"
+		).pager__item.pager__item_next
+			span Next
+			+icon(name="chevron_right" title="Chevron right")
+

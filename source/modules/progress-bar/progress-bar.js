@@ -1,17 +1,38 @@
-// progress-bar
-(function() {
+import init from "../_utils/plugin-init";
+import { createElement } from "../_utils/dom/createElement";
 
-  var $progressBars = $('.progress-bar');
+class ProgressBar {
+  constructor(element, options) {
+    this._defaults = {
+      valueAttribute: "data-progress-value",
+      barClassName: "progress-bar__bar"
+    };
 
-  if ($progressBars.isset()) {
-    $progressBars.each(function() {
-      var $progress = $(this);
-      var $progressBar = $progress.children('.progress-bar__bar');
-      var value = $progress.data('progress-value');
+    this.element = element;
+    this.options = Object.assign({}, this._defaults, options);
 
-      $progressBar.css({ 'width': value * 100 + '%' });
-    });
+    this.init();
   }
 
+  init() {
+    this.buildCache();
+    this.setBarWidth();
+  }
 
-})();
+  buildCache() {
+    const { barClassName, valueAttribute } = this.options;
+
+    this.bar =
+      this.element.querySelector(`.${barClassName}`) ||
+      this.element.appendChild(
+        createElement("div", { className: barClassName })
+      );
+    this.value = this.element.getAttribute(valueAttribute) || 0;
+  }
+
+  setBarWidth() {
+    this.bar.style.width = this.value * 100 + "%";
+  }
+}
+
+export default init(ProgressBar);

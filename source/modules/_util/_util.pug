@@ -1,5 +1,0 @@
-mixin _block-escape()
-	- var oldBuf = pug_html;
-	- pug_html = '';
-	block
-	- pug_html = oldBuf + pug.escape(pug_html);

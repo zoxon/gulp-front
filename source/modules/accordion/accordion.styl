@@ -1,57 +1,57 @@
 .accordion
 	&__item
+		margin-bottom -1px
 		padding 0
 		list-style none
-		margin-bottom -1px
 
 	&__trigger
 		position relative
-		color #333
-		font-size 13px
+		box-sizing border-box
 		padding 10px 50px 10px 20px
-		background-color #fff
-		transition 150ms all ease-in-out 0s
+		width 100%
 		border 1px solid #cdcdcd
 		border-radius 3px
-		cursor pointer
-		width 100%
-		box-sizing border-box
+		background-color #fff
+		color #333
 		text-align left
+		font-size 13px
+		cursor pointer
+		transition 150ms all ease-in-out 0s
 
 		&:hover
 			background-color #f9f9f9
 
 		&::after
-			transition 150ms all ease-in-out 0s
 			position absolute
-			right 20px
 			top 50%
-			margin-top -5px
-			content ''
+			right 20px
 			display block
+			margin-top -5px
 			size 6px
 			border-width 0 1px 1px 0
-			border-color #535353
 			border-style solid
+			border-color #535353
+			content ''
+			transition 150ms all ease-in-out 0s
 			transform rotate(45deg)
 			transform-origin 75% 75%
 
 	&__pannel
-		padding 0 10px
-		transition 250ms all cubic-bezier(0.5, 0, 0.1, 1)
-		height 0
 		visibility hidden
-		opacity 0
 		overflow hidden
+		padding 0 10px
+		height 0
+		opacity 0
+		transition 250ms all cubic-bezier(0.5, 0, 0.1, 1)
 
-	&__item_active &__pannel
+	[data-plugin-accordion-item-open='true'] &__pannel
+		visibility visible
+		overflow auto
 		padding-top 20px
 		padding-bottom 20px
 		height auto
-		visibility visible
-		overflow auto
 		opacity 1
 
-	&__item_active &__trigger
+	[data-plugin-accordion-item-open='true'] &__trigger
 		&::after
 			transform rotate(225deg)

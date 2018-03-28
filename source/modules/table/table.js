@@ -1,165 +1,107 @@
-(function( $, window, document, undefined ) {
-  'use strict';
+import init from "../_utils/plugin-init";
+import getIndex from "../_utils/dom/getIndex";
 
-  var pluginName = 'table';
-
-  var defaults = {
-    initedClassName: 'table_responsive',
-    cellAttributeName: 'data-th',
-    cellInnerClassName: 'table__content'
-  };
-
-  // Create the plugin constructor
-  function Plugin( element, options ) {
+class Table {
+  constructor(element, options) {
     this.element = element;
-    this._name = pluginName;
-    this._defaults = defaults;
-    this.options = $.extend( {}, this._defaults, options );
+    this.name = "table";
+
+    this._defaults = {
+      initedClassName: "table_responsive",
+      cellAttributeName: "data-th",
+      cellInnerClassName: "table__content"
+    };
+
+    this.options = {
+      ...options,
+      ...this._defaults
+    };
 
     this.init();
   }
 
-  // Avoid Plugin.prototype conflicts
-  $.extend(Plugin.prototype, {
+  init() {
+    this.buildCache();
+    this.updateCells();
+    this.setInited();
+  }
 
-    // Initialization logic
-    init: function() {
-      this.buildCache();
-      this.bindEvents();
-      this.updateCells();
-      this.setInited();
-    },
+  buildCache() {
+    this.cells = this.element.querySelectorAll("td");
+    this.headings = this.element.querySelectorAll(this.findHeadings());
+  }
 
-    // Remove plugin instance completely
-    destroy: function() {
-      this.unbindEvents();
-      this.$element.removeData();
-    },
-
-    // Cache DOM nodes for performance
-    buildCache: function() {
-      this.$element = $(this.element);
-      this.headingsSelector = this.findHeadings();
-      this.$cells = this.$element.find('td');
-    },
-
-    // Bind events that trigger methods
-    bindEvents: function() {
-      var plugin = this;
-
-      plugin.$element.on('click' + '.' + plugin._name, function() {
-        plugin.someOtherFunction.call(plugin);
-      });
-    },
-
-    // Unbind events that trigger methods
-    unbindEvents: function() {
-      this.$element.off('.' + this._name);
-    },
-
-    // Create custom methods
-    findHeadings: function() {
-      if (this.$element.find('thead tr th').length) {
-        return 'thead th';
-      }
-      if (this.$element.find('tfoot tr th').length) {
-        return 'tfoot th';
-      }
-      else if (this.$element.find('tbody tr th').length) {
-        return 'tbody tr th';
-      }
-      else if (this.$element.find('th').length) {
-        return 'tr:first th';
-      }
-      else if (this.$element.find('thead tr td').length) {
-        return 'thead td';
-      }
-      else if (this.$element.find('tfoot tr td').length) {
-        return 'tfoot td';
-      }
-      else {
-        return 'tr:first td';
-      }
-    },
-
-    getHeadings: function() {
-      var headings = [];
-
-      $.each(this.$element.find(this.headingsSelector), function() {
-        var $heading = $(this);
-        var colspan = parseInt($heading.attr('colspan'), 10) || 1;
-        var row = $heading.closest('tr').index();
-
-        if (!headings[row]) {
-          headings[row] = [];
-        }
-
-        for (var i = 0; i < colspan; i++) {
-          headings[row].push($heading);
-        }
-      });
-
-      return headings;
-    },
-
-    updateCells: function() {
-      var self = this;
-      var $headings = this.getHeadings();
-
-      this.$cells.each(function() {
-        var $cell = $(this);
-
-        var cellIndex = $cell.index();
-        var headingText = '';
-
-        for (var j = 0; j < $headings.length; j++) {
-          if (j != 0) {
-            headingText += ': ';
-          }
-
-          var $heading = $headings[j][cellIndex];
-          headingText += $heading.text();
-        }
-
-        $cell.attr(self.options.cellAttributeName, headingText);
-
-        self.wrappCellContent($cell);
-      });
-    },
-
-    wrappCellContent: function($cell) {
-      if (!$cell.children().hasClass(this.options.cellInnerClassName)) {
-        $cell.wrapInner('<span class="' + this.options.cellInnerClassName + '" />');
-      }
-    },
-
-    setInited: function() {
-      this.$element.addClass(this.options.initedClassName);
-    },
-
-    // Universal calback call
-    callback: function(name) {
-
-      // Cache onComplete option
-      var cb = this.options[ name ];
-
-      if ( typeof cb === 'function' ) {
-        cb.call(this.element);
-      }
+  findHeadings() {
+    if (this.element.querySelectorAll("thead tr th").length) {
+      return "thead th";
     }
+    if (this.element.querySelectorAll("tfoot tr th").length) {
+      return "tfoot th";
+    } else if (this.element.querySelectorAll("tbody tr th").length) {
+      return "tbody tr th";
+    } else if (this.element.querySelectorAll("th").length) {
+      return "tr:first th";
+    } else if (this.element.querySelectorAll("thead tr td").length) {
+      return "thead td";
+    } else if (this.element.querySelectorAll("tfoot tr td").length) {
+      return "tfoot td";
+    } else {
+      return "tr:first td";
+    }
+  }
 
-  });
+  getHeadings() {
+    let headings = [];
 
-  $.fn[ pluginName ] = function( options ) {
-    return this.each( function() {
-      if ( !$.data( this, 'plugin_' + pluginName ) ) {
-        $.data( this, 'plugin_' +
-          pluginName, new Plugin( this, options ) );
+    Array.prototype.forEach.call(this.headings, heading => {
+      const colspan = parseInt(heading.getAttribute("colspan"), 10) || 1;
+      const row = getIndex(heading.closest("tr")) - 1;
+
+      if (!headings[row]) {
+        headings[row] = [];
       }
-    } );
-  };
 
-})( jQuery, window, document );
+      for (let i = 0; i < colspan; i++) {
+        headings[row].push(heading);
+      }
+    });
 
+    return headings;
+  }
 
-$('.table').table();
+  updateCells() {
+    const headings = this.getHeadings();
+    const { cellAttributeName } = this.options;
+
+    Array.prototype.forEach.call(this.cells, cell => {
+      const cellIndex = getIndex(cell) - 1;
+
+      let headingText = "";
+
+      for (let j = 0; j < headings.length; j++) {
+        const heading = headings[j][cellIndex];
+        headingText += heading.textContent;
+      }
+
+      cell.setAttribute(cellAttributeName, headingText);
+      this.wrappCellContent(cell);
+    });
+  }
+
+  wrappCellContent(cell) {
+    const { cellInnerClassName } = this.options;
+
+    const isCellContentWrapped = cell =>
+      cell.querySelector(`span.${cellInnerClassName}`);
+
+    if (isCellContentWrapped(cell)) {
+      cell.wrapInner(`<span class="${cellInnerClassName}" />`);
+    }
+  }
+
+  setInited() {
+    this.element.classList.add(this.options.initedClassName);
+  }
+}
+
+export default init(Table);

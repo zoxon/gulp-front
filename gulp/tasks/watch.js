@@ -13,11 +13,7 @@ const watch = () => {
   global.watch = true;
 
   // Modules, pages
-  gulp
-    .watch("source/**/*.pug", gulp.series(pages, reload))
-    .on("all", (event, filepath) => {
-      global.emittyChangedFile = filepath;
-    });
+  gulp.watch("source/**/*.pug", gulp.series(pages, reload));
 
   // Modules data
   gulp.watch("source/modules/*/data/*.yml", gulp.series(html, reload));
@@ -32,11 +28,11 @@ const watch = () => {
   gulp.watch("source/static/scripts/**/*.js", gulp.series(scripts, reload));
 
   // Modules scripts
-  gulp.watch("source/modules/*/*.js", gulp.series(scripts, reload));
+  gulp.watch("source/modules/**/*.js", gulp.series(scripts, reload));
 
   // Modules images
   gulp.watch(
-    "source/modules/*/images/*.{jpg,gif,svg,png}",
+    "source/modules/*/images/**/*.{jpg,gif,svg,png}",
     gulp.series(moduleImages, reload)
   );
 

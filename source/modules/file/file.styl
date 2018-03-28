@@ -1,49 +1,64 @@
 .file
 	position relative
-	width 100%
 	display block
 	box-sizing border-box
+	width 100%
 
-	&__control
-		//
+	&_inited
+		display flex
+		align-items center
+
+	&_inited &__control
+		position absolute
+		z-index 1
+		margin 0
+		padding 0
+		height 100%
+		outline none
+		opacity 0
+		cursor pointer
 
 		&:focus ~ ^[0]__button
-			border-color $form-color-border_focus
 			outline none
+			border-color $form-color-border_focus
 			focus($form-color-border_focus)
 
-	&__button
+	&_inited &__button
 		display inline-block
+		flex-shrink 0
 		vertical-align middle
-		white-space nowrap
+
+	&_inited &__label
+		display inline-block
+		flex-grow 1
 		overflow hidden
-		text-overflow ellipsis
-		cursor pointer
 		width 100%
 		border-width 1px
 		border-style solid
 		border-color transparent
+		vertical-align middle
+		text-overflow ellipsis
+		white-space nowrap
+		cursor pointer
 		transition 125ms background-color ease-in-out
 		user-select none
-		&:before
-			content attr(data-button-text)
-			display inline-block
-			vertical-align middle
 
-	&_style_default &__button
+	&_style_default&_inited &__button
+		position relative
+		margin-right ($form-size-input-height / 2)
+		padding 7px $form-padding_horizontal
+		border-radius $form-border-radius
+		background $form-color-active
+		color $form-color-background
+		transition 125ms all ease-in-out
+
+		&:hover
+			background-color $form-color-active - 20%
+
+	&_style_default&_inited &__label
+		border-radius $form-border-radius
 		background-color $form-color-background
 		color $form-color-font
-		font-size $form-font-size
-		border-radius $form-border-radius
 
-		&:before
-			position relative
-			margin-right ($form-size-input-height / 2)
-			padding 7px $form-padding_horizontal
-			transition 125ms all ease-in-out
-			color $form-color-background
-			border-radius $form-border-radius
-			background $form-color-active
-
-	&_style_default:hover &__button:before
-		background-color $form-color-active - 20%
+	&_style_compact &__label
+		display none

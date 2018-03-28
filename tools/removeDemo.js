@@ -8,11 +8,15 @@ import colors from "colors";
 const pathsToRemove = [
   "./source/modules/demo",
   "./source/modules/header-presentation",
-  "./source/modules/github-button",
-  "./source/modules/sidebar",
   "./source/modules/header/*",
-  "./source/modules/logo/logo.js",
-  "./source/pages/home.pug",
+  "./source/modules/footer/*",
+  "./source/pages/index.pug",
+  "./source/pages/buttons.pug",
+  "./source/pages/components.pug",
+  "./source/pages/forms.pug",
+  "./source/pages/typography.pug",
+  "./source/pages/docs.pug",
+  "./source/pages/faq.pug",
   "./source/static/assets/favicons/*",
   "./source/static/assets/fonts/*",
   "./source/static/assets/images/content/*",
@@ -52,6 +56,41 @@ block footer
   {
     path: "./source/modules/header/header.styl",
     content: ".header\n\t//\n"
+  },
+  {
+    path: "./source/pages/index.pug",
+    content: `extends ../layouts/default
+
+include ../modules/_page-list/_page-list
+
+block head
+	- title = "Pages list"
+
+	style
+		:stylus
+			@import "../static/styles/core/variables.styl"
+			@import "../static/styles/_variables.styl"
+			@import "../static/styles/core/mixins.styl"
+			@import "../static/styles/_mixins.styl"
+			@import "../modules/_page-list/_page-list.styl"
+
+block page
+	+page-list(pageList.data)
+`
+  },
+  {
+    path: "./source/modules/footer.pug",
+    content: `mixin footer(data)
+	footer.footer&attributes(attributes)
+		p &copy; You copyright
+`
+  },
+  {
+    path: "./source/modules/stylus.pug",
+    content: `mixin footer(data)
+	.footer
+		//
+`
   }
 ];
 

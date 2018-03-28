@@ -1,7 +1,9 @@
-include ../copyright/copyright
+include ../icon/icon
 
 mixin footer(data)
-	footer.footer&attributes(attributes)
-		.footer__inner
-			+copyright()
+	footer.footer.js-appearing-item&attributes(attributes)
+		+icon(name="heart" title="Heart").footer__icon
+		.footer__copyright!= data.copyright
+		.footer__about!= data.about
+		.footer__generated= data.generated
 			

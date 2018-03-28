@@ -4,14 +4,21 @@ h3
 h4
 h5
 h6
-	font-family $heading-font-family
-	font-weight $heading-font-weight
 	margin $base-line-height 0 0.5em
+	font-weight $heading-font-weight
+	font-family $heading-font-family
 	line-height normal
+
 	a
 		&
 		&:visited
 			color inherit
+
+	&:first-child
+		margin-top 0
+
+	&:last-child
+		margin-bottom 0
 
 h1
 	font-size 2.25em

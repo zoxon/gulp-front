@@ -1,6 +1,6 @@
 # Gulp Front
 
-*A lean and powerful, gulp-based boilerplate for better front-end coding with [Gulp](http://gulpjs.com/), [Pug](https://pugjs.org/) and [Stylus](http://stylus-lang.com/)*
+_A lean and powerful, gulp-based boilerplate for better front-end coding with [Gulp](http://gulpjs.com/), [Pug](https://pugjs.org/) and [Stylus](http://stylus-lang.com/)_
 
 [![Build Status](https://travis-ci.org/zoxon/gulp-front.svg?branch=master)](https://travis-ci.org/zoxon/gulp-front/builds)
 [![Greenkeeper badge](https://badges.greenkeeper.io/zoxon/gulp-front.svg)](https://greenkeeper.io/)
@@ -11,15 +11,13 @@
 [![Join the chat at https://t.me/gulpfront](https://img.shields.io/badge/Telegram-join%20chat-0088cc.svg?style=flat)](https://t.me/gulpfront)
 [![Join the chat at https://gitter.im/zoxon/gulp-front](https://img.shields.io/badge/gitter-join%20chat-green.svg?style=flat)](https://gitter.im/zoxon/gulp-front?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-
 ## Demo
-[zoxon.github.io/gulp-front](http://zoxon.github.io/gulp-front/)
 
+[zoxon.github.io/gulp-front](http://zoxon.github.io/gulp-front/)
 
 ## Documentation
 
 More information see in [docs](docs/README.md) folder
-
 
 ## Core features
 
@@ -30,24 +28,22 @@ More information see in [docs](docs/README.md) folder
 * A convenient @media mixins
 * Smart image compression
 
-
 ## Quickstart
 
-1. Install the [node.js](https://nodejs.org)
-2. Clone the project or [download](https://github.com/zoxon/gulp-front/archive/master.zip) the file
-	```sh
-	git clone git@github.com:zoxon/gulp-front.git --depth 1 my-project
-	```
-3. Go to project folder and run
-	```bash
-	npm run setup
-	```
-4. Start dev server
-	```bash
-	npm start
-	```
-5. In browser open page with address [`http://localhost:3000/`](http://localhost:3000/)
-
+1.  Install the [node.js](https://nodejs.org)
+2.  Clone the project or [download](https://github.com/zoxon/gulp-front/archive/master.zip) the file
+    ```sh
+    git clone git@github.com:zoxon/gulp-front.git --depth 1 my-project
+    ```
+3.  Go to project folder and run
+    ```bash
+    npm run setup
+    ```
+4.  Start dev server
+    ```bash
+    npm start
+    ```
+5.  In browser open page with address [`http://localhost:3000/`](http://localhost:3000/)
 
 ## Main tasks
 
@@ -56,7 +52,6 @@ More information see in [docs](docs/README.md) folder
 * `npm run zip` - compile a project in zip
 * `npm run deploy` - compile a project and push in `build` branch to git repository
 * `npm run cleanup` - remove demo app
-
 
 ## Module generator
 
@@ -71,4 +66,5 @@ npm run amo <module-name> [js || yml]
 ```
 
 ## License
+
 [The MIT License (MIT)](LICENSE)
