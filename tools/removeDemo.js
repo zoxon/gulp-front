@@ -15,6 +15,8 @@ const pathsToRemove = [
   "./source/pages/components.pug",
   "./source/pages/forms.pug",
   "./source/pages/typography.pug",
+  "./source/pages/docs.pug",
+  "./source/pages/faq.pug",
   "./source/static/assets/favicons/*",
   "./source/static/assets/fonts/*",
   "./source/static/assets/images/content/*",

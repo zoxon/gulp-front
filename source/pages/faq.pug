@@ -1,0 +1,17 @@
+extends ../layouts/default
+
+include ../modules/footer/footer
+include ../modules/header/header
+
+block head
+	- title = "Documentation"
+	
+block header
+	+header()
+
+block main
+	.demo.demo_documentation.content-wrapper
+		include:markdown-it(langPrefix="highlight-" quotes="“”‘’" linkify="true" typographer="true" html="true") ../../docs/FAQ.md
+
+block footer
+	+footer(footer.default)
