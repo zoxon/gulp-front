@@ -2,7 +2,7 @@ import gulp from "gulp";
 import plumber from "gulp-plumber";
 import webpack from "webpack";
 import webpackStream from "webpack-stream";
-import gulplog from "gulplog";
+import logger from "gulplog";
 
 import webpackConfig from "../../webpack.config.babel";
 import { plumberConfig } from "../config";
@@ -20,7 +20,7 @@ const scripts = callback => {
 
     // https://webpack.js.org/api/node/#stats-object
     // https://webpack.js.org/configuration/stats/
-    gulplog[stats.hasErrors() ? "error" : "info"](
+    logger[stats.hasErrors() ? "error" : "info"](
       stats.toString({
         chunks: false, // Makes the build much quieter
         modules: false,
