@@ -1,26 +1,18 @@
-import colors from "colors";
 import notifier from "node-notifier";
 import path from "path";
+import logger from "gulplog";
 
-export default function errorHandler(error) {
-  const date = new Date();
+function errorHandler(error) {
   const cwd = process.cwd();
+  const { name, plugin, message } = error;
+  const title = `${name} in ${plugin}`;
 
-  const now = date.toTimeString().split(" ")[0];
-
-  const title = error.name + " in " + error.plugin;
-
-  const shortMessage = error.message.split("\n")[0];
-
-  const message =
-    "[" +
-    colors.grey(now) +
-    "] " +
-    [title.bold.red, "", error.message, ""].join("\n");
+  const shortMessage = message.split("\n")[0];
 
   // Print message to console
-  // eslint-disable-next-line
-  console.log(message);
+  logger.error(
+    [title.bold.red, "", message.replace(/\t/g, "  "), ""].join("\n")
+  );
 
   notifier.notify({
     title: title,
@@ -30,3 +22,5 @@ export default function errorHandler(error) {
 
   this.emit("end");
 }
+
+export default errorHandler;
