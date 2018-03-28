@@ -4,5 +4,6 @@ mixin features-list(data)
 	.features-list&attributes(attributes)
 		ul.features-list__list
 			each item in data.list
+				- item.icon = data.iconPrefix + item.icon
 				li.features-list__item.js-appearing-item
 					+features-list-item(item)

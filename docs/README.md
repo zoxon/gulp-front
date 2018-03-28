@@ -178,7 +178,7 @@ Example:
 
 1.  You copy file icon-name.svg to `source/static/icons` folder.
 2.  In any _pug_ template, import icon mixin `include ../icon/icon`
-3.  Use `+icon("icon-name")` to render icon
+3.  Use `+icon(name="icon-name" title="Icon title")` to render icon
 
 Spritesheet generates with plugin [gulp-svg-symbols](https://github.com/Hiswe/gulp-svg-symbols)
 

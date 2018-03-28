@@ -1,6 +1,7 @@
 ---
   featuresList:
     default:
+      iconPrefix: 'landing_'
       list:
         -
           icon: bem

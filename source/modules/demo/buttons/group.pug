@@ -9,8 +9,7 @@ include ../../button-group/button-group
 		color="blue"
 		icon
 	).button-group__item
-		+icon(name="add")
-		span Add
+		+icon(name="player_previous" title="Previous track")
 
 	+button(
 		size="normal"
@@ -18,7 +17,7 @@ include ../../button-group/button-group
 		color="blue"
 		icon
 	).button-group__item
-		+icon(name="button")
+		+icon(name="player_play" title="Play track")
 
 	+button(
 		size="normal"
@@ -26,9 +25,35 @@ include ../../button-group/button-group
 		color="blue"
 		icon
 	).button-group__item
-		span Search
-		+icon(name="maginifer")
+		+icon(name="player_pause" title="Pause track")
 
+	+button(
+		size="normal"
+		style="solid rounded"
+		color="blue"
+		icon
+	).button-group__item
+		+icon(name="player_next" title="Next track")
+
+
++button-group()
+	+button(
+		size="normal"
+		style="solid rounded"
+		color="blue"
+		icon
+	).button-group__item
+		+icon(name="player_previous" title="Previous track")
+		span Previous
+
+	+button(
+		size="normal"
+		style="solid rounded"
+		color="blue"
+		icon
+	).button-group__item
+		span Next
+		+icon(name="player_next" title="Next track")
 
 +button-group()
 	+button(
@@ -37,42 +62,28 @@ include ../../button-group/button-group
 		color="blue"
 		icon
 	).button-group__item
-		+icon(name="add")
+		+icon(name="player_previous" title="Previous track")
+
 	+button(
 		size="normal"
 		style="ghost rounded"
 		color="blue"
 		icon
 	).button-group__item
-		+icon(name="button")
+		+icon(name="player_play" title="Play track")
+
 	+button(
 		size="normal"
 		style="ghost rounded"
 		color="blue"
 		icon
 	).button-group__item
-		+icon(name="maginifer")
+		+icon(name="player_pause" title="Pause track")
 
-
-+button-group()
 	+button(
 		size="normal"
-		style="ghost pill"
+		style="ghost rounded"
 		color="blue"
 		icon
 	).button-group__item
-		span Add
-	+button(
-		size="normal"
-		style="ghost pill"
-		color="blue"
-		icon
-	).button-group__item
-		span Play
-	+button(
-		size="normal"
-		style="ghost pill"
-		color="blue"
-		icon
-	).button-group__item
-		span Search
+		+icon(name="player_next" title="Next track")

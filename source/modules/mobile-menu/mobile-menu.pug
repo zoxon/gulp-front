@@ -6,10 +6,7 @@ mixin mobile-menu(data)
 			ul.mobile-menu__list
 				each item in data
 					li.mobile-menu__item
-						a(href=`${item.url}.html`).mobile-menu__link
-							span.mobile-menu__icon
-								+icon(name=item.icon title=item.title)
-							span.mobile-menu__text= item.title
+						a(href=`${item.url}.html`).mobile-menu__link= item.title
 
 						if item.submenu
 							ul.mobile-menu__submenu
