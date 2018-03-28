@@ -8,5 +8,6 @@
   "sortProperties": "grouped",
   "alwaysUseImport": true,
   "alwaysUseNoneOverZero": true,
-  "reduceMarginAndPaddingValues": true
+  "reduceMarginAndPaddingValues": true,
+  "ignoreFiles": ["gulp/**/icons-template.styl"]
 }
