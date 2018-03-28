@@ -1,0 +1,2022 @@
+<!DOCTYPE html>
+<html class="i-ua_js_no i-ua_css_standard" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <!-- The above 3 meta tags *must* come first in the head;-->
+    <!-- any other head content must come *after* these tags-->
+    <!-- Title-->
+    <title>Components :: Gulp-front</title>
+    <!-- Meta tags-->
+    <meta name="description" content="The template for quick start of development with Gulp, Jade and Stylus">
+    <meta name="keywords" content="demo, gulp, bem, modules, sprites, svg, jade, stylus, boilerplate, frontend, project, template">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="address=no">
+    <meta name="robots" content="noodp, noydir">
+    <!-- iOS: Add to Home Screen-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Gulp-front">
+    <!-- Styles-->
+    <link href="assets/stylesheets/reset.css" rel="stylesheet">
+    <link href="assets/stylesheets/main.css" rel="stylesheet">
+    <!-- Facebook / Open Graph-->
+    <!-- Facebook: https://developers.facebook.com/docs/sharing/webmasters#markup-->
+    <!-- Open Graph: http://ogp.me/-->
+    <meta property="fb:app_id" content="387979211564142">
+    <meta property="og:url" content="http://zoxon.github.io/gulp-front/index.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Components">
+    <meta property="og:image" content="http://zoxon.github.io/gulp-front/assets/images/content/preview.png">
+    <meta property="og:description" content="The template for quick start of development with Gulp, Jade and Stylus">
+    <meta property="og:site_name" content="Gulp-front">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:author" content="Velichko Konstantin">
+    <!-- Favicons-->
+    <link href="/assets/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+    <link type="image/png" href="/assets/favicons/favicon-32x32.png" rel="icon" sizes="32x32">
+    <link type="image/png" href="/assets/favicons/favicon-16x16.png" rel="icon" sizes="16x16">
+    <link href="/assets/favicons/manifest.json" rel="manifest">
+    <link href="/assets/favicons/safari-pinned-tab.svg" rel="mask-icon" color="#e74c3c">
+    <link href="/assets/favicons/favicon.ico" rel="shortcut icon">
+    <meta name="msapplication-config" content="/assets/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <!-- A list of everything that could go in the head of your document-->
+    <!-- https://github.com/joshbuchea/HEAD--><script>;(function(d,e,c,r){e=d.documentElement;c="className";r="replace";e[c]=e[c][r]("i-ua_js_no","i-ua_js_yes");if(d.compatMode!="CSS1Compat")e[c]=e[c][r]("i-ua_css_standart","i-ua_css_quirks")})(document);</script></head>
+  <body class="page" data-offcanvas-container>
+    <!--[if lt IE 8]><p class="browsehappy">Вы используете<strong>устаревший</strong> браузер. Пожалуйста<a href="http://browsehappy.com" target="_blank">обновите браузер</a> для лучшего отображения сайта.</p><![endif]-->
+    <div class="page__mobile-menu" data-offcanvas-menu aria-hidden="true">
+      <div class="mobile-menu js-link-sroll">
+        <nav class="mobile-menu__menu">
+          <ul class="mobile-menu__list">
+            <li class="mobile-menu__item">
+              <a class="mobile-menu__link" href="typography.html">Typography</a>
+              <ul class="mobile-menu__submenu">
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="typography.html#titles-and-paragraphs">Titles &amp; Paragraphs</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="typography.html#lists">Lists</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="typography.html#quotes">Quotes</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="typography.html#description-lists">Description lists</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="typography.html#code">Code</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="typography.html#tables">Tables</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="typography.html#text-elements">Text level elements</a>
+                </li>
+              </ul>
+            </li>
+            <li class="mobile-menu__item">
+              <a class="mobile-menu__link" href="forms.html">Forms</a>
+              <ul class="mobile-menu__submenu">
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="forms.html#messaging">Messaging</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="forms.html#text-inputs">Text Inputs</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="forms.html#radios-and-checkboxes">Radios and Checkboxes</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="forms.html#input-range">Input range</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="forms.html#selects">Selects</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="forms.html#textareas-and-files">Textareas and Files</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="forms.html#captcha">Captcha</a>
+                </li>
+              </ul>
+            </li>
+            <li class="mobile-menu__item">
+              <a class="mobile-menu__link" href="buttons.html">Buttons</a>
+              <ul class="mobile-menu__submenu">
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-styles">Styles</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-sizes">Sizes</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-icon">Icon buttons</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-tags">Tags types</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-disabled">Disabled buttons</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-block">Block buttons</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-group">Buttons group</a>
+                </li>
+              </ul>
+            </li>
+            <li class="mobile-menu__item">
+              <a class="mobile-menu__link" href="components.html">Components</a>
+              <ul class="mobile-menu__submenu">
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#breadcrumbs">Breadcrumbs</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#pagination">Pagination</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#badges">Badges</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#progress-bar">Progress Bar</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#embed">Responsive video</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#social-icons">Social icons</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#tabs">Tabs</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#modals">Modal windows</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#accordion">Accordion</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#dropdown">Dropdown</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#spoiler">Spoiler</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#tooltips">Tooltips</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#notifications">Notifications</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#svg-icons">Svg Icons</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#avatars">Avatars</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#media-object">Media object</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#spinner">Spinner</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#card">Card</a>
+                </li>
+              </ul>
+            </li>
+            <li class="mobile-menu__item">
+              <a class="mobile-menu__link" href="docs.html">Documentation</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="page__content">
+      <div class="page__wrapper">
+        <div class="page__header">
+          <header class="header">
+            <div class="header__logo">
+              <a class="logo" href="index.html">
+                <svg class="icon icon_heart logo__icon" role="img">
+                  <title>Heart</title>
+                  <use xlink:href="assets/images/icons.svg#heart"></use>
+                </svg>
+                <span class="logo__name">Gulp front</span>
+              </a>
+            </div>
+            <div class="header__menu">
+              <nav class="main-menu">
+                <ul class="main-menu__list">
+                  <li class="main-menu__item main-menu__item_dropdown">
+                    <a class="main-menu__link" href="typography.html">Typography</a>
+                    <div class="main-menu__submenu">
+                      <div class="main-menu-submenu">
+                        <ul class="main-menu-submenu__list">
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="typography.html#titles-and-paragraphs">Titles &amp; Paragraphs</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="typography.html#lists">Lists</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="typography.html#quotes">Quotes</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="typography.html#description-lists">Description lists</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="typography.html#code">Code</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="typography.html#tables">Tables</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="typography.html#text-elements">Text level elements</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="main-menu__item main-menu__item_dropdown">
+                    <a class="main-menu__link" href="forms.html">Forms</a>
+                    <div class="main-menu__submenu">
+                      <div class="main-menu-submenu">
+                        <ul class="main-menu-submenu__list">
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="forms.html#messaging">Messaging</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="forms.html#text-inputs">Text Inputs</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="forms.html#radios-and-checkboxes">Radios and Checkboxes</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="forms.html#input-range">Input range</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="forms.html#selects">Selects</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="forms.html#textareas-and-files">Textareas and Files</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="forms.html#captcha">Captcha</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="main-menu__item main-menu__item_dropdown">
+                    <a class="main-menu__link" href="buttons.html">Buttons</a>
+                    <div class="main-menu__submenu">
+                      <div class="main-menu-submenu">
+                        <ul class="main-menu-submenu__list">
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="buttons.html#buttons-styles">Styles</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="buttons.html#buttons-sizes">Sizes</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="buttons.html#buttons-icon">Icon buttons</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="buttons.html#buttons-tags">Tags types</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="buttons.html#buttons-disabled">Disabled buttons</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="buttons.html#buttons-block">Block buttons</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="buttons.html#buttons-group">Buttons group</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="main-menu__item main-menu__item_dropdown">
+                    <a class="main-menu__link" href="components.html">Components</a>
+                    <div class="main-menu__submenu">
+                      <div class="main-menu-submenu">
+                        <ul class="main-menu-submenu__list">
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#breadcrumbs">Breadcrumbs</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#pagination">Pagination</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#badges">Badges</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#progress-bar">Progress Bar</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#embed">Responsive video</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#social-icons">Social icons</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#tabs">Tabs</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#modals">Modal windows</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#accordion">Accordion</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#dropdown">Dropdown</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#spoiler">Spoiler</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#tooltips">Tooltips</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#notifications">Notifications</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#svg-icons">Svg Icons</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#avatars">Avatars</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#media-object">Media object</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#spinner">Spinner</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#card">Card</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="main-menu__item">
+                    <a class="main-menu__link" href="docs.html">Documentation</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <a class="button button_icon header__github-button" href="//github.com/zoxon/gulp-front" title="Source on Github" target="_blank">
+              <svg class="icon icon_github-octocat" role="img">
+                <title>Github octocat mark</title>
+                <use xlink:href="assets/images/icons.svg#github-octocat"></use>
+              </svg>
+              <span class="visuallyhidden">Github repository</span>
+            </a>
+            <div class="header__mobile-menu-trigger">
+              <button class="button mobile-menu-trigger" type="button" data-offcanvas-trigger>
+                <svg class="icon icon_hamburger" role="img">
+                  <title>Hamburger menu</title>
+                  <use xlink:href="assets/images/icons.svg#hamburger"></use>
+                </svg>
+                <span class="visuallyhidden">Show menu</span>
+              </button>
+            </div>
+          </header>
+        </div>
+        <div class="page__main">
+          <h1 id="components">Components</h1>
+          <div class="demo demo_components">
+            <h2 id="breadcrumbs">Breadcrumbs</h2>
+            <div class="bread-crumbs">
+              <ul class="bread-crumbs__list">
+                <li class="bread-crumbs__item">
+                  <a class="bread-crumbs__link" href="#">Home</a>
+                  <div class="bread-crumbs__separator">&gt;</div>
+                </li>
+                <li class="bread-crumbs__item">
+                  <a class="bread-crumbs__link" href="#">Category</a>
+                  <div class="bread-crumbs__separator">&gt;</div>
+                </li>
+                <li class="bread-crumbs__item">
+                  <a class="bread-crumbs__link" href="#">Subcategory</a>
+                  <div class="bread-crumbs__separator">&gt;</div>
+                </li>
+                <li class="bread-crumbs__item">Page</li>
+              </ul>
+            </div>
+            <h2 id="pagination">Pagination</h2>
+            <div class="pagination">
+              <div class="pagination__controls pagination__controls_backward">
+                <a class="pagination__control" href="#">«</a>
+                <a class="pagination__control" href="#">‹</a>
+              </div>
+              <div class="pagination__controls">
+                <span class="pagination__ellipsis">…</span>
+                <a class="pagination__page" href="#">4</a>
+                <span class="pagination__page pagination__page_current">5</span>
+                <a class="pagination__page" href="#">6</a>
+                <span class="pagination__ellipsis">…</span>
+              </div>
+              <div class="pagination__controls pagination__controls_forward">
+                <a class="pagination__control" href="#">›</a>
+                <a class="pagination__control" href="#">»</a>
+              </div>
+            </div>
+            <div class="pager">
+              <a class="button button_color_blue button_style_solid button_style_rounded button_size_normal pager__item pager__item_prev" href="#">
+                <svg class="icon icon_chevron_left" role="img">
+                  <title>Chevron left</title>
+                  <use xlink:href="assets/images/icons.svg#chevron_left"></use>
+                </svg>
+                <span>Previous</span>
+              </a>
+              <a class="button button_color_blue button_style_solid button_style_rounded button_size_normal pager__item pager__item_next" href="#">
+                <span>Next</span>
+                <svg class="icon icon_chevron_right" role="img">
+                  <title>Chevron right</title>
+                  <use xlink:href="assets/images/icons.svg#chevron_right"></use>
+                </svg>
+              </a>
+            </div>
+            <h2 id="badges">Badges</h2>
+            <h4>Styles</h4>
+            <h5>Square</h5>
+            <div class="badge badge_style_solid badge_color_gray">99</div>
+            <div class="badge badge_style_solid badge_color_black">99</div>
+            <div class="badge badge_style_solid badge_color_red">99</div>
+            <div class="badge badge_style_solid badge_color_pink">99</div>
+            <div class="badge badge_style_solid badge_color_grape">99</div>
+            <div class="badge badge_style_solid badge_color_violet">99</div>
+            <div class="badge badge_style_solid badge_color_indigo">99</div>
+            <div class="badge badge_style_solid badge_color_blue">99</div>
+            <div class="badge badge_style_solid badge_color_cyan">99</div>
+            <div class="badge badge_style_solid badge_color_teal">99</div>
+            <div class="badge badge_style_solid badge_color_green">99</div>
+            <div class="badge badge_style_solid badge_color_lime">99</div>
+            <div class="badge badge_style_solid badge_color_yellow">99</div>
+            <div class="badge badge_style_solid badge_color_orange">99</div>
+            <h5>Rounded</h5>
+            <div class="badge badge_style_solid badge_color_gray badge_style_rounded">99</div>
+            <div class="badge badge_style_solid badge_color_black badge_style_rounded">99</div>
+            <div class="badge badge_style_solid badge_color_red badge_style_rounded">99</div>
+            <div class="badge badge_style_solid badge_color_pink badge_style_rounded">99</div>
+            <div class="badge badge_style_solid badge_color_grape badge_style_rounded">99</div>
+            <div class="badge badge_style_solid badge_color_violet badge_style_rounded">99</div>
+            <div class="badge badge_style_solid badge_color_indigo badge_style_rounded">99</div>
+            <div class="badge badge_style_solid badge_color_blue badge_style_rounded">99</div>
+            <div class="badge badge_style_solid badge_color_cyan badge_style_rounded">99</div>
+            <div class="badge badge_style_solid badge_color_teal badge_style_rounded">99</div>
+            <div class="badge badge_style_solid badge_color_green badge_style_rounded">99</div>
+            <div class="badge badge_style_solid badge_color_lime badge_style_rounded">99</div>
+            <div class="badge badge_style_solid badge_color_yellow badge_style_rounded">99</div>
+            <div class="badge badge_style_solid badge_color_orange badge_style_rounded">99</div>
+            <h5>Circle</h5>
+            <div class="badge badge_style_solid badge_color_gray badge_style_circle">99</div>
+            <div class="badge badge_style_solid badge_color_black badge_style_circle">99</div>
+            <div class="badge badge_style_solid badge_color_red badge_style_circle">99</div>
+            <div class="badge badge_style_solid badge_color_pink badge_style_circle">99</div>
+            <div class="badge badge_style_solid badge_color_grape badge_style_circle">99</div>
+            <div class="badge badge_style_solid badge_color_violet badge_style_circle">99</div>
+            <div class="badge badge_style_solid badge_color_indigo badge_style_circle">99</div>
+            <div class="badge badge_style_solid badge_color_blue badge_style_circle">99</div>
+            <div class="badge badge_style_solid badge_color_cyan badge_style_circle">99</div>
+            <div class="badge badge_style_solid badge_color_teal badge_style_circle">99</div>
+            <div class="badge badge_style_solid badge_color_green badge_style_circle">99</div>
+            <div class="badge badge_style_solid badge_color_lime badge_style_circle">99</div>
+            <div class="badge badge_style_solid badge_color_yellow badge_style_circle">99</div>
+            <div class="badge badge_style_solid badge_color_orange badge_style_circle">99</div>
+            <h4>Sizes</h4>
+            <div class="badge badge_style_solid badge_color_blue badge_style_circle badge_size_extra-extra-large">xxl</div>
+            <div class="badge badge_style_solid badge_color_blue badge_style_circle badge_size_extra-large">xl</div>
+            <div class="badge badge_style_solid badge_color_blue badge_style_circle badge_size_large">l</div>
+            <div class="badge badge_style_solid badge_color_blue badge_style_circle">m</div>
+            <div class="badge badge_style_solid badge_color_blue badge_style_circle badge_size_small">s</div>
+            <div class="badge badge_style_solid badge_color_blue badge_style_circle badge_size_extra-small">xs</div>
+            <div class="badge badge_style_solid badge_color_blue badge_style_circle badge_size_extra-extra-small">xxs</div>
+            <h2 id="progress-bar">Progress Bar</h2>
+            <div style="max-width: 600px;">
+              <h4>Colors</h4>
+              <div class="progress-bar progress-bar_color_gray" data-progress-value="0.45">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+              <br>
+              <br>
+              <div class="progress-bar progress-bar_color_black" data-progress-value="0.76">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+              <br>
+              <br>
+              <div class="progress-bar progress-bar_color_red" data-progress-value="0.64">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+              <br>
+              <br>
+              <div class="progress-bar progress-bar_color_pink" data-progress-value="0.32">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+              <br>
+              <br>
+              <div class="progress-bar progress-bar_color_grape" data-progress-value="0.19">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+              <br>
+              <br>
+              <div class="progress-bar progress-bar_color_violet" data-progress-value="0.26">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+              <br>
+              <br>
+              <div class="progress-bar progress-bar_color_indigo" data-progress-value="0.44">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+              <br>
+              <br>
+              <div class="progress-bar progress-bar_color_blue" data-progress-value="0.55">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+              <br>
+              <br>
+              <div class="progress-bar progress-bar_color_cyan" data-progress-value="0.60">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+              <br>
+              <br>
+              <div class="progress-bar progress-bar_color_teal" data-progress-value="0.78">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+              <br>
+              <br>
+              <div class="progress-bar progress-bar_color_green" data-progress-value="0.54">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+              <br>
+              <div class="progress-bar progress-bar_color_aqua" data-progress-value="0.74">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+              <br>
+              <div class="progress-bar progress-bar_color_yellow" data-progress-value="0.37">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+              <br>
+              <br>
+              <div class="progress-bar progress-bar_color_orange" data-progress-value="0.25">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+              <h4>Indeterminate</h4>
+              <div class="progress-bar progress-bar_color_gray progress-bar_indeterminate" data-progress-value="0">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+              <br>
+              <br>
+              <div class="progress-bar progress-bar_color_black progress-bar_indeterminate" data-progress-value="0">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+              <br>
+              <br>
+              <div class="progress-bar progress-bar_color_red progress-bar_indeterminate" data-progress-value="0">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+              <br>
+              <br>
+              <div class="progress-bar progress-bar_color_pink progress-bar_indeterminate" data-progress-value="0">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+              <br>
+              <br>
+              <div class="progress-bar progress-bar_color_grape progress-bar_indeterminate" data-progress-value="0">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+              <br>
+              <br>
+              <div class="progress-bar progress-bar_color_violet progress-bar_indeterminate" data-progress-value="0">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+              <br>
+              <br>
+              <div class="progress-bar progress-bar_color_indigo progress-bar_indeterminate" data-progress-value="0">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+              <br>
+              <br>
+              <div class="progress-bar progress-bar_color_blue progress-bar_indeterminate" data-progress-value="0">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+              <br>
+              <br>
+              <div class="progress-bar progress-bar_color_cyan progress-bar_indeterminate" data-progress-value="0">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+              <br>
+              <br>
+              <div class="progress-bar progress-bar_color_teal progress-bar_indeterminate" data-progress-value="0">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+              <br>
+              <br>
+              <div class="progress-bar progress-bar_color_green progress-bar_indeterminate" data-progress-value="0">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+              <br>
+              <br>
+              <div class="progress-bar progress-bar_color_lime progress-bar_indeterminate" data-progress-value="0">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+              <br>
+              <br>
+              <div class="progress-bar progress-bar_color_yellow progress-bar_indeterminate" data-progress-value="0">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+              <br>
+              <br>
+              <div class="progress-bar progress-bar_color_orange progress-bar_indeterminate" data-progress-value="0">
+                <div class="progress-bar__bar" style="width: 0%"></div>
+              </div>
+            </div>
+            <h2 id="embed">Responsive video</h2>
+            <div class="embed embed_16x9">
+              <iframe src="https://www.youtube.com/embed/dOWFVKb2JqM" width="1280" height="720" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <h2 id="social-icons">Social icons</h2>
+            <div class="social-icons">
+              <ul class="social-icons__list">
+                <li class="social-icons__item social-icons__item_fb">
+                  <a class="social-icons__link" href="#">
+                    <svg class="icon icon_social_fb social-icons__icon" role="img">
+                      <title>Facebook</title>
+                      <use xlink:href="assets/images/icons.svg#social_fb"></use>
+                    </svg>
+                    <span class="visuallyhidden">Facebook</span>
+                  </a>
+                </li>
+                <li class="social-icons__item social-icons__item_gp">
+                  <a class="social-icons__link" href="#">
+                    <svg class="icon icon_social_gp social-icons__icon" role="img">
+                      <title>Google plus</title>
+                      <use xlink:href="assets/images/icons.svg#social_gp"></use>
+                    </svg>
+                    <span class="visuallyhidden">Google plus</span>
+                  </a>
+                </li>
+                <li class="social-icons__item social-icons__item_tw">
+                  <a class="social-icons__link" href="#">
+                    <svg class="icon icon_social_tw social-icons__icon" role="img">
+                      <title>Twitter</title>
+                      <use xlink:href="assets/images/icons.svg#social_tw"></use>
+                    </svg>
+                    <span class="visuallyhidden">Twitter</span>
+                  </a>
+                </li>
+                <li class="social-icons__item social-icons__item_mr">
+                  <svg class="icon icon_social_mr social-icons__icon" role="img">
+                    <title>Mail.ru</title>
+                    <use xlink:href="assets/images/icons.svg#social_mr"></use>
+                  </svg>
+                </li>
+                <li class="social-icons__item social-icons__item_ok">
+                  <a class="social-icons__link" href="#">
+                    <svg class="icon icon_social_ok social-icons__icon" role="img">
+                      <title>Odnoklassniki</title>
+                      <use xlink:href="assets/images/icons.svg#social_ok"></use>
+                    </svg>
+                    <span class="visuallyhidden">Odnoklassniki</span>
+                  </a>
+                </li>
+                <li class="social-icons__item social-icons__item_vk">
+                  <a class="social-icons__link" href="#">
+                    <svg class="icon icon_social_vk social-icons__icon" role="img">
+                      <title>Vkontakte</title>
+                      <use xlink:href="assets/images/icons.svg#social_vk"></use>
+                    </svg>
+                    <span class="visuallyhidden">Vkontakte</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <h2 id="tabs">Tabs</h2>
+            <div class="tabs tabs_style_default" data-tabs-name="tabsgroup1">
+              <span class="tabs__description visuallyhidden" data-tabs-description>Use left and right arrows to navigate between tabs.</span>
+              <div class="tabs__head">
+                <button class="tabs__tab" type="button" data-tab-id="tab1">Tab 1</button>
+                <button class="tabs__tab" type="button" data-tab-id="tab2">Tab 2</button>
+                <button class="tabs__tab" type="button" data-tab-id="tab3">Tab 3</button>
+              </div>
+              <div class="tabs__body">
+                <div class="tabs__panel" data-panel-id="tab1">
+                  <h4>Tab 1 Content demo</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
+                </div>
+                <div class="tabs__panel" data-panel-id="tab2">
+                  <h4>Tab 2 Content demo</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque alias mollitia iusto voluptatibus minus ut, adipisci magni magnam corporis aut aspernatur facere maiores sunt similique nihil unde est laboriosam reprehenderit.</p>
+                </div>
+                <div class="tabs__panel" data-panel-id="tab3">
+                  <h4>Tab 3 Content demo</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus fugiat, aliquam! In fugit id sint, nam repellendus possimus sit itaque aspernatur modi facere earum mollitia veritatis officia quo iste nisi.</p>
+                </div>
+                <div class="tabs__preloader" data-tabs-preloader></div>
+              </div>
+            </div>
+            <div class="tabs tabs_style_default tabs_color_blue" data-tabs-name="tabsgroup2">
+              <span class="tabs__description visuallyhidden" data-tabs-description>Use left and right arrows to navigate between tabs.</span>
+              <div class="tabs__head">
+                <button class="tabs__tab" type="button" data-tab-id="tab1">Tab 1</button>
+                <button class="tabs__tab" type="button" data-tab-id="tab2">Tab 2</button>
+                <button class="tabs__tab" type="button" data-tab-id="tab3">Tab 3</button>
+              </div>
+              <div class="tabs__body">
+                <div class="tabs__panel" data-panel-id="tab1">
+                  <h4>Tab 1 Content demo</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
+                  <a
+                    class="button button_size_normal button_style_solid button_color_blue button_style_rounded" href="#tabsgroup2__tab2">
+                    <span class="button__text">Next</span>
+                    <svg class="icon icon_chevron_right button__icon" role="img">
+                      <title>Chevron right</title>
+                      <use xlink:href="assets/images/icons.svg#chevron_right"></use>
+                    </svg>
+                    </a>
+                </div>
+                <div class="tabs__panel" data-panel-id="tab2">
+                  <h4>Tab 2 Content demo</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque alias mollitia iusto voluptatibus minus ut, adipisci magni magnam corporis aut aspernatur facere maiores sunt similique nihil unde est laboriosam reprehenderit.</p>
+                  <a class="button button_size_normal button_style_solid button_color_blue button_style_rounded"
+                    href="#tabsgroup2__tab1">
+                    <span class="button__text">Prev</span>
+                    <svg class="icon icon_chevron_left button__icon" role="img">
+                      <title>Chevron left</title>
+                      <use xlink:href="assets/images/icons.svg#chevron_left"></use>
+                    </svg>
+                  </a>
+                  <a class="button button_size_normal button_style_solid button_color_blue" href="#tabsgroup2__tab3">
+                    <span class="button__text">Next</span>
+                    <svg class="icon icon_chevron_right button__icon" role="img">
+                      <title>Chevron right</title>
+                      <use xlink:href="assets/images/icons.svg#chevron_right"></use>
+                    </svg>
+                  </a>
+                </div>
+                <div class="tabs__panel" data-panel-id="tab3">
+                  <h4>Tab 3 Content demo</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus fugiat, aliquam! In fugit id sint, nam repellendus possimus sit itaque aspernatur modi facere earum mollitia veritatis officia quo iste nisi.</p>
+                  <a class="button button_size_normal button_style_solid button_color_blue button_style_rounded"
+                    href="#tabsgroup2__tab2">
+                    <span class="button__text">Prev</span>
+                    <svg class="icon icon_chevron_left button__icon" role="img">
+                      <title>Chevron left</title>
+                      <use xlink:href="assets/images/icons.svg#chevron_left"></use>
+                    </svg>
+                  </a>
+                </div>
+                <div class="tabs__preloader" data-tabs-preloader></div>
+              </div>
+            </div>
+            <h2 id="modals">Modal windows</h2>
+            <button class="button button_size_normal button_style_solid button_color_blue button_style_rounded" type="button" data-micromodal-trigger="modal1">Open modal #1</button>
+            <button class="button button_size_normal button_style_solid button_color_blue button_style_rounded" type="button" data-micromodal-trigger="modal2">Open modal #2</button>
+            <div class="modal modal_animation_slide" id="modal1" aria-hidden="true">
+              <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+                <div class="modal__container">
+                  <div class="dialog" id="dialog1" role="dialog" aria-modal="true" aria-labelledby="dialog1-dialog__title">
+                    <header class="dialog__header">
+                      <h2 class="dialog__title" id="dialog1-dialog__title">Simple modal #1</h2>
+                      <button class="dialog__close" type="button" data-micromodal-close>
+                        <svg class="icon icon_close" role="img" data-micromodal-close>
+                          <title>Close</title>
+                          <use xlink:href="assets/images/icons.svg#close"></use>
+                        </svg>
+                        <span class="visuallyhidden">Close this dialog window</span>
+                      </button>
+                    </header>
+                    <main class="dialog__content">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit unde sint debitis in magnam vel pariatur libero nisi minima.</p>
+                    </main>
+                    <footer class="dialog__footer">
+                      <button class="button button_size_normal button_style_solid button_color_blue button_style_rounded" type="button">Continue</button>
+                      <button class="button button_size_normal button_style_solid button_color_red button_style_rounded" data-micromodal-close aria-label="Close this dialog window">Close</button>
+                    </footer>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal modal_animation_slide" id="modal2" aria-hidden="true">
+              <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+                <div class="modal__container">
+                  <div class="dialog" id="dialog2" role="dialog" aria-modal="true" aria-labelledby="dialog2-dialog__title">
+                    <header class="dialog__header">
+                      <h2 class="dialog__title" id="dialog2-dialog__title">Simple modal #2</h2>
+                      <button class="dialog__close" type="button" data-micromodal-close>
+                        <svg class="icon icon_close" role="img" data-micromodal-close>
+                          <title>Close</title>
+                          <use xlink:href="assets/images/icons.svg#close"></use>
+                        </svg>
+                        <span class="visuallyhidden">Close this dialog window</span>
+                      </button>
+                    </header>
+                    <main class="dialog__content">
+                      <iframe src="https://www.youtube.com/embed/dOWFVKb2JqM" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+                    </main>
+                    <footer class="dialog__footer">
+                      <button class="button button_size_normal button_style_solid button_color_blue button_style_rounded" type="button">Continue</button>
+                      <button class="button button_size_normal button_style_solid button_color_red button_style_rounded" data-micromodal-close aria-label="Close this dialog window">Close</button>
+                    </footer>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2 id="accordion">Accordion</h2>
+            <h4>Simple accordion</h4>
+            <div class="accordion">
+              <div class="accordion__item" data-plugin-accordion="item" data-plugin-accordion-item-open="false">
+                <button class="accordion__trigger" type="button" data-plugin-accordion="trigger">Accordion item 1</button>
+                <div class="accordion__pannel content-wrapper">
+                  <h4>Accordion item 1 content demo</h4>
+                  <p>Lorem ipsum dolor sit amet,
+                    <a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
+                </div>
+              </div>
+              <div class="accordion__item" data-plugin-accordion="item" data-plugin-accordion-item-open="false">
+                <button class="accordion__trigger" type="button" data-plugin-accordion="trigger">Accordion item 2</button>
+                <div class="accordion__pannel content-wrapper">
+                  <h4>Accordion item 2 content demo</h4>
+                  <p>Lorem ipsum dolor sit amet,
+                    <a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
+                </div>
+              </div>
+              <div class="accordion__item" data-plugin-accordion="item" data-plugin-accordion-item-open="false">
+                <button class="accordion__trigger" type="button" data-plugin-accordion="trigger">Accordion item 3</button>
+                <div class="accordion__pannel content-wrapper">
+                  <h4>Accordion item 3 content demo</h4>
+                  <p>Lorem ipsum dolor sit amet,
+                    <a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
+                </div>
+              </div>
+            </div>
+            <h4>Accordion with open item</h4>
+            <div class="accordion">
+              <div class="accordion__item" data-plugin-accordion="item" data-plugin-accordion-item-open="false">
+                <button class="accordion__trigger" type="button" data-plugin-accordion="trigger">Accordion item 1</button>
+                <div class="accordion__pannel content-wrapper">
+                  <h4>Accordion item 1 content demo</h4>
+                  <p>Lorem ipsum dolor sit amet,
+                    <a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
+                </div>
+              </div>
+              <div class="accordion__item" data-plugin-accordion="item" data-plugin-accordion-item-open="true">
+                <button class="accordion__trigger" type="button" data-plugin-accordion="trigger">Accordion item 2</button>
+                <div class="accordion__pannel content-wrapper">
+                  <h4>Accordion item 2 content demo (open on page lodad)</h4>
+                  <p>Lorem ipsum dolor sit amet,
+                    <a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
+                </div>
+              </div>
+              <div class="accordion__item" data-plugin-accordion="item" data-plugin-accordion-item-open="false">
+                <button class="accordion__trigger" type="button" data-plugin-accordion="trigger">Accordion item 3</button>
+                <div class="accordion__pannel content-wrapper">
+                  <h4>Accordion item 3 content demo</h4>
+                  <p>Lorem ipsum dolor sit amet,
+                    <a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
+                </div>
+              </div>
+            </div>
+            <h2 id="dropdown">Dropdown</h2>
+            <div class="dropdown">
+              <button class="dropdown__trigger" type="button" data-dropdown-role="trigger">Dropdown
+                <span class="dropdown__caret"></span>
+              </button>
+              <div class="dropdown__menu" data-dropdown-role="drop-menu">
+                <ul class="dropdown-list">
+                  <li class="dropdown-list__item" tabindex="0">Item 1</li>
+                  <li class="dropdown-list__item" tabindex="0">Item 2</li>
+                  <li class="dropdown-list__item" tabindex="0">Item 3</li>
+                  <li class="dropdown-list__item" tabindex="0">Item 4</li>
+                  <li class="dropdown-list__item" tabindex="0">Item 5</li>
+                  <li class="dropdown-list__item" tabindex="0">Item 6</li>
+                  <li class="dropdown-list__item" tabindex="0">Item 7</li>
+                  <li class="dropdown-list__item" tabindex="0">Item 8</li>
+                  <li class="dropdown-list__item" tabindex="0">Item 9</li>
+                  <li class="dropdown-list__item" tabindex="0">Item 10</li>
+                </ul>
+              </div>
+            </div>
+            <div class="dropdown dropdown_menu_right">
+              <button class="dropdown__trigger" type="button" data-dropdown-role="trigger">Another Dropdown
+                <span class="dropdown__caret"></span>
+              </button>
+              <div class="dropdown__menu" data-dropdown-role="drop-menu">
+                <ul class="dropdown-list">
+                  <li class="dropdown-list__item" tabindex="0">Item 1</li>
+                  <li class="dropdown-list__item" tabindex="0">Item 2</li>
+                  <li class="dropdown-list__item" tabindex="0">Item 3</li>
+                  <li class="dropdown-list__item" tabindex="0">Item 4</li>
+                  <li class="dropdown-list__item" tabindex="0">Item 5</li>
+                  <li class="dropdown-list__item" tabindex="0">Item 6</li>
+                  <li class="dropdown-list__item" tabindex="0">Item 7</li>
+                  <li class="dropdown-list__item" tabindex="0">Item 8</li>
+                  <li class="dropdown-list__item" tabindex="0">Item 9</li>
+                  <li class="dropdown-list__item" tabindex="0">Item 10</li>
+                </ul>
+              </div>
+            </div>
+            <h2 id="spoiler">Spoiler</h2>
+            <button class="button button_size_normal button_style_solid button_color_blue button_style_rounded" type="button" data-spoiler-target="sp1">Toggle spoiler</button>
+            <div data-spoiler-id="sp1" aria-hidden="true">
+              <h1>Simple spoiler</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eius, quae quas nisi numquam ratione nostrum a necessitatibus voluptatibus. Dolor distinctio, culpa doloremque labore vero ex fuga in iure assumenda.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eius, quae quas nisi numquam ratione nostrum a necessitatibus voluptatibus. Dolor distinctio, culpa doloremque labore vero ex fuga in iure assumenda.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eius, quae quas nisi numquam ratione nostrum a necessitatibus voluptatibus. Dolor distinctio, culpa doloremque labore vero ex fuga in iure assumenda.</p>
+            </div>
+            <h2 id="tooltips">Tooltips</h2>
+            <div class="ta-center">
+              <button class="button button_size_normal button_style_solid button_color_green button_style_rounded" type="button" data-tooltip-id="tooltip-top" data-tooltip-placement="top">Tooltip top</button>
+              <br>
+              <br>
+              <button class="button button_size_normal button_style_solid button_color_blue button_style_rounded" type="button" data-tooltip-id="tooltip-bottom" data-tooltip-placement="bottom">Tooltip bottom</button>
+              <br>
+              <br>
+              <button class="button button_size_normal button_style_solid button_color_yellow button_style_rounded" type="button" data-tooltip-id="tooltip-left" data-tooltip-placement="left">Tooltip left</button>
+              <br>
+              <br>
+              <button class="button button_size_normal button_style_solid button_color_orange button_style_rounded" type="button" data-tooltip-id="tooltip-right" data-tooltip-placement="right">Tooltip right</button>
+            </div>
+            <div class="hidden" data-tooltip-target="tooltip-left">Plain text</div>
+            <div class="hidden" data-tooltip-target="tooltip-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam earum, similique nam repellendus nisi atque nesciunt non tempora labore ad dolorem eligendi dicta. Distinctio maiores deserunt officia eaque dolorem nam!</div>
+            <div class="hidden"
+              data-tooltip-target="tooltip-bottom">
+              <h3 style="margin-top: 0">HTML Tooltip</h3>
+              <img src="http://via.placeholder.com/350x150" alt="Image example">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit fuga minima aliquam, dicta repellat vero iusto cum, assumenda non illo modi nam vitae officiis maxime molestias, voluptatem nihil numquam explicabo.</p>
+            </div>
+            <div class="hidden" data-tooltip-target="tooltip-right">Lorem ipsum dolor sit amet</div>
+            <h2 id="notifications">Notifications</h2>
+            <button class="button button_size_normal button_style_solid button_color_gray button_style_rounded js-notification-info" type="button">info</button>
+            <button class="button button_size_normal button_style_solid button_color_blue button_style_rounded js-notification-notice" type="button">notice</button>
+            <button class="button button_size_normal button_style_solid button_color_green button_style_rounded js-notification-success" type="button">success</button>
+            <button class="button button_size_normal button_style_solid button_color_red button_style_rounded js-notification-error" type="button">error</button>
+            <button class="button button_size_normal button_style_solid button_color_yellow button_style_rounded js-notification-warning" type="button">warning</button>
+            <h4>Example</h4>
+            <ul>
+              <li>Create notification board<pre><code>const notificationBoard = new Notification({
+	delay: 40000
+});
+</code></pre></li>
+              <li>Create and show notification message<pre><code>const button = document.querySelector("button");
+button.addEventListener("click", () => {
+	notificationBoard.show("Short test message", {
+		className: "notification_type_info"
+	});
+});
+</code></pre></li>
+            </ul>
+            <h4>Options</h4>
+            <h5>Notification</h5>
+            <ul>
+              <li>
+                <b>delay</b>
+                <br>Delay for closing event in milliseconds (ms).
+                <ul>
+                  <li>Type:
+                    <i>number</i>
+                  </li>
+                  <li>Default:
+                    <i>3000</i>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <b>containerClassName</b>
+                <br>Notification board container class name
+                <ul>
+                  <li>Type:
+                    <i>string</i>
+                  </li>
+                  <li>Default:
+                    <i>"notification-container"</i>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <b>containerItemClassName</b>
+                <br>Notification board container item class name
+                <ul>
+                  <li>Type:
+                    <i>string</i>
+                  </li>
+                  <li>Default:
+                    <i>"notification-container__item"</i>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <h5>NotificationItem</h5>
+            <ul>
+              <li>
+                <b>delay</b>
+                <br>Delay for closing event in milliseconds (ms).
+                <ul>
+                  <li>Type:
+                    <i>number</i>
+                  </li>
+                  <li>Default:
+                    <i>3000</i>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <b>close</b>
+                <br>Show close button when true
+                <ul>
+                  <li>Type:
+                    <i>bollean</i>
+                  </li>
+                  <li>Default:
+                    <i>true</i>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <b>className</b>
+                <br>Custom class/classes name added to notification item
+                <ul>
+                  <li>Type:
+                    <i>string</i>
+                  </li>
+                  <li>Default:
+                    <i>""</i>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <b>containerClassName</b>
+                <br>Notificiation item container class name
+                <ul>
+                  <li>Type:
+                    <i>string</i>
+                  </li>
+                  <li>Default:
+                    <i>"notification"</i>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <b>disappearClassName</b>
+                <br>Class name added when notification disappear
+                <ul>
+                  <li>Type:
+                    <i>string</i>
+                  </li>
+                  <li>Default:
+                    <i>"notification_disappear"</i>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <b>closeClassName</b>
+                <br>Class name to close button
+                <ul>
+                  <li>Type:
+                    <i>string</i>
+                  </li>
+                  <li>Default:
+                    <i>"notification__close"</i>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <b>messageClassName</b>
+                <br>Class name added to message
+                <ul>
+                  <li>Type:
+                    <i>string</i>
+                  </li>
+                  <li>Default:
+                    <i>"notification__message"</i>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <h2 id="svg-icons">Svg Icons</h2>
+            <p>The build system automatically creates a sprite from the svg files in the folder `source/static/icons`</p>
+            <div class="demo-icons">
+              <svg class="icon icon_chevron_down" role="img">
+                <title>Chevron down</title>
+                <use xlink:href="assets/images/icons.svg#chevron_down"></use>
+              </svg>
+              <svg class="icon icon_chevron_up" role="img">
+                <title>Chevron up</title>
+                <use xlink:href="assets/images/icons.svg#chevron_up"></use>
+              </svg>
+              <svg class="icon icon_chevron_left" role="img">
+                <title>Chevron left</title>
+                <use xlink:href="assets/images/icons.svg#chevron_left"></use>
+              </svg>
+              <svg class="icon icon_chevron_right" role="img">
+                <title>Chevron right</title>
+                <use xlink:href="assets/images/icons.svg#chevron_right"></use>
+              </svg>
+              <svg class="icon icon_github-octocat" role="img">
+                <title>Github octocat</title>
+                <use xlink:href="assets/images/icons.svg#github-octocat"></use>
+              </svg>
+              <svg class="icon icon_hamburger" role="img">
+                <title>Hamburger menu</title>
+                <use xlink:href="assets/images/icons.svg#hamburger"></use>
+              </svg>
+              <svg class="icon icon_heart" role="img">
+                <title>Heart</title>
+                <use xlink:href="assets/images/icons.svg#heart"></use>
+              </svg>
+              <svg class="icon icon_maginifer" role="img">
+                <title>Maginifer</title>
+                <use xlink:href="assets/images/icons.svg#maginifer"></use>
+              </svg>
+              <svg class="icon icon_social_rss" role="img">
+                <title>RSS sigin</title>
+                <use xlink:href="assets/images/icons.svg#social_rss"></use>
+              </svg>
+              <svg class="icon icon_social_fb" role="img">
+                <title>Facrbook</title>
+                <use xlink:href="assets/images/icons.svg#social_fb"></use>
+              </svg>
+              <svg class="icon icon_social_gp" role="img">
+                <title>Google plus</title>
+                <use xlink:href="assets/images/icons.svg#social_gp"></use>
+              </svg>
+              <svg class="icon icon_social_mr" role="img">
+                <title>Moi Mir</title>
+                <use xlink:href="assets/images/icons.svg#social_mr"></use>
+              </svg>
+              <svg class="icon icon_social_ok" role="img">
+                <title>Odnoklassniki</title>
+                <use xlink:href="assets/images/icons.svg#social_ok"></use>
+              </svg>
+              <svg class="icon icon_social_tw" role="img">
+                <title>Twitter</title>
+                <use xlink:href="assets/images/icons.svg#social_tw"></use>
+              </svg>
+              <svg class="icon icon_social_vk" role="img">
+                <title>Vkontakte</title>
+                <use xlink:href="assets/images/icons.svg#social_vk"></use>
+              </svg>
+              <svg class="icon icon_player_previous" role="img">
+                <title>Previous</title>
+                <use xlink:href="assets/images/icons.svg#player_previous"></use>
+              </svg>
+              <svg class="icon icon_player_play" role="img">
+                <title>Play</title>
+                <use xlink:href="assets/images/icons.svg#player_play"></use>
+              </svg>
+              <svg class="icon icon_player_pause" role="img">
+                <title>Pause</title>
+                <use xlink:href="assets/images/icons.svg#player_pause"></use>
+              </svg>
+              <svg class="icon icon_player_next" role="img">
+                <title>Next</title>
+                <use xlink:href="assets/images/icons.svg#player_next"></use>
+              </svg>
+            </div>
+            <h2 id="avatars">Avatars</h2>
+            <h4>Styles</h4>
+            <div class="demo-grid">
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar" title="User Name">
+                      <img class="avatar__image" src="https://unsplash.it/240/240?image=1027" alt="User Name">
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">square</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_style_circle" title="User Name">
+                      <img class="avatar__image" src="https://unsplash.it/240/240?image=1027" alt="User Name">
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">circle</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_style_rounded" title="User Name">
+                      <img class="avatar__image" src="https://unsplash.it/240/240?image=1027" alt="User Name">
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">rounded</div>
+                </div>
+              </div>
+            </div>
+            <h4>Sizes</h4>
+            <div class="demo-grid">
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_style_circle avatar_size_extra-extra-small" title="User Name">
+                      <img class="avatar__image" src="https://unsplash.it/240/240?image=1027" alt="User Name">
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">xxs</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_style_circle avatar_size_extra-small" title="User Name">
+                      <img class="avatar__image" src="https://unsplash.it/240/240?image=1027" alt="User Name">
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">xs</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_style_circle avatar_size_small" title="User Name">
+                      <img class="avatar__image" src="https://unsplash.it/240/240?image=1027" alt="User Name">
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">s</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_style_circle avatar_size_medium" title="User Name">
+                      <img class="avatar__image" src="https://unsplash.it/240/240?image=1027" alt="User Name">
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">m</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_style_circle avatar_size_large" title="User Name">
+                      <img class="avatar__image" src="https://unsplash.it/240/240?image=1027" alt="User Name">
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">l</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_style_circle avatar_size_extra-large" title="User Name">
+                      <img class="avatar__image" src="https://unsplash.it/240/240?image=1027" alt="User Name">
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">xl</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_style_circle avatar_size_extra-extra-large" title="User Name">
+                      <img class="avatar__image" src="https://unsplash.it/240/240?image=1027" alt="User Name">
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">xxl</div>
+                </div>
+              </div>
+            </div>
+            <h4>Initals</h4>
+            <div class="demo-grid">
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_type_initials avatar_style_circle avatar_size_extra-extra-small" title="User Name">
+                      <div class="avatar__initials">UN</div>
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">xxs</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_type_initials avatar_style_circle avatar_size_extra-small" title="User Name">
+                      <div class="avatar__initials">UN</div>
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">xs</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_type_initials avatar_style_circle avatar_size_small" title="User Name">
+                      <div class="avatar__initials">UN</div>
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">s</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_type_initials avatar_style_circle avatar_size_medium" title="User Name">
+                      <div class="avatar__initials">UN</div>
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">m</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_type_initials avatar_style_circle avatar_size_large" title="User Name">
+                      <div class="avatar__initials">UN</div>
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">l</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_type_initials avatar_style_circle avatar_size_extra-large" title="User Name">
+                      <div class="avatar__initials">UN</div>
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">xl</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_type_initials avatar_style_circle avatar_size_extra-extra-large" title="User Name">
+                      <div class="avatar__initials">UN</div>
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">xxl</div>
+                </div>
+              </div>
+            </div>
+            <h5>Colors</h5>
+            <div class="demo-grid">
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_type_initials avatar_color_gray avatar_style_circle" title="User Name">
+                      <div class="avatar__initials">UN</div>
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">gray</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_type_initials avatar_color_black avatar_style_circle" title="User Name">
+                      <div class="avatar__initials">UN</div>
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">black</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_type_initials avatar_color_red avatar_style_circle" title="User Name">
+                      <div class="avatar__initials">UN</div>
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">red</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_type_initials avatar_color_pink avatar_style_circle" title="User Name">
+                      <div class="avatar__initials">UN</div>
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">pink</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_type_initials avatar_color_grape avatar_style_circle" title="User Name">
+                      <div class="avatar__initials">UN</div>
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">grape</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_type_initials avatar_color_violet avatar_style_circle" title="User Name">
+                      <div class="avatar__initials">UN</div>
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">violet</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_type_initials avatar_color_indigo avatar_style_circle" title="User Name">
+                      <div class="avatar__initials">UN</div>
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">indigo</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_type_initials avatar_color_blue avatar_style_circle" title="User Name">
+                      <div class="avatar__initials">UN</div>
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">blue</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_type_initials avatar_color_cyan avatar_style_circle" title="User Name">
+                      <div class="avatar__initials">UN</div>
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">cyan</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_type_initials avatar_color_teal avatar_style_circle" title="User Name">
+                      <div class="avatar__initials">UN</div>
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">teal</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_type_initials avatar_color_green avatar_style_circle" title="User Name">
+                      <div class="avatar__initials">UN</div>
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">green</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_type_initials avatar_color_lime avatar_style_circle" title="User Name">
+                      <div class="avatar__initials">UN</div>
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">lime</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_type_initials avatar_color_yellow avatar_style_circle" title="User Name">
+                      <div class="avatar__initials">UN</div>
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">yellow</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="avatar avatar_type_initials avatar_color_orange avatar_style_circle" title="User Name">
+                      <div class="avatar__initials">UN</div>
+                    </div>
+                  </div>
+                  <div class="demo-grid-item__title">orange</div>
+                </div>
+              </div>
+            </div>
+            <h2 id="media-object">Media object</h2>
+            <p>"Media object" module helper for easily creating blocks with text and image, like comments, any lists and etc.</p>
+            <h4>Example usage in `comment` module</h4>
+            <style>
+              .comment__text {
+                margin: 0 10px;
+              }
+
+              .comment__message {
+                font-size: 14px;
+                line-height: 20px;
+                margin-bottom: 10px;
+              }
+
+              .comment__meta {
+                font-size: 13px;
+              }
+
+              .comment__name,
+              .comment__name:visited {
+                font-weight: bold;
+                display: inline-block;
+                margin-right: 5px;
+                color: #000;
+                text-decoration: none;
+              }
+
+              .comment__date {
+                display: inline-block;
+                color: #c0c0c0;
+              }
+
+            </style>
+            <h5>Top</h5>
+            <div class="comment media-object media-object_image_top">
+              <div class="comment__avatar media-object__image">
+                <div class="avatar avatar_style_circle avatar_size_small" title="User Name">
+                  <img class="avatar__image" src="https://unsplash.it/240/240?image=1027" alt="User Name">
+                </div>
+              </div>
+              <div class="comment__text media-object__body">
+                <div class="comment__meta">
+                  <a class="comment__name" href="#">User Name</a>
+                  <time class="comment__date" datetime="2017-12-20 08:30:45">1 day ago</time>
+                </div>
+                <div class="comment__message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, temporibus quam iste totam nam natus debitis quae, rem nulla, culpa delectus. Nam ex iusto repellat et fuga ullam omnis velit!</div>
+                <div class="comment__controls">
+                  <button class="button button_style_ghost button_color_blue button_size_small" type="button">Reply</button>
+                  <button class="button button_style_ghost button_color_blue button_size_small" type="button">Quote</button>
+                  <button class="button button_style_ghost button_color_red button_size_small" type="button">Report</button>
+                </div>
+              </div>
+            </div>
+            <div class="comment media-object media-object_image_top">
+              <div class="comment__text media-object__body">
+                <div class="comment__meta">
+                  <a class="comment__name" href="#">User Name</a>
+                  <time class="comment__date" datetime="2017-12-20 08:30:45">1 day ago</time>
+                </div>
+                <div class="comment__message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, temporibus quam iste totam nam natus debitis quae, rem nulla, culpa delectus. Nam ex iusto repellat et fuga ullam omnis velit!</div>
+                <div class="comment__controls">
+                  <button class="button button_style_ghost button_color_blue button_size_small" type="button">Reply</button>
+                  <button class="button button_style_ghost button_color_blue button_size_small" type="button">Quote</button>
+                  <button class="button button_style_ghost button_color_red button_size_small" type="button">Report</button>
+                </div>
+              </div>
+              <div class="comment__avatar media-object__image">
+                <div class="avatar avatar_style_circle avatar_size_small" title="User Name">
+                  <img class="avatar__image" src="https://unsplash.it/240/240?image=1027" alt="User Name">
+                </div>
+              </div>
+            </div>
+            <h5>Center</h5>
+            <div class="comment media-object media-object_image_center">
+              <div class="comment__avatar media-object__image">
+                <div class="avatar avatar_style_circle avatar_size_small" title="User Name">
+                  <img class="avatar__image" src="https://unsplash.it/240/240?image=1027" alt="User Name">
+                </div>
+              </div>
+              <div class="comment__text media-object__body">
+                <div class="comment__meta">
+                  <a class="comment__name" href="#">User Name</a>
+                  <time class="comment__date" datetime="2017-12-20 08:30:45">1 day ago</time>
+                </div>
+                <div class="comment__message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, temporibus quam iste totam nam natus debitis quae, rem nulla, culpa delectus. Nam ex iusto repellat et fuga ullam omnis velit!</div>
+                <div class="comment__controls">
+                  <button class="button button_style_ghost button_color_blue button_size_small" type="button">Reply</button>
+                  <button class="button button_style_ghost button_color_blue button_size_small" type="button">Quote</button>
+                  <button class="button button_style_ghost button_color_red button_size_small" type="button">Report</button>
+                </div>
+              </div>
+            </div>
+            <div class="comment media-object media-object_image_center">
+              <div class="comment__text media-object__body">
+                <div class="comment__meta">
+                  <a class="comment__name" href="#">User Name</a>
+                  <time class="comment__date" datetime="2017-12-20 08:30:45">1 day ago</time>
+                </div>
+                <div class="comment__message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, temporibus quam iste totam nam natus debitis quae, rem nulla, culpa delectus. Nam ex iusto repellat et fuga ullam omnis velit!</div>
+                <div class="comment__controls">
+                  <button class="button button_style_ghost button_color_blue button_size_small" type="button">Reply</button>
+                  <button class="button button_style_ghost button_color_blue button_size_small" type="button">Quote</button>
+                  <button class="button button_style_ghost button_color_red button_size_small" type="button">Report</button>
+                </div>
+              </div>
+              <div class="comment__avatar media-object__image">
+                <div class="avatar avatar_style_circle avatar_size_small" title="User Name">
+                  <img class="avatar__image" src="https://unsplash.it/240/240?image=1027" alt="User Name">
+                </div>
+              </div>
+            </div>
+            <h5>Bottom</h5>
+            <div class="comment media-object media-object_image_bottom">
+              <div class="comment__avatar media-object__image">
+                <div class="avatar avatar_style_circle avatar_size_small" title="User Name">
+                  <img class="avatar__image" src="https://unsplash.it/240/240?image=1027" alt="User Name">
+                </div>
+              </div>
+              <div class="comment__text media-object__body">
+                <div class="comment__meta">
+                  <a class="comment__name" href="#">User Name</a>
+                  <time class="comment__date" datetime="2017-12-20 08:30:45">1 day ago</time>
+                </div>
+                <div class="comment__message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, temporibus quam iste totam nam natus debitis quae, rem nulla, culpa delectus. Nam ex iusto repellat et fuga ullam omnis velit!</div>
+                <div class="comment__controls">
+                  <button class="button button_style_ghost button_color_blue button_size_small" type="button">Reply</button>
+                  <button class="button button_style_ghost button_color_blue button_size_small" type="button">Quote</button>
+                  <button class="button button_style_ghost button_color_red button_size_small" type="button">Report</button>
+                </div>
+              </div>
+            </div>
+            <div class="comment media-object media-object_image_bottom">
+              <div class="comment__text media-object__body">
+                <div class="comment__meta">
+                  <a class="comment__name" href="#">User Name</a>
+                  <time class="comment__date" datetime="2017-12-20 08:30:45">1 day ago</time>
+                </div>
+                <div class="comment__message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, temporibus quam iste totam nam natus debitis quae, rem nulla, culpa delectus. Nam ex iusto repellat et fuga ullam omnis velit!</div>
+                <div class="comment__controls">
+                  <button class="button button_style_ghost button_color_blue button_size_small" type="button">Reply</button>
+                  <button class="button button_style_ghost button_color_blue button_size_small" type="button">Quote</button>
+                  <button class="button button_style_ghost button_color_red button_size_small" type="button">Report</button>
+                </div>
+              </div>
+              <div class="comment__avatar media-object__image">
+                <div class="avatar avatar_style_circle avatar_size_small" title="User Name">
+                  <img class="avatar__image" src="https://unsplash.it/240/240?image=1027" alt="User Name">
+                </div>
+              </div>
+            </div>
+            <h2 id="spinner">Spinner</h2>
+            <h4>Styles</h4>
+            <div class="demo-grid">
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="spinner spinner_style_1 spinner_color_blue"></div>
+                  </div>
+                  <div class="demo-grid-item__title">style 1</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="spinner spinner_style_2 spinner_color_blue"></div>
+                  </div>
+                  <div class="demo-grid-item__title">style 2</div>
+                </div>
+              </div>
+            </div>
+            <h4>Sizes</h4>
+            <div class="demo-grid">
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="spinner spinner_style_1 spinner_size_extra-extra-small spinner_color_blue"></div>
+                  </div>
+                  <div class="demo-grid-item__title">xxs</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="spinner spinner_style_1 spinner_size_extra-small spinner_color_blue"></div>
+                  </div>
+                  <div class="demo-grid-item__title">xs</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="spinner spinner_style_1 spinner_size_small spinner_color_blue"></div>
+                  </div>
+                  <div class="demo-grid-item__title">s</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="spinner spinner_style_1 spinner_size_medium spinner_color_blue"></div>
+                  </div>
+                  <div class="demo-grid-item__title">m</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="spinner spinner_style_1 spinner_size_large spinner_color_blue"></div>
+                  </div>
+                  <div class="demo-grid-item__title">l</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="spinner spinner_style_1 spinner_size_extra-large spinner_color_blue"></div>
+                  </div>
+                  <div class="demo-grid-item__title">xl</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="spinner spinner_style_1 spinner_size_extra-extra-large spinner_color_blue"></div>
+                  </div>
+                  <div class="demo-grid-item__title">xxl</div>
+                </div>
+              </div>
+            </div>
+            <h4>Colors</h4>
+            <div class="demo-grid">
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="spinner spinner_color_gray spinner_style_1"></div>
+                  </div>
+                  <div class="demo-grid-item__title">gray</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="spinner spinner_color_black spinner_style_1"></div>
+                  </div>
+                  <div class="demo-grid-item__title">black</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="spinner spinner_color_red spinner_style_1"></div>
+                  </div>
+                  <div class="demo-grid-item__title">red</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="spinner spinner_color_pink spinner_style_1"></div>
+                  </div>
+                  <div class="demo-grid-item__title">pink</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="spinner spinner_color_grape spinner_style_1"></div>
+                  </div>
+                  <div class="demo-grid-item__title">grape</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="spinner spinner_color_violet spinner_style_1"></div>
+                  </div>
+                  <div class="demo-grid-item__title">violet</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="spinner spinner_color_indigo spinner_style_1"></div>
+                  </div>
+                  <div class="demo-grid-item__title">indigo</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="spinner spinner_color_blue spinner_style_1"></div>
+                  </div>
+                  <div class="demo-grid-item__title">blue</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="spinner spinner_color_cyan spinner_style_1"></div>
+                  </div>
+                  <div class="demo-grid-item__title">cyan</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="spinner spinner_color_teal spinner_style_1"></div>
+                  </div>
+                  <div class="demo-grid-item__title">teal</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="spinner spinner_color_green spinner_style_1"></div>
+                  </div>
+                  <div class="demo-grid-item__title">green</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="spinner spinner_color_lime spinner_style_1"></div>
+                  </div>
+                  <div class="demo-grid-item__title">lime</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="spinner spinner_color_yellow spinner_style_1"></div>
+                  </div>
+                  <div class="demo-grid-item__title">yellow</div>
+                </div>
+              </div>
+              <div class="demo-grid__item">
+                <div class="demo-grid-item">
+                  <div class="demo-grid-item__container">
+                    <div class="spinner spinner_color_orange spinner_style_1"></div>
+                  </div>
+                  <div class="demo-grid-item__title">orange</div>
+                </div>
+              </div>
+            </div>
+            <h2 id="card">Card</h2>
+            <div class="card-demo">
+              <div class="card">
+                <div class="card__text">
+                  <div class="card-text">
+                    <header class="card-text__header">
+                      <h1 class="card-text__title">Text only card example</h1>
+                      <p class="card-text__subtitle">Tex block subtitle</p>
+                    </header>
+                    <main class="card-text__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est</main>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card__header">
+                  <header class="card-header media-object media-object_image_center">
+                    <div class="card-header__image media-object__image">
+                      <div class="avatar avatar_size_small avatar_color_blue avatar_style_circle" title="Taylor Price">
+                        <img class="avatar__image" src="assets/images/card__user.jpg" alt="Taylor Price">
+                      </div>
+                    </div>
+                    <div class="card-header__text media-object__body">
+                      <h1 class="card-header__title">Taylor Price</h1>
+                      <p class="card-header__subtitle">Consectetur adipisicing elit</p>
+                    </div>
+                  </header>
+                </div>
+                <div class="card__text">
+                  <div class="card-text">
+                    <header class="card-text__header">
+                      <h1 class="card-text__title">Header and text card example</h1>
+                      <p class="card-text__subtitle">Tex block subtitle</p>
+                    </header>
+                    <main class="card-text__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est</main>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card__text">
+                  <div class="card-text">
+                    <header class="card-text__header">
+                      <h1 class="card-text__title">Text and actions card example</h1>
+                      <p class="card-text__subtitle">Tex block subtitle</p>
+                    </header>
+                    <main class="card-text__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est</main>
+                  </div>
+                </div>
+                <div class="card__actions">
+                  <div class="card-actions">
+                    <button class="button button_style_solid button_color_blue button_style_rounded card-actions__button" type="button">Action 1</button>
+                    <button class="button button_style_solid button_color_gray button_style_rounded card-actions__button" type="button">Action 2</button>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card__media">
+                  <figure class="card-media">
+                    <img class="card-media__image" src="assets/images/card__media.jpg" alt="Lorem ipsum dolor, sit amet consectetur adipisicing elit">
+                    <figcaption class="card-media__overlay">
+                      <h1 class="card-media__title">Lorem ipsum dolor, sit amet consectetur adipisicing elit</h1>
+                      <p class="card-media__subtitle">Author: Tyler Lastovich</p>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card__media">
+                  <figure class="card-media">
+                    <img class="card-media__image" src="assets/images/card__media.jpg">
+                  </figure>
+                </div>
+                <div class="card__text">
+                  <div class="card-text">
+                    <header class="card-text__header">
+                      <h1 class="card-text__title">Image and text card example</h1>
+                      <p class="card-text__subtitle">Tex block subtitle</p>
+                    </header>
+                    <main class="card-text__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est</main>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card__header">
+                  <header class="card-header media-object media-object_image_center">
+                    <div class="card-header__image media-object__image">
+                      <div class="avatar avatar_size_small avatar_color_blue avatar_style_circle" title="Taylor Price">
+                        <img class="avatar__image" src="assets/images/card__user.jpg" alt="Taylor Price">
+                      </div>
+                    </div>
+                    <div class="card-header__text media-object__body">
+                      <h1 class="card-header__title">Taylor Price</h1>
+                      <p class="card-header__subtitle">Consectetur adipisicing elit</p>
+                    </div>
+                  </header>
+                </div>
+                <div class="card__media">
+                  <figure class="card-media">
+                    <img class="card-media__image" src="assets/images/card__media.jpg">
+                  </figure>
+                </div>
+                <div class="card__text">
+                  <div class="card-text">
+                    <header class="card-text__header">
+                      <h1 class="card-text__title">Image, text and header card example</h1>
+                      <p class="card-text__subtitle">Tex block subtitle</p>
+                    </header>
+                    <main class="card-text__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est</main>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card__header">
+                  <header class="card-header media-object media-object_image_center">
+                    <div class="card-header__image media-object__image">
+                      <div class="avatar avatar_size_small avatar_color_blue avatar_style_circle" title="Taylor Price">
+                        <img class="avatar__image" src="assets/images/card__user.jpg" alt="Taylor Price">
+                      </div>
+                    </div>
+                    <div class="card-header__text media-object__body">
+                      <h1 class="card-header__title">Taylor Price</h1>
+                      <p class="card-header__subtitle">Consectetur adipisicing elit</p>
+                    </div>
+                  </header>
+                </div>
+                <div class="card__media">
+                  <figure class="card-media">
+                    <img class="card-media__image" src="assets/images/card__media.jpg" alt="Lorem ipsum dolor, sit amet consectetur adipisicing elit">
+                    <figcaption class="card-media__overlay">
+                      <h1 class="card-media__title">Lorem ipsum dolor, sit amet consectetur adipisicing elit</h1>
+                      <p class="card-media__subtitle">Author: Tyler Lastovich</p>
+                    </figcaption>
+                  </figure>
+                </div>
+                <div class="card__text">
+                  <div class="card-text">
+                    <header class="card-text__header">
+                      <h1 class="card-text__title">Dignissimos nobis quia itaque ea hic</h1>
+                      <p class="card-text__subtitle">Alias quod consequuntur</p>
+                    </header>
+                    <main class="card-text__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est</main>
+                  </div>
+                </div>
+                <div class="card__actions">
+                  <div class="card-actions">
+                    <button class="button button_style_solid button_color_blue button_style_rounded card-actions__button" type="button">Action 1</button>
+                    <button class="button button_style_solid button_color_gray button_style_rounded card-actions__button" type="button">Action 2</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page__footer">
+        <footer class="footer js-appearing-item">
+          <svg class="icon icon_heart footer__icon" role="img">
+            <title>Heart</title>
+            <use xlink:href="assets/images/icons.svg#heart"></use>
+          </svg>
+          <div class="footer__copyright">&copy;&nbsp;2018 Velichko Konstantin</div>
+          <div class="footer__about">This
+            <a href="https://github.com/zoxon/gulp-front">project source code</a> can be found on Github</div>
+          <div class="footer__generated">Generated with gulp-front</div>
+        </footer>
+      </div>
+    </div>
+    <div class="page__overlay" data-offcanvas-overlay></div>
+    <button class="scroll-top button button_style_solid button_color_blue" type="button">
+      <span class="visuallyhidden">Scroll page top</span>
+      <svg class="icon icon_chevron_up scroll-top__icon" role="img">
+        <title>Chevron up</title>
+        <use xlink:href="assets/images/icons.svg#chevron_up"></use>
+      </svg>
+    </button><script src="assets/javascripts/vendor.js"></script><script src="assets/javascripts/main.js"></script></body>
+</html>

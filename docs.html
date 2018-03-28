@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head;-->
     <!-- any other head content must come *after* these tags-->
     <!-- Title-->
-    <title>Gulp-front</title>
+    <title>Documentation :: Gulp-front</title>
     <!-- Meta tags-->
     <meta name="description" content="The template for quick start of development with Gulp, Jade and Stylus">
     <meta name="keywords" content="demo, gulp, bem, modules, sprites, svg, jade, stylus, boilerplate, frontend, project, template">
@@ -27,7 +27,7 @@
     <meta property="fb:app_id" content="387979211564142">
     <meta property="og:url" content="http://zoxon.github.io/gulp-front/index.html">
     <meta property="og:type" content="website">
-    <meta property="og:title" content>
+    <meta property="og:title" content="Documentation">
     <meta property="og:image" content="http://zoxon.github.io/gulp-front/assets/images/content/preview.png">
     <meta property="og:description" content="The template for quick start of development with Gulp, Jade and Stylus">
     <meta property="og:site_name" content="Gulp-front">
@@ -387,151 +387,356 @@
             </div>
           </header>
         </div>
-        <div class="page__presentation">
-          <div class="header-presentation" data-0="opacity: 1; transform: translateY(0px);" data-300="opacity: 0; transform: translateY(10px);">
-            <h1 class="header-presentation__name">Gulp front</h1>
-            <p class="header-presentation__description">A lean and powerful, gulp-based boilerplate for better front-end coding.</p>
-            <div class="header-presentation__version">v. 9.0.0</div>
-            <div class="header-presentation__sub-description">Created &amp; maintained by @zoxon</div>
-            <a class="button button_block button_color_black button_style_ghost button_style_rounded button_size_large header-presentation__download" href="#quick-start">Getting Started</a>
-          </div>
-        </div>
         <div class="page__main">
-          <div class="main-page">
-            <section class="main-page__section main-page__section_features">
-              <h2 class="main-page__title">Benefits &amp; Features</h2>
-              <div class="features-list">
-                <ul class="features-list__list">
-                  <li class="features-list__item js-appearing-item">
-                    <div class="features-list-item">
-                      <div class="features-list-item__icon">
-                        <svg class="icon icon_landing_bem" role="img">
-                          <title>BEM</title>
-                          <use xlink:href="assets/images/icons.svg#landing_bem"></use>
-                        </svg>
-                      </div>
-                      <h3 class="features-list-item__title">BEM</h3>
-                      <p class="features-list-item__description">The
-                        <a href="https://en.bem.info/">BEM methodology</a> helps to create extendable and reusable interface components.</p>
-                    </div>
+          <div class="demo demo_documentation content-wrapper">
+            <h1>Documentation</h1>
+            <h2>Table of Contents</h2>
+            <ul>
+              <li>
+                <a href="#quickstart">Quickstart</a>
+              </li>
+              <li>
+                <a href="#development">Development</a>
+              </li>
+              <li>
+                <a href="#building-and-deploying">Building and Deploying</a>
+              </li>
+              <li>
+                <a href="#structure">Structure</a>
+              </li>
+              <li>
+                <a href="#css">CSS</a>
+              </li>
+              <li>
+                <a href="#html">HTML</a>
+              </li>
+              <li>
+                <a href="#javascript">JavaScript</a>
+              </li>
+              <li>
+                <a href="#png-sprites">PNG Sprites</a>
+              </li>
+              <li>
+                <a href="#svg-symbol-sprites">SVG Symbol Sprites</a>
+              </li>
+              <li>
+                <a href="#data">DATA</a>
+              </li>
+              <li>
+                <a href="#command-line-commands">Command Line Commands</a>
+                <ul>
+                  <li>
+                    <a href="#initialization">Initialization</a>
                   </li>
-                  <li class="features-list__item js-appearing-item">
-                    <div class="features-list-item">
-                      <div class="features-list-item__icon">
-                        <svg class="icon icon_landing_module" role="img">
-                          <title>Modular architecture</title>
-                          <use xlink:href="assets/images/icons.svg#landing_module"></use>
-                        </svg>
-                      </div>
-                      <h3 class="features-list-item__title">Modular architecture</h3>
-                      <p class="features-list-item__description">Create and use HTML/CSS/JS in accordance with the principles of DRY</p>
-                    </div>
+                  <li>
+                    <a href="#development">Development</a>
                   </li>
-                  <li class="features-list__item js-appearing-item">
-                    <div class="features-list-item">
-                      <div class="features-list-item__icon">
-                        <svg class="icon icon_landing_cube" role="img">
-                          <title>Built-in modules</title>
-                          <use xlink:href="assets/images/icons.svg#landing_cube"></use>
-                        </svg>
-                      </div>
-                      <h3 class="features-list-item__title">Built-in modules</h3>
-                      <p class="features-list-item__description">Extensive set of modules which meet in 90% of all websites</p>
-                    </div>
+                  <li>
+                    <a href="#cleaning">Cleaning</a>
                   </li>
-                  <li class="features-list__item js-appearing-item">
-                    <div class="features-list-item">
-                      <div class="features-list-item__icon">
-                        <svg class="icon icon_landing_gear" role="img">
-                          <title>Preprocessors and postprocessors</title>
-                          <use xlink:href="assets/images/icons.svg#landing_gear"></use>
-                        </svg>
-                      </div>
-                      <h3 class="features-list-item__title">Preprocessors and postprocessors</h3>
-                      <p class="features-list-item__description">Simple and clean HTML and CSS syntax with superpowers</p>
-                    </div>
+                  <li>
+                    <a href="#building">Building</a>
                   </li>
-                  <li class="features-list__item js-appearing-item">
-                    <div class="features-list-item">
-                      <div class="features-list-item__icon">
-                        <svg class="icon icon_landing_text-file" role="img">
-                          <title>Customized typography</title>
-                          <use xlink:href="assets/images/icons.svg#landing_text-file"></use>
-                        </svg>
-                      </div>
-                      <h3 class="features-list-item__title">Customized typography</h3>
-                      <p class="features-list-item__description">The most important thing on the website is text and we took care of it</p>
-                    </div>
+                  <li>
+                    <a href="#deploying">Deploying</a>
                   </li>
-                  <li class="features-list__item js-appearing-item">
-                    <div class="features-list-item">
-                      <div class="features-list-item__icon">
-                        <svg class="icon icon_landing_vector" role="img">
-                          <title>Your personal iconset</title>
-                          <use xlink:href="assets/images/icons.svg#landing_vector"></use>
-                        </svg>
-                      </div>
-                      <h3 class="features-list-item__title">Your personal iconset</h3>
-                      <p class="features-list-item__description">Create your own set of SVG icons. Only what you need and no fonts.</p>
-                    </div>
+                  <li>
+                    <a href="#zip">Zip</a>
                   </li>
-                  <li class="features-list__item js-appearing-item">
-                    <div class="features-list-item">
-                      <div class="features-list-item__icon">
-                        <svg class="icon icon_landing_picture" role="img">
-                          <title>Easy to use sprite system</title>
-                          <use xlink:href="assets/images/icons.svg#landing_picture"></use>
-                        </svg>
-                      </div>
-                      <h3 class="features-list-item__title">Easy to use sprite system</h3>
-                      <p class="features-list-item__description">Just copy images to a folder and get sprite and @2x srpite</p>
-                    </div>
-                  </li>
-                  <li class="features-list__item js-appearing-item">
-                    <div class="features-list-item">
-                      <div class="features-list-item__icon">
-                        <svg class="icon icon_landing_phone" role="img">
-                          <title>Simple media queries</title>
-                          <use xlink:href="assets/images/icons.svg#landing_phone"></use>
-                        </svg>
-                      </div>
-                      <h3 class="features-list-item__title">Simple media queries</h3>
-                      <p class="features-list-item__description">You can easily create mobile version or adapt your current version of your website with the help of convenient mixins</p>
-                    </div>
-                  </li>
-                  <li class="features-list__item js-appearing-item">
-                    <div class="features-list-item">
-                      <div class="features-list-item__icon">
-                        <svg class="icon icon_landing_documentation" role="img">
-                          <title>Documentation</title>
-                          <use xlink:href="assets/images/icons.svg#landing_documentation"></use>
-                        </svg>
-                      </div>
-                      <h3 class="features-list-item__title">Documentation</h3>
-                      <p class="features-list-item__description">Yes, we have a documentation :)</p>
-                    </div>
+                  <li>
+                    <a href="#module-generator">Module generator</a>
                   </li>
                 </ul>
-              </div>
-            </section>
-            <section class="main-page__section main-page__section_quick-start" id="quick-start">
-              <h2 class="main-page__title">Getting Started</h2>
-              <div class="quick-start">
-                <div class="quick-start__body">
-                  <ol>
-                    <li class="js-appearing-item">Uou need to install
-                      <a href="https://nodejs.org">Node.js</a> with version equal to 6 or higher.</li>
-                    <li class="js-appearing-item">Clone the project or
-                      <a href="https://github.com/zoxon/gulp-front/archive/master.zip" title="Download source from Github">download single file</a><pre><code>git clone git@github.com:zoxon/gulp-front.git  --depth 1 project-name
-</code></pre></li>
-                    <li class="js-appearing-item">Goto in project folder root and install dependencies<pre><code>npm run setup</code></pre></li>
-                    <li class="js-appearing-item">Start dev server<pre><code>npm start
-</code></pre></li>
-                  </ol>
-                  <p class="js-appearing-item">In browser open page with address <code>http://localhost:3000</code></p>
-                </div>
-              </div>
-            </section>
+              </li>
+              <li>
+                <a href="#license">License</a>
+              </li>
+            </ul>
+            <p>
+              <a name="quickstart"></a>
+            </p>
+            <h2>Quickstart</h2>
+            <ol>
+              <li>Install the
+                <a href="https://nodejs.org">node.js</a>
+              </li>
+              <li>Clone the project or
+                <a href="https://github.com/zoxon/gulp-front/archive/master.zip">download</a> the file<pre><code class="highlight-sh">git clone git@github.com:zoxon/gulp-front.git --depth 1 my-project
+</code></pre>
+              </li>
+              <li>Go to project folder and run<pre><code class="highlight-sh">npm run setup
+</code></pre>
+              </li>
+              <li>Start dev server<pre><code class="highlight-sh">npm start
+</code></pre>
+              </li>
+              <li>In browser open page with address
+                <a href="http://localhost:3000/"><code>http://localhost:3000/</code></a>
+              </li>
+            </ol>
+            <p>
+              <a name="development"></a>
+            </p>
+            <h2>Development</h2>
+            <ol>
+              <li>Run <code>npm run cleanup</code>. This command delete demo app.</li>
+              <li>Run <code>npm start</code> to see your app at
+                <a href="http://localhost:3000/"><code>http://localhost:3000/</code></a>
+              </li>
+            </ol>
+            <p>
+              <a name="building-and-deploying"></a>
+            </p>
+            <h2>Building and Deploying</h2>
+            <ol>
+              <li>Run <code>npm run build</code>, which will compile all the necessary files to the <code>dest</code> folder.</li>
+              <li>Upload the contents of the <code>dest</code> folder to your web server’s root folder.</li>
+            </ol>
+            <p>
+              <a name="structure"></a>
+            </p>
+            <h2>Structure</h2>
+            <p>The <code>source</code> directory contains your entire application code, including CSS, JavaScript, HTML.</p>
+            <p>The rest of the folders and files only exist to make your life easier, and should not need to be touched.</p>
+            <p>Below you can find full details about significant files and folders.</p>
+            <pre><code>gulp-front/                             # Project root
+├── dest                                # Compiled files
+├── docs                                # Documentation
+├── gulp                                # Gulpfile tasks and config
+├── source                              # Source files
+│   ├── layouts                         # Pug layouts
+│   ├── modules                         # Modules folder
+│   ├── pages                           # Pages
+│   └── static                          # Static files
+│       ├── assets                      # Other files
+│       ├── icons                       # SVG icons files
+│       ├── public                      # Root files
+│       ├── scripts                     # JavaScript files
+│       │   ├── helpers                 # JavaScript helpers
+│       │   ├── plugins                 # JavaScript plgins and libs
+│       │   ├── main.js                 # Main JavaScript file
+│       │   └── vendor.js               # Plugins assemblage file
+│       ├── sprite                      # PNG Sprite files
+│       └── styles                      # Static styles
+│           ├── components              # Componetns
+│           ├── plugins                 # Plugins styles
+│           ├── templates               # Sysytem used templates
+│           ├── _common.styl            # Different styles
+│           ├── _variables.styl         # Variables
+│           ├── main.styl               # Main styles
+│           └── reset.styl              # Styles reset + typography
+├── tmp                                 # Temp folder
+├── tools                               # Gulp-front tools
+├── zip                                 # Folder with zip archives
+├── .babelrc                            # Babel config file
+├── .browserslistrc                     # Browserlist config
+├── .editorconfig                       # EditorConfig
+├── .eslintrc.json                      # ESLint config
+├── .gitignore                          # Files ignored by GIT
+├── .htmlhintrc                         # Settings for HTMLHint
+├── .npmignore                          # Files ignored by npm
+├── .postcss-sorting.json               # postcss-sorting config
+├── .travis.yml                         # TravisCI config
+├── gulpfile.babel.js                   # gulp.js config
+├── LICENSE                             # License
+├── package.json                        # Dependencies for node.js
+├── postcss.config.js                   # PostCSS config
+├── README.md                           # English readme file
+├── webpack.config.babel.js             # Webpack config
+└── yarn.lock                           # YARN Lock file
+</code></pre>
+            <p>
+              <a name="css"></a>
+            </p>
+            <h2>CSS</h2>
+            <ul>
+              <li>
+                <a href="https://necolas.github.io/normalize.css/">Normalize.css</a>
+              </li>
+              <li>
+                <a href="http://stylus-lang.com/">Stylus</a>
+                <ul>
+                  <li>
+                    <a href="https://github.com/jescalan/rupture">rupture</a> - Simple media queries mixins for stylus - npm css files import with
+                    <a href="https://github.com/jescalan/accord/blob/master/docs/stylus.md#include">stylus include feature</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="http://postcss.org/">PostCSS</a>
+                <ul>
+                  <li>
+                    <a href="https://github.com/postcss/autoprefixer">autoprefixer</a> - Parse CSS and add vendor prefixes to rules by Can I Use</li>
+                  <li>
+                    <a href="https://github.com/ben-eb/perfectionist">perfectionist</a> - Beautify CSS files</li>
+                  <li>
+                    <a href="https://github.com/hudochenkov/postcss-sorting">postcss-sorting</a> - Keep rules and at-rules content in order</li>
+                  <li>
+                    <a href="https://github.com/postcss/postcss-reporter">postcss-reporter</a> - Log PostCSS messages in the console</li>
+                </ul>
+              </li>
+            </ul>
+            <p>
+              <a name="html"></a>
+            </p>
+            <h2>HTML</h2>
+            <ul>
+              <li>
+                <a href="https://pugjs.org/">Pug (ex Jade)</a> - Robust, elegant, feature rich template engine</li>
+              <li>
+                <a href="https://github.com/posthtml/posthtml">PostHTML</a> - Tool to transform HTML/XML with JS plugins</li>
+              <li>
+                <a href="https://github.com/jonschlinkert/gulp-prettify">gulp-prettify</a> - <code>js-beautify</code> gulp wrapper</li>
+            </ul>
+            <p>
+              <a name="javascript"></a>
+            </p>
+            <h2>JavaScript</h2>
+            <ul>
+              <li>Tools
+                <ul>
+                  <li>
+                    <a href="https://nodejs.org/">Node.js</a> - JavaScript runtime</li>
+                  <li>
+                    <a href="https://webpack.js.org/">Webpack 4</a> - module bundler</li>
+                  <li>
+                    <a href="https://www.npmjs.com/">npm</a> - package manager</li>
+                  <li>
+                    <a href="https://yarnpkg.com/lang/en/">Yarn</a> - package manager</li>
+                  <li>
+                    <a href="http://es6-features.org/">ECMAScript 6</a> and
+                    <a href="https://babeljs.io/">Babel</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/GoogleChromeLabs/sw-precache">Service Worker Precache</a> - service worker that precaches resources</li>
+                </ul>
+              </li>
+              <li>Libraries
+                <ul>
+                  <li>
+                    <a href="http://animejs.com/">anime.js</a> - lightweight JavaScript animation library</li>
+                  <li>
+                    <a href="https://github.com/ftlabs/fastclick">FastClick</a> - remove 300ms delay on mobile browsers</li>
+                  <li>
+                    <a href="https://github.com/arasatasaygin/is.js">is.js</a> - Micro check library</li>
+                  <li>
+                    <a href="https://github.com/js-cookie/js-cookie">JavaScript Cookie</a> - JavaScript API for handling cookies</li>
+                  <li>
+                    <a href="https://github.com/ghosh/micromodal">Micromodal</a> - accessible modal dialogs</li>
+                  <li>
+                    <a href="https://github.com/ai/nanoid">Nano ID</a> - unique string ID generator</li>
+                  <li>
+                    <a href="https://github.com/michaelrhodes/scroll">scroll</a> - animates an element’s scrollTop or scrollLeft position</li>
+                  <li>
+                    <a href="https://lodash.com/">Lodash</a> - utility library delivering modularity, performance &amp; extras</li>
+                  <li>
+                    <a href="https://popper.js.org/tooltip-examples.html">tooltip.js</a> - dead simple tooltips, powered by popper.js</li>
+                </ul>
+              </li>
+              <li>Polyfills
+                <ul>
+                  <li>
+                    <a href="https://github.com/jonathantneal/svg4everybody">svg4everybody</a> - adds SVG External Content support to all browsers.</li>
+                  <li>
+                    <a href="https://babeljs.io/docs/usage/polyfill/">babel-polyfill</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <p>
+              <a name="png-sprites"></a>
+            </p>
+            <h2>PNG Sprites</h2>
+            <p>For converting a set of images into a spritesheet add your image to <code>source/static/sprite</code> folder. Spritesheet generates with the help of
+              <a href="https://github.com/twolfson/gulp.spritesmith">gulp.spritesmith</a>
+              Retina spritesheets/templates are supported too.</p>
+            <p>
+              <a name="svg-symbol-sprites"></a>
+            </p>
+            <h2>SVG Symbol Sprites</h2>
+            <p>To convert a bunch of svg files to a single svg sprite add svg file to <code>source/static/icons</code> folder. Then you can use icon mixin call in your template.</p>
+            <p>Example:</p>
+            <ol>
+              <li>You copy file icon-name.svg to <code>source/static/icons</code> folder.</li>
+              <li>In any
+                <em>pug</em> template, import icon mixin <code>include ../icon/icon</code></li>
+              <li>Use <code>+icon(name=&quot;icon-name&quot; title=&quot;Icon title&quot;)</code> to render icon</li>
+            </ol>
+            <p>Spritesheet generates with plugin
+              <a href="https://github.com/Hiswe/gulp-svg-symbols">gulp-svg-symbols</a>
+            </p>
+            <p>
+              <a name="data"></a>
+            </p>
+            <h2>DATA</h2>
+            <p>All data in modules stores in <code>data/*.yaml</code> files</p>
+            <p>
+              <a href="http://yaml.org/">YAML</a> Ain’t Markup Language</p>
+            <p>
+              <a name="command-line-commands"></a>
+            </p>
+            <h2>Command Line Commands</h2>
+            <p>
+              <a name="initialization"></a>
+            </p>
+            <h3>Initialization</h3>
+            <pre><code class="highlight-sh">npm install
+</code></pre>
+            <p>
+              <a name="development"></a>
+            </p>
+            <h3>Development</h3>
+            <p>Starts the development server running on
+              <a href="http://localhost:3000">http://localhost:3000</a>
+            </p>
+            <pre><code class="highlight-sh">npm start
+</code></pre>
+            <p>
+              <a name="cleaning"></a>
+            </p>
+            <h3>Cleaning</h3>
+            <p>Remove demo app.</p>
+            <pre><code class="highlight-sh">npm run cleanup
+</code></pre>
+            <p>
+              <a name="building"></a>
+            </p>
+            <h3>Building</h3>
+            <p>Build project.</p>
+            <pre><code class="highlight-sh">npm run build
+</code></pre>
+            <p>
+              <a name="deploying"></a>
+            </p>
+            <h3>Deploying</h3>
+            <p>Create <code>build</code> branch in your git repository and push compilled files.</p>
+            <pre><code class="highlight-sh">npm run deploy
+</code></pre>
+            <p>
+              <a name="zip"></a>
+            </p>
+            <h3>Zip</h3>
+            <p>Build a project and pack content of <code>dest</code> folder in zip file</p>
+            <pre><code class="highlight-sh">npm run zip
+</code></pre>
+            <p>
+              <a name="module-generator"></a>
+            </p>
+            <h3>Generator</h3>
+            <p>Create empty module by name in <code>source/modules</code> folder</p>
+            <p>By default generate only <code>*.pug</code> and <code>*.styl</code> files.</p>
+            <p>You can call <code>amo</code> (
+              <strong>A</strong>dd
+              <strong>Mo</strong>dule) with additional params like <code>js</code> and <code>yml</code></p>
+            <pre><code class="highlight-sh">npm run amo &lt;module-name&gt; [js || yml]
+</code></pre>
+            <p>
+              <a name="license"></a>
+            </p>
+            <h2>License</h2>
+            <p>
+              <a href="../LICENSE">The MIT License (MIT)</a>
+            </p>
           </div>
         </div>
       </div>
@@ -548,5 +753,12 @@
         </footer>
       </div>
     </div>
-    <div class="page__overlay" data-offcanvas-overlay></div><script src="assets/javascripts/vendor.js"></script><script src="assets/javascripts/main.js"></script></body>
+    <div class="page__overlay" data-offcanvas-overlay></div>
+    <button class="scroll-top button button_style_solid button_color_blue" type="button">
+      <span class="visuallyhidden">Scroll page top</span>
+      <svg class="icon icon_chevron_up scroll-top__icon" role="img">
+        <title>Chevron up</title>
+        <use xlink:href="assets/images/icons.svg#chevron_up"></use>
+      </svg>
+    </button><script src="assets/javascripts/vendor.js"></script><script src="assets/javascripts/main.js"></script></body>
 </html>

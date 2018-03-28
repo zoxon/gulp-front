@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html class="i-ua_js_no i-ua_css_standard" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <!-- The above 3 meta tags *must* come first in the head;-->
+    <!-- any other head content must come *after* these tags-->
+    <!-- Title-->
+    <title>Forms :: Gulp-front</title>
+    <!-- Meta tags-->
+    <meta name="description" content="The template for quick start of development with Gulp, Jade and Stylus">
+    <meta name="keywords" content="demo, gulp, bem, modules, sprites, svg, jade, stylus, boilerplate, frontend, project, template">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="address=no">
+    <meta name="robots" content="noodp, noydir">
+    <!-- iOS: Add to Home Screen-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Gulp-front">
+    <!-- Styles-->
+    <link href="assets/stylesheets/reset.css" rel="stylesheet">
+    <link href="assets/stylesheets/main.css" rel="stylesheet">
+    <!-- Facebook / Open Graph-->
+    <!-- Facebook: https://developers.facebook.com/docs/sharing/webmasters#markup-->
+    <!-- Open Graph: http://ogp.me/-->
+    <meta property="fb:app_id" content="387979211564142">
+    <meta property="og:url" content="http://zoxon.github.io/gulp-front/index.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Forms">
+    <meta property="og:image" content="http://zoxon.github.io/gulp-front/assets/images/content/preview.png">
+    <meta property="og:description" content="The template for quick start of development with Gulp, Jade and Stylus">
+    <meta property="og:site_name" content="Gulp-front">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:author" content="Velichko Konstantin">
+    <!-- Favicons-->
+    <link href="/assets/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+    <link type="image/png" href="/assets/favicons/favicon-32x32.png" rel="icon" sizes="32x32">
+    <link type="image/png" href="/assets/favicons/favicon-16x16.png" rel="icon" sizes="16x16">
+    <link href="/assets/favicons/manifest.json" rel="manifest">
+    <link href="/assets/favicons/safari-pinned-tab.svg" rel="mask-icon" color="#e74c3c">
+    <link href="/assets/favicons/favicon.ico" rel="shortcut icon">
+    <meta name="msapplication-config" content="/assets/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <!-- A list of everything that could go in the head of your document-->
+    <!-- https://github.com/joshbuchea/HEAD--><script>;(function(d,e,c,r){e=d.documentElement;c="className";r="replace";e[c]=e[c][r]("i-ua_js_no","i-ua_js_yes");if(d.compatMode!="CSS1Compat")e[c]=e[c][r]("i-ua_css_standart","i-ua_css_quirks")})(document);</script></head>
+  <body class="page" data-offcanvas-container>
+    <!--[if lt IE 8]><p class="browsehappy">Вы используете<strong>устаревший</strong> браузер. Пожалуйста<a href="http://browsehappy.com" target="_blank">обновите браузер</a> для лучшего отображения сайта.</p><![endif]-->
+    <div class="page__mobile-menu" data-offcanvas-menu aria-hidden="true">
+      <div class="mobile-menu js-link-sroll">
+        <nav class="mobile-menu__menu">
+          <ul class="mobile-menu__list">
+            <li class="mobile-menu__item">
+              <a class="mobile-menu__link" href="typography.html">Typography</a>
+              <ul class="mobile-menu__submenu">
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="typography.html#titles-and-paragraphs">Titles &amp; Paragraphs</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="typography.html#lists">Lists</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="typography.html#quotes">Quotes</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="typography.html#description-lists">Description lists</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="typography.html#code">Code</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="typography.html#tables">Tables</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="typography.html#text-elements">Text level elements</a>
+                </li>
+              </ul>
+            </li>
+            <li class="mobile-menu__item">
+              <a class="mobile-menu__link" href="forms.html">Forms</a>
+              <ul class="mobile-menu__submenu">
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="forms.html#messaging">Messaging</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="forms.html#text-inputs">Text Inputs</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="forms.html#radios-and-checkboxes">Radios and Checkboxes</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="forms.html#input-range">Input range</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="forms.html#selects">Selects</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="forms.html#textareas-and-files">Textareas and Files</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="forms.html#captcha">Captcha</a>
+                </li>
+              </ul>
+            </li>
+            <li class="mobile-menu__item">
+              <a class="mobile-menu__link" href="buttons.html">Buttons</a>
+              <ul class="mobile-menu__submenu">
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-styles">Styles</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-sizes">Sizes</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-icon">Icon buttons</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-tags">Tags types</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-disabled">Disabled buttons</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-block">Block buttons</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-group">Buttons group</a>
+                </li>
+              </ul>
+            </li>
+            <li class="mobile-menu__item">
+              <a class="mobile-menu__link" href="components.html">Components</a>
+              <ul class="mobile-menu__submenu">
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#breadcrumbs">Breadcrumbs</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#pagination">Pagination</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#badges">Badges</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#progress-bar">Progress Bar</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#embed">Responsive video</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#social-icons">Social icons</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#tabs">Tabs</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#modals">Modal windows</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#accordion">Accordion</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#dropdown">Dropdown</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#spoiler">Spoiler</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#tooltips">Tooltips</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#notifications">Notifications</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#svg-icons">Svg Icons</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#avatars">Avatars</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#media-object">Media object</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#spinner">Spinner</a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#card">Card</a>
+                </li>
+              </ul>
+            </li>
+            <li class="mobile-menu__item">
+              <a class="mobile-menu__link" href="docs.html">Documentation</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="page__content">
+      <div class="page__wrapper">
+        <div class="page__header">
+          <header class="header">
+            <div class="header__logo">
+              <a class="logo" href="index.html">
+                <svg class="icon icon_heart logo__icon" role="img">
+                  <title>Heart</title>
+                  <use xlink:href="assets/images/icons.svg#heart"></use>
+                </svg>
+                <span class="logo__name">Gulp front</span>
+              </a>
+            </div>
+            <div class="header__menu">
+              <nav class="main-menu">
+                <ul class="main-menu__list">
+                  <li class="main-menu__item main-menu__item_dropdown">
+                    <a class="main-menu__link" href="typography.html">Typography</a>
+                    <div class="main-menu__submenu">
+                      <div class="main-menu-submenu">
+                        <ul class="main-menu-submenu__list">
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="typography.html#titles-and-paragraphs">Titles &amp; Paragraphs</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="typography.html#lists">Lists</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="typography.html#quotes">Quotes</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="typography.html#description-lists">Description lists</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="typography.html#code">Code</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="typography.html#tables">Tables</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="typography.html#text-elements">Text level elements</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="main-menu__item main-menu__item_dropdown">
+                    <a class="main-menu__link" href="forms.html">Forms</a>
+                    <div class="main-menu__submenu">
+                      <div class="main-menu-submenu">
+                        <ul class="main-menu-submenu__list">
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="forms.html#messaging">Messaging</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="forms.html#text-inputs">Text Inputs</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="forms.html#radios-and-checkboxes">Radios and Checkboxes</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="forms.html#input-range">Input range</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="forms.html#selects">Selects</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="forms.html#textareas-and-files">Textareas and Files</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="forms.html#captcha">Captcha</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="main-menu__item main-menu__item_dropdown">
+                    <a class="main-menu__link" href="buttons.html">Buttons</a>
+                    <div class="main-menu__submenu">
+                      <div class="main-menu-submenu">
+                        <ul class="main-menu-submenu__list">
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="buttons.html#buttons-styles">Styles</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="buttons.html#buttons-sizes">Sizes</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="buttons.html#buttons-icon">Icon buttons</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="buttons.html#buttons-tags">Tags types</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="buttons.html#buttons-disabled">Disabled buttons</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="buttons.html#buttons-block">Block buttons</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="buttons.html#buttons-group">Buttons group</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="main-menu__item main-menu__item_dropdown">
+                    <a class="main-menu__link" href="components.html">Components</a>
+                    <div class="main-menu__submenu">
+                      <div class="main-menu-submenu">
+                        <ul class="main-menu-submenu__list">
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#breadcrumbs">Breadcrumbs</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#pagination">Pagination</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#badges">Badges</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#progress-bar">Progress Bar</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#embed">Responsive video</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#social-icons">Social icons</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#tabs">Tabs</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#modals">Modal windows</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#accordion">Accordion</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#dropdown">Dropdown</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#spoiler">Spoiler</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#tooltips">Tooltips</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#notifications">Notifications</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#svg-icons">Svg Icons</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#avatars">Avatars</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#media-object">Media object</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#spinner">Spinner</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#card">Card</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="main-menu__item">
+                    <a class="main-menu__link" href="docs.html">Documentation</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <a class="button button_icon header__github-button" href="//github.com/zoxon/gulp-front" title="Source on Github" target="_blank">
+              <svg class="icon icon_github-octocat" role="img">
+                <title>Github octocat mark</title>
+                <use xlink:href="assets/images/icons.svg#github-octocat"></use>
+              </svg>
+              <span class="visuallyhidden">Github repository</span>
+            </a>
+            <div class="header__mobile-menu-trigger">
+              <button class="button mobile-menu-trigger" type="button" data-offcanvas-trigger>
+                <svg class="icon icon_hamburger" role="img">
+                  <title>Hamburger menu</title>
+                  <use xlink:href="assets/images/icons.svg#hamburger"></use>
+                </svg>
+                <span class="visuallyhidden">Show menu</span>
+              </button>
+            </div>
+          </header>
+        </div>
+        <div class="page__main">
+          <h1 id="forms">Forms</h1>
+          <div class="demo demo_forms">
+            <h2 id="messaging">Messaging</h2>
+            <div class="alert alert_color_gray">
+              <div class="alert__title">Message title</div>
+              <div class="alert__body">Message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum.</div>
+              <button class="alert__close" type="button" data-plugin-alert="close">
+                <svg class="icon icon_close" role="img">
+                  <title>Close</title>
+                  <use xlink:href="assets/images/icons.svg#close"></use>
+                </svg>
+                <span class="visuallyhidden">Close this message</span>
+              </button>
+            </div>
+            <div class="alert alert_color_black">
+              <div class="alert__title">Message title</div>
+              <div class="alert__body">Message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum.</div>
+              <button class="alert__close" type="button" data-plugin-alert="close">
+                <svg class="icon icon_close" role="img">
+                  <title>Close</title>
+                  <use xlink:href="assets/images/icons.svg#close"></use>
+                </svg>
+                <span class="visuallyhidden">Close this message</span>
+              </button>
+            </div>
+            <div class="alert alert_color_red">
+              <div class="alert__title">Message title</div>
+              <div class="alert__body">Message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum.</div>
+              <button class="alert__close" type="button" data-plugin-alert="close">
+                <svg class="icon icon_close" role="img">
+                  <title>Close</title>
+                  <use xlink:href="assets/images/icons.svg#close"></use>
+                </svg>
+                <span class="visuallyhidden">Close this message</span>
+              </button>
+            </div>
+            <div class="alert alert_color_pink">
+              <div class="alert__title">Message title</div>
+              <div class="alert__body">Message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum.</div>
+              <button class="alert__close" type="button" data-plugin-alert="close">
+                <svg class="icon icon_close" role="img">
+                  <title>Close</title>
+                  <use xlink:href="assets/images/icons.svg#close"></use>
+                </svg>
+                <span class="visuallyhidden">Close this message</span>
+              </button>
+            </div>
+            <div class="alert alert_color_grape">
+              <div class="alert__title">Message title</div>
+              <div class="alert__body">Message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum.</div>
+              <button class="alert__close" type="button" data-plugin-alert="close">
+                <svg class="icon icon_close" role="img">
+                  <title>Close</title>
+                  <use xlink:href="assets/images/icons.svg#close"></use>
+                </svg>
+                <span class="visuallyhidden">Close this message</span>
+              </button>
+            </div>
+            <div class="alert alert_color_violet">
+              <div class="alert__title">Message title</div>
+              <div class="alert__body">Message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum.</div>
+              <button class="alert__close" type="button" data-plugin-alert="close">
+                <svg class="icon icon_close" role="img">
+                  <title>Close</title>
+                  <use xlink:href="assets/images/icons.svg#close"></use>
+                </svg>
+                <span class="visuallyhidden">Close this message</span>
+              </button>
+            </div>
+            <div class="alert alert_color_indigo">
+              <div class="alert__title">Message title</div>
+              <div class="alert__body">Message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum.</div>
+              <button class="alert__close" type="button" data-plugin-alert="close">
+                <svg class="icon icon_close" role="img">
+                  <title>Close</title>
+                  <use xlink:href="assets/images/icons.svg#close"></use>
+                </svg>
+                <span class="visuallyhidden">Close this message</span>
+              </button>
+            </div>
+            <div class="alert alert_color_blue">
+              <div class="alert__title">Message title</div>
+              <div class="alert__body">Message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum.</div>
+              <button class="alert__close" type="button" data-plugin-alert="close">
+                <svg class="icon icon_close" role="img">
+                  <title>Close</title>
+                  <use xlink:href="assets/images/icons.svg#close"></use>
+                </svg>
+                <span class="visuallyhidden">Close this message</span>
+              </button>
+            </div>
+            <div class="alert alert_color_cyan">
+              <div class="alert__title">Message title</div>
+              <div class="alert__body">Message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum.</div>
+              <button class="alert__close" type="button" data-plugin-alert="close">
+                <svg class="icon icon_close" role="img">
+                  <title>Close</title>
+                  <use xlink:href="assets/images/icons.svg#close"></use>
+                </svg>
+                <span class="visuallyhidden">Close this message</span>
+              </button>
+            </div>
+            <div class="alert alert_color_teal">
+              <div class="alert__title">Message title</div>
+              <div class="alert__body">Message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum.</div>
+              <button class="alert__close" type="button" data-plugin-alert="close">
+                <svg class="icon icon_close" role="img">
+                  <title>Close</title>
+                  <use xlink:href="assets/images/icons.svg#close"></use>
+                </svg>
+                <span class="visuallyhidden">Close this message</span>
+              </button>
+            </div>
+            <div class="alert alert_color_green">
+              <div class="alert__title">Message title</div>
+              <div class="alert__body">Message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum.</div>
+              <button class="alert__close" type="button" data-plugin-alert="close">
+                <svg class="icon icon_close" role="img">
+                  <title>Close</title>
+                  <use xlink:href="assets/images/icons.svg#close"></use>
+                </svg>
+                <span class="visuallyhidden">Close this message</span>
+              </button>
+            </div>
+            <div class="alert alert_color_lime">
+              <div class="alert__title">Message title</div>
+              <div class="alert__body">Message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum.</div>
+              <button class="alert__close" type="button" data-plugin-alert="close">
+                <svg class="icon icon_close" role="img">
+                  <title>Close</title>
+                  <use xlink:href="assets/images/icons.svg#close"></use>
+                </svg>
+                <span class="visuallyhidden">Close this message</span>
+              </button>
+            </div>
+            <div class="alert alert_color_yellow">
+              <div class="alert__title">Message title</div>
+              <div class="alert__body">Message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum.</div>
+              <button class="alert__close" type="button" data-plugin-alert="close">
+                <svg class="icon icon_close" role="img">
+                  <title>Close</title>
+                  <use xlink:href="assets/images/icons.svg#close"></use>
+                </svg>
+                <span class="visuallyhidden">Close this message</span>
+              </button>
+            </div>
+            <div class="alert alert_color_orange">
+              <div class="alert__title">Message title</div>
+              <div class="alert__body">Message text. A, esse, iste enim, maxime libero cumque tenetur suscipit quam dolorum voluptatibus et temporibus recusandae. Tempora ex eligendi dicta, adipisci omnis cum.</div>
+              <button class="alert__close" type="button" data-plugin-alert="close">
+                <svg class="icon icon_close" role="img">
+                  <title>Close</title>
+                  <use xlink:href="assets/images/icons.svg#close"></use>
+                </svg>
+                <span class="visuallyhidden">Close this message</span>
+              </button>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et ab totam, voluptas animi eius ducimus molestiae! Veritatis, atque? Porro praesentium, possimus! Iste architecto cupiditate placeat ab fugiat et adipisci reprehenderit.</p>
+            <form class="form"
+              method="post" action="#">
+              <section class="form__section">
+                <h2 id="text-inputs">Text Inputs</h2>
+                <div class="form-item form__item">
+                  <div class="form-item__label">
+                    <label class="label" for="form-demo__input-inline">Inline input</label>
+                  </div>
+                  <div class="form-item__control">
+                    <span class="input input_type_text input_style_default input_inline">
+                      <input class="form-control form-control_type_input input__control" id="form-demo__input-inline" name="form-demo__input-inline" type="text" value="Input value">
+                    </span>
+                  </div>
+                </div>
+                <div class="form-item form__item">
+                  <div class="form-item__label">
+                    <label class="label" for="form-demo__input-block">Full width input</label>
+                  </div>
+                  <div class="form-item__control">
+                    <span class="input input_type_text input_style_default input_block">
+                      <input class="form-control form-control_type_input input__control" id="form-demo__input-block" name="form-demo__input-block" type="text" value="Input value">
+                    </span>
+                  </div>
+                </div>
+                <div class="form-item form__item">
+                  <div class="form-item__label">
+                    <label class="label" for="form-demo__input-disabled">Disabled input</label>
+                  </div>
+                  <div class="form-item__control">
+                    <span class="input input_type_text input_style_default input_inline">
+                      <input class="form-control form-control_type_input input__control" id="form-demo__input-disabled" name="form-demo__input-disabled" type="text" value="Input value" disabled>
+                    </span>
+                  </div>
+                </div>
+                <div class="form-item form__item">
+                  <div class="form-item__label">
+                    <label class="label" for="form-demo__input-email">Email</label>
+                  </div>
+                  <div class="form-item__control">
+                    <span class="input input_type_email input_style_default input_inline">
+                      <input class="form-control form-control_type_input input__control" id="form-demo__input-email" name="form-demo__input-email" type="email" placeholder="info@example.com">
+                    </span>
+                  </div>
+                </div>
+                <div class="form-item form__item">
+                  <div class="form-item__label">
+                    <label class="label" for="form-demo__input-url">URL</label>
+                  </div>
+                  <div class="form-item__control">
+                    <span class="input input_type_url input_style_default input_inline">
+                      <input class="form-control form-control_type_input input__control" id="form-demo__input-url" name="form-demo__input-url" type="url" placeholder="http://www.example.com">
+                    </span>
+                  </div>
+                </div>
+                <div class="form-item form__item">
+                  <div class="form-item__label">
+                    <label class="label" for="form-demo__input-tel">Phone number</label>
+                  </div>
+                  <div class="form-item__control">
+                    <span class="input input_type_tel input_style_default input_inline">
+                      <input class="form-control form-control_type_input input__control" id="form-demo__input-tel" name="form-demo__input-tel" type="tel" placeholder="+123 123-345-6789">
+                    </span>
+                  </div>
+                </div>
+                <div class="form-item form__item">
+                  <div class="form-item__label">
+                    <label class="label" for="form-demo__input-password">Password</label>
+                  </div>
+                  <div class="form-item__control">
+                    <span class="input input_type_password input_style_default input_inline">
+                      <input class="form-control form-control_type_input input__control" id="form-demo__input-password" name="form-demo__input-password" type="password" placeholder="Enter password">
+                    </span>
+                  </div>
+                </div>
+                <div class="form-item form__item">
+                  <div class="form-item__label">
+                    <label class="label" for="form-demo__number">Number</label>
+                  </div>
+                  <div class="form-item__control">
+                    <span class="input input_type_number input_style_default input_inline">
+                      <input class="form-control form-control_type_input input__control" id="form-demo__number" name="form-demo__number" type="number" placeholder="18">
+                    </span>
+                  </div>
+                </div>
+              </section>
+              <section class="form__section">
+                <h2 id="radios-and-checkboxes">Radios and Checkboxes</h2>
+                <div class="form-item form__item">
+                  <div class="form-item__control">
+                    <fieldset class="fieldset">
+                      <legend class="fieldset__legend">Radios</legend>
+                      <div class="fieldset__item">
+                        <label class="radio radio_style_default" for="form-demo__radio-1">
+                          <input class="form-control form-control_type_radio radio__control" id="form-demo__radio-1" name="form-demo__radio-group-1" type="radio">
+                          <span class="radio__box"></span>
+                          <span class="radio__label">Normal</span>
+                        </label>
+                      </div>
+                      <div class="fieldset__item">
+                        <label class="radio radio_style_default" for="form-demo__radio-2">
+                          <input class="form-control form-control_type_radio radio__control" id="form-demo__radio-2" name="form-demo__radio-group-1" type="radio" checked>
+                          <span class="radio__box"></span>
+                          <span class="radio__label">Checked</span>
+                        </label>
+                      </div>
+                      <div class="fieldset__item">
+                        <label class="radio radio_style_default" for="form-demo__radio-3">
+                          <input class="form-control form-control_type_radio radio__control" id="form-demo__radio-3" name="form-demo__radio-group-2" type="radio" disabled>
+                          <span class="radio__box"></span>
+                          <span class="radio__label">Normal Disabled</span>
+                        </label>
+                      </div>
+                      <div class="fieldset__item">
+                        <label class="radio radio_style_default" for="form-demo__radio-4">
+                          <input class="form-control form-control_type_radio radio__control" id="form-demo__radio-4" name="form-demo__radio-group-2" type="radio" checked disabled>
+                          <span class="radio__box"></span>
+                          <span class="radio__label">Checked and Disabled</span>
+                        </label>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="form-item form__item">
+                  <div class="form-item__control">
+                    <fieldset class="fieldset fieldset_inline">
+                      <legend class="fieldset__legend">Radios Inline</legend>
+                      <div class="fieldset__item">
+                        <label class="radio radio_style_default" for="form-demo__radio-5">
+                          <input class="form-control form-control_type_radio radio__control" id="form-demo__radio-5" name="form-demo__radio-group-1i" type="radio">
+                          <span class="radio__box"></span>
+                          <span class="radio__label">Normal</span>
+                        </label>
+                      </div>
+                      <div class="fieldset__item">
+                        <label class="radio radio_style_default" for="form-demo__radio-6">
+                          <input class="form-control form-control_type_radio radio__control" id="form-demo__radio-6" name="form-demo__radio-group-1i" type="radio" checked>
+                          <span class="radio__box"></span>
+                          <span class="radio__label">Checked</span>
+                        </label>
+                      </div>
+                      <div class="fieldset__item">
+                        <label class="radio radio_style_default" for="form-demo__radio-7">
+                          <input class="form-control form-control_type_radio radio__control" id="form-demo__radio-7" name="form-demo__radio-group-2i" type="radio" disabled>
+                          <span class="radio__box"></span>
+                          <span class="radio__label">Normal Disabled</span>
+                        </label>
+                      </div>
+                      <div class="fieldset__item">
+                        <label class="radio radio_style_default" for="form-demo__radio-8">
+                          <input class="form-control form-control_type_radio radio__control" id="form-demo__radio-8" name="form-demo__radio-group-2i" type="radio" checked disabled>
+                          <span class="radio__box"></span>
+                          <span class="radio__label">Checked and Disabled</span>
+                        </label>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="form-item form__item">
+                  <div class="form-item__control">
+                    <fieldset class="fieldset">
+                      <legend class="fieldset__legend">Checkboxes</legend>
+                      <div class="fieldset__item">
+                        <label class="checkbox checkbox_style_default" for="form-demo__checkbox-1">
+                          <input class="form-control form-control_type_checkbox checkbox__control" id="form-demo__checkbox-1" name="form-demo__checkbox-group-1" type="checkbox">
+                          <span class="checkbox__box"></span>
+                          <span class="checkbox__label">Normal</span>
+                        </label>
+                      </div>
+                      <div class="fieldset__item">
+                        <label class="checkbox checkbox_style_default" for="form-demo__checkbox-2">
+                          <input class="form-control form-control_type_checkbox checkbox__control" id="form-demo__checkbox-2" name="form-demo__checkbox-group-1" type="checkbox" checked>
+                          <span class="checkbox__box"></span>
+                          <span class="checkbox__label">Checked</span>
+                        </label>
+                      </div>
+                      <div class="fieldset__item">
+                        <label class="checkbox checkbox_style_default" for="form-demo__checkbox-3">
+                          <input class="form-control form-control_type_checkbox checkbox__control" id="form-demo__checkbox-3" name="form-demo__checkbox-group-2" type="checkbox" disabled>
+                          <span class="checkbox__box"></span>
+                          <span class="checkbox__label">Normal Disabled</span>
+                        </label>
+                      </div>
+                      <div class="fieldset__item">
+                        <label class="checkbox checkbox_style_default" for="form-demo__checkbox-4">
+                          <input class="form-control form-control_type_checkbox checkbox__control" id="form-demo__checkbox-4" name="form-demo__checkbox-group-2" type="checkbox" checked disabled>
+                          <span class="checkbox__box"></span>
+                          <span class="checkbox__label">Checked and Disabled</span>
+                        </label>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="form-item form__item">
+                  <div class="form-item__control">
+                    <fieldset class="fieldset fieldset_inline">
+                      <legend class="fieldset__legend">Checkboxes Inline</legend>
+                      <div class="fieldset__item">
+                        <label class="checkbox checkbox_style_default" for="form-demo__checkbox-5">
+                          <input class="form-control form-control_type_checkbox checkbox__control" id="form-demo__checkbox-5" name="form-demo__checkbox-group-1i" type="checkbox">
+                          <span class="checkbox__box"></span>
+                          <span class="checkbox__label">Normal</span>
+                        </label>
+                      </div>
+                      <div class="fieldset__item">
+                        <label class="checkbox checkbox_style_default" for="form-demo__checkbox-6">
+                          <input class="form-control form-control_type_checkbox checkbox__control" id="form-demo__checkbox-6" name="form-demo__checkbox-group-1i" type="checkbox" checked>
+                          <span class="checkbox__box"></span>
+                          <span class="checkbox__label">Checked</span>
+                        </label>
+                      </div>
+                      <div class="fieldset__item">
+                        <label class="checkbox checkbox_style_default" for="form-demo__checkbox-7">
+                          <input class="form-control form-control_type_checkbox checkbox__control" id="form-demo__checkbox-7" name="form-demo__checkbox-group-2i" type="checkbox" disabled>
+                          <span class="checkbox__box"></span>
+                          <span class="checkbox__label">Normal Disabled</span>
+                        </label>
+                      </div>
+                      <div class="fieldset__item">
+                        <label class="checkbox checkbox_style_default" for="form-demo__checkbox-8">
+                          <input class="form-control form-control_type_checkbox checkbox__control" id="form-demo__checkbox-8" name="form-demo__checkbox-group-2i" type="checkbox" checked disabled>
+                          <span class="checkbox__box"></span>
+                          <span class="checkbox__label">Checked and Disabled</span>
+                        </label>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="form-item form__item">
+                  <div class="form-item__control">
+                    <fieldset class="fieldset">
+                      <legend class="fieldset__legend">Toggle Switch</legend>
+                      <div class="fieldset__item">
+                        <label class="checkbox checkbox_style_default checkbox_type_toggle-sw" for="form-demo__checkbox-9">
+                          <input class="form-control form-control_type_checkbox checkbox__control" id="form-demo__checkbox-9" name="form-demo__checkbox-group-3" type="checkbox">
+                          <span class="checkbox__box"></span>
+                          <span class="checkbox__label">Normal</span>
+                        </label>
+                      </div>
+                      <div class="fieldset__item">
+                        <label class="checkbox checkbox_style_default checkbox_type_toggle-sw" for="form-demo__checkbox-10">
+                          <input class="form-control form-control_type_checkbox checkbox__control" id="form-demo__checkbox-10" name="form-demo__checkbox-group-3" type="checkbox" checked>
+                          <span class="checkbox__box"></span>
+                          <span class="checkbox__label">Checked</span>
+                        </label>
+                      </div>
+                      <div class="fieldset__item">
+                        <label class="checkbox checkbox_style_default checkbox_type_toggle-sw" for="form-demo__checkbox-11">
+                          <input class="form-control form-control_type_checkbox checkbox__control" id="form-demo__checkbox-11" name="form-demo__checkbox-group-4" type="checkbox" disabled>
+                          <span class="checkbox__box"></span>
+                          <span class="checkbox__label">Normal Disabled</span>
+                        </label>
+                      </div>
+                      <div class="fieldset__item">
+                        <label class="checkbox checkbox_style_default checkbox_type_toggle-sw" for="form-demo__checkbox-12">
+                          <input class="form-control form-control_type_checkbox checkbox__control" id="form-demo__checkbox-12" name="form-demo__checkbox-group-4" type="checkbox" checked disabled>
+                          <span class="checkbox__box"></span>
+                          <span class="checkbox__label">Checked and Disabled</span>
+                        </label>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="form-item form__item">
+                  <div class="form-item__label">
+                    <label class="label" for="form-demo__checkbox-13">Without label</label>
+                  </div>
+                  <div class="form-item__control">
+                    <label class="checkbox checkbox_style_default checkbox_type_toggle-sw" for="form-demo__checkbox-13">
+                      <input class="form-control form-control_type_checkbox checkbox__control" id="form-demo__checkbox-13" name="form-demo__checkbox-group-5" type="checkbox">
+                      <span class="checkbox__box"></span>
+                    </label>
+                  </div>
+                </div>
+              </section>
+              <section class="form__section">
+                <h2 id="input-range">Input range</h2>
+                <div class="form-item form__item">
+                  <div class="form-item__label">
+                    <label class="label" for="form-demo__range">Range</label>
+                  </div>
+                  <div class="form-item__control">
+                    <span class="range range_style_default">
+                      <input class="form-control form-control_type_range range__control" id="form-demo__range" name="form-demo__range" type="range" value="50">
+                    </span>
+                  </div>
+                </div>
+                <div class="form-item form__item">
+                  <div class="form-item__label">
+                    <label class="label" for="form-demo__range-disabled">Range disabled</label>
+                  </div>
+                  <div class="form-item__control">
+                    <span class="range range_style_default">
+                      <input class="form-control form-control_type_range range__control" id="form-demo__range-disabled" name="form-demo__range-disabled" type="range" value="35" disabled>
+                    </span>
+                  </div>
+                </div>
+              </section>
+              <section class="form__section">
+                <h2 id="selects">Selects</h2>
+                <div class="form-item form__item">
+                  <div class="form-item__label">
+                    <label class="label" for="form-demo__select-inline">Inline select</label>
+                  </div>
+                  <div class="form-item__control">
+                    <span class="select select_style_default select_inline">
+                      <select class="form-control form-control_type_select select__control" id="form-demo__select-inline" name="form-demo__select-inline">
+                        <option class="select__placeholder">Select language...</option>
+                        <option value="ar_DZ">جزائري عربي</option>
+                        <option value="ca_ES">Català</option>
+                        <option value="cs_CZ">Čeština</option>
+                        <option value="da_DK">Dansk</option>
+                        <option value="de_DE">Deutsch</option>
+                        <option value="el_GR">Ελληνικά</option>
+                        <option value="en_GB">English (GB)</option>
+                        <option value="en_US">English (US)</option>
+                        <option value="es_ES">Español</option>
+                        <option value="et_EE">Eesti</option>
+                        <option value="fi_FI">Suomi</option>
+                        <option value="fr_FR">Français</option>
+                        <option value="gl_GZ">Galego (Galiza)</option>
+                        <option value="he_IL">עברית</option>
+                        <option value="hu_HU">Magyar</option>
+                        <option value="id_ID">Bahasa Indonesia</option>
+                        <option value="is_IS">Íslenska</option>
+                        <option value="it_IT">Italiano</option>
+                        <option value="ja_JP">日本語</option>
+                        <option value="lv_LV">Latviešu</option>
+                        <option value="nl_NL">Nederlands</option>
+                        <option value="no_NO">Norsk</option>
+                        <option value="pl_PL">Polski</option>
+                        <option value="pt_PT">Português</option>
+                        <option value="ro_RO">Română</option>
+                        <option value="ru_RU">Русский</option>
+                        <option value="sk_SK">Slovenčina</option>
+                        <option value="sv_SE">Svenska</option>
+                        <option value="th_TH">ไทย</option>
+                        <option value="uk_UA">Українська</option>
+                        <option value="vi_VN">Tiếng Việt</option>
+                        <option value="zh_CN">中文(简体)</option>
+                        <option value="zh_TW">中文(繁體)</option>
+                        <option value="bg_BG">Български</option>
+                      </select>
+                    </span>
+                  </div>
+                </div>
+                <div class="form-item form__item">
+                  <div class="form-item__label">
+                    <label class="label" for="form-demo__select-block">Full width select</label>
+                  </div>
+                  <div class="form-item__control">
+                    <span class="select select_style_default select_block">
+                      <select class="form-control form-control_type_select select__control" id="form-demo__select-block" name="form-demo__select-block">
+                        <option class="select__placeholder">Select language...</option>
+                        <option value="ar_DZ">جزائري عربي</option>
+                        <option value="ca_ES">Català</option>
+                        <option value="cs_CZ">Čeština</option>
+                        <option value="da_DK">Dansk</option>
+                        <option value="de_DE">Deutsch</option>
+                        <option value="el_GR">Ελληνικά</option>
+                        <option value="en_GB">English (GB)</option>
+                        <option value="en_US">English (US)</option>
+                        <option value="es_ES">Español</option>
+                        <option value="et_EE">Eesti</option>
+                        <option value="fi_FI">Suomi</option>
+                        <option value="fr_FR">Français</option>
+                        <option value="gl_GZ">Galego (Galiza)</option>
+                        <option value="he_IL">עברית</option>
+                        <option value="hu_HU">Magyar</option>
+                        <option value="id_ID">Bahasa Indonesia</option>
+                        <option value="is_IS">Íslenska</option>
+                        <option value="it_IT">Italiano</option>
+                        <option value="ja_JP">日本語</option>
+                        <option value="lv_LV">Latviešu</option>
+                        <option value="nl_NL">Nederlands</option>
+                        <option value="no_NO">Norsk</option>
+                        <option value="pl_PL">Polski</option>
+                        <option value="pt_PT">Português</option>
+                        <option value="ro_RO">Română</option>
+                        <option value="ru_RU">Русский</option>
+                        <option value="sk_SK">Slovenčina</option>
+                        <option value="sv_SE">Svenska</option>
+                        <option value="th_TH">ไทย</option>
+                        <option value="uk_UA">Українська</option>
+                        <option value="vi_VN">Tiếng Việt</option>
+                        <option value="zh_CN">中文(简体)</option>
+                        <option value="zh_TW">中文(繁體)</option>
+                        <option value="bg_BG">Български</option>
+                      </select>
+                    </span>
+                  </div>
+                </div>
+                <div class="form-item form__item">
+                  <div class="form-item__label">
+                    <label class="label" for="form-demo__select-disable">Disabled select</label>
+                  </div>
+                  <div class="form-item__control">
+                    <span class="select select_style_default select_inline">
+                      <select class="form-control form-control_type_select select__control" id="form-demo__select-disable" name="form-demo__select-disable" disabled>
+                        <option class="select__placeholder">Select language...</option>
+                        <option value="ar_DZ">جزائري عربي</option>
+                        <option value="ca_ES">Català</option>
+                        <option value="cs_CZ">Čeština</option>
+                        <option value="da_DK">Dansk</option>
+                        <option value="de_DE">Deutsch</option>
+                        <option value="el_GR">Ελληνικά</option>
+                        <option value="en_GB">English (GB)</option>
+                        <option value="en_US">English (US)</option>
+                        <option value="es_ES">Español</option>
+                        <option value="et_EE">Eesti</option>
+                        <option value="fi_FI">Suomi</option>
+                        <option value="fr_FR">Français</option>
+                        <option value="gl_GZ">Galego (Galiza)</option>
+                        <option value="he_IL">עברית</option>
+                        <option value="hu_HU">Magyar</option>
+                        <option value="id_ID">Bahasa Indonesia</option>
+                        <option value="is_IS">Íslenska</option>
+                        <option value="it_IT">Italiano</option>
+                        <option value="ja_JP">日本語</option>
+                        <option value="lv_LV">Latviešu</option>
+                        <option value="nl_NL">Nederlands</option>
+                        <option value="no_NO">Norsk</option>
+                        <option value="pl_PL">Polski</option>
+                        <option value="pt_PT">Português</option>
+                        <option value="ro_RO">Română</option>
+                        <option value="ru_RU">Русский</option>
+                        <option value="sk_SK">Slovenčina</option>
+                        <option value="sv_SE">Svenska</option>
+                        <option value="th_TH">ไทย</option>
+                        <option value="uk_UA">Українська</option>
+                        <option value="vi_VN">Tiếng Việt</option>
+                        <option value="zh_CN">中文(简体)</option>
+                        <option value="zh_TW">中文(繁體)</option>
+                        <option value="bg_BG">Български</option>
+                      </select>
+                    </span>
+                  </div>
+                </div>
+                <div class="form-item form__item">
+                  <div class="form-item__label">
+                    <label class="label" for="form-demo__select-multiple">Multiple select</label>
+                  </div>
+                  <div class="form-item__control">
+                    <span class="select select_multiple select_style_default select_inline">
+                      <select class="form-control form-control_type_select select__control" id="form-demo__select-multiple" name="form-demo__select-multiple" size="10" multiple>
+                        <option class="select__placeholder">Select language...</option>
+                        <option value="ar_DZ">جزائري عربي</option>
+                        <option value="ca_ES">Català</option>
+                        <option value="cs_CZ">Čeština</option>
+                        <option value="da_DK">Dansk</option>
+                        <option value="de_DE">Deutsch</option>
+                        <option value="el_GR">Ελληνικά</option>
+                        <option value="en_GB">English (GB)</option>
+                        <option value="en_US">English (US)</option>
+                        <option value="es_ES">Español</option>
+                        <option value="et_EE">Eesti</option>
+                        <option value="fi_FI">Suomi</option>
+                        <option value="fr_FR">Français</option>
+                        <option value="gl_GZ">Galego (Galiza)</option>
+                        <option value="he_IL">עברית</option>
+                        <option value="hu_HU">Magyar</option>
+                        <option value="id_ID">Bahasa Indonesia</option>
+                        <option value="is_IS">Íslenska</option>
+                        <option value="it_IT">Italiano</option>
+                        <option value="ja_JP">日本語</option>
+                        <option value="lv_LV">Latviešu</option>
+                        <option value="nl_NL">Nederlands</option>
+                        <option value="no_NO">Norsk</option>
+                        <option value="pl_PL">Polski</option>
+                        <option value="pt_PT">Português</option>
+                        <option value="ro_RO">Română</option>
+                        <option value="ru_RU">Русский</option>
+                        <option value="sk_SK">Slovenčina</option>
+                        <option value="sv_SE">Svenska</option>
+                        <option value="th_TH">ไทย</option>
+                        <option value="uk_UA">Українська</option>
+                        <option value="vi_VN">Tiếng Việt</option>
+                        <option value="zh_CN">中文(简体)</option>
+                        <option value="zh_TW">中文(繁體)</option>
+                        <option value="bg_BG">Български</option>
+                      </select>
+                    </span>
+                  </div>
+                </div>
+              </section>
+              <section class="form__section">
+                <h2 id="textareas-and-files">Textareas and Files</h2>
+                <div class="form-item form__item">
+                  <div class="form-item__label">
+                    <label class="label" for="form-demo__textarea-inline">Inline Textarea</label>
+                  </div>
+                  <div class="form-item__control">
+                    <span class="textarea textarea_style_default textarea_inline"><textarea class="form-control form-control_type_textarea textarea__control" id="form-demo__textarea-inline" name="form-demo__textarea-inline" cols="30" rows="10" placeholder="Enter message"></textarea></span>
+                  </div>
+                </div>
+                <div class="form-item form__item">
+                  <div class="form-item__label">
+                    <label class="label" for="form-demo__textarea-block">Full width Textarea</label>
+                  </div>
+                  <div class="form-item__control">
+                    <span class="textarea textarea_style_default textarea_inline"><textarea class="form-control form-control_type_textarea textarea__control" id="form-demo__textarea-block" name="form-demo__textarea-block" cols="30" rows="10" placeholder="Enter message"></textarea></span>
+                  </div>
+                </div>
+                <div class="form-item form__item">
+                  <div class="form-item__label">
+                    <label class="label" for="form-demo__file">File</label>
+                  </div>
+                  <div class="form-item__control">
+                    <label class="file file_type_file file_style_default" for="form-demo__file">
+                      <input class="form-control form-control_type_file file__control" id="form-demo__file" name="form-demo__file" type="file" multiple>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-item form__item">
+                  <div class="form-item__label">
+                    <label class="label" for="form-demo__file-compact">File compact style</label>
+                  </div>
+                  <div class="form-item__control">
+                    <label class="file file_type_file file_style_default file_style_compact" for="form-demo__file-compact">
+                      <input class="form-control form-control_type_file file__control" id="form-demo__file-compact" name="form-demo__file-compact" type="file" multiple>
+                    </label>
+                  </div>
+                </div>
+              </section>
+              <section class="form__section">
+                <h2 id="captcha">Captcha</h2>
+                <div class="form-item form-item_captcha form__item">
+                  <div class="form-item__label">
+                    <label class="label" for="form-demo__captcha">Captcha</label>
+                  </div>
+                  <div class="form-item__control">
+                    <a class="form-item__image" href="#" title="Click here to refresh image">
+                      <img src="assets/images/form__captcha.png" alt="Enter text from image">
+                    </a>
+                    <div class="form-item__input">
+                      <span class="input input_type_text input_style_default">
+                        <input class="form-control form-control_type_input input__control" id="form-demo__captcha" name="form-demo__captcha" type="text" placeholder="Enter text from image">
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="page__footer">
+        <footer class="footer js-appearing-item">
+          <svg class="icon icon_heart footer__icon" role="img">
+            <title>Heart</title>
+            <use xlink:href="assets/images/icons.svg#heart"></use>
+          </svg>
+          <div class="footer__copyright">&copy;&nbsp;2018 Velichko Konstantin</div>
+          <div class="footer__about">This
+            <a href="https://github.com/zoxon/gulp-front">project source code</a> can be found on Github</div>
+          <div class="footer__generated">Generated with gulp-front</div>
+        </footer>
+      </div>
+    </div>
+    <div class="page__overlay" data-offcanvas-overlay></div>
+    <button class="scroll-top button button_style_solid button_color_blue" type="button">
+      <span class="visuallyhidden">Scroll page top</span>
+      <svg class="icon icon_chevron_up scroll-top__icon" role="img">
+        <title>Chevron up</title>
+        <use xlink:href="assets/images/icons.svg#chevron_up"></use>
+      </svg>
+    </button><script src="assets/javascripts/vendor.js"></script><script src="assets/javascripts/main.js"></script></body>
+</html>
