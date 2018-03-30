@@ -18,6 +18,7 @@ import Code from "../../modules/code/code";
 import Table from "../../modules/table/table";
 import Header from "../../modules/header/header";
 import ScrollTop from "../../modules/scroll-top/scroll-top";
+import StarRating from "../../modules/star-rating/star-rating";
 
 Alert(".alert");
 Accordion(".accordion");
@@ -32,6 +33,7 @@ Code("pre.code");
 Table(".table");
 Header(".header");
 ScrollTop(".scroll-top");
+StarRating(".star-rating");
 
 import "../../modules/demo/demo";
 import "../../modules/main-menu/main-menu";

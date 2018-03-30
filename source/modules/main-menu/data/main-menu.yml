@@ -93,6 +93,9 @@
             title: Progress Bar
             url: progress-bar
           -
+            title: Star raiting
+            url: star-rating
+          -
             title: Responsive video
             url: embed
           -
