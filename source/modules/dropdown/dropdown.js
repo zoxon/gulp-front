@@ -119,7 +119,7 @@ class Dropdown {
       return;
     }
 
-    if (which === KEYCODES.ESCAPE) {
+    if (which === KEYCODES.ESC) {
       this.trigger.focus();
       this.close();
       return;
@@ -131,8 +131,8 @@ class Dropdown {
         this.close();
         break;
 
-      case KEYCODES.UP:
-      case KEYCODES.LEFT:
+      case KEYCODES.UP_ARROW:
+      case KEYCODES.LEFT_ARROW:
         event.preventDefault();
         this.open();
 
@@ -143,8 +143,8 @@ class Dropdown {
         }
         break;
 
-      case KEYCODES.DOWN:
-      case KEYCODES.RIGHT:
+      case KEYCODES.DOWN_ARROW:
+      case KEYCODES.RIGHT_ARROW:
         event.preventDefault();
         this.open();
 

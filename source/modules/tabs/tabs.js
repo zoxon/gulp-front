@@ -177,8 +177,8 @@ class Tabs {
     let last = this.tabs.length - 1;
 
     switch (event.which) {
-      case KEYCODES.LEFT:
-      case KEYCODES.UP:
+      case KEYCODES.LEFT_ARROW:
+      case KEYCODES.UP_ARROW:
         event.preventDefault();
         event.stopPropagation();
 
@@ -190,8 +190,8 @@ class Tabs {
 
         break;
 
-      case KEYCODES.RIGHT:
-      case KEYCODES.DOWN:
+      case KEYCODES.RIGHT_ARROW:
+      case KEYCODES.DOWN_ARROW:
         event.preventDefault();
         event.stopPropagation();
 
