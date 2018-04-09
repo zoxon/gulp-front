@@ -19,6 +19,7 @@ import Table from "../../modules/table/table";
 import Header from "../../modules/header/header";
 import ScrollTop from "../../modules/scroll-top/scroll-top";
 import StarRating from "../../modules/star-rating/star-rating";
+import InputPassword from "../../modules/input/inputPassword";
 
 Alert(".alert");
 Accordion(".accordion");
@@ -34,6 +35,7 @@ Table(".table");
 Header(".header");
 ScrollTop(".scroll-top");
 StarRating(".star-rating");
+InputPassword(".input_type_password");
 
 import "../../modules/demo/demo";
 import "../../modules/main-menu/main-menu";

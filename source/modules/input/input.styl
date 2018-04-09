@@ -1,12 +1,45 @@
 .input
+	display inline-block
+
 	&__control
 		box-sizing border-box
+
+	&__show-password
+		position absolute
+		top 0
+		right 0
+		bottom 0
+		padding 0
+		width 40px
+
+	&_block
+		display block
 
 	&_block &__control
 		width 100%
 
 	&_inline &__control
 		width em(280px)
+
+	&_type_password
+		position relative
+
+	&_type_password&_style_default &__control
+		padding-right ($form-padding_horizontal + 30px)
+
+	&_style_default &__show-password
+		border-left $form-border_default
+		background-color transparent
+		background-position 50% 50%
+		background-repeat no-repeat
+		color #b6bec8
+		transition none
+
+	&_style_default &__show-password[data-input-password-showed='false']
+		background-image url('../images/input__eye_close.svg')
+
+	&_style_default &__show-password[data-input-password-showed='true']
+		background-image url('../images/input__eye_open.svg')
 
 	&_style_default &__control
 		padding 0 $form-padding_horizontal
