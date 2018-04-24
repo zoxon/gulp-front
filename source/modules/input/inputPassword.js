@@ -1,7 +1,7 @@
 import init from "../_utils/plugin-init";
 import { createElement } from "../_utils/dom/createElement";
 
-class InputPasword {
+class InputPassword {
   constructor(element, options) {
     this.element = element;
     this.name = "input-password";
@@ -15,8 +15,8 @@ class InputPasword {
     };
 
     this.options = {
-      ...options,
-      ...this._defaults
+      ...this._defaults,
+      ...options
     };
 
     this.init();
@@ -26,7 +26,7 @@ class InputPasword {
     this.buildCache();
     this.bindEvents();
     this.renderButton();
-    this.setInitedClassName();
+    this.addInitedClassName();
   }
 
   buildCache() {
@@ -69,4 +69,4 @@ class InputPasword {
   }
 }
 
-export default init(InputPasword);
+export default init(InputPassword);
