@@ -31,5 +31,12 @@
     "no-underscore-dangle": 0,
     "no-alert": 0,
     "no-lone-blocks": 0
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.config.babel.js"
+      }
+    }
   }
 }

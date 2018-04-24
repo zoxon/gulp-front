@@ -22,7 +22,8 @@ let options = {
   resolve: {
     modules: ["node_modules", path.join(__dirname, "soruce")],
     alias: {
-      "lodash-es": "lodash"
+      "lodash-es": "lodash",
+      "@": path.resolve(__dirname, "source")
     }
   },
   devtool: isDevelopment ? "eval-source-map" : "source-map",
