@@ -1,5 +1,5 @@
-import init from "../_utils/plugin-init";
-import hide from "../_utils/animations/hide";
+import init from "@/modules/_utils/plugin-init";
+import hide from "@/modules/_utils/animations/hide";
 import cookie from "js-cookie";
 
 class Browsehappy {

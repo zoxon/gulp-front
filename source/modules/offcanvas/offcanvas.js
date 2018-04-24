@@ -1,7 +1,7 @@
-import init from "../_utils/plugin-init";
-import { $, $$ } from "../_utils/dom/select";
-import generateId from "../_utils/generateId";
-import { mapAttributes } from "../_utils/dom/attr";
+import init from "@/modules/_utils/plugin-init";
+import { $, $$ } from "@/modules/_utils/dom/select";
+import generateId from "@/modules/_utils/generateId";
+import { mapAttributes } from "@/modules/_utils/dom/attr";
 
 class Offcanvas {
   constructor(options) {

@@ -1,5 +1,5 @@
-import init from "../_utils/plugin-init";
-import getIndex from "../_utils/dom/getIndex";
+import init from "@/modules/_utils/plugin-init";
+import getIndex from "@/modules/_utils/dom/getIndex";
 
 class Table {
   constructor(element, options) {

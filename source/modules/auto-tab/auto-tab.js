@@ -1,6 +1,6 @@
-import init from "../_utils/plugin-init";
-import { KEYCODES } from "../_utils/constants";
-import toArray from "../_utils/dom/toArray";
+import init from "@/modules/_utils/plugin-init";
+import { KEYCODES } from "@/modules/_utils/constants";
+import toArray from "@/modules/_utils/dom/toArray";
 
 class AutoTab {
   constructor(element, options) {

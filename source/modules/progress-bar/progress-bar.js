@@ -1,5 +1,5 @@
-import init from "../_utils/plugin-init";
-import { createElement } from "../_utils/dom/createElement";
+import init from "@/modules/_utils/plugin-init";
+import { createElement } from "@/modules/_utils/dom/createElement";
 
 class ProgressBar {
   constructor(element, options) {

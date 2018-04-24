@@ -1,5 +1,5 @@
-import { createElement } from "../_utils/dom/createElement";
-import { animationEndEventName } from "../_utils/event/aninmation";
+import { createElement } from "@/modules/_utils/dom/createElement";
+import { animationEndEventName } from "@/modules/_utils/event/aninmation";
 
 class Notification {
   constructor(options = {}) {

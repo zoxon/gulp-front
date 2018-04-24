@@ -1,8 +1,8 @@
-import init from "../_utils/plugin-init";
-import getSiblings from "../_utils/dom/getSiblings";
-import simulate from "../_utils/event/simulate";
-import { mapAttributes } from "../_utils/dom/attr";
-import { KEYCODES } from "../_utils/constants";
+import init from "@/modules/_utils/plugin-init";
+import getSiblings from "@/modules/_utils/dom/getSiblings";
+import simulate from "@/modules/_utils/event/simulate";
+import { mapAttributes } from "@/modules/_utils/dom/attr";
+import { KEYCODES } from "@/modules/_utils/constants";
 
 let instances = 0;
 

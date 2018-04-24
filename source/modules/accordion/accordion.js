@@ -1,4 +1,4 @@
-import init from "../_utils/plugin-init";
+import init from "@/modules/_utils/plugin-init";
 
 class Accordion {
   constructor(element, options) {

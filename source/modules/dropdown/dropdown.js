@@ -1,8 +1,8 @@
 import is from "is_js";
 
-import init from "../_utils/plugin-init";
-import { mapAttributes } from "../_utils/dom/attr";
-import { KEYCODES } from "../_utils/constants";
+import init from "@/modules/_utils/plugin-init";
+import { mapAttributes } from "@/modules/_utils/dom/attr";
+import { KEYCODES } from "@/modules/_utils/constants";
 
 class Dropdown {
   constructor(element, options) {
