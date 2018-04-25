@@ -3,6 +3,8 @@ import plumber from "gulp-plumber";
 import pug from "gulp-pug";
 import posthtml from "gulp-posthtml";
 import prettify from "gulp-prettify";
+import classNames from "classnames/dedupe";
+import omit from "omit";
 
 import getJsonData from "../util/getJsonData";
 import { plumberConfig, posthtmlConfig, htmlPrettifyConfig } from "../config";
@@ -10,7 +12,13 @@ import data from "./data";
 
 export const pages = () => {
   const pugConfig = {
-    locals: getJsonData("./tmp/data.json")
+    locals: {
+      ...getJsonData("./tmp/data.json"),
+      _: {
+        classNames,
+        omit
+      }
+    }
   };
 
   return gulp
