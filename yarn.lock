@@ -8197,6 +8197,12 @@ promise@^7.0.1:
   dependencies:
     asap "~2.0.3"
 
+promise@^8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/promise/-/promise-8.0.1.tgz#e45d68b00a17647b6da711bf85ed6ed47208f450"
+  dependencies:
+    asap "~2.0.3"
+
 proto-list@~1.2.1:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/proto-list/-/proto-list-1.2.4.tgz#212d5bfe1318306a420f6402b8e26ff39647a849"
@@ -8369,6 +8375,12 @@ quote-stream@~0.0.0:
   dependencies:
     minimist "0.0.8"
     through2 "~0.4.1"
+
+raf@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/raf/-/raf-3.4.0.tgz#a28876881b4bc2ca9117d4138163ddb80f781575"
+  dependencies:
+    performance-now "^2.1.0"
 
 rafl@~1.2.1:
   version "1.2.2"
@@ -10814,6 +10826,10 @@ whatwg-encoding@^1.0.1, whatwg-encoding@^1.0.3:
   resolved "https://registry.yarnpkg.com/whatwg-encoding/-/whatwg-encoding-1.0.3.tgz#57c235bc8657e914d24e1a397d3c82daee0a6ba3"
   dependencies:
     iconv-lite "0.4.19"
+
+whatwg-fetch@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-2.0.4.tgz#dde6a5df315f9d39991aa17621853d720b85566f"
 
 whatwg-url@^6.4.0:
   version "6.4.0"

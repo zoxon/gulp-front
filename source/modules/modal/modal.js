@@ -1,5 +1,7 @@
 import MicroModal from "micromodal";
 
-MicroModal.init({
-  awaitCloseAnimation: true
-});
+export default () => {
+  MicroModal.init({
+    awaitCloseAnimation: true
+  });
+};

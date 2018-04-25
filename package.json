@@ -29,12 +29,12 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "gulp": "./node_modules/.bin/gulp",
     "dev": "gulp dev",
     "build": "cross-env NODE_ENV=production gulp build",
     "deploy": "cross-env NODE_ENV=production gulp deploy",
     "zip": "cross-env NODE_ENV=production gulp zip",
     "start": "npm run dev",
+    "start:prod": "cross-env NODE_ENV=production npm run dev",
     "cleanup": "babel-node ./tools/removeDemo.js",
     "setup": "npm install",
     "amo": "babel-node ./tools/addModule.js",
@@ -134,11 +134,15 @@
     "micromodal": "^0.3.0",
     "nanoid": "^1.0.1",
     "normalize.css": "^8.0.0",
+    "object-assign": "^4.1.1",
+    "promise": "^8.0.1",
+    "raf": "^3.4.0",
     "scroll": "^2.0.1",
     "scroll-doc": "^0.2.1",
     "scrollreveal": "^3.4.0",
     "skrollr": "^0.6.26",
     "svg4everybody": "^2.1.8",
-    "tooltip.js": "^1.1.7"
+    "tooltip.js": "^1.1.7",
+    "whatwg-fetch": "^2.0.4"
   }
 }

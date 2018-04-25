@@ -1,4 +1,4 @@
-import { series, parallel } from "gulp";
+import gulp from "gulp";
 
 import cleanup from "./cleanup";
 import { html } from "./html";
@@ -9,13 +9,26 @@ import { assets, staticFiles } from "./assets";
 import scripts from "./scripts";
 import css from "./css";
 import serviceWorker from "./serviceWorker";
+import { startMessage } from "./messages";
+import { isDevelopment } from "../util/env";
 
-const build = series(
+const noop = done => done();
+
+const build = gulp.series(
+  startMessage,
   cleanup,
-  series(
-    parallel(html, icons, sprite, moduleImages, assets, staticFiles, scripts),
+  gulp.series(
+    gulp.parallel(
+      html,
+      icons,
+      sprite,
+      moduleImages,
+      assets,
+      staticFiles,
+      scripts
+    ),
     css,
-    serviceWorker
+    isDevelopment ? noop : serviceWorker
   )
 );
 

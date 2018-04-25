@@ -10,14 +10,12 @@ const isDevelopment = NODE_ENV === "development";
 
 let options = {
   mode: NODE_ENV,
-  entry: {
-    vendor: ["babel-polyfill", "./vendor.js"],
-    main: "./main.js"
-  },
+  entry: ["./helpers/polyfills.js", "./main.js"],
   output: {
     filename: "[name].js",
     path: path.join(__dirname + "/dest/assets/javascripts"),
-    publicPath: "/assets/javascripts/"
+    publicPath: "/assets/javascripts/",
+    library: "App"
   },
   resolve: {
     modules: ["node_modules", path.join(__dirname, "soruce")],
