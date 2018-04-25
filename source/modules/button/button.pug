@@ -2,61 +2,50 @@ mixin button()
 	-
 		let baseClassName = "button";
 		let buttonTag = "button";
-		let classes = [];
 
-		attributes.type = attributes.type || "button";
-		let color = attributes.color;
-		let to = attributes.to;
-		let size = attributes.size;
-		let style = attributes.style;
-		let blockAttr = attributes.block;
-		let icon = attributes.icon;
+		const {
+			color,
+			to,
+			size,
+			style,
+			icon,
+			block: blockAttr,
+			disabled: disabledAttr
+		} = attributes;
 
-		delete attributes.color;
-		delete attributes.to;
-		delete attributes.size;
-		delete attributes.style;
-		delete attributes.icon;
-		delete attributes.block;
-		delete attributes.icon;
+		const otherAttrs = _.omit(
+			["color", "to", "size", "style", "icon", "block"],
+			attributes
+		);
 
-		function setClassName(key, value) {
-			let className = value
-				? `${baseClassName}_${key}_${value}`
-				: `${baseClassName}_${key}`;
+		const stringToArray = str => str
+			? str.split(" ").filter(v => v.length) 
+			: [];
 
-			classes.push(className);
-		}
+		const styles = stringToArray(style)
+			.map(s => `${baseClassName}_style_${s}`)
 
-		function convertAttrToClassName(value, mod) {
-			if (value) {
-				let attrs = value.split(" ");
-				attrs.forEach(function(attr) {
-					setClassName(mod, attr);
-				});
-			}
-		}
-
-		// set base class
-		classes.push(baseClassName);
+		const classes = _.classNames(
+			[
+				baseClassName,
+				{
+					[`${baseClassName}_block`]: blockAttr,
+					[`${baseClassName}_icon`]: icon,
+					[`${baseClassName}_color_${color}`]: color,
+					[`${baseClassName}_size_${size}`]: size,
+					[`${baseClassName}_disabled`]: disabledAttr,
+				}
+			].concat(styles)
+		);
 
 		if (to) {
 			buttonTag = "a";
-			attributes.href = to;
-			delete attributes.type;
+			otherAttrs.href = to;
+		}
+		else {
+			otherAttrs.type = attributes.type || "button";
 		}
 
-		if (blockAttr) {
-			setClassName("block");
-		}
 
-		if (icon) {
-			setClassName("icon");
-		}
-
-		convertAttrToClassName(color, "color");
-		convertAttrToClassName(style, "style");
-		convertAttrToClassName(size, "size");
-
-	#{buttonTag}(class=classes)&attributes(attributes)
+	#{buttonTag}(class=classes)&attributes(otherAttrs)
 		block
