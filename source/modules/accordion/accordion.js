@@ -1,4 +1,5 @@
 import init from "@/modules/_utils/plugin-init";
+import toArray from "@/modules/_utils/dom/toArray";
 
 class Accordion {
   constructor(element, options) {
@@ -6,9 +7,10 @@ class Accordion {
     this.name = "accordion";
 
     this._defaults = {
-      item: "item",
-      trigger: "trigger",
-      open: "open"
+      itemSelector: `[data-accordion-item]`,
+      triggerSelector: `[data-accordion-trigger]`,
+      itemActiveAttr: `data-accordion-item`,
+      singleOpen: true
     };
 
     this.options = {
@@ -25,39 +27,37 @@ class Accordion {
   }
 
   buildCache() {
-    this.itemSelector = `[data-plugin-${this.name}="${this.options.item}"]`;
-    this.triggerSelector = `[data-plugin-${this.name}="${
-      this.options.trigger
-    }"]`;
-    this.itemActiveMark = `data-plugin-${this.name}-item-${this.options.open}`;
-
-    this.items = this.element.querySelectorAll(this.itemSelector);
+    this.items = toArray(
+      this.element.querySelectorAll(this.options.itemSelector)
+    );
   }
 
   bindEvents() {
-    Array.prototype.forEach.call(this.items, item => {
-      const trigger = item.querySelector(this.triggerSelector);
-      const that = this;
+    this.items.forEach(item => {
+      const trigger = item.querySelector(this.options.triggerSelector);
 
       trigger.addEventListener("click", event => {
-        that.triggerOnClick.call(that, event, item);
+        this.handleTriggerClick.call(this, event, item);
       });
     });
   }
 
-  triggerOnClick(event, item) {
+  isOpen(item) {
+    return item.getAttribute(this.options.itemActiveAttr) === "true"
+      ? true
+      : false;
+  }
+
+  handleTriggerClick(event, item) {
     event.preventDefault();
 
-    const that = this;
+    if (this.options.singleOpen) {
+      this.items.forEach(item => {
+        item.setAttribute(this.options.itemActiveAttr, false);
+      });
+    }
 
-    const isOpen =
-      item.getAttribute(this.itemActiveMark) === "true" ? true : false;
-
-    Array.prototype.forEach.call(that.items, item => {
-      item.setAttribute(that.itemActiveMark, false);
-    });
-
-    item.setAttribute(this.itemActiveMark, !isOpen);
+    item.setAttribute(this.options.itemActiveAttr, !this.isOpen(item));
   }
 }
 

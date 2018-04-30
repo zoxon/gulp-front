@@ -4,9 +4,8 @@ mixin accordion(data)
 
 mixin accordion-item(data)
 	.accordion__item(
-		data-plugin-accordion="item" 
-		data-plugin-accordion-item-open!=`${data.open || false}`
+		data-accordion-item!=`${data.open || false}`
 	)&attributes(attributes)
-		button(type="button" data-plugin-accordion="trigger").accordion__trigger= data.title
+		button(type="button" data-accordion-trigger).accordion__trigger= data.title
 		.accordion__pannel.content-wrapper
 			block
