@@ -10,7 +10,10 @@ class Spoiler {
       idAttribute: "data-spoiler-id"
     };
 
-    this.options = Object.assign({}, this._defaults, options);
+    this.options = {
+      ...this._defaults,
+      ...options
+    };
 
     this.init();
   }

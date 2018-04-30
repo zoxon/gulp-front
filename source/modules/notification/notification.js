@@ -8,14 +8,14 @@ class Notification {
 
     this.name = "notification";
 
-    this.defaults = {
+    this._defaults = {
       delay: 3000,
       containerClassName: "notification-container",
       containerItemClassName: "notification-container__item"
     };
 
     this.options = {
-      ...this.defaults,
+      ...this._defaults,
       ...options
     };
 

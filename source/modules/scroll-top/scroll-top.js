@@ -11,8 +11,8 @@ class ScrollTop {
     };
 
     this.options = {
-      ...options,
-      ...this._defaults
+      ...this._defaults,
+      ...options
     };
 
     this.init();

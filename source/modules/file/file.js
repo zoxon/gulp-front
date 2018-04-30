@@ -27,8 +27,8 @@ class File {
     };
 
     this.options = {
-      ...options,
-      ...this._defaults
+      ...this._defaults,
+      ...options
     };
 
     this.messages = this.options.messages[this.options.language];

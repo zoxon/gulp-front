@@ -11,7 +11,10 @@ class AutoTab {
       targetSelector: "input"
     };
 
-    this.options = Object.assign({}, options, this._defaults);
+    this.options = {
+      ...this._defaults,
+      ...options
+    };
 
     this.init();
   }

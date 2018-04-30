@@ -12,7 +12,11 @@ class Offcanvas {
       overlaySelector: "[data-offcanvas-overlay]"
     };
 
-    this.options = Object.assign({}, this._defaults, options);
+    this.options = {
+      ...this._defaults,
+      ...options
+    };
+
     this.init();
   }
 

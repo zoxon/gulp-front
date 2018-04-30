@@ -9,7 +9,10 @@ class ProgressBar {
     };
 
     this.element = element;
-    this.options = Object.assign({}, this._defaults, options);
+    this.options = {
+      ...this._defaults,
+      ...options
+    };
 
     this.init();
   }
