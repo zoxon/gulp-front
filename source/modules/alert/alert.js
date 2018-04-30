@@ -7,7 +7,7 @@ class Alert {
     this.name = "alert";
 
     this._defaults = {
-      close: "close"
+      closeSelector: `[data-alert-close]`
     };
 
     this.options = {
@@ -24,8 +24,7 @@ class Alert {
   }
 
   buildCache() {
-    this.closeSelector = `[data-plugin-${this.name}="${this.options.close}"]`;
-    this.close = this.element.querySelector(this.closeSelector);
+    this.close = this.element.querySelector(this.options.closeSelector);
   }
 
   bindEvents() {
