@@ -2,6 +2,7 @@ import init from "@/modules/_utils/plugin-init";
 import { $, $$ } from "@/modules/_utils/dom/select";
 import generateId from "@/modules/_utils/generateId";
 import getHiddenElementHeight from "@/modules/_utils/getHiddenElementHeight";
+import toArray from "@/modules/_utils/dom/toArray";
 
 class Spoiler {
   constructor(options) {
@@ -24,29 +25,29 @@ class Spoiler {
   }
 
   buildCache() {
-    this.triggers = $$(`[${this.options.targetAttribute}]`);
+    this.triggers = toArray($$(`[${this.options.targetAttribute}]`));
   }
 
   bindEvents() {
     const plugin = this;
     const { targetAttribute, idAttribute } = this.options;
 
-    Array.prototype.forEach.call(this.triggers, trigger => {
+    this.triggers.forEach(trigger => {
       const targetId = trigger.getAttribute(targetAttribute);
       const target = $(`[${idAttribute}="${targetId}"]`);
 
-      plugin.hide({ target, trigger });
+      plugin.hide(target);
       plugin.setIds({ target, trigger });
       plugin.setMaxHeigth(target);
 
-      trigger.addEventListener("click", function() {
-        plugin.triggerClickHandler.call(plugin, { target, trigger });
+      trigger.addEventListener("click", () => {
+        plugin.triggerClickHandler.call(plugin, target);
       });
     });
   }
 
   setIds({ target, trigger }) {
-    const id = generateId();
+    const id = "_" + generateId();
     target.setAttribute("aria-labelledby", id);
     trigger.setAttribute("id", id);
   }
@@ -60,26 +61,26 @@ class Spoiler {
     this.toggle(target);
   }
 
-  hide({ target, trigger }) {
+  hide(target) {
     target.setAttribute("aria-hidden", "true");
-    trigger.setAttribute("aria-expanded", "false");
+    this.triggers.forEach(trigger => {
+      trigger.setAttribute("aria-expanded", "false");
+    });
   }
 
-  show({ target, trigger }) {
+  show(target) {
     target.setAttribute("aria-hidden", "false");
-    trigger.setAttribute("aria-expanded", "true");
+    this.triggers.forEach(trigger => {
+      trigger.setAttribute("aria-expanded", "true");
+    });
   }
 
   isHidden(target) {
     return target.getAttribute("aria-hidden") === "true";
   }
 
-  toggle({ target, trigger }) {
-    if (this.isHidden(target)) {
-      this.show({ target, trigger });
-    } else {
-      this.hide({ target, trigger });
-    }
+  toggle(target) {
+    this.isHidden(target) ? this.show(target) : this.hide(target);
   }
 }
 
