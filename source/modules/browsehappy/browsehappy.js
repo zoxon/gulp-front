@@ -8,7 +8,7 @@ class Browsehappy {
     this.name = "browsehappy";
 
     this._defaults = {
-      single: true,
+      showOnce: true,
       cookeName: "browsehappy-showed",
       cookeExpires: 7
     };
@@ -24,7 +24,7 @@ class Browsehappy {
   init() {
     this.bindEvents();
 
-    if (this.options.single && !this.isShowed) {
+    if (this.options.showOnce && !this.isShowed) {
       this.element.style.display = "block";
     }
   }
