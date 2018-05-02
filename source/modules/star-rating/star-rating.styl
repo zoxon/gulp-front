@@ -1,12 +1,11 @@
-$stars-count = 5
-$height = 30px
+
+$star-size = 30px
 
 .star-rating
 	position relative
 	display inline-block
-	width $height * $stars-count
-	height $height
-	background url('../images/star-rating__star-grey.svg') 0 50% repeat-x
+	size $star-size
+	background url("../images/star-rating__star-grey.svg") 0 50% repeat-x
 	background-size auto 100%
 
 	&__bar
@@ -16,6 +15,6 @@ $height = 30px
 		overflow hidden
 		width 0
 		height 100%
-		background url('../images/star-rating__star.svg') 0 50% repeat-x
+		background url("../images/star-rating__star.svg") 0 50% repeat-x
 		background-size auto 100%
 		white-space nowrap

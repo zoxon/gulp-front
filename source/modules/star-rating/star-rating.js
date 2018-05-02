@@ -9,7 +9,8 @@ class StarRating {
     this._defaults = {
       maxValueAttribute: "data-raiting-max",
       valueAttribute: "data-raiting-value",
-      barClassName: "star-rating__bar"
+      barClassName: "star-rating__bar",
+      widthMode: "px" // "px" or "%"
     };
 
     this.options = {
@@ -36,18 +37,36 @@ class StarRating {
       );
     this.value = this.element.getAttribute(valueAttribute) || 0;
     this.max = parseInt(this.element.getAttribute(maxValueAttribute), 10) || 0;
+
+    this.starWidth = this.getStarWidth();
+
+    this.containerWidth = this.getContainerWidth();
+  }
+
+  getStarWidth() {
+    const computed = getComputedStyle(this.element);
+    return parseInt(computed.width, 10);
+  }
+
+  getContainerWidth() {
+    return this.max * this.starWidth;
   }
 
   setContainerWidth() {
-    const computed = getComputedStyle(this.element);
-    const width = this.max * parseInt(computed.height, 10);
-    this.element.style.width = `${width}px`;
+    this.element.style.width = `${this.containerWidth}px`;
+  }
+
+  getBarWidth() {
+    if (this.options.widthMode === "%") {
+      const starPercentage = this.value / this.max * 100;
+      return `${Math.round(starPercentage / 10) * 10}%`;
+    }
+
+    return this.value > 0 ? this.starWidth * this.value + "px" : 0;
   }
 
   setBarWidth() {
-    const starPercentage = this.value / this.max * 100;
-    const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
-    this.bar.style.width = starPercentageRounded;
+    this.bar.style.width = this.getBarWidth();
   }
 }
 
