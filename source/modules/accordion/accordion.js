@@ -42,6 +42,18 @@ class Accordion {
     });
   }
 
+  open(item) {
+    item.setAttribute(this.options.itemActiveAttr, true);
+  }
+
+  close(item) {
+    item.setAttribute(this.options.itemActiveAttr, false);
+  }
+
+  toggle(item) {
+    this.isOpen(item) ? this.close(item) : this.open(item);
+  }
+
   isOpen(item) {
     return item.getAttribute(this.options.itemActiveAttr) === "true"
       ? true
@@ -52,12 +64,14 @@ class Accordion {
     event.preventDefault();
 
     if (this.options.singleOpen) {
-      this.items.forEach(item => {
-        item.setAttribute(this.options.itemActiveAttr, false);
+      this.items.forEach(i => {
+        if (i !== item) {
+          this.close(i);
+        }
       });
     }
 
-    item.setAttribute(this.options.itemActiveAttr, !this.isOpen(item));
+    this.toggle(item);
   }
 }
 
