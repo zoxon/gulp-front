@@ -61,6 +61,7 @@ if (blockName) {
 
           const targetFilePath = path.join(
             MODULES_DIR,
+            blockName,
             `${blockName}.${extension}`
           );
 

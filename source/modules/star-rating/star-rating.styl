@@ -1,0 +1,20 @@
+
+$star-size = 30px
+
+.star-rating
+	position relative
+	display inline-block
+	size $star-size
+	background url("../images/star-rating__star-grey.svg") 0 50% repeat-x
+	background-size auto 100%
+
+	&__bar
+		position absolute
+		top 0
+		left 0
+		overflow hidden
+		width 0
+		height 100%
+		background url("../images/star-rating__star.svg") 0 50% repeat-x
+		background-size auto 100%
+		white-space nowrap

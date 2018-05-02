@@ -1,7 +1,8 @@
-import init from "../_utils/plugin-init";
-import { $, $$ } from "../_utils/dom/select";
-import generateId from "../_utils/generateId";
-import { mapAttributes } from "../_utils/dom/attr";
+import init from "@/modules/_utils/plugin-init";
+import { $, $$ } from "@/modules/_utils/dom/select";
+import generateId from "@/modules/_utils/generateId";
+import { mapAttributes } from "@/modules/_utils/dom/attr";
+import toArray from "@/modules/_utils/dom/toArray";
 
 class Offcanvas {
   constructor(options) {
@@ -12,7 +13,11 @@ class Offcanvas {
       overlaySelector: "[data-offcanvas-overlay]"
     };
 
-    this.options = Object.assign({}, this._defaults, options);
+    this.options = {
+      ...this._defaults,
+      ...options
+    };
+
     this.init();
   }
 
@@ -23,18 +28,16 @@ class Offcanvas {
   }
 
   buildCache() {
-    this.triggers = $$(this.options.triggerSelector);
+    this.triggers = toArray($$(this.options.triggerSelector));
     this.container = $(this.options.containerSelector);
     this.overlay = $(this.options.overlaySelector);
     this.menu = $(this.options.menuSelector);
   }
 
   bindEvents() {
-    const plugin = this;
-
-    Array.prototype.forEach.call(this.triggers, trigger => {
-      trigger.addEventListener("click", function() {
-        plugin.triggerClickHandler.call(plugin);
+    this.triggers.forEach(trigger => {
+      trigger.addEventListener("click", () => {
+        this.triggerClickHandler();
       });
     });
 
@@ -48,18 +51,14 @@ class Offcanvas {
   }
 
   toggle() {
-    if (this.isHidden()) {
-      this.show();
-    } else {
-      this.hide();
-    }
+    this.isHidden() ? this.show() : this.hide();
   }
 
   hide() {
     this.menu.setAttribute("aria-hidden", "true");
     this.container.setAttribute("data-offcanvas-hidden", "true");
     this.overlay.setAttribute("data-offcanvas-hidden", "true");
-    Array.prototype.forEach.call(this.triggers, trigger => {
+    this.triggers.forEach(trigger => {
       trigger.setAttribute("aria-expanded", "false");
     });
   }
@@ -68,7 +67,7 @@ class Offcanvas {
     this.menu.setAttribute("aria-hidden", "false");
     this.container.setAttribute("data-offcanvas-hidden", "false");
     this.overlay.setAttribute("data-offcanvas-hidden", "false");
-    Array.prototype.forEach.call(this.triggers, trigger => {
+    this.triggers.forEach(trigger => {
       trigger.setAttribute("aria-expanded", "true");
     });
   }

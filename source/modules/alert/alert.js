@@ -1,5 +1,5 @@
-import init from "../_utils/plugin-init";
-import hide from "../_utils/animations/hide";
+import init from "@/modules/_utils/plugin-init";
+import hide from "@/modules/_utils/animations/hide";
 
 class Alert {
   constructor(element, options) {
@@ -7,12 +7,12 @@ class Alert {
     this.name = "alert";
 
     this._defaults = {
-      close: "close"
+      closeSelector: `[data-alert-close]`
     };
 
     this.options = {
-      ...options,
-      ...this._defaults
+      ...this._defaults,
+      ...options
     };
 
     this.init();
@@ -24,8 +24,7 @@ class Alert {
   }
 
   buildCache() {
-    this.closeSelector = `[data-plugin-${this.name}="${this.options.close}"]`;
-    this.close = this.element.querySelector(this.closeSelector);
+    this.close = this.element.querySelector(this.options.closeSelector);
   }
 
   bindEvents() {

@@ -1,5 +1,5 @@
-import { createElement } from "../_utils/dom/createElement";
-import { animationEndEventName } from "../_utils/event/aninmation";
+import { createElement } from "@/modules/_utils/dom/createElement";
+import { animationEndEventName } from "@/modules/_utils/event/aninmation";
 
 class Notification {
   constructor(options = {}) {
@@ -8,14 +8,14 @@ class Notification {
 
     this.name = "notification";
 
-    this.defaults = {
+    this._defaults = {
       delay: 3000,
       containerClassName: "notification-container",
       containerItemClassName: "notification-container__item"
     };
 
     this.options = {
-      ...this.defaults,
+      ...this._defaults,
       ...options
     };
 

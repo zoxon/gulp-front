@@ -31,7 +31,7 @@
 			border-width 0 1px 1px 0
 			border-style solid
 			border-color #535353
-			content ''
+			content ""
 			transition 150ms all ease-in-out 0s
 			transform rotate(45deg)
 			transform-origin 75% 75%
@@ -44,7 +44,7 @@
 		opacity 0
 		transition 250ms all cubic-bezier(0.5, 0, 0.1, 1)
 
-	[data-plugin-accordion-item-open='true'] &__pannel
+	[data-accordion-item="true"] &__pannel
 		visibility visible
 		overflow auto
 		padding-top 20px
@@ -52,6 +52,6 @@
 		height auto
 		opacity 1
 
-	[data-plugin-accordion-item-open='true'] &__trigger
+	[data-accordion-item="true"] &__trigger
 		&::after
 			transform rotate(225deg)

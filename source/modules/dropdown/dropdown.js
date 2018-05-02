@@ -1,8 +1,7 @@
-import is from "is_js";
-
-import init from "../_utils/plugin-init";
-import { mapAttributes } from "../_utils/dom/attr";
-import { KEYCODES } from "../_utils/constants";
+import init from "@/modules/_utils/plugin-init";
+import { mapAttributes } from "@/modules/_utils/dom/attr";
+import { KEYCODES } from "@/modules/_utils/constants";
+import toArray from "@/modules/_utils/dom/toArray";
 
 class Dropdown {
   constructor(element, options) {
@@ -12,16 +11,15 @@ class Dropdown {
     this._defaults = {
       outerClickClose: true,
       menuClickClose: true,
-      class: {
-        base: "dropdown",
-        open: "dropdown_open",
-        disabled: "dropdown_disabled"
-      }
+      triggerSelector: `[data-dropdown-trigger]`,
+      menuSelector: `[data-dropdown-menu]`,
+      focusableElements: "*[tabindex], a[href]",
+      menuOpenAttribute: "data-dropdown-open"
     };
 
     this.options = {
-      ...options,
-      ...this._defaults
+      ...this._defaults,
+      ...options
     };
 
     this.init();
@@ -39,32 +37,28 @@ class Dropdown {
   }
 
   buildCache() {
-    this.trigger = this.element.querySelector('[data-dropdown-role="trigger"]');
-    this.dropMenu = this.element.querySelector(
-      '[data-dropdown-role="drop-menu"]'
-    );
-    this.focusableElements = this.dropMenu.querySelectorAll(
-      "*[tabindex], a[href]"
+    const { triggerSelector, menuSelector, focusableElements } = this.options;
+
+    this.trigger = this.element.querySelector(triggerSelector);
+    this.dropMenu = this.element.querySelector(menuSelector);
+    this.focusableElements = toArray(
+      this.dropMenu.querySelectorAll(focusableElements)
     );
     this.selected = 0;
     this.triggerId = `${this.name}_trigger_this.options.count`;
   }
 
   bindEvents() {
-    const plugin = this;
-
     this.trigger.addEventListener("click", event => {
       this.toggle.call(this, event);
     });
 
-    [plugin.trigger, this.focusableElements].forEach(elementSet => {
-      let _elementSet = is.domNode(elementSet) ? [elementSet] : elementSet;
+    const targets = [this.trigger, ...this.focusableElements];
 
-      Array.prototype.forEach.call(_elementSet, element =>
-        element.addEventListener("keydown", function(event) {
-          plugin.handleKeydown.call(plugin, event);
-        })
-      );
+    targets.forEach(element => {
+      element.addEventListener("keydown", event => {
+        this.handleKeydown.call(this, event);
+      });
     });
 
     this.dropMenu.addEventListener("click", () => {
@@ -80,22 +74,26 @@ class Dropdown {
 
   open() {
     if (!this.isOpen()) {
-      this.element.classList.add(this.options.class.open);
+      this.element.setAttribute(this.options.menuOpenAttribute, true);
       this.trigger.setAttribute("aria-expanded", true);
     }
   }
 
   close() {
-    this.element.classList.remove(this.options.class.open);
+    this.element.setAttribute(this.options.menuOpenAttribute, false);
     this.trigger.setAttribute("aria-expanded", false);
   }
 
   isOpen() {
-    return this.element.classList.contains(this.options.class.open);
+    return this.element.getAttribute(this.options.menuOpenAttribute) === "true";
   }
 
   isDisabled() {
-    return this.element.classList.contains(this.options.class.disabled);
+    return (
+      this.element.getAttribute("aria-disabled") === "true" ||
+      this.element.hasAttribute("disabled") ||
+      false
+    );
   }
 
   toggle() {
@@ -119,7 +117,7 @@ class Dropdown {
       return;
     }
 
-    if (which === KEYCODES.ESCAPE) {
+    if (which === KEYCODES.ESC) {
       this.trigger.focus();
       this.close();
       return;
@@ -131,8 +129,8 @@ class Dropdown {
         this.close();
         break;
 
-      case KEYCODES.UP:
-      case KEYCODES.LEFT:
+      case KEYCODES.UP_ARROW:
+      case KEYCODES.LEFT_ARROW:
         event.preventDefault();
         this.open();
 
@@ -143,8 +141,8 @@ class Dropdown {
         }
         break;
 
-      case KEYCODES.DOWN:
-      case KEYCODES.RIGHT:
+      case KEYCODES.DOWN_ARROW:
+      case KEYCODES.RIGHT_ARROW:
         event.preventDefault();
         this.open();
 
@@ -161,6 +159,8 @@ class Dropdown {
   }
 
   setA11yAttrs() {
+    this.element.setAttribute(this.options.menuOpenAttribute, false);
+
     mapAttributes(this.trigger, {
       "aria-haspopup": true,
       "aria-expanded": false,
@@ -173,14 +173,6 @@ class Dropdown {
   setDisabledState() {
     this.element.setAttribute("aria-disabled", true);
     this.trigger.setAttribute("disabled", true);
-  }
-
-  callback(name) {
-    const cb = this.options[name];
-
-    if (typeof cb === "function") {
-      cb.call(this.element);
-    }
   }
 }
 

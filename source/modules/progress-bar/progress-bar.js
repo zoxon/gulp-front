@@ -1,5 +1,5 @@
-import init from "../_utils/plugin-init";
-import { createElement } from "../_utils/dom/createElement";
+import init from "@/modules/_utils/plugin-init";
+import { createElement } from "@/modules/_utils/dom/createElement";
 
 class ProgressBar {
   constructor(element, options) {
@@ -9,7 +9,10 @@ class ProgressBar {
     };
 
     this.element = element;
-    this.options = Object.assign({}, this._defaults, options);
+    this.options = {
+      ...this._defaults,
+      ...options
+    };
 
     this.init();
   }

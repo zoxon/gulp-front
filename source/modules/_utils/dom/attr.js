@@ -8,6 +8,8 @@ import is from "is_js";
  * @param {object} attributes
  */
 export function mapAttributes(element, attributes) {
+  if (!element) return;
+
   const nType = element.nodeType;
 
   // Don't get/set attributes on text, comment and attribute nodes

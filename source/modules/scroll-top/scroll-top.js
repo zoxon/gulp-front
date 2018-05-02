@@ -1,5 +1,5 @@
-import init from "../_utils/plugin-init";
-import scrollTo from "../_utils/scrollTo";
+import init from "@/modules/_utils/plugin-init";
+import scrollTo from "@/modules/_utils/scrollTo";
 
 class ScrollTop {
   constructor(element, options) {
@@ -11,8 +11,8 @@ class ScrollTop {
     };
 
     this.options = {
-      ...options,
-      ...this._defaults
+      ...this._defaults,
+      ...options
     };
 
     this.init();

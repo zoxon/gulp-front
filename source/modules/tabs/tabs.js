@@ -1,8 +1,9 @@
-import init from "../_utils/plugin-init";
-import getSiblings from "../_utils/dom/getSiblings";
-import simulate from "../_utils/event/simulate";
-import { mapAttributes } from "../_utils/dom/attr";
-import { KEYCODES } from "../_utils/constants";
+import init from "@/modules/_utils/plugin-init";
+import getSiblings from "@/modules/_utils/dom/getSiblings";
+import simulate from "@/modules/_utils/event/simulate";
+import { mapAttributes } from "@/modules/_utils/dom/attr";
+import { KEYCODES } from "@/modules/_utils/constants";
+import toArray from "@/modules/_utils/dom/toArray";
 
 let instances = 0;
 
@@ -23,8 +24,8 @@ class Tabs {
     };
 
     this.options = {
-      ...options,
-      ...this._defaults
+      ...this._defaults,
+      ...options
     };
 
     this.init();
@@ -52,10 +53,12 @@ class Tabs {
     } = this.options;
 
     this.tabsName = this.element.getAttribute(tabsNameAttrName);
-    this.tabs = this.element.querySelectorAll(`[${tabsIdAttrName}]`);
+    this.tabs = toArray(this.element.querySelectorAll(`[${tabsIdAttrName}]`));
     this.firstTab = this.tabs[0];
     this.firstTabId = this.firstTab.getAttribute(tabsIdAttrName);
-    this.panels = this.element.querySelectorAll(`[${panelsIdAttrName}]`);
+    this.panels = toArray(
+      this.element.querySelectorAll(`[${panelsIdAttrName}]`)
+    );
     this.panelId = this.name + "__panel_index-" + this.count;
     this.preloader = this.element.querySelector(preloaderSelector);
     this.description = this.element.querySelector(descriptionSelector);
@@ -77,7 +80,7 @@ class Tabs {
     });
 
     ["focus", "click"].forEach(eventName => {
-      Array.prototype.forEach.call(plugin.tabs, tab => {
+      plugin.tabs.forEach(tab => {
         tab.addEventListener(eventName, event => {
           event.preventDefault();
 
@@ -89,7 +92,7 @@ class Tabs {
       });
     });
 
-    Array.prototype.forEach.call(plugin.tabs, tab => {
+    plugin.tabs.forEach(tab => {
       tab.addEventListener("keydown", event => {
         plugin.handleKeydown.call(plugin, event);
       });
@@ -121,8 +124,8 @@ class Tabs {
     });
     targetTab.classList.add(activeTabClassName);
 
-    const targetTabSiblings = getSiblings(targetTab);
-    Array.prototype.forEach.call(targetTabSiblings, tab => {
+    const targetTabSiblings = toArray(getSiblings(targetTab));
+    targetTabSiblings.forEach(tab => {
       mapAttributes(tab, {
         tabindex: "-1",
         "aria-selected": "false"
@@ -133,8 +136,8 @@ class Tabs {
     targetPanel.setAttribute("aria-hidden", "false");
     targetPanel.classList.add(activePanelClassName);
 
-    const targetPanelSiblings = getSiblings(targetPanel);
-    Array.prototype.forEach.call(targetPanelSiblings, panel => {
+    const targetPanelSiblings = toArray(getSiblings(targetPanel));
+    targetPanelSiblings.forEach(panel => {
       panel.setAttribute("aria-hidden", "true");
       panel.classList.remove(activePanelClassName);
     });
@@ -177,8 +180,8 @@ class Tabs {
     let last = this.tabs.length - 1;
 
     switch (event.which) {
-      case KEYCODES.LEFT:
-      case KEYCODES.UP:
+      case KEYCODES.LEFT_ARROW:
+      case KEYCODES.UP_ARROW:
         event.preventDefault();
         event.stopPropagation();
 
@@ -190,8 +193,8 @@ class Tabs {
 
         break;
 
-      case KEYCODES.RIGHT:
-      case KEYCODES.DOWN:
+      case KEYCODES.RIGHT_ARROW:
+      case KEYCODES.DOWN_ARROW:
         event.preventDefault();
         event.stopPropagation();
 
@@ -235,7 +238,7 @@ class Tabs {
 
     this.description.setAttribute("id", this.descId);
 
-    Array.prototype.forEach.call(this.tabs, tab => {
+    this.tabs.forEach(tab => {
       mapAttributes(tab, {
         id: this.triggerId,
         tabindex: "-1",
@@ -245,7 +248,7 @@ class Tabs {
       });
     });
 
-    Array.prototype.forEach.call(this.panels, panel => {
+    this.panels.forEach(panel => {
       mapAttributes(panel, {
         id: this.panelId,
         role: "tabpanel",

@@ -1,4 +1,4 @@
-import init from "../_utils/plugin-init";
+import init from "@/modules/_utils/plugin-init";
 
 class Code {
   constructor(element, options) {
@@ -11,8 +11,8 @@ class Code {
     };
 
     this.options = {
-      ...options,
-      ...this._defaults
+      ...this._defaults,
+      ...options
     };
 
     this.init();

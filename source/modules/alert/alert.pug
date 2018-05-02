@@ -5,6 +5,6 @@ mixin alert(data)
 		.alert__title= data.title
 		.alert__body= data.text
 
-		button(type="button" data-plugin-alert="close").alert__close
+		button(type="button" data-alert-close).alert__close
 			+icon(name="close" title="Close")
 			span.visuallyhidden Close this message

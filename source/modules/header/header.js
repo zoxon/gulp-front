@@ -1,5 +1,5 @@
 import debounce from "lodash/debounce";
-import init from "../_utils/plugin-init";
+import init from "@/modules/_utils/plugin-init";
 
 class Header {
   constructor(element, options) {
@@ -11,8 +11,8 @@ class Header {
     };
 
     this.options = {
-      ...options,
-      ...this._defaults
+      ...this._defaults,
+      ...options
     };
 
     this.init();

@@ -9,5 +9,6 @@
   "alwaysUseImport": true,
   "alwaysUseNoneOverZero": true,
   "reduceMarginAndPaddingValues": true,
+  "quoteChar": "\"",
   "ignoreFiles": ["gulp/**/icons-template.styl"]
 }

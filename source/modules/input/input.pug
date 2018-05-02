@@ -1,12 +1,42 @@
-mixin input(data)
-	- var inputClasses = ['input']
+mixin input()
+	-
+		let baseClassName = "input";
 
-	if attributes.type
-		- inputClasses.push(inputClasses[0] + '_type_' + attributes.type)
+		const {
+			style = "default",
+			type = "text",
+			disabled: disabledAttr,
+			block: blockAttr,
+			inline = true,
+			class: className
+		} = attributes;
 
-	if attributes.class
-		- inputClasses.push(attributes.class)
-		- delete attributes.class
+		const otherAttrs = _.omit(
+			["color", "size", "style", "icon", "block", "class"],
+			attributes
+		);
 
-	span(class=inputClasses)
-		input&attributes(attributes).form-control.form-control_type_input.input__control
+		const stringToArray = str => str
+			? str.split(" ").filter(v => v.length) 
+			: [];
+
+		const styles = stringToArray(style)
+			.map(s => `${baseClassName}_style_${s}`)
+
+		const classes = _.classNames(
+			[
+				baseClassName,
+				{
+					[`${baseClassName}_block`]: blockAttr,
+					[`${baseClassName}_icon`]: icon,
+					[`${baseClassName}_color_${color}`]: color,
+					[`${baseClassName}_size_${size}`]: size,
+					[`${baseClassName}_type_${type}`]: type,
+					[`${baseClassName}_disabled`]: disabledAttr,
+					[`${baseClassName}_inline`]: inline,
+				}
+			].concat(styles, className)
+		);
+
+	span(class=classes)
+		input&attributes(otherAttrs).form-control.form-control_type_input.input__control

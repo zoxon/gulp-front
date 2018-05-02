@@ -1,0 +1,19 @@
+mixin star-rating()
+	-
+		var value = attributes.value || 0;
+		var max = attributes.max || 5;
+		var width = attributes.width || 0;
+		delete attributes.max;
+		delete attributes.value;
+		delete attributes.width;
+
+		var title = `Raiting is ${value} pts`;
+
+		attributes.title = title;
+		attributes['data-raiting-value'] = value;
+		attributes['data-raiting-max'] = max;
+		attributes['data-raiting-width'] = width;
+
+
+	.star-rating&attributes(attributes)
+		span.visuallyhidden= title

@@ -1,5 +1,5 @@
-import init from "../_utils/plugin-init";
-import hide from "../_utils/animations/hide";
+import init from "@/modules/_utils/plugin-init";
+import hide from "@/modules/_utils/animations/hide";
 import cookie from "js-cookie";
 
 class Browsehappy {
@@ -8,14 +8,14 @@ class Browsehappy {
     this.name = "browsehappy";
 
     this._defaults = {
-      single: true,
+      showOnce: true,
       cookeName: "browsehappy-showed",
       cookeExpires: 7
     };
 
     this.options = {
-      ...options,
-      ...this._defaults
+      ...this._defaults,
+      ...options
     };
 
     this.init();
@@ -24,7 +24,7 @@ class Browsehappy {
   init() {
     this.bindEvents();
 
-    if (this.options.single && !this.isShowed) {
+    if (this.options.showOnce && !this.isShowed) {
       this.element.style.display = "block";
     }
   }

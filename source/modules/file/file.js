@@ -1,5 +1,5 @@
-import init from "../_utils/plugin-init";
-import { createElement } from "../_utils/dom/createElement";
+import init from "@/modules/_utils/plugin-init";
+import { createElement } from "@/modules/_utils/dom/createElement";
 
 class File {
   constructor(element, options) {
@@ -27,8 +27,8 @@ class File {
     };
 
     this.options = {
-      ...options,
-      ...this._defaults
+      ...this._defaults,
+      ...options
     };
 
     this.messages = this.options.messages[this.options.language];
