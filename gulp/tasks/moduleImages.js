@@ -24,7 +24,7 @@ function renameFileByModuleName(file) {
 
 const moduleImages = () => {
   return gulp
-    .src("**/*.{jpg,gif,svg,png}", { cwd: "source/modules/*/images" })
+    .src("**/*.{png,jpg,jpeg,gif,svg,webp}", { cwd: "source/modules/*/images" })
     .pipe(plumber(plumberConfig))
     .pipe(rename(renameFileByModuleName))
     .pipe(changed("dest/assets/images"))

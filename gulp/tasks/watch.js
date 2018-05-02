@@ -32,7 +32,7 @@ const watch = () => {
 
   // Modules images
   gulp.watch(
-    "source/modules/*/images/**/*.{jpg,gif,svg,png}",
+    "source/modules/*/images/**/*.{png,jpg,jpeg,gif,svg,webp}",
     gulp.series(moduleImages, reload)
   );
 
