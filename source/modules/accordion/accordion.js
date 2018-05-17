@@ -1,29 +1,14 @@
-import init from "@/modules/_utils/plugin-init";
+import Plugin, { init } from "@/modules/_utils/Plugin";
 import toArray from "@/modules/_utils/dom/toArray";
 
-class Accordion {
-  constructor(element, options) {
-    this.element = element;
-    this.name = "accordion";
-
-    this._defaults = {
+class Accordion extends Plugin {
+  defaults() {
+    return {
       itemSelector: `[data-accordion-item]`,
       triggerSelector: `[data-accordion-trigger]`,
       itemActiveAttr: `data-accordion-item`,
       singleOpen: true
     };
-
-    this.options = {
-      ...this._defaults,
-      ...options
-    };
-
-    this.init();
-  }
-
-  init() {
-    this.buildCache();
-    this.bindEvents();
   }
 
   buildCache() {
@@ -75,4 +60,4 @@ class Accordion {
   }
 }
 
-export default init(Accordion);
+export default init(Accordion, "accordion");

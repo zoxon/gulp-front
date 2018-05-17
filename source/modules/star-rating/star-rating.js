@@ -1,28 +1,17 @@
-import init from "@/modules/_utils/plugin-init";
+import Plugin, { init } from "@/modules/_utils/Plugin";
 import { createElement } from "@/modules/_utils/dom/createElement";
 
-class StarRating {
-  constructor(element, options) {
-    this.element = element;
-    this.name = "star-rating";
-
-    this._defaults = {
+class StarRating extends Plugin {
+  defaults() {
+    return {
       maxValueAttribute: "data-raiting-max",
       valueAttribute: "data-raiting-value",
       barClassName: "star-rating__bar",
       widthMode: "px" // "px" or "%"
     };
-
-    this.options = {
-      ...this._defaults,
-      ...options
-    };
-
-    this.init();
   }
 
   init() {
-    this.buildCache();
     this.setContainerWidth();
     this.setBarWidth();
   }
@@ -70,4 +59,4 @@ class StarRating {
   }
 }
 
-export default init(StarRating);
+export default init(StarRating, "star-rating");

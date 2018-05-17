@@ -1,30 +1,18 @@
-import init from "@/modules/_utils/plugin-init";
+import Plugin, { init } from "@/modules/_utils/Plugin";
 import { createElement } from "@/modules/_utils/dom/createElement";
 
-class InputPassword {
-  constructor(element, options) {
-    this.element = element;
-    this.name = "input-password";
-
-    this._defaults = {
+class InputPassword extends Plugin {
+  defaults() {
+    return {
       buttonClassName: "input__show-password",
       buttonText: "Toggle password visibility",
       buttonAdditionalClassNames: ["button"],
       buttonToggleAttribute: "data-input-password-showed",
       mode: "click"
     };
-
-    this.options = {
-      ...this._defaults,
-      ...options
-    };
-
-    this.init();
   }
 
   init() {
-    this.buildCache();
-    this.bindEvents();
     this.renderButton();
     this.addInitedClassName();
   }
@@ -69,4 +57,4 @@ class InputPassword {
   }
 }
 
-export default init(InputPassword);
+export default init(InputPassword, "input-password");

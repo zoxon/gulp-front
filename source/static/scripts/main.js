@@ -31,7 +31,7 @@ Accordion(".accordion");
 Browsehappy(".browsehappy");
 Tabs(".tabs");
 ProgressBar(".progress-bar");
-Spoiler();
+Spoiler("[data-spoiler-target]");
 Offcanvas();
 File(".file");
 Dropdown(".dropdown");
@@ -64,7 +64,7 @@ module.exports = {
   Tabs,
   ProgressBar,
   Spoiler,
-  Offcanvas,
+  // Offcanvas,
   File,
   Dropdown,
   Code,

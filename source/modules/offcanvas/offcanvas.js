@@ -1,29 +1,20 @@
-import init from "@/modules/_utils/plugin-init";
+import Plugin, { init } from "@/modules/_utils/Plugin";
 import { $, $$ } from "@/modules/_utils/dom/select";
 import generateId from "@/modules/_utils/generateId";
 import { mapAttributes } from "@/modules/_utils/dom/attr";
 import toArray from "@/modules/_utils/dom/toArray";
 
-class Offcanvas {
-  constructor(options) {
-    this._defaults = {
+class Offcanvas extends Plugin {
+  defaults() {
+    return {
       triggerSelector: "[data-offcanvas-trigger]",
       menuSelector: "[data-offcanvas-menu]",
       containerSelector: "[data-offcanvas-container]",
       overlaySelector: "[data-offcanvas-overlay]"
     };
-
-    this.options = {
-      ...this._defaults,
-      ...options
-    };
-
-    this.init();
   }
 
   init() {
-    this.buildCache();
-    this.bindEvents();
     this.setA11yAttributes();
   }
 
@@ -102,4 +93,4 @@ class Offcanvas {
   }
 }
 
-export default init(Offcanvas);
+export default init(Offcanvas, "offcanvas");

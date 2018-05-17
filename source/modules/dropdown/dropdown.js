@@ -1,14 +1,12 @@
-import init from "@/modules/_utils/plugin-init";
+import Plugin, { init } from "@/modules/_utils/Plugin";
 import { mapAttributes } from "@/modules/_utils/dom/attr";
 import { KEYCODES } from "@/modules/_utils/constants";
 import toArray from "@/modules/_utils/dom/toArray";
+import generateId from "@/modules/_utils/generateId";
 
-class Dropdown {
-  constructor(element, options) {
-    this.element = element;
-    this.name = "dropdown";
-
-    this._defaults = {
+class Dropdown extends Plugin {
+  defaults() {
+    return {
       outerClickClose: true,
       menuClickClose: true,
       triggerSelector: `[data-dropdown-trigger]`,
@@ -16,23 +14,13 @@ class Dropdown {
       focusableElements: "*[tabindex], a[href]",
       menuOpenAttribute: "data-dropdown-open"
     };
-
-    this.options = {
-      ...this._defaults,
-      ...options
-    };
-
-    this.init();
   }
 
   init() {
-    this.buildCache();
     this.setA11yAttrs();
 
     if (this.isDisabled()) {
       this.setDisabledState();
-    } else {
-      this.bindEvents();
     }
   }
 
@@ -45,7 +33,7 @@ class Dropdown {
       this.dropMenu.querySelectorAll(focusableElements)
     );
     this.selected = 0;
-    this.triggerId = `${this.name}_trigger_this.options.count`;
+    this.triggerId = `_${generateId()}`;
   }
 
   bindEvents() {
@@ -176,4 +164,4 @@ class Dropdown {
   }
 }
 
-export default init(Dropdown);
+export default init(Dropdown, "dropdown");
