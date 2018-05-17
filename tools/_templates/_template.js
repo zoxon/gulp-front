@@ -1,28 +1,15 @@
-import init from "../_utils/plugin-init";
+import Plugin, { init } from "@/modules/_utils/Plugin";
 
-class #{blockname.pascalCase} {
-  constructor(element, options) {
-    this.element = element;
-    this.name = "#{blockname.dashCase}";
-
-    this._defaults = {};
-
-    this.options = {
-      ...this._defaults,
-      ...options
-    };
-
-    this.init();
+class #{blockname.pascalCase} extends Plugin {
+  defaults() {
+    return {};
   }
 
-  init() {
-    this.buildCache();
-    this.bindEvents();
-  }
+  init() {}
 
   buildCache() {}
 
   bindEvents() {}
 }
 
-export default init(#{blockname.pascalCase});
+export default init(#{blockname.pascalCase}, "#{blockname.dashCase}");
