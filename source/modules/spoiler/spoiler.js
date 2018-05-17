@@ -1,31 +1,20 @@
-import init from "@/modules/_utils/plugin-init";
-import { $, $$ } from "@/modules/_utils/dom/select";
+import Plugin, { init } from "@/modules/_utils/Plugin";
 import generateId from "@/modules/_utils/generateId";
 import getHiddenElementHeight from "@/modules/_utils/getHiddenElementHeight";
 import toArray from "@/modules/_utils/dom/toArray";
 
-class Spoiler {
-  constructor(options) {
-    this._defaults = {
+class Spoiler extends Plugin {
+  defaults() {
+    return {
       targetAttribute: "data-spoiler-target",
       idAttribute: "data-spoiler-id"
     };
-
-    this.options = {
-      ...this._defaults,
-      ...options
-    };
-
-    this.init();
-  }
-
-  init() {
-    this.buildCache();
-    this.bindEvents();
   }
 
   buildCache() {
-    this.triggers = toArray($$(`[${this.options.targetAttribute}]`));
+    this.triggers = toArray(
+      document.querySelectorAll(`[${this.options.targetAttribute}]`)
+    );
   }
 
   bindEvents() {
@@ -34,7 +23,7 @@ class Spoiler {
 
     this.triggers.forEach(trigger => {
       const targetId = trigger.getAttribute(targetAttribute);
-      const target = $(`[${idAttribute}="${targetId}"]`);
+      const target = document.querySelector(`[${idAttribute}="${targetId}"]`);
 
       plugin.hide(target);
       plugin.setIds({ target, trigger });
@@ -84,4 +73,4 @@ class Spoiler {
   }
 }
 
-export default init(Spoiler);
+export default init(Spoiler, "spoiler");

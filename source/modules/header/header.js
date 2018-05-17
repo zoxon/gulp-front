@@ -1,25 +1,14 @@
 import debounce from "lodash/debounce";
-import init from "@/modules/_utils/plugin-init";
+import Plugin, { init } from "@/modules/_utils/Plugin";
 
-class Header {
-  constructor(element, options) {
-    this.element = element;
-    this.name = "header";
-
-    this._defaults = {
+class Header extends Plugin {
+  defaults() {
+    return {
       fixedClassName: "header_fixed"
     };
-
-    this.options = {
-      ...this._defaults,
-      ...options
-    };
-
-    this.init();
   }
 
   init() {
-    this.bindEvents();
     this.headerScrollHandler();
   }
 
@@ -42,4 +31,4 @@ class Header {
   }
 }
 
-export default init(Header);
+export default init(Header, "header");

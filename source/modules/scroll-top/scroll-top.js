@@ -1,25 +1,11 @@
-import init from "@/modules/_utils/plugin-init";
+import Plugin, { init } from "@/modules/_utils/Plugin";
 import scrollTo from "@/modules/_utils/scrollTo";
 
-class ScrollTop {
-  constructor(element, options) {
-    this.element = element;
-    this.name = "scroll-top";
-
-    this._defaults = {
+class ScrollTop extends Plugin {
+  defaults() {
+    return {
       duration: 700
     };
-
-    this.options = {
-      ...this._defaults,
-      ...options
-    };
-
-    this.init();
-  }
-
-  init() {
-    this.bindEvents();
   }
 
   bindEvents() {
@@ -39,4 +25,4 @@ class ScrollTop {
   }
 }
 
-export default init(ScrollTop);
+export default init(ScrollTop, "scroll-top");

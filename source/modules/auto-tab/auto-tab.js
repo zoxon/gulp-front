@@ -1,27 +1,12 @@
-import init from "@/modules/_utils/plugin-init";
+import Plugin, { init } from "@/modules/_utils/Plugin";
 import { KEYCODES } from "@/modules/_utils/constants";
 import toArray from "@/modules/_utils/dom/toArray";
 
-class AutoTab {
-  constructor(element, options) {
-    this.element = element;
-    this.name = "autotab";
-
-    this._defaults = {
+class AutoTab extends Plugin {
+  defaults() {
+    return {
       targetSelector: "input"
     };
-
-    this.options = {
-      ...this._defaults,
-      ...options
-    };
-
-    this.init();
-  }
-
-  init() {
-    this.buildCache();
-    this.bindEvents();
   }
 
   buildCache() {
@@ -91,4 +76,4 @@ class AutoTab {
   }
 }
 
-export default init(AutoTab);
+export default init(AutoTab, "autotab");

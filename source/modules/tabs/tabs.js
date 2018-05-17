@@ -1,19 +1,14 @@
-import init from "@/modules/_utils/plugin-init";
+import Plugin, { init } from "@/modules/_utils/Plugin";
 import getSiblings from "@/modules/_utils/dom/getSiblings";
 import simulate from "@/modules/_utils/event/simulate";
 import { mapAttributes } from "@/modules/_utils/dom/attr";
 import { KEYCODES } from "@/modules/_utils/constants";
 import toArray from "@/modules/_utils/dom/toArray";
+import generateId from "@/modules/_utils/generateId";
 
-let instances = 0;
-
-class Tabs {
-  constructor(element, options) {
-    this.element = element;
-    this.name = "tabs";
-    this.count = instances++;
-
-    this._defaults = {
+class Tabs extends Plugin {
+  defaults() {
+    return {
       activeTabClassName: "tabs__tab_active",
       activePanelClassName: "tabs__panel_active",
       descriptionSelector: "[data-tabs-description]",
@@ -22,19 +17,9 @@ class Tabs {
       panelsIdAttrName: "data-panel-id",
       tabsNameAttrName: "data-tabs-name"
     };
-
-    this.options = {
-      ...this._defaults,
-      ...options
-    };
-
-    this.init();
   }
 
   init() {
-    this.buildCache();
-    this.bindEvents();
-
     this.setA11yAttrs();
 
     this.hidePreloader();
@@ -59,12 +44,11 @@ class Tabs {
     this.panels = toArray(
       this.element.querySelectorAll(`[${panelsIdAttrName}]`)
     );
-    this.panelId = this.name + "__panel_index-" + this.count;
+    this.panelId = `_${generateId()}`;
     this.preloader = this.element.querySelector(preloaderSelector);
     this.description = this.element.querySelector(descriptionSelector);
-    this.descId =
-      this.name + "__description_index-" + Math.ceil(Math.random() * 1000);
-    this.triggerId = this.name + "__trigger_index-" + this.count;
+    this.descId = `_${generateId()}`;
+    this.triggerId = `_${generateId()}`;
     this.selected = 0;
   }
 
@@ -259,4 +243,4 @@ class Tabs {
   }
 }
 
-export default init(Tabs);
+export default init(Tabs, "tabs");

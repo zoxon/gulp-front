@@ -1,27 +1,16 @@
-import init from "@/modules/_utils/plugin-init";
+import Plugin, { init } from "@/modules/_utils/Plugin";
 import getIndex from "@/modules/_utils/dom/getIndex";
 
-class Table {
-  constructor(element, options) {
-    this.element = element;
-    this.name = "table";
-
-    this._defaults = {
+class Table extends Plugin {
+  defaults() {
+    return {
       initedClassName: "table_responsive",
       cellAttributeName: "data-th",
       cellInnerClassName: "table__content"
     };
-
-    this.options = {
-      ...this._defaults,
-      ...options
-    };
-
-    this.init();
   }
 
   init() {
-    this.buildCache();
     this.updateCells();
     this.setInited();
   }
@@ -104,4 +93,4 @@ class Table {
   }
 }
 
-export default init(Table);
+export default init(Table, "table");

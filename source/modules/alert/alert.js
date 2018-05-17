@@ -1,26 +1,11 @@
-import init from "@/modules/_utils/plugin-init";
+import Plugin, { init } from "@/modules/_utils/Plugin";
 import hide from "@/modules/_utils/animations/hide";
 
-class Alert {
-  constructor(element, options) {
-    this.element = element;
-    this.name = "alert";
-
-    this._defaults = {
+class Alert extends Plugin {
+  defaults() {
+    return {
       closeSelector: `[data-alert-close]`
     };
-
-    this.options = {
-      ...this._defaults,
-      ...options
-    };
-
-    this.init();
-  }
-
-  init() {
-    this.buildCache();
-    this.bindEvents();
   }
 
   buildCache() {
@@ -39,4 +24,4 @@ class Alert {
   }
 }
 
-export default init(Alert);
+export default init(Alert, "alert");

@@ -1,29 +1,17 @@
-import init from "@/modules/_utils/plugin-init";
+import Plugin, { init } from "@/modules/_utils/Plugin";
 import hide from "@/modules/_utils/animations/hide";
 import cookie from "js-cookie";
 
-class Browsehappy {
-  constructor(element, options) {
-    this.element = element;
-    this.name = "browsehappy";
-
-    this._defaults = {
+class Browsehappy extends Plugin {
+  defaults() {
+    return {
       showOnce: true,
       cookeName: "browsehappy-showed",
       cookeExpires: 7
     };
-
-    this.options = {
-      ...this._defaults,
-      ...options
-    };
-
-    this.init();
   }
 
   init() {
-    this.bindEvents();
-
     if (this.options.showOnce && !this.isShowed) {
       this.element.style.display = "block";
     }
@@ -48,4 +36,4 @@ class Browsehappy {
   }
 }
 
-export default init(Browsehappy);
+export default init(Browsehappy, "browsehappy");

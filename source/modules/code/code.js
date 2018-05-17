@@ -1,25 +1,14 @@
-import init from "@/modules/_utils/plugin-init";
+import Plugin, { init } from "@/modules/_utils/Plugin";
 
-class Code {
-  constructor(element, options) {
-    this.element = element;
-    this.name = "code";
-
-    this._defaults = {
+class Code extends Plugin {
+  defaults() {
+    return {
       baseClassName: "code",
       lineClassName: "code__line"
     };
-
-    this.options = {
-      ...this._defaults,
-      ...options
-    };
-
-    this.init();
   }
 
   init() {
-    this.buildCache();
     this.wrapLines();
   }
 
@@ -52,4 +41,4 @@ class Code {
   }
 }
 
-export default init(Code);
+export default init(Code, "code");
