@@ -87,9 +87,8 @@ block page
   },
   {
     path: "./source/modules/footer/footer.styl",
-    content: `mixin footer(data)
-	.footer
-		//
+    content: `.footer
+	//
 `
   }
 ];
