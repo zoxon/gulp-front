@@ -1,16 +1,73 @@
+mixin select__option(option)
+	option(
+		value=option.value
+		selected=option.selected
+		disabled=option.disabled
+	)= option.label
+
 mixin select(data)
-	- var selectClasses = ['select']
+	-
+		let baseClassName = "select";
 
-	if attributes.multiple
-		- selectClasses.push(selectClasses[0] + '_multiple')
+		const {
+			style = "default",
+			type = "text",
+			disabled: disabledAttr,
+			block: blockAttr,
+			class: className,
+			placeholder,
+			options,
+			multiple,
+			size = "5"
+		} = attributes;
 
-	if attributes.type
-		- delete attributes.type
+		const otherAttrs = _.omit(
+			[
+				"color",
+				"size",
+				"style",
+				"icon",
+				"block",
+				"class",
+				"placeholder",
+				"options"
+			],
+			attributes
+		);
 
-	if attributes.class
-		- selectClasses.push(attributes.class)
-		- delete attributes.class
+		const stringToArray = str => str
+			? str.split(" ").filter(v => v.length) 
+			: [];
 
-	span(class=selectClasses)
-		select&attributes(attributes).form-control.form-control_type_select.select__control
+		const styles = stringToArray(style)
+			.map(s => `${baseClassName}_style_${s}`)
+
+		const classes = _.classNames(
+			[
+				baseClassName,
+				blockAttr ? `${baseClassName}_block`: `${baseClassName}_inline`,
+				{
+					[`${baseClassName}_multiple`]: multiple,
+					[`${baseClassName}_disabled`]: disabledAttr,
+				}
+			].concat(styles, className)
+		);
+
+		const isArray = arr => 
+			(Array.isArray(arr) && arr.length > 0);
+
+	span(class=classes)
+		select&attributes(otherAttrs).form-control.form-control_type_select.select__control
+			if placeholder
+				option(value="" disabled selected).select__placeholder= placeholder
+				
+			if options
+				each option in options
+					if isArray(option.options)
+						optgroup(label=option.label)
+							each groupOpt in option.options
+								+select__option(groupOpt)
+					else
+						+select__option(option)
+				
 			block

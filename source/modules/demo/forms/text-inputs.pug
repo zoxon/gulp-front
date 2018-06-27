@@ -2,95 +2,137 @@ include ../../form-item/form-item
 include ../../label/label
 include ../../input/input
 
-+form-item().form__item
-	.form-item__label
-		+label(for="form-demo__input-inline") Inline input
-	.form-item__control
-		+input(
-			type="text" 
-			name="form-demo__input-inline"
-			id="form-demo__input-inline"
-			value="Input value"
-		)
++form-item(
+	label="Inline input"
+	for="form-demo__input-inline"
+).form__item
+	+input(
+		type="text" 
+		name="form-demo__input-inline"
+		id="form-demo__input-inline"
+		value="Input value"
+	)
+
++form-item(
+	label="Hinted input"
+	for="form-demo__input-hinted"
+	hint="Hint message here"
+).form__item
+	+input(
+		type="text" 
+		name="form-demo__input-hinted"
+		id="form-demo__input-hinted"
+		value="Input value"
+	)
+
++form-item(
+	label="Errored input"
+	for="form-demo__input-errored"
+	errors=[
+		"Error message 1",
+		"Error message 2"
+	]
+).form__item
+	+input(
+		type="text" 
+		name="form-demo__input-errored"
+		id="form-demo__input-errored"
+		value="Input value"
+	)
+
++form-item(
+	label="Hinted and errored input"
+	for="form-demo__input-hinted-errored"
+	hint="Hint message here"
+	errors=[
+		"Error message 1",
+		"Error message 2"
+	]
+).form__item
+	+input(
+		type="text" 
+		name="form-demo__input-hinted-errored"
+		id="form-demo__input-hinted-errored"
+		value="Input value"
+	)
+
++form-item(
+	label="Full width input"
+	for="form-demo__input-block"
+).form__item
+	+input(
+		type="text" 
+		name="form-demo__input-block"
+		id="form-demo__input-block"
+		value="Input value"
+		block
+	)
 
 
-+form-item().form__item
-	.form-item__label
-		+label(for="form-demo__input-block") Full width input
-	.form-item__control
-		+input(
-			type="text" 
-			name="form-demo__input-block" 
-			id="form-demo__input-block" 
-			value="Input value"
-			block
-		)
++form-item(
+	label="Disabled input"
+	for="form-demo__input-disabled"
+).form__item
+	+input(
+		type="text"
+		name="form-demo__input-disabled"
+		id="form-demo__input-disabled"
+		value="Input value"
+		disabled
+	)
 
 
-+form-item().form__item
-	.form-item__label
-		+label(for="form-demo__input-disabled") Disabled input
-	.form-item__control
-		+input(
-			type="text" 
-			name="form-demo__input-disabled" 
-			id="form-demo__input-disabled" 
-			value="Input value" 
-			disabled
-		)
++form-item(
+	label="Email"
+	for="form-demo__input-email"
+).form__item
+	+input(
+		type="email" 
+		name="form-demo__input-email"
+		id="form-demo__input-email"
+		placeholder="info@example.com"
+	)
 
++form-item(
+	label="URL"
+	for="form-demo__input-url"
+).form__item
+	+input(
+		type="url"
+		name="form-demo__input-url"
+		id="form-demo__input-url"
+		placeholder="http://www.example.com"
+	)
 
-+form-item().form__item
-	.form-item__label
-		+label(for="form-demo__input-email") Email
-	.form-item__control
-		+input(
-			type="email" 
-			name="form-demo__input-email" 
-			id="form-demo__input-email" 
-			placeholder="info@example.com"
-		)
++form-item(
+	label="Phone number"
+	for="form-demo__input-tel"
+).form__item
+	+input(
+		type="tel"
+		name="form-demo__input-tel"
+		id="form-demo__input-tel"
+		placeholder="+123 123-345-6789"
+	)
 
-+form-item().form__item
-	.form-item__label
-		+label(for="form-demo__input-url") URL
-	.form-item__control
-		+input(
-			type="url" 
-			name="form-demo__input-url" 
-			id="form-demo__input-url"
-			placeholder="http://www.example.com"
-		)
++form-item(
+	label="Password"
+	for="form-demo__input-password"
+).form__item
+	+input(
+		type="password" 
+		name="form-demo__input-password" 
+		id="form-demo__input-password" 
+		placeholder="Enter password"
+	)
 
-+form-item().form__item
-	.form-item__label
-		+label(for="form-demo__input-tel") Phone number
-	.form-item__control
-		+input(
-			type="tel" 
-			name="form-demo__input-tel" 
-			id="form-demo__input-tel" 
-			placeholder="+123 123-345-6789"
-		)
-
-+form-item().form__item
-	.form-item__label
-		+label(for="form-demo__input-password") Password
-	.form-item__control
-		+input(
-			type="password" 
-			name="form-demo__input-password" 
-			id="form-demo__input-password" 
-			placeholder="Enter password"
-		)
-
-+form-item().form__item
-	.form-item__label
-		+label(for="form-demo__number") Number
-	.form-item__control
-		+input(
-			type="number" 
-			name="form-demo__number" 
-			id="form-demo__number" 
-			placeholder="18"
-		)
++form-item(
+	label="Number"
+	for="form-demo__number"
+).form__item
+	+input(
+		type="number"
+		name="form-demo__number"
+		id="form-demo__number"
+		placeholder="18"
+	)

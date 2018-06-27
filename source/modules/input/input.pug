@@ -1,14 +1,12 @@
 mixin input()
 	-
-		let baseClassName = "input";
-
 		const {
 			style = "default",
 			type = "text",
 			disabled: disabledAttr,
 			block: blockAttr,
-			inline = true,
-			class: className
+			class: className,
+			baseClassName = "input"
 		} = attributes;
 
 		const otherAttrs = _.omit(
@@ -26,14 +24,13 @@ mixin input()
 		const classes = _.classNames(
 			[
 				baseClassName,
+				blockAttr ? `${baseClassName}_block`: `${baseClassName}_inline`,
 				{
-					[`${baseClassName}_block`]: blockAttr,
 					[`${baseClassName}_icon`]: icon,
 					[`${baseClassName}_color_${color}`]: color,
 					[`${baseClassName}_size_${size}`]: size,
 					[`${baseClassName}_type_${type}`]: type,
 					[`${baseClassName}_disabled`]: disabledAttr,
-					[`${baseClassName}_inline`]: inline,
 				}
 			].concat(styles, className)
 		);

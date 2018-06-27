@@ -3,33 +3,39 @@
 		box-sizing border-box
 
 	&_block
-		width 100%
+		display block
 
-	&_inline &__control
-		width em(280px)
+	&_block
+		& ^[0]__control
+			width 100% !important
 
-	&_style_default &__control
-		padding $form-padding_vertical $form-padding_horizontal
-		min-height ($form-size-input-height * 3)
-		height ($form-size-input-height * 3)
-		border $form-border_default
-		border-radius $form-border-radius
-		background-color $form-color-background
-		color $form-color-font
-		font-size $form-font-size
+	&_inline
+		& ^[0]__control
+			width $form-input-width-inline
 
-		+placeholder()
-			color $form-color-placeholder
+	&_style_default
+		& ^[0]__control
+			padding $form-padding_vertical $form-padding_horizontal
+			min-height ($form-size-input-height * 3)
+			height ($form-size-input-height * 3)
+			border $form-border_default
+			border-radius $form-border-radius
+			background-color $form-color-background
+			color $form-color-font
+			font-size $form-font-size
 
-		&:focus
-			outline none
-			focus($form-color-border_focus)
-
-		&:invalid
-			border-color $form-color-border_invalid
+			+placeholder()
+				color $form-color-placeholder
 
 			&:focus
-				focus($form-color-border_invalid)
+				outline none
+				focus($form-color-border_focus)
 
-		&:disabled
-			background-color $form-color-background_disabled
+			&:invalid
+				border-color $form-color-border_invalid
+
+				&:focus
+					focus($form-color-border_invalid)
+
+			&:disabled
+				background-color $form-color-background_disabled

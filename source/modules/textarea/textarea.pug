@@ -1,13 +1,42 @@
 mixin textarea(data)
-	- var textareaClasses = ['textarea']
+	-
+		let baseClassName = "textarea";
 
-	if attributes.type
-		- textareaClasses.push(textareaClasses[0] + '_type_' + attributes.type)
+		const {
+			style = "default",
+			cols = "30",
+			rows = "10",
+			disabled: disabledAttr,
+			block: blockAttr,
+			class: className,
+			icon
+		} = attributes;
 
-	if attributes.class
-		- textareaClasses.push(attributes.class)
-		- delete attributes.class
+		const otherAttrs = _.omit(
+			["color", "size", "style", "icon", "block", "class"],
+			attributes
+		);
 
-	span(class=textareaClasses)
-		textarea(cols="30" rows="10")&attributes(attributes).form-control.form-control_type_textarea.textarea__control
-		
+		const stringToArray = str => str
+			? str.split(" ").filter(v => v.length) 
+			: [];
+
+		const styles = stringToArray(style)
+			.map(s => `${baseClassName}_style_${s}`)
+
+		const classes = _.classNames(
+			[
+				baseClassName,
+				blockAttr ? `${baseClassName}_block`: `${baseClassName}_inline`,
+				{
+					[`${baseClassName}_icon`]: icon,
+					[`${baseClassName}_color_${color}`]: color,
+					[`${baseClassName}_size_${size}`]: size,
+					[`${baseClassName}_disabled`]: disabledAttr
+				}
+			].concat(styles, className)
+		);
+
+	span(class=classes)
+		textarea&attributes(otherAttrs).form-control.form-control_type_textarea.textarea__control
+			block
