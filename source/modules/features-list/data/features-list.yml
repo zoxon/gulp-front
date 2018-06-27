@@ -14,7 +14,7 @@
         -
           icon: cube
           title: Built-in modules
-          description: Extensive set of modules which meet in 90% of all websites
+          description: Extensive set of modules which can be found in 90% of all websites
         -
           icon: gear
           title: Preprocessors and postprocessors
@@ -26,7 +26,7 @@
         -
           icon: vector
           title: Your personal iconset
-          description: Create your own set of SVG icons. Only what you need and no fonts.
+          description: Create your own set of SVG icons. Only what you need and no fonts
         -
           icon: picture
           title: Easy to use sprite system

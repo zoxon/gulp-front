@@ -1,6 +1,7 @@
 @keyframes spinner_rotate
 	0%
 		transform rotate(0)
+
 	100%
 		transform rotate(360deg)
 
@@ -14,10 +15,10 @@ spinner-style2-color($color)
 
 .spinner
 	position relative
+	display inline-block
 	size 3em
 	border-radius 50%
 	animation spinner_rotate 1s linear infinite
-	display inline-block
 
 	// style1
 	&_style_1&_color_gray
@@ -62,7 +63,7 @@ spinner-style2-color($color)
 	&_style_1&_color_orange
 		spinner-style1-color($orange-6)
 
-	//style 2
+	// style 2
 	&_style_2&_color_gray
 		spinner-style2-color($gray-6)
 

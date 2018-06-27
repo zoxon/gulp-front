@@ -5,71 +5,85 @@
 		position absolute
 		z-index 1
 		display block
-		content ''
+		content ""
 
 	&__control
 		box-sizing border-box
 
 	&__placeholder
-		display none
-		visibility hidden
 		height 0
 		outline none
 		border none
-		font-size 0
-		opacity 0
 
 	&_multiple &__control
+		padding 0 !important
 		height auto !important
+
+	&_multiple &__placeholder
+		display none
+		visibility hidden
+		opacity 0
 
 	&_multiple:after
 		content none !important
 
+	&_multiple
+		option
+			padding 0.5em
+
+	&_block
+		display block
+
 	&_block &__control
-		width 100%
+		width 100% !important
 
 	&_inline &__control
-		width em(280px)
+		width $form-input-width-inline
 
 	&_style_default
-	&_style_default &__placeholder
-		color $form-color-placeholder
+		& ^[0]__placeholder
+			color $form-color-placeholder
 
-		&:after
+			+below(640px)
+				display none
+
+		&::after
 			top 50%
-			right 18px
+			right 15px
 			margin-top -4px
-			size 6px
+			size 5px
 			border-width 0 1px 1px 0
 			border-style solid
+			border-color #4a4a4a
 			transform rotate(45deg)
 			transform-origin 75% 75%
 
-	&_style_default &__control
-		padding 0 ($form-padding_horizontal * 2) 0 $form-padding_horizontal
-		min-height $form-size-input-height
-		height $form-size-input-height
-		border $form-border_default
-		border-radius $form-border-radius
-		background-color $form-color-background
-		color $form-color-font
-		font-size $form-font-size
+		& ^[0]__control
+			padding 0 ($form-padding_horizontal * 3) 0 $form-padding_horizontal
+			min-height $form-size-input-height
+			height $form-size-input-height
+			border $form-border_default
+			border-radius $form-border-radius
+			background-color $form-color-background
+			color $form-color-font
+			font-size $form-font-size
 
-		+placeholder()
-			color $form-color-placeholder
-
-		&:focus
-			outline none
-			focus($form-color-border_focus)
-
-		&:invalid
-			border-color $form-color-border_invalid
+			+placeholder()
+				color $form-color-placeholder
 
 			&:focus
-				focus($form-color-border_invalid)
+				outline none
+				focus($form-color-border_focus)
 
-		&:disabled
-			background-color $form-color-background_disabled
+			&:invalid
+				border-color $form-color-border_invalid
 
-	&_style_default&_multiple &__control
-		padding 0 $form-padding_horizontal
+				&:focus
+					focus($form-color-border_invalid)
+
+			&:disabled
+				background-color $form-color-background_disabled
+
+		&^[0]_multiple ^[0]__control
+			+below(640px)
+				padding $form-padding_horizontal !important
