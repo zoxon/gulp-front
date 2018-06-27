@@ -2,72 +2,70 @@ $offset = 10px
 
 .tooltip
 	position absolute
-	background rgba(#616161, 0.9)
-	color #fff
+	padding 8px
 	min-width 150px
 	max-width 450px
 	border-radius 3px
-	box-shadow 0 0 2px rgba(0,0,0,0.5)
-	padding 8px
+	background rgba(#616161, 0.9)
+	box-shadow 0 0 2px rgba(0, 0, 0, 0.5)
+	color #fff
 
 	&__arrow
+		position absolute
+		margin 5px
 		width 0
 		height 0
 		border-style solid
-		position absolute
-		margin 5px
 		border-color rgba(#616161, 0.9)
 
 	&[x-placement^="top"]
 		margin-bottom $offset
 
 		& ^[0]__arrow
-			border-width 5px 5px 0 5px
-			border-left-color transparent
-			border-right-color transparent
-			border-bottom-color transparent
 			bottom -5px
 			left calc(50% - 5px)
 			margin-top 0
 			margin-bottom 0
+			border-width 5px 5px 0 5px
+			border-right-color transparent
+			border-bottom-color transparent
+			border-left-color transparent
 
 	&[x-placement^="bottom"]
 		margin-top $offset
 
 		& ^[0]__arrow
-			border-width 0 5px 5px 5px
-			border-left-color transparent
-			border-right-color transparent
-			border-top-color transparent
 			top -5px
 			left calc(50% - 5px)
 			margin-top 0
 			margin-bottom 0
-
+			border-width 0 5px 5px 5px
+			border-top-color transparent
+			border-right-color transparent
+			border-left-color transparent
 
 	&[x-placement^="right"]
 		margin-left $offset
 
 		& ^[0]__arrow
+			top calc(50% - 5px)
+			left -5px
+			margin-right 0
+			margin-left 0
 			border-width 5px 5px 5px 0
-			border-left-color transparent
 			border-top-color transparent
 			border-bottom-color transparent
-			left -5px
-			top calc(50% - 5px)
-			margin-left 0
-			margin-right 0
+			border-left-color transparent
 
 	&[x-placement^="left"]
 		margin-right $offset
 
 		& ^[0]__arrow
+			top calc(50% - 5px)
+			right -5px
+			margin-right 0
+			margin-left 0
 			border-width 5px 0 5px 5px
 			border-top-color transparent
 			border-right-color transparent
 			border-bottom-color transparent
-			right -5px
-			top calc(50% - 5px)
-			margin-left 0
-			margin-right 0
-

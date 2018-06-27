@@ -1,7 +1,9 @@
 .layout
 	clearfix()
+
 	&__sidebar
 		width 300px
+
 		+below($content-width)
 			display none
 
@@ -10,6 +12,7 @@
 
 	&__content
 		width 830px
+
 		+below($content-width)
 			width auto
 			m-padding()
@@ -22,6 +25,7 @@
 
 	&_sidebar_left &__content
 		float right
+
 		+below($content-width)
 			float none
 
@@ -30,5 +34,6 @@
 
 	&_sidebar_right &__content
 		float left
+
 		+below($content-width)
 			float none
