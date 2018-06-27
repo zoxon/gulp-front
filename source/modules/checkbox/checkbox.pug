@@ -1,16 +1,46 @@
 mixin checkbox(data)
-	- var checkboxClasses = ['checkbox']
+	-
+		let baseClassName = "checkbox";
 
-	- attributes.type = "checkbox"
+		const {
+			style = "default",
+			disabled: disabledAttr,
+			block: blockAttr,
+			inline,
+			class: className,
+			box = true,
+			color
+		} = attributes;
 
-	if attributes.class
-		- checkboxClasses.push(attributes.class)
-		- delete attributes.class
+		const otherAttrs = _.omit(
+			["style", "inline", "block", "class", "color"],
+			attributes
+		);
 
+		const stringToArray = str => str
+			? str.split(" ").filter(v => v.length) 
+			: [];
 
-	label(class=checkboxClasses for=attributes.id)
-		input&attributes(attributes).form-control.form-control_type_checkbox.checkbox__control
-		span.checkbox__box
+		const styles = stringToArray(style)
+			.map(s => `${baseClassName}_style_${s}`)
+
+		const classes = _.classNames(
+			[
+				baseClassName,
+				{
+					[`${baseClassName}_color_${color}`]: color,
+					[`${baseClassName}_block`]: blockAttr,
+					[`${baseClassName}_disabled`]: disabledAttr,
+					[`${baseClassName}_inline`]: inline,
+				}
+			].concat(styles, className)
+		);
+
+	label(class=classes for=attributes.id)
+		input(type="checkbox")&attributes(otherAttrs).form-control.form-control_type_checkbox.checkbox__control
+		if box
+			span.checkbox__box
+
 		if block
 			span.checkbox__label
 				block

@@ -1,16 +1,44 @@
-mixin radio(data)
-	- var radioClasses = ['radio']
+mixin radio()
+	-
+		let baseClassName = "radio";
 
-	- attributes.type = "radio"
+		const {
+			style = "default",
+			disabled: disabledAttr,
+			block: blockAttr,
+			inline = true,
+			class: className,
+			box = true
+		} = attributes;
 
-	if attributes.class
-		- radioClasses.push(attributes.class)
-		- delete attributes.class
+		const otherAttrs = _.omit(
+			["style", "inline", "block", "class"],
+			attributes
+		);
 
+		const stringToArray = str => str
+			? str.split(" ").filter(v => v.length) 
+			: [];
 
-	label(class=radioClasses for=attributes.id)
-		input&attributes(attributes).form-control.form-control_type_radio.radio__control
-		span.radio__box
+		const styles = stringToArray(style)
+			.map(s => `${baseClassName}_style_${s}`)
+
+		const classes = _.classNames(
+			[
+				baseClassName,
+				{
+					[`${baseClassName}_block`]: blockAttr,
+					[`${baseClassName}_disabled`]: disabledAttr,
+					[`${baseClassName}_inline`]: inline,
+				}
+			].concat(styles, className)
+		);
+
+	label(class=classes for=attributes.id)
+		input(type="radio")&attributes(otherAttrs).form-control.form-control_type_radio.radio__control
+		if box
+			span.radio__box
+
 		if block
 			span.radio__label
 				block
