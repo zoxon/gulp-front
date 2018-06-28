@@ -11,13 +11,41 @@
 	}
 
 mixin avatar(data)
-	- var classes = [];
-	if !data.image && data.title
-		- classes.push('avatar_type_initials')
+	-
+		const {
+			color = "blue",
+			size = "medium",
+			style = "circle",
+			image,
+			title,
+			baseClass = "avatar"
+		} = attributes;
 
-	.avatar&attributes(attributes)(class=classes title=data.title)
-		if data.image
-			img(src=data.image alt=data.title).avatar__image
-		else
-			if data.title
-				.avatar__initials= getInitials(data.title)
+		const otherAttrs = _.omit(
+			["color", "size", "style", "image", "title", "baseClass"],
+			attributes
+		);
+
+		const stringToArray = str => str
+			? str.split(" ").filter(v => v.length) 
+			: [];
+
+		const styles = stringToArray(style)
+			.map(s => `${baseClass}_style_${s}`)
+
+		const classes = _.classNames(
+			[
+				baseClass,
+				{
+					[`${baseClass}_color_${color}`]: color,
+					[`${baseClass}_size_${size}`]: size
+				}
+			].concat(styles)
+		);
+
+
+	.avatar&attributes(otherAttrs)(class=classes title=title)
+		if image
+			img(src=image alt=title).avatar__image
+		if title
+			.avatar__initials= getInitials(title)

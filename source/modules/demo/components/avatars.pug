@@ -2,122 +2,59 @@ include ../../avatar/avatar
 
 h4 Styles
 .demo-grid
-	.demo-grid__item
-		.demo-grid-item
-			.demo-grid-item__container
-				+avatar({"image": "https://unsplash.it/240/240?image=1027","title": "User Name"})
-			.demo-grid-item__title square
-
-	.demo-grid__item
-		.demo-grid-item
-			.demo-grid-item__container
-				+avatar({"image": "https://unsplash.it/240/240?image=1027","title": "User Name"}).avatar_style_circle
-			.demo-grid-item__title circle
-	
-	.demo-grid__item
-		.demo-grid-item
-			.demo-grid-item__container
-				+avatar({"image": "https://unsplash.it/240/240?image=1027","title": "User Name"}).avatar_style_rounded
-			.demo-grid-item__title rounded
+	each style in ["square", "rounded", "circle"]
+		.demo-grid__item
+			.demo-grid-item
+				.demo-grid-item__container
+					+avatar(
+						image="https://unsplash.it/240/240?image=1027"
+						title="Alyssa Burns"
+						style=style
+					)
+				.demo-grid-item__title= style
 
 
 
 h4 Sizes
 .demo-grid
-	.demo-grid__item
-		.demo-grid-item
-			.demo-grid-item__container
-				+avatar({"image": "https://unsplash.it/240/240?image=1027","title": "User Name"}).avatar_style_circle.avatar_size_extra-extra-small
-			.demo-grid-item__title xxs
-	
-	.demo-grid__item
-		.demo-grid-item
-			.demo-grid-item__container
-				+avatar({"image": "https://unsplash.it/240/240?image=1027","title": "User Name"}).avatar_style_circle.avatar_size_extra-small
-			.demo-grid-item__title xs
-	
-	.demo-grid__item
-		.demo-grid-item
-			.demo-grid-item__container
-				+avatar({"image": "https://unsplash.it/240/240?image=1027","title": "User Name"}).avatar_style_circle.avatar_size_small
-			.demo-grid-item__title s
+	each size in ["xxs", "xs", "s", "m", "l", "xl", "xxl"]
+		.demo-grid__item
+			.demo-grid-item
+				.demo-grid-item__container
+					+avatar(
+						image="https://unsplash.it/240/240?image=1027"
+						title="Alyssa Burns"
+						style="circle"
+						size=size
+					)
+				.demo-grid-item__title= size
 
-	.demo-grid__item
-		.demo-grid-item
-			.demo-grid-item__container
-				+avatar({"image": "https://unsplash.it/240/240?image=1027","title": "User Name"}).avatar_style_circle.avatar_size_medium
-			.demo-grid-item__title m
-
-	.demo-grid__item
-		.demo-grid-item
-			.demo-grid-item__container
-				+avatar({"image": "https://unsplash.it/240/240?image=1027","title": "User Name"}).avatar_style_circle.avatar_size_large
-			.demo-grid-item__title l
-	
-	.demo-grid__item
-		.demo-grid-item
-			.demo-grid-item__container
-				+avatar({"image": "https://unsplash.it/240/240?image=1027","title": "User Name"}).avatar_style_circle.avatar_size_extra-large
-			.demo-grid-item__title xl
-
-	.demo-grid__item
-		.demo-grid-item
-			.demo-grid-item__container
-				+avatar({"image": "https://unsplash.it/240/240?image=1027","title": "User Name"}).avatar_style_circle.avatar_size_extra-extra-large
-			.demo-grid-item__title xxl
 
 h4 Initals
 .demo-grid
-	.demo-grid__item
-		.demo-grid-item
-			.demo-grid-item__container
-				+avatar({"title": "User Name"}).avatar_style_circle.avatar_size_extra-extra-small
-			.demo-grid-item__title xxs
-	
-	.demo-grid__item
-		.demo-grid-item
-			.demo-grid-item__container
-				+avatar({"title": "User Name"}).avatar_style_circle.avatar_size_extra-small
-			.demo-grid-item__title xs
-	
-	.demo-grid__item
-		.demo-grid-item
-			.demo-grid-item__container
-				+avatar({"title": "User Name"}).avatar_style_circle.avatar_size_small
-			.demo-grid-item__title s
-
-	.demo-grid__item
-		.demo-grid-item
-			.demo-grid-item__container
-				+avatar({"title": "User Name"}).avatar_style_circle.avatar_size_medium
-			.demo-grid-item__title m
-
-	.demo-grid__item
-		.demo-grid-item
-			.demo-grid-item__container
-				+avatar({"title": "User Name"}).avatar_style_circle.avatar_size_large
-			.demo-grid-item__title l
-	
-	.demo-grid__item
-		.demo-grid-item
-			.demo-grid-item__container
-				+avatar({"title": "User Name"}).avatar_style_circle.avatar_size_extra-large
-			.demo-grid-item__title xl
-
-	.demo-grid__item
-		.demo-grid-item
-			.demo-grid-item__container
-				+avatar({"title": "User Name"}).avatar_style_circle.avatar_size_extra-extra-large
-			.demo-grid-item__title xxl
+	each size in ["xxs", "xs", "s", "m", "l", "xl", "xxl"]
+		.demo-grid__item
+			.demo-grid-item
+				.demo-grid-item__container
+					+avatar(
+						title="Alyssa Burns"
+						style="circle"
+						size=size
+					)
+				.demo-grid-item__title= size
 
 
 h5 Colors
 .demo-grid
-	each color in ['gray', 'black', 'red', 'pink', 'grape', 'violet', 'indigo', 'blue', 'cyan', 'teal', 'green', 'lime', 'yellow', 'orange']
+	each color in ["gray", "black", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"]
 		.demo-grid__item
 			.demo-grid-item
 				.demo-grid-item__container
-					+avatar({"title": "User Name"})(class="avatar_color_" + color).avatar_style_circle
+					+avatar(
+						title="Alyssa Burns"
+						color=color
+						style="circle"
+					)
 				.demo-grid-item__title= color
 	
 

@@ -7,6 +7,12 @@ h4 Example usage in `comment` module
 style
 	:stylus
 		.comment
+			padding 2em 1em
+			max-width 640px
+			background-color #fafafa
+			margin-bottom 1em
+			border-radius 3px
+
 			&__avatar
 				//
 			&__text
@@ -33,18 +39,22 @@ style
 				color silver
 
 h5 Top
+
 .comment.media-object.media-object_image_top
 	.comment__avatar.media-object__image
-		+avatar({"image": "https://unsplash.it/240/240?image=1027", "title": "User Name"}).avatar_style_circle.avatar_size_small
+		+avatar(
+			image="https://unsplash.it/240/240?image=1027"
+			title="Alyssa Burns"
+			style="circle"
+			size="small"
+		)
+
 	.comment__text.media-object__body
 		.comment__meta
 			a(href="#").comment__name User Name
 			time(datetime="2017-12-20 08:30:45").comment__date 1 day ago
 		.comment__message Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, temporibus quam iste totam nam natus debitis quae, rem nulla, culpa delectus. Nam ex iusto repellat et fuga ullam omnis velit!
-		.comment__controls
-			button(type="button").button.button_style_ghost.button_color_blue.button_size_small Reply
-			button(type="button").button.button_style_ghost.button_color_blue.button_size_small Quote
-			button(type="button").button.button_style_ghost.button_color_red.button_size_small Report
+
 
 .comment.media-object.media-object_image_top
 	.comment__text.media-object__body
@@ -52,26 +62,30 @@ h5 Top
 			a(href="#").comment__name User Name
 			time(datetime="2017-12-20 08:30:45").comment__date 1 day ago
 		.comment__message Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, temporibus quam iste totam nam natus debitis quae, rem nulla, culpa delectus. Nam ex iusto repellat et fuga ullam omnis velit!
-		.comment__controls
-			button(type="button").button.button_style_ghost.button_color_blue.button_size_small Reply
-			button(type="button").button.button_style_ghost.button_color_blue.button_size_small Quote
-			button(type="button").button.button_style_ghost.button_color_red.button_size_small Report
+		
 	.comment__avatar.media-object__image
-		+avatar({"image": "https://unsplash.it/240/240?image=1027", "title": "User Name"}).avatar_style_circle.avatar_size_small
+		+avatar(
+			image="https://unsplash.it/240/240?image=1027"
+			title="Alyssa Burns"
+			style="circle"
+			size="small"
+		)
 
 h5 Center
 .comment.media-object.media-object_image_center
 	.comment__avatar.media-object__image
-		+avatar({"image": "https://unsplash.it/240/240?image=1027", "title": "User Name"}).avatar_style_circle.avatar_size_small
+		+avatar(
+			image="https://unsplash.it/240/240?image=1027"
+			title="Alyssa Burns"
+			style="circle"
+			size="small"
+		)
 	.comment__text.media-object__body
 		.comment__meta
 			a(href="#").comment__name User Name
 			time(datetime="2017-12-20 08:30:45").comment__date 1 day ago
 		.comment__message Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, temporibus quam iste totam nam natus debitis quae, rem nulla, culpa delectus. Nam ex iusto repellat et fuga ullam omnis velit!
-		.comment__controls
-			button(type="button").button.button_style_ghost.button_color_blue.button_size_small Reply
-			button(type="button").button.button_style_ghost.button_color_blue.button_size_small Quote
-			button(type="button").button.button_style_ghost.button_color_red.button_size_small Report
+
 
 .comment.media-object.media-object_image_center
 	.comment__text.media-object__body
@@ -79,26 +93,29 @@ h5 Center
 			a(href="#").comment__name User Name
 			time(datetime="2017-12-20 08:30:45").comment__date 1 day ago
 		.comment__message Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, temporibus quam iste totam nam natus debitis quae, rem nulla, culpa delectus. Nam ex iusto repellat et fuga ullam omnis velit!
-		.comment__controls
-			button(type="button").button.button_style_ghost.button_color_blue.button_size_small Reply
-			button(type="button").button.button_style_ghost.button_color_blue.button_size_small Quote
-			button(type="button").button.button_style_ghost.button_color_red.button_size_small Report
+
 	.comment__avatar.media-object__image
-		+avatar({"image": "https://unsplash.it/240/240?image=1027", "title": "User Name"}).avatar_style_circle.avatar_size_small
+		+avatar(
+			image="https://unsplash.it/240/240?image=1027"
+			title="Alyssa Burns"
+			style="circle"
+			size="small"
+		)
 
 h5 Bottom
 .comment.media-object.media-object_image_bottom
 	.comment__avatar.media-object__image
-		+avatar({"image": "https://unsplash.it/240/240?image=1027", "title": "User Name"}).avatar_style_circle.avatar_size_small
+		+avatar(
+			image="https://unsplash.it/240/240?image=1027"
+			title="Alyssa Burns"
+			style="circle"
+			size="small"
+		)
 	.comment__text.media-object__body
 		.comment__meta
 			a(href="#").comment__name User Name
 			time(datetime="2017-12-20 08:30:45").comment__date 1 day ago
 		.comment__message Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, temporibus quam iste totam nam natus debitis quae, rem nulla, culpa delectus. Nam ex iusto repellat et fuga ullam omnis velit!
-		.comment__controls
-			button(type="button").button.button_style_ghost.button_color_blue.button_size_small Reply
-			button(type="button").button.button_style_ghost.button_color_blue.button_size_small Quote
-			button(type="button").button.button_style_ghost.button_color_red.button_size_small Report
 
 
 .comment.media-object.media-object_image_bottom
@@ -107,9 +124,11 @@ h5 Bottom
 			a(href="#").comment__name User Name
 			time(datetime="2017-12-20 08:30:45").comment__date 1 day ago
 		.comment__message Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, temporibus quam iste totam nam natus debitis quae, rem nulla, culpa delectus. Nam ex iusto repellat et fuga ullam omnis velit!
-		.comment__controls
-			button(type="button").button.button_style_ghost.button_color_blue.button_size_small Reply
-			button(type="button").button.button_style_ghost.button_color_blue.button_size_small Quote
-			button(type="button").button.button_style_ghost.button_color_red.button_size_small Report
+
 	.comment__avatar.media-object__image
-		+avatar({"image": "https://unsplash.it/240/240?image=1027", "title": "User Name"}).avatar_style_circle.avatar_size_small
+		+avatar(
+			image="https://unsplash.it/240/240?image=1027"
+			title="Alyssa Burns"
+			style="circle"
+			size="small"
+		)
