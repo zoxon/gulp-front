@@ -1,14 +1,7 @@
 ---
   breadCrumbs:
     default:
-      -
-        type: link
-        title: Home
-      -
-        type: link
-        title: Category
-      -
-        type: link
-        title: Subcategory
-      -
-        title: Page
+      - Home
+      - Category
+      - Subcategory
+      - Page

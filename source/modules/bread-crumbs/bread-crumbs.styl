@@ -4,29 +4,35 @@
 		padding 0
 
 	&__item
-	&__separator
-	&__link
-		display inline-block
-		vertical-align middle
-
-	&__item
-		padding 0
-		color #111
 		list-style none
-		font-size 14px
 
-	&__link
-		&
-		&:visited
-			text-decoration none
+	&_style_default
+		& ^[0]__list
+			display flex
+			flex-wrap wrap
+			padding 0
+			list-style none
 
-		&:hover
-			text-decoration underline
+		& ^[0]__item
+			color #666
 
-	&__separator
-		padding 0 3px
-		color #333
+			&:last-child
+				color #666
 
-		svg
-			size 5px 10px
-			fill #666
+				&::after
+					content none
+
+			&::after
+				display inline-block
+				margin 0 20px
+				color #999
+				content "/"
+
+		& ^[0]__link
+			display inline-block
+			color #999
+
+			&:hover
+			&:focus
+				color #666
+				text-decoration none
