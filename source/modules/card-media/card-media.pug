@@ -1,7 +1,0 @@
-mixin card-media(data)
-	figure.card-media&attributes(attributes)
-		img(src=data.image alt=data.title).card-media__image
-		if data.title || data.subtitle
-			figcaption.card-media__overlay
-				h1.card-media__title= data.title
-				p.card-media__subtitle= data.subtitle

@@ -1,9 +1,133 @@
 .card
+	position relative
 	box-sizing border-box
-	border 1px solid #ebedf0
-	background #fff
+	box-shadow 0 5px 15px rgba(#000, 0.08)
+	transition 125ms box-shadow ease-in-out
+	will-change box-shadow
+
+	a
+	button
+	input
+		position relative
+		z-index 1000
+
+	&__body
+		padding em(40px)
+
+		a
+			&
+			&:hover
+				color inherit
+
+	&__title
+		margin-bottom 1.2em
+		font-size em(24px)
+		line-height 1.4
+
+		&:first-letter
+			text-transform uppercase
+
+	&__meta
+		color #999
+		font-size em(14px)
+		line-height 1.4
+
+	&__media
+		display block
+		margin 0
+
+		img
+			display block
+			width 100%
+			height 100%
+
+	&__link
+		position absolute !important
+		top 0
+		right 0
+		bottom 0
+		left 0
+		z-index 100
 
 	&__header
-	&__text
-	&__actions
-		padding 1em
+	&__footer
+		padding em(20px) em(40px)
+
+	// Sizes
+	&_size_small
+	&_size_s
+		font-size 75%
+
+	&_size_medium
+	&_size_m
+		font-size 100%
+
+	&_size_large
+	&_size_l
+		font-size 125%
+
+	// Styles
+	&_style_hover
+		&:hover
+			box-shadow 0 14px 25px rgba(#000, 0.16)
+
+	// Colors
+	&_color_white
+		background-color #fff
+		color #111
+
+	&_color_gray
+		background-color $gray-4
+		color $gray-7
+
+	&_color_black
+		background-color $gray-9
+		color #fff
+
+	&_color_red
+		background-color $red-6
+		color #fff
+
+	&_color_pink
+		background-color $pink-6
+		color #fff
+
+	&_color_grape
+		background-color $grape-6
+		color #fff
+
+	&_color_violet
+		background-color $violet-6
+		color #fff
+
+	&_color_indigo
+		background-color $indigo-6
+		color #fff
+
+	&_color_blue
+		background-color $blue-6
+		color #fff
+
+	&_color_cyan
+		background-color $cyan-6
+		color #fff
+
+	&_color_teal
+		background-color $teal-6
+		color #fff
+
+	&_color_green
+		background-color $green-6
+		color #fff
+
+	&_color_lime
+		background-color $lime-6
+		color #fff
+
+	&_color_yellow
+		background-color $yellow-6
+		color #fff
+
+	&_color_orange
+		background-color $orange-6
+		color #fff

@@ -1,22 +1,7 @@
-include ../card-header/card-header
-include ../card-media/card-media
-include ../card-text/card-text
-include ../card-actions/card-actions
+include ../button/button
 
 mixin card(data)
 	.card&attributes(attributes)
-		if data.header
-			.card__header
-				+card-header(data.header)
-		
-		if data.media
-			.card__media
-				+card-media(data.media)
-			
-		if data.text
-			.card__text
-				+card-text(data.text)
-		
-		if data.actions
-			.card__actions
-				+card-actions()
+		block
+
+

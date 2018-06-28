@@ -58,8 +58,16 @@
 	align-items flex-start
 
 	.card
-		margin-bottom 2em
-		width 400px
+		margin-right 1.8em
+		margin-bottom 1.8em
+		max-width 300px
 
-		+below(860px)
-			width auto
+		+below(960px)
+			margin-right 0
+			max-width 48%
+
+		&:nth-child(3n)
+			margin-right 0
+
+		+below(640px)
+			max-width initial

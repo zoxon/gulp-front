@@ -1,86 +1,191 @@
 include ../../card/card
 
+-
+	const capitalize = str => str.replace(/^\w/, c => c.toUpperCase());
+
+h3 Colors
 .card-demo
-	+card({
-		text: {
-			title: "Text only card example",
-			subtitle: "Tex block subtitle",
-			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
-		}
-	})
+	- var colors = ["white", "gray", "black", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange" ];
+	each color in colors
+		+card(class=`card_color_${color}`).card_size_medium
+			.card__body
+				h1.card__title= capitalize(color)
+				.card__text
+					p Lorem ipsum 
+						a(href="#") dolor
+						|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
-	+card({
-		header: {
-			image: "assets/images/card__user.jpg",
-			title: "Taylor Price",
-			subtitle: "Consectetur adipisicing elit"
-		},
-		text: {
-			title: "Header and text card example",
-			subtitle: "Tex block subtitle",
-			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
-		}
-	})
+h3 Hover
+.card-demo
+	- var colors = [ "white", "black", "indigo"];
+	each color in colors
+		+card(class=`card_color_${color}`).card_style_hover.card_size_medium
+			.card__body
+				h1.card__title= capitalize(color)
+				.card__text
+					p Lorem ipsum 
+						a(href="#") dolor
+						|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
-	+card({
-		text: {
-			title: "Text and actions card example",
-			subtitle: "Tex block subtitle",
-			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
-		},
-		actions: true
-	})
+h3 Link
+.card-demo
+	- var colors = [ "white", "black", "indigo"];
+	each color in colors
+		+card(class=`card_color_${color}`).card_style_hover.card_size_medium
+			a(href="#").card__link
+				span.visuallyhidden= capitalize(color)
+			.card__body
+				h1.card__title= capitalize(color)
+				.card__text
+					p Lorem ipsum 
+						a(href="#") dolor
+						|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
-	+card({
-		media: {
-			image: "assets/images/card__media.jpg",
-			title: "Lorem ipsum dolor, sit amet consectetur adipisicing elit",
-			subtitle: "Author: Tyler Lastovich"
-		}
-	})
+h3 Sizes
+.card-demo
+	- var sizes = ["small", "medium", "large"];
+	each size in sizes
+		+card(class=`card_size_${size}`).card_color_white
+			.card__body
+				h1.card__title= capitalize(size)
+				.card__text
+					p Lorem ipsum 
+						a(href="#") dolor
+						|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
-	+card({
-		media: {
-			image: "assets/images/card__media.jpg"
-		},
-		text: {
-			title: "Image and text card example",
-			subtitle: "Tex block subtitle",
-			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
-		},
-	})
 
-	+card({
-		header: {
-			image: "assets/images/card__user.jpg",
-			title: "Taylor Price",
-			subtitle: "Consectetur adipisicing elit"
-		},
-		media: {
-			image: "assets/images/card__media.jpg"
-		},
-		text: {
-			title: "Image, text and header card example",
-			subtitle: "Tex block subtitle",
-			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
-		},
-	})
+h3 Media
+.card-demo
+	+card().card_color_white.card_style_hover.card_size_medium
+		.card__media
+			img(src="assets/images/card__media.jpg" alt="Media top")
+		.card__body
+			h1.card__title Media top
+			.card__text
+				p Lorem ipsum 
+					a(href="#") dolor
+					|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+	
+	+card().card_color_white.card_style_hover.card_size_medium
+		.card__body
+			h1.card__title Media bottom
+			.card__text
+				p Lorem ipsum 
+					a(href="#") dolor
+					|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		.card__media
+			img(src="assets/images/card__media.jpg" alt="Media bottom")
 
-	+card({
-		header: {
-			image: "assets/images/card__user.jpg",
-			title: "Taylor Price",
-			subtitle: "Consectetur adipisicing elit"
-		},
-		media: {
-			image: "assets/images/card__media.jpg",
-			title: "Lorem ipsum dolor, sit amet consectetur adipisicing elit",
-			subtitle: "Author: Tyler Lastovich"
-		},
-		text: {
-			title: "Dignissimos nobis quia itaque ea hic",
-			subtitle: "Alias quod consequuntur",
-			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
-		},
-		actions: true
-	})
+	+card().card_color_white.card_style_hover.card_size_medium
+		.card__media
+			img(src="assets/images/card__media.jpg" alt="Media only")
+
+h3 Header and fotter
+.card-demo
+	+card().card_color_white.card_style_hover.card_size_medium
+		.card__header
+			.media-object.media-object_image_center
+				.media-object__image
+					+avatar(
+						image="https://unsplash.it/240/240?image=1027"
+						title="User Name"
+						size="small"
+					)
+				.media-object__body
+					h1.card-header__title Header title
+					.card__meta Header subtitle
+
+		.card__body
+			.card__text
+				p Lorem ipsum 
+					a(href="#") dolor
+					|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		
+
+	+card().card_color_white.card_style_hover.card_size_medium
+		.card__body
+			h1.card__title Title
+			.card__text
+				p Lorem ipsum 
+					a(href="#") dolor
+					|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		
+		.card__footer
+			+button(style="text rounded" color="indigo").card-actions__button Read more
+
+//- .card-demo
+//- 	+card({
+//- 		header: {
+//- 			image: "assets/images/card__user.jpg",
+//- 			title: "Taylor Price",
+//- 			subtitle: "Consectetur adipisicing elit"
+//- 		},
+//- 		text: {
+//- 			title: "Header and text card example",
+//- 			subtitle: "Tex block subtitle",
+//- 			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
+//- 		}
+//- 	})
+
+//- 	+card({
+//- 		text: {
+//- 			title: "Text and actions card example",
+//- 			subtitle: "Tex block subtitle",
+//- 			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
+//- 		},
+//- 		actions: true
+//- 	})
+
+//- 	+card({
+//- 		media: {
+//- 			image: "assets/images/card__media.jpg",
+//- 			title: "Lorem ipsum dolor, sit amet consectetur adipisicing elit",
+//- 			subtitle: "Author: Tyler Lastovich"
+//- 		}
+//- 	})
+
+//- 	+card({
+//- 		media: {
+//- 			image: "assets/images/card__media.jpg"
+//- 		},
+//- 		text: {
+//- 			title: "Image and text card example",
+//- 			subtitle: "Tex block subtitle",
+//- 			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
+//- 		},
+//- 	})
+
+//- 	+card({
+//- 		header: {
+//- 			image: "assets/images/card__user.jpg",
+//- 			title: "Taylor Price",
+//- 			subtitle: "Consectetur adipisicing elit"
+//- 		},
+//- 		media: {
+//- 			image: "assets/images/card__media.jpg"
+//- 		},
+//- 		text: {
+//- 			title: "Image, text and header card example",
+//- 			subtitle: "Tex block subtitle",
+//- 			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
+//- 		},
+//- 	})
+
+//- 	+card({
+//- 		header: {
+//- 			image: "assets/images/card__user.jpg",
+//- 			title: "Taylor Price",
+//- 			subtitle: "Consectetur adipisicing elit"
+//- 		},
+//- 		media: {
+//- 			image: "assets/images/card__media.jpg",
+//- 			title: "Lorem ipsum dolor, sit amet consectetur adipisicing elit",
+//- 			subtitle: "Author: Tyler Lastovich"
+//- 		},
+//- 		text: {
+//- 			title: "Dignissimos nobis quia itaque ea hic",
+//- 			subtitle: "Alias quod consequuntur",
+//- 			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
+//- 		},
+//- 		actions: true
+//- 	})
