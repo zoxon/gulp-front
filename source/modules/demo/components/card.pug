@@ -3,6 +3,11 @@ include ../../card/card
 -
 	const capitalize = str => str.replace(/^\w/, c => c.toUpperCase());
 
+mixin card__image()
+	img(
+		sizes="(max-width: 767px) 100vw, (max-width: 532px) 500px, (max-height: 509px) 500px, (min-aspect-ratio: 4272/2848) calc((calc(100vh - 175px)) * 1.5), calc(100vw - 32px)" srcset="https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80 750w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80 1050w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=1350&amp;q=80 1350w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=1500&amp;q=80 1500w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=1650&amp;q=80 1650w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80 1950w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=2100&amp;q=80 2100w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=2250&amp;q=80 2250w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=2550&amp;q=80 2550w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=2700&amp;q=80 2700w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=2850&amp;q=80 2850w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=3150&amp;q=80 3150w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=3300&amp;q=80 3300w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=3450&amp;q=80 3450w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=3750&amp;q=80 3750w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=3900&amp;q=80 3900w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=4050&amp;q=80 4050w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=4272&amp;q=80 4272w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=4500&amp;q=80 4500w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=5100&amp;q=80 5100w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=5700&amp;q=80 5700w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=6300&amp;q=80 6300w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=6900&amp;q=80 6900w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=7500&amp;q=80 7500w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=8100&amp;q=80 8100w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=8544&amp;q=80 8544w" src="https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;dpr=1&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80&amp;cs=tinysrgb" alt="A person flipping through an interior design book. (Author: Sarah Dorweiler)"
+	)
+
 h3 Colors
 .card-demo
 	- var colors = ["white", "gray", "black", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange" ];
@@ -58,7 +63,7 @@ h3 Media
 .card-demo
 	+card().card_color_white.card_style_hover.card_size_medium
 		.card__media
-			img(src="assets/images/card__media.jpg" alt="Media top")
+			+card__image()
 		.card__body
 			h1.card__title Media top
 			.card__text
@@ -74,26 +79,18 @@ h3 Media
 					a(href="#") dolor
 					|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 		.card__media
-			img(src="assets/images/card__media.jpg" alt="Media bottom")
+			+card__image()
 
 	+card().card_color_white.card_style_hover.card_size_medium
 		.card__media
-			img(src="assets/images/card__media.jpg" alt="Media only")
+			+card__image()
 
-h3 Header and fotter
+h3 Header and footer
 .card-demo
 	+card().card_color_white.card_style_hover.card_size_medium
 		.card__header
-			.media-object.media-object_image_center
-				.media-object__image
-					+avatar(
-						image="https://unsplash.it/240/240?image=1027"
-						title="User Name"
-						size="small"
-					)
-				.media-object__body
-					h1.card-header__title Header title
-					.card__meta Header subtitle
+			h1.card__title.margin-bottom_none Header and body
+			.card__meta Header subtitle
 
 		.card__body
 			.card__text
@@ -104,7 +101,7 @@ h3 Header and fotter
 
 	+card().card_color_white.card_style_hover.card_size_medium
 		.card__body
-			h1.card__title Title
+			h1.card__title Footer and body
 			.card__text
 				p Lorem ipsum 
 					a(href="#") dolor
@@ -113,79 +110,57 @@ h3 Header and fotter
 		.card__footer
 			+button(style="text rounded" color="indigo").card-actions__button Read more
 
-//- .card-demo
-//- 	+card({
-//- 		header: {
-//- 			image: "assets/images/card__user.jpg",
-//- 			title: "Taylor Price",
-//- 			subtitle: "Consectetur adipisicing elit"
-//- 		},
-//- 		text: {
-//- 			title: "Header and text card example",
-//- 			subtitle: "Tex block subtitle",
-//- 			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
-//- 		}
-//- 	})
+	
+	+card().card_color_white.card_style_hover.card_size_medium
+		.card__header
+			h1.card__title.margin-bottom_none Header title
+			.card__meta Header and footer
 
-//- 	+card({
-//- 		text: {
-//- 			title: "Text and actions card example",
-//- 			subtitle: "Tex block subtitle",
-//- 			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
-//- 		},
-//- 		actions: true
-//- 	})
+		.card__body
+			.card__text
+				p Lorem ipsum 
+					a(href="#") dolor
+					|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		
+		.card__footer
+			+button(style="text rounded" color="indigo").card-actions__button Read more
 
-//- 	+card({
-//- 		media: {
-//- 			image: "assets/images/card__media.jpg",
-//- 			title: "Lorem ipsum dolor, sit amet consectetur adipisicing elit",
-//- 			subtitle: "Author: Tyler Lastovich"
-//- 		}
-//- 	})
+h3 Bordered
+.card-demo
+	+card().card_color_white.card_style_hover.card_size_medium.card_style_bordered
+		.card__header
+			h1.card__title.margin-bottom_none Header and body
+			.card__meta Header subtitle
 
-//- 	+card({
-//- 		media: {
-//- 			image: "assets/images/card__media.jpg"
-//- 		},
-//- 		text: {
-//- 			title: "Image and text card example",
-//- 			subtitle: "Tex block subtitle",
-//- 			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
-//- 		},
-//- 	})
+		.card__body
+			.card__text
+				p Lorem ipsum 
+					a(href="#") dolor
+					|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		
 
-//- 	+card({
-//- 		header: {
-//- 			image: "assets/images/card__user.jpg",
-//- 			title: "Taylor Price",
-//- 			subtitle: "Consectetur adipisicing elit"
-//- 		},
-//- 		media: {
-//- 			image: "assets/images/card__media.jpg"
-//- 		},
-//- 		text: {
-//- 			title: "Image, text and header card example",
-//- 			subtitle: "Tex block subtitle",
-//- 			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
-//- 		},
-//- 	})
+	+card().card_color_white.card_style_hover.card_size_medium.card_style_bordered
+		.card__body
+			h1.card__title Footer and body
+			.card__text
+				p Lorem ipsum 
+					a(href="#") dolor
+					|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		
+		.card__footer
+			+button(style="text rounded" color="indigo").card-actions__button Read more
 
-//- 	+card({
-//- 		header: {
-//- 			image: "assets/images/card__user.jpg",
-//- 			title: "Taylor Price",
-//- 			subtitle: "Consectetur adipisicing elit"
-//- 		},
-//- 		media: {
-//- 			image: "assets/images/card__media.jpg",
-//- 			title: "Lorem ipsum dolor, sit amet consectetur adipisicing elit",
-//- 			subtitle: "Author: Tyler Lastovich"
-//- 		},
-//- 		text: {
-//- 			title: "Dignissimos nobis quia itaque ea hic",
-//- 			subtitle: "Alias quod consequuntur",
-//- 			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
-//- 		},
-//- 		actions: true
-//- 	})
+	
+	+card().card_color_white.card_style_hover.card_size_medium.card_style_bordered
+		.card__header
+			h1.card__title.margin-bottom_none Header title
+			.card__meta Header and footer
+
+		.card__body
+			.card__text
+				p Lorem ipsum 
+					a(href="#") dolor
+					|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		
+		.card__footer
+			+button(style="text rounded" color="indigo").card-actions__button Read more

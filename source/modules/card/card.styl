@@ -9,7 +9,7 @@
 	button
 	input
 		position relative
-		z-index 1000
+		z-index 10
 
 	&__body
 		padding em(40px)
@@ -47,7 +47,7 @@
 		right 0
 		bottom 0
 		left 0
-		z-index 100
+		z-index 1
 
 	&__header
 	&__footer
@@ -70,6 +70,13 @@
 	&_style_hover
 		&:hover
 			box-shadow 0 14px 25px rgba(#000, 0.16)
+
+	&_style_bordered
+		& ^[0]__header
+			border-bottom 1px solid #e5e5e5
+
+		& ^[0]__footer
+			border-top 1px solid #e5e5e5
 
 	// Colors
 	&_color_white
