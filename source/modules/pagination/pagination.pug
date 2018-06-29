@@ -1,16 +1,50 @@
 include ../icon/icon
 
+//- mixin pagination(data)
+//- 	.pagination&attributes(attributes)
+//- 		.pagination__controls.pagination__controls_backward
+//- 			a(href="#").pagination__control «
+//- 			a(href="#").pagination__control ‹
+//- 		.pagination__controls
+//- 			span.pagination__ellipsis …
+//- 			a(href="#").pagination__page 4
+//- 			span.pagination__page.pagination__page_current 5
+//- 			a(href="#").pagination__page 6
+//- 			span.pagination__ellipsis …
+//- 		.pagination__controls.pagination__controls_forward
+//- 			a(href="#").pagination__control ›
+//- 			a(href="#").pagination__control »
+
+
+//- include ../icon/icon
+
 mixin pagination(data)
 	.pagination&attributes(attributes)
-		.pagination__controls.pagination__controls_backward
-			a(href="#").pagination__control «
-			a(href="#").pagination__control ‹
-		.pagination__controls
-			span.pagination__ellipsis …
-			a(href="#").pagination__page 4
-			span.pagination__page.pagination__page_current 5
-			a(href="#").pagination__page 6
-			span.pagination__ellipsis …
-		.pagination__controls.pagination__controls_forward
-			a(href="#").pagination__control ›
-			a(href="#").pagination__control »
+		ul.pagination__list
+			li.pagination__item.pagination__item_backward
+				a(href="#").pagination__link
+					+icon(name="chevron_left")
+			
+			li.pagination__item.pagination__item_first
+				a(href="#").pagination__link 1
+			
+			li.pagination__item.pagination__item_spacer
+				.pagination__text ...
+
+			li.pagination__item: a(href="#").pagination__link 4
+			li.pagination__item: a(href="#").pagination__link 5
+			li.pagination__item: a(href="#").pagination__link 6
+			li.pagination__item.pagination__item_current: .pagination__text 7
+			li.pagination__item: a(href="#").pagination__link 8
+			li.pagination__item: a(href="#").pagination__link 9
+			li.pagination__item: a(href="#").pagination__link 10
+			
+			li.pagination__item.pagination__item_spacer
+				.pagination__text ...
+
+			li.pagination__item.pagination__item_last
+				a(href="#").pagination__link 20
+
+			li.pagination__item.pagination__item_forward
+				a(href="#").pagination__link
+					+icon(name="chevron_right")
