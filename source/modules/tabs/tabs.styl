@@ -1,33 +1,38 @@
 .tabs
-	position relative
-
-	&__head
-		position relative
-		z-index 1
-		display block
-		margin 0
-		padding 0
-		list-style-type none
-		zoom 1
+	&__header
+		overflow-x auto
+		overflow-y hidden
+		white-space nowrap
 		user-select none
-		clearfix()
+		-ms-overflow-style -ms-autohiding-scrollbar
+		-webkit-overflow-scrolling touch
+
+		&::-webkit-scrollbar
+			display none
 
 	&__body
-		position relative
 		z-index 2
 
 	&__tab
-		position relative
-		display block
-		float left
 		margin 0
 		padding 0
-		background none
-		list-style-type none
+		border none
+		background transparent
+		text-align center
 		cursor pointer
+		user-select none
 
-	&__tab_active
-		cursor default
+	&__tab
+		&:focus
+			outline none
+			background-color rgba(currentColor, 0.4)
+
+		&[aria-selected="true"]
+			cursor default
+
+		&[disabled]
+			opacity 0.6
+			pointer-events none
 
 	&__preloader
 		position relative
@@ -36,49 +41,131 @@
 		position relative
 		display none
 
-	&__panel_active
+	&__panel[aria-hidden="false"]
 		display block
 
-	// Skin default
 	&_style_default
-		margin 0 0 30px
-
-		& ^[0]__head
-			border-bottom 1px solid #ddd
+		& ^[0]__header
+			position relative
+			display flex
+			border-bottom 1px solid #e5e5e5
 
 		& ^[0]__body
 			// 
 
 		& ^[0]__tab
-			margin-bottom -1px
-			padding 12px 22px
-			padding-bottom 15px
-			border-width 1px 1px 0 1px
+			position relative
+			z-index 1
+			padding em(12px) em(20px)
+			border-width 0 0 2px 0
 			border-style solid
 			border-color transparent
-			border-radius 2px 2px 0 0
-			color #111
-			font-size 16px
-			line-height 1.4
+			color $gray-5
+			text-align center
+			text-transform uppercase
+			transition color 0.1s ease-in-out
 
-			&:last-child
-				margin-right 0
-
-		& ^[0]__tab_active
-			border-color #ddd
-			background #fff
+		& ^[0]__tab[aria-selected="true"]
+			// 
 
 		& ^[0]__preloader
 			height 80px
 			background url("../images/tabs__preloader.svg") no-repeat 50% 20px
 			background-size 30px
 
-		& ^[0]__panel
-			margin 20px 0
+		& ^[0]__panel[aria-hidden="false"]
+			margin em(20px)
 
-	&_style_default&_color_blue
-		& ^[0]__tab_active
-			border-color #2ea9fa
+	// Colors
+	&_color_gray
+		& ^[0]__tab[aria-selected="true"]
+			border-color $gray-6
+			color $gray-6
 
-		& ^[0]__head
-			border-color #2ea9fa
+	&_color_black
+		& ^[0]__tab[aria-selected="true"]
+			border-color $gray-8
+			color $gray-8
+
+	&_color_red
+		& ^[0]__tab[aria-selected="true"]
+			border-color $red-5
+			color $red-5
+
+	&_color_pink
+		& ^[0]__tab[aria-selected="true"]
+			border-color $pink-5
+			color $pink-5
+
+	&_color_grape
+		& ^[0]__tab[aria-selected="true"]
+			border-color $grape-5
+			color $grape-5
+
+	&_color_violet
+		& ^[0]__tab[aria-selected="true"]
+			border-color $violet-5
+			color $violet-5
+
+	&_color_indigo
+		& ^[0]__tab[aria-selected="true"]
+			border-color $indigo-5
+			color $indigo-5
+
+	&_color_blue
+		& ^[0]__tab[aria-selected="true"]
+			border-color $blue-5
+			color $blue-5
+
+	&_color_cyan
+		& ^[0]__tab[aria-selected="true"]
+			border-color $cyan-5
+			color $cyan-5
+
+	&_color_teal
+		& ^[0]__tab[aria-selected="true"]
+			border-color $teal-5
+			color $teal-5
+
+	&_color_green
+		& ^[0]__tab[aria-selected="true"]
+			border-color $green-5
+			color $green-5
+
+	&_color_lime
+		& ^[0]__tab[aria-selected="true"]
+			border-color $lime-5
+			color $lime-5
+
+	&_color_yellow
+		& ^[0]__tab[aria-selected="true"]
+			border-color $yellow-5
+			color $yellow-5
+
+	&_color_orange
+		& ^[0]__tab[aria-selected="true"]
+			border-color $orange-5
+			color $orange-5
+
+	&_aligin_left
+		& ^[0]__header
+			// justify-content flex-start
+
+	&_aligin_right
+		& ^[0]__tab
+			&:first-child
+				margin-left auto
+
+	&_aligin_center
+		& ^[0]__tab
+			&:first-child
+				margin-left auto
+
+			&:last-child
+				margin-right auto
+
+	&_expanded
+		& ^[0]__tab
+			flex 1
+			flex-basis 1px
+			min-width 0

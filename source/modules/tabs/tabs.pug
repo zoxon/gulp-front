@@ -1,10 +1,19 @@
+include ../button/button
+
 mixin tabs(data)
 	.tabs(data-tabs-name=data.name)&attributes(attributes)
 		span(data-tabs-description).tabs__description.visuallyhidden Use left and right arrows to navigate between tabs.
 
-		.tabs__head
+		.tabs__header
 			each tab in data.items
-				button.tabs__tab(type="button" data-tab-id=tab.name)= tab.title
+				+button(
+					icon=tab.icon || false
+					data-tab-id=tab.name
+					disabled=tab.disabled || false
+				).tabs__tab
+					if (tab.icon)
+						+icon(name=tab.icon)
+					span= tab.label
 
 		.tabs__body
 			//- .tabs__panel(data-tabs-id=tab.name)

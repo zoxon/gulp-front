@@ -9,8 +9,6 @@ import generateId from "@/modules/_utils/generateId";
 class Tabs extends Plugin {
   defaults() {
     return {
-      activeTabClassName: "tabs__tab_active",
-      activePanelClassName: "tabs__panel_active",
       descriptionSelector: "[data-tabs-description]",
       preloaderSelector: "[data-tabs-preloader]",
       tabsIdAttrName: "data-tab-id",
@@ -68,7 +66,7 @@ class Tabs extends Plugin {
         tab.addEventListener(eventName, event => {
           event.preventDefault();
 
-          let id = event.target.getAttribute(this.options.tabsIdAttrName);
+          let id = tab.getAttribute(this.options.tabsIdAttrName);
           plugin.open(plugin.tabsName, id);
 
           window.location.hash = plugin.tabsName + "__" + id;
@@ -84,13 +82,7 @@ class Tabs extends Plugin {
   }
 
   open(tabsName, id) {
-    const {
-      tabsNameAttrName,
-      tabsIdAttrName,
-      panelsIdAttrName,
-      activeTabClassName,
-      activePanelClassName
-    } = this.options;
+    const { tabsNameAttrName, tabsIdAttrName, panelsIdAttrName } = this.options;
 
     const tabsContainer = document.querySelector(
       `[${tabsNameAttrName}="${tabsName}"]`
@@ -106,7 +98,6 @@ class Tabs extends Plugin {
       tabindex: "0",
       "aria-selected": "true"
     });
-    targetTab.classList.add(activeTabClassName);
 
     const targetTabSiblings = toArray(getSiblings(targetTab));
     targetTabSiblings.forEach(tab => {
@@ -114,16 +105,13 @@ class Tabs extends Plugin {
         tabindex: "-1",
         "aria-selected": "false"
       });
-      tab.classList.remove(activeTabClassName);
     });
 
     targetPanel.setAttribute("aria-hidden", "false");
-    targetPanel.classList.add(activePanelClassName);
 
     const targetPanelSiblings = toArray(getSiblings(targetPanel));
     targetPanelSiblings.forEach(panel => {
       panel.setAttribute("aria-hidden", "true");
-      panel.classList.remove(activePanelClassName);
     });
 
     simulate("change", window);
