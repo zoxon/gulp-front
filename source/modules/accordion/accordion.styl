@@ -1,25 +1,17 @@
 .accordion
-	&__item
-		margin-bottom -1px
-		padding 0
-		list-style none
+	width 100%
 
 	&__trigger
 		position relative
+		display flex
 		box-sizing border-box
-		padding 10px 50px 10px 20px
-		width 100%
-		border 1px solid #cdcdcd
-		border-radius 3px
-		background-color #fff
-		color #333
-		text-align left
-		font-size 13px
-		cursor pointer
-		transition 150ms all ease-in-out 0s
+		padding 12px 24px
+		min-height 48px
+		transition min-height 150ms cubic-bezier(0.4, 0, 0.2, 1), background-color 150ms cubic-bezier(0.4, 0, 0.2, 1)
+		user-select none
 
 		&:hover
-			background-color #f9f9f9
+			cursor pointer
 
 		&::after
 			position absolute
@@ -28,7 +20,7 @@
 			display block
 			margin-top -5px
 			size 6px
-			border-width 0 1px 1px 0
+			border-width 0 2px 2px 0
 			border-style solid
 			border-color #535353
 			content ""
@@ -36,22 +28,74 @@
 			transform rotate(45deg)
 			transform-origin 75% 75%
 
-	&__pannel
+		&:focus
+			// background-color #e0e0e0
+
+	&__item
+		position relative
+		background-color #fff
+		box-shadow 0px 1px 3px 0px rgba(#000, 0.2), 0px 1px 1px 0px rgba(#000, 0.14), 0px 2px 1px -1px rgba(#000, 0.12)
+		transition margin 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms
+
+		&::before
+			position absolute
+			top -1px
+			right 0
+			left 0
+			height 1px
+			background-color rgba(0, 0, 0, 0.12)
+			content ""
+			opacity 1
+			transition opacity 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms
+
+		&:first-child
+			border-top-left-radius 2px
+			border-top-right-radius 2px
+
+			&::before
+				display none
+
+		&:last-child
+			border-bottom-right-radius 2px
+			border-bottom-left-radius 2px
+
+	&__item[data-accordion-item="true"]
+		margin 16px 0
+
+		&:first-child
+			margin-top 0
+
+		&:last-child
+			margin-bottom 0
+
+		&::before
+			opacity 0
+
+		& + ^[0]__item
+			&::before
+				display none
+
+	&__panel
 		visibility hidden
 		overflow hidden
-		padding 0 10px
 		height 0
 		opacity 0
-		transition 250ms all cubic-bezier(0.5, 0, 0.1, 1)
+		transition height 300ms cubic-bezier(0.4, 0, 0.2, 1)
 
-	[data-accordion-item="true"] &__pannel
+	[data-accordion-item="true"] &__panel
 		visibility visible
 		overflow auto
-		padding-top 20px
-		padding-bottom 20px
+		padding 8px 24px 24px
 		height auto
 		opacity 1
 
 	[data-accordion-item="true"] &__trigger
 		&::after
 			transform rotate(225deg)
+
+	&__item_disabled
+		background-color rgba(0, 0, 0, 0.12)
+		pointer-events none
+
+		& ^[0]__trigger
+			opacity 0.5

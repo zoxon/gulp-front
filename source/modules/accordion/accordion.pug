@@ -3,9 +3,16 @@ mixin accordion(data)
 		block
 
 mixin accordion-item(data)
+	- const itemAttr = data.disabled ? "disabled" : `${data.open || false}`;
 	.accordion__item(
-		data-accordion-item!=`${data.open || false}`
+		data-accordion-item!= itemAttr
+		class=data.disabled && "accordion__item_disabled"
 	)&attributes(attributes)
-		button(type="button" data-accordion-trigger).accordion__trigger= data.title
-		.accordion__pannel.content-wrapper
+		.accordion__trigger(
+			data-accordion-trigger
+			tabindex="0"
+			role="button"
+			aria-expanded="false"
+		)= data.title
+		.accordion__panel.content-wrapper(aria-hidden="true")
 			block

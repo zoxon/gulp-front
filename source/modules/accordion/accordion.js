@@ -14,6 +14,8 @@ class Accordion extends Plugin {
   buildCache() {
     this.items = toArray(
       this.element.querySelectorAll(this.options.itemSelector)
+    ).filter(
+      item => item.getAttribute(this.options.itemActiveAttr) !== "disabled"
     );
   }
 
