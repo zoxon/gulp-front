@@ -1,16 +1,54 @@
+include ../../button/button
 include ../../modal/modal
 include ../../embed/embed
 include ../../dialog/dialog
 
 
-button.button.button_size_normal.button_style_solid.button_color_blue.button_style_rounded(data-micromodal-trigger="modal1" type="button") Open modal #1
-button.button.button_size_normal.button_style_solid.button_color_blue.button_style_rounded(data-micromodal-trigger="modal2" type="button") Open modal #2
++button(
+	style="solid rounded" 
+	color="blue" 
+	data-micromodal-trigger="modal-alert" 
+) Open alert dialog
++button(
+	style="solid rounded" 
+	color="blue" 
+	data-micromodal-trigger="modal-responsive" 
+) Open responsive dialog
 
-+modal(id="modal1")
-	+dialog(id="dialog1" title="Simple modal #1")
-		p Lorem ipsum dolor sit amet, consectetur adipisicing elit unde sint debitis in magnam vel pariatur libero nisi minima.
++modal(id="modal-alert")
+	+dialog(
+		id="dialog-alert" 
+		title="Get this party started?"
+	)
+		main.dialog__content
+			p Lorem ipsum dolor sit amet, consectetur adipisicing elit unde sint debitis in magnam vel pariatur libero nisi minima.
+
+		footer.dialog__footer
+			+button(
+				style="text rounded"
+				color="indigo"
+				aria-label="Close this dialog window"
+				data-micromodal-close 
+			) Decline
+			+button(
+				style="text rounded"
+				color="indigo"
+			) Accept
 
 
-+modal(id="modal2")
-	+dialog(id="dialog2" title="Simple modal #2")
-		iframe(width="640" height="360" src="https://www.youtube.com/embed/dOWFVKb2JqM" frameborder="0" allowfullscreen)
++modal(id="modal-responsive")
+	+dialog(
+		id="dialog-responsive" 
+		title="Rick Astley - Never Gonna Give You Up"
+		style="default responsive"
+	)
+		main.dialog__content
+			+embed().embed_16x9
+				iframe(
+					width="560" 
+					height="315" 
+					src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&amp;showinfo=0&enablejsapi=1"
+					rameborder="0" 
+					allow="autoplay; encrypted-media" 
+					allowfullscreen
+				)
