@@ -2,17 +2,20 @@
 	position relative
 	display inline-block
 	overflow hidden
-	size 5em
+	size 3em
 	background-color #2d3e60
 	color #fff
 
 	&__initials
 		position absolute
-		top 50%
-		left 50%
+		top 0
+		right 0
+		bottom 0
+		left 0
 		z-index 1
-		font-size 170%
-		transform translate(-50%, -50%)
+		display flex
+		justify-content center
+		align-items center
 		user-select none
 
 	&__image
@@ -33,14 +36,6 @@
 		border-radius 0
 
 	// sizes
-	&_size_extra-extra-small
-	&_size_xxs
-		font-size 25%
-
-	&_size_extra-small
-	&_size_xs
-		font-size 50%
-
 	&_size_small
 	&_size_s
 		font-size 75%
