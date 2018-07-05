@@ -1,15 +1,14 @@
 $table-border-color = $gray-4
-$table-head-border-color = $table-border-color
-$table-head-border = true
-$table-back-color = $blue-0
 $table-stripe-color = $gray-0
-$table-font-color = $base-text-color
+$table-font-color = $gray-9
+$table-head-font-color = $gray-6
 
 .table
 	margin $base-line-height 0
 	width 100%
 	border-spacing 0
 	border-collapse collapse
+	color $table-font-color
 	empty-cells show
 
 	caption
@@ -23,7 +22,7 @@ $table-font-color = $base-text-color
 	th
 		overflow visible
 		margin 0
-		padding 0.5em 1em
+		padding em(16px) em(12px)
 		border-width 0
 		border-style solid
 		border-color $table-border-color
@@ -32,32 +31,17 @@ $table-font-color = $base-text-color
 
 	thead
 	tfoot
-		background-color $table-back-color
-		color $table-font-color
 		vertical-align bottom
 		text-align left
 
 		td
 		th
-			font-weight 500
-
-			if $table-head-border-color
-				border-color $table-head-border-color
+			color $table-head-font-color
+			font-weight normal
 
 	td
 		background-color transparent
 
-	&_vertical
-		border 1px solid $table-border-color
-
-		td
-		th
-			border-width 0 0 0 1px
-
-			&:first-child
-				border-left-width 0
-
-	// Horizontal stripes
 	&_striped
 		tr:nth-child(2n-1)
 			td
@@ -69,34 +53,80 @@ $table-font-color = $base-text-color
 
 		th
 		td
-			border-bottom 1px solid $table-border-color
+			border 1px solid $table-border-color
 
-		tbody
-		thead
-			> tr:last-child
-				> td
-					if !$table-head-border
-						border-bottom-width 0
-
-	// Horizontal borders
 	&_horizontal
-		border 1px solid $table-border-color
-
 		td
 		th
 			border-width 0 0 1px 0
 			border-bottom 1px solid $table-border-color
 
+		tfoot
+			td
+			th
+				border-bottom none
+
+	&_vertical
+		td
+		th
+			border-width 0 0 0 1px
+
+			&:first-child
+				border-left-width 0
+
+	&_header-dividers
+		thead
+			td
+			th
+				border-bottom-width 1px
+
+		tfoot
+			td
+			th
+				border-top-width 1px
+
+	&_hoverable
+		tbody
+			tr
+				transition 300ms all ease
+
+				&:hover
+					background-color #ffd
+
+	&_contained
+		border 1px solid $table-border-color
+
+	&_compressed
+		td
+		th
+			padding em(8px) em(12px)
+
+	&_expanded
+		td
+		th
+			padding em(24px) em(16px)
+
+	&_justified
 		tbody
 		thead
-			> tr:last-child
-				> td
-					if !$table-head-border
-						border-bottom-width 0
+		tfoot
+			td
+			th
+				&:first-child
+					padding-left 0
+
+				&:last-child
+					padding-right 0
 
 	// Responsive tables
 	&_responsive
 		+below($media-screen-tablet)
+			&^[0]_justified
+				tbody
+					td
+						padding-right 0
+						padding-left 0
+
 			thead
 			tfoot
 				display none
@@ -107,6 +137,12 @@ $table-font-color = $base-text-color
 			tbody
 				tr
 					border-bottom 1px solid $table-border-color
+
+					&:hover
+						background-color transparent
+
+					&:first-child
+						border-top 1px solid $table-border-color
 
 				td
 					display block

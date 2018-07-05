@@ -36,7 +36,7 @@ Offcanvas();
 File(".file");
 Dropdown(".dropdown");
 Code("pre.code");
-Table(".table");
+Table(".table_responsive");
 Header(".header");
 ScrollTop(".scroll-top");
 StarRating(".star-rating");

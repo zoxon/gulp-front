@@ -1,86 +1,152 @@
 -
 	var tables = [
-		[],
-		['table'], 
-		['table', 'table_vertical'], 
-		['table', 'table_vertical', 'table_striped'], 
-		['table', 'table_horizontal'], 
-		['table', 'table_horizontal', 'table_striped'], 
-		['table', 'table_bordered'], 
-		['table', 'table_bordered', 'table_striped'] 
+		{ 
+			title: "Unstyled",
+			description: "Unstyled table",
+			classes: [] 
+		},
+		{ 
+			title: "Without modifers", 
+			description: "Table wihout modifers",
+			classes: ["table"] 
+		},
+		{ 
+			title: "Header dividers", 
+			description: "Add dividers to thead and tfoot, set the <code>header-dividers</code> modifer",
+			classes: ["table", "table_header-dividers"] 
+		},
+		{ 
+			title: "Hoverable", 
+			description: "Add hover state on the table rows, set the <code>hoverable</code> modifer",
+			classes: ["table", "table_header-dividers", "table_hoverable"] 
+		},
+		{ 
+			title: "Vertical lines", 
+			description: "To draw only vertical borders, set the <code>vertical</code> modifer", 
+			classes: ["table", "table_vertical"] 
+		},
+		{ 
+			title: "Horizontal lines",
+			description: "To draw only horizontal borders, set the <code>horizontal</code> modifer", 
+			classes: ["table", "table_horizontal"] 
+		},
+		{ 
+			title: "All borders", 
+			description: "To draw all borders, set the <code>bordered</code> modifer",
+			classes: ["table", "table_bordered"] 
+		},
+		{ 
+			title: "Striped", 
+			description: "If you want add horizontal stripes, set the <code>striped</code> modifer",
+			classes: ["table", "table_header-dividers", "table_striped"] 
+		},
+		{ 
+			title: "Justified", 
+			description: "To remove the outer padding of the first and last column so that they are flush with the table, set the <code>justified</code> modifer",
+			classes: ["table", "table_horizontal", "table_justified"] 
+		},
+		{ 
+			title: "Contained", 
+			description: "To add borders around all table, set the <code>contained</code> modifer",
+			classes: ["table", "table_horizontal", "table_contained"] 
+		},
+		{ 
+			title: "Compressed", 
+			description: "To make the table cells more compact, set the <code>compressed</code> modifer",
+			classes: ["table", "table_horizontal", "table_compressed"] 
+		},
+		{ 
+			title: "Expanded", 
+			description: "To make the table cells more wide, set the <code>expanded</code> modifer",
+			classes: ["table", "table_horizontal", "table_expanded"] 
+		},
+		{ 
+			title: "Responsive", 
+			description: "If you want table columns to stack on small screens, set the <code>responsive</code> modifer. All tables in this demo are responsive.",
+			classes: ["table", "table_horizontal"] 
+		}
 	];
 
 each table in tables
-	table(class=table)
-		caption Table with(scope="col") caption, colgroup, thead, tfoot, and tbody
-		colgroup
-			col
-			col
-			col
-			col
+	h3= table.title
+	p!= table.description
+
+	table(class=table.classes).table_responsive
 		thead
 			tr
-				th(scope="col") Etiam
-				th(scope="col") Pharetra
-				th(scope="col") Erat sed
-				th(scope="col") Feugiat
+				th(scope="col") Name
+				th(scope="col") Phone
+				th(scope="col") Address
+				th(scope="col") City
+				th(scope="col") State
+
 		tfoot
 			tr
-				th(scope="col") Etiam
-				th(scope="col") Pharetra
-				th(scope="col") Erat sed
-				th(scope="col") Feugiat
+				th(scope="col") Name
+				th(scope="col") Phone
+				th(scope="col") Address
+				th(scope="col") City
+				th(scope="col") State
 		tbody
 			tr
-				td Nam nec tellus
-				td 8873-1978-8717
-				td 145.58
-				td m³
-
+				td Cecil Robertson
+				td 208-457-7742
+				td 3243 Oak Ridge Ln
+				td Louisville
+				td Kentucky
 			tr
-				td Etiam
-				td 532-8725-9727
-				td 17800.50
-				td m²
-
+				td Irene Holland
+				td 317-471-0278
+				td 12 Blossom Hill Rd
+				td Miami
+				td Florida
 			tr
-				td Suspendisse
-				td 3364-2214-8781
-				td 312.22
-				td $
+				td Elizabeth Richardson
+				td 171-969-6566
+				td 261 James St
+				td Colorado Springs
+				td Colorado
 
-			tr
-				td Morbi accumsan
-				td 5547-2212-8884
-				td 7822.33
-				td €
 
-			tr
-				td Condimentum 
-				td 6687-2111-5557
-				td 25.00
-				td 444
+h3 Caption and colgroup
+table.table.table_horizontal.table_responsive
+	caption Table with(scope="col") caption, colgroup, thead, tfoot, and tbody
+	colgroup
+		col
+		col
+		col
+		col
+	thead
+		tr
+			th(scope="col") Name
+			th(scope="col") Phone
+			th(scope="col") Address
+			th(scope="col") City
+			th(scope="col") State
 
-			tr
-				td Nam nec tellus
-				td 7898-4460-4557
-				td 13.25
-				td 13.25
-
-			tr
-				td Etiam
-				td 1400-0077-7741
-				td 140000
-				td 140000
-
-			tr
-				td Suspendisse
-				td 1829-9774-6660
-				td 18.26
-				td 18.26
-
-			tr
-				td Condimentum 
-				td 6687-2111-5557
-				td 3.141592653589793238462
-				td +V
+	tfoot
+		tr
+			th(scope="col") Name
+			th(scope="col") Phone
+			th(scope="col") Address
+			th(scope="col") City
+			th(scope="col") State
+	tbody
+		tr
+			td Cecil Robertson
+			td 208-457-7742
+			td 3243 Oak Ridge Ln
+			td Louisville
+			td Kentucky
+		tr
+			td Irene Holland
+			td 317-471-0278
+			td 12 Blossom Hill Rd
+			td Miami
+			td Florida
+		tr
+			td Elizabeth Richardson
+			td 171-969-6566
+			td 261 James St
+			td Colorado Springs
+			td Colorado

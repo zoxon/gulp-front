@@ -4,7 +4,6 @@ import getIndex from "@/modules/_utils/dom/getIndex";
 class Table extends Plugin {
   defaults() {
     return {
-      initedClassName: "table_responsive",
       cellAttributeName: "data-th",
       cellInnerClassName: "table__content"
     };
@@ -12,7 +11,6 @@ class Table extends Plugin {
 
   init() {
     this.updateCells();
-    this.setInited();
   }
 
   buildCache() {
@@ -86,10 +84,6 @@ class Table extends Plugin {
     if (isCellContentWrapped(cell)) {
       cell.wrapInner(`<span class="${cellInnerClassName}" />`);
     }
-  }
-
-  setInited() {
-    this.element.classList.add(this.options.initedClassName);
   }
 }
 
