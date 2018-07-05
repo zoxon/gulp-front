@@ -1,8 +1,9 @@
 .card
 	position relative
 	box-sizing border-box
+	border-radius 2px
 	box-shadow 0 5px 15px rgba(#000, 0.08)
-	transition 125ms box-shadow ease-in-out
+	transition all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1)
 	will-change box-shadow
 
 	a
@@ -70,8 +71,28 @@
 
 	// Styles
 	&_style_hover
-		&:hover
+		&::after
+			position absolute
+			top 0
+			right 0
+			bottom 0
+			left 0
+			border-radius 2px
 			box-shadow 0 14px 25px rgba(#000, 0.16)
+			content ""
+			opacity 0
+			transition all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1)
+
+		&:hover
+			&::after
+				opacity 1
+
+	&_style_scale
+		transform translateY(0)
+
+		&:hover
+			z-index 100
+			transform scale(1.2, 1.2)
 
 	&_style_bordered
 		& ^[0]__header

@@ -12,7 +12,7 @@ h3 Colors
 .card-demo
 	- var colors = ["white", "gray", "black", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange" ];
 	each color in colors
-		+card(class=`card_color_${color}`).card_size_medium
+		+card(color=color size="medium" style="hover")
 			.card__body
 				h1.card__title= capitalize(color)
 				.card__text
@@ -24,7 +24,19 @@ h3 Hover
 .card-demo
 	- var colors = [ "white", "black", "indigo"];
 	each color in colors
-		+card(class=`card_color_${color}`).card_style_hover.card_size_medium
+		+card(color=color size="medium" style="hover")
+			.card__body
+				h1.card__title= capitalize(color)
+				.card__text
+					p Lorem ipsum 
+						a(href="#") dolor
+						|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+h3 Scale
+.card-demo
+	- var colors = [ "white", "black", "indigo"];
+	each color in colors
+		+card(color=color size="medium" style="hover scale")
 			.card__body
 				h1.card__title= capitalize(color)
 				.card__text
@@ -36,7 +48,7 @@ h3 Link
 .card-demo
 	- var colors = [ "white", "black", "indigo"];
 	each color in colors
-		+card(class=`card_color_${color}`).card_style_hover.card_size_medium
+		+card(color=color size="medium" style="hover")
 			a(href="#").card__link
 				span.visuallyhidden= capitalize(color)
 			.card__body
@@ -50,7 +62,7 @@ h3 Sizes
 .card-demo
 	- var sizes = ["small", "medium", "large"];
 	each size in sizes
-		+card(class=`card_size_${size}`).card_color_white
+		+card(color="white" size=size style="hover")
 			.card__body
 				h1.card__title= capitalize(size)
 				.card__text
@@ -61,7 +73,7 @@ h3 Sizes
 
 h3 Media
 .card-demo
-	+card().card_color_white.card_style_hover.card_size_medium
+	+card(color="white" size="medium" style="hover")
 		.card__media
 			+card__image()
 		.card__body
@@ -71,7 +83,7 @@ h3 Media
 					a(href="#") dolor
 					|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 	
-	+card().card_color_white.card_style_hover.card_size_medium
+	+card(color="white" size="medium" style="hover")
 		.card__body
 			h1.card__title Media bottom
 			.card__text
@@ -81,13 +93,13 @@ h3 Media
 		.card__media
 			+card__image()
 
-	+card().card_color_white.card_style_hover.card_size_medium
+	+card(color="white" size="medium" style="hover")
 		.card__media
 			+card__image()
 
 h3 Header and footer
 .card-demo
-	+card().card_color_white.card_style_hover.card_size_medium
+	+card(color="white" size="medium" style="hover")
 		.card__header
 			h1.card__title.margin-bottom_none Header and body
 			.card__meta Header subtitle
@@ -99,7 +111,7 @@ h3 Header and footer
 					|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 		
 
-	+card().card_color_white.card_style_hover.card_size_medium
+	+card(color="white" size="medium" style="hover")
 		.card__body
 			h1.card__title Footer and body
 			.card__text
@@ -111,7 +123,7 @@ h3 Header and footer
 			+button(style="text rounded" color="indigo").card-actions__button Read more
 
 	
-	+card().card_color_white.card_style_hover.card_size_medium
+	+card(color="white" size="medium" style="hover")
 		.card__header
 			h1.card__title.margin-bottom_none Header title
 			.card__meta Header and footer
@@ -127,7 +139,7 @@ h3 Header and footer
 
 h3 Bordered
 .card-demo
-	+card().card_color_white.card_style_hover.card_size_medium.card_style_bordered
+	+card(color="white" size="medium" style="hover bordered")
 		.card__header
 			h1.card__title.margin-bottom_none Header and body
 			.card__meta Header subtitle
@@ -139,7 +151,7 @@ h3 Bordered
 					|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 		
 
-	+card().card_color_white.card_style_hover.card_size_medium.card_style_bordered
+	+card(color="white" size="medium" style="hover bordered")
 		.card__body
 			h1.card__title Footer and body
 			.card__text
@@ -151,7 +163,7 @@ h3 Bordered
 			+button(style="text rounded" color="indigo").card-actions__button Read more
 
 	
-	+card().card_color_white.card_style_hover.card_size_medium.card_style_bordered
+	+card(color="white" size="medium" style="hover bordered")
 		.card__header
 			h1.card__title.margin-bottom_none Header title
 			.card__meta Header and footer
