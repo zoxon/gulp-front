@@ -1,7 +1,61 @@
 mixin dropdown(data)
-	.dropdown&attributes(attributes)
-		button(type="button" data-dropdown-trigger).dropdown__trigger= data.title
-			span.dropdown__caret
+	-
+		const {
+			color,
+			size,
+			style = "default",
+			caret = true,
+			["trigger-text"]: triggerText,
+			block: blockAttr,
+			disabled: disabledAttr = false,
+			baseClassName = "dropdown"
+		} = attributes;
 
-		.dropdown__menu(data-dropdown-menu)
+		const otherAttrs = _.omit(
+			[
+				"color",
+				"size",
+				"style",
+				"caret",
+				"trigger-text",
+				"block",
+				"disabled",
+				"baseClassName"
+			],
+			attributes
+		);
+
+		const stringToArray = str => str
+			? str.split(" ").filter(v => v.length) 
+			: [];
+
+		const styles = stringToArray(style)
+			.map(s => `${baseClassName}_style_${s}`)
+
+		const classes = _.classNames(
+			[
+				baseClassName,
+				{
+					[`${baseClassName}_block`]: blockAttr,
+					[`${baseClassName}_color_${color}`]: color,
+					[`${baseClassName}_size_${size}`]: size,
+					[`${baseClassName}_disabled`]: disabledAttr,
+				}
+			].concat(styles)
+		);
+
+	div(
+		class=classes
+		aria-disabled=disabledAttr.toString()
+	)&attributes(otherAttrs)
+		div(
+			class=`${baseClassName}__trigger`
+			role="button" 
+			data-dropdown-trigger
+		)
+			div(class=`${baseClassName}__text`)= triggerText
+			if caret
+				div(class=`${baseClassName}__caret`)
+
+		div(class=`${baseClassName}__menu` data-dropdown-menu)
 			block

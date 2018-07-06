@@ -2,14 +2,39 @@ include ../../dropdown/dropdown
 include ../../dropdown-list/dropdown-list
 
 
-- var list = {"list": [{"title": "Item 1", }, {"title": "Item 2", }, {"title": "Item 3", }, {"title": "Item 4", }, {"title": "Item 5", }, {"title": "Item 6", }, {"title": "Item 7", }, {"title": "Item 8", }, {"title": "Item 9", }, {"title": "Item 10", }, ] };
+-
+	const fruits = [
+		{ "value": "1", "label": "Apple" },
+		{ "value": "2", "label": "Avocado" },
+		{ "value": "3", "label": "Banana" },
+		{ "value": "5", "label": "Lemon" },
+		{ "value": "6", "label": "Pear" },
+	];
 
-+dropdown({"title": "Dropdown"})
-	+dropdown-list(list)
+	const berries = [
+		{ "value": "1", "label": "Cherries" },
+		{ "value": "2", "label": "Blueberry" },
+		{ "value": "3", "label": "Cranberry" },
+		{ "value": "4", "label": "Cherries" },
+		{ "value": "5", "label": "Strawberry" }
+	];
 
-+dropdown({"title": "Another Dropdown"}).dropdown_menu_right
-	+dropdown-list(list)
+	const vegetables = [
+		{ "value": "1", "label": "Broccoli" },
+		{ "value": "2", "label": "Potato" },
+		{ "value": "3", "label": "Radish" },
+		{ "value": "4", "label": "Onion" },
+		{ "value": "5", "label": "Carrot" },
+	];
 
++dropdown(trigger-text="Fruits")
+	+dropdown-list(fruits)
 
-+dropdown({"title": "Disabled Dropdown"})(disabled)
-	+dropdown-list(list)
++dropdown(trigger-text="Berries")
+	+dropdown-list(berries)
+
++dropdown(trigger-text="Vegetables")
+	+dropdown-list(vegetables)
+
++dropdown(trigger-text="Disabled Dropdown" disabled)
+	+dropdown-list(fruits)

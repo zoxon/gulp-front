@@ -1,36 +1,11 @@
 .dropdown
 	position relative
 	display inline-block
-	font-size 13px
 
 	&__trigger
-		padding 4px 37px 4px 18px
-		border 1px solid #cdcdcd
-		border-radius 3px
-		background-color #fff
-		color #333
-		font-size 13px
-		line-height 40px
+		box-sizing border-box
 		cursor pointer
-		transition 125ms background-color ease-in-out
 		user-select none
-
-		&:hover
-			background-color #F9F9F9
-
-	&__caret
-		position absolute
-		top 50%
-		right 18px
-		display block
-		margin-top -4px
-		size 6px
-		border-width 0 1px 1px 0
-		border-style solid
-		content ""
-		transition 150ms all ease-in-out 0s
-		transform rotate(45deg)
-		transform-origin 70% 70%
 
 	&__menu
 		position absolute
@@ -40,35 +15,24 @@
 		visibility hidden
 		overflow hidden
 		overflow-y auto
-		margin-top -20px
 		min-width 100%
-		max-width 300px
-		max-height 170px
-		width 200px
-		border-radius 3px
-		background #fff
-		box-shadow 0 0 7px rgba(0, 0, 0, 0.13)
 		text-align left
 		opacity 0
-		transition 125ms all ease-in-out
 		-webkit-overflow-scrolling touch
+		will-change opacity, visibility
 
-		ul
-			margin 0
-			padding 0
+	&__caret
+		display none
 
-	&[data-dropdown-open="true"] &__menu
-		z-index 100
-		visibility visible
-		margin-top 2px
-		opacity 1
-
-	&[data-dropdown-open="true"] &__caret
-		transform rotate(225deg)
+	&[data-dropdown-open="true"]
+		& ^[0]__menu
+			visibility visible
+			opacity 1
 
 	&[disabled]
 	&[aria-disabled="true"]
-		pointer-events none
+		& ^[0]__trigger
+			pointer-events none
 
 		&
 		&:hover
@@ -76,12 +40,64 @@
 		&:active
 			outline none
 			box-shadow none
-			opacity 0.65
 
-	&_drop_down &__list
-		top 100%
-		margin-top -20px
+	&_style_default
+		& ^[0]__trigger
+			display flex
+			box-sizing border-box
+			padding em(12px) em(48px) em(12px) em(24px)
+			min-height 48px
+			border-radius 2px
+			background-color #fff
+			box-shadow 0px 1px 3px 0px rgba(#000, 0.2), 0px 1px 1px 0px rgba(#000, 0.14), 0px 2px 1px -1px rgba(#000, 0.12)
 
-	&_menu_right &__menu
-		right 0
-		left auto
+			&:hover
+				background-color #F9F9F9
+
+		& ^[0]__caret
+			position absolute
+			top 50%
+			right 20px
+			display block
+			margin-top -5px
+			size 6px
+			border-width 0 2px 2px 0
+			border-style solid
+			border-color #535353
+			transition 150ms all ease-in-out
+			transform rotate(45deg)
+			transform-origin 75% 75%
+
+		& ^[0]__menu
+			position absolute
+			top 100%
+			left 0
+			z-index 100
+			visibility hidden
+			overflow hidden
+			overflow-y auto
+			margin 10px
+			min-width 100%
+			max-width 300px
+			max-height 60vh
+			width 200px
+			border-radius 4px
+			background #fafafa
+			box-shadow 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2)
+			text-align left
+			opacity 0
+			transition 125ms all ease-in-out
+			-webkit-overflow-scrolling touch
+
+		&[data-dropdown-open="true"]
+			& ^[0]__caret
+				transform rotate(225deg)
+
+		&[disabled]
+		&[aria-disabled="true"]
+			& ^[0]__trigger
+				background-color rgba(#000, 0.12)
+
+			& ^[0]__text
+			& ^[0]__caret
+				opacity 0.5
