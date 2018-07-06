@@ -1,22 +1,22 @@
 include ../../accordion/accordion
-h4 Disabled
+h3 Disabled
 +accordion()
-	+accordion-item({ "title": "Accordion 1" })
+	+accordion-item(label="Accordion 1")
 		<p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
 
-	+accordion-item({ "title": "Accordion 2" })
+	+accordion-item(label="Accordion 2")
 		<p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
 
-	+accordion-item({ "title": "Disabled", disabled: true })
+	+accordion-item(label="Disabled" disabled)
 		<p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
 
-h4 Opened
+h3 Expanded
 +accordion()
-	+accordion-item({ "title": "Accordion 1" })
+	+accordion-item(label="Accordion 1")
 		<p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
 
-	+accordion-item({ "title": "Opened", "open": true })
+	+accordion-item(label="Expanded" expanded)
 		<p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
 
-	+accordion-item({ "title": "Accordion 3" })
+	+accordion-item(label="Accordion 3")
 		<p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
