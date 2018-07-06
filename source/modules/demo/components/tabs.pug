@@ -3,227 +3,88 @@ include ../../icon/icon
 
 
 h3 Colors
+-
+	const tabsItems = [
+		{ id: "icon", label: "Icon", icon: "heart" },
+		{ id: "tab2", label: "Tab 2" },
+		{ id: "tab3", label: "Tab 3" },
+		{ id: "disabled", label: "Disabled tab", disabled: true }
+	];
+
+	const tabsItemsExpanded = [
+		{ "id": "apple", "label": "Apple" },
+		{ "id": "avocado", "label": "Avocado" },
+		{ "id": "banana", "label": "Banana" },
+		{ "id": "lemon", "label": "Lemon" },
+		{ "id": "pear", "label": "Pear" },
+		{ "id": "cherries", "label": "Cherries" },
+		{ "id": "blueberry", "label": "Blueberry" },
+		{ "id": "cranberry", "label": "Cranberry" },
+		{ "id": "cherries", "label": "Cherries" },
+		{ "id": "strawberry", "label": "Strawberry" },
+		{ "id": "broccoli", "label": "Broccoli" },
+		{ "id": "potato", "label": "Potato" },
+		{ "id": "radish", "label": "Radish" },
+		{ "id": "onion", "label": "Onion" },
+		{ "id": "carrot", "label": "Carrot" }
+	];
+
 each color, index in ["gray", "black", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"]
-	+tabs({
-		"name": `tabs-color-${index + 1}`, 
-		"items": [
-			{ name: "icon", label: "Icon", icon: "heart" }, 
-			{ name: "tab2", label: "Tab 2" }, 
-			{ name: "tab3", label: "Tab 3" }, 
-			{ name: "disabled", label: "Disabled tab", disabled: true },
-		]
-	})(class=`tabs_style_default tabs_color_${color}`)
-		.tabs__panel(data-panel-id="icon")
-			ul
-				li 
-					b Name: 
-					|  icon
-				li
-					b Color: 
-					= color
-				li
-					b Style: 
-					|   default
 
-		.tabs__panel(data-panel-id="tab3")
-			ul
-				li 
-					b Name: 
-					|  Tab 3
-				li
-					b Color: 
-					= color
-				li
-					b Style: 
-					|  default
+	+tabs(name=`tabs-color-${index + 1}` color=color)
+		each item in tabsItems
+			+tabs-item(item)
+				ul
+					li
+						b Name: 
+						= item.label
+					li
+						b Color: 
+						= color
+					li
+						b Style:
+						|   default
 
-		.tabs__panel(data-panel-id="tab3")
-			ul
-				li 
-					b Name: 
-					|  Tab 3
-				li
-					b Color: 
-					= color
-				li
-					b Style: 
-					|  default
 
-		.tabs__panel(data-panel-id="disabled")
-			ul
-				li 
-					b Name: 
-					|  disabled
-				li
-					b Color: 
-					= color
-				li
-					b Style: 
-					|  default
-		
+
 h3 Aligin
 each aligin, index in ["left", "center", "right"]
-	+tabs({
-		"name": `tabs-aligin-${index + 1}`, 
-		"items": [
-			{ name: "icon", label: "Icon", icon: "heart" }, 
-			{ name: "tab2", label: "Tab 2" }, 
-			{ name: "tab3", label: "Tab 3" }, 
-			{ name: "disabled", label: "Disabled tab", disabled: true },
-		]
-	})(class=`tabs_style_default tabs_color_indigo tabs_aligin_${aligin}`)
-		.tabs__panel(data-panel-id="icon")
-			ul
-				li 
-					b Name: 
-					|  icon
-				li
-					b Color: 
-					|  indigo
-				li
-					b Aligin: 
-					= aligin
-				li
-					b Style: 
-					|  default
-
-		.tabs__panel(data-panel-id="tab3")
-			ul
-				li 
-					b Name: 
-					|  Tab 3
-				li
-					b Color: 
-					|  indigo
-				li
-					b Aligin: 
-					= aligin
-				li
-					b Style: 
-					|  default
-
-		.tabs__panel(data-panel-id="tab3")
-			ul
-				li 
-					b Name: 
-					|  Tab 3
-				li
-					b Color: 
-					|  indigo
-				li
-					b Aligin: 
-					= aligin
-				li
-					b Style: 
-					|  default
-
-		.tabs__panel(data-panel-id="disabled")
-			ul
-				li 
-					b Name: 
-					|  disabled
-				li
-					b Color: 
-					|  indigo
-				li
-					b Aligin: 
-					= aligin
-				li
-					b Style: 
-					|  default
+	+tabs(name=`tabs-aligin-${index + 1}` color="indigo" aligin=aligin)
+		each item in tabsItems
+			+tabs-item(item)
+				ul
+					li
+						b Name: 
+						|  icon
+					li
+						b Color: 
+						|  indigo
+					li
+						b Aligin: 
+						= aligin
+					li
+						b Style: 
+						|  default
+	
 
 h3 Expanded
-+tabs({
-	"name": `tabs-expanded`, 
-	"items": [
-		{ name: "icon", label: "Icon", icon: "heart" }, 
-		{ name: "tab2", label: "Tab 2" }, 
-		{ name: "tab3", label: "Tab 3" }, 
-		{ name: "disabled", label: "Disabled tab", disabled: true },
-	]
-}).tabs_style_default.tabs_color_indigo.tabs_expanded
-	.tabs__panel(data-panel-id="icon")
-		ul
-			li 
-				b Name: 
-				|  icon
-			li
-				b Color: 
-				|  indigo
-			li
-				b Style: 
-				|  default
++tabs(name="tabs-expanded" color="indigo" expanded)
+	each item in tabsItems
+		+tabs-item(item)
+			ul
+				li 
+					b Name: 
+					= item.label
+				li
+					b Color: 
+					|  indigo
+				li
+					b Style: 
+					|  default
 
-	.tabs__panel(data-panel-id="tab3")
-		ul
-			li 
-				b Name: 
-				|  Tab 3
-			li
-				b Color: 
-				|  indigo
-			li
-				b Style: 
-				|  default
-
-	.tabs__panel(data-panel-id="tab3")
-		ul
-			li 
-				b Name: 
-				|  Tab 3
-			li
-				b Color: 
-				|  indigo
-			li
-				b Style: 
-				|  default
-
-	.tabs__panel(data-panel-id="disabled")
-		ul
-			li 
-				b Name: 
-				|  disabled
-			li
-				b Color: 
-				|  indigo
-			li
-				b Style: 
-				|  default
 
 h3 Scrollable
-+tabs({
-	"name": `tabs-scrollable`, 
-	"items": [
-		{ "name": "apple", "label": "Apple" },
-		{ "name": "avocado", "label": "Avocado" },
-		{ "name": "banana", "label": "Banana" },
-		{ "name": "lemon", "label": "Lemon" },
-		{ "name": "pear", "label": "Pear" },
-		{ "name": "cherries", "label": "Cherries" },
-		{ "name": "blueberry", "label": "Blueberry" },
-		{ "name": "cranberry", "label": "Cranberry" },
-		{ "name": "cherries", "label": "Cherries" },
-		{ "name": "strawberry", "label": "Strawberry" },
-		{ "name": "broccoli", "label": "Broccoli" },
-		{ "name": "potato", "label": "Potato" },
-		{ "name": "radish", "label": "Radish" },
-		{ "name": "onion", "label": "Onion" },
-		{ "name": "carrot", "label": "Carrot" }
-	]
-}).tabs_style_default.tabs_color_indigo
-	.tabs__panel(data-panel-id="apple"): p Apple
-	.tabs__panel(data-panel-id="avocado"): p Avocado
-	.tabs__panel(data-panel-id="banana"): p Banana
-	.tabs__panel(data-panel-id="lemon"): p Lemon
-	.tabs__panel(data-panel-id="pear"): p Pear
-	.tabs__panel(data-panel-id="cherries"): p Cherries
-	.tabs__panel(data-panel-id="blueberry"): p Blueberry
-	.tabs__panel(data-panel-id="cranberry"): p Cranberry
-	.tabs__panel(data-panel-id="cherries"): p Cherries
-	.tabs__panel(data-panel-id="strawberry"): p Strawberry
-	.tabs__panel(data-panel-id="broccoli"): p Broccoli
-	.tabs__panel(data-panel-id="potato"): p Potato
-	.tabs__panel(data-panel-id="radish"): p Radish
-	.tabs__panel(data-panel-id="onion"): p Onion
-	.tabs__panel(data-panel-id="carrot"): p Carrot
-
++tabs(name="tabs-scrollable" color="indigo")
+	each item in tabsItemsExpanded
+		+tabs-item(item)
+			p= item.label
