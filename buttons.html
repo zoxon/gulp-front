@@ -144,6 +144,9 @@
                   <a class="mobile-menu__submenu-link" href="components.html#progress-bar">Progress Bar</a>
                 </li>
                 <li class="mobile-menu__item">
+                  <a class="mobile-menu__submenu-link" href="components.html#star-rating">Star raiting</a>
+                </li>
+                <li class="mobile-menu__item">
                   <a class="mobile-menu__submenu-link" href="components.html#embed">Responsive video</a>
                 </li>
                 <li class="mobile-menu__item">
@@ -318,6 +321,9 @@
                             <a class="main-menu-submenu__link" href="components.html#progress-bar">Progress Bar</a>
                           </li>
                           <li class="main-menu-submenu__item">
+                            <a class="main-menu-submenu__link" href="components.html#star-rating">Star raiting</a>
+                          </li>
+                          <li class="main-menu-submenu__item">
                             <a class="main-menu-submenu__link" href="components.html#embed">Responsive video</a>
                           </li>
                           <li class="main-menu-submenu__item">
@@ -392,54 +398,64 @@
           <div class="demo demo_buttons">
             <h2 id="buttons-styles">Styles</h2>
             <h3>Colors</h3>
-            <button class="button button_color_gray button_style_solid button_style_rounded button_size_normal" type="button">Gray</button>
-            <button class="button button_color_black button_style_solid button_style_rounded button_size_normal" type="button">Black</button>
-            <button class="button button_color_red button_style_solid button_style_rounded button_size_normal" type="button">Red</button>
-            <button class="button button_color_pink button_style_solid button_style_rounded button_size_normal" type="button">Pink</button>
-            <button class="button button_color_grape button_style_solid button_style_rounded button_size_normal" type="button">Grape</button>
-            <button class="button button_color_violet button_style_solid button_style_rounded button_size_normal" type="button">Violet</button>
-            <button class="button button_color_indigo button_style_solid button_style_rounded button_size_normal" type="button">Indigo</button>
-            <button class="button button_color_blue button_style_solid button_style_rounded button_size_normal" type="button">Blue</button>
-            <button class="button button_color_cyan button_style_solid button_style_rounded button_size_normal" type="button">Cyan</button>
-            <button class="button button_color_teal button_style_solid button_style_rounded button_size_normal" type="button">Teal</button>
-            <button class="button button_color_green button_style_solid button_style_rounded button_size_normal" type="button">Green</button>
-            <button class="button button_color_lime button_style_solid button_style_rounded button_size_normal" type="button">Lime</button>
-            <button class="button button_color_yellow button_style_solid button_style_rounded button_size_normal" type="button">Yellow</button>
-            <button class="button button_color_orange button_style_solid button_style_rounded button_size_normal" type="button">Orange</button>
+            <button class="button button_color_white button_size_normal button_style_solid button_style_rounded" type="button">White</button>
+            <button class="button button_color_gray button_size_normal button_style_solid button_style_rounded" type="button">Gray</button>
+            <button class="button button_color_black button_size_normal button_style_solid button_style_rounded" type="button">Black</button>
+            <button class="button button_color_red button_size_normal button_style_solid button_style_rounded" type="button">Red</button>
+            <button class="button button_color_pink button_size_normal button_style_solid button_style_rounded" type="button">Pink</button>
+            <button class="button button_color_grape button_size_normal button_style_solid button_style_rounded" type="button">Grape</button>
+            <button class="button button_color_violet button_size_normal button_style_solid button_style_rounded" type="button">Violet</button>
+            <button class="button button_color_indigo button_size_normal button_style_solid button_style_rounded" type="button">Indigo</button>
+            <button class="button button_color_blue button_size_normal button_style_solid button_style_rounded" type="button">Blue</button>
+            <button class="button button_color_cyan button_size_normal button_style_solid button_style_rounded" type="button">Cyan</button>
+            <button class="button button_color_teal button_size_normal button_style_solid button_style_rounded" type="button">Teal</button>
+            <button class="button button_color_green button_size_normal button_style_solid button_style_rounded" type="button">Green</button>
+            <button class="button button_color_lime button_size_normal button_style_solid button_style_rounded" type="button">Lime</button>
+            <button class="button button_color_yellow button_size_normal button_style_solid button_style_rounded" type="button">Yellow</button>
+            <button class="button button_color_orange button_size_normal button_style_solid button_style_rounded" type="button">Orange</button>
             <h3>Styles</h3>
-            <button class="button button_color_red button_style_solid button_size_normal" type="button">Solid Square</button>
-            <button class="button button_color_pink button_style_solid button_style_rounded button_size_normal" type="button">Solid Rounded</button>
-            <button class="button button_color_grape button_style_solid button_style_pill button_size_normal" type="button">Solid Pill</button>
-            <button class="button button_color_violet button_style_ghost button_size_normal" type="button">Ghost Square</button>
-            <button class="button button_color_indigo button_style_ghost button_style_rounded button_size_normal" type="button">Ghost Rounded</button>
-            <button class="button button_color_blue button_style_ghost button_style_pill button_size_normal" type="button">Ghost Pill</button>
-            <button class="button button_color_green button_style_gradient button_size_normal" type="button">Gradient Square</button>
-            <button class="button button_color_yellow button_style_gradient button_style_rounded button_size_normal" type="button">Gradient Rounded</button>
-            <button class="button button_color_orange button_style_gradient button_style_pill button_size_normal" type="button">Gradient Pill</button>
+            <button class="button button_color_indigo button_size_normal button_style_solid button_style_rounded" type="button">Solid</button>
+            <button class="button button_color_indigo button_size_normal button_style_ghost button_style_rounded" type="button">Outlined</button>
+            <button class="button button_color_indigo button_size_normal button_style_gradient button_style_rounded" type="button">Gradient</button>
+            <button class="button button_color_indigo button_size_normal button_style_text button_style_rounded" type="button">Text</button>
+            <h3>Shape</h3>
+            <button class="button button_color_indigo button_size_normal button_style_solid" type="button">Square</button>
+            <button class="button button_color_indigo button_size_normal button_style_solid button_style_rounded" type="button">Rounded</button>
+            <button class="button button_color_indigo button_size_normal button_style_solid button_style_pill" type="button">Pill</button>
+            <br>
+            <button class="button button_color_indigo button_size_normal button_style_ghost" type="button">Square</button>
+            <button class="button button_color_indigo button_size_normal button_style_ghost button_style_rounded" type="button">Rounded</button>
+            <button class="button button_color_indigo button_size_normal button_style_ghost button_style_pill" type="button">Pill</button>
+            <br>
+            <button class="button button_color_indigo button_size_normal button_style_gradient" type="button">Square</button>
+            <button class="button button_color_indigo button_size_normal button_style_gradient button_style_rounded" type="button">Rounded</button>
+            <button class="button button_color_indigo button_size_normal button_style_gradient button_style_pill" type="button">Pill</button>
+            <br>
+            <button class="button button_color_indigo button_size_normal button_style_text" type="button">Square</button>
+            <button class="button button_color_indigo button_size_normal button_style_text button_style_rounded" type="button">Rounded</button>
+            <button class="button button_color_indigo button_size_normal button_style_text button_style_pill" type="button">Pill</button>
             <h2 id="buttons-sizes">Sizes</h2>
-            <button class="button button_color_blue button_style_solid button_style_rounded button_size_extra-extra-small" type="button">XXS</button>
-            <button class="button button_color_blue button_style_solid button_style_rounded button_size_extra-small" type="button">XS</button>
-            <button class="button button_color_blue button_style_solid button_style_rounded button_size_small" type="button">S</button>
-            <button class="button button_color_blue button_style_solid button_style_rounded button_size_medium" type="button">M</button>
-            <button class="button button_color_blue button_style_solid button_style_rounded button_size_large" type="button">L</button>
-            <button class="button button_color_blue button_style_solid button_style_rounded button_size_extra-large" type="button">XL</button>
-            <button class="button button_color_blue button_style_solid button_style_rounded button_size_extra-extra-large" type="button">XXL</button>
+            <button class="button button_color_indigo button_size_small button_style_solid button_style_rounded" type="button">small</button>
+            <button class="button button_color_indigo button_size_medium button_style_solid button_style_rounded" type="button">medium</button>
+            <button class="button button_color_indigo button_size_large button_style_solid button_style_rounded" type="button">large</button>
+            <button class="button button_color_indigo button_size_xl button_style_solid button_style_rounded" type="button">xl</button>
+            <button class="button button_color_indigo button_size_xxl button_style_solid button_style_rounded" type="button">xxl</button>
             <h2 id="buttons-icon">Icon buttons</h2>
-            <button class="button button_icon button_color_blue button_style_solid button_style_rounded button_size_normal" type="button">
+            <button class="button button_icon button_color_indigo button_size_normal button_style_solid button_style_rounded" type="button">
               <svg class="icon icon_chevron_left" role="img">
                 <title>Chevron left</title>
                 <use xlink:href="assets/images/icons.svg#chevron_left"></use>
               </svg>
               <span>Text left</span>
             </button>
-            <button class="button button_icon button_color_blue button_style_solid button_style_rounded button_size_normal" type="button">
+            <button class="button button_icon button_color_indigo button_size_normal button_style_solid button_style_rounded" type="button">
               <span>Right</span>
               <svg class="icon icon_chevron_right" role="img">
                 <title>Chevron right</title>
                 <use xlink:href="assets/images/icons.svg#chevron_right"></use>
               </svg>
             </button>
-            <a class="button button_icon button_color_blue button_style_solid button_style_rounded button_size_normal" href="#">
+            <a class="button button_icon button_color_indigo button_size_normal button_style_solid button_style_rounded" href="#">
               <svg class="icon icon_maginifer" role="img">
                 <title>Search</title>
                 <use xlink:href="assets/images/icons.svg#maginifer"></use>
@@ -447,35 +463,35 @@
               <span class="visuallyhidden">Icon only button</span>
             </a>
             <h2 id="buttons-tags">Tags types</h2>
-            <button class="button button_color_blue button_style_solid button_style_rounded button_size_normal" type="button">Button</button>
-            <a class="button button_color_blue button_style_solid button_style_rounded button_size_normal" href="#">Link</a>
+            <button class="button button_color_indigo button_size_normal button_style_solid button_style_rounded" type="button">Button</button>
+            <a class="button button_color_indigo button_size_normal button_style_solid button_style_rounded" href="#">Link</a>
             <h2 id="buttons-disabled">Disabled buttons</h2>
-            <button class="button button_color_blue button_style_solid button_style_rounded button_size_normal" type="button" disabled>Disabled button</button>
-            <a class="button button_color_blue button_style_solid button_style_rounded button_size_normal" href="#" disabled>Disabled link</a>
+            <button class="button button_color_indigo button_size_normal button_disabled button_style_solid button_style_rounded" type="button" disabled>Disabled button</button>
+            <a class="button button_color_indigo button_size_normal button_disabled button_style_solid button_style_rounded" href="#" disabled>Disabled link</a>
             <h2 id="buttons-block">Block buttons</h2>
-            <button class="button button_block button_color_blue button_style_solid button_style_rounded button_size_normal" type="button">Button</button>
-            <a class="button button_block button_color_blue button_style_solid button_style_rounded button_size_normal" href="#">Link</a>
+            <button class="button button_block button_color_indigo button_size_normal button_style_solid button_style_rounded" type="button">Button</button>
+            <a class="button button_block button_color_indigo button_size_normal button_style_solid button_style_rounded" href="#">Link</a>
             <h2 id="buttons-group">Buttons group</h2>
             <div class="button-group">
-              <button class="button button_icon button_color_blue button_style_solid button_style_rounded button_size_normal button-group__item" type="button">
+              <button class="button button_icon button_color_indigo button_size_normal button_style_solid button_style_rounded button-group__item" type="button">
                 <svg class="icon icon_player_previous" role="img">
                   <title>Previous track</title>
                   <use xlink:href="assets/images/icons.svg#player_previous"></use>
                 </svg>
               </button>
-              <button class="button button_icon button_color_blue button_style_solid button_style_rounded button_size_normal button-group__item" type="button">
+              <button class="button button_icon button_color_indigo button_size_normal button_style_solid button_style_rounded button-group__item" type="button">
                 <svg class="icon icon_player_play" role="img">
                   <title>Play track</title>
                   <use xlink:href="assets/images/icons.svg#player_play"></use>
                 </svg>
               </button>
-              <button class="button button_icon button_color_blue button_style_solid button_style_rounded button_size_normal button-group__item" type="button">
+              <button class="button button_icon button_color_indigo button_size_normal button_style_solid button_style_rounded button-group__item" type="button">
                 <svg class="icon icon_player_pause" role="img">
                   <title>Pause track</title>
                   <use xlink:href="assets/images/icons.svg#player_pause"></use>
                 </svg>
               </button>
-              <button class="button button_icon button_color_blue button_style_solid button_style_rounded button_size_normal button-group__item" type="button">
+              <button class="button button_icon button_color_indigo button_size_normal button_style_solid button_style_rounded button-group__item" type="button">
                 <svg class="icon icon_player_next" role="img">
                   <title>Next track</title>
                   <use xlink:href="assets/images/icons.svg#player_next"></use>
@@ -483,14 +499,14 @@
               </button>
             </div>
             <div class="button-group">
-              <button class="button button_icon button_color_blue button_style_solid button_style_rounded button_size_normal button-group__item" type="button">
+              <button class="button button_icon button_color_indigo button_size_normal button_style_solid button_style_rounded button-group__item" type="button">
                 <svg class="icon icon_player_previous" role="img">
                   <title>Previous track</title>
                   <use xlink:href="assets/images/icons.svg#player_previous"></use>
                 </svg>
                 <span>Previous</span>
               </button>
-              <button class="button button_icon button_color_blue button_style_solid button_style_rounded button_size_normal button-group__item" type="button">
+              <button class="button button_icon button_color_indigo button_size_normal button_style_solid button_style_rounded button-group__item" type="button">
                 <span>Next</span>
                 <svg class="icon icon_player_next" role="img">
                   <title>Next track</title>
@@ -499,25 +515,25 @@
               </button>
             </div>
             <div class="button-group">
-              <button class="button button_icon button_color_blue button_style_ghost button_style_rounded button_size_normal button-group__item" type="button">
+              <button class="button button_icon button_color_indigo button_size_normal button_style_ghost button_style_rounded button-group__item" type="button">
                 <svg class="icon icon_player_previous" role="img">
                   <title>Previous track</title>
                   <use xlink:href="assets/images/icons.svg#player_previous"></use>
                 </svg>
               </button>
-              <button class="button button_icon button_color_blue button_style_ghost button_style_rounded button_size_normal button-group__item" type="button">
+              <button class="button button_icon button_color_indigo button_size_normal button_style_ghost button_style_rounded button-group__item" type="button">
                 <svg class="icon icon_player_play" role="img">
                   <title>Play track</title>
                   <use xlink:href="assets/images/icons.svg#player_play"></use>
                 </svg>
               </button>
-              <button class="button button_icon button_color_blue button_style_ghost button_style_rounded button_size_normal button-group__item" type="button">
+              <button class="button button_icon button_color_indigo button_size_normal button_style_ghost button_style_rounded button-group__item" type="button">
                 <svg class="icon icon_player_pause" role="img">
                   <title>Pause track</title>
                   <use xlink:href="assets/images/icons.svg#player_pause"></use>
                 </svg>
               </button>
-              <button class="button button_icon button_color_blue button_style_ghost button_style_rounded button_size_normal button-group__item" type="button">
+              <button class="button button_icon button_color_indigo button_size_normal button_style_ghost button_style_rounded button-group__item" type="button">
                 <svg class="icon icon_player_next" role="img">
                   <title>Next track</title>
                   <use xlink:href="assets/images/icons.svg#player_next"></use>

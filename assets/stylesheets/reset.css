@@ -20,10 +20,10 @@ textarea {
   resize: vertical;
 }
 
-input[type='text'],
-input[type='email'],
-input[type='search'],
-input[type='password'] {
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="password"] {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
@@ -427,7 +427,7 @@ body {
 
   font-size: 1.6em;
   line-height: 1.6;
-  font-family: 'Roboto', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: "Roboto", Arial, "Helvetica Neue", Helvetica, sans-serif;
   color: #212529;
 
   background: #fff;
@@ -446,7 +446,7 @@ h6 {
 
   font-weight: 300;
   line-height: normal;
-  font-family: 'Roboto', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: "Roboto", Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
 h1 a,
@@ -582,7 +582,7 @@ hr {
   margin: 1em 0;
   padding: 0;
 
-  border: 0;
+  border: none;
   border-top: 1px solid #ccc;
 }
 
@@ -659,7 +659,7 @@ blockquote small {
 
 blockquote footer:before,
 blockquote small:before {
-  content: '\2014 \00A0';
+  content: "\2014 \00A0";
 }
 
 .clearfix:before,
@@ -723,6 +723,46 @@ blockquote small:before {
   -webkit-hyphens: auto;
   hyphens: auto;
   overflow-wrap: break-word;
+}
+
+.margin-none {
+  margin: 0 !important;
+}
+
+.margin-bottom_none {
+  margin-bottom: 0 !important;
+}
+
+.margin-top_none {
+  margin-top: 0 !important;
+}
+
+.margin-left_none {
+  margin-left: 0 !important;
+}
+
+.margin-right_none {
+  margin-right: 0 !important;
+}
+
+.padding-none {
+  padding: 0 !important;
+}
+
+.padding-bottom_none {
+  padding-bottom: 0 !important;
+}
+
+.padding-top_none {
+  padding-top: 0 !important;
+}
+
+.padding-left_none {
+  padding-left: 0 !important;
+}
+
+.padding-right_none {
+  padding-right: 0 !important;
 }
 
 .invisible {
@@ -815,14 +855,6 @@ blockquote small:before {
 }
 
 @media print {
-  .print-hidden {
-    display: none !important;
-  }
-
-  .print-invisible {
-    visibility: hidden !important;
-  }
-
   *,
   *:before,
   *:after {
@@ -830,7 +862,6 @@ blockquote small:before {
     text-shadow: none !important;
 
     background: transparent !important;
-    /* Black prints faster: http://www.sanbeiji.com/archives/953 */
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
   }
@@ -883,11 +914,5 @@ blockquote small:before {
   h2,
   h3 {
     page-break-after: avoid;
-  }
-}
-
-@media not print () {
-  .print-visible {
-    display: none !important;
   }
 }
