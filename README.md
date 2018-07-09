@@ -3,7 +3,6 @@
 _A lean and powerful, gulp-based boilerplate for better front-end coding with [Gulp](http://gulpjs.com/), [Pug](https://pugjs.org/) and [Stylus](http://stylus-lang.com/)_
 
 [![Build Status](https://travis-ci.org/zoxon/gulp-front.svg?branch=master)](https://travis-ci.org/zoxon/gulp-front/builds)
-[![Greenkeeper badge](https://badges.greenkeeper.io/zoxon/gulp-front.svg)](https://greenkeeper.io/)
 [![GitHub issues](https://img.shields.io/github/issues/zoxon/gulp-front.svg?style=flat)](https://github.com/zoxon/gulp-front/issues)
 [![GitHub forks](https://img.shields.io/github/forks/zoxon/gulp-front.svg?style=flat)](https://github.com/zoxon/gulp-front/network)
 [![GitHub stars](https://img.shields.io/github/stars/zoxon/gulp-front.svg?style=flat)](https://github.com/zoxon/gulp-front/stargazers)
@@ -21,12 +20,12 @@ More information see in [docs](docs/README.md) folder
 
 ## Core features
 
-* Modern and fast build tool
-* Module based BEM CSS framework
-* Automatic icon system based on SVG Symbols
-* Easy PNG Sprites generation (including @2x)
-* A convenient @media mixins
-* Smart image compression
+- Modern and fast build tool
+- Module based BEM CSS framework
+- Automatic icon system based on SVG Symbols
+- Easy PNG Sprites generation (including @2x)
+- A convenient @media mixins
+- Smart image compression
 
 ## Quickstart
 
@@ -47,11 +46,11 @@ More information see in [docs](docs/README.md) folder
 
 ## Main tasks
 
-* `npm run dev` - launches watchers and server
-* `npm run build` - compile a project
-* `npm run zip` - compile a project in zip
-* `npm run deploy` - compile a project and push in `build` branch to git repository
-* `npm run cleanup` - remove demo app
+- `npm run dev` - launches watchers and server
+- `npm run build` - compile a project
+- `npm run zip` - compile a project in zip
+- `npm run deploy` - compile a project and push in `build` branch to git repository
+- `npm run cleanup` - remove demo app
 
 ## Module generator
 
