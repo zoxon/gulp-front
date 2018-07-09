@@ -1,43 +1,90 @@
 include ../../tabs/tabs
 include ../../icon/icon
 
-+tabs({'name': 'tabsgroup1', 'items': [{'name': 'tab1', 'title': 'Tab 1'}, {'name': 'tab2', 'title': 'Tab 2'}, {'name': 'tab3', 'title': 'Tab 3'}]}).tabs_style_default
-	.tabs__panel(data-panel-id="tab1")
-		h4 Tab 1 Content demo
-		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.
 
-	.tabs__panel(data-panel-id="tab2")
-		h4 Tab 2 Content demo
-		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque alias mollitia iusto voluptatibus minus ut, adipisci magni magnam corporis aut aspernatur facere maiores sunt similique nihil unde est laboriosam reprehenderit.
+h3 Colors
+-
+	const tabsItems = [
+		{ id: "icon", label: "Icon", icon: "heart" },
+		{ id: "tab2", label: "Tab 2" },
+		{ id: "tab3", label: "Tab 3" },
+		{ id: "disabled", label: "Disabled tab", disabled: true }
+	];
 
-	.tabs__panel(data-panel-id="tab3")
-		h4 Tab 3 Content demo
-		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus fugiat, aliquam! In fugit id sint, nam repellendus possimus sit itaque aspernatur modi facere earum mollitia veritatis officia quo iste nisi.
+	const tabsItemsExpanded = [
+		{ "id": "apple", "label": "Apple" },
+		{ "id": "avocado", "label": "Avocado" },
+		{ "id": "banana", "label": "Banana" },
+		{ "id": "lemon", "label": "Lemon" },
+		{ "id": "pear", "label": "Pear" },
+		{ "id": "cherries", "label": "Cherries" },
+		{ "id": "blueberry", "label": "Blueberry" },
+		{ "id": "cranberry", "label": "Cranberry" },
+		{ "id": "cherries", "label": "Cherries" },
+		{ "id": "strawberry", "label": "Strawberry" },
+		{ "id": "broccoli", "label": "Broccoli" },
+		{ "id": "potato", "label": "Potato" },
+		{ "id": "radish", "label": "Radish" },
+		{ "id": "onion", "label": "Onion" },
+		{ "id": "carrot", "label": "Carrot" }
+	];
 
-+tabs({'name': 'tabsgroup2', 'items': [{'name': 'tab1', 'title': 'Tab 1'}, {'name': 'tab2', 'title': 'Tab 2'}, {'name': 'tab3', 'title': 'Tab 3'}]}).tabs_style_default.tabs_color_blue
-	.tabs__panel(data-panel-id="tab1")
-		h4 Tab 1 Content demo
-		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.
+each color, index in ["gray", "black", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange"]
 
-		a(href="#tabsgroup2__tab2").button.button_size_normal.button_style_solid.button_color_blue.button_style_rounded
-			span.button__text Next
-			+icon(name="chevron_right" title="Chevron right").button__icon
+	+tabs(name=`tabs-color-${index + 1}` color=color)
+		each item in tabsItems
+			+tabs-item(item)
+				ul
+					li
+						b Name: 
+						= item.label
+					li
+						b Color: 
+						= color
+					li
+						b Style:
+						|   default
 
-	.tabs__panel(data-panel-id="tab2")
-		h4 Tab 2 Content demo
-		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque alias mollitia iusto voluptatibus minus ut, adipisci magni magnam corporis aut aspernatur facere maiores sunt similique nihil unde est laboriosam reprehenderit.
 
-		a(href="#tabsgroup2__tab1").button.button_size_normal.button_style_solid.button_color_blue.button_style_rounded
-			span.button__text Prev
-			+icon(name="chevron_left" title="Chevron left").button__icon
-		a(href="#tabsgroup2__tab3").button.button_size_normal.button_style_solid.button_color_blue
-			span.button__text Next
-			+icon(name="chevron_right" title="Chevron right").button__icon
 
-	.tabs__panel(data-panel-id="tab3")
-		h4 Tab 3 Content demo
-		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus fugiat, aliquam! In fugit id sint, nam repellendus possimus sit itaque aspernatur modi facere earum mollitia veritatis officia quo iste nisi.
+h3 Aligin
+each aligin, index in ["left", "center", "right"]
+	+tabs(name=`tabs-aligin-${index + 1}` color="indigo" aligin=aligin)
+		each item in tabsItems
+			+tabs-item(item)
+				ul
+					li
+						b Name: 
+						|  icon
+					li
+						b Color: 
+						|  indigo
+					li
+						b Aligin: 
+						= aligin
+					li
+						b Style: 
+						|  default
+	
 
-		a(href="#tabsgroup2__tab2").button.button_size_normal.button_style_solid.button_color_blue.button_style_rounded
-			span.button__text Prev
-			+icon(name="chevron_left" title="Chevron left").button__icon
+h3 Expanded
++tabs(name="tabs-expanded" color="indigo" expanded)
+	each item in tabsItems
+		+tabs-item(item)
+			ul
+				li 
+					b Name: 
+					= item.label
+				li
+					b Color: 
+					|  indigo
+				li
+					b Style: 
+					|  default
+
+
+h3 Scrollable
++tabs(name="tabs-scrollable" color="indigo")
+	each item in tabsItemsExpanded
+		+tabs-item(item)
+			p= item.label

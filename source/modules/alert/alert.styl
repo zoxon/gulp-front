@@ -2,6 +2,7 @@
 alert-style(background-color, font-color)
 	border 1px solid background-color - 20%
 	background background-color
+
 	.alert
 		&__title
 		&__close
@@ -10,35 +11,36 @@ alert-style(background-color, font-color)
 
 		&__close
 			color font-color
+
 			&:hover
 				color font-color - 40%
 
 .alert
-	padding 10px 15px
-	border-radius 2px
 	position relative
 	margin-bottom $base-line-height
+	padding 10px 15px
+	border-radius 2px
 
 	&__title
+		padding-bottom 8px
 		font-weight bold
 		font-size 16px
-		padding-bottom 8px
 
 	&__body
 		font-size 14px
 
 	&__close
-		cursor pointer
 		position absolute
-		background-color transparent
-		border none
-		line-height 1px
-		padding 3px
-		right 5px
 		top 5px
+		right 5px
+		padding 3px
+		border none
+		background-color transparent
+		line-height 1px
+		cursor pointer
+
 		svg
 			size 10px
-
 
 	&_color_gray
 		alert-style(
@@ -123,4 +125,3 @@ alert-style(background-color, font-color)
 			background-color: $orange-6,
 			font-color: #fff
 		)
-

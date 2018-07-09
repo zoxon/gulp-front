@@ -79,17 +79,16 @@ block page
 `
   },
   {
-    path: "./source/modules/footer.pug",
+    path: "./source/modules/footer/footer.pug",
     content: `mixin footer(data)
 	footer.footer&attributes(attributes)
 		p &copy; You copyright
 `
   },
   {
-    path: "./source/modules/stylus.pug",
-    content: `mixin footer(data)
-	.footer
-		//
+    path: "./source/modules/footer/footer.styl",
+    content: `.footer
+	//
 `
   }
 ];

@@ -1,22 +1,36 @@
-include ../card-header/card-header
-include ../card-media/card-media
-include ../card-text/card-text
-include ../card-actions/card-actions
+include ../button/button
 
 mixin card(data)
-	.card&attributes(attributes)
-		if data.header
-			.card__header
-				+card-header(data.header)
-		
-		if data.media
-			.card__media
-				+card-media(data.media)
-			
-		if data.text
-			.card__text
-				+card-text(data.text)
-		
-		if data.actions
-			.card__actions
-				+card-actions()
+	-
+		const {
+			color,
+			size,
+			style,
+			baseClassName = "card"
+		} = attributes;
+
+		const otherAttrs = _.omit(
+			["color", "size", "style"],
+			attributes
+		);
+
+		const stringToArray = str => str
+			? str.split(" ").filter(v => v.length) 
+			: [];
+
+		const styles = stringToArray(style)
+			.map(s => `${baseClassName}_style_${s}`)
+
+		const classes = _.classNames(
+			[
+				baseClassName,
+				{
+					[`${baseClassName}_color_${color}`]: color,
+					[`${baseClassName}_size_${size}`]: size,
+				}
+			].concat(styles)
+		);
+	div(class=classes)&attributes(otherAttrs)
+		block
+
+

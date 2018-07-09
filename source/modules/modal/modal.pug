@@ -3,5 +3,5 @@ mixin modal()
 	- delete attributes.id
 	.modal.modal_animation_slide(id=id aria-hidden="true")&attributes(attributes)
 		.modal__overlay(tabindex="-1" data-micromodal-close)
-			.modal__container
+			.modal__container(data-micromodal-close)
 				block

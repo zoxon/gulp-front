@@ -1,0 +1,18 @@
+mixin form-section(data)
+	-
+		const {
+			title,
+			tag = "h3"
+		} = attributes;
+
+		const otherAttrs = _.omit(
+			["title"],
+			attributes
+		);
+
+	.form-section&attributes(otherAttrs)
+		if title
+			#{tag}.form-section__title= title
+		if block
+			.form-section__body
+				block

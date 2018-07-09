@@ -1,43 +1,8 @@
 include ../../button/button
 
-+button(
-	size="extra-extra-small"
-	style="solid rounded"
-	color="blue"
-) XXS
-
-+button(
-	size="extra-small"
-	style="solid rounded"
-	color="blue"
-) XS
-
-+button(
-	size="small"
-	style="solid rounded"
-	color="blue"
-) S
-
-+button(
-	size="medium"
-	style="solid rounded"
-	color="blue"
-) M
-
-+button(
-	size="large"
-	style="solid rounded"
-	color="blue"
-) L
-
-+button(
-	size="extra-large"
-	style="solid rounded"
-	color="blue"
-) XL
-
-+button(
-	size="extra-extra-large"
-	style="solid rounded"
-	color="blue"
-) XXL
+each size in ["small", "medium", "large", "xl", "xxl"]
+	+button(
+		size=size
+		style="solid rounded"
+		color="indigo"
+	)= size

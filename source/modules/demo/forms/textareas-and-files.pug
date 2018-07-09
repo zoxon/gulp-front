@@ -3,48 +3,49 @@ include ../../label/label
 include ../../textarea/textarea
 include ../../file/file
 
-+form-item().form__item
-	.form-item__label
-		+label(for="form-demo__textarea-inline") Inline Textarea
-	.form-item__control
-		+textarea(
-			id="form-demo__textarea-inline" 
-			name="form-demo__textarea-inline" 
-			placeholder="Enter message"
-		).textarea_style_default.textarea_inline
++form-item(
+	label="Inline Textarea"
+	for="form-demo__textarea-inline"
+).form__item
+	+textarea(
+		id="form-demo__textarea-inline" 
+		name="form-demo__textarea-inline" 
+		placeholder="Enter message"
+	)
 
 
-+form-item().form__item
-	.form-item__label
-		+label(for="form-demo__textarea-block") Full width Textarea
-	.form-item__control
-		+textarea(
-			id="form-demo__textarea-block" 
-			name="form-demo__textarea-block" 
-			placeholder="Enter message"
-		).textarea_style_default.textarea_inline
++form-item(
+	label="Full width Textarea"
+	for="form-demo__textarea-block"
+).form__item
+	+textarea(
+		id="form-demo__textarea-block" 
+		name="form-demo__textarea-block" 
+		placeholder="Enter message"
+		block
+	)
 
 
-+form-item().form__item
-	.form-item__label
-		+label(for="form-demo__file") File
-	.form-item__control
-		+file(
-			type="text" 
-			name="form-demo__file" 
-			id="form-demo__file" 
-			multiple
-		).file_style_default
++form-item(
+	label="File"
+	for="form-demo__file"
+).form__item
+	+file(
+		name="form-demo__file" 
+		id="form-demo__file" 
+		multiple
+	)
 
 
-+form-item().form__item
-	.form-item__label
-		+label(for="form-demo__file-compact") File compact style
-	.form-item__control
-		+file(
-			type="text" 
-			name="form-demo__file-compact" 
-			id="form-demo__file-compact" 
-			multiple
-		).file_style_default.file_style_compact
++form-item(
+	label="File compact style"
+	for="form-demo__file-compact"
+).form__item
+	+file(
+		type="text" 
+		name="form-demo__file-compact" 
+		id="form-demo__file-compact"
+		style="default compact"
+		multiple
+	)
 

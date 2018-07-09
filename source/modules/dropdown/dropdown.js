@@ -1,38 +1,40 @@
-import init from "@/modules/_utils/plugin-init";
+import Popper from "popper.js";
+import Plugin, { init } from "@/modules/_utils/Plugin";
 import { mapAttributes } from "@/modules/_utils/dom/attr";
 import { KEYCODES } from "@/modules/_utils/constants";
 import toArray from "@/modules/_utils/dom/toArray";
+import generateId from "@/modules/_utils/generateId";
+import { isDomNode } from "@/modules/_utils/is";
 
-class Dropdown {
-  constructor(element, options) {
-    this.element = element;
-    this.name = "dropdown";
-
-    this._defaults = {
+class Dropdown extends Plugin {
+  defaults() {
+    return {
       outerClickClose: true,
       menuClickClose: true,
       triggerSelector: `[data-dropdown-trigger]`,
       menuSelector: `[data-dropdown-menu]`,
       focusableElements: "*[tabindex], a[href]",
-      menuOpenAttribute: "data-dropdown-open"
-    };
+      menuOpenAttribute: "data-dropdown-open",
+      /**
+       * Position a dropdown menu relatively
+       * https://popper.js.org/popper-documentation.html#referenceObject
+       * self - dropdown wrapper
+       * parent - parent element
+       * HTMLElement - any element
+       */
+      reference: "self",
 
-    this.options = {
-      ...this._defaults,
-      ...options
+      // https://popper.js.org/popper-documentation.html#Popper.Defaults.placement
+      placement: "bottom"
     };
-
-    this.init();
   }
 
   init() {
-    this.buildCache();
     this.setA11yAttrs();
+    this.initPopper();
 
     if (this.isDisabled()) {
       this.setDisabledState();
-    } else {
-      this.bindEvents();
     }
   }
 
@@ -45,7 +47,7 @@ class Dropdown {
       this.dropMenu.querySelectorAll(focusableElements)
     );
     this.selected = 0;
-    this.triggerId = `${this.name}_trigger_this.options.count`;
+    this.triggerId = `_${generateId()}`;
   }
 
   bindEvents() {
@@ -174,6 +176,21 @@ class Dropdown {
     this.element.setAttribute("aria-disabled", true);
     this.trigger.setAttribute("disabled", true);
   }
+
+  initPopper() {
+    const { placement, reference } = this.options;
+    this.referenceElement = this.element;
+
+    if (reference === "parent") {
+      this.referenceElement = this.element.parentNode;
+    } else if (isDomNode(reference)) {
+      this.referenceElement = reference;
+    }
+
+    this.popper = new Popper(this.referenceElement, this.dropMenu, {
+      placement
+    });
+  }
 }
 
-export default init(Dropdown);
+export default init(Dropdown, "dropdown");

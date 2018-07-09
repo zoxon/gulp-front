@@ -1,3 +1,7 @@
+.scroll-locked
+	overflow hidden
+	touch-action none
+
 .modal
 	display none
 
@@ -11,7 +15,15 @@
 		display flex
 		justify-content center
 		align-items center
-		background rgba(0, 0, 0, 0.6)
+		background-color rgba(0, 0, 0, 0.5)
+		-webkit-tap-highlight-color transparent
+
+	&__container
+		display flex
+		justify-content center
+		align-items center
+		width 100%
+		height 100%
 
 	&.is-open
 		display block
@@ -19,24 +31,26 @@
 	&_animation_slide
 		display none
 
-	&_animation_slide.is-open
-		display block
+		&.is-open
+			display block
 
-	&_animation_slide[aria-hidden='false'] &__overlay
-		animation modal__fadeIn 0.3s cubic-bezier(0, 0, 0.2, 1)
+		&[aria-hidden="false"]
+			& ^[0]__overlay
+				animation modal__fadeIn 0.3s cubic-bezier(0, 0, 0.2, 1)
 
-	&_animation_slide[aria-hidden='false'] &__container
-		animation modal__slideIn 0.3s cubic-bezier(0, 0, 0.2, 1)
+			& ^[0]__container
+				animation modal__slideIn 0.3s cubic-bezier(0, 0, 0.2, 1)
 
-	&_animation_slide[aria-hidden='true'] &__overlay
-		animation modal__fadeOut 0.3s cubic-bezier(0, 0, 0.2, 1)
+		&[aria-hidden="true"]
+			& ^[0]__overlay
+				animation modal__fadeOut 0.3s cubic-bezier(0, 0, 0.2, 1)
 
-	&_animation_slide[aria-hidden='true'] &__container
-		animation modal__slideOut 0.3s cubic-bezier(0, 0, 0.2, 1)
+			& ^[0]__container
+				animation modal__slideOut 0.3s cubic-bezier(0, 0, 0.2, 1)
 
-	&_animation_slide &__container
-	&_animation_slide &__overlay
-		will-change transform
+		& ^[0]__container
+		& ^[0]__overlay
+			will-change transform
 
 @keyframes modal__fadeIn
 	from

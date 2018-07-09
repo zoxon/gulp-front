@@ -1,12 +1,38 @@
 mixin file(data)
-	- var baseClassName = 'file';
-	- var fileClasses = [baseClassName, `${baseClassName}_type_file` ]
+	-
+		let baseClassName = "file";
 
-	- attributes.type = "file"
+		const {
+			style = "default",
+			disabled: disabledAttr,
+			block: blockAttr,
+			class: className
+		} = attributes;
 
-	if attributes.class
-		- fileClasses.push(attributes.class)
-		- delete attributes.class
+		const otherAttrs = _.omit(
+			["color", "size", "style", "icon", "block", "class", "type"],
+			attributes
+		);
 
-	label(class=fileClasses for=attributes.id)
-		input&attributes(attributes).form-control.form-control_type_file.file__control
+		const stringToArray = str => str
+			? str.split(" ").filter(v => v.length) 
+			: [];
+
+		const styles = stringToArray(style)
+			.map(s => `${baseClassName}_style_${s}`)
+
+		const classes = _.classNames(
+			[
+				baseClassName,
+				blockAttr ? `${baseClassName}_block`: `${baseClassName}_inline`,
+				{
+					[`${baseClassName}_icon`]: icon,
+					[`${baseClassName}_color_${color}`]: color,
+					[`${baseClassName}_size_${size}`]: size,
+					[`${baseClassName}_disabled`]: disabledAttr,
+				}
+			].concat(styles, className)
+		);
+
+	label(class=classes for=attributes.id)
+		input(type="file")&attributes(otherAttrs).form-control.form-control_type_file.file__control

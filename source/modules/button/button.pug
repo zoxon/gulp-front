@@ -1,6 +1,5 @@
 mixin button()
 	-
-		let baseClassName = "button";
 		let buttonTag = "button";
 
 		const {
@@ -10,7 +9,8 @@ mixin button()
 			style,
 			icon,
 			block: blockAttr,
-			disabled: disabledAttr
+			disabled: disabledAttr,
+			baseClassName = "button"
 		} = attributes;
 
 		const otherAttrs = _.omit(

@@ -1,28 +1,22 @@
 include ../../accordion/accordion
-h4 Simple accordion
+h3 Disabled
 +accordion()
-	+accordion-item({"title": "Accordion item 1"})
-		<h4>Accordion item 1 content demo</h4>
+	+accordion-item(label="Accordion 1")
 		<p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
 
-	+accordion-item({"title": "Accordion item 2"})
-		<h4>Accordion item 2 content demo</h4>
+	+accordion-item(label="Accordion 2")
 		<p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
 
-	+accordion-item({"title": "Accordion item 3"})
-		<h4>Accordion item 3 content demo</h4>
+	+accordion-item(label="Disabled" disabled)
 		<p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
 
-h4 Accordion with open item
+h3 Expanded
 +accordion()
-	+accordion-item({"title": "Accordion item 1"})
-		<h4>Accordion item 1 content demo</h4>
+	+accordion-item(label="Accordion 1")
 		<p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
 
-	+accordion-item({"title": "Accordion item 2", "open": true})
-		<h4>Accordion item 2 content demo (open on page lodad)</h4>
+	+accordion-item(label="Expanded" expanded)
 		<p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
 
-	+accordion-item({"title": "Accordion item 3"})
-		<h4>Accordion item 3 content demo</h4>
+	+accordion-item(label="Accordion 3")
 		<p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>

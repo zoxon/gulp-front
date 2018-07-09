@@ -4,94 +4,108 @@ include ../../select/select
 
 
 -
-	var language = [
-		{"code": "ar_DZ", "label": "جزائري عربي"}, 
-		{"code": "ca_ES", "label": "Català"}, 
-		{"code": "cs_CZ", "label": "Čeština"}, 
-		{"code": "da_DK", "label": "Dansk"}, 
-		{"code": "de_DE", "label": "Deutsch"}, 
-		{"code": "el_GR", "label": "Ελληνικά"}, 
-		{"code": "en_GB", "label": "English (GB)"}, 
-		{"code": "en_US", "label": "English (US)"}, 
-		{"code": "es_ES", "label": "Español"}, 
-		{"code": "et_EE", "label": "Eesti"}, 
-		{"code": "fi_FI", "label": "Suomi"}, 
-		{"code": "fr_FR", "label": "Français"}, 
-		{"code": "gl_GZ", "label": "Galego (Galiza)"}, 
-		{"code": "he_IL", "label": "עברית"}, 
-		{"code": "hu_HU", "label": "Magyar"}, 
-		{"code": "id_ID", "label": "Bahasa Indonesia"}, 
-		{"code": "is_IS", "label": "Íslenska"}, 
-		{"code": "it_IT", "label": "Italiano"}, 
-		{"code": "ja_JP", "label": "日本語"}, 
-		{"code": "lv_LV", "label": "Latviešu"}, 
-		{"code": "nl_NL", "label": "Nederlands"}, 
-		{"code": "no_NO", "label": "Norsk"}, 
-		{"code": "pl_PL", "label": "Polski"}, 
-		{"code": "pt_PT", "label": "Português"}, 
-		{"code": "ro_RO", "label": "Română"}, 
-		{"code": "ru_RU", "label": "Русский"}, 
-		{"code": "sk_SK", "label": "Slovenčina"}, 
-		{"code": "sv_SE", "label": "Svenska"}, 
-		{"code": "th_TH", "label": "ไทย"}, 
-		{"code": "uk_UA", "label": "Українська"}, 
-		{"code": "vi_VN", "label": "Tiếng Việt"}, 
-		{"code": "zh_CN", "label": "中文(简体)"}, 
-		{"code": "zh_TW", "label": "中文(繁體)"}, 
-		{"code": "bg_BG", "label": "Български"}
+	var options = [
+		{ "value": "1", "label": "Option 1" },
+		{ "value": "2", "label": "Option 2" },
+		{ "value": "3", "label": "Option 3" },
+		{ "value": "selected", "label": "Selected option", "selected": true },
+		{ "value": "disabled", "label": "Disabled option", "disabled": true }
 	];
 
++form-item(
+	label="Inline select"
+	for="form-demo__select-inline"
+).form__item
+	+select(
+		id="form-demo__select-inline" 
+		name="form-demo__select-inline"
+		placeholder="Select language..."
+		options=[
+			{ "value": "1", "label": "Option 1" },
+			{ "value": "2", "label": "Option 2" },
+			{ "value": "3", "label": "Option 3" },
+			{ "value": "selected", "label": "Selected option" },
+			{ "value": "disabled", "label": "Disabled option", "disabled": true }
+		]
+	)
 
-+form-item().form__item
-	.form-item__label
-		+label(for="form-demo__select-inline") Inline select
-	.form-item__control
-		+select(
-			id="form-demo__select-inline" 
-			name="form-demo__select-inline"
-		).select_style_default.select_inline
-			option.select__placeholder Select language...
-			each option in language
-				option(value=option.code)= option.label
++form-item(
+	label="Option groups select"
+	for="form-demo__select-optgroup"
+).form__item
+	+select(
+		id="form-demo__select-optgroup" 
+		name="form-demo__select-optgroup"
+		placeholder="Select language..."
+		options=[
+			{ "value": "selected", "label": "Selected option" },
+			{ "value": "disabled", "label": "Disabled option", "disabled": true },
+			{ 
+				label: "Fruits",
+				options: [
+					{ "value": "1", "label": "Apple" },
+					{ "value": "2", "label": "Avocado" },
+					{ "value": "3", "label": "Banana" },
+					{ "value": "5", "label": "Lemon" },
+					{ "value": "6", "label": "Pear" },
+				] 
+			},
+			{ 
+				label: "Berries",
+				options: [
+					{ "value": "1", "label": "Cherries" },
+					{ "value": "2", "label": "Blueberry" },
+					{ "value": "3", "label": "Cranberry" },
+					{ "value": "4", "label": "Cherries" },
+					{ "value": "5", "label": "Strawberry" }
+				] 
+			},
+			{ 
+				label: "Vegetables",
+				options: [
+					{ "value": "1", "label": "Broccoli" },
+					{ "value": "2", "label": "Potato" },
+					{ "value": "3", "label": "Radish" },
+					{ "value": "4", "label": "Onion" },
+					{ "value": "5", "label": "Carrot" },
+				] 
+			}
+		]
+	)
 
 
-+form-item().form__item
-	.form-item__label
-		+label(for="form-demo__select-block") Full width select
-	.form-item__control
-		+select(
-			id="form-demo__select-block" 
-			name="form-demo__select-block"
-		).select_style_default.select_block
-			option.select__placeholder Select language...
-			each option in language
-				option(value=option.code)= option.label
++form-item(
+	label="Full width select"
+	for="form-demo__select-block"
+).form__item
+	+select(
+		id="form-demo__select-block" 
+		name="form-demo__select-block"
+		placeholder="Select language..."
+		options=options
+		block
+	)
 
++form-item(
+	label="Disabled select"
+	for="form-demo__select-disable"
+).form__item
+	+select(
+		id="form-demo__select-disable" 
+		name="form-demo__select-disable"
+		placeholder="Select language..."
+		options=options
+		disabled
+	)
 
-+form-item().form__item
-	.form-item__label
-		+label(for="form-demo__select-disable") Disabled select
-	.form-item__control
-		+select(
-			id="form-demo__select-disable" 
-			name="form-demo__select-disable" 
-			disabled
-		).select_style_default.select_inline
-			option.select__placeholder Select language...
-			each option in language
-				option(value=option.code)= option.label
-
-
-+form-item().form__item
-	.form-item__label
-		+label(for="form-demo__select-multiple") Multiple select
-	.form-item__control
-		+select(
-			id="form-demo__select-multiple" 
-			name="form-demo__select-multiple" 
-			size="10" 
-			multiple
-		).select_style_default.select_inline
-			option.select__placeholder Select language...
-			each option in language
-				option(value=option.code)= option.label
++form-item(
+	label="Multiple select"
+	for="form-demo__select-multiple"
+).form__item
+	+select(
+		id="form-demo__select-multiple" 
+		name="form-demo__select-multiple"
+		placeholder="Select language..."
+		options=options
+		multiple
+	)

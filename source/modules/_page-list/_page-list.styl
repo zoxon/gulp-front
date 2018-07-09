@@ -1,7 +1,7 @@
 body
-	background #fff
 	margin 0 !important
 	padding 0 !important
+	background #fff
 
 .page-list
 	padding 40px 55px
@@ -12,17 +12,17 @@ body
 		padding 0
 
 	&__title
-		font-family arial
-		font-size 30px
-		font-weight normal
 		margin 0
 		padding-bottom 20px
+		font-weight normal
+		font-size 30px
+		font-family arial
 
 	&__item
-		font-family arial
+		padding 0 0 10px
 		list-style none
-		padding 0 0 10px 0
 		font-size 14px
+		font-family arial
 
 	&__link
 		&
@@ -32,19 +32,18 @@ body
 			text-decoration underline
 
 		&:hover
-			text-decoration none
 			color #374EC5
+			text-decoration none
 
 	&__spacer
 	&__file-name
 		display inline-block
+		margin 0
+		padding-left 10px
 		color grey
+		font-style italic
 		font-size 12px
 		font-family georgia
-		font-style italic
-		padding-left 10px
-		margin 0
-
 
 @media screen and (max-width: 640px)
 	.page-list
@@ -63,4 +62,3 @@ body
 			&:visited
 				display block
 				padding 10px
-

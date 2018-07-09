@@ -31,12 +31,12 @@ Accordion(".accordion");
 Browsehappy(".browsehappy");
 Tabs(".tabs");
 ProgressBar(".progress-bar");
-Spoiler();
+Spoiler("[data-spoiler-target]");
 Offcanvas();
 File(".file");
 Dropdown(".dropdown");
 Code("pre.code");
-Table(".table");
+Table(".table_responsive");
 Header(".header");
 ScrollTop(".scroll-top");
 StarRating(".star-rating");
@@ -64,7 +64,7 @@ module.exports = {
   Tabs,
   ProgressBar,
   Spoiler,
-  Offcanvas,
+  // Offcanvas,
   File,
   Dropdown,
   Code,

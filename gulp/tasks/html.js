@@ -10,7 +10,7 @@ import getJsonData from "../util/getJsonData";
 import { plumberConfig, posthtmlConfig, htmlPrettifyConfig } from "../config";
 import data from "./data";
 
-export function pages() {
+export const pages = () => {
   const pugConfig = {
     locals: {
       ...getJsonData("./tmp/data.json"),
@@ -28,6 +28,6 @@ export function pages() {
     .pipe(posthtml(posthtmlConfig.plugins, posthtmlConfig.options))
     .pipe(prettify(htmlPrettifyConfig))
     .pipe(gulp.dest("dest"));
-}
+};
 
 export const html = gulp.series(data, pages);

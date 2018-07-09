@@ -1,4 +1,33 @@
 mixin badge(data)
-	.badge&attributes(attributes)
-		block
-		
+	-
+		const {
+			color,
+			size,
+			style,
+			baseClassName = "badge"
+		} = attributes;
+
+		const otherAttrs = _.omit(
+			["color", "size", "style"],
+			attributes
+		);
+
+		const stringToArray = str => str
+			? str.split(" ").filter(v => v.length) 
+			: [];
+
+		const styles = stringToArray(style)
+			.map(s => `${baseClassName}_style_${s}`)
+
+		const classes = _.classNames(
+			[
+				baseClassName,
+				{
+					[`${baseClassName}_color_${color}`]: color,
+					[`${baseClassName}_size_${size}`]: size,
+				}
+			].concat(styles)
+		);
+	div(class=classes)&attributes(otherAttrs)
+		div(class=`${baseClassName}__text`)
+			block

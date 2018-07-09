@@ -1,121 +1,135 @@
-@keyframes spinner_rotate
-	0%
-		transform rotate(0)
+@keyframes spinner_loader
 	100%
 		transform rotate(360deg)
 
-spinner-style1-color($color)
-	border 0.25em solid $color
-	border-right-color transparent
+@keyframes spinner_blink
+	0%
+		box-shadow inset 0 0 0 1px transparent
 
-spinner-style2-color($color)
-	border 0.25em solid rgba($color, 0.25)
-	border-top-color $color
+	20%
+		box-shadow inset 0 0 0 1em currentColor
+
+	100%
+		box-shadow inset 0 0 0 1px transparent
+
+@keyframes spinner_scale
+	0%
+		opacity 0
+		transform scale(0.1)
+
+	70%
+		opacity 1
+		transform scale(1)
+
+	100%
+		opacity 0
+		transform scale(0.1)
 
 .spinner
 	position relative
-	size 3em
-	border-radius 50%
-	animation spinner_rotate 1s linear infinite
 	display inline-block
+	overflow visible
+	box-sizing border-box
+	margin 0
+	padding 0
+	size em(24px)
+	background-color transparent
+	color inherit
+	text-transform none
+	font inherit
+	line-height 0
+	fill currentcolor
 
-	// style1
-	&_style_1&_color_gray
-		spinner-style1-color($gray-6)
+	&_style_loader
+		&::before
+			display block
+			box-sizing border-box
+			width 100%
+			height 100%
+			border-style solid
+			border-color currentColor
+			border-right-color transparent
+			border-radius 50%
+			content ""
+			animation spinner_loader 450ms linear infinite
+			will-change transform
 
-	&_style_1&_color_black
-		spinner-style1-color($gray-8)
+	&_style_blink
+		&::before
+			display block
+			box-sizing border-box
+			width 100%
+			height 100%
+			border none
+			border-radius 50%
+			content ""
+			animation spinner_blink 1.2s ease infinite
+			will-change box-shadow
 
-	&_style_1&_color_red
-		spinner-style1-color($red-6)
+	&_style_scale
+		position relative
+		border none
 
-	&_style_1&_color_pink
-		spinner-style1-color($pink-6)
+		&::before
+			position absolute
+			top 0
+			right 0
+			bottom 0
+			left 0
+			display block
+			box-sizing border-box
+			border-radius 50%
+			background-color currentColor
+			content ""
+			animation spinner_scale 1s ease infinite
+			will-change transform, opacity
 
-	&_style_1&_color_grape
-		spinner-style1-color($grape-6)
+	&_color_gray
+		color $gray-6
 
-	&_style_1&_color_violet
-		spinner-style1-color($violet-6)
+	&_color_black
+		color $gray-8
 
-	&_style_1&_color_indigo
-		spinner-style1-color($indigo-6)
+	&_color_red
+		color $red-6
 
-	&_style_1&_color_blue
-		spinner-style1-color($blue-6)
+	&_color_pink
+		color $pink-6
 
-	&_style_1&_color_cyan
-		spinner-style1-color($cyan-6)
+	&_color_grape
+		color $grape-6
 
-	&_style_1&_color_teal
-		spinner-style1-color($teal-6)
+	&_color_violet
+		color $violet-6
 
-	&_style_1&_color_green
-		spinner-style1-color($green-6)
+	&_color_indigo
+		color $indigo-6
 
-	&_style_1&_color_lime
-		spinner-style1-color($lime-6)
+	&_color_blue
+		color $blue-6
 
-	&_style_1&_color_yellow
-		spinner-style1-color($yellow-6)
+	&_color_cyan
+		color $cyan-6
 
-	&_style_1&_color_orange
-		spinner-style1-color($orange-6)
+	&_color_teal
+		color $teal-6
 
-	//style 2
-	&_style_2&_color_gray
-		spinner-style2-color($gray-6)
+	&_color_green
+		color $green-6
 
-	&_style_2&_color_black
-		spinner-style2-color($gray-8)
+	&_color_lime
+		color $lime-6
 
-	&_style_2&_color_red
-		spinner-style2-color($red-6)
+	&_color_yellow
+		color $yellow-6
 
-	&_style_2&_color_pink
-		spinner-style2-color($pink-6)
-
-	&_style_2&_color_grape
-		spinner-style2-color($grape-6)
-
-	&_style_2&_color_violet
-		spinner-style2-color($violet-6)
-
-	&_style_2&_color_indigo
-		spinner-style2-color($indigo-6)
-
-	&_style_2&_color_blue
-		spinner-style2-color($blue-6)
-
-	&_style_2&_color_cyan
-		spinner-style2-color($cyan-6)
-
-	&_style_2&_color_teal
-		spinner-style2-color($teal-6)
-
-	&_style_2&_color_green
-		spinner-style2-color($green-6)
-
-	&_style_2&_color_lime
-		spinner-style2-color($lime-6)
-
-	&_style_2&_color_yellow
-		spinner-style2-color($yellow-6)
-
-	&_style_2&_color_orange
-		spinner-style2-color($orange-6)
+	&_color_orange
+		color $orange-6
 
 	// sizes
-	&_size_extra-extra-small
-	&_size_xxs
-		font-size 25%
-
-	&_size_extra-small
-	&_size_xs
-		font-size 50%
-
 	&_size_small
 	&_size_s
+		border-width 2px
 		font-size 75%
 
 	&_size_medium
@@ -124,12 +138,12 @@ spinner-style2-color($color)
 
 	&_size_large
 	&_size_l
-		font-size 125%
+		font-size 150%
 
 	&_size_extra-large
 	&_size_xl
-		font-size 150%
+		font-size 175%
 
 	&_size_extra-extra-large
 	&_size_xxl
-		font-size 175%
+		font-size 200%

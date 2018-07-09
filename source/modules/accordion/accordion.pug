@@ -1,11 +1,73 @@
+- var baseClassName = "";
+
 mixin accordion(data)
-	.accordion&attributes(attributes)
+	-
+		const {
+			color,
+			size,
+			style = "default"
+		} = attributes;
+
+		baseClassName = attributes.baseClassName || "accordion";
+
+		const otherAttrs = _.omit(
+			["color", "size", "style", "baseClassName"],
+			attributes
+		);
+
+		const stringToArray = str => str
+			? str.split(" ").filter(v => v.length) 
+			: [];
+
+		const styles = stringToArray(style)
+			.map(s => `${baseClassName}_style_${s}`)
+
+		const classes = _.classNames(
+			[
+				baseClassName,
+				{
+					[`${baseClassName}_color_${color}`]: color,
+					[`${baseClassName}_size_${size}`]: size
+				}
+			].concat(styles)
+		);
+	div(class=classes)&attributes(otherAttrs)
 		block
 
 mixin accordion-item(data)
-	.accordion__item(
-		data-accordion-item!=`${data.open || false}`
+	-
+		const {
+			label,
+			expanded: isOpen = false,
+			disabled: isDisabled = false
+		} = attributes;
+
+		const otherAttrs = _.omit(
+			["expanded", "disabled", "label"],
+			attributes
+		);
+
+		const tabIndex = isDisabled ? "-1": "0"
+
+	div(
+		class=`${baseClassName}__item`
+		data-accordion-item
+		data-accordion-item-open=isOpen.toString()
+		aria-disabled=isDisabled ? "true" : false
 	)&attributes(attributes)
-		button(type="button" data-accordion-trigger).accordion__trigger= data.title
-		.accordion__pannel.content-wrapper
+		div(
+			class=`${baseClassName}__trigger`
+			role="button"
+			disabled=isDisabled
+			tabindex=tabIndex
+			aria-expanded=isOpen.toString()
+			data-accordion-trigger
+			block
+		)= label
+
+		div(
+			class=[`${baseClassName}__panel`, "content-wrapper"]
+			data-accordion-panel 
+			aria-hidden=`${!isOpen}`
+		)
 			block

@@ -1,13 +1,96 @@
+include ../button/button
+
+- let tabs = [];
+- var baseClassName = "";
+
+mixin tabs-item(data)
+	- var oldBuf = pug_html;
+	- pug_html = '';
+	block
+	-
+		data.block = pug_html;
+		tabs.push(data);
+		pug_html = oldBuf;
+
 mixin tabs(data)
-	.tabs(data-tabs-name=data.name)&attributes(attributes)
-		span(data-tabs-description).tabs__description.visuallyhidden Use left and right arrows to navigate between tabs.
+	-
+		tabs = [];
+		const {
+			name,
+			color,
+			size,
+			style = "default",
+			expanded = false,
+			aligin,
+		} = attributes;
 
-		.tabs__head
-			each tab in data.items
-				button.tabs__tab(type="button" data-tab-id=tab.name)= tab.title
+		baseClassName = attributes.baseClassName || "tabs";
 
-		.tabs__body
-			//- .tabs__panel(data-tabs-id=tab.name)
-			block
+		const otherAttrs = _.omit(
+			[
+				"color", 
+				"size", 
+				"style", 
+				"baseClassName", 
+				"name", 
+				"expanded", 
+				"aligin"
+			],
+			attributes
+		);
 
-			.tabs__preloader(data-tabs-preloader)
+		const stringToArray = str => str
+			? str.split(" ").filter(v => v.length) 
+			: [];
+
+		const styles = stringToArray(style)
+			.map(s => `${baseClassName}_style_${s}`)
+
+		const classes = _.classNames(
+			[
+				baseClassName,
+				{
+					[`${baseClassName}_color_${color}`]: color,
+					[`${baseClassName}_size_${size}`]: size,
+					[`${baseClassName}_aligin_${aligin}`]: aligin,
+					[`${baseClassName}_expanded`]: expanded
+				}
+			].concat(styles)
+		);
+
+	div(
+		class=classes
+		data-tabs-name=name
+	)&attributes(otherAttrs)
+		span(
+			class=[`${baseClassName}__description`, "visuallyhidden"]
+			data-tabs-description
+		) Use left and right arrows to navigate between tabs.
+
+		block
+
+		div(class=`${baseClassName}__header`)
+			each tab in tabs
+				+button(
+					icon=tab.icon || false
+					data-tab-id=tab.id
+					disabled=tab.disabled || false
+				).tabs__tab
+					if (tab.icon)
+						+icon(name=tab.icon)
+					span= tab.label
+
+		div(class=`${baseClassName}__body`)
+			each tab in tabs
+				div(
+					class=`${baseClassName}__panel` 
+					data-panel-id=tab.id
+				)
+					!= tab.block
+			
+			div(
+				class=`${baseClassName}__preloader`
+				data-tabs-preloader
+			)
+
+	

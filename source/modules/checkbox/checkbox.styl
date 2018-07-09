@@ -1,28 +1,20 @@
 .checkbox
 	position relative
-	cursor pointer
 	display inline-block
+	cursor pointer
 
 	&__box
-		display block
 		position absolute
-		left 0
 		top 0
+		left 0
+		display block
+
 		&:before
-			content ''
-			display block
-			transition 125ms all ease
 			position absolute
-			opacity 0
-			will-change opacity, transform
+			display block
+			content ""
 
 	&__control
-		//
-		&:focus ~ ^[0]__box
-			border-color $form-color-border_focus
-			outline none
-			focus($form-color-border_focus)
-
 		&:checked + ^[0]__box:before
 			opacity 1
 
@@ -30,68 +22,100 @@
 		&:disabled ~ ^[0]__label
 			opacity 0.5
 
-
 	&__label
 		user-select none
 
 	&_style_default
+		& ^[0]__control
+			&:focus ~ ^[0]__box
+				outline none
+				border-color $form-color-border_focus
+				background-color rgba($form-color-border_focus, 0.1)
+
 		& ^[0]__box
 			size 20px
 			border $form-border_default
 			transition 125ms border-color ease
+
 			&:before
 				top 5px
 				left 5px
 				size 7px 4px
-				transform rotate(-45deg)
 				border-width 0 0 3px 3px
 				border-style solid
 				border-color $form-color-active
+				opacity 0
+				transition 125ms all ease
+				transform rotate(-45deg)
+				will-change opacity, transform
 
 			&:disabled + ^[0]__box
 				background $form-color-background - 8%
 
 		& ^[0]__label
 			padding-left 32px
+
 			+below(1024px)
 				padding-top 10px
 				padding-bottom 10px
 
-	&_type_toggle-sw&_style_default
+	&_style_toggle-switch
 		min-width 42px
 		min-height 22px
+		$box-height = ($form-size-input-height / 2) - 2
+		$toggle-width = ($form-size-input-height / 2)
+		$toggle-width-active = ($form-size-input-height / 2) - 10px
+		$toggle-height = ($form-size-input-height / 2) + 2
+
 		& ^[0]__box
 			width $form-size-input-height
-			height ($form-size-input-height / 2)
-			background-color #dddddd
-			border-radius 50px
+			height $box-height
+			border-width 1px
+			border-style solid
+			border-color $gray-4
+			border-radius 50em
+			background-color #ddd
 			transition 125ms all ease-in-out
-			&:before
+
+			&::before
+				top -2px
+				right $toggle-width
+				left -2px
 				display block
-				top 1px
-				left 1px
-				bottom 1px
-				size 18px
-				transform none
-				border none
+				margin-left 0
+				height $toggle-height
+				border-radius 50em
 				background $form-color-background
 				box-shadow 0 2px 5px rgba(#000, 0.3)
-				border-radius 50%
-				margin-left 0
-				opacity 1
+				transition 125ms all ease-in-out
 
 		& ^[0]__control
-			&:checked + ^[0]__box
-				background-color $form-color-active
-				border-color $form-color-active
+			&:focus ~ ^[0]__box
+				outline none
+				border-color $form-color-border_focus
 
-			&:checked + ^[0]__box:before
-				transform none
-				margin-left 50%
+				&::after
+					border 1px solid $form-color-border_focus
+
+			&:active ~ ^[0]__box
+				&::before
+					right $toggle-width-active
+
+			&:checked + ^[0]__box
+				border-color $form-color-active
+				background-color $form-color-active
+
+				&::before
+					right -2px
+					left $toggle-width
+
+			&:checked:active + ^[0]__box
+				&::before
+					left $toggle-width-active
 
 			&:disabled + ^[0]__box
-				background $form-color-background - 8%
 				border-color $form-color-border
+				background $form-color-background - 8%
 
 		& ^[0]__label
 			padding-left 52px

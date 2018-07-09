@@ -1,40 +1,23 @@
-import init from "@/modules/_utils/plugin-init";
+import Plugin, { init } from "@/modules/_utils/Plugin";
 import getSiblings from "@/modules/_utils/dom/getSiblings";
 import simulate from "@/modules/_utils/event/simulate";
 import { mapAttributes } from "@/modules/_utils/dom/attr";
 import { KEYCODES } from "@/modules/_utils/constants";
 import toArray from "@/modules/_utils/dom/toArray";
+import generateId from "@/modules/_utils/generateId";
 
-let instances = 0;
-
-class Tabs {
-  constructor(element, options) {
-    this.element = element;
-    this.name = "tabs";
-    this.count = instances++;
-
-    this._defaults = {
-      activeTabClassName: "tabs__tab_active",
-      activePanelClassName: "tabs__panel_active",
+class Tabs extends Plugin {
+  defaults() {
+    return {
       descriptionSelector: "[data-tabs-description]",
       preloaderSelector: "[data-tabs-preloader]",
       tabsIdAttrName: "data-tab-id",
       panelsIdAttrName: "data-panel-id",
       tabsNameAttrName: "data-tabs-name"
     };
-
-    this.options = {
-      ...this._defaults,
-      ...options
-    };
-
-    this.init();
   }
 
   init() {
-    this.buildCache();
-    this.bindEvents();
-
     this.setA11yAttrs();
 
     this.hidePreloader();
@@ -59,12 +42,11 @@ class Tabs {
     this.panels = toArray(
       this.element.querySelectorAll(`[${panelsIdAttrName}]`)
     );
-    this.panelId = this.name + "__panel_index-" + this.count;
+    this.panelId = `_${generateId()}`;
     this.preloader = this.element.querySelector(preloaderSelector);
     this.description = this.element.querySelector(descriptionSelector);
-    this.descId =
-      this.name + "__description_index-" + Math.ceil(Math.random() * 1000);
-    this.triggerId = this.name + "__trigger_index-" + this.count;
+    this.descId = `_${generateId()}`;
+    this.triggerId = `_${generateId()}`;
     this.selected = 0;
   }
 
@@ -84,7 +66,7 @@ class Tabs {
         tab.addEventListener(eventName, event => {
           event.preventDefault();
 
-          let id = event.target.getAttribute(this.options.tabsIdAttrName);
+          let id = tab.getAttribute(this.options.tabsIdAttrName);
           plugin.open(plugin.tabsName, id);
 
           window.location.hash = plugin.tabsName + "__" + id;
@@ -100,13 +82,7 @@ class Tabs {
   }
 
   open(tabsName, id) {
-    const {
-      tabsNameAttrName,
-      tabsIdAttrName,
-      panelsIdAttrName,
-      activeTabClassName,
-      activePanelClassName
-    } = this.options;
+    const { tabsNameAttrName, tabsIdAttrName, panelsIdAttrName } = this.options;
 
     const tabsContainer = document.querySelector(
       `[${tabsNameAttrName}="${tabsName}"]`
@@ -122,7 +98,6 @@ class Tabs {
       tabindex: "0",
       "aria-selected": "true"
     });
-    targetTab.classList.add(activeTabClassName);
 
     const targetTabSiblings = toArray(getSiblings(targetTab));
     targetTabSiblings.forEach(tab => {
@@ -130,16 +105,13 @@ class Tabs {
         tabindex: "-1",
         "aria-selected": "false"
       });
-      tab.classList.remove(activeTabClassName);
     });
 
     targetPanel.setAttribute("aria-hidden", "false");
-    targetPanel.classList.add(activePanelClassName);
 
     const targetPanelSiblings = toArray(getSiblings(targetPanel));
     targetPanelSiblings.forEach(panel => {
       panel.setAttribute("aria-hidden", "true");
-      panel.classList.remove(activePanelClassName);
     });
 
     simulate("change", window);
@@ -259,4 +231,4 @@ class Tabs {
   }
 }
 
-export default init(Tabs);
+export default init(Tabs, "tabs");

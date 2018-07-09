@@ -1,24 +1,15 @@
-import init from "@/modules/_utils/plugin-init";
+import Plugin, { init } from "@/modules/_utils/Plugin";
 import { createElement } from "@/modules/_utils/dom/createElement";
 
-class ProgressBar {
-  constructor(element, options) {
-    this._defaults = {
+class ProgressBar extends Plugin {
+  defaults() {
+    return {
       valueAttribute: "data-progress-value",
       barClassName: "progress-bar__bar"
     };
-
-    this.element = element;
-    this.options = {
-      ...this._defaults,
-      ...options
-    };
-
-    this.init();
   }
 
   init() {
-    this.buildCache();
     this.setBarWidth();
   }
 
@@ -38,4 +29,4 @@ class ProgressBar {
   }
 }
 
-export default init(ProgressBar);
+export default init(ProgressBar, "progress-bar");

@@ -2,6 +2,7 @@
 	from
 		left -3%
 		width 5%
+
 	to
 		left 130%
 		width 100%
@@ -10,12 +11,14 @@
 	from
 		left -80%
 		width 80%
+
 	to
 		left 110%
 		width 10%
 
 progress-bar-style(background-color, progress-bar-color)
 	background-color background-color
+
 	& ^[0]__bar
 		background-color progress-bar-color
 
@@ -25,14 +28,15 @@ progress-bar-style(background-color, progress-bar-color)
 			background-color progress-bar-color
 
 .progress-bar
-	overflow hidden
 	position relative
+	overflow hidden
+
 	&__bar
-		height 6px
 		position relative
 		width 0
-		will-change width
+		height 6px
 		transition 500ms width ease
+		will-change width
 
 	&_indeterminate
 		& ^[0]__bar
@@ -41,13 +45,13 @@ progress-bar-style(background-color, progress-bar-color)
 
 		&:before
 		&:after
-			content ''
-			display block
 			position absolute
 			right 0
 			bottom 0
-			height 100%
+			display block
 			width 0
+			height 100%
+			content ""
 			will-change width, left
 
 		&:before
@@ -139,4 +143,3 @@ progress-bar-style(background-color, progress-bar-color)
 			background-color: $orange-3,
 			progress-bar-color: $orange-6
 		)
-

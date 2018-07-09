@@ -1,4 +1,4 @@
 mixin dropdown-list(data)
 	ul.dropdown-list&attributes(attributes)
-		each item in data.list
-			li(tabindex="0").dropdown-list__item= item.title
+		each item in data
+			li.dropdown-list__item(tabindex="0" data-value=item.value)= item.label

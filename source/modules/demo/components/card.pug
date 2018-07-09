@@ -1,86 +1,178 @@
 include ../../card/card
 
+-
+	const capitalize = str => str.replace(/^\w/, c => c.toUpperCase());
+
+mixin card__image()
+	img(
+		sizes="(max-width: 767px) 100vw, (max-width: 532px) 500px, (max-height: 509px) 500px, (min-aspect-ratio: 4272/2848) calc((calc(100vh - 175px)) * 1.5), calc(100vw - 32px)" srcset="https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80 750w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80 1050w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=1350&amp;q=80 1350w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=1500&amp;q=80 1500w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=1650&amp;q=80 1650w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80 1950w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=2100&amp;q=80 2100w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=2250&amp;q=80 2250w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=2550&amp;q=80 2550w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=2700&amp;q=80 2700w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=2850&amp;q=80 2850w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=3150&amp;q=80 3150w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=3300&amp;q=80 3300w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=3450&amp;q=80 3450w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=3750&amp;q=80 3750w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=3900&amp;q=80 3900w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=4050&amp;q=80 4050w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=4272&amp;q=80 4272w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=4500&amp;q=80 4500w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=5100&amp;q=80 5100w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=5700&amp;q=80 5700w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=6300&amp;q=80 6300w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=6900&amp;q=80 6900w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=7500&amp;q=80 7500w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=8100&amp;q=80 8100w, https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;auto=format&amp;fit=crop&amp;w=8544&amp;q=80 8544w" src="https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=45794ade3c7f84926bf1c1025105a875&amp;dpr=1&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80&amp;cs=tinysrgb" alt="A person flipping through an interior design book. (Author: Sarah Dorweiler)"
+	)
+
+h3 Colors
 .card-demo
-	+card({
-		text: {
-			title: "Text only card example",
-			subtitle: "Tex block subtitle",
-			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
-		}
-	})
+	- var colors = ["white", "gray", "black", "red", "pink", "grape", "violet", "indigo", "blue", "cyan", "teal", "green", "lime", "yellow", "orange" ];
+	each color in colors
+		+card(color=color size="medium" style="hover")
+			.card__body
+				h1.card__title= capitalize(color)
+				.card__text
+					p Lorem ipsum 
+						a(href="#") dolor
+						|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
-	+card({
-		header: {
-			image: "assets/images/card__user.jpg",
-			title: "Taylor Price",
-			subtitle: "Consectetur adipisicing elit"
-		},
-		text: {
-			title: "Header and text card example",
-			subtitle: "Tex block subtitle",
-			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
-		}
-	})
+h3 Hover
+.card-demo
+	- var colors = [ "white", "black", "indigo"];
+	each color in colors
+		+card(color=color size="medium" style="hover")
+			.card__body
+				h1.card__title= capitalize(color)
+				.card__text
+					p Lorem ipsum 
+						a(href="#") dolor
+						|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
-	+card({
-		text: {
-			title: "Text and actions card example",
-			subtitle: "Tex block subtitle",
-			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
-		},
-		actions: true
-	})
+h3 Scale
+.card-demo
+	- var colors = [ "white", "black", "indigo"];
+	each color in colors
+		+card(color=color size="medium" style="hover scale")
+			.card__body
+				h1.card__title= capitalize(color)
+				.card__text
+					p Lorem ipsum 
+						a(href="#") dolor
+						|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
-	+card({
-		media: {
-			image: "assets/images/card__media.jpg",
-			title: "Lorem ipsum dolor, sit amet consectetur adipisicing elit",
-			subtitle: "Author: Tyler Lastovich"
-		}
-	})
+h3 Link
+.card-demo
+	- var colors = [ "white", "black", "indigo"];
+	each color in colors
+		+card(color=color size="medium" style="hover")
+			a(href="#").card__link
+				span.visuallyhidden= capitalize(color)
+			.card__body
+				h1.card__title= capitalize(color)
+				.card__text
+					p Lorem ipsum 
+						a(href="#") dolor
+						|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
-	+card({
-		media: {
-			image: "assets/images/card__media.jpg"
-		},
-		text: {
-			title: "Image and text card example",
-			subtitle: "Tex block subtitle",
-			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
-		},
-	})
+h3 Sizes
+.card-demo
+	- var sizes = ["small", "medium", "large"];
+	each size in sizes
+		+card(color="white" size=size style="hover")
+			.card__body
+				h1.card__title= capitalize(size)
+				.card__text
+					p Lorem ipsum 
+						a(href="#") dolor
+						|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
-	+card({
-		header: {
-			image: "assets/images/card__user.jpg",
-			title: "Taylor Price",
-			subtitle: "Consectetur adipisicing elit"
-		},
-		media: {
-			image: "assets/images/card__media.jpg"
-		},
-		text: {
-			title: "Image, text and header card example",
-			subtitle: "Tex block subtitle",
-			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
-		},
-	})
 
-	+card({
-		header: {
-			image: "assets/images/card__user.jpg",
-			title: "Taylor Price",
-			subtitle: "Consectetur adipisicing elit"
-		},
-		media: {
-			image: "assets/images/card__media.jpg",
-			title: "Lorem ipsum dolor, sit amet consectetur adipisicing elit",
-			subtitle: "Author: Tyler Lastovich"
-		},
-		text: {
-			title: "Dignissimos nobis quia itaque ea hic",
-			subtitle: "Alias quod consequuntur",
-			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor adipisci cum veritatis, atque neque possimus nesciunt similique numquam earum soluta! Repellendus architecto quod illo animi reprehenderit cum vel est"
-		},
-		actions: true
-	})
+h3 Media
+.card-demo
+	+card(color="white" size="medium" style="hover")
+		.card__media
+			+card__image()
+		.card__body
+			h1.card__title Media top
+			.card__text
+				p Lorem ipsum 
+					a(href="#") dolor
+					|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+	
+	+card(color="white" size="medium" style="hover")
+		.card__body
+			h1.card__title Media bottom
+			.card__text
+				p Lorem ipsum 
+					a(href="#") dolor
+					|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		.card__media
+			+card__image()
+
+	+card(color="white" size="medium" style="hover")
+		.card__media
+			+card__image()
+
+h3 Header and footer
+.card-demo
+	+card(color="white" size="medium" style="hover")
+		.card__header
+			h1.card__title.margin-bottom_none Header and body
+			.card__meta Header subtitle
+
+		.card__body
+			.card__text
+				p Lorem ipsum 
+					a(href="#") dolor
+					|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		
+
+	+card(color="white" size="medium" style="hover")
+		.card__body
+			h1.card__title Footer and body
+			.card__text
+				p Lorem ipsum 
+					a(href="#") dolor
+					|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		
+		.card__footer
+			+button(style="text rounded" color="indigo").card-actions__button Read more
+
+	
+	+card(color="white" size="medium" style="hover")
+		.card__header
+			h1.card__title.margin-bottom_none Header title
+			.card__meta Header and footer
+
+		.card__body
+			.card__text
+				p Lorem ipsum 
+					a(href="#") dolor
+					|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		
+		.card__footer
+			+button(style="text rounded" color="indigo").card-actions__button Read more
+
+h3 Bordered
+.card-demo
+	+card(color="white" size="medium" style="hover bordered")
+		.card__header
+			h1.card__title.margin-bottom_none Header and body
+			.card__meta Header subtitle
+
+		.card__body
+			.card__text
+				p Lorem ipsum 
+					a(href="#") dolor
+					|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		
+
+	+card(color="white" size="medium" style="hover bordered")
+		.card__body
+			h1.card__title Footer and body
+			.card__text
+				p Lorem ipsum 
+					a(href="#") dolor
+					|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		
+		.card__footer
+			+button(style="text rounded" color="indigo").card-actions__button Read more
+
+	
+	+card(color="white" size="medium" style="hover bordered")
+		.card__header
+			h1.card__title.margin-bottom_none Header title
+			.card__meta Header and footer
+
+		.card__body
+			.card__text
+				p Lorem ipsum 
+					a(href="#") dolor
+					|  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		
+		.card__footer
+			+button(style="text rounded" color="indigo").card-actions__button Read more

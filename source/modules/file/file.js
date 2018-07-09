@@ -1,12 +1,9 @@
-import init from "@/modules/_utils/plugin-init";
+import Plugin, { init } from "@/modules/_utils/Plugin";
 import { createElement } from "@/modules/_utils/dom/createElement";
 
-class File {
-  constructor(element, options) {
-    this.element = element;
-    this.name = "file";
-
-    this._defaults = {
+class File extends Plugin {
+  defaults() {
+    return {
       language: "en",
       messages: {
         ru: {
@@ -25,21 +22,9 @@ class File {
       buttonClassName: "file__button",
       labelClassName: "file__label"
     };
-
-    this.options = {
-      ...this._defaults,
-      ...options
-    };
-
-    this.messages = this.options.messages[this.options.language];
-
-    this.init();
   }
 
   init() {
-    this.buildCache();
-    this.bindEvents();
-
     this.element.classList.add(this.options.initedClassName);
     this.renderElements();
   }
@@ -47,6 +32,7 @@ class File {
   buildCache() {
     const { buttonClassName, labelClassName } = this.options;
 
+    this.messages = this.options.messages[this.options.language];
     this.control = this.element.querySelector('input[type="file"]');
     this.button = createElement(
       "span",
@@ -89,4 +75,4 @@ class File {
   }
 }
 
-export default init(File);
+export default init(File, "file");

@@ -2,12 +2,13 @@
 	counter-reset line
 
 	&__line
-		counter-increment line
 		position relative
 		padding-left 2em
+		counter-increment line
+
 		&::before
 			position absolute
 			left 0
-			content counter(line) ". "
 			color #999
+			content counter(line) ". "
 			user-select none

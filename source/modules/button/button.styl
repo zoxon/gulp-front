@@ -75,6 +75,7 @@ button-style(color = false, color-hover = false, background-color = false, backg
 
 	&_disabled
 	&[disabled]
+	a&_disabled
 		&
 		&:hover
 		&:focus
@@ -82,9 +83,7 @@ button-style(color = false, color-hover = false, background-color = false, backg
 			outline none
 			box-shadow none
 			opacity 0.65
-
-	a&_disabled
-		pointer-events none
+			pointer-events none
 
 	// - Block button
 	&_block
@@ -93,7 +92,8 @@ button-style(color = false, color-hover = false, background-color = false, backg
 
 	&_icon
 		display inline-flex
-		align-items center
+		justify-content center
+		text-align center
 
 		svg
 			max-width 100%
@@ -106,12 +106,17 @@ button-style(color = false, color-hover = false, background-color = false, backg
 
 		svg
 		img
+		.spinner
+			max-width 1em
+			max-height 1em
+
 			+ span
 				margin-left 0.5em
 
 		span
 			+ svg
 			+ img
+			+ .spinner
 				margin-left 0.5em
 
 // -//////////////////////////////////////////////////////////
@@ -120,14 +125,6 @@ button-style(color = false, color-hover = false, background-color = false, backg
 .button
 	padding 0.8em 1em
 	line-height 1
-
-	&_size_extra-extra-small
-	&_size_xxs
-		font-size 25%
-
-	&_size_extra-small
-	&_size_xs
-		font-size 50%
 
 	&_size_small
 	&_size_s
@@ -155,11 +152,11 @@ button-style(color = false, color-hover = false, background-color = false, backg
 
 // Rounded
 .button_style_rounded
-	border-radius 2px
+	border-radius 3px
 
 // Pill
 .button_style_pill
-	border-radius 100px
+	border-radius 50em
 
 // Solid
 .button_style_solid.button_color_gray
@@ -178,7 +175,6 @@ button-style(color = false, color-hover = false, background-color = false, backg
 
 .button_style_solid.button_color_red
 	button-style(
-		,
 		color: #fff,
 		background-color: $red-6,
 		background-color-hover: $red-5
@@ -186,7 +182,6 @@ button-style(color = false, color-hover = false, background-color = false, backg
 
 .button_style_solid.button_color_pink
 	button-style(
-		,
 		color: #fff,
 		background-color: $pink-6,
 		background-color-hover: $pink-5
@@ -442,7 +437,6 @@ button-style(color = false, color-hover = false, background-color = false, backg
 
 .button_style_gradient.button_color_red
 	button-style(
-		,
 		color: #fff,
 		background-color: $red-6,
 		background-color-hover: $red-5
@@ -450,7 +444,6 @@ button-style(color = false, color-hover = false, background-color = false, backg
 
 .button_style_gradient.button_color_pink
 	button-style(
-		,
 		color: #fff,
 		background-color: $pink-6,
 		background-color-hover: $pink-5
@@ -524,4 +517,91 @@ button-style(color = false, color-hover = false, background-color = false, backg
 		color: #fff,
 		background-color: $orange-6,
 		background-color-hover: $orange-5
+	)
+
+// Solid
+$text-button-hover-alpha = 0.2
+
+.button_style_text.button_color_gray
+	button-style(
+		color: $gray-2,
+		background-color-hover: rgba($gray-2, $text-button-hover-alpha)
+	)
+
+.button_style_text.button_color_black
+	button-style(
+		color: $gray-9,
+		background-color-hover: rgba($gray-9, $text-button-hover-alpha)
+	)
+
+.button_style_text.button_color_red
+	button-style(
+		color: $red-6,
+		background-color-hover: rgba($red-6, $text-button-hover-alpha)
+	)
+
+.button_style_text.button_color_pink
+	button-style(
+		color: $pink-6,
+		background-color-hover: rgba($pink-6, $text-button-hover-alpha)
+	)
+
+.button_style_text.button_color_grape
+	button-style(
+		color: $grape-6,
+		background-color-hover: rgba($grape-6, $text-button-hover-alpha)
+	)
+
+.button_style_text.button_color_violet
+	button-style(
+		color: $violet-6,
+		background-color-hover: rgba($violet-6, $text-button-hover-alpha)
+	)
+
+.button_style_text.button_color_indigo
+	button-style(
+		color: $indigo-6,
+		background-color-hover: rgba($indigo-6, $text-button-hover-alpha)
+	)
+
+.button_style_text.button_color_blue
+	button-style(
+		color: $blue-6,
+		background-color-hover: rgba($blue-6, $text-button-hover-alpha)
+	)
+
+.button_style_text.button_color_cyan
+	button-style(
+		color: $cyan-6,
+		background-color-hover: rgba($cyan-6, $text-button-hover-alpha)
+	)
+
+.button_style_text.button_color_teal
+	button-style(
+		color: $teal-6,
+		background-color-hover: rgba($teal-6, $text-button-hover-alpha)
+	)
+
+.button_style_text.button_color_green
+	button-style(
+		color: $green-6,
+		background-color-hover: rgba($green-6, $text-button-hover-alpha)
+	)
+
+.button_style_text.button_color_lime
+	button-style(
+		color: $lime-6,
+		background-color-hover: rgba($lime-6, $text-button-hover-alpha)
+	)
+
+.button_style_text.button_color_yellow
+	button-style(
+		color: $yellow-6,
+		background-color-hover: rgba($yellow-6, $text-button-hover-alpha)
+	)
+
+.button_style_text.button_color_orange
+	button-style(
+		color: $orange-6,
+		background-color-hover: rgba($orange-6, $text-button-hover-alpha)
 	)
