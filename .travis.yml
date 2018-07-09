@@ -5,12 +5,9 @@ node_js:
   - "6"
 cache:
   yarn: true
-before_install: yarn global add greenkeeper-lockfile@1
 before_script:
   - yarn install
-  - greenkeeper-lockfile-update
 script: npm run build
-after_script: greenkeeper-lockfile-upload
 
 # notifications:
 #   email:
