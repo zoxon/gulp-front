@@ -24,6 +24,7 @@ import Demo from "@/modules/demo/demo";
 import MainMenu from "@/modules/main-menu/main-menu";
 import Tooltip from "@/modules/tooltip/tooltip";
 import Modal from "@/modules/modal/modal";
+import NetworkStatus from "@/modules/network-status/network-status";
 
 // Factories class based plugins
 Alert(".alert");
@@ -41,6 +42,7 @@ Header(".header");
 ScrollTop(".scroll-top");
 StarRating(".star-rating");
 InputPassword(".input_type_password");
+NetworkStatus();
 
 // Simple functional plugins
 Demo();
