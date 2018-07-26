@@ -7,136 +7,177 @@
         submenu:
           -
             title: Titles & Paragraphs
-            url: titles-and-paragraphs
+            hash: titles-and-paragraphs
           -
             title: Lists
-            url: lists
+            hash: lists
           -
             title: Quotes
-            url: quotes
+            hash: quotes
           -
             title: Description lists
-            url: description-lists
+            hash: description-lists
           -
             title: Code
-            url: code
+            hash: code
           -
             title: Tables
-            url: tables
+            hash: tables
           -
             title: Text level elements
-            url: text-elements
+            hash: text-elements
       -
         title: Forms
         url: forms
         submenu:
           -
             title: Messaging
-            url: messaging
+            hash: messaging
           -
             title: Text Inputs
-            url: text-inputs
+            hash: text-inputs
           -
             title: Radios and Checkboxes
-            url: radios-and-checkboxes
+            hash: radios-and-checkboxes
           -
             title: Input range
-            url: input-range
+            hash: input-range
           -
             title: Selects
-            url: selects
+            hash: selects
           -
             title: Textareas and Files
-            url: textareas-and-files
+            hash: textareas-and-files
           -
             title: Captcha
-            url: captcha
+            hash: captcha
       -
         title: Buttons
         url: buttons
         submenu:
           -
             title: Styles
-            url: buttons-styles
+            hash: buttons-styles
           -
             title: Sizes
-            url: buttons-sizes
+            hash: buttons-sizes
           -
             title: Icon buttons
-            url: buttons-icon
+            hash: buttons-icon
           -
             title: Tags types
-            url: buttons-tags
+            hash: buttons-tags
           -
             title: Disabled buttons
-            url: buttons-disabled
+            hash: buttons-disabled
           -
             title: Block buttons
-            url: buttons-block
+            hash: buttons-block
           -
             title: Buttons group
-            url: buttons-group
+            hash: buttons-group
       -
         title: Components
         url: components
         submenu:
           -
             title: Breadcrumbs
-            url: breadcrumbs
+            hash: breadcrumbs
           -
             title: Pagination
-            url: pagination
+            hash: pagination
           -
             title: Badges
-            url: badges
+            hash: badges
           -
             title: Progress Bar
-            url: progress-bar
+            hash: progress-bar
           -
             title: Star raiting
-            url: star-rating
+            hash: star-rating
           -
             title: Responsive video
-            url: embed
+            hash: embed
           -
             title: Social icons
-            url: social-icons
+            hash: social-icons
           -
             title: Tabs
-            url: tabs
+            hash: tabs
           -
             title: Modal windows
-            url: modals
+            hash: modals
           -
             title: Accordion
-            url: accordion
+            hash: accordion
           -
             title: Dropdown
-            url: dropdown
+            hash: dropdown
           -
             title: Spoiler
-            url: spoiler
+            hash: spoiler
           -
             title: Tooltips
-            url: tooltips
+            hash: tooltips
           -
             title: Notifications
-            url: notifications
+            hash: notifications
           -
             title: Svg Icons
-            url: svg-icons
+            hash: svg-icons
           -
             title: Avatars
-            url: avatars
+            hash: avatars
           -
             title: Media object
-            url: media-object
+            hash: media-object
           -
             title: Spinner
-            url: spinner
+            hash: spinner
           -
             title: Card
-            url: card
+            hash: card
       -
         title: Documentation
         url: docs
+        submenu:
+          -
+            title: FAQ
+            url: faq
+          -
+            title: Quickstart
+            hash: quickstart
+          -
+            title: Development
+            hash: development
+          -
+            title: Building and Deploying
+            hash: building-and-deploying
+          -
+            title: Structure
+            hash: structure
+          -
+            title: CSS
+            hash: css
+          -
+            title: HTML
+            hash: html
+          -
+            title: JavaScript
+            hash: javascript
+          -
+            title: PNG Sprites
+            hash: png-sprites
+          -
+            title: SVG Symbol Sprites
+            hash: svg-symbol-sprites
+          -
+            title: DATA
+            hash: data
+          -
+            title: Command Line Commands
+            hash: command-line-commands
+          -
+            title: License
+            hash: license
+
