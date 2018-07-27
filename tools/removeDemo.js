@@ -11,7 +11,6 @@ const PATHS_TO_REMOVE = [
   // pages and layouts
   "./source/pages/*",
   "./source/layouts/home.pug",
-  "./source/layouts/page.pug",
 
   // modules
   "./source/modules/demo",
@@ -29,10 +28,10 @@ const PATHS_TO_REMOVE = [
   "./source/static/assets/favicons/*",
   "./source/static/assets/fonts/*",
   "./source/static/assets/images/*",
-  "./source/static/assets/images/content/*"
+  "./source/static/assets/images/content/*",
 
   // this file
-  // "/tools/removeDemo.js"
+  "./tools/removeDemo.js"
 ];
 
 /* eslint-disable no-console */
