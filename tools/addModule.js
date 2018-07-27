@@ -2,6 +2,7 @@ import path from "path";
 import fs from "fs";
 import mkdirp from "mkdirp";
 import changeCase from "change-case";
+import colors from "colors";
 
 // Settings
 const TEMPLATES_DIR = path.join(process.cwd(), "tools/_templates");
@@ -9,6 +10,18 @@ const MODULES_DIR = path.join(process.cwd(), "source/modules");
 const DEFAULT_EXTENSIONS = ["pug", "styl"];
 
 // Utils
+/* eslint-disable no-console */
+function showError(title, err) {
+  const errTitle = colors.red(`[${title.toUpperCase()}]`);
+  return console.error(`${errTitle}:\n ${err}`);
+}
+
+function showMessage(title, message) {
+  const messageTitle = colors.green(`[${title.toUpperCase()}]`);
+  return console.log(`${messageTitle}: ${message}`);
+}
+/* eslint-enable no-console */
+
 function uniqueArray(arr) {
   let obj = {};
 
@@ -23,9 +36,9 @@ function uniqueArray(arr) {
 function createFile(path, content) {
   try {
     fs.writeFileSync(path, content, "utf8");
-    console.log("Файл создан: " + path);
-  } catch (error) {
-    return console.log("Файл НЕ создан: " + error);
+    showMessage("File created", path);
+  } catch (err) {
+    showError("File not created", err);
   }
 }
 
@@ -41,11 +54,9 @@ if (blockName) {
   // создаем
   mkdirp(dirPath, function(err) {
     if (err) {
-      console.error("Отмена операции: ", err);
+      showError("CANCELED", err);
     } else {
-      console.log(
-        `Создание папки ${dirPath} (создана, если ещё не существует)`
-      );
+      showMessage("CREATE FOLDER", dirPath);
 
       extensions.forEach(extension => {
         const templateFilePath = path.join(
@@ -75,9 +86,7 @@ if (blockName) {
           );
 
           if (fs.existsSync(targetFilePath)) {
-            console.log(
-              "Файл НЕ создан: " + targetFilePath + " (уже существует)"
-            );
+            showError("File not created", targetFilePath + " (уже существует)");
           } else {
             createFile(targetFilePath, targetContent);
           }
@@ -86,5 +95,5 @@ if (blockName) {
     }
   });
 } else {
-  console.log("Отмена операции: не указан блок");
+  showError("Canceled", "block name not set");
 }
