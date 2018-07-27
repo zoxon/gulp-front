@@ -1,0 +1,17 @@
+extends ../layouts/default
+
+include ../modules/_page-list/_page-list
+
+block head
+	- title = "Pages list"
+
+	style
+		:stylus
+			@import "../static/styles/core/variables.styl"
+			@import "../static/styles/_variables.styl"
+			@import "../static/styles/core/mixins.styl"
+			@import "../static/styles/_mixins.styl"
+			@import "../modules/_page-list/_page-list.styl"
+
+block page
+	+page-list(pageList.data)
