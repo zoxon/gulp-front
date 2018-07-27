@@ -1,131 +1,91 @@
 // This script removes demo app files
-import rimraf from "rimraf";
-import fs from "fs";
+import fse from "fs-extra";
+import path from "path";
 import colors from "colors";
+import glob from "glob";
 
-/* eslint-disable no-console */
+const TEMPLATE_FOLDER = path.resolve(__dirname, "./removeDemo");
+const DEST_FOLDER = path.resolve(__dirname, "../source");
+const PACKAGE_JSON = path.resolve(__dirname, "../package.json");
+const PATHS_TO_REMOVE = [
+  // pages and layouts
+  "./source/pages/*",
+  "./source/layouts/home.pug",
+  "./source/layouts/page.pug",
 
-const pathsToRemove = [
+  // modules
   "./source/modules/demo",
   "./source/modules/header-presentation",
-  "./source/modules/header/*",
-  "./source/modules/footer/*",
-  "./source/pages/index.pug",
-  "./source/pages/buttons.pug",
-  "./source/pages/components.pug",
-  "./source/pages/forms.pug",
-  "./source/pages/typography.pug",
-  "./source/pages/docs.pug",
-  "./source/pages/faq.pug",
+  "./source/modules/header",
+  "./source/modules/footer",
+  "./source/modules/features-list",
+  "./source/modules/features-list-item",
+  "./source/modules/main-page",
+  "./source/modules/quick-start",
+
+  // static files
+  "./source/static/icons/*",
+  "./source/static/sprite/*",
   "./source/static/assets/favicons/*",
   "./source/static/assets/fonts/*",
-  "./source/static/assets/images/content/*",
-  "./source/static/assets/icons/*",
-  "./source/static/assets/sprite/*",
-  "./tools/removeDemo.js" // this file
+  "./source/static/assets/images/*",
+  "./source/static/assets/images/content/*"
+
+  // this file
+  // "/tools/removeDemo.js"
 ];
 
-const filesToCreate = [
-  {
-    path: "./source/pages/home.pug",
-    content: `extends ../layouts/default
-include ../modules/footer/footer
-include ../modules/header/header
+/* eslint-disable no-console */
+function showError(title, err) {
+  const errTitle = colors.red(`[${title.toUpperCase()}]`);
+  return console.error(`${errTitle}:\n ${err}`);
+}
 
+function showMessage(title, message) {
+  const messageTitle = colors.green(`[${title.toUpperCase()}]`);
+  return console.log(`${messageTitle}: ${message}`);
+}
+/* eslint-enable no-console */
 
-block head
-	- title = "Home page"
+function removeFilesGlob(pathGlob, options = { messages: true }) {
+  return glob(pathGlob, {}, (err, matches) => {
+    if (err) showError("Error", err);
 
-block header
-	+header()
-
-block main
-	h1 Home page
-
-block footer
-	+footer()
-`
-  },
-  {
-    path: "./source/modules/header/header.pug",
-    content: `mixin header(data)
-	header.header&attributes(attributes)
-		//-
-`
-  },
-  {
-    path: "./source/modules/header/header.styl",
-    content: ".header\n\t//\n"
-  },
-  {
-    path: "./source/pages/index.pug",
-    content: `extends ../layouts/default
-
-include ../modules/_page-list/_page-list
-
-block head
-	- title = "Pages list"
-
-	style
-		:stylus
-			@import "../static/styles/core/variables.styl"
-			@import "../static/styles/_variables.styl"
-			@import "../static/styles/core/mixins.styl"
-			@import "../static/styles/_mixins.styl"
-			@import "../modules/_page-list/_page-list.styl"
-
-block page
-	+page-list(pageList.data)
-`
-  },
-  {
-    path: "./source/modules/footer/footer.pug",
-    content: `mixin footer(data)
-	footer.footer&attributes(attributes)
-		p &copy; You copyright
-`
-  },
-  {
-    path: "./source/modules/footer/footer.styl",
-    content: `.footer
-	//
-`
-  }
-];
-
-function removePath(path, callback) {
-  rimraf(path, error => {
-    if (error) throw new Error(error);
-    callback();
+    return matches.map(matchedFile => {
+      if (options.messages) {
+        showMessage("Remove file", matchedFile);
+      }
+      return fse.remove(matchedFile);
+    });
   });
 }
 
-function createFile(file) {
-  fs.writeFile(file.path, file.content, error => {
-    if (error) throw new Error(error);
-  });
-}
+function copyFiles(pathFrom, pathTo, options = { messages: true }) {
+  return fse.copy(pathFrom, pathTo).then(err => {
+    if (err) return showError("Error", err);
 
-function removePackageJsonScriptEntry(scriptName) {
-  const packageJsonPath = "./package.json";
-  let fileData = fs.readFileSync(packageJsonPath);
-  let content = JSON.parse(fileData);
-  delete content.scripts[scriptName];
-  fs.writeFileSync(packageJsonPath, JSON.stringify(content, null, 2) + "\n");
-}
-
-let numPathsRemoved = 0;
-pathsToRemove.map(path => {
-  removePath(path, () => {
-    numPathsRemoved++;
-    if (numPathsRemoved === pathsToRemove.length) {
-      // All paths have been processed
-      // Now we can create files since we're done deleting.
-      filesToCreate.map(file => createFile(file));
+    if (options.messages) {
+      showMessage("Copy file", `${pathFrom} -> ${pathTo}`);
     }
   });
-});
+}
 
-removePackageJsonScriptEntry("remove-demo");
+// Remove entry from package.json
+const removeEntryFromPackageJson = key =>
+  fse
+    .readJson(PACKAGE_JSON)
+    .then(pkg => {
+      delete pkg.scripts[key];
+      return fse.writeJson(PACKAGE_JSON, pkg, {
+        spaces: 2,
+        EOL: "\n"
+      });
+    })
+    .catch(err => showError("Error", err));
 
-console.log(colors.green("Demo app removed."));
+Promise.all(PATHS_TO_REMOVE.map(path => removeFilesGlob(path)))
+  .then(() => copyFiles(TEMPLATE_FOLDER, DEST_FOLDER))
+  .then(() => removeFilesGlob(TEMPLATE_FOLDER))
+  .then(() => removeEntryFromPackageJson("cleanup"))
+  .then(() => console.log(colors.green("Demo app removed."))) // eslint-disable-line no-console
+  .catch(err => showError("Error", err));

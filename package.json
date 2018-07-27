@@ -76,6 +76,8 @@
     "eslint": "^5.2.0",
     "eslint-import-resolver-webpack": "^0.10.1",
     "eslint-plugin-import": "^2.11.0",
+    "fs-extra": "^7.0.0",
+    "glob": "^7.1.2",
     "gulp": "^4.0.0",
     "gulp-bump": "^3.1.0",
     "gulp-changed": "^3.1.1",
