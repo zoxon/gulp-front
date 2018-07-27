@@ -16,11 +16,9 @@ import File from "@/modules/file/file";
 import Dropdown from "@/modules/dropdown/dropdown";
 import Code from "@/modules/code/code";
 import Table from "@/modules/table/table";
-import Header from "@/modules/header/header";
 import ScrollTop from "@/modules/scroll-top/scroll-top";
 import StarRating from "@/modules/star-rating/star-rating";
 import InputPassword from "@/modules/input/inputPassword";
-import Demo from "@/modules/demo/demo";
 import MainMenu from "@/modules/main-menu/main-menu";
 import Tooltip from "@/modules/tooltip/tooltip";
 import Modal from "@/modules/modal/modal";
@@ -38,14 +36,12 @@ File(".file");
 Dropdown(".dropdown");
 Code("pre.code");
 Table(".table_responsive");
-Header(".header");
 ScrollTop(".scroll-top");
 StarRating(".star-rating");
 InputPassword(".input_type_password");
 NetworkStatus();
 
 // Simple functional plugins
-Demo();
 MainMenu();
 Tooltip();
 Modal();
@@ -66,12 +62,10 @@ module.exports = {
   Tabs,
   ProgressBar,
   Spoiler,
-  // Offcanvas,
   File,
   Dropdown,
   Code,
   Table,
-  Header,
   ScrollTop,
   StarRating,
   InputPassword

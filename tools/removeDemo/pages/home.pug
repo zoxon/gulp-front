@@ -1,0 +1,16 @@
+extends ../layouts/default
+include ../modules/footer/footer
+include ../modules/header/header
+
+
+block head
+	- title = "Home page"
+
+block header
+	+header()
+
+block main
+	h1 Home page
+
+block footer
+	+footer()
