@@ -12,4 +12,4 @@ mixin mobile-menu(data)
 							ul.mobile-menu__submenu
 								each subItem in item.submenu
 									li.mobile-menu__item
-										a(href=`${item.url}.html#${subItem.url}`).mobile-menu__submenu-link= subItem.title
+										a(href=`${item.url}.html#${subItem.hash}`).mobile-menu__submenu-link= subItem.title
