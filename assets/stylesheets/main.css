@@ -2039,14 +2039,6 @@ a.button_disabled:active {
   margin-right: 20px;
 }
 
-.card-actions__button {
-  margin-right: 0.5em;
-}
-
-.card-actions__button:last-child {
-  margin-right: 0;
-}
-
 .card {
   position: relative;
 
