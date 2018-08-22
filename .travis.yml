@@ -1,14 +1,21 @@
+sudo: false
 language: node_js
+
+# https://docs.travis-ci.com/user/languages/javascript-with-nodejs/#specifying-nodejs-versions
 node_js:
-  - "8"
-  - "7"
-  - "6"
-cache:
-  yarn: true
+  - "node" # latest stable Node.js release
+  - "lts/*" # latest LTS Node.js release
+
+# https://docs.travis-ci.com/user/caching
+cache: yarn
+
 before_script:
   - yarn install
-script: npm run build
 
+script:
+  - yarn build
+
+# https://docs.travis-ci.com/user/notifications/#Notifications
 # notifications:
 #   email:
 #     - john.doe@example.com
