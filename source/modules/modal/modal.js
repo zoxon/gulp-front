@@ -1,7 +1,7 @@
 import MicroModal from "micromodal";
 
 const execYoutubeCommand = (frame, command) => {
-  if (null === frame.contentWindow) {
+  if (frame.contentWindow === null) {
     return;
   }
 

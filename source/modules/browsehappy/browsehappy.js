@@ -18,9 +18,7 @@ class Browsehappy extends Plugin {
   }
 
   bindEvents() {
-    this.element.addEventListener("click", event =>
-      this.onClick.call(this, event)
-    );
+    this.element.addEventListener("click", event => this.onClick(event));
     this.isShowed = cookie.get(this.options.cookeName) || false;
   }
 

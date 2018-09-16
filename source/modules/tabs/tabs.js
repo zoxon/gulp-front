@@ -55,7 +55,7 @@ class Tabs extends Plugin {
 
     ["hashchange", "onpopstate"].forEach(eventName => {
       window.addEventListener(eventName, () => {
-        plugin.onHashchangeHandler.call(plugin);
+        plugin.onHashchangeHandler();
       });
 
       simulate(eventName, window);
@@ -69,14 +69,14 @@ class Tabs extends Plugin {
           let id = tab.getAttribute(this.options.tabsIdAttrName);
           plugin.open(plugin.tabsName, id);
 
-          window.location.hash = plugin.tabsName + "__" + id;
+          window.location.hash = `${plugin.tabsName}__${id}`;
         });
       });
     });
 
     plugin.tabs.forEach(tab => {
       tab.addEventListener("keydown", event => {
-        plugin.handleKeydown.call(plugin, event);
+        plugin.handleKeydown(event);
       });
     });
   }
@@ -142,7 +142,7 @@ class Tabs extends Plugin {
       );
 
       if (tabsContainer && name) {
-        this.open(name, id ? id : this.firstTabId);
+        this.open(name, id || this.firstTabId);
       }
     }
   }
@@ -199,6 +199,9 @@ class Tabs extends Plugin {
         event.preventDefault();
         event.stopPropagation();
 
+        break;
+
+      default:
         break;
     }
 

@@ -30,13 +30,13 @@ class Spoiler extends Plugin {
       plugin.setMaxHeigth(target);
 
       trigger.addEventListener("click", () => {
-        plugin.triggerClickHandler.call(plugin, target);
+        plugin.triggerClickHandler(target);
       });
     });
   }
 
   setIds({ target, trigger }) {
-    const id = "_" + generateId();
+    const id = `_${generateId()}`;
     target.setAttribute("aria-labelledby", id);
     trigger.setAttribute("id", id);
   }

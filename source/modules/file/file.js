@@ -52,7 +52,7 @@ class File extends Plugin {
 
   bindEvents() {
     this.control.addEventListener("change", event => {
-      this.controlChangeHandler.call(this, event);
+      this.controlChangeHandler(event);
     });
   }
 

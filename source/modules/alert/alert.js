@@ -13,9 +13,7 @@ class Alert extends Plugin {
   }
 
   bindEvents() {
-    this.close.addEventListener("click", event =>
-      this.onClick.call(this, event)
-    );
+    this.close.addEventListener("click", event => this.onClick(event));
   }
 
   onClick(event) {

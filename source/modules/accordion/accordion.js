@@ -54,7 +54,7 @@ class Accordion extends Plugin {
       const trigger = item.querySelector(this.options.triggerSelector);
 
       trigger.addEventListener("click", event => {
-        this.handleTriggerClick.call(this, event, item);
+        this.handleTriggerClick(event, item);
       });
     });
   }
@@ -81,9 +81,7 @@ class Accordion extends Plugin {
   }
 
   isOpen(item) {
-    return item.getAttribute(this.options.itemActiveAttr) === "true"
-      ? true
-      : false;
+    return item.getAttribute(this.options.itemActiveAttr) === "true";
   }
 
   handleTriggerClick(event, item) {

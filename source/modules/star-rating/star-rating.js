@@ -47,7 +47,7 @@ class StarRating extends Plugin {
 
   getBarWidth() {
     if (this.options.widthMode === "%") {
-      const starPercentage = this.value / this.max * 100;
+      const starPercentage = (this.value / this.max) * 100;
       return `${Math.round(starPercentage / 10) * 10}%`;
     }
 

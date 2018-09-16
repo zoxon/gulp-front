@@ -52,14 +52,14 @@ class Dropdown extends Plugin {
 
   bindEvents() {
     this.trigger.addEventListener("click", event => {
-      this.toggle.call(this, event);
+      this.toggle(event);
     });
 
     const targets = [this.trigger, ...this.focusableElements];
 
     targets.forEach(element => {
       element.addEventListener("keydown", event => {
-        this.handleKeydown.call(this, event);
+        this.handleKeydown(event);
       });
     });
 
@@ -70,7 +70,7 @@ class Dropdown extends Plugin {
     });
 
     document.addEventListener("click", event => {
-      this.outerClickHandler.call(this, event);
+      this.outerClickHandler(event);
     });
   }
 
@@ -154,6 +154,9 @@ class Dropdown extends Plugin {
           this.selected++;
         }
 
+        break;
+
+      default:
         break;
     }
 

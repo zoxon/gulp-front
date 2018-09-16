@@ -9,9 +9,8 @@ class ScrollTop extends Plugin {
   }
 
   bindEvents() {
-    const plugin = this;
-    plugin.element.addEventListener("click", event => {
-      plugin.onClickHandler.call(plugin, event);
+    this.element.addEventListener("click", event => {
+      this.onClickHandler(event);
     });
   }
 

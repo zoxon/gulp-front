@@ -134,7 +134,7 @@ class NotificationItem {
     this.element.classList.add(this.defaults.disappearClassName);
 
     this.element.addEventListener(this.animationEnd, event => {
-      if (event.target == this.element) {
+      if (event.target === this.element) {
         this.container.removeChild(this.element);
       }
     });
