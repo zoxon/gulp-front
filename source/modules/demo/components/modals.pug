@@ -4,16 +4,17 @@ include ../../embed/embed
 include ../../dialog/dialog
 
 
-+button(
-	style="solid rounded" 
-	color="blue" 
-	data-micromodal-trigger="modal-alert" 
-) Open alert dialog
-+button(
-	style="solid rounded" 
-	color="blue" 
-	data-micromodal-trigger="modal-responsive" 
-) Open responsive dialog
+.demo.demo_buttons
+	+button(
+		style="solid rounded" 
+		color="blue" 
+		data-micromodal-trigger="modal-alert" 
+	) Open alert dialog
+	+button(
+		style="solid rounded" 
+		color="blue" 
+		data-micromodal-trigger="modal-responsive" 
+	) Open responsive dialog
 
 +modal(id="modal-alert")
 	+dialog(

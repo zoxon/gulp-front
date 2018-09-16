@@ -11,25 +11,26 @@ h3 Styles
 				.demo-grid-item__title= style
 
 h3 Inherited
-+button(color="red" style="rounded solid" icon)
-	+spinner(style="loader")
-		| Loading
+.demo.demo_buttons
+	+button(color="red" style="rounded solid" icon)
+		+spinner(style="loader")
+			| Loading
 
-+button(color="indigo" style="rounded ghost" icon)
-	+spinner(style="loader")
-	span Loading
-
-+button(color="indigo" style="rounded ghost" disabled icon)
-	+spinner(style="loader")
-	span Loading
-
-br
-br
-
-each size in ["small", "medium", "large", "xl", "xxl"]
-	+button(color="indigo" style="rounded ghost" size=size icon)
+	+button(color="indigo" style="rounded ghost" icon)
 		+spinner(style="loader")
 		span Loading
+
+	+button(color="indigo" style="rounded ghost" disabled icon)
+		+spinner(style="loader")
+		span Loading
+
+	br
+	br
+
+	each size in ["small", "medium", "large", "xl", "xxl"]
+		+button(color="indigo" style="rounded ghost" size=size icon)
+			+spinner(style="loader")
+			span Loading
 
 
 h3 Sizes
