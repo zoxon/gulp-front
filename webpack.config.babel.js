@@ -14,7 +14,7 @@ let options = {
   entry: ["./helpers/polyfills.js", "./main.js"],
   output: {
     filename: "[name].js",
-    path: path.join(__dirname + "/dest/assets/javascripts"),
+    path: path.join(__dirname, "/dest/assets/javascripts"),
     publicPath: "/assets/javascripts/",
     library: "App"
   },
