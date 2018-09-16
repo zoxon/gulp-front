@@ -60,13 +60,12 @@ ready(function() {
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
 
-module.exports = {
+export {
   Alert,
   Accordion,
   Tabs,
   ProgressBar,
   Spoiler,
-  // Offcanvas,
   File,
   Dropdown,
   Code,
