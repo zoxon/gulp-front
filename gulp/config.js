@@ -1,7 +1,5 @@
 import path from "path";
 
-const CWD = process.cwd();
-
 import gulpImagemin from "gulp-imagemin";
 import imageminJpegRecompress from "imagemin-jpeg-recompress";
 import imageminPngquant from "imagemin-pngquant";
@@ -10,6 +8,8 @@ import rupture from "rupture";
 
 import errorHandler from "./util/errorHandler";
 import stylusFileExists from "./util/stylusFileExists";
+
+const CWD = process.cwd();
 
 export const delConfig = ["dest", "tmp"];
 
