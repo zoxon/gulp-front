@@ -4,6 +4,7 @@ import CaseSensitivePathsPlugin from "case-sensitive-paths-webpack-plugin";
 import CircularDependencyPlugin from "circular-dependency-plugin";
 import DuplicatePackageCheckerPlugin from "duplicate-package-checker-webpack-plugin";
 import HappyPack from "happypack";
+import UglifyJsPlugin from "uglifyjs-webpack-plugin";
 
 const NODE_ENV = process.env.NODE_ENV ? "production" : "development";
 const isDevelopment = NODE_ENV === "development";
@@ -27,6 +28,31 @@ let options = {
   devtool: isDevelopment ? "eval-source-map" : "source-map",
   context: path.resolve(__dirname, "source/static/scripts"),
   optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        uglifyOptions: {
+          parse: {
+            ecma: 8
+          },
+          compress: {
+            ecma: 5,
+            warnings: false,
+            comparisons: false
+          },
+          mangle: {
+            safari10: true
+          },
+          output: {
+            ecma: 5,
+            comments: false,
+            ascii_only: true
+          }
+        },
+        parallel: true,
+        cache: true,
+        sourceMap: true
+      })
+    ],
     splitChunks: {
       cacheGroups: {
         commons: {
