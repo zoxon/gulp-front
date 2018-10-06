@@ -1,3 +1,7 @@
+import deepMerge from "@/modules/_utils/deepMerge";
+import { isDomNode, isString, isArray } from "@/modules/_utils/is";
+import toArray from "@/modules/_utils/dom/toArray";
+
 export default class Plugin {
   constructor(element, options, name) {
     this.name = name;
@@ -18,7 +22,7 @@ export default class Plugin {
   }
 
   mergeOptions() {
-    this.options = Object.assign({}, this.defaults(), this.options);
+    this.options = deepMerge(this.defaults(), this.options);
   }
 
   defaults() {
@@ -45,17 +49,27 @@ export default class Plugin {
 }
 
 export function init(Plugin, name = "plugin") {
-  return function(selector, options = {}) {
-    let elements = document.documentElement;
+  return function _init(selector, options = {}) {
+    console.log({ selector });
 
-    if (selector) {
-      elements = document.querySelectorAll(selector);
+    const initByElement = element => [new Plugin(element, options, name)];
+    const initByString = selector =>
+      toArray(document.querySelectorAll(selector)).map(initByElement);
 
-      return [].map.call(elements, element => {
-        return new Plugin(element, options, name);
+    if (isString(selector) && selector.length > 0) {
+      return initByString(selector);
+    }
+
+    if (isDomNode(selector)) {
+      return initByElement(selector);
+    }
+
+    if (isArray(selector)) {
+      selector.forEach(item => {
+        _init(item, options);
       });
     }
 
-    return new Plugin(document.body, options, name);
+    return initByElement(document.body);
   };
 }
