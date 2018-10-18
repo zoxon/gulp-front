@@ -1,5 +1,11 @@
 import deepMerge from "@/modules/_utils/deepMerge";
-import { isDomNode, isString, isArray } from "@/modules/_utils/is";
+import {
+  isDomNode,
+  isString,
+  isArray,
+  isUndefined,
+  isNull
+} from "@/modules/_utils/is";
 import toArray from "@/modules/_utils/dom/toArray";
 
 export default class Plugin {
@@ -46,30 +52,46 @@ export default class Plugin {
       false
     );
   }
+
+  callback(name, ...params) {
+    const cb = this.options[name];
+    console.log(cb);
+    if (typeof cb === "function") {
+      return cb.call(...params);
+    }
+  }
 }
 
 export function init(Plugin, name = "plugin") {
-  return function _init(selector, options = {}) {
-    console.log({ selector });
+  return (_selectors, options = {}) => {
+    const getSelector = selector => {
+      if (isUndefined(selector) || isNull(selector)) {
+        return [document.body];
+      }
 
-    const initByElement = element => [new Plugin(element, options, name)];
-    const initByString = selector =>
-      toArray(document.querySelectorAll(selector)).map(initByElement);
+      if (isArray(selector)) {
+        return selector;
+      }
 
-    if (isString(selector) && selector.length > 0) {
-      return initByString(selector);
-    }
+      return [selector];
+    };
 
-    if (isDomNode(selector)) {
-      return initByElement(selector);
-    }
+    const selectors = getSelector(_selectors);
+    let instances = [];
 
-    if (isArray(selector)) {
-      selector.forEach(item => {
-        _init(item, options);
-      });
-    }
+    selectors.forEach(selector => {
+      if (selector && isString(selector)) {
+        const elements = toArray(document.querySelectorAll(selector));
+        elements.forEach(element => {
+          instances.push(new Plugin(element, options, name));
+        });
+      }
 
-    return initByElement(document.body);
+      if (isDomNode(selector)) {
+        instances.push(new Plugin(selector, options, name));
+      }
+    });
+
+    return instances;
   };
 }
