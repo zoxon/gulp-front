@@ -11,6 +11,10 @@ import { assets, staticFiles } from "./assets";
 
 const watch = () => {
   global.watch = true;
+  const testsPatterns = [
+    "**/__tests__/**/*.js?(x)",
+    "**/?(*.)+(spec|test).js?(x)"
+  ];
 
   // Modules, pages
   gulp.watch("source/**/*.pug", gulp.series(pages, reload));
@@ -25,10 +29,18 @@ const watch = () => {
   gulp.watch("source/modules/**/*.styl", gulp.series(css));
 
   // Static scripts
-  gulp.watch("source/static/scripts/**/*.js", gulp.series(scripts, reload));
+  gulp.watch(
+    "source/static/scripts/**/*.js",
+    { ignored: testsPatterns },
+    gulp.series(scripts, reload)
+  );
 
   // Modules scripts
-  gulp.watch("source/modules/**/*.js", gulp.series(scripts, reload));
+  gulp.watch(
+    "source/modules/**/*.js",
+    { ignored: testsPatterns },
+    gulp.series(scripts, reload)
+  );
 
   // Modules images
   gulp.watch(
