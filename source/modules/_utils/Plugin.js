@@ -55,7 +55,7 @@ export default class Plugin {
 
   callback(name, ...params) {
     const cb = this.options[name];
-    console.log(cb);
+
     if (typeof cb === "function") {
       return cb.call(...params);
     }
