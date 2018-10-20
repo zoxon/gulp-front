@@ -3,8 +3,7 @@
  * document.body.appendChild(el);
  */
 
-const isObject = value => Object(value) === value;
-const isDomNode = object => isObject(object) && object.nodeType > 0;
+import { isDomNode } from "@/modules/_utils/is";
 
 export const createElement = (type, props, ...children) => {
   if (type.constructor === Function) {

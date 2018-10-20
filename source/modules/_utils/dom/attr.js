@@ -1,4 +1,4 @@
-import is from "is_js";
+import { isString } from "@/modules/_utils/is";
 
 /**
  * Map object to dom element attributes
@@ -26,7 +26,7 @@ export function mapAttributes(element, attributes) {
     for (let key in attributes) {
       const value = attributes[key];
 
-      element.setAttribute(key, is.string(value) ? value : value.toString());
+      element.setAttribute(key, isString(value) ? value : value.toString());
     }
   }
 }

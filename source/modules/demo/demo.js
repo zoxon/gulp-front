@@ -3,11 +3,10 @@ import ScrollReveal from "scrollreveal";
 
 import Notification from "@/modules/notification/notification";
 
-import { $ } from "@/modules/_utils/dom/select";
 import ready from "@/modules/_utils/dom/ready";
 
 export default () => {
-  const componentsDemo = $(".demo_components");
+  const componentsDemo = document.querySelector(".demo_components");
 
   if (componentsDemo) {
     // Notifications
@@ -15,38 +14,48 @@ export default () => {
       delay: 40000
     });
 
-    $(".js-notification-info").addEventListener("click", () => {
-      notificationBoard.show("Short test message", {
-        className: "notification_type_info"
+    document
+      .querySelector(".js-notification-info")
+      .addEventListener("click", () => {
+        notificationBoard.show("Short test message", {
+          className: "notification_type_info"
+        });
       });
-    });
 
-    $(".js-notification-notice").addEventListener("click", () => {
-      notificationBoard.show("Medium long test test message test", {
-        className: "notification_type_notice"
+    document
+      .querySelector(".js-notification-notice")
+      .addEventListener("click", () => {
+        notificationBoard.show("Medium long test test message test", {
+          className: "notification_type_notice"
+        });
       });
-    });
 
-    $(".js-notification-success").addEventListener("click", () => {
-      notificationBoard.show(
-        "Three line test test message test message test long message lorem ipsum",
-        {
-          className: "notification_type_success"
-        }
-      );
-    });
-
-    $(".js-notification-error").addEventListener("click", () => {
-      notificationBoard.show("test message", {
-        className: "notification_type_error"
+    document
+      .querySelector(".js-notification-success")
+      .addEventListener("click", () => {
+        notificationBoard.show(
+          "Three line test test message test message test long message lorem ipsum",
+          {
+            className: "notification_type_success"
+          }
+        );
       });
-    });
 
-    $(".js-notification-warning").addEventListener("click", () => {
-      notificationBoard.show("test message", {
-        className: "notification_type_warning"
+    document
+      .querySelector(".js-notification-error")
+      .addEventListener("click", () => {
+        notificationBoard.show("test message", {
+          className: "notification_type_error"
+        });
       });
-    });
+
+    document
+      .querySelector(".js-notification-warning")
+      .addEventListener("click", () => {
+        notificationBoard.show("test message", {
+          className: "notification_type_warning"
+        });
+      });
   }
 
   // Home page animations

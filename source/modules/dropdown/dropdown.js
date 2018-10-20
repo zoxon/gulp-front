@@ -1,6 +1,7 @@
 import Popper from "popper.js";
+import attrs from "attrs";
+
 import Plugin, { init } from "@/modules/_utils/Plugin";
-import { mapAttributes } from "@/modules/_utils/dom/attr";
 import { KEYCODES } from "@/modules/_utils/constants";
 import toArray from "@/modules/_utils/dom/toArray";
 import generateId from "@/modules/_utils/generateId";
@@ -166,7 +167,7 @@ class Dropdown extends Plugin {
   setA11yAttrs() {
     this.element.setAttribute(this.options.menuOpenAttribute, false);
 
-    mapAttributes(this.trigger, {
+    attrs(this.trigger, {
       "aria-haspopup": true,
       "aria-expanded": false,
       id: this.triggerId
