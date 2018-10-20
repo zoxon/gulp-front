@@ -1,7 +1,9 @@
 module.exports = {
   plugins: {
     autoprefixer: {
-      cascade: false
+      flexbox: "no-2009",
+      cascade: false,
+      grid: true
     },
     perfectionist: {
       cascade: false,
