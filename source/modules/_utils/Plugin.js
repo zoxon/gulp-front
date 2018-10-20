@@ -1,3 +1,13 @@
+import deepMerge from "@/modules/_utils/deepMerge";
+import {
+  isDomNode,
+  isString,
+  isArray,
+  isUndefined,
+  isNull
+} from "@/modules/_utils/is";
+import toArray from "@/modules/_utils/dom/toArray";
+
 export default class Plugin {
   constructor(element, options, name) {
     this.name = name;
@@ -18,7 +28,7 @@ export default class Plugin {
   }
 
   mergeOptions() {
-    this.options = Object.assign({}, this.defaults(), this.options);
+    this.options = deepMerge(this.defaults(), this.options);
   }
 
   defaults() {
@@ -42,20 +52,46 @@ export default class Plugin {
       false
     );
   }
+
+  callback(name, ...params) {
+    const cb = this.options[name];
+
+    if (typeof cb === "function") {
+      return cb.call(...params);
+    }
+  }
 }
 
 export function init(Plugin, name = "plugin") {
-  return function(selector, options = {}) {
-    let elements = document.documentElement;
+  return (_selectors, options = {}) => {
+    const getSelector = selector => {
+      if (isUndefined(selector) || isNull(selector)) {
+        return [document.body];
+      }
 
-    if (selector) {
-      elements = document.querySelectorAll(selector);
+      if (isArray(selector)) {
+        return selector;
+      }
 
-      return [].map.call(elements, element => {
-        return new Plugin(element, options, name);
-      });
-    }
+      return [selector];
+    };
 
-    return new Plugin(document.body, options, name);
+    const selectors = getSelector(_selectors);
+    let instances = [];
+
+    selectors.forEach(selector => {
+      if (selector && isString(selector)) {
+        const elements = toArray(document.querySelectorAll(selector));
+        elements.forEach(element => {
+          instances.push(new Plugin(element, options, name));
+        });
+      }
+
+      if (isDomNode(selector)) {
+        instances.push(new Plugin(selector, options, name));
+      }
+    });
+
+    return instances;
   };
 }
