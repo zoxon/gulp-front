@@ -1,0 +1,16 @@
+retina-image(imgSrc, size = false, suffix = "@2x")
+	ext = extname(imgSrc)
+	image-src = pathjoin(dirname(imgSrc), basename(imgSrc, ext) + ext)
+	retina-src = pathjoin(dirname(imgSrc), basename(imgSrc, ext) + suffix + ext)
+
+	unless size
+		size = image-size(imgSrc, true)
+
+		if size[0] == 0 && (size[1] == 0)
+			size = contain
+
+	background-image url(image-src)
+
+	+retina-query(only screen, 1.3)
+		background-image url(retina-src)
+		background-size size
