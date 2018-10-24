@@ -9,7 +9,7 @@ import { isDevelopment } from "../util/env";
 
 const srpite = () => {
   let spriteData = gulp
-    .src(["**/*.png", "!**/_*.png"], { cwd: "source/static/sprite" })
+    .src(["**/*.png", "!**/_*.png"], { cwd: "source/sprite" })
     .pipe(spritesmith(spritesmithConfig));
 
   spriteData.img

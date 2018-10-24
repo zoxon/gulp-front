@@ -9,7 +9,7 @@ import { isDevelopment } from "../util/env";
 
 export const assets = () => {
   return gulp
-    .src(["**/*.*", "!**/_*.*"], { cwd: "source/static/assets" })
+    .src(["**/*.*", "!**/_*.*"], { cwd: "source/assets" })
     .pipe(plumber(plumberConfig))
     .pipe(changed("dest/assets"))
     .pipe(gulpIf(!isDevelopment, imagemin(imageminConfig.images)))
@@ -18,6 +18,6 @@ export const assets = () => {
 
 export const staticFiles = () =>
   gulp
-    .src("**/{*,.*}", { cwd: "source/static/public" })
+    .src("**/{*,.*}", { cwd: "source/public" })
     .pipe(plumber(plumberConfig))
     .pipe(gulp.dest("dest"));

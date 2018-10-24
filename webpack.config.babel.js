@@ -26,7 +26,7 @@ let options = {
     }
   },
   devtool: isDevelopment ? "eval-source-map" : "source-map",
-  context: path.resolve(__dirname, "source/static/scripts"),
+  context: path.resolve(__dirname, "source/scripts"),
   optimization: {
     minimizer: [
       new UglifyJsPlugin({
