@@ -3,7 +3,7 @@
  * document.body.appendChild(el);
  */
 
-import { isDomNode } from "@/modules/_utils/is";
+import { isDomNode } from "@/scripts/helpers/is";
 
 export const createElement = (type, props, ...children) => {
   if (type.constructor === Function) {

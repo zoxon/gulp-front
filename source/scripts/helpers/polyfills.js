@@ -9,7 +9,7 @@ if (typeof Promise === "undefined") {
 // fetch() polyfill for making API calls.
 require("whatwg-fetch");
 
-// Object.assign() is commonly used with React.
+// Object.assign()
 // It will use the native implementation if it's present and isn't buggy.
 Object.assign = require("object-assign");
 
@@ -19,4 +19,8 @@ if (process.env.NODE_ENV === "test") {
   require("raf").polyfill(global);
 }
 
+// console polyfill
 require("./console.polyfill").default();
+
+// Element.prototype.closest Element.prototype.matches
+require("element-closest");

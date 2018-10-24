@@ -1,5 +1,5 @@
 import Tooltip from "tooltip.js";
-import toArray from "../_utils/dom/toArray";
+import toArray from "@/scripts/helpers/dom/toArray";
 
 export default () => {
   const tooltips = toArray(document.querySelectorAll("[data-tooltip-id]"));

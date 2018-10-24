@@ -1,12 +1,12 @@
-import deepMerge from "@/modules/_utils/deepMerge";
+import deepMerge from "@/scripts/helpers/deepMerge";
 import {
   isDomNode,
   isString,
   isArray,
   isUndefined,
   isNull
-} from "@/modules/_utils/is";
-import toArray from "@/modules/_utils/dom/toArray";
+} from "@/scripts/helpers/is";
+import toArray from "@/scripts/helpers/dom/toArray";
 
 export default class Plugin {
   constructor(element, options, name) {

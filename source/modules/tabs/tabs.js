@@ -1,11 +1,11 @@
 import attrs from "attrs";
 
-import Plugin, { init } from "@/modules/_utils/Plugin";
-import getSiblings from "@/modules/_utils/dom/getSiblings";
-import simulate from "@/modules/_utils/event/simulate";
-import { KEYCODES } from "@/modules/_utils/constants";
-import toArray from "@/modules/_utils/dom/toArray";
-import generateId from "@/modules/_utils/generateId";
+import Plugin, { init } from "@/scripts/helpers/Plugin";
+import getSiblings from "@/scripts/helpers/dom/getSiblings";
+import simulate from "@/scripts/helpers/event/simulate";
+import { KEYCODES } from "@/scripts/helpers/constants";
+import toArray from "@/scripts/helpers/dom/toArray";
+import generateId from "@/scripts/helpers/generateId";
 
 class Tabs extends Plugin {
   defaults() {

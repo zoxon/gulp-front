@@ -1,4 +1,4 @@
-import Plugin, { init } from "@/modules/_utils/Plugin";
+import Plugin, { init } from "@/scripts/helpers/Plugin";
 
 class NetworkStatus extends Plugin {
   defaults() {

@@ -1,5 +1,5 @@
-import scrollTo from "@/modules/_utils/scrollTo";
-import getOffsetTop from "@/modules/_utils/dom/getOffsetTop";
+import scrollTo from "@/scripts/helpers/scrollTo";
+import getOffsetTop from "@/scripts/helpers/dom/getOffsetTop";
 
 export default () => {
   const mainMenu = document.querySelector(".main-menu");

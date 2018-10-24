@@ -1,4 +1,4 @@
-import Plugin, { init } from "@/modules/_utils/Plugin";
+import Plugin, { init } from "@/scripts/helpers/Plugin";
 import { slideUp } from "slide-anim";
 
 class Alert extends Plugin {
