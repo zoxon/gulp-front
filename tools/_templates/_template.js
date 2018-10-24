@@ -12,4 +12,4 @@ class #{blockname.pascalCase} extends Plugin {
   bindEvents() {}
 }
 
-export default init(#{blockname.pascalCase}, "#{blockname.dashCase}");
+export default init(#{blockname.pascalCase}, "#{blockname.paramCase}");

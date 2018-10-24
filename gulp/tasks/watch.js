@@ -27,7 +27,7 @@ const watch = () => {
     });
 
   // Modules data
-  gulp.watch("source/modules/*/data/*.yml", gulp.series(html, reload));
+  gulp.watch("source/modules/**/*.yml", gulp.series(html, reload));
 
   // Static styles
   gulp.watch("source/static/styles/**/*.styl", gulp.series(css));
