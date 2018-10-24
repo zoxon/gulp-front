@@ -22,7 +22,7 @@ function renameIconByFolderName(file) {
   logger.info(`Icon "${prevName}" renamed to "${nextName}"`);
 }
 
-const icons = () =>
+export const icons = () =>
   gulp
     .src(["**/*.svg", "!**/_*.svg"], { cwd: "source/icons" })
     .pipe(plumber(plumberConfig))
@@ -32,5 +32,3 @@ const icons = () =>
     .pipe(gulpIf(/\.styl$/, gulp.dest("tmp")))
     .pipe(gulpIf(/\.svg$/, rename("icons.svg")))
     .pipe(gulpIf(/\.svg$/, gulp.dest("dest/assets/images")));
-
-export default icons;

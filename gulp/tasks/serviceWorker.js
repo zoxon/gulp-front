@@ -4,7 +4,7 @@ import logger from "gulplog";
 
 import { isDevelopment } from "../util/env";
 
-const serviceWorker = callback => {
+export const serviceWorker = callback => {
   const rootDir = "dest/";
   const config = {
     logger: logger.info,
@@ -20,5 +20,3 @@ const serviceWorker = callback => {
 
   swPrecache.write(path.join(rootDir, "service-worker.js"), config, callback);
 };
-
-export default serviceWorker;

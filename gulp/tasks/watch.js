@@ -1,15 +1,15 @@
 import gulp from "gulp";
 
 import { reload } from "./server";
-import { pages, html } from "./html";
-import css from "./css";
-import scripts from "./scripts";
-import icons from "./icons";
-import sprite from "./sprite";
-import moduleImages from "./moduleImages";
+import { pages, html } from "./templates";
+import { css } from "./styles";
+import { scripts } from "./scripts";
+import { icons } from "./icons";
+import { sprite } from "./sprite";
+import { moduleImages } from "./moduleImages";
 import { assets, staticFiles } from "./assets";
 
-const watch = () => {
+export const watch = () => {
   global.watch = true;
   const testsPatterns = [
     "**/__tests__/**/*.js?(x)",
@@ -67,5 +67,3 @@ const watch = () => {
   // Static files
   gulp.watch("source/static/public/**/{*,.*}", gulp.series(staticFiles));
 };
-
-export default watch;

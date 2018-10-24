@@ -2,7 +2,7 @@ import gulp from "gulp";
 import gulpZip from "gulp-zip";
 
 import getZipFileName from "../util/getZipFileName";
-import build from "./build";
+import { build } from "./build";
 
 export const buildZip = () =>
   gulp

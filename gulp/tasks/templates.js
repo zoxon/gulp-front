@@ -10,7 +10,7 @@ import { setup as emittySetup } from "@zoxon/emitty";
 
 import getJsonData from "../util/getJsonData";
 import { plumberConfig, posthtmlConfig, htmlPrettifyConfig } from "../config";
-import data from "./data";
+import { data } from "./data";
 
 const emittyPug = emittySetup("source", "pug", {
   makeVinylFile: true
@@ -52,7 +52,5 @@ export const pages = () => {
     .pipe(prettify(htmlPrettifyConfig))
     .pipe(gulp.dest("dest"));
 };
-
-// .src(["**/*.pug", "!**/_*.pug"], { cwd: "source/pages" })
 
 export const html = gulp.series(data, pages);

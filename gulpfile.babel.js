@@ -1,7 +1,7 @@
 import gulp from "gulp";
-import build from "./gulp/tasks/build";
+import { build } from "./gulp/tasks/build";
 import { zip } from "./gulp/tasks/zip";
-import dev from "./gulp/tasks/dev";
+import { dev } from "./gulp/tasks/dev";
 import { deploy } from "./gulp/tasks/deploy";
 import { major, minor, patch, reset } from "./gulp/tasks/semver";
 

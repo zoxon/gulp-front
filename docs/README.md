@@ -68,49 +68,35 @@ The rest of the folders and files only exist to make your life easier, and shoul
 Below you can find full details about significant files and folders.
 
 ```
-gulp-front/                             # Project root
-├── dest                                # Compiled files
-├── docs                                # Documentation
-├── gulp                                # Gulpfile tasks and config
-├── source                              # Source files
-│   ├── layouts                         # Pug layouts
-│   ├── modules                         # Modules folder
-│   ├── pages                           # Pages
+gulp-front/                         # Project root
+├── dest                            # Compiled files
+├── docs                            # Documentation
+├── gulp                            # Gulpfile tasks and config
+├── source                          # Source files
+│   ├── layouts                     # Pug layouts
+│   ├── modules                     # Modules folder
+│   ├── pages                       # Pages
 │   ├── assets                      # Other files
 │   ├── icons                       # SVG icons files
+│   ├── sprite                      # PNG Sprite files
 │   ├── public                      # Root files
 │   ├── scripts                     # JavaScript files
 │   │   ├── helpers                 # JavaScript helpers
 │   │   ├── main.js                 # Main JavaScript file
 │   │   └── vendor.js               # Plugins assemblage file
-│   ├── sprite                      # PNG Sprite files
-│   └── styles                      # Static styles
-│       ├── components              # Componetns
-│       ├── plugins                 # Plugins styles
-│       ├── templates               # Sysytem used templates
+│   └── styles
+│       ├── core
+│       │   ├── helpers             # System level helper classes
+│       │   ├── mixins              # System mixins
+│       │   ├── typography          # Typography styles
+│       │   └── variables           # Sysytem variables
 │       ├── _common.styl            # Different styles
 │       ├── _variables.styl         # Variables
 │       ├── main.styl               # Main styles
 │       └── reset.styl              # Styles reset + typography
-├── tmp                                 # Temp folder
-├── tools                               # Gulp-front tools
-├── zip                                 # Folder with zip archives
-├── .babelrc                            # Babel config file
-├── .browserslistrc                     # Browserlist config
-├── .editorconfig                       # EditorConfig
-├── .eslintrc.json                      # ESLint config
-├── .gitignore                          # Files ignored by GIT
-├── .htmlhintrc                         # Settings for HTMLHint
-├── .npmignore                          # Files ignored by npm
-├── .postcss-sorting.json               # postcss-sorting config
-├── .travis.yml                         # TravisCI config
-├── gulpfile.babel.js                   # gulp.js config
-├── LICENSE                             # License
-├── package.json                        # Dependencies for node.js
-├── postcss.config.js                   # PostCSS config
-├── README.md                           # English readme file
-├── webpack.config.babel.js             # Webpack config
-└── yarn.lock                           # YARN Lock file
+├── tmp                             # Temp folder
+├── tools                           # Gulp-front tools
+└── zip                             # Folder with buld zip archives
 ```
 
 <a name="css"></a>

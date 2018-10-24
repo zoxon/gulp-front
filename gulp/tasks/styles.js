@@ -8,7 +8,7 @@ import postcss from "gulp-postcss";
 import { plumberConfig, stylusConfig } from "../config";
 import bs from "../util/getBrowserSyncInstance";
 
-const css = () =>
+export const css = () =>
   gulp
     .src(["*.styl", "!_*.styl"], { cwd: "source/styles" })
     .pipe(plumber(plumberConfig))
@@ -18,5 +18,3 @@ const css = () =>
     .pipe(prettier())
     .pipe(gulp.dest("dest/assets/stylesheets"))
     .pipe(bs.reload({ stream: true }));
-
-export default css;
