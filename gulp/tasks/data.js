@@ -7,7 +7,7 @@ import { plumberConfig } from "../config";
 
 const data = () =>
   gulp
-    .src(["**/*.yml", "!**/_*.yml"], { cwd: "source/modules/*/data" })
+    .src(["**/*.yml", "!**/_*.yml"], { cwd: "source/modules" })
     .pipe(plumber(plumberConfig))
     .pipe(yaml({ space: "\t" }))
     .pipe(mergeJson({ fileName: "data.json" }))

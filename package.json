@@ -155,10 +155,10 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
-    "animejs": "^2.0.2",
     "attrs": "^1.1.0",
     "change-case": "^3.0.2",
     "classnames": "^2.2.5",
+    "element-closest": "^2.0.2",
     "fastclick": "^1.0.6",
     "js-cookie": "^2.1.4",
     "lodash": "^4.17.11",

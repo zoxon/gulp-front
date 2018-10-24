@@ -2,25 +2,27 @@
 
 ## Table of Contents
 
-* [Quickstart](#quickstart)
-* [Development](#development)
-* [Building and Deploying](#building-and-deploying)
-* [Structure](#structure)
-* [CSS](#css)
-* [HTML](#html)
-* [JavaScript](#javascript)
-* [PNG Sprites](#png-sprites)
-* [SVG Symbol Sprites](#svg-symbol-sprites)
-* [DATA](#data)
-* [Command Line Commands](#command-line-commands)
-  * [Initialization](#initialization)
-  * [Development](#development)
-  * [Cleaning](#cleaning)
-  * [Building](#building)
-  * [Deploying](#deploying)
-  * [Zip](#zip)
-  * [Module generator](#module-generator)
-* [License](#license)
+- [Documentation](#documentation)
+  - [Table of Contents](#table-of-contents)
+  - [Quickstart](#quickstart)
+  - [Development](#development)
+  - [Building and Deploying](#building-and-deploying)
+  - [Structure](#structure)
+  - [CSS](#css)
+  - [HTML](#html)
+  - [JavaScript](#javascript)
+  - [PNG Sprites](#png-sprites)
+  - [SVG Symbol Sprites](#svg-symbol-sprites)
+  - [DATA](#data)
+  - [Command Line Commands](#command-line-commands)
+    - [Initialization](#initialization)
+    - [Development](#development)
+    - [Cleaning](#cleaning)
+    - [Building](#building)
+    - [Deploying](#deploying)
+    - [Zip](#zip)
+    - [Generator](#generator)
+  - [License](#license)
 
 <a name="quickstart"></a>
 
@@ -74,24 +76,22 @@ gulp-front/                             # Project root
 │   ├── layouts                         # Pug layouts
 │   ├── modules                         # Modules folder
 │   ├── pages                           # Pages
-│   └── static                          # Static files
-│       ├── assets                      # Other files
-│       ├── icons                       # SVG icons files
-│       ├── public                      # Root files
-│       ├── scripts                     # JavaScript files
-│       │   ├── helpers                 # JavaScript helpers
-│       │   ├── plugins                 # JavaScript plgins and libs
-│       │   ├── main.js                 # Main JavaScript file
-│       │   └── vendor.js               # Plugins assemblage file
-│       ├── sprite                      # PNG Sprite files
-│       └── styles                      # Static styles
-│           ├── components              # Componetns
-│           ├── plugins                 # Plugins styles
-│           ├── templates               # Sysytem used templates
-│           ├── _common.styl            # Different styles
-│           ├── _variables.styl         # Variables
-│           ├── main.styl               # Main styles
-│           └── reset.styl              # Styles reset + typography
+│   ├── assets                      # Other files
+│   ├── icons                       # SVG icons files
+│   ├── public                      # Root files
+│   ├── scripts                     # JavaScript files
+│   │   ├── helpers                 # JavaScript helpers
+│   │   ├── main.js                 # Main JavaScript file
+│   │   └── vendor.js               # Plugins assemblage file
+│   ├── sprite                      # PNG Sprite files
+│   └── styles                      # Static styles
+│       ├── components              # Componetns
+│       ├── plugins                 # Plugins styles
+│       ├── templates               # Sysytem used templates
+│       ├── _common.styl            # Different styles
+│       ├── _variables.styl         # Variables
+│       ├── main.styl               # Main styles
+│       └── reset.styl              # Styles reset + typography
 ├── tmp                                 # Temp folder
 ├── tools                               # Gulp-front tools
 ├── zip                                 # Folder with zip archives
@@ -117,53 +117,62 @@ gulp-front/                             # Project root
 
 ## CSS
 
-* [Normalize.css](https://necolas.github.io/normalize.css/)
-* [Stylus](http://stylus-lang.com/)
-  * [rupture](https://github.com/jescalan/rupture) - Simple media queries mixins for stylus - npm css files import with [stylus include feature](https://github.com/jescalan/accord/blob/master/docs/stylus.md#include)
-* [PostCSS](http://postcss.org/)
-  * [autoprefixer](https://github.com/postcss/autoprefixer) - Parse CSS and add vendor prefixes to rules by Can I Use
-  * [perfectionist](https://github.com/ben-eb/perfectionist) - Beautify CSS files
-  * [postcss-sorting](https://github.com/hudochenkov/postcss-sorting) - Keep rules and at-rules content in order
-  * [postcss-reporter](https://github.com/postcss/postcss-reporter) - Log PostCSS messages in the console
+- [Normalize.css](https://necolas.github.io/normalize.css/)
+- [Stylus](http://stylus-lang.com/)
+  - [rupture](https://github.com/jescalan/rupture) - Simple media queries mixins for stylus - npm css files import with [stylus include feature](https://github.com/jescalan/accord/blob/master/docs/stylus.md#include)
+- [PostCSS](http://postcss.org/)
+  - [autoprefixer](https://github.com/postcss/autoprefixer) - Parse CSS and add vendor prefixes to rules by Can I Use
+  - [perfectionist](https://github.com/ben-eb/perfectionist) - Beautify CSS files
+  - [postcss-sorting](https://github.com/hudochenkov/postcss-sorting) - Keep rules and at-rules content in order
+  - [postcss-reporter](https://github.com/postcss/postcss-reporter) - Log PostCSS messages in the console
 
 <a name="html"></a>
 
 ## HTML
 
-* [Pug (ex Jade)](https://pugjs.org/) - Robust, elegant, feature rich template engine
-* [PostHTML](https://github.com/posthtml/posthtml) - Tool to transform HTML/XML with JS plugins
-* [gulp-prettify](https://github.com/jonschlinkert/gulp-prettify) - `js-beautify` gulp wrapper
+- [Pug (ex Jade)](https://pugjs.org/) - Robust, elegant, feature rich template engine
+- [PostHTML](https://github.com/posthtml/posthtml) - Tool to transform HTML/XML with JS plugins
+- [gulp-prettify](https://github.com/jonschlinkert/gulp-prettify) - `js-beautify` gulp wrapper
 
 <a name="javascript"></a>
 
 ## JavaScript
 
-* Tools
-  * [Node.js](https://nodejs.org/) - JavaScript runtime
-  * [Webpack 4](https://webpack.js.org/) - module bundler
-  * [npm](https://www.npmjs.com/) - package manager
-  * [Yarn](https://yarnpkg.com/lang/en/) - package manager
-  * [ECMAScript 6](http://es6-features.org/) and [Babel](https://babeljs.io/)
-  * [Service Worker Precache](https://github.com/GoogleChromeLabs/sw-precache) - service worker that precaches resources
-* Libraries
-  * [anime.js](http://animejs.com/) - lightweight JavaScript animation library
-  * [FastClick](https://github.com/ftlabs/fastclick) - remove 300ms delay on mobile browsers
-  * [is.js](https://github.com/arasatasaygin/is.js) - Micro check library
-  * [JavaScript Cookie](https://github.com/js-cookie/js-cookie) - JavaScript API for handling cookies
-  * [Micromodal](https://github.com/ghosh/micromodal) - accessible modal dialogs
-  * [Nano ID](https://github.com/ai/nanoid) - unique string ID generator
-  * [scroll](https://github.com/michaelrhodes/scroll) - animates an element’s scrollTop or scrollLeft position
-  * [Lodash](https://lodash.com/) - utility library delivering modularity, performance & extras
-  * [tooltip.js](https://popper.js.org/tooltip-examples.html) - dead simple tooltips, powered by popper.js
-* Polyfills
-  * [svg4everybody](https://github.com/jonathantneal/svg4everybody) - adds SVG External Content support to all browsers.
-  * [babel-polyfill](https://babeljs.io/docs/usage/polyfill/)
+- Tools
+  - [Node.js](https://nodejs.org/) - JavaScript runtime
+  - [Webpack 4](https://webpack.js.org/) - module bundler
+  - [npm](https://www.npmjs.com/) - package manager
+  - [Yarn](https://yarnpkg.com/lang/en/) - package manager
+  - [ECMAScript 6](http://es6-features.org/) and [Babel](https://babeljs.io/)
+  - [Service Worker Precache](https://github.com/GoogleChromeLabs/sw-precache) - service worker that precaches resources
+- Libraries
+  - [FastClick](https://github.com/ftlabs/fastclick) - remove 300ms delay on mobile browsers
+  - [js-cookie](https://github.com/js-cookie/js-cookie) - JavaScript API for handling cookies
+  - [Micromodal](https://github.com/ghosh/micromodal) - accessible modal dialogs
+  - [Nano ID](https://github.com/ai/nanoid) - unique string ID generator
+  - [scroll](https://github.com/michaelrhodes/scroll) - animates an element’s scrollTop or scrollLeft position
+  - [lodash](https://lodash.com/) - utility library delivering modularity, performance & extras
+  - [Tooltip.js](https://github.com/FezVrasta/popper.js) - dead simple tooltips, powered by popper.js
+  - [attrs](https://github.com/bredele/attrs) - Object as DOM attributes.
+  - [Change Case](https://github.com/blakeembrey/change-case)
+  - [Classnames](https://github.com/JedWatson/classnames) - A simple javascript utility for conditionally joining classNames together
+  - [omit](https://github.com/DamonOehlman/omit) - Remove values from an object (or an array of objects) based on key, value or an evaluator function
+  - [ScrollReveal](https://github.com/scrollreveal/scrollreveal) - Animate elements as they scroll into view
+  - [skrollr](https://github.com/Prinzhorn/skrollr) - Stand-alone parallax scrolling JavaScript library for mobile and desktop
+  - [slide-anim](https://github.com/yomotsu/slide-anim) - Light weight, stand alone, jQuery like slideDown / slideUp
+- Polyfills
+  - [svg4everybody](https://github.com/jonathantneal/svg4everybody) - adds SVG External Content support to all browsers.
+  - [promise](https://github.com/then/promise)
+  - [raf](https://github.com/chrisdickinson/raf) - equestAnimationFrame polyfill
+  - [babel-polyfill](https://babeljs.io/docs/usage/polyfill/)
+  - [whatwg-fetch](https://github.com/github/fetch) - Fetch API polyfill
+  - [element-closest](https://github.com/jonathantneal/closest) - Element.closest and Element.matches polyfills
 
 <a name="png-sprites"></a>
 
 ## PNG Sprites
 
-For converting a set of images into a spritesheet add your image to `source/static/sprite` folder.
+For converting a set of images into a spritesheet add your image to `source/sprite` folder.
 Spritesheet generates with the help of [gulp.spritesmith](https://github.com/twolfson/gulp.spritesmith)
 Retina spritesheets/templates are supported too.
 
@@ -171,12 +180,12 @@ Retina spritesheets/templates are supported too.
 
 ## SVG Symbol Sprites
 
-To convert a bunch of svg files to a single svg sprite add svg file to `source/static/icons` folder.
+To convert a bunch of svg files to a single svg sprite add svg file to `source/icons` folder.
 Then you can use icon mixin call in your template.
 
 Example:
 
-1.  You copy file icon-name.svg to `source/static/icons` folder.
+1.  You copy file icon-name.svg to `source/icons` folder.
 2.  In any _pug_ template, import icon mixin `include ../icon/icon`
 3.  Use `+icon(name="icon-name" title="Icon title")` to render icon
 

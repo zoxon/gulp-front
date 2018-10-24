@@ -10,7 +10,7 @@ import bs from "../util/getBrowserSyncInstance";
 
 const css = () =>
   gulp
-    .src(["*.styl", "!_*.styl"], { cwd: "source/static/styles" })
+    .src(["*.styl", "!_*.styl"], { cwd: "source/styles" })
     .pipe(plumber(plumberConfig))
     .pipe(stylus(stylusConfig))
     .pipe(gcmq())

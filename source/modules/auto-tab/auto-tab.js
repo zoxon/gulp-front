@@ -1,6 +1,6 @@
-import Plugin, { init } from "@/modules/_utils/Plugin";
-import { KEYCODES } from "@/modules/_utils/constants";
-import toArray from "@/modules/_utils/dom/toArray";
+import Plugin, { init } from "@/scripts/helpers/Plugin";
+import { KEYCODES } from "@/scripts/helpers/constants";
+import toArray from "@/scripts/helpers/dom/toArray";
 
 class AutoTab extends Plugin {
   defaults() {

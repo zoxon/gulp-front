@@ -76,14 +76,20 @@ if (blockName) {
             `${blockName}.${extension}`
           );
 
-          let targetContent = template.replace(
-            /#{blockname.dashCase}/g,
-            changeCase.paramCase(blockName)
-          );
-          targetContent = targetContent.replace(
-            /#{blockname.pascalCase}/g,
-            changeCase.pascalCase(blockName)
-          );
+          let targetContent = template;
+
+          [
+            "paramCase",
+            "camelCase",
+            "constantCase",
+            "pascalCase",
+            "snakeCase"
+          ].forEach(methodName => {
+            targetContent = targetContent.replace(
+              new RegExp(`#{blockname.${methodName}}`, "g"),
+              changeCase[methodName](blockName)
+            );
+          });
 
           if (fs.existsSync(targetFilePath)) {
             showError("File not created", targetFilePath + " (уже существует)");

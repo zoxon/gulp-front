@@ -24,7 +24,7 @@ function renameIconByFolderName(file) {
 
 const icons = () =>
   gulp
-    .src(["**/*.svg", "!**/_*.svg"], { cwd: "source/static/icons" })
+    .src(["**/*.svg", "!**/_*.svg"], { cwd: "source/icons" })
     .pipe(plumber(plumberConfig))
     .pipe(imagemin(imageminConfig.icons))
     .pipe(rename(renameIconByFolderName))

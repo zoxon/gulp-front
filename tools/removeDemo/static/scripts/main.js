@@ -1,9 +1,9 @@
 import FastClick from "fastclick";
 import svg4everybody from "svg4everybody";
 
-import * as serviceWorker from "./helpers/serviceWorker";
+import * as serviceWorker from "@/scripts/helpers/serviceWorker";
 
-import ready from "@/modules/_utils/dom/ready";
+import ready from "@/scripts/helpers/dom/ready";
 
 import Alert from "@/modules/alert/alert";
 import Accordion from "@/modules/accordion/accordion";

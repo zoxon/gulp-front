@@ -1,5 +1,5 @@
-import Plugin, { init } from "@/modules/_utils/Plugin";
-import { createElement } from "@/modules/_utils/dom/createElement";
+import Plugin, { init } from "@/scripts/helpers/Plugin";
+import { createElement } from "@/scripts/helpers/dom/createElement";
 
 class File extends Plugin {
   defaults() {

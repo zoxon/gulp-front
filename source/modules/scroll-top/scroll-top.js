@@ -1,5 +1,5 @@
-import Plugin, { init } from "@/modules/_utils/Plugin";
-import scrollTo from "@/modules/_utils/scrollTo";
+import Plugin, { init } from "@/scripts/helpers/Plugin";
+import scrollTo from "@/scripts/helpers/scrollTo";
 
 class ScrollTop extends Plugin {
   defaults() {

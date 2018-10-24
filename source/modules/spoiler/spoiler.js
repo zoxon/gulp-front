@@ -1,7 +1,7 @@
-import Plugin, { init } from "@/modules/_utils/Plugin";
-import generateId from "@/modules/_utils/generateId";
-import getHiddenElementHeight from "@/modules/_utils/getHiddenElementHeight";
-import toArray from "@/modules/_utils/dom/toArray";
+import Plugin, { init } from "@/scripts/helpers/Plugin";
+import generateId from "@/scripts/helpers/generateId";
+import getHiddenElementHeight from "@/scripts/helpers/getHiddenElementHeight";
+import toArray from "@/scripts/helpers/dom/toArray";
 
 class Spoiler extends Plugin {
   defaults() {

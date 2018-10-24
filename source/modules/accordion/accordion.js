@@ -1,5 +1,5 @@
-import Plugin, { init } from "@/modules/_utils/Plugin";
-import toArray from "@/modules/_utils/dom/toArray";
+import Plugin, { init } from "@/scripts/helpers/Plugin";
+import toArray from "@/scripts/helpers/dom/toArray";
 
 class Accordion extends Plugin {
   defaults() {

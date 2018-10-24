@@ -23,12 +23,12 @@ const PATHS_TO_REMOVE = [
   "./source/modules/quick-start",
 
   // static files
-  "./source/static/icons/*",
-  "./source/static/sprite/*",
-  "./source/static/assets/favicons/*",
-  "./source/static/assets/fonts/*",
-  "./source/static/assets/images/*",
-  "./source/static/assets/images/content/*",
+  "./source/icons/*",
+  "./source/sprite/*",
+  "./source/assets/favicons/*",
+  "./source/assets/fonts/*",
+  "./source/assets/images/*",
+  "./source/assets/images/content/*",
 
   // this file
   "./tools/removeDemo.js"

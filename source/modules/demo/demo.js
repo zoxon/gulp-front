@@ -3,7 +3,7 @@ import ScrollReveal from "scrollreveal";
 
 import Notification from "@/modules/notification/notification";
 
-import ready from "@/modules/_utils/dom/ready";
+import ready from "@/scripts/helpers/dom/ready";
 
 export default () => {
   const componentsDemo = document.querySelector(".demo_components");

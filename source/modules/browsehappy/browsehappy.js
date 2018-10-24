@@ -1,5 +1,5 @@
-import Plugin, { init } from "@/modules/_utils/Plugin";
-import hide from "@/modules/_utils/animations/hide";
+import Plugin, { init } from "@/scripts/helpers/Plugin";
+import { slideUp } from "slide-anim";
 import cookie from "js-cookie";
 
 class Browsehappy extends Plugin {
@@ -27,7 +27,7 @@ class Browsehappy extends Plugin {
       return false;
     }
 
-    hide(this.element);
+    slideUp(this.element);
     cookie.set(this.options.cookeName, "true", {
       expires: this.options.cookeExpires
     });

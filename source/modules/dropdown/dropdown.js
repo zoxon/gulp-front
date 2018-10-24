@@ -1,11 +1,11 @@
 import Popper from "popper.js";
 import attrs from "attrs";
 
-import Plugin, { init } from "@/modules/_utils/Plugin";
-import { KEYCODES } from "@/modules/_utils/constants";
-import toArray from "@/modules/_utils/dom/toArray";
-import generateId from "@/modules/_utils/generateId";
-import { isDomNode } from "@/modules/_utils/is";
+import Plugin, { init } from "@/scripts/helpers/Plugin";
+import { KEYCODES } from "@/scripts/helpers/constants";
+import toArray from "@/scripts/helpers/dom/toArray";
+import generateId from "@/scripts/helpers/generateId";
+import { isDomNode } from "@/scripts/helpers/is";
 
 class Dropdown extends Plugin {
   defaults() {
