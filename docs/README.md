@@ -146,18 +146,27 @@ gulp-front/                             # Project root
   - [ECMAScript 6](http://es6-features.org/) and [Babel](https://babeljs.io/)
   - [Service Worker Precache](https://github.com/GoogleChromeLabs/sw-precache) - service worker that precaches resources
 - Libraries
-  - [anime.js](http://animejs.com/) - lightweight JavaScript animation library
   - [FastClick](https://github.com/ftlabs/fastclick) - remove 300ms delay on mobile browsers
-  - [is.js](https://github.com/arasatasaygin/is.js) - Micro check library
-  - [JavaScript Cookie](https://github.com/js-cookie/js-cookie) - JavaScript API for handling cookies
+  - [js-cookie](https://github.com/js-cookie/js-cookie) - JavaScript API for handling cookies
   - [Micromodal](https://github.com/ghosh/micromodal) - accessible modal dialogs
   - [Nano ID](https://github.com/ai/nanoid) - unique string ID generator
   - [scroll](https://github.com/michaelrhodes/scroll) - animates an element’s scrollTop or scrollLeft position
-  - [Lodash](https://lodash.com/) - utility library delivering modularity, performance & extras
-  - [tooltip.js](https://popper.js.org/tooltip-examples.html) - dead simple tooltips, powered by popper.js
+  - [lodash](https://lodash.com/) - utility library delivering modularity, performance & extras
+  - [Tooltip.js](https://github.com/FezVrasta/popper.js) - dead simple tooltips, powered by popper.js
+  - [attrs](https://github.com/bredele/attrs) - Object as DOM attributes.
+  - [Change Case](https://github.com/blakeembrey/change-case)
+  - [Classnames](https://github.com/JedWatson/classnames) - A simple javascript utility for conditionally joining classNames together
+  - [omit](https://github.com/DamonOehlman/omit) - Remove values from an object (or an array of objects) based on key, value or an evaluator function
+  - [ScrollReveal](https://github.com/scrollreveal/scrollreveal) - Animate elements as they scroll into view
+  - [skrollr](https://github.com/Prinzhorn/skrollr) - Stand-alone parallax scrolling JavaScript library for mobile and desktop
+  - [slide-anim](https://github.com/yomotsu/slide-anim) - Light weight, stand alone, jQuery like slideDown / slideUp
 - Polyfills
   - [svg4everybody](https://github.com/jonathantneal/svg4everybody) - adds SVG External Content support to all browsers.
+  - [promise](https://github.com/then/promise)
+  - [raf](https://github.com/chrisdickinson/raf) - equestAnimationFrame polyfill
   - [babel-polyfill](https://babeljs.io/docs/usage/polyfill/)
+  - [whatwg-fetch](https://github.com/github/fetch) - Fetch API polyfill
+  - [element-closest](https://github.com/jonathantneal/closest) - Element.closest and Element.matches polyfills
 
 <a name="png-sprites"></a>
 
