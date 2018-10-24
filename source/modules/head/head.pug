@@ -30,10 +30,9 @@ mixin head(data)
 	meta(name="apple-mobile-web-app-status-bar-style" content="black-translucent")
 	meta(name="apple-mobile-web-app-title" content=config.projectName)
 
-
 	// Styles
-	link(rel="stylesheet" href=config.path.styles + "/reset.css")
-	link(rel="stylesheet" href=config.path.styles + "/main.css")
+	link(rel="stylesheet" href=`${config.path.styles}/reset.css`)
+	link(rel="stylesheet" href=`${config.path.styles}/main.css`)
 
 	// Facebook / Open Graph
 	// Facebook: https://developers.facebook.com/docs/sharing/webmasters#markup
@@ -49,13 +48,14 @@ mixin head(data)
 	meta(property="article:author" content=author)
 
 	// Favicons
-	//- Genereted with http://realfavicongenerator.net/
+	// Genereted with http://realfavicongenerator.net/
 	link(rel="apple-touch-icon", sizes="180x180", href="/assets/favicons/apple-touch-icon.png")
 	link(rel="icon", type="image/png", sizes="32x32", href="/assets/favicons/favicon-32x32.png")
 	link(rel="icon", type="image/png", sizes="16x16", href="/assets/favicons/favicon-16x16.png")
-	link(rel="manifest", href="/assets/favicons/manifest.json")
+	link(rel="manifest", href="/assets/favicons/site.webmanifest")
 	link(rel="mask-icon", href="/assets/favicons/safari-pinned-tab.svg", color="#e74c3c")
 	link(rel="shortcut icon", href="/assets/favicons/favicon.ico")
+	meta(name="msapplication-TileColor", content="#1e3c72")
 	meta(name="msapplication-config", content="/assets/favicons/browserconfig.xml")
 	meta(name="theme-color", content="#ffffff")
 
