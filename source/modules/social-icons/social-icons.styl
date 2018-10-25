@@ -1,53 +1,186 @@
 .social-icons
-	display inline-block
-
-	&__list
-		margin 0
-		padding 0
-		font-size 0
+	margin 0
+	padding 0
 
 	&__item
-		display inline-block
-		margin-right 20px
 		padding 0
-		color #b0b0b0
 		list-style none
+		transition 125ms all ease-in-out
 
-		&:last-child
-			margin-right 0
+		&:hover
+			opacity 0.7
 
 	&__link
 		&
 		&:visited
 		&:hover
 			display block
+			color inherit
 			color currentColor
 			text-decoration none
 			transition 125ms all ease-in-out
 
-	&__icon
-		size 34px
+	// Sizes
+	&_size_large
+	&_size_l
+		font-size 120%
 
-	&__item_vk
-		&:hover
-			color #45668e
+	&_size_normal
+		font-size 100%
 
-	&__item_ok
-		&:hover
-			color #ed812b
+	&_size_small
+	&_size_s
+		font-size 80%
 
-	&__item_tw
-		&:hover
-			color #55acee
+	// Icon modifers
+	&_icon_rounded
+		& ^[0]__icon
+			border-radius 2px
 
-	&__item_fb
-		&:hover
-			color #3b5998
+	&_icon_pill
+		& ^[0]__icon
+			border-radius 50em
 
-	&__item_gp
-		&:hover
-			color #dc4e41
+	&_icon_background
+		& ^[0]__icon
+			display inline-flex
+			justify-content center
+			align-items center
+			size em(40px)
+			color #fff
 
-	&__item_mr
-		&:hover
-			color #168de2
+		& ^[0]__item
+			&_facebook
+				& ^[0]__icon
+					background #3b5998
+
+			&_google-plus
+				& ^[0]__icon
+					background #dd4b39
+
+			&_instagram
+				& ^[0]__icon
+					background:
+						radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%),
+						radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%),
+						radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%),
+						radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%),
+						radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
+						radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%),
+						radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
+						linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%)
+
+			&_odnoklassniki
+				& ^[0]__icon
+					background #ed812b
+
+			&_telegram
+				& ^[0]__icon
+					background #0088cc
+
+			&_twitter
+				& ^[0]__icon
+					background #1da1f2
+
+			&_viber
+				& ^[0]__icon
+					background #59267c
+
+			&_vkontakte
+				& ^[0]__icon
+					background #45668e
+
+			&_whatsapp
+				& ^[0]__icon
+					background #4aae20
+
+			&_youtube
+				& ^[0]__icon
+					background #ff0000
+
+	&_icon_color
+		& ^[0]__icon
+			display inline-flex
+			justify-content center
+			align-items center
+			size em(40px)
+			color #fff
+			transition 125ms all ease-in-out
+
+		& ^[0]__item
+			&_facebook
+				& ^[0]__icon
+					color #3b5998
+
+			&_google-plus
+				& ^[0]__icon
+					color #dd4b39
+
+			&_instagram
+				& ^[0]__icon
+					color #405de6
+
+			&_odnoklassniki
+				& ^[0]__icon
+					color #ed812b
+
+			&_telegram
+				& ^[0]__icon
+					color #0088cc
+
+			&_twitter
+				& ^[0]__icon
+					color #1da1f2
+
+			&_viber
+				& ^[0]__icon
+					color #59267c
+
+			&_vkontakte
+				& ^[0]__icon
+					color #45668e
+
+			&_whatsapp
+				& ^[0]__icon
+					color #4aae20
+
+			&_youtube
+				& ^[0]__icon
+					color #ff0000
+
+	// Label modifers
+	&_label_hidden
+		& ^[0]__label
+			vhidden()
+
+	// Aligin
+	&_items_horizontal
+		display flex
+		align-items center
+
+		& ^[0]__item
+			margin-right em(8px)
+
+			&:last-child
+				margin-right 0
+
+		& ^[0]__link
+			text-align center
+
+		& ^[0]__label
+			display block
+			margin-top em(8px)
+
+	&_items_vertical
+		& ^[0]__item
+			margin-bottom em(8px)
+
+			&:last-child
+				margin-bottom 0
+
+		& ^[0]__link
+			display flex
+			align-items center
+
+		& ^[0]__label
+			margin-left em(8px)
