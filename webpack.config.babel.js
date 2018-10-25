@@ -4,7 +4,7 @@ import CaseSensitivePathsPlugin from "case-sensitive-paths-webpack-plugin";
 import CircularDependencyPlugin from "circular-dependency-plugin";
 import DuplicatePackageCheckerPlugin from "duplicate-package-checker-webpack-plugin";
 import HappyPack from "happypack";
-import UglifyJsPlugin from "uglifyjs-webpack-plugin";
+import TerserPlugin from "terser-webpack-plugin";
 
 const NODE_ENV = process.env.NODE_ENV ? "production" : "development";
 const isDevelopment = NODE_ENV === "development";
@@ -29,15 +29,16 @@ let options = {
   context: path.resolve(__dirname, "source/scripts"),
   optimization: {
     minimizer: [
-      new UglifyJsPlugin({
-        uglifyOptions: {
+      new TerserPlugin({
+        terserOptions: {
           parse: {
             ecma: 8
           },
           compress: {
             ecma: 5,
             warnings: false,
-            comparisons: false
+            comparisons: false,
+            inline: 2
           },
           mangle: {
             safari10: true
@@ -54,13 +55,8 @@ let options = {
       })
     ],
     splitChunks: {
-      cacheGroups: {
-        commons: {
-          test: /[\\/]node_modules[\\/]/,
-          name: "vendor",
-          chunks: "all"
-        }
-      }
+      chunks: "all",
+      name: "vendor"
     }
   },
   module: {

@@ -147,7 +147,7 @@
     "stylelint-order": "^1.0.0",
     "stylus-supremacy": "^2.12.3",
     "sw-precache": "^5.2.0",
-    "uglifyjs-webpack-plugin": "^2.0.1",
+    "terser-webpack-plugin": "^1.1.0",
     "vinyl-buffer": "^1.0.0",
     "webpack": "^4.22.0",
     "webpack-stream": "^5.1.1"
