@@ -4,11 +4,11 @@
   "insertBraces": false,
   "insertParenthesisAroundIfCondition": false,
   "selectorSeparator": "\n",
-  "quoteChar": "'",
   "sortProperties": "grouped",
   "alwaysUseImport": true,
   "alwaysUseNoneOverZero": true,
   "reduceMarginAndPaddingValues": true,
   "quoteChar": "\"",
+  "preserveNewLinesBetweenPropertyValues": true,
   "ignoreFiles": ["gulp/**/icons-template.styl"]
 }
