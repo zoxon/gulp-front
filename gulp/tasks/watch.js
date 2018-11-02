@@ -30,14 +30,14 @@ export const watch = () => {
   gulp.watch("source/modules/**/*.yml", gulp.series(html, reload));
 
   // Static styles
-  gulp.watch("source/static/styles/**/*.styl", gulp.series(css));
+  gulp.watch("source/styles/**/*.styl", gulp.series(css));
 
   // Modules styles
   gulp.watch("source/modules/**/*.styl", gulp.series(css));
 
   // Static scripts
   gulp.watch(
-    "source/static/scripts/**/*.js",
+    "source/scripts/**/*.js",
     { ignored: testsPatterns },
     gulp.series(scripts, reload)
   );
@@ -56,14 +56,14 @@ export const watch = () => {
   );
 
   // Assets
-  gulp.watch("source/static/assets/**/*", gulp.series(assets, reload));
+  gulp.watch("source/assets/**/*", gulp.series(assets, reload));
 
   // Svg icons
-  gulp.watch("source/static/icons/**/*.svg", gulp.series(icons, css, reload));
+  gulp.watch("source/icons/**/*.svg", gulp.series(icons, css, reload));
 
   // Png sprites
-  gulp.watch("source/static/sprite/**/*.png", gulp.series(sprite, reload));
+  gulp.watch("source/sprite/**/*.png", gulp.series(sprite, reload));
 
   // Static files
-  gulp.watch("source/static/public/**/{*,.*}", gulp.series(staticFiles));
+  gulp.watch("source/public/**/{*,.*}", gulp.series(staticFiles));
 };
