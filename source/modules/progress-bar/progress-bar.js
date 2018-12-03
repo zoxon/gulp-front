@@ -1,4 +1,5 @@
-import Plugin, { init } from "@/scripts/helpers/Plugin";
+import Plugin from "@/scripts/core/Plugin";
+import init from "@/scripts/core/init";
 import { createElement } from "@/scripts/helpers/dom/createElement";
 
 class ProgressBar extends Plugin {

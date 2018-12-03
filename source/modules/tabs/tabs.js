@@ -1,6 +1,7 @@
 import attrs from "attrs";
 
-import Plugin, { init } from "@/scripts/helpers/Plugin";
+import Plugin from "@/scripts/core/Plugin";
+import init from "@/scripts/core/init";
 import getSiblings from "@/scripts/helpers/dom/getSiblings";
 import simulate from "@/scripts/helpers/event/simulate";
 import { KEYCODES } from "@/scripts/helpers/constants";

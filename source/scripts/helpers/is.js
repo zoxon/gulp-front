@@ -24,12 +24,12 @@ export const isFunction = value =>
 export const isJson = value => toString.call(value) === "[object Object]";
 
 // eslint-disable-next-line no-self-compare
-export const isNaN = value => Number.isNaN || value !== value;
+export const isNotANumber = value => Number.isNaN || value !== value;
 
 export const isNull = value => value === null;
 
 export const isNumber = value =>
-  !isNaN(value) && toString.call(value) === "[object Number]";
+  !isNotANumber(value) && toString.call(value) === "[object Number]";
 
 export const isArguments = value =>
   toString.call(value) === "[object Arguments]" ||
