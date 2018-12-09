@@ -5,7 +5,7 @@ import { html } from "./templates";
 import { icons } from "./icons";
 import { sprite } from "./sprite";
 import { moduleImages } from "./moduleImages";
-import { assets, staticFiles } from "./assets";
+import { staticFiles } from "./staticFiles";
 import { scripts } from "./scripts";
 import { css } from "./styles";
 import { serviceWorker } from "./serviceWorker";
@@ -18,15 +18,7 @@ export const build = gulp.series(
   startMessage,
   cleanup,
   gulp.series(
-    gulp.parallel(
-      html,
-      icons,
-      sprite,
-      moduleImages,
-      assets,
-      staticFiles,
-      scripts
-    ),
+    gulp.parallel(html, icons, sprite, moduleImages, staticFiles, scripts),
     css,
     isDevelopment ? noop : serviceWorker
   )

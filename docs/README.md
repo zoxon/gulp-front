@@ -72,18 +72,17 @@ gulp-front/                         # Project root
 ├── dest                            # Compiled files
 ├── docs                            # Documentation
 ├── gulp                            # Gulpfile tasks and config
-├── source                          # Source files
+├── source
+│   ├── icons                       # SVG icons sprite files
 │   ├── layouts                     # Pug layouts
 │   ├── modules                     # Modules folder
 │   ├── pages                       # Pages
-│   ├── assets                      # Other files
-│   ├── icons                       # SVG icons files
+│   ├── public                      # Static files copy to project root
+│   ├── scripts
+│   │   ├── core                    # JS Modules core
+│   │   ├── helpers                 # JS various helpers
+│   │   └── main.js                 # Main JavaScript file
 │   ├── sprite                      # PNG Sprite files
-│   ├── public                      # Root files
-│   ├── scripts                     # JavaScript files
-│   │   ├── helpers                 # JavaScript helpers
-│   │   ├── main.js                 # Main JavaScript file
-│   │   └── vendor.js               # Plugins assemblage file
 │   └── styles
 │       ├── core
 │       │   ├── helpers             # System level helper classes

@@ -3,21 +3,22 @@ import plumber from "gulp-plumber";
 import gulpIf from "gulp-if";
 import changed from "gulp-changed";
 import imagemin from "gulp-imagemin";
+import filter from "gulp-filter";
 
 import { plumberConfig, imageminConfig } from "../config";
 import { isDevelopment } from "../util/env";
 
-export const assets = () => {
-  return gulp
-    .src(["**/*.*", "!**/_*.*"], { cwd: "source/assets" })
-    .pipe(plumber(plumberConfig))
-    .pipe(changed("dest/assets"))
-    .pipe(gulpIf(!isDevelopment, imagemin(imageminConfig.images)))
-    .pipe(gulp.dest("dest/assets"));
-};
+export const staticFiles = () => {
+  const filterImages = filter("**/*.{png,jpg,jpeg,gif,svg,webp}", {
+    restore: true
+  });
 
-export const staticFiles = () =>
-  gulp
+  return gulp
     .src("**/{*,.*}", { cwd: "source/public" })
     .pipe(plumber(plumberConfig))
+    .pipe(changed("dest"))
+    .pipe(filterImages)
+    .pipe(gulpIf(!isDevelopment, imagemin(imageminConfig.images)))
+    .pipe(filterImages.restore)
     .pipe(gulp.dest("dest"));
+};

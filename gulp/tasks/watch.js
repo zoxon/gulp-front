@@ -7,7 +7,7 @@ import { scripts } from "./scripts";
 import { icons } from "./icons";
 import { sprite } from "./sprite";
 import { moduleImages } from "./moduleImages";
-import { assets, staticFiles } from "./assets";
+import { staticFiles } from "./staticFiles";
 
 export const watch = () => {
   global.watch = true;
@@ -29,22 +29,12 @@ export const watch = () => {
   // Modules data
   gulp.watch("source/modules/**/*.yml", gulp.series(html, reload));
 
-  // Static styles
-  gulp.watch("source/styles/**/*.styl", gulp.series(css));
+  // Styles
+  gulp.watch("source/**/*.styl", gulp.series(css));
 
-  // Modules styles
-  gulp.watch("source/modules/**/*.styl", gulp.series(css));
-
-  // Static scripts
+  // Scripts
   gulp.watch(
-    "source/scripts/**/*.js",
-    { ignored: testsPatterns },
-    gulp.series(scripts, reload)
-  );
-
-  // Modules scripts
-  gulp.watch(
-    "source/modules/**/*.js",
+    "source/**/*.js",
     { ignored: testsPatterns },
     gulp.series(scripts, reload)
   );
@@ -55,15 +45,12 @@ export const watch = () => {
     gulp.series(moduleImages, reload)
   );
 
-  // Assets
-  gulp.watch("source/assets/**/*", gulp.series(assets, reload));
-
   // Svg icons
   gulp.watch("source/icons/**/*.svg", gulp.series(icons, css, reload));
 
   // Png sprites
   gulp.watch("source/sprite/**/*.png", gulp.series(sprite, reload));
 
-  // Static files
-  gulp.watch("source/public/**/{*,.*}", gulp.series(staticFiles));
+  // Static files and assets
+  gulp.watch("source/public/**/{*,.*}", gulp.series(staticFiles, reload));
 };

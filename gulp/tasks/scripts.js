@@ -10,7 +10,7 @@ import { plumberConfig } from "../config";
 export const scripts = done => {
   let firstBuildReady = false;
 
-  function done(err, stats) {
+  function webpackDone(err, stats) {
     firstBuildReady = true;
 
     if (err) {
@@ -32,7 +32,7 @@ export const scripts = done => {
   return gulp
     .src(["*.js", "!_*.js"], { cwd: "source/scripts" })
     .pipe(plumber(plumberConfig))
-    .pipe(webpackStream(webpackConfig, webpack, done))
+    .pipe(webpackStream(webpackConfig, webpack, webpackDone))
     .pipe(gulp.dest("dest/assets/javascripts"))
     .on("data", () => {
       if (firstBuildReady) {
