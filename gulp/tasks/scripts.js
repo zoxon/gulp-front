@@ -7,7 +7,7 @@ import logger from "gulplog";
 import webpackConfig from "../../webpack.config.babel";
 import { plumberConfig } from "../config";
 
-export const scripts = callback => {
+export const scripts = done => {
   let firstBuildReady = false;
 
   function done(err, stats) {
@@ -36,7 +36,7 @@ export const scripts = callback => {
     .pipe(gulp.dest("dest/assets/javascripts"))
     .on("data", () => {
       if (firstBuildReady) {
-        callback();
+        done();
       }
     });
 };
