@@ -1,28 +1,18 @@
 extends page
 
-include ../modules/mobile-menu/mobile-menu
-include ../modules/scroll-top/scroll-top
-
 
 block page
 	.page__mobile-menu(data-offcanvas-menu aria-hidden="true")
-		+mobile-menu(mainMenu.default)
-
+		block mobile-menu
+		
 	.page__content
-		.page__wrapper
-			.page__header
-				block header
+		.page__header
+			block header
 
-			.page__main
-				block main
+		.page__main
+			block main
 
 		.page__footer
 			block footer
 	
 	.page__overlay(data-offcanvas-overlay)
-
-	+scroll-top()
-
-
-
-

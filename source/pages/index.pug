@@ -1,12 +1,22 @@
-extends ../layouts/home
+extends ../layouts/default
 
+include ../modules/container/container
 include ../modules/footer/footer
 include ../modules/header/header
 include ../modules/main-page/main-page
+include ../modules/mobile-menu/mobile-menu
 
-	
+
+block head
+	- page.title = "Home"
+	- page.class = "page_full page_header_fixed"
+
+
 block header
 	+header()
+
+block mobile-menu
+	+mobile-menu(mainMenu.default)
 
 block main
 	+main-page()

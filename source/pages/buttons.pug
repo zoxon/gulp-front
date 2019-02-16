@@ -1,38 +1,46 @@
 extends ../layouts/default
 
+include ../modules/container/container
 include ../modules/footer/footer
 include ../modules/header/header
+include ../modules/mobile-menu/mobile-menu
+
 
 block head
-	- title = "Buttons"
-	
+	- page.title = "Buttons"
+	- page.class = "page_header_fixed"
+
 block header
 	+header()
 
+block mobile-menu
+	+mobile-menu(mainMenu.default)
+
 block main
-	h1#buttons Buttons
+	+container()
+		h1#buttons Buttons
 
-	.demo.demo_buttons
-		h2#buttons-styles Styles
-		include ../modules/demo/buttons/styles
+		.demo.demo_buttons
+			h2#buttons-styles Styles
+			include ../modules/demo/buttons/styles
 
-		h2#buttons-sizes Sizes
-		include ../modules/demo/buttons/sizes
+			h2#buttons-sizes Sizes
+			include ../modules/demo/buttons/sizes
 
-		h2#buttons-icon Icon buttons
-		include ../modules/demo/buttons/icon
+			h2#buttons-icon Icon buttons
+			include ../modules/demo/buttons/icon
 
-		h2#buttons-tags Tags types
-		include ../modules/demo/buttons/tags
+			h2#buttons-tags Tags types
+			include ../modules/demo/buttons/tags
 
-		h2#buttons-disabled Disabled buttons
-		include ../modules/demo/buttons/disabled
+			h2#buttons-disabled Disabled buttons
+			include ../modules/demo/buttons/disabled
 
-		h2#buttons-block Block buttons
-		include ../modules/demo/buttons/block
+			h2#buttons-block Block buttons
+			include ../modules/demo/buttons/block
 
-		h2#buttons-group Buttons group
-		include ../modules/demo/buttons/group
+			h2#buttons-group Buttons group
+			include ../modules/demo/buttons/group
 
 block footer
 	+footer(footer.default)

@@ -2,34 +2,34 @@
 	position relative
 
 	&__content
-		position relative
-		top 0
-		left 0
-		z-index 1
-		padding-top 83px
-		background $base-bg-color
-		transition 125ms all ease-in-out
-		transition 125ms left ease
-
-		+below($media-screen-tablet)
-			padding-top 60px
+		display flex
+		flex-direction column
+		width 100%
+		height 100%
 
 	&__header
-		position fixed
-		top 0
-		z-index 1000
-		box-sizing border-box
-		width 100%
+	&__footer
+		flex none
 
-	&__presentation
-		+print()
-			page-break-after always
+	&__header
+		// 
 
 	&__main
+		display flex
+		flex 1 0 auto
+		flex-direction column
+		align-items stretch
 		margin 0 auto
-		padding 2em $mobile-padding
-		padding-bottom 60px
-		max-width $content-width
+		padding-top em(32px)
+		padding-bottom em(64px)
+		width 100%
+
+		&::after
+			display block
+			visibility hidden
+			margin-top em(32px)
+			height 0px
+			content "\00a0" // &nbsp;
 
 	&__mobile-menu
 		position fixed
@@ -57,3 +57,21 @@
 		background-color rgba(#000, 0.3)
 		opacity 0
 		transition 125ms all ease-in-out
+
+	&_full
+		& ^[0]__main
+			padding 0
+
+			&::after
+				content none
+
+	&_header_fixed
+		& ^[0]__content
+			padding-top 80px
+
+		& ^[0]__header
+			position fixed
+			top 0
+			z-index 1000
+			box-sizing border-box
+			width 100%
