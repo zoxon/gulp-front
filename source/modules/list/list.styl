@@ -1,0 +1,21 @@
+.list
+	&_style_unstyled
+		margin 0
+		padding 0
+
+		> li
+			padding 0
+			list-style none
+
+	&_style_inline
+		display inline
+
+		> li
+			display inline
+
+	&[data-list-delemiter="\,"]
+		> li:not(:last-child)
+			&::after
+				display inherit
+				content ", "
+				font inherit
