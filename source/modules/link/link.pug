@@ -1,0 +1,45 @@
+mixin link(data)
+	-
+		const {
+			to,
+			href,
+			style,
+			external = false,
+			block: blockAttr,
+			baseClassName = "link"
+		} = attributes;
+
+		const otherAttrs = _.omit(
+			["to", "href", "style", "external", "block", "baseClassName"],
+			attributes
+		);
+
+		const url = (to || href) || "#";
+
+		const stringToArray = str => str
+			? str.split(" ").filter(v => v.length) 
+			: [];
+
+		const styles = stringToArray(style)
+			.map(s => `${baseClassName}_style_${s}`)
+
+		const classes = _.classNames(
+			[
+				baseClassName,
+				{
+					[`${baseClassName}_block`]: blockAttr,
+					[`${baseClassName}_external`]: external
+				}
+			].concat(styles)
+		);
+
+		if (external) {
+			otherAttrs.target = "_blank";
+			otherAttrs.rel = "nofollow noopener";
+		}
+
+	a(
+		class=classes
+		href=url
+	)&attributes(otherAttrs)
+		block
