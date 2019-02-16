@@ -1,39 +1,18 @@
 .layout
-	clearfix()
+	display flex
+	flex 1 0 auto
+	flex-direction row
 
 	&__sidebar
-		width 300px
+		flex 0 0 352px
 
-		+below($content-width)
-			display none
+		&_left
+			order -1
+			margin-right 32px
 
-		+print()
-			display none
+		&_right
+			order 1
+			margin-left 32px
 
 	&__content
-		width 830px
-
-		+below($content-width)
-			width auto
-			m-padding()
-
-		+print()
-			width auto
-
-	&_sidebar_left &__sidebar
-		float left
-
-	&_sidebar_left &__content
-		float right
-
-		+below($content-width)
-			float none
-
-	&_sidebar_right &__sidebar
-		float right
-
-	&_sidebar_right &__content
-		float left
-
-		+below($content-width)
-			float none
+		flex 1
