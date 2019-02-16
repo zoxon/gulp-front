@@ -43,11 +43,11 @@ ScrollTop(".scroll-top");
 StarRating(".star-rating");
 InputPassword(".input_type_password");
 NetworkStatus();
+Tooltip("[data-tooltip]");
 
 // Simple functional plugins
 Demo();
 MainMenu();
-Tooltip();
 Modal();
 
 ready(function() {
