@@ -1,11 +1,17 @@
 include ../features-list/features-list
 include ../quick-start/quick-start
+include ../header-presentation/header-presentation
+include ../container/container
 
 mixin main-page(data)
 	.main-page&attributes(attributes)
+		.main-page__hero
+			+header-presentation(headerPresentation.default)
+
 		section.main-page__section.main-page__section_features
 			h2.main-page__title Benefits &amp; Features
 			+features-list(featuresList.default)
+
 		section.main-page__section.main-page__section_quick-start#quick-start
 			h2.main-page__title Getting Started
 			+quick-start()
