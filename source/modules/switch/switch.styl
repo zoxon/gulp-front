@@ -7,6 +7,9 @@
 	&__control
 		// 
 
+	&__label
+		user-select none
+
 	&_block
 		display flex
 		box-sizing border-box
@@ -23,11 +26,6 @@
 	&_style_default
 		& ^[0]__control
 			vhidden()
-
-	&_type_radio
-		position relative
-		display inline-block
-		cursor pointer
 
 		& ^[0]__box
 			position absolute
@@ -56,8 +54,8 @@
 			&:disabled ~ ^[0]__label
 				opacity 0.5
 
-		& ^[0]__label
-			user-select none
+	&_type_radio
+		// 
 
 	&_type_radio&_style_default
 		& ^[0]__box
@@ -80,36 +78,8 @@
 		& ^[0]__label
 			padding-left 32px
 
-			+below(1024px)
-				padding-top 10px
-				padding-bottom 10px
-
 	&_type_checkbox
-		position relative
-		display inline-block
-		cursor pointer
-
-		& ^[0]__box
-			position absolute
-			top 0
-			left 0
-			display block
-
-			&:before
-				position absolute
-				display block
-				content ""
-
-		& ^[0]__control
-			&:checked + ^[0]__box:before
-				opacity 1
-
-			&:disabled ~ ^[0]__box
-			&:disabled ~ ^[0]__label
-				opacity 0.5
-
-		& ^[0]__label
-			user-select none
+		// 
 
 	&_type_checkbox&_style_default
 		& ^[0]__control
@@ -141,36 +111,10 @@
 		& ^[0]__label
 			padding-left 32px
 
-			+below(1024px)
-				padding-top 10px
-				padding-bottom 10px
-
 	&_type_switch
-		position relative
-		display inline-block
-		cursor pointer
-
 		& ^[0]__box
-			position absolute
-			top 0
-			left 0
-			display block
-
 			&:before
-				position absolute
-				display block
-				content ""
-
-		& ^[0]__control
-			&:checked + ^[0]__box:before
 				opacity 1
-
-			&:disabled ~ ^[0]__box
-			&:disabled ~ ^[0]__label
-				opacity 0.5
-
-		& ^[0]__label
-			user-select none
 
 	&_type_switch&_style_default
 		min-width 42px
