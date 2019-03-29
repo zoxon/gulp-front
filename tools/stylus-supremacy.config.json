@@ -10,5 +10,5 @@
   "reduceMarginAndPaddingValues": true,
   "quoteChar": "\"",
   "preserveNewLinesBetweenPropertyValues": true,
-  "ignoreFiles": ["gulp/**/icons-template.styl"]
+  "ignoreFiles": ["gulp/**/icons-template.styl", "source/styles/**/*.styl"]
 }
