@@ -1,8 +1,9 @@
 include ../../form-item/form-item
 include ../../label/label
 include ../../fieldset/fieldset
-include ../../radio/radio
 include ../../checkbox/checkbox
+include ../../radio/radio
+include ../../switch/switch
 
 
 +form-item().form__item
@@ -125,30 +126,26 @@ include ../../checkbox/checkbox
 	.form-item__control
 		+fieldset(label="Toggle Switch")
 			.fieldset__item
-				+checkbox(
+				+switch(
 					id="form-demo__checkbox-9" 
 					name="form-demo__checkbox-group-3"
-					style="toggle-switch"
 				) Normal
 			.fieldset__item
-				+checkbox(
+				+switch(
 					id="form-demo__checkbox-10" 
 					name="form-demo__checkbox-group-3" 
-					style="toggle-switch"
 					checked
 				) Checked
 			.fieldset__item
-				+checkbox(
-					id="form-demo__checkbox-11" 
-					name="form-demo__checkbox-group-4" 
-					style="toggle-switch"
+				+switch(
+					id="form-demo__checkbox-11"
+					name="form-demo__checkbox-group-4"
 					disabled
 				) Normal Disabled
 			.fieldset__item
-				+checkbox(
-					id="form-demo__checkbox-12" 
-					name="form-demo__checkbox-group-4" 
-					style="toggle-switch"
+				+switch(
+					id="form-demo__checkbox-12"
+					name="form-demo__checkbox-group-4"
 					checked 
 					disabled
 				) Checked and Disabled
@@ -158,8 +155,7 @@ include ../../checkbox/checkbox
 	label="Without label"
 	for="form-demo__checkbox-13"
 ).form__item
-	+checkbox(
+	+switch(
 		id="form-demo__checkbox-13" 
 		name="form-demo__checkbox-group-5"
-		style="toggle-switch"
 	)
