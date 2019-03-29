@@ -3,16 +3,33 @@
 	flex 1 0 auto
 	flex-direction row
 
+	+below($container-width)
+		flex-direction column
+
+	+below($media-screen-phone)
+		padding-right 0
+		padding-left 0
+
 	&__sidebar
-		flex 0 0 352px
+		flex 0 0 em(352px)
+		max-width em(352px)
+
+		+below($container-width)
+			max-width none
 
 		&_left
 			order -1
-			margin-right 32px
+			margin-right em(32px)
+
+			+below($container-width)
+				margin-right 0
 
 		&_right
 			order 1
-			margin-left 32px
+			margin-left em(32px)
+
+			+below($container-width)
+				margin-left 0
 
 	&__content
 		flex 1
