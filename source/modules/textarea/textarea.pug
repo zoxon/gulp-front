@@ -1,42 +1,7 @@
-mixin textarea(data)
-	-
-		let baseClassName = "textarea";
+include ../textfield/textfield
 
-		const {
-			style = "default",
-			cols = "30",
-			rows = "10",
-			disabled: disabledAttr,
-			block: blockAttr,
-			class: className,
-			icon
-		} = attributes;
+mixin textarea()
+	- delete attributes.type;
 
-		const otherAttrs = _.omit(
-			["color", "size", "style", "icon", "block", "class"],
-			attributes
-		);
-
-		const stringToArray = str => str
-			? str.split(" ").filter(v => v.length) 
-			: [];
-
-		const styles = stringToArray(style)
-			.map(s => `${baseClassName}_style_${s}`)
-
-		const classes = _.classNames(
-			[
-				baseClassName,
-				blockAttr ? `${baseClassName}_block`: `${baseClassName}_inline`,
-				{
-					[`${baseClassName}_icon`]: icon,
-					[`${baseClassName}_color_${color}`]: color,
-					[`${baseClassName}_size_${size}`]: size,
-					[`${baseClassName}_disabled`]: disabledAttr
-				}
-			].concat(styles, className)
-		);
-
-	span(class=classes)
-		textarea&attributes(otherAttrs).form-control.form-control_type_textarea.textarea__control
-			block
+	+textfield(cols="30" rows="10" multiline=true)&attributes(attributes)
+		block

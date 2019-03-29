@@ -36,7 +36,7 @@ Code("pre.code");
 Table(".table_responsive");
 ScrollTop(".scroll-top");
 StarRating(".star-rating");
-InputPassword(".input_type_password");
+InputPassword(".textfield_type_password");
 NetworkStatus();
 
 // Simple functional plugins

@@ -39,7 +39,7 @@ Table(".table_responsive");
 Header(".header");
 ScrollTop(".scroll-top");
 StarRating(".star-rating");
-InputPassword(".input_type_password");
+InputPassword(".textfield_type_password");
 NetworkStatus();
 Tooltip("[data-tooltip]");
 

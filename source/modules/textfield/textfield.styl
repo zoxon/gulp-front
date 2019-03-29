@@ -1,0 +1,101 @@
+.textfield
+	display inline-block
+
+	& ^[0]__control
+		box-sizing border-box
+		appearance none
+
+	&_block
+		display block
+
+	&_block
+		& ^[0]__control
+			width 100% !important
+
+	&_inline
+		& ^[0]__control
+			width $form-input-width-inline
+
+	&_multiline
+		// 
+
+	&_style_default&_multiline
+		& ^[0]__control
+			padding $form-padding_vertical $form-padding_horizontal
+			min-height ($form-size-input-height * 3)
+			height ($form-size-input-height * 3)
+			border $form-border_default
+			border-radius $form-border-radius
+			background-color $form-color-background
+			color $form-color-font
+			font-size $form-font-size
+
+			+placeholder()
+				color $form-color-placeholder
+
+			&:focus
+				outline none
+				focus($form-color-border_focus)
+
+			&:invalid
+				border-color $form-color-border_invalid
+
+				&:focus
+					focus($form-color-border_invalid)
+
+			&:disabled
+				background-color $form-color-background_disabled
+
+	&_single-line
+		& ^[0]__show-password
+			position absolute
+			top 0
+			right 0
+			bottom 0
+			padding 0
+			width em(40px)
+
+		&^[0]_type_password
+			position relative
+
+			&&_style_default & ^[0]__control
+				padding-right em($form-padding_horizontal + 30px)
+
+	&_style_default&_single-line
+		& ^[0]__show-password
+			border-left $form-border_default
+			background-color transparent
+			background-position 50% 50%
+			background-repeat no-repeat
+			transition none
+
+			&[data-input-password-showed="false"]
+				background-image url("../images/input__eye_close.svg")
+
+			&[data-input-password-showed="true"]
+				background-image url("../images/input__eye_open.svg")
+
+		& ^[0]__control
+			padding 0 $form-padding_horizontal
+			height $form-size-input-height
+			border $form-border_default
+			border-radius $form-border-radius
+			background-color $form-color-background
+			color $form-color-font
+			font-size $form-font-size
+
+			+placeholder()
+				color $form-color-placeholder
+
+			&:focus
+				outline none
+				focus($form-color-border_focus)
+
+			&:invalid
+				border-color $form-color-border_invalid
+
+				&:focus
+					focus($form-color-border_invalid)
+
+			&:disabled
+				background-color $form-color-background_disabled

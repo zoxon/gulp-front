@@ -5,7 +5,7 @@ import { createElement } from "@/scripts/helpers/dom/createElement";
 class InputPassword extends Plugin {
   defaults() {
     return {
-      buttonClassName: "input__show-password",
+      buttonClassName: "textfield__show-password",
       buttonText: "Toggle password visibility",
       buttonAdditionalClassNames: ["button"],
       buttonToggleAttribute: "data-input-password-showed",
