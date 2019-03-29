@@ -2,16 +2,23 @@ extends ../layouts/default
 
 include ../modules/footer/footer
 include ../modules/header/header
+include ../modules/mobile-menu/mobile-menu
+include ../modules/container/container
 
 block head
-	- title = "Documentation"
+	- page.title = "Documentation"
+	- page.class = ["page_style_default"]
+
+block mobile-menu
+	+mobile-menu(mainMenu.default)
 	
 block header
 	+header()
 
 block main
-	.demo.demo_documentation.content-wrapper
-		include:markdown-it(langPrefix="highlight-" quotes="“”‘’" linkify="true" typographer="true" html="true") ../../docs/FAQ.md
+	+container()
+		.demo.demo_documentation.content-wrapper
+			include:markdown-it(langPrefix="highlight-" quotes="“”‘’" linkify="true" typographer="true" html="true") ../../docs/FAQ.md
 
 block footer
 	+footer(footer.default)

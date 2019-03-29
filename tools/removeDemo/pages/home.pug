@@ -1,16 +1,24 @@
 extends ../layouts/default
+
 include ../modules/footer/footer
 include ../modules/header/header
+include ../modules/mobile-menu/mobile-menu
+include ../modules/container/container
 
 
 block head
-	- title = "Home page"
+	- page.title = "Home page"
+	- page.class = ["page_style_default"]
+
+block mobile-menu
+	+mobile-menu(mainMenu.default)
 
 block header
 	+header()
 
 block main
-	h1 Home page
+	+container()
+		h1 Home page
 
 block footer
 	+footer()
