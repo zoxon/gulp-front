@@ -1,9 +1,0 @@
-mixin page-list(data)
-	.page-list&attributes(attributes)
-		h1.page-list__title= config.projectName
-		ul.page-list__list
-			each item in data
-				li.page-list__item
-					a(href=item.url + '.html').page-list__link= item.title
-					span.page-list__spacer  —
-					span.page-list__file-name= item.url + '.html'

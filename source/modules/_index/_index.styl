@@ -1,0 +1,54 @@
+@import "../styles/_globals"
+
+.list
+	&__item
+		@media screen and (max-width: $media-screen-tablet)
+			& a^[0]__title
+				&
+				&:visited
+					padding em(8px) 0
+					font-size em(18px)
+
+		@media screen and (max-width: $media-screen-phone)
+			padding-left em(24px)
+
+		&_group
+			margin-top em(16px)
+			margin-bottom em(16px)
+
+			@media screen and (max-width: $media-screen-phone)
+				list-style none
+
+	a&__title
+		&
+		&:visited
+			display inline-block
+
+	&__spacer
+	&__file
+		display inline-block
+		margin 0
+		padding-left em(8px)
+		color $text-black-secondary
+		font-size em(14px)
+
+		@media screen and (max-width: $media-screen-tablet)
+			display none
+
+.index
+	padding em(40px) em(56px)
+	max-width 700px
+	font-size em(16px)
+	font-family system
+
+	@media screen and (max-width: $media-screen-phone)
+		padding em(24px) em(16px)
+
+	&__title
+		margin 0 0 em(16px)
+		font-weight normal
+		font-size em(32px)
+		font-family arial
+
+	&__list
+		// 
