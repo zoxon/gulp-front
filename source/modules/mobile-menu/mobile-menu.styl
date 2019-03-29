@@ -1,23 +1,50 @@
 .mobile-menu
-	padding 1.5em 0
+	padding-top 62px
+
+	&__header
+		position relative
+		position fixed
+		top 0
+		right 0
+		left 0
+		z-index 1
+		display flex
+		align-items center
+		padding-left em(24px)
+		height 62px
+		background #fff
+		box-shadow 0 2px 6px 0 rgba(#b0bac5, 0.6)
+
+	&__menu
+		// 
+
+	&__title
+		margin 0
+		font-weight 500
+		font-size em(24px)
+
+	&__close
+		margin-left auto
+		padding 22px
+		color $blue-6
 
 	&__list
 		margin 0
 		padding 0
 
 	&__item
-		padding 0 0 1.5em
+		padding 0 0 em(24px)
 		list-style none
 
 	&__link
 		&
 		&:visited
 			display block
-			padding 1em 1.5em
+			padding em(16px, 24px) em(32px, 24px)
 			color $base-text-color
 			vertical-align middle
 			text-decoration none
-			font-size 1em
+			font-size em(24px)
 			line-height normal
 
 		&:hover
@@ -25,7 +52,7 @@
 
 	&__submenu
 		margin 0
-		padding 0 2em
+		padding 0 em(32px)
 
 	&__submenu &__item
 		padding-bottom 0
@@ -41,7 +68,7 @@
 			border-bottom 1px solid $gray-3
 			color $base-text-color
 			text-decoration none
-			font-size 0.8em
+			font-size em(16px)
 
 		&:hover
 			color $base-text-color

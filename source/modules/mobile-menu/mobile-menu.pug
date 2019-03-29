@@ -1,7 +1,12 @@
 include ../icon/icon
+include ../close-button/close-button
 
 mixin mobile-menu(data)
 	.mobile-menu.js-link-sroll&attributes(attributes)
+		.mobile-menu__header
+			h2.mobile-menu__title Navigation
+			+close-button(data-offcanvas-trigger="").mobile-menu__close
+
 		nav.mobile-menu__menu
 			ul.mobile-menu__list
 				each item in data
