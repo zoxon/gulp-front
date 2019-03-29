@@ -1,0 +1,31 @@
+mixin list()
+	-
+		const {
+			style,
+			delemiter,
+			list = [],
+			baseClassName = "list"
+		} = attributes;
+
+
+		const otherAttrs = _.omit(
+			["list", "style", "block", "delemiter", "baseClassName"],
+			attributes
+		);
+
+		const stringToArray = str => str
+			? str.split(" ").filter(v => v.length)
+			: [];
+
+		const styles = stringToArray(style)
+			.map(s => `${baseClassName}_style_${s}`)
+
+		const classes = _.classNames(baseClassName, styles);
+
+
+	ul(class=classes data-list-delemiter=delemiter || false)&attributes(otherAttrs)
+		- if (list.length > 0)
+			each item in list
+				li(class=`${baseClassName}__item`)= item
+		- else
+			block

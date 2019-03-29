@@ -1,5 +1,6 @@
 extends ../layouts/default
 
+include ../modules/container/container
 include ../modules/footer/footer
 include ../modules/header/header
 include ../modules/mobile-menu/mobile-menu
@@ -15,6 +16,9 @@ block mobile-menu
 	
 block header
 	+header()
+
+block mobile-menu
+	+mobile-menu(mainMenu.default)
 
 block main
 	+container()

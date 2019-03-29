@@ -1,16 +1,11 @@
 .header
-	display flex
-	align-items center
-	padding $mobile-padding
-	background #fff
+	background-color #fff
 	box-shadow 0 2px 6px 0 rgba(#b0bac5, 0.6)
 
-	+below($media-screen-tablet)
-		padding 0 0 0 $mobile-padding
-
-	+print()
-		display none !important
-		page-break-after always
+	&__container
+		display flex
+		align-items center
+		height em(80px)
 
 	&__logo
 		margin-right 5em
