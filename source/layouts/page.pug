@@ -1,21 +1,24 @@
-include ../modules/browsehappy/browsehappy
 include ../modules/javascripts/javascripts
 include ../modules/head/head
 
 doctype html
-html(class="i-ua_js_no i-ua_css_standard" lang=config.lang)
+html(class="js_no css_standard" lang=config.lang prefix="og: http://ogp.me/ns#")
 	head
-		- var title = ""
-		block head
-		+head({title})
-		<script>;(function(d,e,c,r){e=d.documentElement;c="className";r="replace";e[c]=e[c][r]("i-ua_js_no","i-ua_js_yes");if(d.compatMode!="CSS1Compat")e[c]=e[c][r]("i-ua_css_standart","i-ua_css_quirks")})(document);</script>
+		-
+			let page = {
+				title: "",
+				class: [],
+				offcanvas: true
+			};
 
-	body.page(data-offcanvas-container)
-		+browsehappy(browsehappy)
+		block head
+
+		+head({ title: page.title })
+
+		<script>;(function(d,e,c,r){e=d.documentElement;c="className";r="replace";e[c]=e[c][r]("js_no","js_yes");if(d.compatMode!="CSS1Compat")e[c]=e[c][r]("css_standart","css_quirks")})(document);</script>
+
+	body.page(class=page.class data-offcanvas-container=page.offcanvas)
 
 		block page
 
 		+javascripts()
-
-
-
