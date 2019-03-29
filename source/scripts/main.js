@@ -7,7 +7,6 @@ import ready from "@/scripts/helpers/dom/ready";
 
 import Alert from "@/modules/alert/alert";
 import Accordion from "@/modules/accordion/accordion";
-import Browsehappy from "@/modules/browsehappy/browsehappy";
 import Tabs from "@/modules/tabs/tabs";
 import ProgressBar from "@/modules/progress-bar/progress-bar";
 import Spoiler from "@/modules/spoiler/spoiler";
@@ -29,7 +28,6 @@ import NetworkStatus from "@/modules/network-status/network-status";
 // Factories class based plugins
 Alert(".alert");
 Accordion(".accordion");
-Browsehappy(".browsehappy");
 Tabs(".tabs");
 ProgressBar(".progress-bar");
 Spoiler("[data-spoiler-target]");
