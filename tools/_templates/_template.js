@@ -1,4 +1,5 @@
-import Plugin, { init } from "@/modules/_utils/Plugin";
+import Plugin from "@/scripts/core/Plugin";
+import init from "@/scripts/core/init";
 
 class #{blockname.pascalCase} extends Plugin {
   defaults() {
@@ -12,4 +13,4 @@ class #{blockname.pascalCase} extends Plugin {
   bindEvents() {}
 }
 
-export default init(#{blockname.pascalCase}, "#{blockname.dashCase}");
+export default init(#{blockname.pascalCase}, "#{blockname.paramCase}");

@@ -3,10 +3,8 @@ import logger from "gulplog";
 
 import { delConfig } from "../config";
 
-const cleanup = done =>
+export const cleanup = done =>
   del(delConfig).then(() => {
-    logger.info("Folders `build` and `tmp` were suceessfuly deleted");
+    logger.info("Folders `build` and `tmp` were successfully deleted");
     done();
   });
-
-export default cleanup;

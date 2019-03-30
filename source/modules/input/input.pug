@@ -1,39 +1,4 @@
+include ../textfield/textfield
+
 mixin input()
-	-
-		const {
-			style = "default",
-			type = "text",
-			disabled: disabledAttr,
-			block: blockAttr,
-			class: className,
-			baseClassName = "input"
-		} = attributes;
-
-		const otherAttrs = _.omit(
-			["color", "size", "style", "icon", "block", "class"],
-			attributes
-		);
-
-		const stringToArray = str => str
-			? str.split(" ").filter(v => v.length) 
-			: [];
-
-		const styles = stringToArray(style)
-			.map(s => `${baseClassName}_style_${s}`)
-
-		const classes = _.classNames(
-			[
-				baseClassName,
-				blockAttr ? `${baseClassName}_block`: `${baseClassName}_inline`,
-				{
-					[`${baseClassName}_icon`]: icon,
-					[`${baseClassName}_color_${color}`]: color,
-					[`${baseClassName}_size_${size}`]: size,
-					[`${baseClassName}_type_${type}`]: type,
-					[`${baseClassName}_disabled`]: disabledAttr,
-				}
-			].concat(styles, className)
-		);
-
-	span(class=classes)
-		input&attributes(otherAttrs).form-control.form-control_type_input.input__control
+	+textfield()&attributes(attributes)

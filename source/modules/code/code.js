@@ -1,4 +1,5 @@
-import Plugin, { init } from "@/modules/_utils/Plugin";
+import Plugin from "@/scripts/core/Plugin";
+import init from "@/scripts/core/init";
 
 class Code extends Plugin {
   defaults() {

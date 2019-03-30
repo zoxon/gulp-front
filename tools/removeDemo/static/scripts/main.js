@@ -1,13 +1,11 @@
-import FastClick from "fastclick";
 import svg4everybody from "svg4everybody";
 
-import * as serviceWorker from "./helpers/serviceWorker";
+import * as serviceWorker from "@/scripts/helpers/serviceWorker";
 
-import ready from "@/modules/_utils/dom/ready";
+import ready from "@/scripts/helpers/dom/ready";
 
 import Alert from "@/modules/alert/alert";
 import Accordion from "@/modules/accordion/accordion";
-import Browsehappy from "@/modules/browsehappy/browsehappy";
 import Tabs from "@/modules/tabs/tabs";
 import ProgressBar from "@/modules/progress-bar/progress-bar";
 import Spoiler from "@/modules/spoiler/spoiler";
@@ -27,7 +25,6 @@ import NetworkStatus from "@/modules/network-status/network-status";
 // Factories class based plugins
 Alert(".alert");
 Accordion(".accordion");
-Browsehappy(".browsehappy");
 Tabs(".tabs");
 ProgressBar(".progress-bar");
 Spoiler("[data-spoiler-target]");
@@ -38,7 +35,7 @@ Code("pre.code");
 Table(".table_responsive");
 ScrollTop(".scroll-top");
 StarRating(".star-rating");
-InputPassword(".input_type_password");
+InputPassword(".textfield_type_password");
 NetworkStatus();
 
 // Simple functional plugins
@@ -47,7 +44,6 @@ Tooltip();
 Modal();
 
 ready(function() {
-  FastClick.attach(document.body);
   svg4everybody();
 });
 

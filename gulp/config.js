@@ -1,15 +1,18 @@
 import path from "path";
 
-const CWD = process.cwd();
-
-import gulpImagemin from "gulp-imagemin";
+import imagemin from "gulp-imagemin";
 import imageminJpegRecompress from "imagemin-jpeg-recompress";
 import imageminPngquant from "imagemin-pngquant";
+import imageminZopfli from "imagemin-zopfli";
+import imageminMozjpeg from "imagemin-mozjpeg"; // need to run 'brew install libpng'
+import imageminGiflossy from "imagemin-giflossy";
 import posthtmlAttrsSorter from "posthtml-attrs-sorter";
 import rupture from "rupture";
 
 import errorHandler from "./util/errorHandler";
 import stylusFileExists from "./util/stylusFileExists";
+
+const CWD = process.cwd();
 
 export const delConfig = ["dest", "tmp"];
 
@@ -72,23 +75,57 @@ export const spritesmithConfig = {
 
 export const imageminConfig = {
   images: [
-    gulpImagemin.gifsicle({
-      interlaced: true,
-      optimizationLevel: 3
+    // png
+    imageminPngquant({
+      speed: 1,
+      quality: 98 // lossy settings
     }),
-    imageminJpegRecompress({
-      progressive: true,
-      max: 80,
-      min: 70
+    imageminZopfli({
+      more: true
+      // iterations: 50 // very slow but more effective
     }),
-    imageminPngquant({ quality: "75-85" }),
-    gulpImagemin.svgo({
-      plugins: [{ removeViewBox: false }]
+
+    // gif
+    // imagemin.gifsicle({
+    //   interlaced: true,
+    //   optimizationLevel: 3
+    // }),
+    // gif very light lossy, use only one of gifsicle or Giflossy
+    imageminGiflossy({
+      optimizationLevel: 3,
+      optimize: 3, //keep-empty: Preserve empty transparent frames
+      lossy: 2
+    }),
+
+    // svg
+    imagemin.svgo({
+      plugins: [
+        {
+          removeViewBox: false
+        }
+      ]
+    }),
+
+    // jpg lossy
+    // imageminJpegRecompress({
+    //   progressive: true,
+    //   max: 80,
+    //   min: 70
+    // })
+
+    // jpg lossless
+    imagemin.jpegtran({
+      progressive: true
+    }),
+
+    // jpg very light lossy, use vs jpegtran
+    imageminMozjpeg({
+      quality: 90
     })
   ],
 
   icons: [
-    gulpImagemin.svgo({
+    imagemin.svgo({
       plugins: [
         { removeViewBox: false },
         { removeTitle: true },

@@ -1,5 +1,5 @@
 include ../icon/icon
-include ../button/button
+include ../close-button/close-button
 
 mixin dialog()
 	-
@@ -45,16 +45,10 @@ mixin dialog()
 				h2(id=titleId).dialog__title= title
 
 			if close
-				+button(
-					icon="true"
-					data-micromodal-close
+				+close-button(
+					data-micromodal-close="" 
+					title="Close this dialog window"
 				).dialog__close
-					+icon(
-						name="close" 
-						title="Close" 
-						data-micromodal-close
-					)
-					span.visuallyhidden Close this dialog window
 
 		block
 

@@ -3,7 +3,7 @@ import { browserSyncConfig } from "../config";
 
 export const server = () => browserSync.init(browserSyncConfig);
 
-export const reload = calback => {
+export const reload = done => {
   browserSync.reload();
-  calback();
+  done();
 };

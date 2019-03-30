@@ -1,5 +1,6 @@
-import Plugin, { init } from "@/modules/_utils/Plugin";
-import { createElement } from "@/modules/_utils/dom/createElement";
+import Plugin from "@/scripts/core/Plugin";
+import init from "@/scripts/core/init";
+import { createElement } from "@/scripts/helpers/dom/createElement";
 
 class StarRating extends Plugin {
   defaults() {
@@ -47,7 +48,7 @@ class StarRating extends Plugin {
 
   getBarWidth() {
     if (this.options.widthMode === "%") {
-      const starPercentage = this.value / this.max * 100;
+      const starPercentage = (this.value / this.max) * 100;
       return `${Math.round(starPercentage / 10) * 10}%`;
     }
 

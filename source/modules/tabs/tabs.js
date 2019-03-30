@@ -1,10 +1,12 @@
-import Plugin, { init } from "@/modules/_utils/Plugin";
-import getSiblings from "@/modules/_utils/dom/getSiblings";
-import simulate from "@/modules/_utils/event/simulate";
-import { mapAttributes } from "@/modules/_utils/dom/attr";
-import { KEYCODES } from "@/modules/_utils/constants";
-import toArray from "@/modules/_utils/dom/toArray";
-import generateId from "@/modules/_utils/generateId";
+import attrs from "attrs";
+
+import Plugin from "@/scripts/core/Plugin";
+import init from "@/scripts/core/init";
+import getSiblings from "@/scripts/helpers/dom/getSiblings";
+import simulate from "@/scripts/helpers/event/simulate";
+import { KEYCODES } from "@/scripts/helpers/constants";
+import toArray from "@/scripts/helpers/dom/toArray";
+import generateId from "@/scripts/helpers/generateId";
 
 class Tabs extends Plugin {
   defaults() {
@@ -55,7 +57,7 @@ class Tabs extends Plugin {
 
     ["hashchange", "onpopstate"].forEach(eventName => {
       window.addEventListener(eventName, () => {
-        plugin.onHashchangeHandler.call(plugin);
+        plugin.onHashchangeHandler();
       });
 
       simulate(eventName, window);
@@ -69,14 +71,14 @@ class Tabs extends Plugin {
           let id = tab.getAttribute(this.options.tabsIdAttrName);
           plugin.open(plugin.tabsName, id);
 
-          window.location.hash = plugin.tabsName + "__" + id;
+          window.location.hash = `${plugin.tabsName}__${id}`;
         });
       });
     });
 
     plugin.tabs.forEach(tab => {
       tab.addEventListener("keydown", event => {
-        plugin.handleKeydown.call(plugin, event);
+        plugin.handleKeydown(event);
       });
     });
   }
@@ -94,14 +96,14 @@ class Tabs extends Plugin {
       `[${panelsIdAttrName}="${id}"]`
     );
 
-    mapAttributes(targetTab, {
+    attrs(targetTab, {
       tabindex: "0",
       "aria-selected": "true"
     });
 
     const targetTabSiblings = toArray(getSiblings(targetTab));
     targetTabSiblings.forEach(tab => {
-      mapAttributes(tab, {
+      attrs(tab, {
         tabindex: "-1",
         "aria-selected": "false"
       });
@@ -142,7 +144,7 @@ class Tabs extends Plugin {
       );
 
       if (tabsContainer && name) {
-        this.open(name, id ? id : this.firstTabId);
+        this.open(name, id || this.firstTabId);
       }
     }
   }
@@ -200,6 +202,9 @@ class Tabs extends Plugin {
         event.stopPropagation();
 
         break;
+
+      default:
+        break;
     }
 
     this.tabs[this.selected].focus();
@@ -211,7 +216,7 @@ class Tabs extends Plugin {
     this.description.setAttribute("id", this.descId);
 
     this.tabs.forEach(tab => {
-      mapAttributes(tab, {
+      attrs(tab, {
         id: this.triggerId,
         tabindex: "-1",
         role: "tab",
@@ -221,7 +226,7 @@ class Tabs extends Plugin {
     });
 
     this.panels.forEach(panel => {
-      mapAttributes(panel, {
+      attrs(panel, {
         id: this.panelId,
         role: "tabpanel",
         "aria-hidden": "true",

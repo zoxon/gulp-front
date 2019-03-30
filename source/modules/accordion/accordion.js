@@ -1,5 +1,6 @@
-import Plugin, { init } from "@/modules/_utils/Plugin";
-import toArray from "@/modules/_utils/dom/toArray";
+import Plugin from "@/scripts/core/Plugin";
+import init from "@/scripts/core/init";
+import toArray from "@/scripts/helpers/dom/toArray";
 
 class Accordion extends Plugin {
   defaults() {
@@ -54,7 +55,7 @@ class Accordion extends Plugin {
       const trigger = item.querySelector(this.options.triggerSelector);
 
       trigger.addEventListener("click", event => {
-        this.handleTriggerClick.call(this, event, item);
+        this.handleTriggerClick(event, item);
       });
     });
   }
@@ -81,9 +82,7 @@ class Accordion extends Plugin {
   }
 
   isOpen(item) {
-    return item.getAttribute(this.options.itemActiveAttr) === "true"
-      ? true
-      : false;
+    return item.getAttribute(this.options.itemActiveAttr) === "true";
   }
 
   handleTriggerClick(event, item) {

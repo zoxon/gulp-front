@@ -1,0 +1,49 @@
+mixin switch()
+	-
+		const {
+			type = "switch",
+			style = "default",
+			disabled: isDisabled,
+			block: isBlock,
+			class: className,
+			box = true,
+			baseClassName = "switch"
+		} = attributes;
+
+		const otherAttrs = _.omit(
+			["type", "style", "block", "class", "baseClassName"],
+			attributes
+		);
+
+		const stringToArray = str => str
+			? str.split(" ").filter(v => v.length) 
+			: [];
+
+		const styles = stringToArray(style)
+			.map(s => `${baseClassName}_style_${s}`);
+
+		const classes = _.classNames(
+			[
+				baseClassName,
+				{
+					[`${baseClassName}_type_${type}`]: type,
+					[`${baseClassName}_block`]: isBlock,
+					[`${baseClassName}_disabled`]: isDisabled
+				}
+			].concat(styles, className)
+		);
+
+		const types = {
+			"switch": "checkbox",
+			"radio": "radio",
+			"checkbox": "checkbox"
+		};
+
+	label(class=classes for=attributes.id)
+		input(type=types[type]).switch__control&attributes(otherAttrs)
+		if box
+			span.switch__box
+
+		if block
+			span.switch__label
+				block

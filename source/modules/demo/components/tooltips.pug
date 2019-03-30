@@ -1,25 +1,99 @@
-.ta-center
-	button(data-tooltip-id="tooltip-top" data-tooltip-placement="top" type="button").button.button_size_normal.button_style_solid.button_color_green.button_style_rounded Tooltip top
-	br
-	br
-	button(data-tooltip-id="tooltip-bottom" data-tooltip-placement="bottom" type="button").button.button_size_normal.button_style_solid.button_color_blue.button_style_rounded Tooltip bottom
-	br
-	br
-	button(data-tooltip-id="tooltip-left" data-tooltip-placement="left" type="button").button.button_size_normal.button_style_solid.button_color_yellow.button_style_rounded Tooltip left
-	br
-	br
-	button(data-tooltip-id="tooltip-right" data-tooltip-placement="right" type="button").button.button_size_normal.button_style_solid.button_color_orange.button_style_rounded Tooltip right
+include ../../tooltip/tooltip
 
-div(data-tooltip-target="tooltip-left").hidden
-	| Plain text
+style
+	:stylus
+		.tooltip-content
+			
+			&__title
+				margin 0 0 8px
+				font-size 16px
 
-div(data-tooltip-target="tooltip-top").hidden
-	| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam earum, similique nam repellendus nisi atque nesciunt non tempora labore ad dolorem eligendi dicta. Distinctio maiores deserunt officia eaque dolorem nam!
+			&__text
+				text-align left
+				
+			&__controls
+				text-align right
 
-div(data-tooltip-target="tooltip-bottom").hidden
-	h3(style="margin-top: 0") HTML Tooltip
-	img(src="http://via.placeholder.com/350x150", alt="Image example")
-	p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit fuga minima aliquam, dicta repellat vero iusto cum, assumenda non illo modi nam vitae officiis maxime molestias, voluptatem nihil numquam explicabo.
 
-div(data-tooltip-target="tooltip-right").hidden
-	| Lorem ipsum dolor sit amet
++tooltip()#tooltip-demo__id-1
+	.tooltip-content
+		h3.tooltip-content__title Any HTML
+		.tooltip-content__text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam earum, similique nam repellendus nisi atque nesciunt non tempora labore ad dolorem eligendi dicta. Distinctio maiores deserunt officia eaque dolorem nam!
+
+
++button(
+	style="solid rounded"
+	color="blue"
+	size="medium"
+	data-tooltip="Tooltip text"
+) From attribute
+
+
+h3 Placements
++button(
+	style="solid rounded"
+	color="blue"
+	size="medium"
+	data-tooltip="Tooltip text"
+	data-tooltip-placement="right"
+) Placement right
+| &nbsp;&nbsp;
++button(
+	style="solid rounded"
+	color="blue"
+	size="medium"
+	data-tooltip="Tooltip text"
+	data-tooltip-placement="left"
+) Placement left
+| &nbsp;&nbsp;
++button(
+	style="solid rounded"
+	color="blue"
+	size="medium"
+	data-tooltip="Tooltip text"
+	data-tooltip-placement="top"
+) Placement top
+| &nbsp;&nbsp;
++button(
+	style="solid rounded"
+	color="blue"
+	size="medium"
+	data-tooltip="Tooltip text"
+	data-tooltip-placement="bottom"
+) Placement bottom
+
+
+h3 Themes
++button(
+	style="solid rounded"
+	color="blue"
+	size="medium"
+	data-tooltip="Tooltip text"
+	data-tooltip-style="default light"
+) Light theme
+| &nbsp;&nbsp;
++button(
+	style="solid rounded"
+	color="blue"
+	size="medium"
+	data-tooltip="Tooltip text"
+	data-tooltip-style="default dark"
+) Dark theme
+
+h3 Custom events
++button(
+	style="solid rounded"
+	color="blue"
+	size="medium"
+	data-tooltip="Tooltip text"
+	data-tooltip-trigger="focus"
+) On focus
+
+h3 HTML content
++button(
+	style="solid rounded"
+	color="blue"
+	size="medium"
+	data-tooltip=""
+	data-tooltip-selector="#tooltip-demo__id-1"
+) HTML content

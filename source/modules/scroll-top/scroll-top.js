@@ -1,5 +1,6 @@
-import Plugin, { init } from "@/modules/_utils/Plugin";
-import scrollTo from "@/modules/_utils/scrollTo";
+import Plugin from "@/scripts/core/Plugin";
+import init from "@/scripts/core/init";
+import scrollTo from "@/scripts/helpers/scrollTo";
 
 class ScrollTop extends Plugin {
   defaults() {
@@ -9,9 +10,8 @@ class ScrollTop extends Plugin {
   }
 
   bindEvents() {
-    const plugin = this;
-    plugin.element.addEventListener("click", event => {
-      plugin.onClickHandler.call(plugin, event);
+    this.element.addEventListener("click", event => {
+      this.onClickHandler(event);
     });
   }
 

@@ -1,7 +1,8 @@
-import Plugin, { init } from "@/modules/_utils/Plugin";
-import generateId from "@/modules/_utils/generateId";
-import getHiddenElementHeight from "@/modules/_utils/getHiddenElementHeight";
-import toArray from "@/modules/_utils/dom/toArray";
+import Plugin from "@/scripts/core/Plugin";
+import init from "@/scripts/core/init";
+import generateId from "@/scripts/helpers/generateId";
+import getHiddenElementHeight from "@/scripts/helpers/getHiddenElementHeight";
+import toArray from "@/scripts/helpers/dom/toArray";
 
 class Spoiler extends Plugin {
   defaults() {
@@ -30,13 +31,13 @@ class Spoiler extends Plugin {
       plugin.setMaxHeigth(target);
 
       trigger.addEventListener("click", () => {
-        plugin.triggerClickHandler.call(plugin, target);
+        plugin.triggerClickHandler(target);
       });
     });
   }
 
   setIds({ target, trigger }) {
-    const id = "_" + generateId();
+    const id = `_${generateId()}`;
     target.setAttribute("aria-labelledby", id);
     trigger.setAttribute("id", id);
   }

@@ -1,0 +1,178 @@
+.switch
+	position relative
+	display inline-flex
+	align-items flex-start
+	cursor pointer
+
+	&__control
+		// 
+
+	&__label
+		user-select none
+
+	&_block
+		display flex
+		box-sizing border-box
+		width 100%
+
+	&_style_system
+		padding-left em(22px)
+
+		& ^[0]__control
+			position absolute
+			top em(3px)
+			left 0
+
+	&_style_default
+		& ^[0]__control
+			vhidden()
+
+		& ^[0]__box
+			position absolute
+			top 0
+			left 0
+			display block
+
+			&:before
+				position absolute
+				display block
+				content ""
+				opacity 0
+				transition 125ms all ease
+				will-change opacity, transform
+
+		& ^[0]__control
+			&:focus ~ ^[0]__box
+				outline none
+				border-color $form-color-border_focus
+				focus($form-color-border_focus)
+
+			&:checked + ^[0]__box:before
+				opacity 1
+
+			&:disabled ~ ^[0]__box
+			&:disabled ~ ^[0]__label
+				opacity 0.5
+
+	&_type_radio
+		// 
+
+	&_type_radio&_style_default
+		& ^[0]__box
+			size ($form-size-input-height / 2)
+			border $form-border_default
+			border-radius 50%
+			transition 125ms border-color ease
+
+			&:before
+				top 6px
+				left 6px
+				size 8px
+				border-radius 50%
+				background-color $form-color-active
+				opacity 0
+
+			&:disabled + ^[0]__box
+				background $form-color-background - 8%
+
+		& ^[0]__label
+			padding-left 32px
+
+	&_type_checkbox
+		// 
+
+	&_type_checkbox&_style_default
+		& ^[0]__control
+			&:focus ~ ^[0]__box
+				outline none
+				border-color $form-color-border_focus
+				background-color rgba($form-color-border_focus, 0.1)
+
+		& ^[0]__box
+			size 20px
+			border $form-border_default
+			transition 125ms border-color ease
+
+			&:before
+				top 5px
+				left 5px
+				size 7px 4px
+				border-width 0 0 3px 3px
+				border-style solid
+				border-color $form-color-active
+				opacity 0
+				transition 125ms all ease
+				transform rotate(-45deg)
+				will-change opacity, transform
+
+			&:disabled + ^[0]__box
+				background $form-color-background - 8%
+
+		& ^[0]__label
+			padding-left 32px
+
+	&_type_switch
+		& ^[0]__box
+			&:before
+				opacity 1
+
+	&_type_switch&_style_default
+		min-width 42px
+		min-height 22px
+		$box-height = ($form-size-input-height / 2) - 2
+		$toggle-width = ($form-size-input-height / 2)
+		$toggle-width-active = ($form-size-input-height / 2) - 10px
+		$toggle-height = ($form-size-input-height / 2) + 2
+
+		& ^[0]__box
+			width $form-size-input-height
+			height $box-height
+			border-width 1px
+			border-style solid
+			border-color $gray-4
+			border-radius 50em
+			background-color #ddd
+			transition 125ms all ease-in-out
+
+			&::before
+				top -2px
+				right $toggle-width
+				left -2px
+				display block
+				margin-left 0
+				height $toggle-height
+				border-radius 50em
+				background $form-color-background
+				box-shadow 0 2px 5px rgba(#000, 0.3)
+				transition 125ms all ease-in-out
+
+		& ^[0]__control
+			&:focus ~ ^[0]__box
+				outline none
+				border-color $form-color-border_focus
+
+				&::after
+					border 1px solid $form-color-border_focus
+
+			&:active ~ ^[0]__box
+				&::before
+					right $toggle-width-active
+
+			&:checked + ^[0]__box
+				border-color $form-color-active
+				background-color $form-color-active
+
+				&::before
+					right -2px
+					left $toggle-width
+
+			&:checked:active + ^[0]__box
+				&::before
+					left $toggle-width-active
+
+			&:disabled + ^[0]__box
+				border-color $form-color-border
+				background $form-color-background - 8%
+
+		& ^[0]__label
+			padding-left 52px

@@ -7,9 +7,9 @@ import gulpIf from "gulp-if";
 import { spritesmithConfig, imageminConfig } from "../config";
 import { isDevelopment } from "../util/env";
 
-const srpite = () => {
+export const sprite = () => {
   let spriteData = gulp
-    .src(["**/*.png", "!**/_*.png"], { cwd: "source/static/sprite" })
+    .src(["**/*.png", "!**/_*.png"], { cwd: "source/sprite" })
     .pipe(spritesmith(spritesmithConfig));
 
   spriteData.img
@@ -21,5 +21,3 @@ const srpite = () => {
 
   return spriteData.img.pipe(buffer());
 };
-
-export default srpite;

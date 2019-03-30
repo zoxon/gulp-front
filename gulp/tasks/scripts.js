@@ -7,10 +7,10 @@ import logger from "gulplog";
 import webpackConfig from "../../webpack.config.babel";
 import { plumberConfig } from "../config";
 
-const scripts = callback => {
+export const scripts = done => {
   let firstBuildReady = false;
 
-  function done(err, stats) {
+  function webpackDone(err, stats) {
     firstBuildReady = true;
 
     if (err) {
@@ -30,15 +30,13 @@ const scripts = callback => {
   }
 
   return gulp
-    .src(["*.js", "!_*.js"], { cwd: "source/static/scripts" })
+    .src(["*.js", "!_*.js"], { cwd: "source/scripts" })
     .pipe(plumber(plumberConfig))
-    .pipe(webpackStream(webpackConfig, webpack, done))
+    .pipe(webpackStream(webpackConfig, webpack, webpackDone))
     .pipe(gulp.dest("dest/assets/javascripts"))
     .on("data", () => {
       if (firstBuildReady) {
-        callback();
+        done();
       }
     });
 };
-
-export default scripts;

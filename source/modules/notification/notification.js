@@ -1,5 +1,5 @@
-import { createElement } from "@/modules/_utils/dom/createElement";
-import { animationEndEventName } from "@/modules/_utils/event/aninmation";
+import { createElement } from "@/scripts/helpers/dom/createElement";
+import { animationEndEventName } from "@/scripts/helpers/event/aninmation";
 
 class Notification {
   constructor(options = {}) {
@@ -134,7 +134,7 @@ class NotificationItem {
     this.element.classList.add(this.defaults.disappearClassName);
 
     this.element.addEventListener(this.animationEnd, event => {
-      if (event.target == this.element) {
+      if (event.target === this.element) {
         this.container.removeChild(this.element);
       }
     });

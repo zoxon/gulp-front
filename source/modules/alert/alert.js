@@ -1,5 +1,6 @@
-import Plugin, { init } from "@/modules/_utils/Plugin";
-import hide from "@/modules/_utils/animations/hide";
+import Plugin from "@/scripts/core/Plugin";
+import init from "@/scripts/core/init";
+import { slideUp } from "slide-anim";
 
 class Alert extends Plugin {
   defaults() {
@@ -13,14 +14,12 @@ class Alert extends Plugin {
   }
 
   bindEvents() {
-    this.close.addEventListener("click", event =>
-      this.onClick.call(this, event)
-    );
+    this.close.addEventListener("click", event => this.onClick(event));
   }
 
   onClick(event) {
     event.preventDefault();
-    hide(this.element);
+    slideUp(this.element);
   }
 }
 

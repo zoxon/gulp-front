@@ -1,5 +1,6 @@
-import Plugin, { init } from "@/modules/_utils/Plugin";
-import { createElement } from "@/modules/_utils/dom/createElement";
+import Plugin from "@/scripts/core/Plugin";
+import init from "@/scripts/core/init";
+import { createElement } from "@/scripts/helpers/dom/createElement";
 
 class ProgressBar extends Plugin {
   defaults() {

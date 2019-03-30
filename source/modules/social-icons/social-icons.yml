@@ -1,0 +1,43 @@
+---
+  socialIcons:
+    defaults:
+      -
+        name: facebook
+        icon: social_facebook
+        label: Facebook
+      -
+        name: google-plus
+        icon: social_google-plus
+        label: Google plus
+      -
+        name: instagram
+        icon: social_instagram
+        label: Instagram
+      -
+        name: odnoklassniki
+        icon: social_odnoklassniki
+        label: Odnoklassniki
+      -
+        name: telegram
+        icon: social_telegram
+        label: Telegram
+      -
+        name: twitter
+        icon: social_twitter
+        label: Twitter
+      -
+        name: viber
+        icon: social_viber
+        label: Viber
+      -
+        name: vkontakte
+        icon: social_vkontakte
+        label: Vkontakte
+      -
+        name: whatsapp
+        icon: social_whatsapp
+        label: WhatsApp
+      -
+        name: youtube
+        icon: social_youtube
+        label: YouTube

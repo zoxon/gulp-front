@@ -2,58 +2,108 @@
 	position relative
 
 	&__content
-		position relative
-		top 0
-		left 0
-		z-index 1
-		padding-top 83px
-		background $base-bg-color
-		transition 125ms all ease-in-out
-		transition 125ms left ease
+		display flex
+		flex-direction column
+		width 100%
+		height 100%
 
-		+below($media-screen-tablet)
-			padding-top 60px
+		+below($media-screen-desktop)
+			padding-top em(80px)
 
 	&__header
-		position fixed
-		top 0
-		z-index 1000
-		box-sizing border-box
-		width 100%
+	&__footer
+		flex none
 
-	&__presentation
-		+print()
-			page-break-after always
+	&__header
+		+below($media-screen-desktop)
+			position fixed
+			top 0
+			right 0
+			left 0
+			z-index 100
 
 	&__main
-		margin 0 auto
-		padding 2em $mobile-padding
-		padding-bottom 60px
-		max-width $content-width
+		flex 1 0 auto
+		padding-top em(40px)
+		padding-bottom em(64px)
+		width 100%
+
+		+below($media-screen-phone)
+			padding-top em(24px)
+			padding-bottom em(24px)
+
+		&::after
+			display block
+			visibility hidden
+			margin-top em(32px)
+			height 0px
+			content "\00a0" // &nbsp;
 
 	&__mobile-menu
-		position fixed
-		top 0
-		right 0
-		right 0
-		bottom 0
-		z-index 10
-		visibility hidden
-		overflow-y auto
-		width 80%
-		background-color #f3f3f3
-		opacity 0
-		transition 125ms all ease-in-out
-		-webkit-overflow-scrolling touch
+		// 
 
 	&__overlay
-		position fixed
-		top 0
-		right 0
-		bottom 0
-		left 0
-		z-index 1
-		visibility hidden
-		background-color rgba(#000, 0.3)
-		opacity 0
-		transition 125ms all ease-in-out
+		// 
+
+	&_full
+		& ^[0]__main
+			padding 0
+
+			&::after
+				content none
+
+	&_style_default
+		& ^[0]__content
+			position relative
+			top 0
+			left 0
+			z-index 1
+			padding-top 80px
+			transition 125ms left ease
+
+			+below($media-screen-tablet)
+				padding-top 60px
+
+		& ^[0]__header
+			position fixed
+			top 0
+			z-index 1000
+			box-sizing border-box
+			width 100%
+
+		& ^[0]__mobile-menu
+			position fixed
+			top 0
+			right -100%
+			bottom 0
+			z-index 10
+			visibility hidden
+			overflow-y auto
+			width 100%
+			background-color #fff
+			opacity 0
+			transition 180ms ease-out
+			transition-property opacity, visibility, right
+			will-change opacity, visibility, right
+
+			&[aria-hidden="false"]
+				right 0
+				visibility visible
+				opacity 1
+
+		& ^[0]__overlay
+			position fixed
+			top 0
+			right 0
+			bottom 0
+			left 0
+			z-index 1
+			visibility hidden
+			background-color rgba(#000, 0.3)
+			opacity 0
+			transition 125ms ease-in-out
+			transition-property opacity, visibility
+
+			&[data-offcanvas-hidden="false"]
+				visibility visible
+				opacity 1

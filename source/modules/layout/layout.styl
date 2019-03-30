@@ -1,39 +1,35 @@
 .layout
-	clearfix()
+	display flex
+	flex 1 0 auto
+	flex-direction row
+
+	+below($container-width)
+		flex-direction column
+
+	+below($media-screen-phone)
+		padding-right 0
+		padding-left 0
 
 	&__sidebar
-		width 300px
+		flex 0 0 em(352px)
+		max-width em(352px)
 
-		+below($content-width)
-			display none
+		+below($container-width)
+			max-width none
 
-		+print()
-			display none
+		&_left
+			order -1
+			margin-right em(32px)
+
+			+below($container-width)
+				margin-right 0
+
+		&_right
+			order 1
+			margin-left em(32px)
+
+			+below($container-width)
+				margin-left 0
 
 	&__content
-		width 830px
-
-		+below($content-width)
-			width auto
-			m-padding()
-
-		+print()
-			width auto
-
-	&_sidebar_left &__sidebar
-		float left
-
-	&_sidebar_left &__content
-		float right
-
-		+below($content-width)
-			float none
-
-	&_sidebar_right &__sidebar
-		float right
-
-	&_sidebar_right &__content
-		float left
-
-		+below($content-width)
-			float none
+		flex 1

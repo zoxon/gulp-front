@@ -1,0 +1,42 @@
+mixin textfield()
+	-
+		const {
+			style = "default",
+			type = text,
+			disabled: isDisabled,
+			block: isBlock,
+			class: className,
+			multiline,
+			baseClassName = "textfield"
+		} = attributes;
+
+		const otherAttrs = _.omit(
+			["style", "block", "class", "multiline", "baseClassName"],
+			attributes
+		);
+
+		const stringToArray = str => str
+			? str.split(" ").filter(v => v.length) 
+			: [];
+
+		const styles = stringToArray(style)
+			.map(s => `${baseClassName}_style_${s}`);
+
+		const classes = _.classNames(
+			[
+				baseClassName,
+				isBlock ? `${baseClassName}_block`: `${baseClassName}_inline`,
+				{
+					[`${baseClassName}_type_${type}`]: !multiline && type,
+					[`${baseClassName}_${multiline ? "multiline" : "single-line"}`]: true,
+					[`${baseClassName}_disabled`]: isDisabled
+				}
+			].concat(styles, className)
+		);
+
+	span(class=classes)
+		if multiline
+			textarea&attributes(otherAttrs).textfield__control
+		else
+			input(type="text")&attributes(otherAttrs).textfield__control
+

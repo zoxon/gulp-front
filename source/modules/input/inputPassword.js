@@ -1,10 +1,11 @@
-import Plugin, { init } from "@/modules/_utils/Plugin";
-import { createElement } from "@/modules/_utils/dom/createElement";
+import Plugin from "@/scripts/core/Plugin";
+import init from "@/scripts/core/init";
+import { createElement } from "@/scripts/helpers/dom/createElement";
 
 class InputPassword extends Plugin {
   defaults() {
     return {
-      buttonClassName: "input__show-password",
+      buttonClassName: "textfield__show-password",
       buttonText: "Toggle password visibility",
       buttonAdditionalClassNames: ["button"],
       buttonToggleAttribute: "data-input-password-showed",

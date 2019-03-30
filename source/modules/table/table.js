@@ -1,5 +1,6 @@
-import Plugin, { init } from "@/modules/_utils/Plugin";
-import getIndex from "@/modules/_utils/dom/getIndex";
+import Plugin from "@/scripts/core/Plugin";
+import init from "@/scripts/core/init";
+import getIndex from "@/scripts/helpers/dom/getIndex";
 
 class Table extends Plugin {
   defaults() {

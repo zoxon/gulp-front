@@ -1,71 +1,130 @@
-$offset = 10px
+$arrow-size = 8px
+
+@keyframes tooltip__fade-in
+	0%
+		opacity 0
+
+	99%
+		opacity 1
+
+	100%
+		display none
 
 .tooltip
 	position absolute
-	padding 8px
-	min-width 150px
-	max-width 450px
-	border-radius 3px
-	background rgba(#616161, 0.9)
-	box-shadow 0 0 2px rgba(0, 0, 0, 0.5)
-	color #fff
+	display block
+	margin 0
+	text-align left
+	text-align start
+	text-decoration none
+	text-transform none
+	text-shadow none
+	white-space normal
+	word-spacing normal
+	word-wrap break-word
+	word-break normal
+	letter-spacing normal
+	font-weight 400
+	font-style normal
+	line-height 1.5
+	animation tooltip__fade-in 100ms ease-in
+	line-break auto
 
 	&__arrow
 		position absolute
-		margin 5px
-		width 0
-		height 0
-		border-style solid
-		border-color rgba(#616161, 0.9)
+		display block
+		width 0.8em
+		height $arrow-size
 
-	&[x-placement^="top"]
-		margin-bottom $offset
+		&::before
+			position absolute
+			border-style solid
+			border-color transparent
+			content ""
 
-		& ^[0]__arrow
-			bottom -5px
-			left calc(50% - 5px)
-			margin-top 0
-			margin-bottom 0
-			border-width 5px 5px 0 5px
-			border-right-color transparent
-			border-bottom-color transparent
-			border-left-color transparent
+	&__inner
+		box-sizing border-box
+		max-width 320px
 
-	&[x-placement^="bottom"]
-		margin-top $offset
+	&[aria-hidden="true"]
+		z-index -1000
+		opacity 0
+		transition opacity 100ms ease-in, visibility 100s linear
 
-		& ^[0]__arrow
-			top -5px
-			left calc(50% - 5px)
-			margin-top 0
-			margin-bottom 0
-			border-width 0 5px 5px 5px
-			border-top-color transparent
-			border-right-color transparent
-			border-left-color transparent
+	&[aria-hidden="false"]
+		z-index 1000
+		opacity 1
+		transition opacity 100ms ease-in, visibility 0s linear
 
-	&[x-placement^="right"]
-		margin-left $offset
+	&[x-placement^=top]
+		padding $arrow-size 0
 
 		& ^[0]__arrow
-			top calc(50% - 5px)
-			left -5px
-			margin-right 0
-			margin-left 0
-			border-width 5px 5px 5px 0
-			border-top-color transparent
-			border-bottom-color transparent
-			border-left-color transparent
+			bottom 0
 
-	&[x-placement^="left"]
-		margin-right $offset
+			&::before
+				top 0
+				border-width $arrow-size $arrow-size 0
+				border-top-color currentColor
+
+	&[x-placement^=right]
+		padding 0 $arrow-size
 
 		& ^[0]__arrow
-			top calc(50% - 5px)
-			right -5px
-			margin-right 0
-			margin-left 0
-			border-width 5px 0 5px 5px
-			border-top-color transparent
-			border-right-color transparent
-			border-bottom-color transparent
+			left 0
+			width $arrow-size
+			height 0.8em
+
+			&::before
+				right 0
+				border-width $arrow-size $arrow-size $arrow-size 0
+				border-right-color currentColor
+
+	&[x-placement^=bottom]
+		padding $arrow-size 0
+
+		& ^[0]__arrow
+			top 0
+
+			&::before
+				bottom 0
+				border-width 0 $arrow-size $arrow-size
+				border-bottom-color currentColor
+
+	&[x-placement^=left]
+		padding 0 $arrow-size
+
+		& ^[0]__arrow
+			right 0
+			width $arrow-size
+			height 0.8em
+
+			&::before
+				left 0
+				border-width $arrow-size 0 $arrow-size $arrow-size
+				border-left-color currentColor
+
+	&_style_dark
+		& ^[0]__inner
+			background-color #141F2B
+			color #fff
+
+		& ^[0]__arrow
+			color #141F2B
+
+	&_style_light
+		& ^[0]__inner
+			background-color #fff
+			box-shadow 0 2px 6px 0 rgba(176, 186, 197, 0.6)
+			color #141F2B
+
+		& ^[0]__arrow
+			color #fff
+
+	&_style_default
+		& ^[0]__inner
+			padding em(8px, 14px)
+			border-radius em(4px, 14px)
+			text-align center
+			font-size em(14px)
+			line-height em(20px, 14px)

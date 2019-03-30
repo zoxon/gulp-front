@@ -1,7 +1,6 @@
-package.json
-tmp/*
-node_modules/*
-.publish/*
-dest/*
-tools/_templates/*
-
+/package.json
+/tmp
+/node_modules
+/.publish
+/dest
+/tools/_templates

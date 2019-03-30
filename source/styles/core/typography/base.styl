@@ -1,0 +1,17 @@
+html
+	font-size 62.5% // 10px
+	font-family $base-font-family
+
+body
+	background-color $base-bg-color
+	color $base-text-color
+	font-size $base-font-size
+	line-height $base-vertical-spacing
+	-webkit-font-smoothing antialiased
+	-moz-osx-font-smoothing grayscale
+
+	+below($media-screen-tablet)
+		font-size 1.5rem
+
+	+below($media-screen-phone)
+		font-size 1.4rem

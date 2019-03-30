@@ -1,0 +1,18 @@
+include ../button/button
+include ../icon/icon
+
+mixin close-button()
+	-
+		const {
+			icon = "close",
+			title = "Close"
+		} = attributes;
+
+		delete attributes.icon;
+		delete attributes.title;
+
+	+button().close-button&attributes(attributes)
+		if icon
+			+icon(name=icon).close-button__icon
+		if title
+			span.visuallyhidden= title

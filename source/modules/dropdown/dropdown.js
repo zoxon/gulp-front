@@ -1,10 +1,12 @@
 import Popper from "popper.js";
-import Plugin, { init } from "@/modules/_utils/Plugin";
-import { mapAttributes } from "@/modules/_utils/dom/attr";
-import { KEYCODES } from "@/modules/_utils/constants";
-import toArray from "@/modules/_utils/dom/toArray";
-import generateId from "@/modules/_utils/generateId";
-import { isDomNode } from "@/modules/_utils/is";
+import attrs from "attrs";
+
+import Plugin from "@/scripts/core/Plugin";
+import init from "@/scripts/core/init";
+import { KEYCODES } from "@/scripts/helpers/constants";
+import toArray from "@/scripts/helpers/dom/toArray";
+import generateId from "@/scripts/helpers/generateId";
+import { isDomNode } from "@/scripts/helpers/is";
 
 class Dropdown extends Plugin {
   defaults() {
@@ -52,14 +54,14 @@ class Dropdown extends Plugin {
 
   bindEvents() {
     this.trigger.addEventListener("click", event => {
-      this.toggle.call(this, event);
+      this.toggle(event);
     });
 
     const targets = [this.trigger, ...this.focusableElements];
 
     targets.forEach(element => {
       element.addEventListener("keydown", event => {
-        this.handleKeydown.call(this, event);
+        this.handleKeydown(event);
       });
     });
 
@@ -70,7 +72,7 @@ class Dropdown extends Plugin {
     });
 
     document.addEventListener("click", event => {
-      this.outerClickHandler.call(this, event);
+      this.outerClickHandler(event);
     });
   }
 
@@ -155,6 +157,9 @@ class Dropdown extends Plugin {
         }
 
         break;
+
+      default:
+        break;
     }
 
     this.focusableElements[this.selected].focus();
@@ -163,7 +168,7 @@ class Dropdown extends Plugin {
   setA11yAttrs() {
     this.element.setAttribute(this.options.menuOpenAttribute, false);
 
-    mapAttributes(this.trigger, {
+    attrs(this.trigger, {
       "aria-haspopup": true,
       "aria-expanded": false,
       id: this.triggerId

@@ -3,7 +3,6 @@ import plumber from "gulp-plumber";
 import imagemin from "gulp-imagemin";
 import svgSymbols from "gulp-svg-symbols";
 import gulpIf from "gulp-if";
-import gulpRename from "gulp-rename";
 import rename from "gulp-rename";
 import logger from "gulplog";
 
@@ -23,15 +22,13 @@ function renameIconByFolderName(file) {
   logger.info(`Icon "${prevName}" renamed to "${nextName}"`);
 }
 
-const icons = () =>
+export const icons = () =>
   gulp
-    .src(["**/*.svg", "!**/_*.svg"], { cwd: "source/static/icons" })
+    .src(["**/*.svg", "!**/_*.svg"], { cwd: "source/icons" })
     .pipe(plumber(plumberConfig))
     .pipe(imagemin(imageminConfig.icons))
     .pipe(rename(renameIconByFolderName))
     .pipe(svgSymbols(svgSymbolsConfig))
     .pipe(gulpIf(/\.styl$/, gulp.dest("tmp")))
-    .pipe(gulpIf(/\.svg$/, gulpRename("icons.svg")))
+    .pipe(gulpIf(/\.svg$/, rename("icons.svg")))
     .pipe(gulpIf(/\.svg$/, gulp.dest("dest/assets/images")));
-
-export default icons;

@@ -1,48 +1,59 @@
 extends ../layouts/default
 
+include ../modules/container/container
 include ../modules/footer/footer
 include ../modules/header/header
+include ../modules/mobile-menu/mobile-menu
 include ../modules/form/form
+include ../modules/container/container
 
 block head
-	- title = "Forms"
+	- page.title = "Forms"
+	- page.class = ["page_style_default"]
+
+block mobile-menu
+	+mobile-menu(mainMenu.default)
 	
 block header
 	+header()
 
+block mobile-menu
+	+mobile-menu(mainMenu.default)
+
 block main
-	h1#forms Forms
+	+container()
+		h1#forms Forms
 
-	.demo.demo_forms
-		h2#messaging Messaging
-		include ../modules/demo/forms/messaging
+		.demo.demo_forms
+			h2#messaging Messaging
+			include ../modules/demo/forms/messaging
 
-		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et ab totam, voluptas animi eius ducimus molestiae! Veritatis, atque? Porro praesentium, possimus! Iste architecto cupiditate placeat ab fugiat et adipisci reprehenderit.
+			p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et ab totam, voluptas animi eius ducimus molestiae! Veritatis, atque? Porro praesentium, possimus! Iste architecto cupiditate placeat ab fugiat et adipisci reprehenderit.
 
-		+form()
-			section.form__section
-				h2#text-inputs Text Inputs
-				include ../modules/demo/forms/text-inputs
+			+form()
+				section.form__section
+					h2#text-inputs Text Inputs
+					include ../modules/demo/forms/text-inputs
 
-			section.form__section
-				h2#radios-and-checkboxes Radios and Checkboxes
-				include ../modules/demo/forms/radios-and-checkboxes
+				section.form__section
+					h2#radios-and-checkboxes Radios and Checkboxes
+					include ../modules/demo/forms/radios-and-checkboxes
 
-			section.form__section
-				h2#input-range Input range
-				include ../modules/demo/forms/range
+				section.form__section
+					h2#input-range Input range
+					include ../modules/demo/forms/range
 
-			section.form__section
-				h2#selects Selects
-				include ../modules/demo/forms/selects
+				section.form__section
+					h2#selects Selects
+					include ../modules/demo/forms/selects
 
-			section.form__section
-				h2#textareas-and-files Textareas and Files
-				include ../modules/demo/forms/textareas-and-files
+				section.form__section
+					h2#textareas-and-files Textareas and Files
+					include ../modules/demo/forms/textareas-and-files
 
-			section.form__section
-				h2#captcha Captcha
-				include ../modules/demo/forms/captcha
+				section.form__section
+					h2#captcha Captcha
+					include ../modules/demo/forms/captcha
 
 block footer
 	+footer(footer.default)

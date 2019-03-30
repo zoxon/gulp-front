@@ -1,9 +1,8 @@
-import scrollTo from "@/modules/_utils/scrollTo";
-import getOffsetTop from "@/modules/_utils/dom/getOffsetTop";
-import { $ } from "@/modules/_utils/dom/select";
+import scrollTo from "@/scripts/helpers/scrollTo";
+import getOffsetTop from "@/scripts/helpers/dom/getOffsetTop";
 
 export default () => {
-  const mainMenu = $(".main-menu");
+  const mainMenu = document.querySelector(".main-menu");
   if (mainMenu) {
     const links = mainMenu.querySelectorAll('a[href*="#"]');
     const headerHeight = parseInt(

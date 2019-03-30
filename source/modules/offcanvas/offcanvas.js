@@ -1,8 +1,9 @@
-import Plugin, { init } from "@/modules/_utils/Plugin";
-import { $, $$ } from "@/modules/_utils/dom/select";
-import generateId from "@/modules/_utils/generateId";
-import { mapAttributes } from "@/modules/_utils/dom/attr";
-import toArray from "@/modules/_utils/dom/toArray";
+import attrs from "attrs";
+
+import Plugin from "@/scripts/core/Plugin";
+import init from "@/scripts/core/init";
+import generateId from "@/scripts/helpers/generateId";
+import toArray from "@/scripts/helpers/dom/toArray";
 
 class Offcanvas extends Plugin {
   defaults() {
@@ -19,10 +20,12 @@ class Offcanvas extends Plugin {
   }
 
   buildCache() {
-    this.triggers = toArray($$(this.options.triggerSelector));
-    this.container = $(this.options.containerSelector);
-    this.overlay = $(this.options.overlaySelector);
-    this.menu = $(this.options.menuSelector);
+    this.triggers = toArray(
+      document.querySelectorAll(this.options.triggerSelector)
+    );
+    this.container = document.querySelector(this.options.containerSelector);
+    this.overlay = document.querySelector(this.options.overlaySelector);
+    this.menu = document.querySelector(this.options.menuSelector);
   }
 
   bindEvents() {
@@ -73,7 +76,7 @@ class Offcanvas extends Plugin {
     this.container.setAttribute("data-offcanvas-hidden", "true");
 
     if (this.menu) {
-      mapAttributes(this.menu, {
+      attrs(this.menu, {
         role: "dialog",
         tabindex: "-1",
         "aria-hidden": "true",
@@ -83,7 +86,7 @@ class Offcanvas extends Plugin {
 
     if (this.triggers && this.triggers.length > 0) {
       Array.prototype.forEach.call(this.triggers, trigger => {
-        mapAttributes(trigger, {
+        attrs(trigger, {
           role: "button",
           "aria-pressed": "false",
           "aria-expanded": "false"

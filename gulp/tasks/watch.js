@@ -1,34 +1,43 @@
 import gulp from "gulp";
 
 import { reload } from "./server";
-import { pages, html } from "./html";
-import css from "./css";
-import scripts from "./scripts";
-import icons from "./icons";
-import sprite from "./sprite";
-import moduleImages from "./moduleImages";
-import { assets, staticFiles } from "./assets";
+import { pages, html } from "./templates";
+import { css } from "./styles";
+import { scripts } from "./scripts";
+import { icons } from "./icons";
+import { sprite } from "./sprite";
+import { moduleImages } from "./moduleImages";
+import { staticFiles } from "./staticFiles";
 
-const watch = () => {
+export const watch = () => {
   global.watch = true;
+  const testsPatterns = [
+    "**/__tests__/**/*.js?(x)",
+    "**/?(*.)+(spec|test).js?(x)"
+  ];
 
   // Modules, pages
-  gulp.watch("source/**/*.pug", gulp.series(pages, reload));
+  gulp
+    .watch("source/**/*.pug", gulp.series(pages, reload))
+    .on("all", (event, filepath, stats) => {
+      global.emittyChangedFile = {
+        path: filepath,
+        stats
+      };
+    });
 
   // Modules data
-  gulp.watch("source/modules/*/data/*.yml", gulp.series(html, reload));
+  gulp.watch("source/modules/**/*.yml", gulp.series(html, reload));
 
-  // Static styles
-  gulp.watch("source/static/styles/**/*.styl", gulp.series(css));
+  // Styles
+  gulp.watch("source/**/*.styl", gulp.series(css));
 
-  // Modules styles
-  gulp.watch("source/modules/**/*.styl", gulp.series(css));
-
-  // Static scripts
-  gulp.watch("source/static/scripts/**/*.js", gulp.series(scripts, reload));
-
-  // Modules scripts
-  gulp.watch("source/modules/**/*.js", gulp.series(scripts, reload));
+  // Scripts
+  gulp.watch(
+    "source/**/*.js",
+    { ignored: testsPatterns },
+    gulp.series(scripts, reload)
+  );
 
   // Modules images
   gulp.watch(
@@ -36,17 +45,12 @@ const watch = () => {
     gulp.series(moduleImages, reload)
   );
 
-  // Assets
-  gulp.watch("source/static/assets/**/*", gulp.series(assets, reload));
-
   // Svg icons
-  gulp.watch("source/static/icons/**/*.svg", gulp.series(icons, css, reload));
+  gulp.watch("source/icons/**/*.svg", gulp.series(icons, css, reload));
 
   // Png sprites
-  gulp.watch("source/static/sprite/**/*.png", gulp.series(sprite, reload));
+  gulp.watch("source/sprite/**/*.png", gulp.series(sprite, reload));
 
-  // Static files
-  gulp.watch("source/static/public/**/{*,.*}", gulp.series(staticFiles));
+  // Static files and assets
+  gulp.watch("source/public/**/{*,.*}", gulp.series(staticFiles, reload));
 };
-
-export default watch;

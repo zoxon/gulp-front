@@ -22,7 +22,7 @@ function renameFileByModuleName(file) {
   logger.info(`File "${prevFileName}" renamed to "${nextFileName}"`);
 }
 
-const moduleImages = () => {
+export const moduleImages = () => {
   return gulp
     .src("**/*.{png,jpg,jpeg,gif,svg,webp}", { cwd: "source/modules/*/images" })
     .pipe(plumber(plumberConfig))
@@ -31,5 +31,3 @@ const moduleImages = () => {
     .pipe(gulpIf(!isDevelopment, imagemin(imageminConfig.images)))
     .pipe(gulp.dest("dest/assets/images"));
 };
-
-export default moduleImages;

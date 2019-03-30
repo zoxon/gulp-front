@@ -1,5 +1,6 @@
 import debounce from "lodash/debounce";
-import Plugin, { init } from "@/modules/_utils/Plugin";
+import Plugin from "@/scripts/core/Plugin";
+import init from "@/scripts/core/init";
 
 class Header extends Plugin {
   defaults() {

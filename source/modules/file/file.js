@@ -1,5 +1,6 @@
-import Plugin, { init } from "@/modules/_utils/Plugin";
-import { createElement } from "@/modules/_utils/dom/createElement";
+import Plugin from "@/scripts/core/Plugin";
+import init from "@/scripts/core/init";
+import { createElement } from "@/scripts/helpers/dom/createElement";
 
 class File extends Plugin {
   defaults() {
@@ -52,7 +53,7 @@ class File extends Plugin {
 
   bindEvents() {
     this.control.addEventListener("change", event => {
-      this.controlChangeHandler.call(this, event);
+      this.controlChangeHandler(event);
     });
   }
 

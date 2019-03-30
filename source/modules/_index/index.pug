@@ -1,0 +1,22 @@
+mixin list(items)
+	ul.list&attributes(attributes)
+		each item in items
+			
+			if item.url
+				- let file = `${item.url}.html`;
+
+				li.list__item
+					a(href=file).list__title= item.title
+					span.list__spacer &nbsp;&mdash;&nbsp;
+					span.list__file= file
+			else
+				li.list__item.list__item_group
+					.list__title= item.title
+					+list(item.items)
+
+
+mixin index(data)
+	.index&attributes(attributes)
+		h1.index__title= config.projectName
+		.index__pages
+			+list(data.items)

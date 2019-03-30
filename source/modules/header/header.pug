@@ -3,23 +3,26 @@ include ../button/button
 include ../main-menu/main-menu
 include ../header-presentation/header-presentation
 include ../mobile-menu-trigger/mobile-menu-trigger
+include ../container/container
 
 mixin header(data)
 	header.header&attributes(attributes)
-		.header__logo
-			+logo()
+		+container().header__container
+			.header__logo
+				+logo()
 
-		.header__menu
-			+main-menu(mainMenu.default)
+			.header__menu
+				+main-menu(mainMenu.default)
 
-		+button(
-			to="//github.com/zoxon/gulp-front"
-			target="_blank"
-			title="Source on Github"
-			icon
-		).header__github-button
-			+icon(name="github-octocat" title="Github octocat mark")
-			span.visuallyhidden Github repository
+			+button(
+				to="//github.com/zoxon/gulp-front"
+				target="_blank"
+				rel="nofollow noopener"
+				title="Source on Github"
+				icon
+			).header__github-button
+				+icon(name="github-octocat" title="Github octocat mark")
+				span.visuallyhidden Github repository
 
-		.header__mobile-menu-trigger
-			+mobile-menu-trigger()
+			.header__mobile-menu-trigger
+				+mobile-menu-trigger()

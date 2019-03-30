@@ -6,6 +6,76 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to
 [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [9.4.0] - 2019-03-31
+
+### Added
+
+- New components `textfield` and `switch`
+- Javascript helpers
+- Container component
+- EventBus class
+- Jest
+- Tests for Plugin class, init helper and EventBus class
+- New file `_globals.styl` with global includes
+- Build `*.pug` files optimizations using custom version on `emitty`
+- Supports, retina-query and retina-image mixins to styles core
+- social-icons component
+- close-button component
+
+### Changed
+
+- `input`, `textarea`, `radio`, `checkbox` components
+- Update demo
+- `page` and `offcanvas` styles
+- Rebuild `page-index` component, has a new name `index` and support nested pages
+- Layout component
+- Refactored layouts and demo
+- Imagemin config
+- Extracted javascript core
+- Move all files from `source/static` to `source` folder
+- Css build proccess config
+- Update autoprefixer and postcss config
+- New init helper
+- Travis config
+- Upadte babel to latest version and config
+- New ESlint config
+- Replace `uglifyjs-webpack-plugin` to `terser-webpack-plugin`
+
+### Fixed
+
+- `typography/base` styles
+- Font import from google fonts
+- More consitend gulp tasks
+- Minor fixes in accordion, alert, browsehappy, dropdown, demo, file, modal, notification, scroll-top, spoiler, star-raiting, tabs, tooltip, polyfils javascript components
+- Favicons
+- stylus-supermancy config
+- fastclick
+- sw-precache config now execlude `images/content` folder from cache
+
+### Removed
+
+- Stylelint config
+- attr helper
+- anime.js
+- browsehappy compnent
+
+## [9.3.0] - 2018-07-27
+
+### Added
+
+- TOC in FAQ
+- New answers to FAQ
+- New component for detection network status
+
+### Fixed
+
+- Script for adding new empty modules
+- Bugs in mobile-menu, main-menu
+
+### Changed
+
+- Refactored script for remove demo
+
 ## [9.2.1] - 2018-07-09
 
 ### Removed

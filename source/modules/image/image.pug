@@ -1,0 +1,70 @@
+//- +image(
+//- 	alt="example"
+//- 	class="avatar"
+//- 	src="example-small.png"
+//- 	srcSet={
+//- 		"360w": "example-small.png",
+//- 		"720w": "example-middle.png",
+//- 		"1200w": "example-large.png",
+//- 	}
+//- 	sizes=[
+//- 		{size: "100vw", media: "(max-width: 30em)"},
+//- 		{size: "50vw", media: "(max-width: 50em)"},
+//- 		{size: "calc(33vw - 100px)"},
+//- 	]
+//- )
+
+mixin image()
+	-
+		let buttonTag = "button";
+
+		const {
+			src,
+			srcSet = "",
+			sizes = "",
+			baseClassName = "image",
+			responsive
+		} = attributes;
+
+		const otherAttrs = _.omit(
+			["src", "srcSet", "sizes", "baseClassName", "responsive"],
+			attributes
+		);
+
+		const classes = _.classNames(
+			[
+				baseClassName,
+				{
+					[`${baseClassName}_responsive`]: responsive
+				}
+			].concat(styles)
+		);
+
+		const buildSrcSet = () =>
+			Object.keys(srcSet)
+				.map(descriptor => `${srcSet[descriptor]} ${descriptor}`)
+				.join(',') || undefined;
+
+		const buildSizes = () => {
+			if (sizes) {
+				return (
+					sizes
+						.map(size => {
+							if (size.media) {
+								return `${size.media} ${size.size}`;
+							}
+							return `${size.size}`;
+						})
+						.join(',') || undefined
+				);
+			}
+			return undefined;
+		};
+
+
+	img(
+		class=classes
+		src=src
+		srcSet=buildSrcSet()
+		sizes=buildSizes()
+	)&attributes(otherAttrs)
