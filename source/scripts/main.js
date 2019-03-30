@@ -1,4 +1,3 @@
-import FastClick from "fastclick";
 import svg4everybody from "svg4everybody";
 
 import * as serviceWorker from "./helpers/serviceWorker";
@@ -49,7 +48,6 @@ MainMenu();
 Modal();
 
 ready(function() {
-  FastClick.attach(document.body);
   svg4everybody();
 });
 
