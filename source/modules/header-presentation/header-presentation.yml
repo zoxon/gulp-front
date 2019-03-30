@@ -2,5 +2,5 @@ headerPresentation:
   default:
     name: Gulp front
     description: A lean and powerful, gulp-based boilerplate for better front-end coding.
-    version: 9.3.1
+    version: 9.4.0
     subDescription: Created & maintained by @zoxon
