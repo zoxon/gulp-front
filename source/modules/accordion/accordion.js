@@ -1,6 +1,7 @@
 import Plugin from "@/scripts/core/Plugin";
 import init from "@/scripts/core/init";
 import toArray from "@/scripts/helpers/dom/toArray";
+import { slideDown, slideUp, slideStop } from "slide-anim";
 
 class Accordion extends Plugin {
   defaults() {
@@ -9,7 +10,8 @@ class Accordion extends Plugin {
       triggerSelector: `[data-accordion-trigger]`,
       panelSelector: `[data-accordion-panel]`,
       itemActiveAttr: `data-accordion-item-open`,
-      singleOpen: true
+      mode: this.element.getAttribute("data-accordion-mode") || "single", // "multiple"
+      duration: 400
     };
   }
 
@@ -18,9 +20,15 @@ class Accordion extends Plugin {
       this.element.querySelectorAll(this.options.itemSelector)
     ).filter(item => {
       const isDisabled = this.isItemDisabled(item);
+      const isOpen = this.isOpen(item);
 
       if (isDisabled) {
         this.setItemDisabled(item);
+      }
+
+      if (!isOpen) {
+        const panel = this.getPanel(item);
+        panel.style.display = "none";
       }
 
       return !isDisabled;
@@ -60,6 +68,12 @@ class Accordion extends Plugin {
     });
   }
 
+  get slideOptions() {
+    return {
+      duration: this.options.duration
+    };
+  }
+
   open(item) {
     this.toggleVisibility(item, true);
   }
@@ -75,6 +89,14 @@ class Accordion extends Plugin {
     item.setAttribute(this.options.itemActiveAttr, visibility);
     trigger.setAttribute("aria-expanded", visibility);
     panel.setAttribute("aria-hidden", !visibility);
+
+    slideStop(panel);
+
+    if (visibility) {
+      slideDown(panel, this.slideOptions);
+    } else {
+      slideUp(panel, this.slideOptions);
+    }
   }
 
   toggle(item) {
@@ -88,7 +110,7 @@ class Accordion extends Plugin {
   handleTriggerClick(event, item) {
     event.preventDefault();
 
-    if (this.options.singleOpen) {
+    if (this.options.mode === "single") {
       this.items.forEach(i => {
         if (i !== item) {
           this.close(i);

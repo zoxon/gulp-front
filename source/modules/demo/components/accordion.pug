@@ -1,22 +1,26 @@
 include ../../accordion/accordion
-h3 Disabled
-+accordion()
-	+accordion-item(label="Accordion 1")
-		<p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
 
-	+accordion-item(label="Accordion 2")
-		<p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
+-
+	const accordions = [
+		{ label: "Accordion 1" }, 
+		{ label: "Accordion 2" },
+		{ label: "Accordion 3" },
+		{ label: "Expanded accordion", expanded: true },
+		{ label: "Disabled accordion", disabled: true }
+	]
 
-	+accordion-item(label="Disabled" disabled)
-		<p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
++accordion().accordion_style_default
+	each item in accordions
+		+accordion__item()&attributes(item)
+			<p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
 
-h3 Expanded
-+accordion()
-	+accordion-item(label="Accordion 1")
-		<p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
+h3 Multiple mode
+p Add 
+	code data-accordion-mode="multiple"
+	|  attribute to accordion
 
-	+accordion-item(label="Expanded" expanded)
-		<p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
 
-	+accordion-item(label="Accordion 3")
-		<p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
++accordion(data-accordion-mode="multiple").accordion_style_default
+	each item in accordions
+		+accordion__item()&attributes(item)
+			<p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing elit</a>. Perferendis dolorem incidunt accusantium quaerat similique repellat eius veritatis porro dolore quod voluptate, atque ipsa? Odit aspernatur veritatis, ad veniam consequatur! Eveniet.</p>
