@@ -46,6 +46,15 @@
 			display flex
 			border-bottom 1px solid #e5e5e5
 
+		& [data-tabs-active-bar]
+			position absolute
+			bottom 0
+			left 0
+			z-index 10
+			display block
+			height 2px
+			transition 200ms left ease
+
 		& ^[0]__body
 			// 
 
@@ -73,76 +82,56 @@
 		& ^[0]__panel[aria-hidden="false"]
 			margin em(20px)
 
+	tabs-color(color)
+		& [data-tabs-active-bar]
+			background color
+
+		& ^[0]__tab
+			&[aria-selected="true"]
+				color color
+
 	// Colors
 	&_color_gray
-		& ^[0]__tab[aria-selected="true"]
-			border-color $gray-6
-			color $gray-6
+		tabs-color($gray-6)
 
 	&_color_black
-		& ^[0]__tab[aria-selected="true"]
-			border-color $gray-8
-			color $gray-8
+		tabs-color($gray-8)
 
 	&_color_red
-		& ^[0]__tab[aria-selected="true"]
-			border-color $red-5
-			color $red-5
+		tabs-color($red-5)
 
 	&_color_pink
-		& ^[0]__tab[aria-selected="true"]
-			border-color $pink-5
-			color $pink-5
+		tabs-color($pink-5)
 
 	&_color_grape
-		& ^[0]__tab[aria-selected="true"]
-			border-color $grape-5
-			color $grape-5
+		tabs-color($grape-5)
 
 	&_color_violet
-		& ^[0]__tab[aria-selected="true"]
-			border-color $violet-5
-			color $violet-5
+		tabs-color($violet-5)
 
 	&_color_indigo
-		& ^[0]__tab[aria-selected="true"]
-			border-color $indigo-5
-			color $indigo-5
+		tabs-color($indigo-5)
 
 	&_color_blue
-		& ^[0]__tab[aria-selected="true"]
-			border-color $blue-5
-			color $blue-5
+		tabs-color($blue-5)
 
 	&_color_cyan
-		& ^[0]__tab[aria-selected="true"]
-			border-color $cyan-5
-			color $cyan-5
+		tabs-color($cyan-5)
 
 	&_color_teal
-		& ^[0]__tab[aria-selected="true"]
-			border-color $teal-5
-			color $teal-5
+		tabs-color($teal-5)
 
 	&_color_green
-		& ^[0]__tab[aria-selected="true"]
-			border-color $green-5
-			color $green-5
+		tabs-color($green-5)
 
 	&_color_lime
-		& ^[0]__tab[aria-selected="true"]
-			border-color $lime-5
-			color $lime-5
+		tabs-color($lime-5)
 
 	&_color_yellow
-		& ^[0]__tab[aria-selected="true"]
-			border-color $yellow-5
-			color $yellow-5
+		tabs-color($yellow-5)
 
 	&_color_orange
-		& ^[0]__tab[aria-selected="true"]
-			border-color $orange-5
-			color $orange-5
+		tabs-color($orange-5)
 
 	&_aligin_left
 		& ^[0]__header

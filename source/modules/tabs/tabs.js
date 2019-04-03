@@ -7,6 +7,8 @@ import simulate from "@/scripts/helpers/event/simulate";
 import { KEYCODES } from "@/scripts/helpers/constants";
 import toArray from "@/scripts/helpers/dom/toArray";
 import generateId from "@/scripts/helpers/generateId";
+// eslint-disable-next-line no-unused-vars
+import { h } from "jsx-dom/svg";
 
 class Tabs extends Plugin {
   defaults() {
@@ -15,7 +17,9 @@ class Tabs extends Plugin {
       preloaderSelector: "[data-tabs-preloader]",
       tabsIdAttrName: "data-tab-id",
       panelsIdAttrName: "data-panel-id",
-      tabsNameAttrName: "data-tabs-name"
+      tabsNameAttrName: "data-tabs-name",
+      headerAttrSelector: "[data-tabs-header]",
+      activeBarAttr: "data-tabs-active-bar"
     };
   }
 
@@ -34,10 +38,13 @@ class Tabs extends Plugin {
       tabsIdAttrName,
       panelsIdAttrName,
       preloaderSelector,
-      descriptionSelector
+      descriptionSelector,
+      headerAttrSelector,
+      activeBarAttr
     } = this.options;
 
     this.tabsName = this.element.getAttribute(tabsNameAttrName);
+    this.header = this.element.querySelector(headerAttrSelector);
     this.tabs = toArray(this.element.querySelectorAll(`[${tabsIdAttrName}]`));
     this.firstTab = this.tabs[0];
     this.firstTabId = this.firstTab.getAttribute(tabsIdAttrName);
@@ -49,19 +56,16 @@ class Tabs extends Plugin {
     this.description = this.element.querySelector(descriptionSelector);
     this.descId = `_${generateId()}`;
     this.triggerId = `_${generateId()}`;
+    this.activeBar = this.header.appendChild(
+      h("span", {
+        [this.options.activeBarAttr]: true
+      })
+    );
     this.selected = 0;
   }
 
   bindEvents() {
     const plugin = this;
-
-    ["hashchange", "onpopstate"].forEach(eventName => {
-      window.addEventListener(eventName, () => {
-        plugin.onHashchangeHandler();
-      });
-
-      simulate(eventName, window);
-    });
 
     ["focus", "click"].forEach(eventName => {
       plugin.tabs.forEach(tab => {
@@ -70,8 +74,6 @@ class Tabs extends Plugin {
 
           let id = tab.getAttribute(this.options.tabsIdAttrName);
           plugin.open(plugin.tabsName, id);
-
-          window.location.hash = `${plugin.tabsName}__${id}`;
         });
       });
     });
@@ -86,6 +88,8 @@ class Tabs extends Plugin {
   open(tabsName, id) {
     const { tabsNameAttrName, tabsIdAttrName, panelsIdAttrName } = this.options;
 
+    console.log({ tabsName, id });
+
     const tabsContainer = document.querySelector(
       `[${tabsNameAttrName}="${tabsName}"]`
     );
@@ -95,6 +99,15 @@ class Tabs extends Plugin {
     const targetPanel = tabsContainer.querySelector(
       `[${panelsIdAttrName}="${id}"]`
     );
+
+    const tabRect = targetTab.getBoundingClientRect();
+
+    attrs(this.activeBar, {
+      style: {
+        left: targetTab.offsetLeft + "px",
+        width: tabRect.width + "px"
+      }
+    });
 
     attrs(targetTab, {
       tabindex: "0",

@@ -1,17 +1,5 @@
 include ../button/button
 
-- let tabs = [];
-- var baseClassName = "";
-
-mixin tabs-item(data)
-	- var oldBuf = pug_html;
-	- pug_html = '';
-	block
-	-
-		data.block = pug_html;
-		tabs.push(data);
-		pug_html = oldBuf;
-
 mixin tabs(data)
 	-
 		tabs = [];
@@ -21,10 +9,9 @@ mixin tabs(data)
 			size,
 			style = "default",
 			expanded = false,
-			aligin,
+			align,
+			baseClassName = "tabs"
 		} = attributes;
-
-		baseClassName = attributes.baseClassName || "tabs";
 
 		const otherAttrs = _.omit(
 			[
@@ -34,7 +21,7 @@ mixin tabs(data)
 				"baseClassName", 
 				"name", 
 				"expanded", 
-				"aligin"
+				"align"
 			],
 			attributes
 		);
@@ -52,11 +39,20 @@ mixin tabs(data)
 				{
 					[`${baseClassName}_color_${color}`]: color,
 					[`${baseClassName}_size_${size}`]: size,
-					[`${baseClassName}_aligin_${aligin}`]: aligin,
+					[`${baseClassName}_align_${align}`]: align,
 					[`${baseClassName}_expanded`]: expanded
 				}
 			].concat(styles)
 		);
+
+	mixin tabs__item(data)
+		- var oldBuf = pug_html;
+		- pug_html = '';
+		block
+		-
+			data.block = pug_html;
+			tabs.push(data);
+			pug_html = oldBuf;
 
 	div(
 		class=classes
@@ -64,12 +60,12 @@ mixin tabs(data)
 	)&attributes(otherAttrs)
 		span(
 			class=[`${baseClassName}__description`, "visuallyhidden"]
-			data-tabs-description
+			data-tabs-description=""
 		) Use left and right arrows to navigate between tabs.
 
 		block
 
-		div(class=`${baseClassName}__header`)
+		div(class=`${baseClassName}__header` data-tabs-header="")
 			each tab in tabs
 				+button(
 					icon=tab.icon || false
@@ -87,10 +83,3 @@ mixin tabs(data)
 					data-panel-id=tab.id
 				)
 					!= tab.block
-			
-			div(
-				class=`${baseClassName}__preloader`
-				data-tabs-preloader
-			)
-
-	
