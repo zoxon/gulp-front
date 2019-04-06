@@ -65,12 +65,19 @@ mixin tabs(data)
 
 		block
 
-		div(class=`${baseClassName}__header` data-tabs-header="")
+		div(
+			role="tablist"
+			class=`${baseClassName}__header` 
+			data-tabs-header=""
+		)
 			each tab in tabs
 				+button(
 					icon=tab.icon || false
 					data-tab-id=tab.id
 					disabled=tab.disabled || false
+					tabindex="-1"
+					role="tab"
+					aria-selected="false"
 				).tabs__tab
 					if (tab.icon)
 						+icon(name=tab.icon)
@@ -81,5 +88,7 @@ mixin tabs(data)
 				div(
 					class=`${baseClassName}__panel` 
 					data-panel-id=tab.id
+					role="tabpanel"
+					aria-hidden="true"
 				)
 					!= tab.block

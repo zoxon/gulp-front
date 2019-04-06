@@ -28,8 +28,6 @@ class Tabs extends Plugin {
 
     this.hidePreloader();
     this.open(this.tabsName, this.firstTabId);
-
-    this.firstTab.setAttribute("aria-describedby", this.descId);
   }
 
   buildCache() {
@@ -51,14 +49,11 @@ class Tabs extends Plugin {
     this.panels = toArray(
       this.element.querySelectorAll(`[${panelsIdAttrName}]`)
     );
-    this.panelId = `_${generateId()}`;
     this.preloader = this.element.querySelector(preloaderSelector);
     this.description = this.element.querySelector(descriptionSelector);
-    this.descId = `_${generateId()}`;
-    this.triggerId = `_${generateId()}`;
     this.activeBar = this.header.appendChild(
       h("span", {
-        [this.options.activeBarAttr]: true
+        [activeBarAttr]: true
       })
     );
     this.selected = 0;
@@ -85,10 +80,12 @@ class Tabs extends Plugin {
     });
   }
 
+  generateId() {
+    return "_" + generateId();
+  }
+
   open(tabsName, id) {
     const { tabsNameAttrName, tabsIdAttrName, panelsIdAttrName } = this.options;
-
-    console.log({ tabsName, id });
 
     const tabsContainer = document.querySelector(
       `[${tabsNameAttrName}="${tabsName}"]`
@@ -144,22 +141,6 @@ class Tabs extends Plugin {
       name: data[0] || null,
       id: data[1] || null
     };
-  }
-
-  onHashchangeHandler() {
-    let hash = window.location.hash.replace("#", "");
-
-    if (hash !== "") {
-      let { name, id } = this.parseHash(hash);
-
-      let tabsContainer = document.querySelector(
-        `[${this.options.tabsNameAttrName}="${name}"]`
-      );
-
-      if (tabsContainer && name) {
-        this.open(name, id || this.firstTabId);
-      }
-    }
   }
 
   handleKeydown(event) {
@@ -224,27 +205,23 @@ class Tabs extends Plugin {
   }
 
   setA11yAttrs() {
-    this.tabs[0].parentNode.setAttribute("role", "tablist");
+    const { panelsIdAttrName, tabsIdAttrName } = this.options;
+    const descriptionId = `${this.tabsName}__descripiton`;
 
-    this.description.setAttribute("id", this.descId);
+    this.description.setAttribute("id", descriptionId);
+    this.firstTab.setAttribute("aria-describedby", descriptionId);
 
     this.tabs.forEach(tab => {
-      attrs(tab, {
-        id: this.triggerId,
-        tabindex: "-1",
-        role: "tab",
-        "aria-selected": "false",
-        "aria-controls": this.panelId
-      });
-    });
+      const tabId = tab.getAttribute(tabsIdAttrName);
 
-    this.panels.forEach(panel => {
-      attrs(panel, {
-        id: this.panelId,
-        role: "tabpanel",
-        "aria-hidden": "true",
-        "aria-labelledby": this.triggerId
-      });
+      const targetPanel = this.element.querySelector(
+        `[${panelsIdAttrName}="${tabId}"]`
+      );
+
+      const generatedTabId = `${this.tabsName}__tab-${tabId}`;
+
+      tab.setAttribute("id", "generatedTabId");
+      targetPanel.setAttribute("aria-labelledby", generatedTabId);
     });
   }
 }
