@@ -3,9 +3,6 @@ import path from "path";
 import imagemin from "gulp-imagemin";
 import imageminJpegRecompress from "imagemin-jpeg-recompress";
 import imageminPngquant from "imagemin-pngquant";
-import imageminZopfli from "imagemin-zopfli";
-import imageminMozjpeg from "imagemin-mozjpeg"; // need to run 'brew install libpng'
-import imageminGiflossy from "imagemin-giflossy";
 import posthtmlAttrsSorter from "posthtml-attrs-sorter";
 import rupture from "rupture";
 
@@ -75,56 +72,29 @@ export const spritesmithConfig = {
 
 export const imageminConfig = {
   images: [
-    // png
-    imageminPngquant({
-      speed: 1,
-      quality: 98 // lossy settings
-    }),
-    imageminZopfli({
-      more: true
-      // iterations: 50 // very slow but more effective
+    // https://github.com/imagemin/imagemin-gifsicle#api
+    imagemin.gifsicle({
+      interlaced: true,
+      optimizationLevel: 3
     }),
 
-    // gif
-    // imagemin.gifsicle({
-    //   interlaced: true,
-    //   optimizationLevel: 3
-    // }),
-    // gif very light lossy, use only one of gifsicle or Giflossy
-    imageminGiflossy({
-      optimizationLevel: 3,
-      optimize: 3, //keep-empty: Preserve empty transparent frames
-      lossy: 2
+    // https://github.com/imagemin/imagemin-jpeg-recompress#api
+    imageminJpegRecompress({
+      max: 90,
+      min: 70
     }),
 
-    // svg
+    // https://github.com/imagemin/imagemin-pngquant#api
+    imageminPngquant({ quality: [0.7, 0.9] }),
+
+    // https://github.com/svg/svgo#what-it-can-do
     imagemin.svgo({
-      plugins: [
-        {
-          removeViewBox: false
-        }
-      ]
-    }),
-
-    // jpg lossy
-    // imageminJpegRecompress({
-    //   progressive: true,
-    //   max: 80,
-    //   min: 70
-    // })
-
-    // jpg lossless
-    imagemin.jpegtran({
-      progressive: true
-    }),
-
-    // jpg very light lossy, use vs jpegtran
-    imageminMozjpeg({
-      quality: 90
+      plugins: [{ removeViewBox: false }]
     })
   ],
 
   icons: [
+    // https://github.com/svg/svgo#what-it-can-do
     imagemin.svgo({
       plugins: [
         { removeViewBox: false },
@@ -173,5 +143,5 @@ export const posthtmlConfig = {
 };
 
 export const ghPagesConfig = {
-  branch: "build"
+  branch: "gh-pages"
 };
