@@ -11,15 +11,16 @@ import { plumberConfig, imageminConfig } from "../config";
 import { isDevelopment } from "../util/env";
 
 function renameFileByModuleName(file) {
-  const f = path.parse(file.dirname);
-  const nextBasename = f.dir + "__" + file.basename;
-  const prevFileName = file.basename + file.extname;
-  const nextFileName = nextBasename + file.extname;
+  const { dirname, basename, extname } = file;
+  const dirNameArr = dirname.split(path.sep).filter(i => i !== "images") || [];
+  const newDirname = path.join(...dirNameArr);
 
-  file.dirname = "";
-  file.basename = nextBasename;
+  const prevFileName = path.join(dirname, basename + extname);
+  const nextFileName = path.join(newDirname, basename + extname);
 
   logger.info(`File "${prevFileName}" renamed to "${nextFileName}"`);
+
+  file.dirname = newDirname;
 }
 
 export const moduleImages = () => {
