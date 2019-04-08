@@ -1,14 +1,13 @@
-- var baseClassName = "";
+include ../button/button
 
 mixin accordion(data)
 	-
 		const {
 			color,
 			size,
-			style = "default"
+			style = "default",
+			baseClassName = "accordion"
 		} = attributes;
-
-		baseClassName = attributes.baseClassName || "accordion";
 
 		const otherAttrs = _.omit(
 			["color", "size", "style", "baseClassName"],
@@ -34,16 +33,17 @@ mixin accordion(data)
 	div(class=classes)&attributes(otherAttrs)
 		block
 
-mixin accordion-item(data)
+mixin accordion__item(data)
 	-
 		const {
 			label,
 			expanded: isOpen = false,
-			disabled: isDisabled = false
+			disabled: isDisabled = false,
+			baseClassName = "accordion"
 		} = attributes;
 
 		const otherAttrs = _.omit(
-			["expanded", "disabled", "label"],
+			["expanded", "disabled", "label", "baseClassName"],
 			attributes
 		);
 
@@ -55,9 +55,8 @@ mixin accordion-item(data)
 		data-accordion-item-open=isOpen.toString()
 		aria-disabled=isDisabled ? "true" : false
 	)&attributes(attributes)
-		div(
-			class=`${baseClassName}__trigger`
-			role="button"
+		+button(
+			class=[`${baseClassName}__trigger`, "button"]
 			disabled=isDisabled
 			tabindex=tabIndex
 			aria-expanded=isOpen.toString()
@@ -66,8 +65,9 @@ mixin accordion-item(data)
 		)= label
 
 		div(
-			class=[`${baseClassName}__panel`, "content-wrapper"]
+			class=`${baseClassName}__panel`
 			data-accordion-panel 
 			aria-hidden=`${!isOpen}`
 		)
-			block
+			div(class=[`${baseClassName}__content`, "content-wrapper"])
+				block

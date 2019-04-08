@@ -11,13 +11,12 @@ mixin head(data)
 	meta(charset="utf-8")
 	meta(name="viewport" content="width=device-width, initial-scale=1.0")
 	meta(content="IE=edge" http-equiv="X-UA-Compatible")
-	// The above 3 meta tags *must* come first in the head;
-	// any other head content must come *after* these tags
+	// The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
 
-	// Title
+	//- Title
 	title= title
 
-	// Meta tags
+	//- Meta tags
 	meta(name="description" content=description)
 	meta(name="keywords" content=keywords)
 
@@ -25,19 +24,27 @@ mixin head(data)
 	meta(name="format-detection" content="address=no")
 	meta(name="robots" content="noodp, noydir")
 
-	// iOS: Add to Home Screen
+	//- iOS: Add to Home Screen
 	meta(name="apple-mobile-web-app-capable" content="yes")
 	meta(name="apple-mobile-web-app-status-bar-style" content="black-translucent")
 	meta(name="apple-mobile-web-app-title" content=config.projectName)
 
-	// Styles
+	//- Styles
 	link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i&subset=cyrillic")
 	link(rel="stylesheet" href=`${config.path.styles}/reset.css`)
 	link(rel="stylesheet" href=`${config.path.styles}/main.css`)
 
-	// Facebook / Open Graph
-	// Facebook: https://developers.facebook.com/docs/sharing/webmasters#markup
-	// Open Graph: http://ogp.me/
+	//- Scripts
+	script(
+		src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/4.1.4/lazysizes.min.js" 
+		integrity="sha256-TAKkT1A7MjH+laNK0pwZ92ns2lMF7VlqJt/E5rIJ/rI=" 
+		crossorigin="anonymous"
+		async
+	)
+
+	//- Facebook / Open Graph
+	//- Facebook: https://developers.facebook.com/docs/sharing/webmasters#markup
+	//- Open Graph: http://ogp.me/
 	meta(property="fb:app_id" content="387979211564142")
 	meta(property="og:url" content=url + "index.html")
 	meta(property="og:type" content="website")
@@ -48,8 +55,8 @@ mixin head(data)
 	meta(property="og:locale" content="en_US")
 	meta(property="article:author" content=author)
 
-	// Favicons
-	// Genereted with http://realfavicongenerator.net/
+	//- Favicons
+	//- Genereted with http://realfavicongenerator.net/
 	link(rel="apple-touch-icon", sizes="180x180", href="/assets/favicons/apple-touch-icon.png")
 	link(rel="icon", type="image/png", sizes="32x32", href="/assets/favicons/favicon-32x32.png")
 	link(rel="icon", type="image/png", sizes="16x16", href="/assets/favicons/favicon-16x16.png")
@@ -60,5 +67,5 @@ mixin head(data)
 	meta(name="msapplication-config", content="/assets/favicons/browserconfig.xml")
 	meta(name="theme-color", content="#ffffff")
 
-	// A list of everything that could go in the head of your document
-	// https://github.com/joshbuchea/HEAD
+	//- A list of everything that could go in the head of your document
+	//- https://github.com/joshbuchea/HEAD

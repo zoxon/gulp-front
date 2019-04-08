@@ -1,6 +1,6 @@
 include ../../button/button
 include ../../modal/modal
-include ../../embed/embed
+include ../../video/video
 include ../../dialog/dialog
 
 
@@ -40,16 +40,8 @@ include ../../dialog/dialog
 +modal(id="modal-responsive")
 	+dialog(
 		id="dialog-responsive" 
-		title="Rick Astley - Never Gonna Give You Up"
+		title="Rick Astley - Never Gonna Give You Up (Official Music Video)"
 		style="default responsive"
 	)
 		main.dialog__content
-			+embed().embed_16x9
-				iframe(
-					width="560" 
-					height="315" 
-					src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&amp;showinfo=0&enablejsapi=1"
-					rameborder="0" 
-					allow="autoplay; encrypted-media" 
-					allowfullscreen
-				)
+			+video(videoId="dQw4w9WgXcQ" title="Rick Astley - Never Gonna Give You Up (Official Music Video)")

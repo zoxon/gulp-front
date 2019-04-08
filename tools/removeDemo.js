@@ -4,7 +4,7 @@ import path from "path";
 import colors from "colors";
 import glob from "glob";
 
-const TEMPLATE_FOLDER = path.resolve(__dirname, "./removeDemo");
+const TEMPLATE_FOLDER = path.resolve(__dirname, "./removeDemo/replace");
 const DEST_FOLDER = path.resolve(__dirname, "../source");
 const PACKAGE_JSON = path.resolve(__dirname, "../package.json");
 const PATHS_TO_REMOVE = [

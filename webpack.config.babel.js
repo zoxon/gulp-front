@@ -53,11 +53,7 @@ let options = {
         cache: true,
         sourceMap: true
       })
-    ],
-    splitChunks: {
-      chunks: "all",
-      name: "vendor"
-    }
+    ]
   },
   module: {
     noParse: /\/node_modules\/(jquery|backbone)/,

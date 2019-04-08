@@ -1,12 +1,14 @@
 {
+  "lang": "en",
   "name": "Gulp front",
+  "description": "The template for quick start of development with Gulp, Jade and Stylus",
   "short_name": "Gulp front",
+  "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
   "splash_pages": null,
-  "description": "The template for quick start of development with Gulp, Jade and Stylus",
   "icons": [
     {
       "src": "/assets/favicons/android-chrome-192x192.png",
@@ -17,11 +19,6 @@
       "src": "/assets/favicons/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
-    }
-  ],
-  "related_applications": [
-    {
-      "platform": "web"
     }
   ]
 }

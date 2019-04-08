@@ -8,7 +8,7 @@ h3 Colors
 		{ id: "icon", label: "Icon", icon: "heart" },
 		{ id: "tab2", label: "Tab 2" },
 		{ id: "tab3", label: "Tab 3" },
-		{ id: "disabled", label: "Disabled tab", disabled: true }
+		{ id: "disabled", label: "Disabled tab", disabled: true, icon: "maginifer" }
 	];
 
 	const tabsItemsExpanded = [
@@ -33,7 +33,7 @@ each color, index in ["gray", "black", "red", "pink", "grape", "violet", "indigo
 
 	+tabs(name=`tabs-color-${index + 1}` color=color)
 		each item in tabsItems
-			+tabs-item(item)
+			+tabs__item(item)
 				ul
 					li
 						b Name: 
@@ -51,7 +51,7 @@ h3 Aligin
 each aligin, index in ["left", "center", "right"]
 	+tabs(name=`tabs-aligin-${index + 1}` color="indigo" aligin=aligin)
 		each item in tabsItems
-			+tabs-item(item)
+			+tabs__item(item)
 				ul
 					li
 						b Name: 
@@ -70,7 +70,7 @@ each aligin, index in ["left", "center", "right"]
 h3 Expanded
 +tabs(name="tabs-expanded" color="indigo" expanded)
 	each item in tabsItems
-		+tabs-item(item)
+		+tabs__item(item)
 			ul
 				li 
 					b Name: 
@@ -86,5 +86,5 @@ h3 Expanded
 h3 Scrollable
 +tabs(name="tabs-scrollable" color="indigo")
 	each item in tabsItemsExpanded
-		+tabs-item(item)
+		+tabs__item(item)
 			p= item.label

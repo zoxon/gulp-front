@@ -1,21 +1,3 @@
-@keyframes progress-bar__increase
-	from
-		left -3%
-		width 5%
-
-	to
-		left 130%
-		width 100%
-
-@keyframes progress-bar__decrease
-	from
-		left -80%
-		width 80%
-
-	to
-		left 110%
-		width 10%
-
 progress-bar-style(background-color, progress-bar-color)
 	background-color background-color
 
@@ -30,11 +12,13 @@ progress-bar-style(background-color, progress-bar-color)
 .progress-bar
 	position relative
 	overflow hidden
+	border-radius 50em
 
 	&__bar
 		position relative
 		width 0
-		height 6px
+		height 4px
+		border-radius 50em
 		transition 500ms width ease
 		will-change width
 
@@ -143,3 +127,21 @@ progress-bar-style(background-color, progress-bar-color)
 			background-color: $orange-3,
 			progress-bar-color: $orange-6
 		)
+
+@keyframes progress-bar__increase
+	from
+		left -3%
+		width 5%
+
+	to
+		left 130%
+		width 100%
+
+@keyframes progress-bar__decrease
+	from
+		left -80%
+		width 80%
+
+	to
+		left 110%
+		width 10%

@@ -1,0 +1,67 @@
+include ../embed/embed
+
+mixin video(data)
+	-
+		const {
+			type = "youtube",
+			title,
+			videoId,
+			ratio = "16x9",
+			baseClassName = "video"
+		} = attributes;
+
+		const otherAttrs = _.omit(
+			["type", "title", "videoId", "ratio", "baseClassName"],
+			attributes
+		);
+
+		const stringToArray = str => str
+			? str.split(" ").filter(v => v.length) 
+			: [];
+
+		const styles = stringToArray(style)
+			.map(s => `${baseClassName}_style_${s}`)
+
+		const classes = _.classNames(
+			[
+				baseClassName,
+				{
+					[`${baseClassName}_type_${type}`]: type
+				}
+			].concat(styles)
+		);
+
+
+	div(class=classes)&attributes(otherAttrs)
+		+embed()(class=`embed_${ratio}`)
+			if type === "youtube"
+				iframe(
+					width="720" 
+					height="405"
+					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+					title=title || "Youtube video"
+					data-src=`https://www.youtube.com/embed/${videoId}?autoplay=0&amp;mute=0&amp;controls=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;iv_load_policy=3&amp;modestbranding=1&amp;enablejsapi=1&amp;widgetid=1`
+					class="lazyload"
+					style=`
+						border: none;
+						width: 100%;
+						height: 100%;
+						background-image: url("https://img.youtube.com/vi/${videoId}/hqdefault.jpg");
+						background-position: 50% 50%;
+						background-size: cover;
+					`.replace(/\s/g, '')
+				)
+
+			if type === "vimeo"
+				iframe(
+					data-src=`https://player.vimeo.com/video/${videoId}?title=0&amp;byline=0&amp;portrait=0&amp;autopause=0&amp;app_id=122963`
+					class="lazyload"
+					width="640" 
+					height="360" 
+					frameborder="0" 
+					title="Construct GTC Teaser" 
+					allow="autoplay; fullscreen" 
+					allowfullscreen
+					data-ready="true" 
+					style="width: 100%; height: 100%;"
+				)
