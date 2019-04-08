@@ -6,6 +6,34 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to
 [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [9.5.0] - 2019-04-08
+
+### Added
+
+- `video` component
+- Layzyloading script
+
+### Changed
+
+- `progress-bar` style
+- `spinner` new styles `pulse` and `square-flip`
+- Modules images paths form `images/module-name__image-name.ext` to `images/module-name/image-name.ext`
+- Optimizations in `tabs` component
+- `label` styles
+- Update dependencies
+
+### Removed
+
+- vendor.js
+
+### Fixed
+
+- Delay `notification` can accept `{ delay: 0 }`
+- Bug in removeDemo script
+- Webmanifest file
+- Imagemin config
+- Animations `accordion` component
+
 ## [9.4.0] - 2019-03-31
 
 ### Added

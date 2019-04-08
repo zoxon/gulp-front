@@ -1,6 +1,6 @@
 {
   "name": "gulp-front",
-  "version": "9.4.0",
+  "version": "9.5.0",
   "description": "The template for quick start of development with Gulp.js, Pug.js and Stylus",
   "keywords": [
     "gulp",
