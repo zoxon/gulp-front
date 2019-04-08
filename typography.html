@@ -1,29 +1,21 @@
 <!DOCTYPE html>
-<html class="i-ua_js_no i-ua_css_standard" lang="en">
+<html class="js_no css_standard" lang="en" prefix="og: http://ogp.me/ns#">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <!-- The above 3 meta tags *must* come first in the head;-->
-    <!-- any other head content must come *after* these tags-->
-    <!-- Title-->
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"><!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags-->
     <title>Typography :: Gulp-front</title>
-    <!-- Meta tags-->
     <meta name="description" content="The template for quick start of development with Gulp, Jade and Stylus">
     <meta name="keywords" content="demo, gulp, bem, modules, sprites, svg, jade, stylus, boilerplate, frontend, project, template">
     <meta name="format-detection" content="telephone=no">
     <meta name="format-detection" content="address=no">
     <meta name="robots" content="noodp, noydir">
-    <!-- iOS: Add to Home Screen-->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Gulp-front">
-    <!-- Styles-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i&amp;subset=cyrillic" rel="stylesheet">
     <link href="assets/stylesheets/reset.css" rel="stylesheet">
-    <link href="assets/stylesheets/main.css" rel="stylesheet">
-    <!-- Facebook / Open Graph-->
-    <!-- Facebook: https://developers.facebook.com/docs/sharing/webmasters#markup-->
-    <!-- Open Graph: http://ogp.me/-->
+    <link href="assets/stylesheets/main.css" rel="stylesheet"><script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/4.1.4/lazysizes.min.js" integrity="sha256-TAKkT1A7MjH+laNK0pwZ92ns2lMF7VlqJt/E5rIJ/rI=" crossorigin="anonymous" async="async"></script>
     <meta property="fb:app_id" content="387979211564142">
     <meta property="og:url" content="http://zoxon.github.io/gulp-front/index.html">
     <meta property="og:type" content="website">
@@ -33,205 +25,97 @@
     <meta property="og:site_name" content="Gulp-front">
     <meta property="og:locale" content="en_US">
     <meta property="article:author" content="Velichko Konstantin">
-    <!-- Favicons-->
     <link href="/assets/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
     <link type="image/png" href="/assets/favicons/favicon-32x32.png" rel="icon" sizes="32x32">
     <link type="image/png" href="/assets/favicons/favicon-16x16.png" rel="icon" sizes="16x16">
-    <link href="/assets/favicons/manifest.json" rel="manifest">
+    <link href="/assets/favicons/site.webmanifest" rel="manifest">
     <link href="/assets/favicons/safari-pinned-tab.svg" rel="mask-icon" color="#e74c3c">
     <link href="/assets/favicons/favicon.ico" rel="shortcut icon">
+    <meta name="msapplication-TileColor" content="#1e3c72">
     <meta name="msapplication-config" content="/assets/favicons/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-    <!-- A list of everything that could go in the head of your document-->
-    <!-- https://github.com/joshbuchea/HEAD--><script>;(function(d,e,c,r){e=d.documentElement;c="className";r="replace";e[c]=e[c][r]("i-ua_js_no","i-ua_js_yes");if(d.compatMode!="CSS1Compat")e[c]=e[c][r]("i-ua_css_standart","i-ua_css_quirks")})(document);</script></head>
-  <body class="page" data-offcanvas-container>
-    <!--[if lt IE 8]><p class="browsehappy">Вы используете<strong>устаревший</strong> браузер. Пожалуйста<a href="http://browsehappy.com" target="_blank">обновите браузер</a> для лучшего отображения сайта.</p><![endif]-->
+    <meta name="theme-color" content="#ffffff"><script>;(function(d,e,c,r){e=d.documentElement;c="className";r="replace";e[c]=e[c][r]("js_no","js_yes");if(d.compatMode!="CSS1Compat")e[c]=e[c][r]("css_standart","css_quirks")})(document);</script>
+  </head>
+  <body class="page page_style_default" data-offcanvas-container>
     <div class="page__mobile-menu" data-offcanvas-menu aria-hidden="true">
       <div class="mobile-menu js-link-sroll">
+        <div class="mobile-menu__header">
+          <h2 class="mobile-menu__title">Navigation</h2><button class="button close-button mobile-menu__close" type="button" data-offcanvas-trigger><svg class="icon icon_close close-button__icon" role="img">
+              <use xlink:href="assets/images/icons.svg#close"></use>
+            </svg><span class="visuallyhidden">Close</span></button>
+        </div>
         <nav class="mobile-menu__menu">
           <ul class="mobile-menu__list">
-            <li class="mobile-menu__item">
-              <a class="mobile-menu__link" href="typography.html">Typography</a>
+            <li class="mobile-menu__item"><a class="mobile-menu__link" href="typography.html">Typography</a>
               <ul class="mobile-menu__submenu">
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="typography.html#titles-and-paragraphs">Titles &amp; Paragraphs</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="typography.html#lists">Lists</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="typography.html#quotes">Quotes</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="typography.html#description-lists">Description lists</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="typography.html#code">Code</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="typography.html#tables">Tables</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="typography.html#text-elements">Text level elements</a>
-                </li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="typography.html#titles-and-paragraphs">Titles &amp; Paragraphs</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="typography.html#lists">Lists</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="typography.html#quotes">Quotes</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="typography.html#description-lists">Description lists</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="typography.html#code">Code</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="typography.html#tables">Tables</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="typography.html#text-elements">Text level elements</a></li>
               </ul>
             </li>
-            <li class="mobile-menu__item">
-              <a class="mobile-menu__link" href="forms.html">Forms</a>
+            <li class="mobile-menu__item"><a class="mobile-menu__link" href="forms.html">Forms</a>
               <ul class="mobile-menu__submenu">
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="forms.html#messaging">Messaging</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="forms.html#text-inputs">Text Inputs</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="forms.html#radios-and-checkboxes">Radios and Checkboxes</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="forms.html#input-range">Input range</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="forms.html#selects">Selects</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="forms.html#textareas-and-files">Textareas and Files</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="forms.html#captcha">Captcha</a>
-                </li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="forms.html#messaging">Messaging</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="forms.html#text-inputs">Text Inputs</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="forms.html#radios-and-checkboxes">Radios and Checkboxes</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="forms.html#input-range">Input range</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="forms.html#selects">Selects</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="forms.html#textareas-and-files">Textareas and Files</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="forms.html#captcha">Captcha</a></li>
               </ul>
             </li>
-            <li class="mobile-menu__item">
-              <a class="mobile-menu__link" href="buttons.html">Buttons</a>
+            <li class="mobile-menu__item"><a class="mobile-menu__link" href="buttons.html">Buttons</a>
               <ul class="mobile-menu__submenu">
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-styles">Styles</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-sizes">Sizes</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-icon">Icon buttons</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-tags">Tags types</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-disabled">Disabled buttons</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-block">Block buttons</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-group">Buttons group</a>
-                </li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="buttons.html#buttons-styles">Styles</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="buttons.html#buttons-sizes">Sizes</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="buttons.html#buttons-icon">Icon buttons</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="buttons.html#buttons-tags">Tags types</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="buttons.html#buttons-disabled">Disabled buttons</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="buttons.html#buttons-block">Block buttons</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="buttons.html#buttons-group">Buttons group</a></li>
               </ul>
             </li>
-            <li class="mobile-menu__item">
-              <a class="mobile-menu__link" href="components.html">Components</a>
+            <li class="mobile-menu__item"><a class="mobile-menu__link" href="components.html">Components</a>
               <ul class="mobile-menu__submenu">
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#breadcrumbs">Breadcrumbs</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#pagination">Pagination</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#badges">Badges</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#progress-bar">Progress Bar</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#star-rating">Star raiting</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#embed">Responsive video</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#social-icons">Social icons</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#tabs">Tabs</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#modals">Modal windows</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#accordion">Accordion</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#dropdown">Dropdown</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#spoiler">Spoiler</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#tooltips">Tooltips</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#notifications">Notifications</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#svg-icons">Svg Icons</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#avatars">Avatars</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#media-object">Media object</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#spinner">Spinner</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#card">Card</a>
-                </li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#breadcrumbs">Breadcrumbs</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#pagination">Pagination</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#badges">Badges</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#progress-bar">Progress Bar</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#star-rating">Star raiting</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#embed">Responsive video</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#social-icons">Social icons</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#tabs">Tabs</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#modals">Modal windows</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#accordion">Accordion</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#dropdown">Dropdown</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#spoiler">Spoiler</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#tooltips">Tooltips</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#notifications">Notifications</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#svg-icons">Svg Icons</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#avatars">Avatars</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#media-object">Media object</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#spinner">Spinner</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#card">Card</a></li>
               </ul>
             </li>
-            <li class="mobile-menu__item">
-              <a class="mobile-menu__link" href="docs.html">Documentation</a>
+            <li class="mobile-menu__item"><a class="mobile-menu__link" href="docs.html">Documentation</a>
               <ul class="mobile-menu__submenu">
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#undefined">FAQ</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#quickstart">Quickstart</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#development">Development</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#building-and-deploying">Building and Deploying</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#structure">Structure</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#css">CSS</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#html">HTML</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#javascript">JavaScript</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#png-sprites">PNG Sprites</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#svg-symbol-sprites">SVG Symbol Sprites</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#data">DATA</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#command-line-commands">Command Line Commands</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#license">License</a>
-                </li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#undefined">FAQ</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#quickstart">Quickstart</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#development">Development</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#building-and-deploying">Building and Deploying</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#structure">Structure</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#css">CSS</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#html">HTML</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#javascript">JavaScript</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#png-sprites">PNG Sprites</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#svg-symbol-sprites">SVG Symbol Sprites</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#data">DATA</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#command-line-commands">Command Line Commands</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#license">License</a></li>
               </ul>
             </li>
           </ul>
@@ -239,314 +123,155 @@
       </div>
     </div>
     <div class="page__content">
-      <div class="page__wrapper">
-        <div class="page__header">
-          <header class="header">
-            <div class="header__logo">
-              <a class="logo" href="index.html">
-                <svg class="icon icon_heart logo__icon" role="img">
+      <div class="page__header">
+        <header class="header">
+          <div class="container header__container">
+            <div class="header__logo"><a class="logo" href="index.html"><svg class="icon icon_heart logo__icon" role="img">
                   <title>Heart</title>
                   <use xlink:href="assets/images/icons.svg#heart"></use>
-                </svg>
-                <span class="logo__name">Gulp front</span>
-              </a>
-            </div>
+                </svg><span class="logo__name">Gulp front</span></a></div>
             <div class="header__menu">
               <nav class="main-menu">
                 <ul class="main-menu__list">
-                  <li class="main-menu__item main-menu__item_dropdown">
-                    <a class="main-menu__link" href="typography.html">Typography</a>
+                  <li class="main-menu__item main-menu__item_dropdown"><a class="main-menu__link" href="typography.html">Typography</a>
                     <div class="main-menu__submenu">
                       <div class="main-menu-submenu">
                         <ul class="main-menu-submenu__list">
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="typography.html#titles-and-paragraphs">Titles &amp; Paragraphs</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="typography.html#lists">Lists</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="typography.html#quotes">Quotes</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="typography.html#description-lists">Description lists</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="typography.html#code">Code</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="typography.html#tables">Tables</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="typography.html#text-elements">Text level elements</a>
-                          </li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="typography.html#titles-and-paragraphs">Titles &amp; Paragraphs</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="typography.html#lists">Lists</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="typography.html#quotes">Quotes</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="typography.html#description-lists">Description lists</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="typography.html#code">Code</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="typography.html#tables">Tables</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="typography.html#text-elements">Text level elements</a></li>
                         </ul>
                       </div>
                     </div>
                   </li>
-                  <li class="main-menu__item main-menu__item_dropdown">
-                    <a class="main-menu__link" href="forms.html">Forms</a>
+                  <li class="main-menu__item main-menu__item_dropdown"><a class="main-menu__link" href="forms.html">Forms</a>
                     <div class="main-menu__submenu">
                       <div class="main-menu-submenu">
                         <ul class="main-menu-submenu__list">
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="forms.html#messaging">Messaging</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="forms.html#text-inputs">Text Inputs</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="forms.html#radios-and-checkboxes">Radios and Checkboxes</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="forms.html#input-range">Input range</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="forms.html#selects">Selects</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="forms.html#textareas-and-files">Textareas and Files</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="forms.html#captcha">Captcha</a>
-                          </li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="forms.html#messaging">Messaging</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="forms.html#text-inputs">Text Inputs</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="forms.html#radios-and-checkboxes">Radios and Checkboxes</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="forms.html#input-range">Input range</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="forms.html#selects">Selects</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="forms.html#textareas-and-files">Textareas and Files</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="forms.html#captcha">Captcha</a></li>
                         </ul>
                       </div>
                     </div>
                   </li>
-                  <li class="main-menu__item main-menu__item_dropdown">
-                    <a class="main-menu__link" href="buttons.html">Buttons</a>
+                  <li class="main-menu__item main-menu__item_dropdown"><a class="main-menu__link" href="buttons.html">Buttons</a>
                     <div class="main-menu__submenu">
                       <div class="main-menu-submenu">
                         <ul class="main-menu-submenu__list">
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="buttons.html#buttons-styles">Styles</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="buttons.html#buttons-sizes">Sizes</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="buttons.html#buttons-icon">Icon buttons</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="buttons.html#buttons-tags">Tags types</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="buttons.html#buttons-disabled">Disabled buttons</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="buttons.html#buttons-block">Block buttons</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="buttons.html#buttons-group">Buttons group</a>
-                          </li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="buttons.html#buttons-styles">Styles</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="buttons.html#buttons-sizes">Sizes</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="buttons.html#buttons-icon">Icon buttons</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="buttons.html#buttons-tags">Tags types</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="buttons.html#buttons-disabled">Disabled buttons</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="buttons.html#buttons-block">Block buttons</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="buttons.html#buttons-group">Buttons group</a></li>
                         </ul>
                       </div>
                     </div>
                   </li>
-                  <li class="main-menu__item main-menu__item_dropdown">
-                    <a class="main-menu__link" href="components.html">Components</a>
+                  <li class="main-menu__item main-menu__item_dropdown"><a class="main-menu__link" href="components.html">Components</a>
                     <div class="main-menu__submenu">
                       <div class="main-menu-submenu">
                         <ul class="main-menu-submenu__list">
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#breadcrumbs">Breadcrumbs</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#pagination">Pagination</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#badges">Badges</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#progress-bar">Progress Bar</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#star-rating">Star raiting</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#embed">Responsive video</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#social-icons">Social icons</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#tabs">Tabs</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#modals">Modal windows</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#accordion">Accordion</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#dropdown">Dropdown</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#spoiler">Spoiler</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#tooltips">Tooltips</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#notifications">Notifications</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#svg-icons">Svg Icons</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#avatars">Avatars</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#media-object">Media object</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#spinner">Spinner</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#card">Card</a>
-                          </li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#breadcrumbs">Breadcrumbs</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#pagination">Pagination</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#badges">Badges</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#progress-bar">Progress Bar</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#star-rating">Star raiting</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#embed">Responsive video</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#social-icons">Social icons</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#tabs">Tabs</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#modals">Modal windows</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#accordion">Accordion</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#dropdown">Dropdown</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#spoiler">Spoiler</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#tooltips">Tooltips</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#notifications">Notifications</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#svg-icons">Svg Icons</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#avatars">Avatars</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#media-object">Media object</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#spinner">Spinner</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#card">Card</a></li>
                         </ul>
                       </div>
                     </div>
                   </li>
-                  <li class="main-menu__item main-menu__item_dropdown">
-                    <a class="main-menu__link" href="docs.html">Documentation</a>
+                  <li class="main-menu__item main-menu__item_dropdown"><a class="main-menu__link" href="docs.html">Documentation</a>
                     <div class="main-menu__submenu">
                       <div class="main-menu-submenu">
                         <ul class="main-menu-submenu__list">
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="faq.html">FAQ</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#quickstart">Quickstart</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#development">Development</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#building-and-deploying">Building and Deploying</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#structure">Structure</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#css">CSS</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#html">HTML</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#javascript">JavaScript</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#png-sprites">PNG Sprites</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#svg-symbol-sprites">SVG Symbol Sprites</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#data">DATA</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#command-line-commands">Command Line Commands</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#license">License</a>
-                          </li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="faq.html">FAQ</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#quickstart">Quickstart</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#development">Development</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#building-and-deploying">Building and Deploying</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#structure">Structure</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#css">CSS</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#html">HTML</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#javascript">JavaScript</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#png-sprites">PNG Sprites</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#svg-symbol-sprites">SVG Symbol Sprites</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#data">DATA</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#command-line-commands">Command Line Commands</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#license">License</a></li>
                         </ul>
                       </div>
                     </div>
                   </li>
                 </ul>
               </nav>
-            </div>
-            <a class="button button_icon header__github-button" href="//github.com/zoxon/gulp-front" title="Source on Github" target="_blank">
-              <svg class="icon icon_github-octocat" role="img">
+            </div><a class="button button_icon header__github-button" href="//github.com/zoxon/gulp-front" title="Source on Github" target="_blank" rel="nofollow noopener"><svg class="icon icon_github-octocat" role="img">
                 <title>Github octocat mark</title>
                 <use xlink:href="assets/images/icons.svg#github-octocat"></use>
-              </svg>
-              <span class="visuallyhidden">Github repository</span>
-            </a>
-            <div class="header__mobile-menu-trigger">
-              <button class="button mobile-menu-trigger" type="button" data-offcanvas-trigger>
-                <svg class="icon icon_hamburger" role="img">
+              </svg><span class="visuallyhidden">Github repository</span></a>
+            <div class="header__mobile-menu-trigger"><button class="button mobile-menu-trigger" type="button" data-offcanvas-trigger><svg class="icon icon_hamburger" role="img">
                   <title>Hamburger menu</title>
                   <use xlink:href="assets/images/icons.svg#hamburger"></use>
-                </svg>
-                <span class="visuallyhidden">Show menu</span>
-              </button>
-            </div>
-          </header>
-        </div>
-        <div class="page__main">
+                </svg><span class="visuallyhidden">Show menu</span></button></div>
+          </div>
+        </header>
+      </div>
+      <div class="page__main">
+        <div class="container">
           <h1 id="typography">Typography</h1>
           <div class="demo demo_typography">
             <h2 id="titles-and-paragraphs">Titles &amp; Paragraphs</h2>
-            <p>Lorem ipsum dolor sit amet,
-              <a href="#">consectetur adipisicing</a> elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione unde, provident
-              facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde,
-              <a href="#">suscipit molestias odio tempore</a> id alias, aliquam illum fugiat accusantium provident quae autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus
-              similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam, consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus
-              corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus ducimus doloremque minima nam!</p>
+            <p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing</a> elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, <a href="#">suscipit molestias odio tempore</a> id alias, aliquam illum fugiat accusantium provident quae autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam, consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus ducimus doloremque minima nam!</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam vitae nesciunt repudiandae rem, quae tenetur id, nobis vel esse adipisci consequuntur eos officia, alias nemo exercitationem repellat velit molestias voluptates.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita dolorem odio deleniti dolores, error vel accusamus ipsa adipisci esse libero optio iusto minus, ullam temporibus placeat ea? Quidem nihil, perspiciatis!</p>
-            <h1>H1 Proin
-              <a href="#">gravida</a> nibh vel velit auctor aliquetoin</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
-              unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident
-              quae autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum
-              laboriosam, consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis
-              dicta iste accusamus ducimus doloremque minima nam!</p>
+            <h1>H1 Proin <a href="#">gravida</a> nibh vel velit auctor aliquetoin</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam, consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus ducimus doloremque minima nam!</p>
             <h2>H2 Aenean sollicitudin, lorem quis bibendum auctor elit</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
-              unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident
-              quae autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum
-              laboriosam, consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis
-              dicta iste accusamus ducimus doloremque minima nam!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam, consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus ducimus doloremque minima nam!</p>
             <h3>H3 Duis sed odio sit amet nibh vulputate cursus a sit amet.</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
-              unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident
-              quae autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum
-              laboriosam, consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis
-              dicta iste accusamus ducimus doloremque minima nam!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam, consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus ducimus doloremque minima nam!</p>
             <h4>H4 Morbi accumsan ipsum velit. </h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
-              unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident
-              quae autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum
-              laboriosam, consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis
-              dicta iste accusamus ducimus doloremque minima nam!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam, consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus ducimus doloremque minima nam!</p>
             <h5>H5 Nam nec tellus a odio tincidunt auctor a ornare odio.</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
-              unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident
-              quae autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum
-              laboriosam, consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis
-              dicta iste accusamus ducimus doloremque minima nam!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam, consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus ducimus doloremque minima nam!</p>
             <h6>H6 Sed non neque elit. Sed ut imperdiet nisi.</h6>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
-              unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident
-              quae autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum
-              laboriosam, consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis
-              dicta iste accusamus ducimus doloremque minima nam!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam, consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus ducimus doloremque minima nam!</p>
             <h1>H1 Proin gravida nibh vel velit auctor aliquetoin</h1>
             <h2>H2 Aenean sollicitudin, lorem quis bibendum auctor</h2>
             <h3>H3 Duis sed odio sit amet nibh vulputate cursus a sit amet. </h3>
             <h4>H4 Morbi accumsan ipsum velit. </h4>
             <h5>H5 Nam nec tellus a odio tincidunt auctor a ornare odio. </h5>
             <h6>H6 Sed non neque elit. Sed ut imperdiet nisi.</h6>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione
-              unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident
-              quae autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum
-              laboriosam, consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis
-              dicta iste accusamus ducimus doloremque minima nam!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex odio eligendi officia dolorem maxime, voluptatum facere minus unde at suscipit maiores cumque eos. Officiis, dolore? Cumque dolor reprehenderit, voluptatem repudiandae. Laborum ratione unde, provident facilis veniam amet doloribus suscipit aliquid esse ad natus repudiandae dolorum animi, consequuntur cumque at dicta, officia quas. Unde, suscipit molestias odio tempore id alias, aliquam illum fugiat accusantium provident quae autem soluta velit, maxime delectus! Velit fuga, est vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores inventore possimus similique repellat, nostrum veritatis, non saepe cumque, eligendi vel libero in laborum laboriosam, consectetur quisquam nihil perferendis soluta at. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi recusandae ab, natus corrupti, voluptates officia quisquam quos beatae culpa rem architecto, deserunt officiis dicta iste accusamus ducimus doloremque minima nam!</p>
             <h2 id="lists">Lists</h2>
             <ul>
               <li>Proin gravida nibh vel velit auctor aliquet</li>
-              <li>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
-                <ul>
+              <li>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. <ul>
                   <li>Morbi accumsan ipsum velit. Nam nec tellus aitae ass aptent taciti sociosqu ad litora torquent </li>
-                  <li>per conubia nostra, per inceptos himenaeos.
-                    <ul>
+                  <li>per conubia nostra, per inceptos himenaeos. <ul>
                       <li>Mauris in erat justo. </li>
                       <li>Proin gravida nibh vel velit auctor aliquet</li>
                     </ul>
@@ -561,11 +286,9 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis nam id facilis, provident doloremque placeat eveniet molestias laboriosam. Optio esse ipsa, neque, hic culpa laborum quisquam magni consequatur quaerat voluptates!</p>
             <ol>
               <li>Proin gravida nibh vel velit auctor aliquet</li>
-              <li>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
-                <ol>
+              <li>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. <ol>
                   <li>Morbi accumsan ipsum velit. Nam nec tellus aitae ass aptent taciti sociosqu ad litora torquent </li>
-                  <li>per conubia nostra, per inceptos himenaeos.
-                    <ol>
+                  <li>per conubia nostra, per inceptos himenaeos. <ol>
                       <li>Mauris in erat justo. </li>
                       <li>Proin gravida nibh vel velit auctor aliquet</li>
                     </ol>
@@ -580,9 +303,7 @@
             <h2 id="quotes">Quotes</h2>
             <blockquote>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-              <footer>
-                <cite>Someone famous</cite>
-              </footer>
+              <footer><cite>Someone famous</cite></footer>
             </blockquote>
             <h2 id="description-lists">Description lists</h2>
             <dl>
@@ -1267,53 +988,30 @@ export  $initHighlight;
               </tbody>
             </table>
             <h2 id="text-elements">Text level elements</h2>
-            <p>Text level
-              <abbr title="HyperText Markup Language">HTML</abbr> elements may be used within other elements. They include:</p>
+            <p>Text level<abbr title="HyperText Markup Language">HTML</abbr> elements may be used within other elements. They include:</p>
             <ul>
-              <li>
-                <a href="#">&lt;a href="#"&gt;link or anchor&lt;/a&gt;</a>
-              </li>
-              <li>
-                <abbr title="Title attribute may be used to provide an expansion of the abbreviation">&lt;abbr&gt;</abbr> represents an abbreviation or acronym</li>
-              <li>
-                <em>&lt;em&gt;</em> for emphasized text</li>
-              <li>
-                <strong>&lt;strong&gt;</strong> for strongly emphasized</li>
-              <li>
-                <dfn>&lt;dfn&gt;</dfn> for definition of a term</li>
+              <li><a href="#">&lt;a href="#"&gt;link or anchor&lt;/a&gt;</a></li>
+              <li><abbr title="Title attribute may be used to provide an expansion of the abbreviation">&lt;abbr&gt;</abbr> represents an abbreviation or acronym</li>
+              <li><em>&lt;em&gt;</em> for emphasized text</li>
+              <li><strong>&lt;strong&gt;</strong> for strongly emphasized</li>
+              <li><dfn>&lt;dfn&gt;</dfn> for definition of a term</li>
               <li><code>&lt;code&gt;</code> for code fragment</li>
-              <li>
-                <samp>&lt;samp&gt;</samp> for sample text</li>
-              <li>
-                <kbd>&lt;kbd&gt;</kbd> for keyboard input</li>
-              <li>
-                <var>&lt;var&gt;</var> for variable</li>
-              <li>
-                <cite>&lt;cite&gt;</cite> for short citation</li>
-              <li>
-                <i>&lt;i&gt;</i> for italics</li>
-              <li>
-                <b>&lt;b&gt;</b> for bold</li>
-              <li>
-                <u>&lt;u&gt;</u> for underlined text</li>
-              <li>
-                <s>&lt;s&gt;</s>for text that is no longer correct</li>
-              <li>
-                <big>&lt;big&gt;</big> for larger text</li>
-              <li>
-                <small>&lt;small&gt;</small> for smaller text</li>
-              <li>
-                <sup>&lt;sup&gt;</sup> for superscript</li>
-              <li>
-                <sub>&lt;sub&gt;</sub> for subscript</li>
-              <li>
-                <del>&lt;del&gt;</del> for visibly deleted</li>
-              <li>
-                <ins>&lt;ins&gt;</ins> for inserted content</li>
-              <li>
-                <dfn>&lt;dfn&gt;</dfn> for definitions</li>
-              <li>
-                <mark>&lt;mark&gt;</mark> for highlighted passages</li>
+              <li><samp>&lt;samp&gt;</samp> for sample text</li>
+              <li><kbd>&lt;kbd&gt;</kbd> for keyboard input</li>
+              <li><var>&lt;var&gt;</var> for variable</li>
+              <li><cite>&lt;cite&gt;</cite> for short citation</li>
+              <li><i>&lt;i&gt;</i> for italics</li>
+              <li><b>&lt;b&gt;</b> for bold</li>
+              <li><u>&lt;u&gt;</u> for underlined text</li>
+              <li><s>&lt;s&gt;</s>for text that is no longer correct</li>
+              <li><big>&lt;big&gt;</big> for larger text</li>
+              <li><small>&lt;small&gt;</small> for smaller text</li>
+              <li><sup>&lt;sup&gt;</sup> for superscript</li>
+              <li><sub>&lt;sub&gt;</sub> for subscript</li>
+              <li><del>&lt;del&gt;</del> for visibly deleted</li>
+              <li><ins>&lt;ins&gt;</ins> for inserted content</li>
+              <li><dfn>&lt;dfn&gt;</dfn> for definitions</li>
+              <li><mark>&lt;mark&gt;</mark> for highlighted passages</li>
               <li>
                 <hr>&lt;hr&gt; for horizontal line</li>
             </ul>
@@ -1321,24 +1019,19 @@ export  $initHighlight;
         </div>
       </div>
       <div class="page__footer">
-        <footer class="footer js-appearing-item">
-          <svg class="icon icon_heart footer__icon" role="img">
+        <footer class="footer js-appearing-item"><svg class="icon icon_heart footer__icon" role="img">
             <title>Heart</title>
             <use xlink:href="assets/images/icons.svg#heart"></use>
           </svg>
           <div class="footer__copyright">&copy;&nbsp;2018 Velichko Konstantin</div>
-          <div class="footer__about">This
-            <a href="https://github.com/zoxon/gulp-front">project source code</a> can be found on Github</div>
+          <div class="footer__about">This <a href="https://github.com/zoxon/gulp-front">project source code</a> can be found on Github</div>
           <div class="footer__generated">Generated with gulp-front</div>
         </footer>
       </div>
     </div>
-    <div class="page__overlay" data-offcanvas-overlay></div>
-    <button class="scroll-top button button_style_solid button_color_blue" type="button">
-      <span class="visuallyhidden">Scroll page top</span>
-      <svg class="icon icon_chevron_up scroll-top__icon" role="img">
+    <div class="page__overlay" data-offcanvas-overlay></div><button class="scroll-top button button_style_solid button_color_blue" type="button"><span class="visuallyhidden">Scroll page top</span><svg class="icon icon_chevron_up scroll-top__icon" role="img">
         <title>Chevron up</title>
         <use xlink:href="assets/images/icons.svg#chevron_up"></use>
-      </svg>
-    </button><script src="assets/javascripts/vendor.js"></script><script src="assets/javascripts/main.js"></script></body>
+      </svg></button><script src="assets/javascripts/main.js"></script>
+  </body>
 </html>

@@ -1,237 +1,121 @@
 <!DOCTYPE html>
-<html class="i-ua_js_no i-ua_css_standard" lang="en">
+<html class="js_no css_standard" lang="en" prefix="og: http://ogp.me/ns#">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <!-- The above 3 meta tags *must* come first in the head;-->
-    <!-- any other head content must come *after* these tags-->
-    <!-- Title-->
-    <title>Gulp-front</title>
-    <!-- Meta tags-->
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"><!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags-->
+    <title>Home :: Gulp-front</title>
     <meta name="description" content="The template for quick start of development with Gulp, Jade and Stylus">
     <meta name="keywords" content="demo, gulp, bem, modules, sprites, svg, jade, stylus, boilerplate, frontend, project, template">
     <meta name="format-detection" content="telephone=no">
     <meta name="format-detection" content="address=no">
     <meta name="robots" content="noodp, noydir">
-    <!-- iOS: Add to Home Screen-->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Gulp-front">
-    <!-- Styles-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i&amp;subset=cyrillic" rel="stylesheet">
     <link href="assets/stylesheets/reset.css" rel="stylesheet">
-    <link href="assets/stylesheets/main.css" rel="stylesheet">
-    <!-- Facebook / Open Graph-->
-    <!-- Facebook: https://developers.facebook.com/docs/sharing/webmasters#markup-->
-    <!-- Open Graph: http://ogp.me/-->
+    <link href="assets/stylesheets/main.css" rel="stylesheet"><script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/4.1.4/lazysizes.min.js" integrity="sha256-TAKkT1A7MjH+laNK0pwZ92ns2lMF7VlqJt/E5rIJ/rI=" crossorigin="anonymous" async="async"></script>
     <meta property="fb:app_id" content="387979211564142">
     <meta property="og:url" content="http://zoxon.github.io/gulp-front/index.html">
     <meta property="og:type" content="website">
-    <meta property="og:title" content>
+    <meta property="og:title" content="Home">
     <meta property="og:image" content="http://zoxon.github.io/gulp-front/assets/images/content/preview.png">
     <meta property="og:description" content="The template for quick start of development with Gulp, Jade and Stylus">
     <meta property="og:site_name" content="Gulp-front">
     <meta property="og:locale" content="en_US">
     <meta property="article:author" content="Velichko Konstantin">
-    <!-- Favicons-->
     <link href="/assets/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
     <link type="image/png" href="/assets/favicons/favicon-32x32.png" rel="icon" sizes="32x32">
     <link type="image/png" href="/assets/favicons/favicon-16x16.png" rel="icon" sizes="16x16">
-    <link href="/assets/favicons/manifest.json" rel="manifest">
+    <link href="/assets/favicons/site.webmanifest" rel="manifest">
     <link href="/assets/favicons/safari-pinned-tab.svg" rel="mask-icon" color="#e74c3c">
     <link href="/assets/favicons/favicon.ico" rel="shortcut icon">
+    <meta name="msapplication-TileColor" content="#1e3c72">
     <meta name="msapplication-config" content="/assets/favicons/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-    <!-- A list of everything that could go in the head of your document-->
-    <!-- https://github.com/joshbuchea/HEAD--><script>;(function(d,e,c,r){e=d.documentElement;c="className";r="replace";e[c]=e[c][r]("i-ua_js_no","i-ua_js_yes");if(d.compatMode!="CSS1Compat")e[c]=e[c][r]("i-ua_css_standart","i-ua_css_quirks")})(document);</script></head>
-  <body class="page" data-offcanvas-container>
-    <!--[if lt IE 8]><p class="browsehappy">Вы используете<strong>устаревший</strong> браузер. Пожалуйста<a href="http://browsehappy.com" target="_blank">обновите браузер</a> для лучшего отображения сайта.</p><![endif]-->
+    <meta name="theme-color" content="#ffffff"><script>;(function(d,e,c,r){e=d.documentElement;c="className";r="replace";e[c]=e[c][r]("js_no","js_yes");if(d.compatMode!="CSS1Compat")e[c]=e[c][r]("css_standart","css_quirks")})(document);</script>
+  </head>
+  <body class="page page_full page_style_default" data-offcanvas-container>
     <div class="page__mobile-menu" data-offcanvas-menu aria-hidden="true">
       <div class="mobile-menu js-link-sroll">
+        <div class="mobile-menu__header">
+          <h2 class="mobile-menu__title">Navigation</h2><button class="button close-button mobile-menu__close" type="button" data-offcanvas-trigger><svg class="icon icon_close close-button__icon" role="img">
+              <use xlink:href="assets/images/icons.svg#close"></use>
+            </svg><span class="visuallyhidden">Close</span></button>
+        </div>
         <nav class="mobile-menu__menu">
           <ul class="mobile-menu__list">
-            <li class="mobile-menu__item">
-              <a class="mobile-menu__link" href="typography.html">Typography</a>
+            <li class="mobile-menu__item"><a class="mobile-menu__link" href="typography.html">Typography</a>
               <ul class="mobile-menu__submenu">
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="typography.html#titles-and-paragraphs">Titles &amp; Paragraphs</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="typography.html#lists">Lists</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="typography.html#quotes">Quotes</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="typography.html#description-lists">Description lists</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="typography.html#code">Code</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="typography.html#tables">Tables</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="typography.html#text-elements">Text level elements</a>
-                </li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="typography.html#titles-and-paragraphs">Titles &amp; Paragraphs</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="typography.html#lists">Lists</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="typography.html#quotes">Quotes</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="typography.html#description-lists">Description lists</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="typography.html#code">Code</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="typography.html#tables">Tables</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="typography.html#text-elements">Text level elements</a></li>
               </ul>
             </li>
-            <li class="mobile-menu__item">
-              <a class="mobile-menu__link" href="forms.html">Forms</a>
+            <li class="mobile-menu__item"><a class="mobile-menu__link" href="forms.html">Forms</a>
               <ul class="mobile-menu__submenu">
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="forms.html#messaging">Messaging</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="forms.html#text-inputs">Text Inputs</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="forms.html#radios-and-checkboxes">Radios and Checkboxes</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="forms.html#input-range">Input range</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="forms.html#selects">Selects</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="forms.html#textareas-and-files">Textareas and Files</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="forms.html#captcha">Captcha</a>
-                </li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="forms.html#messaging">Messaging</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="forms.html#text-inputs">Text Inputs</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="forms.html#radios-and-checkboxes">Radios and Checkboxes</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="forms.html#input-range">Input range</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="forms.html#selects">Selects</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="forms.html#textareas-and-files">Textareas and Files</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="forms.html#captcha">Captcha</a></li>
               </ul>
             </li>
-            <li class="mobile-menu__item">
-              <a class="mobile-menu__link" href="buttons.html">Buttons</a>
+            <li class="mobile-menu__item"><a class="mobile-menu__link" href="buttons.html">Buttons</a>
               <ul class="mobile-menu__submenu">
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-styles">Styles</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-sizes">Sizes</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-icon">Icon buttons</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-tags">Tags types</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-disabled">Disabled buttons</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-block">Block buttons</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-group">Buttons group</a>
-                </li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="buttons.html#buttons-styles">Styles</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="buttons.html#buttons-sizes">Sizes</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="buttons.html#buttons-icon">Icon buttons</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="buttons.html#buttons-tags">Tags types</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="buttons.html#buttons-disabled">Disabled buttons</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="buttons.html#buttons-block">Block buttons</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="buttons.html#buttons-group">Buttons group</a></li>
               </ul>
             </li>
-            <li class="mobile-menu__item">
-              <a class="mobile-menu__link" href="components.html">Components</a>
+            <li class="mobile-menu__item"><a class="mobile-menu__link" href="components.html">Components</a>
               <ul class="mobile-menu__submenu">
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#breadcrumbs">Breadcrumbs</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#pagination">Pagination</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#badges">Badges</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#progress-bar">Progress Bar</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#star-rating">Star raiting</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#embed">Responsive video</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#social-icons">Social icons</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#tabs">Tabs</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#modals">Modal windows</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#accordion">Accordion</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#dropdown">Dropdown</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#spoiler">Spoiler</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#tooltips">Tooltips</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#notifications">Notifications</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#svg-icons">Svg Icons</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#avatars">Avatars</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#media-object">Media object</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#spinner">Spinner</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#card">Card</a>
-                </li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#breadcrumbs">Breadcrumbs</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#pagination">Pagination</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#badges">Badges</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#progress-bar">Progress Bar</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#star-rating">Star raiting</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#embed">Responsive video</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#social-icons">Social icons</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#tabs">Tabs</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#modals">Modal windows</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#accordion">Accordion</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#dropdown">Dropdown</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#spoiler">Spoiler</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#tooltips">Tooltips</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#notifications">Notifications</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#svg-icons">Svg Icons</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#avatars">Avatars</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#media-object">Media object</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#spinner">Spinner</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#card">Card</a></li>
               </ul>
             </li>
-            <li class="mobile-menu__item">
-              <a class="mobile-menu__link" href="docs.html">Documentation</a>
+            <li class="mobile-menu__item"><a class="mobile-menu__link" href="docs.html">Documentation</a>
               <ul class="mobile-menu__submenu">
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#undefined">FAQ</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#quickstart">Quickstart</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#development">Development</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#building-and-deploying">Building and Deploying</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#structure">Structure</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#css">CSS</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#html">HTML</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#javascript">JavaScript</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#png-sprites">PNG Sprites</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#svg-symbol-sprites">SVG Symbol Sprites</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#data">DATA</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#command-line-commands">Command Line Commands</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#license">License</a>
-                </li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#undefined">FAQ</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#quickstart">Quickstart</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#development">Development</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#building-and-deploying">Building and Deploying</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#structure">Structure</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#css">CSS</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#html">HTML</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#javascript">JavaScript</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#png-sprites">PNG Sprites</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#svg-symbol-sprites">SVG Symbol Sprites</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#data">DATA</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#command-line-commands">Command Line Commands</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#license">License</a></li>
               </ul>
             </li>
           </ul>
@@ -239,387 +123,243 @@
       </div>
     </div>
     <div class="page__content">
-      <div class="page__wrapper">
-        <div class="page__header">
-          <header class="header">
-            <div class="header__logo">
-              <a class="logo" href="index.html">
-                <svg class="icon icon_heart logo__icon" role="img">
+      <div class="page__header">
+        <header class="header">
+          <div class="container header__container">
+            <div class="header__logo"><a class="logo" href="index.html"><svg class="icon icon_heart logo__icon" role="img">
                   <title>Heart</title>
                   <use xlink:href="assets/images/icons.svg#heart"></use>
-                </svg>
-                <span class="logo__name">Gulp front</span>
-              </a>
-            </div>
+                </svg><span class="logo__name">Gulp front</span></a></div>
             <div class="header__menu">
               <nav class="main-menu">
                 <ul class="main-menu__list">
-                  <li class="main-menu__item main-menu__item_dropdown">
-                    <a class="main-menu__link" href="typography.html">Typography</a>
+                  <li class="main-menu__item main-menu__item_dropdown"><a class="main-menu__link" href="typography.html">Typography</a>
                     <div class="main-menu__submenu">
                       <div class="main-menu-submenu">
                         <ul class="main-menu-submenu__list">
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="typography.html#titles-and-paragraphs">Titles &amp; Paragraphs</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="typography.html#lists">Lists</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="typography.html#quotes">Quotes</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="typography.html#description-lists">Description lists</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="typography.html#code">Code</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="typography.html#tables">Tables</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="typography.html#text-elements">Text level elements</a>
-                          </li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="typography.html#titles-and-paragraphs">Titles &amp; Paragraphs</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="typography.html#lists">Lists</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="typography.html#quotes">Quotes</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="typography.html#description-lists">Description lists</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="typography.html#code">Code</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="typography.html#tables">Tables</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="typography.html#text-elements">Text level elements</a></li>
                         </ul>
                       </div>
                     </div>
                   </li>
-                  <li class="main-menu__item main-menu__item_dropdown">
-                    <a class="main-menu__link" href="forms.html">Forms</a>
+                  <li class="main-menu__item main-menu__item_dropdown"><a class="main-menu__link" href="forms.html">Forms</a>
                     <div class="main-menu__submenu">
                       <div class="main-menu-submenu">
                         <ul class="main-menu-submenu__list">
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="forms.html#messaging">Messaging</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="forms.html#text-inputs">Text Inputs</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="forms.html#radios-and-checkboxes">Radios and Checkboxes</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="forms.html#input-range">Input range</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="forms.html#selects">Selects</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="forms.html#textareas-and-files">Textareas and Files</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="forms.html#captcha">Captcha</a>
-                          </li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="forms.html#messaging">Messaging</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="forms.html#text-inputs">Text Inputs</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="forms.html#radios-and-checkboxes">Radios and Checkboxes</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="forms.html#input-range">Input range</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="forms.html#selects">Selects</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="forms.html#textareas-and-files">Textareas and Files</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="forms.html#captcha">Captcha</a></li>
                         </ul>
                       </div>
                     </div>
                   </li>
-                  <li class="main-menu__item main-menu__item_dropdown">
-                    <a class="main-menu__link" href="buttons.html">Buttons</a>
+                  <li class="main-menu__item main-menu__item_dropdown"><a class="main-menu__link" href="buttons.html">Buttons</a>
                     <div class="main-menu__submenu">
                       <div class="main-menu-submenu">
                         <ul class="main-menu-submenu__list">
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="buttons.html#buttons-styles">Styles</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="buttons.html#buttons-sizes">Sizes</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="buttons.html#buttons-icon">Icon buttons</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="buttons.html#buttons-tags">Tags types</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="buttons.html#buttons-disabled">Disabled buttons</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="buttons.html#buttons-block">Block buttons</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="buttons.html#buttons-group">Buttons group</a>
-                          </li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="buttons.html#buttons-styles">Styles</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="buttons.html#buttons-sizes">Sizes</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="buttons.html#buttons-icon">Icon buttons</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="buttons.html#buttons-tags">Tags types</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="buttons.html#buttons-disabled">Disabled buttons</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="buttons.html#buttons-block">Block buttons</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="buttons.html#buttons-group">Buttons group</a></li>
                         </ul>
                       </div>
                     </div>
                   </li>
-                  <li class="main-menu__item main-menu__item_dropdown">
-                    <a class="main-menu__link" href="components.html">Components</a>
+                  <li class="main-menu__item main-menu__item_dropdown"><a class="main-menu__link" href="components.html">Components</a>
                     <div class="main-menu__submenu">
                       <div class="main-menu-submenu">
                         <ul class="main-menu-submenu__list">
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#breadcrumbs">Breadcrumbs</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#pagination">Pagination</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#badges">Badges</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#progress-bar">Progress Bar</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#star-rating">Star raiting</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#embed">Responsive video</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#social-icons">Social icons</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#tabs">Tabs</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#modals">Modal windows</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#accordion">Accordion</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#dropdown">Dropdown</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#spoiler">Spoiler</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#tooltips">Tooltips</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#notifications">Notifications</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#svg-icons">Svg Icons</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#avatars">Avatars</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#media-object">Media object</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#spinner">Spinner</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#card">Card</a>
-                          </li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#breadcrumbs">Breadcrumbs</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#pagination">Pagination</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#badges">Badges</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#progress-bar">Progress Bar</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#star-rating">Star raiting</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#embed">Responsive video</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#social-icons">Social icons</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#tabs">Tabs</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#modals">Modal windows</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#accordion">Accordion</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#dropdown">Dropdown</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#spoiler">Spoiler</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#tooltips">Tooltips</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#notifications">Notifications</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#svg-icons">Svg Icons</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#avatars">Avatars</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#media-object">Media object</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#spinner">Spinner</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#card">Card</a></li>
                         </ul>
                       </div>
                     </div>
                   </li>
-                  <li class="main-menu__item main-menu__item_dropdown">
-                    <a class="main-menu__link" href="docs.html">Documentation</a>
+                  <li class="main-menu__item main-menu__item_dropdown"><a class="main-menu__link" href="docs.html">Documentation</a>
                     <div class="main-menu__submenu">
                       <div class="main-menu-submenu">
                         <ul class="main-menu-submenu__list">
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="faq.html">FAQ</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#quickstart">Quickstart</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#development">Development</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#building-and-deploying">Building and Deploying</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#structure">Structure</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#css">CSS</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#html">HTML</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#javascript">JavaScript</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#png-sprites">PNG Sprites</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#svg-symbol-sprites">SVG Symbol Sprites</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#data">DATA</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#command-line-commands">Command Line Commands</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#license">License</a>
-                          </li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="faq.html">FAQ</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#quickstart">Quickstart</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#development">Development</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#building-and-deploying">Building and Deploying</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#structure">Structure</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#css">CSS</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#html">HTML</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#javascript">JavaScript</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#png-sprites">PNG Sprites</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#svg-symbol-sprites">SVG Symbol Sprites</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#data">DATA</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#command-line-commands">Command Line Commands</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#license">License</a></li>
                         </ul>
                       </div>
                     </div>
                   </li>
                 </ul>
               </nav>
-            </div>
-            <a class="button button_icon header__github-button" href="//github.com/zoxon/gulp-front" title="Source on Github" target="_blank">
-              <svg class="icon icon_github-octocat" role="img">
+            </div><a class="button button_icon header__github-button" href="//github.com/zoxon/gulp-front" title="Source on Github" target="_blank" rel="nofollow noopener"><svg class="icon icon_github-octocat" role="img">
                 <title>Github octocat mark</title>
                 <use xlink:href="assets/images/icons.svg#github-octocat"></use>
-              </svg>
-              <span class="visuallyhidden">Github repository</span>
-            </a>
-            <div class="header__mobile-menu-trigger">
-              <button class="button mobile-menu-trigger" type="button" data-offcanvas-trigger>
-                <svg class="icon icon_hamburger" role="img">
+              </svg><span class="visuallyhidden">Github repository</span></a>
+            <div class="header__mobile-menu-trigger"><button class="button mobile-menu-trigger" type="button" data-offcanvas-trigger><svg class="icon icon_hamburger" role="img">
                   <title>Hamburger menu</title>
                   <use xlink:href="assets/images/icons.svg#hamburger"></use>
-                </svg>
-                <span class="visuallyhidden">Show menu</span>
-              </button>
-            </div>
-          </header>
-        </div>
-        <div class="page__presentation">
-          <div class="header-presentation" data-0="opacity: 1; transform: translateY(0px);" data-300="opacity: 0; transform: translateY(10px);">
-            <h1 class="header-presentation__name">Gulp front</h1>
-            <p class="header-presentation__description">A lean and powerful, gulp-based boilerplate for better front-end coding.</p>
-            <div class="header-presentation__version">v. 9.3.0</div>
-            <div class="header-presentation__sub-description">Created &amp; maintained by @zoxon</div>
-            <a class="button button_block button_color_black button_size_large button_style_ghost button_style_rounded header-presentation__download" href="#quick-start">Getting Started</a>
+                </svg><span class="visuallyhidden">Show menu</span></button></div>
           </div>
-        </div>
-        <div class="page__main">
-          <div class="main-page">
+        </header>
+      </div>
+      <div class="page__main">
+        <div class="main-page">
+          <div class="main-page__header">
+            <div class="header-presentation" data-0="opacity: 1; transform: translateY(0px);" data-300="opacity: 0; transform: translateY(10px);">
+              <h1 class="header-presentation__name">Gulp front</h1>
+              <p class="header-presentation__description">A lean and powerful, gulp-based boilerplate for better front-end coding.</p>
+              <div class="header-presentation__version">v. 9.5.0</div>
+              <div class="header-presentation__sub-description">Created &amp; maintained by @zoxon</div><a class="button button_block button_color_black button_size_large button_style_ghost button_style_rounded header-presentation__download" href="#quick-start">Getting Started</a>
+            </div>
+          </div>
+          <div class="container main-page__body">
             <section class="main-page__section main-page__section_features">
               <h2 class="main-page__title">Benefits &amp; Features</h2>
-              <div class="features-list">
-                <ul class="features-list__list">
-                  <li class="features-list__item js-appearing-item">
-                    <div class="features-list-item">
-                      <div class="features-list-item__icon">
-                        <svg class="icon icon_landing_bem" role="img">
-                          <title>BEM</title>
-                          <use xlink:href="assets/images/icons.svg#landing_bem"></use>
-                        </svg>
-                      </div>
-                      <h3 class="features-list-item__title">BEM</h3>
-                      <p class="features-list-item__description">The
-                        <a href="https://en.bem.info/">BEM methodology</a> helps to create extendable and reusable interface components.</p>
-                    </div>
-                  </li>
-                  <li class="features-list__item js-appearing-item">
-                    <div class="features-list-item">
-                      <div class="features-list-item__icon">
-                        <svg class="icon icon_landing_module" role="img">
-                          <title>Modular architecture</title>
-                          <use xlink:href="assets/images/icons.svg#landing_module"></use>
-                        </svg>
-                      </div>
-                      <h3 class="features-list-item__title">Modular architecture</h3>
-                      <p class="features-list-item__description">Create and use HTML/CSS/JS in accordance with the principles of DRY</p>
-                    </div>
-                  </li>
-                  <li class="features-list__item js-appearing-item">
-                    <div class="features-list-item">
-                      <div class="features-list-item__icon">
-                        <svg class="icon icon_landing_cube" role="img">
-                          <title>Built-in modules</title>
-                          <use xlink:href="assets/images/icons.svg#landing_cube"></use>
-                        </svg>
-                      </div>
-                      <h3 class="features-list-item__title">Built-in modules</h3>
-                      <p class="features-list-item__description">Extensive set of modules which can be found in 90% of all websites</p>
-                    </div>
-                  </li>
-                  <li class="features-list__item js-appearing-item">
-                    <div class="features-list-item">
-                      <div class="features-list-item__icon">
-                        <svg class="icon icon_landing_gear" role="img">
-                          <title>Preprocessors and postprocessors</title>
-                          <use xlink:href="assets/images/icons.svg#landing_gear"></use>
-                        </svg>
-                      </div>
-                      <h3 class="features-list-item__title">Preprocessors and postprocessors</h3>
-                      <p class="features-list-item__description">Simple and clean HTML and CSS syntax with superpowers</p>
-                    </div>
-                  </li>
-                  <li class="features-list__item js-appearing-item">
-                    <div class="features-list-item">
-                      <div class="features-list-item__icon">
-                        <svg class="icon icon_landing_text-file" role="img">
-                          <title>Customized typography</title>
-                          <use xlink:href="assets/images/icons.svg#landing_text-file"></use>
-                        </svg>
-                      </div>
-                      <h3 class="features-list-item__title">Customized typography</h3>
-                      <p class="features-list-item__description">The most important thing on the website is text and we took care of it</p>
-                    </div>
-                  </li>
-                  <li class="features-list__item js-appearing-item">
-                    <div class="features-list-item">
-                      <div class="features-list-item__icon">
-                        <svg class="icon icon_landing_vector" role="img">
-                          <title>Your personal iconset</title>
-                          <use xlink:href="assets/images/icons.svg#landing_vector"></use>
-                        </svg>
-                      </div>
-                      <h3 class="features-list-item__title">Your personal iconset</h3>
-                      <p class="features-list-item__description">Create your own set of SVG icons. Only what you need and no fonts</p>
-                    </div>
-                  </li>
-                  <li class="features-list__item js-appearing-item">
-                    <div class="features-list-item">
-                      <div class="features-list-item__icon">
-                        <svg class="icon icon_landing_picture" role="img">
-                          <title>Easy to use sprite system</title>
-                          <use xlink:href="assets/images/icons.svg#landing_picture"></use>
-                        </svg>
-                      </div>
-                      <h3 class="features-list-item__title">Easy to use sprite system</h3>
-                      <p class="features-list-item__description">Just copy images to a folder and get sprite and @2x srpite</p>
-                    </div>
-                  </li>
-                  <li class="features-list__item js-appearing-item">
-                    <div class="features-list-item">
-                      <div class="features-list-item__icon">
-                        <svg class="icon icon_landing_phone" role="img">
-                          <title>Simple media queries</title>
-                          <use xlink:href="assets/images/icons.svg#landing_phone"></use>
-                        </svg>
-                      </div>
-                      <h3 class="features-list-item__title">Simple media queries</h3>
-                      <p class="features-list-item__description">You can easily create mobile version or adapt your current version of your website with the help of convenient mixins</p>
-                    </div>
-                  </li>
-                  <li class="features-list__item js-appearing-item">
-                    <div class="features-list-item">
-                      <div class="features-list-item__icon">
-                        <svg class="icon icon_landing_documentation" role="img">
-                          <title>Documentation</title>
-                          <use xlink:href="assets/images/icons.svg#landing_documentation"></use>
-                        </svg>
-                      </div>
-                      <h3 class="features-list-item__title">Documentation</h3>
-                      <p class="features-list-item__description">Yes, we have a documentation :)</p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+              <ul class="features-list">
+                <li class="features-list__item js-appearing-item">
+                  <div class="features-list-item">
+                    <div class="features-list-item__icon"><svg class="icon icon_landing_bem" role="img">
+                        <title>BEM</title>
+                        <use xlink:href="assets/images/icons.svg#landing_bem"></use>
+                      </svg></div>
+                    <h3 class="features-list-item__title">BEM</h3>
+                    <p class="features-list-item__description">The <a href="https://en.bem.info/">BEM methodology</a> helps to create extendable and reusable interface components.</p>
+                  </div>
+                </li>
+                <li class="features-list__item js-appearing-item">
+                  <div class="features-list-item">
+                    <div class="features-list-item__icon"><svg class="icon icon_landing_module" role="img">
+                        <title>Modular architecture</title>
+                        <use xlink:href="assets/images/icons.svg#landing_module"></use>
+                      </svg></div>
+                    <h3 class="features-list-item__title">Modular architecture</h3>
+                    <p class="features-list-item__description">Create and use HTML/CSS/JS in accordance with the principles of DRY</p>
+                  </div>
+                </li>
+                <li class="features-list__item js-appearing-item">
+                  <div class="features-list-item">
+                    <div class="features-list-item__icon"><svg class="icon icon_landing_cube" role="img">
+                        <title>Built-in modules</title>
+                        <use xlink:href="assets/images/icons.svg#landing_cube"></use>
+                      </svg></div>
+                    <h3 class="features-list-item__title">Built-in modules</h3>
+                    <p class="features-list-item__description">Extensive set of modules which can be found in 90% of all websites</p>
+                  </div>
+                </li>
+                <li class="features-list__item js-appearing-item">
+                  <div class="features-list-item">
+                    <div class="features-list-item__icon"><svg class="icon icon_landing_gear" role="img">
+                        <title>Preprocessors and postprocessors</title>
+                        <use xlink:href="assets/images/icons.svg#landing_gear"></use>
+                      </svg></div>
+                    <h3 class="features-list-item__title">Preprocessors and postprocessors</h3>
+                    <p class="features-list-item__description">Simple and clean HTML and CSS syntax with superpowers</p>
+                  </div>
+                </li>
+                <li class="features-list__item js-appearing-item">
+                  <div class="features-list-item">
+                    <div class="features-list-item__icon"><svg class="icon icon_landing_text-file" role="img">
+                        <title>Customized typography</title>
+                        <use xlink:href="assets/images/icons.svg#landing_text-file"></use>
+                      </svg></div>
+                    <h3 class="features-list-item__title">Customized typography</h3>
+                    <p class="features-list-item__description">The most important thing on the website is text and we took care of it</p>
+                  </div>
+                </li>
+                <li class="features-list__item js-appearing-item">
+                  <div class="features-list-item">
+                    <div class="features-list-item__icon"><svg class="icon icon_landing_vector" role="img">
+                        <title>Your personal iconset</title>
+                        <use xlink:href="assets/images/icons.svg#landing_vector"></use>
+                      </svg></div>
+                    <h3 class="features-list-item__title">Your personal iconset</h3>
+                    <p class="features-list-item__description">Create your own set of SVG icons. Only what you need and no fonts</p>
+                  </div>
+                </li>
+                <li class="features-list__item js-appearing-item">
+                  <div class="features-list-item">
+                    <div class="features-list-item__icon"><svg class="icon icon_landing_picture" role="img">
+                        <title>Easy to use sprite system</title>
+                        <use xlink:href="assets/images/icons.svg#landing_picture"></use>
+                      </svg></div>
+                    <h3 class="features-list-item__title">Easy to use sprite system</h3>
+                    <p class="features-list-item__description">Just copy images to a folder and get sprite and @2x srpite</p>
+                  </div>
+                </li>
+                <li class="features-list__item js-appearing-item">
+                  <div class="features-list-item">
+                    <div class="features-list-item__icon"><svg class="icon icon_landing_phone" role="img">
+                        <title>Simple media queries</title>
+                        <use xlink:href="assets/images/icons.svg#landing_phone"></use>
+                      </svg></div>
+                    <h3 class="features-list-item__title">Simple media queries</h3>
+                    <p class="features-list-item__description">You can easily create mobile version or adapt your current version of your website with the help of convenient mixins</p>
+                  </div>
+                </li>
+                <li class="features-list__item js-appearing-item">
+                  <div class="features-list-item">
+                    <div class="features-list-item__icon"><svg class="icon icon_landing_documentation" role="img">
+                        <title>Documentation</title>
+                        <use xlink:href="assets/images/icons.svg#landing_documentation"></use>
+                      </svg></div>
+                    <h3 class="features-list-item__title">Documentation</h3>
+                    <p class="features-list-item__description">Yes, we have a documentation :)</p>
+                  </div>
+                </li>
+              </ul>
             </section>
             <section class="main-page__section main-page__section_quick-start" id="quick-start">
               <h2 class="main-page__title">Getting Started</h2>
               <div class="quick-start">
                 <div class="quick-start__body">
                   <ol>
-                    <li class="js-appearing-item">Install
-                      <a href="https://nodejs.org">node.js</a> with version equal to 6 or higher.</li>
-                    <li class="js-appearing-item">Clone the project or
-                      <a href="https://github.com/zoxon/gulp-front/archive/master.zip" title="Download source from Github">download</a><pre><code>git clone git@github.com:zoxon/gulp-front.git --depth 1 project-name
-</code></pre></li>
+                    <li class="js-appearing-item">Install <a href="https://nodejs.org">node.js</a> with version equal to 6 or higher.</li>
+                    <li class="js-appearing-item">Clone the project or <a href="https://github.com/zoxon/gulp-front/archive/master.zip" title="Download source from Github">download</a><pre><code>git clone git@github.com:zoxon/gulp-front.git --depth 1 project-name
+</code></pre>
+                    </li>
                     <li class="js-appearing-item">Goto in project folder root and install dependencies<pre><code>cd project-name
-npm run setup</code></pre></li>
+npm run setup</code></pre>
+                    </li>
                     <li class="js-appearing-item">Start dev server<pre><code>npm start
-</code></pre></li>
+</code></pre>
+                    </li>
                   </ol>
                   <p class="js-appearing-item">In browser open page with address <code>http://localhost:3000</code></p>
                   <p class="js-appearing-item">For getting production version run <code>npm run build</code> command.</p>
@@ -630,17 +370,19 @@ npm run setup</code></pre></li>
         </div>
       </div>
       <div class="page__footer">
-        <footer class="footer js-appearing-item">
-          <svg class="icon icon_heart footer__icon" role="img">
+        <footer class="footer js-appearing-item"><svg class="icon icon_heart footer__icon" role="img">
             <title>Heart</title>
             <use xlink:href="assets/images/icons.svg#heart"></use>
           </svg>
           <div class="footer__copyright">&copy;&nbsp;2018 Velichko Konstantin</div>
-          <div class="footer__about">This
-            <a href="https://github.com/zoxon/gulp-front">project source code</a> can be found on Github</div>
+          <div class="footer__about">This <a href="https://github.com/zoxon/gulp-front">project source code</a> can be found on Github</div>
           <div class="footer__generated">Generated with gulp-front</div>
         </footer>
       </div>
     </div>
-    <div class="page__overlay" data-offcanvas-overlay></div><script src="assets/javascripts/vendor.js"></script><script src="assets/javascripts/main.js"></script></body>
+    <div class="page__overlay" data-offcanvas-overlay></div><button class="scroll-top button button_style_solid button_color_blue" type="button"><span class="visuallyhidden">Scroll page top</span><svg class="icon icon_chevron_up scroll-top__icon" role="img">
+        <title>Chevron up</title>
+        <use xlink:href="assets/images/icons.svg#chevron_up"></use>
+      </svg></button><script src="assets/javascripts/main.js"></script>
+  </body>
 </html>

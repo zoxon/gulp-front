@@ -1,29 +1,21 @@
 <!DOCTYPE html>
-<html class="i-ua_js_no i-ua_css_standard" lang="en">
+<html class="js_no css_standard" lang="en" prefix="og: http://ogp.me/ns#">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <!-- The above 3 meta tags *must* come first in the head;-->
-    <!-- any other head content must come *after* these tags-->
-    <!-- Title-->
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"><!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags-->
     <title>Documentation :: Gulp-front</title>
-    <!-- Meta tags-->
     <meta name="description" content="The template for quick start of development with Gulp, Jade and Stylus">
     <meta name="keywords" content="demo, gulp, bem, modules, sprites, svg, jade, stylus, boilerplate, frontend, project, template">
     <meta name="format-detection" content="telephone=no">
     <meta name="format-detection" content="address=no">
     <meta name="robots" content="noodp, noydir">
-    <!-- iOS: Add to Home Screen-->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Gulp-front">
-    <!-- Styles-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i&amp;subset=cyrillic" rel="stylesheet">
     <link href="assets/stylesheets/reset.css" rel="stylesheet">
-    <link href="assets/stylesheets/main.css" rel="stylesheet">
-    <!-- Facebook / Open Graph-->
-    <!-- Facebook: https://developers.facebook.com/docs/sharing/webmasters#markup-->
-    <!-- Open Graph: http://ogp.me/-->
+    <link href="assets/stylesheets/main.css" rel="stylesheet"><script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/4.1.4/lazysizes.min.js" integrity="sha256-TAKkT1A7MjH+laNK0pwZ92ns2lMF7VlqJt/E5rIJ/rI=" crossorigin="anonymous" async="async"></script>
     <meta property="fb:app_id" content="387979211564142">
     <meta property="og:url" content="http://zoxon.github.io/gulp-front/index.html">
     <meta property="og:type" content="website">
@@ -33,205 +25,97 @@
     <meta property="og:site_name" content="Gulp-front">
     <meta property="og:locale" content="en_US">
     <meta property="article:author" content="Velichko Konstantin">
-    <!-- Favicons-->
     <link href="/assets/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
     <link type="image/png" href="/assets/favicons/favicon-32x32.png" rel="icon" sizes="32x32">
     <link type="image/png" href="/assets/favicons/favicon-16x16.png" rel="icon" sizes="16x16">
-    <link href="/assets/favicons/manifest.json" rel="manifest">
+    <link href="/assets/favicons/site.webmanifest" rel="manifest">
     <link href="/assets/favicons/safari-pinned-tab.svg" rel="mask-icon" color="#e74c3c">
     <link href="/assets/favicons/favicon.ico" rel="shortcut icon">
+    <meta name="msapplication-TileColor" content="#1e3c72">
     <meta name="msapplication-config" content="/assets/favicons/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-    <!-- A list of everything that could go in the head of your document-->
-    <!-- https://github.com/joshbuchea/HEAD--><script>;(function(d,e,c,r){e=d.documentElement;c="className";r="replace";e[c]=e[c][r]("i-ua_js_no","i-ua_js_yes");if(d.compatMode!="CSS1Compat")e[c]=e[c][r]("i-ua_css_standart","i-ua_css_quirks")})(document);</script></head>
-  <body class="page" data-offcanvas-container>
-    <!--[if lt IE 8]><p class="browsehappy">Вы используете<strong>устаревший</strong> браузер. Пожалуйста<a href="http://browsehappy.com" target="_blank">обновите браузер</a> для лучшего отображения сайта.</p><![endif]-->
+    <meta name="theme-color" content="#ffffff"><script>;(function(d,e,c,r){e=d.documentElement;c="className";r="replace";e[c]=e[c][r]("js_no","js_yes");if(d.compatMode!="CSS1Compat")e[c]=e[c][r]("css_standart","css_quirks")})(document);</script>
+  </head>
+  <body class="page page_style_default" data-offcanvas-container>
     <div class="page__mobile-menu" data-offcanvas-menu aria-hidden="true">
       <div class="mobile-menu js-link-sroll">
+        <div class="mobile-menu__header">
+          <h2 class="mobile-menu__title">Navigation</h2><button class="button close-button mobile-menu__close" type="button" data-offcanvas-trigger><svg class="icon icon_close close-button__icon" role="img">
+              <use xlink:href="assets/images/icons.svg#close"></use>
+            </svg><span class="visuallyhidden">Close</span></button>
+        </div>
         <nav class="mobile-menu__menu">
           <ul class="mobile-menu__list">
-            <li class="mobile-menu__item">
-              <a class="mobile-menu__link" href="typography.html">Typography</a>
+            <li class="mobile-menu__item"><a class="mobile-menu__link" href="typography.html">Typography</a>
               <ul class="mobile-menu__submenu">
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="typography.html#titles-and-paragraphs">Titles &amp; Paragraphs</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="typography.html#lists">Lists</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="typography.html#quotes">Quotes</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="typography.html#description-lists">Description lists</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="typography.html#code">Code</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="typography.html#tables">Tables</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="typography.html#text-elements">Text level elements</a>
-                </li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="typography.html#titles-and-paragraphs">Titles &amp; Paragraphs</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="typography.html#lists">Lists</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="typography.html#quotes">Quotes</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="typography.html#description-lists">Description lists</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="typography.html#code">Code</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="typography.html#tables">Tables</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="typography.html#text-elements">Text level elements</a></li>
               </ul>
             </li>
-            <li class="mobile-menu__item">
-              <a class="mobile-menu__link" href="forms.html">Forms</a>
+            <li class="mobile-menu__item"><a class="mobile-menu__link" href="forms.html">Forms</a>
               <ul class="mobile-menu__submenu">
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="forms.html#messaging">Messaging</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="forms.html#text-inputs">Text Inputs</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="forms.html#radios-and-checkboxes">Radios and Checkboxes</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="forms.html#input-range">Input range</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="forms.html#selects">Selects</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="forms.html#textareas-and-files">Textareas and Files</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="forms.html#captcha">Captcha</a>
-                </li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="forms.html#messaging">Messaging</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="forms.html#text-inputs">Text Inputs</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="forms.html#radios-and-checkboxes">Radios and Checkboxes</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="forms.html#input-range">Input range</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="forms.html#selects">Selects</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="forms.html#textareas-and-files">Textareas and Files</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="forms.html#captcha">Captcha</a></li>
               </ul>
             </li>
-            <li class="mobile-menu__item">
-              <a class="mobile-menu__link" href="buttons.html">Buttons</a>
+            <li class="mobile-menu__item"><a class="mobile-menu__link" href="buttons.html">Buttons</a>
               <ul class="mobile-menu__submenu">
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-styles">Styles</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-sizes">Sizes</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-icon">Icon buttons</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-tags">Tags types</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-disabled">Disabled buttons</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-block">Block buttons</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="buttons.html#buttons-group">Buttons group</a>
-                </li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="buttons.html#buttons-styles">Styles</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="buttons.html#buttons-sizes">Sizes</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="buttons.html#buttons-icon">Icon buttons</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="buttons.html#buttons-tags">Tags types</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="buttons.html#buttons-disabled">Disabled buttons</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="buttons.html#buttons-block">Block buttons</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="buttons.html#buttons-group">Buttons group</a></li>
               </ul>
             </li>
-            <li class="mobile-menu__item">
-              <a class="mobile-menu__link" href="components.html">Components</a>
+            <li class="mobile-menu__item"><a class="mobile-menu__link" href="components.html">Components</a>
               <ul class="mobile-menu__submenu">
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#breadcrumbs">Breadcrumbs</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#pagination">Pagination</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#badges">Badges</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#progress-bar">Progress Bar</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#star-rating">Star raiting</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#embed">Responsive video</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#social-icons">Social icons</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#tabs">Tabs</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#modals">Modal windows</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#accordion">Accordion</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#dropdown">Dropdown</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#spoiler">Spoiler</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#tooltips">Tooltips</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#notifications">Notifications</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#svg-icons">Svg Icons</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#avatars">Avatars</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#media-object">Media object</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#spinner">Spinner</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="components.html#card">Card</a>
-                </li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#breadcrumbs">Breadcrumbs</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#pagination">Pagination</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#badges">Badges</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#progress-bar">Progress Bar</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#star-rating">Star raiting</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#embed">Responsive video</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#social-icons">Social icons</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#tabs">Tabs</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#modals">Modal windows</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#accordion">Accordion</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#dropdown">Dropdown</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#spoiler">Spoiler</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#tooltips">Tooltips</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#notifications">Notifications</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#svg-icons">Svg Icons</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#avatars">Avatars</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#media-object">Media object</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#spinner">Spinner</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="components.html#card">Card</a></li>
               </ul>
             </li>
-            <li class="mobile-menu__item">
-              <a class="mobile-menu__link" href="docs.html">Documentation</a>
+            <li class="mobile-menu__item"><a class="mobile-menu__link" href="docs.html">Documentation</a>
               <ul class="mobile-menu__submenu">
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#undefined">FAQ</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#quickstart">Quickstart</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#development">Development</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#building-and-deploying">Building and Deploying</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#structure">Structure</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#css">CSS</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#html">HTML</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#javascript">JavaScript</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#png-sprites">PNG Sprites</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#svg-symbol-sprites">SVG Symbol Sprites</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#data">DATA</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#command-line-commands">Command Line Commands</a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__submenu-link" href="docs.html#license">License</a>
-                </li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#undefined">FAQ</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#quickstart">Quickstart</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#development">Development</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#building-and-deploying">Building and Deploying</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#structure">Structure</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#css">CSS</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#html">HTML</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#javascript">JavaScript</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#png-sprites">PNG Sprites</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#svg-symbol-sprites">SVG Symbol Sprites</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#data">DATA</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#command-line-commands">Command Line Commands</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__submenu-link" href="docs.html#license">License</a></li>
               </ul>
             </li>
           </ul>
@@ -239,321 +123,161 @@
       </div>
     </div>
     <div class="page__content">
-      <div class="page__wrapper">
-        <div class="page__header">
-          <header class="header">
-            <div class="header__logo">
-              <a class="logo" href="index.html">
-                <svg class="icon icon_heart logo__icon" role="img">
+      <div class="page__header">
+        <header class="header">
+          <div class="container header__container">
+            <div class="header__logo"><a class="logo" href="index.html"><svg class="icon icon_heart logo__icon" role="img">
                   <title>Heart</title>
                   <use xlink:href="assets/images/icons.svg#heart"></use>
-                </svg>
-                <span class="logo__name">Gulp front</span>
-              </a>
-            </div>
+                </svg><span class="logo__name">Gulp front</span></a></div>
             <div class="header__menu">
               <nav class="main-menu">
                 <ul class="main-menu__list">
-                  <li class="main-menu__item main-menu__item_dropdown">
-                    <a class="main-menu__link" href="typography.html">Typography</a>
+                  <li class="main-menu__item main-menu__item_dropdown"><a class="main-menu__link" href="typography.html">Typography</a>
                     <div class="main-menu__submenu">
                       <div class="main-menu-submenu">
                         <ul class="main-menu-submenu__list">
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="typography.html#titles-and-paragraphs">Titles &amp; Paragraphs</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="typography.html#lists">Lists</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="typography.html#quotes">Quotes</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="typography.html#description-lists">Description lists</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="typography.html#code">Code</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="typography.html#tables">Tables</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="typography.html#text-elements">Text level elements</a>
-                          </li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="typography.html#titles-and-paragraphs">Titles &amp; Paragraphs</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="typography.html#lists">Lists</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="typography.html#quotes">Quotes</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="typography.html#description-lists">Description lists</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="typography.html#code">Code</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="typography.html#tables">Tables</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="typography.html#text-elements">Text level elements</a></li>
                         </ul>
                       </div>
                     </div>
                   </li>
-                  <li class="main-menu__item main-menu__item_dropdown">
-                    <a class="main-menu__link" href="forms.html">Forms</a>
+                  <li class="main-menu__item main-menu__item_dropdown"><a class="main-menu__link" href="forms.html">Forms</a>
                     <div class="main-menu__submenu">
                       <div class="main-menu-submenu">
                         <ul class="main-menu-submenu__list">
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="forms.html#messaging">Messaging</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="forms.html#text-inputs">Text Inputs</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="forms.html#radios-and-checkboxes">Radios and Checkboxes</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="forms.html#input-range">Input range</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="forms.html#selects">Selects</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="forms.html#textareas-and-files">Textareas and Files</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="forms.html#captcha">Captcha</a>
-                          </li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="forms.html#messaging">Messaging</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="forms.html#text-inputs">Text Inputs</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="forms.html#radios-and-checkboxes">Radios and Checkboxes</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="forms.html#input-range">Input range</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="forms.html#selects">Selects</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="forms.html#textareas-and-files">Textareas and Files</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="forms.html#captcha">Captcha</a></li>
                         </ul>
                       </div>
                     </div>
                   </li>
-                  <li class="main-menu__item main-menu__item_dropdown">
-                    <a class="main-menu__link" href="buttons.html">Buttons</a>
+                  <li class="main-menu__item main-menu__item_dropdown"><a class="main-menu__link" href="buttons.html">Buttons</a>
                     <div class="main-menu__submenu">
                       <div class="main-menu-submenu">
                         <ul class="main-menu-submenu__list">
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="buttons.html#buttons-styles">Styles</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="buttons.html#buttons-sizes">Sizes</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="buttons.html#buttons-icon">Icon buttons</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="buttons.html#buttons-tags">Tags types</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="buttons.html#buttons-disabled">Disabled buttons</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="buttons.html#buttons-block">Block buttons</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="buttons.html#buttons-group">Buttons group</a>
-                          </li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="buttons.html#buttons-styles">Styles</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="buttons.html#buttons-sizes">Sizes</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="buttons.html#buttons-icon">Icon buttons</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="buttons.html#buttons-tags">Tags types</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="buttons.html#buttons-disabled">Disabled buttons</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="buttons.html#buttons-block">Block buttons</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="buttons.html#buttons-group">Buttons group</a></li>
                         </ul>
                       </div>
                     </div>
                   </li>
-                  <li class="main-menu__item main-menu__item_dropdown">
-                    <a class="main-menu__link" href="components.html">Components</a>
+                  <li class="main-menu__item main-menu__item_dropdown"><a class="main-menu__link" href="components.html">Components</a>
                     <div class="main-menu__submenu">
                       <div class="main-menu-submenu">
                         <ul class="main-menu-submenu__list">
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#breadcrumbs">Breadcrumbs</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#pagination">Pagination</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#badges">Badges</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#progress-bar">Progress Bar</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#star-rating">Star raiting</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#embed">Responsive video</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#social-icons">Social icons</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#tabs">Tabs</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#modals">Modal windows</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#accordion">Accordion</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#dropdown">Dropdown</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#spoiler">Spoiler</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#tooltips">Tooltips</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#notifications">Notifications</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#svg-icons">Svg Icons</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#avatars">Avatars</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#media-object">Media object</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#spinner">Spinner</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="components.html#card">Card</a>
-                          </li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#breadcrumbs">Breadcrumbs</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#pagination">Pagination</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#badges">Badges</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#progress-bar">Progress Bar</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#star-rating">Star raiting</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#embed">Responsive video</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#social-icons">Social icons</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#tabs">Tabs</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#modals">Modal windows</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#accordion">Accordion</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#dropdown">Dropdown</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#spoiler">Spoiler</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#tooltips">Tooltips</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#notifications">Notifications</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#svg-icons">Svg Icons</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#avatars">Avatars</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#media-object">Media object</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#spinner">Spinner</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="components.html#card">Card</a></li>
                         </ul>
                       </div>
                     </div>
                   </li>
-                  <li class="main-menu__item main-menu__item_dropdown">
-                    <a class="main-menu__link" href="docs.html">Documentation</a>
+                  <li class="main-menu__item main-menu__item_dropdown"><a class="main-menu__link" href="docs.html">Documentation</a>
                     <div class="main-menu__submenu">
                       <div class="main-menu-submenu">
                         <ul class="main-menu-submenu__list">
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="faq.html">FAQ</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#quickstart">Quickstart</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#development">Development</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#building-and-deploying">Building and Deploying</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#structure">Structure</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#css">CSS</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#html">HTML</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#javascript">JavaScript</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#png-sprites">PNG Sprites</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#svg-symbol-sprites">SVG Symbol Sprites</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#data">DATA</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#command-line-commands">Command Line Commands</a>
-                          </li>
-                          <li class="main-menu-submenu__item">
-                            <a class="main-menu-submenu__link" href="docs.html#license">License</a>
-                          </li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="faq.html">FAQ</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#quickstart">Quickstart</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#development">Development</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#building-and-deploying">Building and Deploying</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#structure">Structure</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#css">CSS</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#html">HTML</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#javascript">JavaScript</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#png-sprites">PNG Sprites</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#svg-symbol-sprites">SVG Symbol Sprites</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#data">DATA</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#command-line-commands">Command Line Commands</a></li>
+                          <li class="main-menu-submenu__item"><a class="main-menu-submenu__link" href="docs.html#license">License</a></li>
                         </ul>
                       </div>
                     </div>
                   </li>
                 </ul>
               </nav>
-            </div>
-            <a class="button button_icon header__github-button" href="//github.com/zoxon/gulp-front" title="Source on Github" target="_blank">
-              <svg class="icon icon_github-octocat" role="img">
+            </div><a class="button button_icon header__github-button" href="//github.com/zoxon/gulp-front" title="Source on Github" target="_blank" rel="nofollow noopener"><svg class="icon icon_github-octocat" role="img">
                 <title>Github octocat mark</title>
                 <use xlink:href="assets/images/icons.svg#github-octocat"></use>
-              </svg>
-              <span class="visuallyhidden">Github repository</span>
-            </a>
-            <div class="header__mobile-menu-trigger">
-              <button class="button mobile-menu-trigger" type="button" data-offcanvas-trigger>
-                <svg class="icon icon_hamburger" role="img">
+              </svg><span class="visuallyhidden">Github repository</span></a>
+            <div class="header__mobile-menu-trigger"><button class="button mobile-menu-trigger" type="button" data-offcanvas-trigger><svg class="icon icon_hamburger" role="img">
                   <title>Hamburger menu</title>
                   <use xlink:href="assets/images/icons.svg#hamburger"></use>
-                </svg>
-                <span class="visuallyhidden">Show menu</span>
-              </button>
-            </div>
-          </header>
-        </div>
-        <div class="page__main">
+                </svg><span class="visuallyhidden">Show menu</span></button></div>
+          </div>
+        </header>
+      </div>
+      <div class="page__main">
+        <div class="container">
           <div class="demo demo_documentation content-wrapper">
             <h1>Documentation</h1>
             <h2>Table of Contents</h2>
             <ul>
-              <li>
-                <a href="#quickstart">Quickstart</a>
-              </li>
-              <li>
-                <a href="#development">Development</a>
-              </li>
-              <li>
-                <a href="#building-and-deploying">Building and Deploying</a>
-              </li>
-              <li>
-                <a href="#structure">Structure</a>
-              </li>
-              <li>
-                <a href="#css">CSS</a>
-              </li>
-              <li>
-                <a href="#html">HTML</a>
-              </li>
-              <li>
-                <a href="#javascript">JavaScript</a>
-              </li>
-              <li>
-                <a href="#png-sprites">PNG Sprites</a>
-              </li>
-              <li>
-                <a href="#svg-symbol-sprites">SVG Symbol Sprites</a>
-              </li>
-              <li>
-                <a href="#data">DATA</a>
-              </li>
-              <li>
-                <a href="#command-line-commands">Command Line Commands</a>
+              <li><a href="#documentation">Documentation</a>
                 <ul>
-                  <li>
-                    <a href="#initialization">Initialization</a>
+                  <li><a href="#table-of-contents">Table of Contents</a></li>
+                  <li><a href="#quickstart">Quickstart</a></li>
+                  <li><a href="#development">Development</a></li>
+                  <li><a href="#building-and-deploying">Building and Deploying</a></li>
+                  <li><a href="#structure">Structure</a></li>
+                  <li><a href="#css">CSS</a></li>
+                  <li><a href="#html">HTML</a></li>
+                  <li><a href="#javascript">JavaScript</a></li>
+                  <li><a href="#png-sprites">PNG Sprites</a></li>
+                  <li><a href="#svg-symbol-sprites">SVG Symbol Sprites</a></li>
+                  <li><a href="#data">DATA</a></li>
+                  <li><a href="#command-line-commands">Command Line Commands</a>
+                    <ul>
+                      <li><a href="#initialization">Initialization</a></li>
+                      <li><a href="#development">Development</a></li>
+                      <li><a href="#cleaning">Cleaning</a></li>
+                      <li><a href="#building">Building</a></li>
+                      <li><a href="#deploying">Deploying</a></li>
+                      <li><a href="#zip">Zip</a></li>
+                      <li><a href="#generator">Generator</a></li>
+                    </ul>
                   </li>
-                  <li>
-                    <a href="#development">Development</a>
-                  </li>
-                  <li>
-                    <a href="#cleaning">Cleaning</a>
-                  </li>
-                  <li>
-                    <a href="#building">Building</a>
-                  </li>
-                  <li>
-                    <a href="#deploying">Deploying</a>
-                  </li>
-                  <li>
-                    <a href="#zip">Zip</a>
-                  </li>
-                  <li>
-                    <a href="#module-generator">Module generator</a>
-                  </li>
+                  <li><a href="#license">License</a></li>
                 </ul>
               </li>
-              <li>
-                <a href="#license">License</a>
-              </li>
             </ul>
-            <p>
-              <a name="quickstart"></a>
-            </p>
+            <p><a name="quickstart"></a></p>
             <h2>Quickstart</h2>
             <ol>
-              <li>Install the
-                <a href="https://nodejs.org">node.js</a>
-              </li>
-              <li>Clone the project or
-                <a href="https://github.com/zoxon/gulp-front/archive/master.zip">download</a> the file<pre><code class="highlight-sh">git clone git@github.com:zoxon/gulp-front.git --depth 1 my-project
+              <li>Install the <a href="https://nodejs.org">node.js</a></li>
+              <li>Clone the project or <a href="https://github.com/zoxon/gulp-front/archive/master.zip">download</a> the file<pre><code class="highlight-sh">git clone git@github.com:zoxon/gulp-front.git --depth 1 my-project
 </code></pre>
               </li>
               <li>Go to project folder and run<pre><code class="highlight-sh">npm run setup
@@ -562,295 +286,199 @@
               <li>Start dev server<pre><code class="highlight-sh">npm start
 </code></pre>
               </li>
-              <li>In browser open page with address
-                <a href="http://localhost:3000/"><code>http://localhost:3000/</code></a>
-              </li>
+              <li>In browser open page with address <a href="http://localhost:3000/"><code>http://localhost:3000/</code></a></li>
             </ol>
-            <p>
-              <a name="development"></a>
-            </p>
+            <p><a name="development"></a></p>
             <h2>Development</h2>
             <ol>
               <li>Run <code>npm run cleanup</code>. This command delete demo app.</li>
-              <li>Run <code>npm start</code> to see your app at
-                <a href="http://localhost:3000/"><code>http://localhost:3000/</code></a>
-              </li>
+              <li>Run <code>npm start</code> to see your app at <a href="http://localhost:3000/"><code>http://localhost:3000/</code></a></li>
             </ol>
-            <p>
-              <a name="building-and-deploying"></a>
-            </p>
+            <p><a name="building-and-deploying"></a></p>
             <h2>Building and Deploying</h2>
             <ol>
               <li>Run <code>npm run build</code>, which will compile all the necessary files to the <code>dest</code> folder.</li>
               <li>Upload the contents of the <code>dest</code> folder to your web server’s root folder.</li>
             </ol>
-            <p>
-              <a name="structure"></a>
-            </p>
+            <p><a name="structure"></a></p>
             <h2>Structure</h2>
             <p>The <code>source</code> directory contains your entire application code, including CSS, JavaScript, HTML.</p>
             <p>The rest of the folders and files only exist to make your life easier, and should not need to be touched.</p>
             <p>Below you can find full details about significant files and folders.</p>
-            <pre><code>gulp-front/                             # Project root
-├── dest                                # Compiled files
-├── docs                                # Documentation
-├── gulp                                # Gulpfile tasks and config
-├── source                              # Source files
-│   ├── layouts                         # Pug layouts
-│   ├── modules                         # Modules folder
-│   ├── pages                           # Pages
-│   └── static                          # Static files
-│       ├── assets                      # Other files
-│       ├── icons                       # SVG icons files
-│       ├── public                      # Root files
-│       ├── scripts                     # JavaScript files
-│       │   ├── helpers                 # JavaScript helpers
-│       │   ├── plugins                 # JavaScript plgins and libs
-│       │   ├── main.js                 # Main JavaScript file
-│       │   └── vendor.js               # Plugins assemblage file
-│       ├── sprite                      # PNG Sprite files
-│       └── styles                      # Static styles
-│           ├── components              # Componetns
-│           ├── plugins                 # Plugins styles
-│           ├── templates               # Sysytem used templates
-│           ├── _common.styl            # Different styles
-│           ├── _variables.styl         # Variables
-│           ├── main.styl               # Main styles
-│           └── reset.styl              # Styles reset + typography
-├── tmp                                 # Temp folder
-├── tools                               # Gulp-front tools
-├── zip                                 # Folder with zip archives
-├── .babelrc                            # Babel config file
-├── .browserslistrc                     # Browserlist config
-├── .editorconfig                       # EditorConfig
-├── .eslintrc.json                      # ESLint config
-├── .gitignore                          # Files ignored by GIT
-├── .htmlhintrc                         # Settings for HTMLHint
-├── .npmignore                          # Files ignored by npm
-├── .postcss-sorting.json               # postcss-sorting config
-├── .travis.yml                         # TravisCI config
-├── gulpfile.babel.js                   # gulp.js config
-├── LICENSE                             # License
-├── package.json                        # Dependencies for node.js
-├── postcss.config.js                   # PostCSS config
-├── README.md                           # English readme file
-├── webpack.config.babel.js             # Webpack config
-└── yarn.lock                           # YARN Lock file
+            <pre><code>gulp-front/                         # Project root
+├── dest                            # Compiled files
+├── docs                            # Documentation
+├── gulp                            # Gulpfile tasks and config
+├── source
+│   ├── icons                       # SVG icons sprite files
+│   ├── layouts                     # Pug layouts
+│   ├── modules                     # Modules folder
+│   ├── pages                       # Pages
+│   ├── public                      # Static files copy to project root
+│   ├── scripts
+│   │   ├── core                    # JS Modules core
+│   │   ├── helpers                 # JS various helpers
+│   │   └── main.js                 # Main JavaScript file
+│   ├── sprite                      # PNG Sprite files
+│   └── styles
+│       ├── core
+│       │   ├── helpers             # System level helper classes
+│       │   ├── mixins              # System mixins
+│       │   ├── typography          # Typography styles
+│       │   └── variables           # Sysytem variables
+│       ├── _common.styl            # Different styles
+│       ├── _variables.styl         # Variables
+│       ├── main.styl               # Main styles
+│       └── reset.styl              # Styles reset + typography
+├── tmp                             # Temp folder
+├── tools                           # Gulp-front tools
+└── zip                             # Folder with buld zip archives
 </code></pre>
-            <p>
-              <a name="css"></a>
-            </p>
+            <p><a name="css"></a></p>
             <h2>CSS</h2>
             <ul>
-              <li>
-                <a href="https://necolas.github.io/normalize.css/">Normalize.css</a>
-              </li>
-              <li>
-                <a href="http://stylus-lang.com/">Stylus</a>
+              <li><a href="https://necolas.github.io/normalize.css/">Normalize.css</a></li>
+              <li><a href="http://stylus-lang.com/">Stylus</a>
                 <ul>
-                  <li>
-                    <a href="https://github.com/jescalan/rupture">rupture</a> - Simple media queries mixins for stylus - npm css files import with
-                    <a href="https://github.com/jescalan/accord/blob/master/docs/stylus.md#include">stylus include feature</a>
-                  </li>
+                  <li><a href="https://github.com/jescalan/rupture">rupture</a> - Simple media queries mixins for stylus - npm css files import with <a href="https://github.com/jescalan/accord/blob/master/docs/stylus.md#include">stylus include feature</a></li>
                 </ul>
               </li>
-              <li>
-                <a href="http://postcss.org/">PostCSS</a>
+              <li><a href="http://postcss.org/">PostCSS</a>
                 <ul>
-                  <li>
-                    <a href="https://github.com/postcss/autoprefixer">autoprefixer</a> - Parse CSS and add vendor prefixes to rules by Can I Use</li>
-                  <li>
-                    <a href="https://github.com/ben-eb/perfectionist">perfectionist</a> - Beautify CSS files</li>
-                  <li>
-                    <a href="https://github.com/hudochenkov/postcss-sorting">postcss-sorting</a> - Keep rules and at-rules content in order</li>
-                  <li>
-                    <a href="https://github.com/postcss/postcss-reporter">postcss-reporter</a> - Log PostCSS messages in the console</li>
+                  <li><a href="https://github.com/postcss/autoprefixer">autoprefixer</a> - Parse CSS and add vendor prefixes to rules by Can I Use</li>
+                  <li><a href="https://github.com/ben-eb/perfectionist">perfectionist</a> - Beautify CSS files</li>
+                  <li><a href="https://github.com/hudochenkov/postcss-sorting">postcss-sorting</a> - Keep rules and at-rules content in order</li>
+                  <li><a href="https://github.com/postcss/postcss-reporter">postcss-reporter</a> - Log PostCSS messages in the console</li>
                 </ul>
               </li>
             </ul>
-            <p>
-              <a name="html"></a>
-            </p>
+            <p><a name="html"></a></p>
             <h2>HTML</h2>
             <ul>
-              <li>
-                <a href="https://pugjs.org/">Pug (ex Jade)</a> - Robust, elegant, feature rich template engine</li>
-              <li>
-                <a href="https://github.com/posthtml/posthtml">PostHTML</a> - Tool to transform HTML/XML with JS plugins</li>
-              <li>
-                <a href="https://github.com/jonschlinkert/gulp-prettify">gulp-prettify</a> - <code>js-beautify</code> gulp wrapper</li>
+              <li><a href="https://pugjs.org/">Pug (ex Jade)</a> - Robust, elegant, feature rich template engine</li>
+              <li><a href="https://github.com/posthtml/posthtml">PostHTML</a> - Tool to transform HTML/XML with JS plugins</li>
+              <li><a href="https://github.com/jonschlinkert/gulp-prettify">gulp-prettify</a> - <code>js-beautify</code> gulp wrapper</li>
             </ul>
-            <p>
-              <a name="javascript"></a>
-            </p>
+            <p><a name="javascript"></a></p>
             <h2>JavaScript</h2>
             <ul>
               <li>Tools
                 <ul>
-                  <li>
-                    <a href="https://nodejs.org/">Node.js</a> - JavaScript runtime</li>
-                  <li>
-                    <a href="https://webpack.js.org/">Webpack 4</a> - module bundler</li>
-                  <li>
-                    <a href="https://www.npmjs.com/">npm</a> - package manager</li>
-                  <li>
-                    <a href="https://yarnpkg.com/lang/en/">Yarn</a> - package manager</li>
-                  <li>
-                    <a href="http://es6-features.org/">ECMAScript 6</a> and
-                    <a href="https://babeljs.io/">Babel</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/GoogleChromeLabs/sw-precache">Service Worker Precache</a> - service worker that precaches resources</li>
+                  <li><a href="https://nodejs.org/">Node.js</a> - JavaScript runtime</li>
+                  <li><a href="https://webpack.js.org/">Webpack 4</a> - module bundler</li>
+                  <li><a href="https://www.npmjs.com/">npm</a> - package manager</li>
+                  <li><a href="https://yarnpkg.com/lang/en/">Yarn</a> - package manager</li>
+                  <li><a href="http://es6-features.org/">ECMAScript 6</a> and <a href="https://babeljs.io/">Babel</a></li>
+                  <li><a href="https://github.com/GoogleChromeLabs/sw-precache">Service Worker Precache</a> - service worker that precaches resources</li>
                 </ul>
               </li>
               <li>Libraries
                 <ul>
-                  <li>
-                    <a href="http://animejs.com/">anime.js</a> - lightweight JavaScript animation library</li>
-                  <li>
-                    <a href="https://github.com/ftlabs/fastclick">FastClick</a> - remove 300ms delay on mobile browsers</li>
-                  <li>
-                    <a href="https://github.com/arasatasaygin/is.js">is.js</a> - Micro check library</li>
-                  <li>
-                    <a href="https://github.com/js-cookie/js-cookie">JavaScript Cookie</a> - JavaScript API for handling cookies</li>
-                  <li>
-                    <a href="https://github.com/ghosh/micromodal">Micromodal</a> - accessible modal dialogs</li>
-                  <li>
-                    <a href="https://github.com/ai/nanoid">Nano ID</a> - unique string ID generator</li>
-                  <li>
-                    <a href="https://github.com/michaelrhodes/scroll">scroll</a> - animates an element’s scrollTop or scrollLeft position</li>
-                  <li>
-                    <a href="https://lodash.com/">Lodash</a> - utility library delivering modularity, performance &amp; extras</li>
-                  <li>
-                    <a href="https://popper.js.org/tooltip-examples.html">tooltip.js</a> - dead simple tooltips, powered by popper.js</li>
+                  <li><a href="https://github.com/ftlabs/fastclick">FastClick</a> - remove 300ms delay on mobile browsers</li>
+                  <li><a href="https://github.com/js-cookie/js-cookie">js-cookie</a> - JavaScript API for handling cookies</li>
+                  <li><a href="https://github.com/ghosh/micromodal">Micromodal</a> - accessible modal dialogs</li>
+                  <li><a href="https://github.com/ai/nanoid">Nano ID</a> - unique string ID generator</li>
+                  <li><a href="https://github.com/michaelrhodes/scroll">scroll</a> - animates an element’s scrollTop or scrollLeft position</li>
+                  <li><a href="https://lodash.com/">lodash</a> - utility library delivering modularity, performance &amp; extras</li>
+                  <li><a href="https://github.com/FezVrasta/popper.js">Tooltip.js</a> - dead simple tooltips, powered by popper.js</li>
+                  <li><a href="https://github.com/bredele/attrs">attrs</a> - Object as DOM attributes.</li>
+                  <li><a href="https://github.com/blakeembrey/change-case">Change Case</a></li>
+                  <li><a href="https://github.com/JedWatson/classnames">Classnames</a> - A simple javascript utility for conditionally joining classNames together</li>
+                  <li><a href="https://github.com/DamonOehlman/omit">omit</a> - Remove values from an object (or an array of objects) based on key, value or an evaluator function</li>
+                  <li><a href="https://github.com/scrollreveal/scrollreveal">ScrollReveal</a> - Animate elements as they scroll into view</li>
+                  <li><a href="https://github.com/Prinzhorn/skrollr">skrollr</a> - Stand-alone parallax scrolling JavaScript library for mobile and desktop</li>
+                  <li><a href="https://github.com/yomotsu/slide-anim">slide-anim</a> - Light weight, stand alone, jQuery like slideDown / slideUp</li>
                 </ul>
               </li>
               <li>Polyfills
                 <ul>
-                  <li>
-                    <a href="https://github.com/jonathantneal/svg4everybody">svg4everybody</a> - adds SVG External Content support to all browsers.</li>
-                  <li>
-                    <a href="https://babeljs.io/docs/usage/polyfill/">babel-polyfill</a>
-                  </li>
+                  <li><a href="https://github.com/jonathantneal/svg4everybody">svg4everybody</a> - adds SVG External Content support to all browsers.</li>
+                  <li><a href="https://github.com/then/promise">promise</a></li>
+                  <li><a href="https://github.com/chrisdickinson/raf">raf</a> - equestAnimationFrame polyfill</li>
+                  <li><a href="https://babeljs.io/docs/usage/polyfill/">babel-polyfill</a></li>
+                  <li><a href="https://github.com/github/fetch">whatwg-fetch</a> - Fetch API polyfill</li>
+                  <li><a href="https://github.com/jonathantneal/closest">element-closest</a> - Element.closest and Element.matches polyfills</li>
                 </ul>
               </li>
             </ul>
-            <p>
-              <a name="png-sprites"></a>
-            </p>
+            <p><a name="png-sprites"></a></p>
             <h2>PNG Sprites</h2>
-            <p>For converting a set of images into a spritesheet add your image to <code>source/static/sprite</code> folder. Spritesheet generates with the help of
-              <a href="https://github.com/twolfson/gulp.spritesmith">gulp.spritesmith</a>
+            <p>For converting a set of images into a spritesheet add your image to <code>source/sprite</code> folder.
+              Spritesheet generates with the help of <a href="https://github.com/twolfson/gulp.spritesmith">gulp.spritesmith</a>
               Retina spritesheets/templates are supported too.</p>
-            <p>
-              <a name="svg-symbol-sprites"></a>
-            </p>
+            <p><a name="svg-symbol-sprites"></a></p>
             <h2>SVG Symbol Sprites</h2>
-            <p>To convert a bunch of svg files to a single svg sprite add svg file to <code>source/static/icons</code> folder. Then you can use icon mixin call in your template.</p>
+            <p>To convert a bunch of svg files to a single svg sprite add svg file to <code>source/icons</code> folder.
+              Then you can use icon mixin call in your template.</p>
             <p>Example:</p>
             <ol>
-              <li>You copy file icon-name.svg to <code>source/static/icons</code> folder.</li>
-              <li>In any
-                <em>pug</em> template, import icon mixin <code>include ../icon/icon</code></li>
+              <li>You copy file icon-name.svg to <code>source/icons</code> folder.</li>
+              <li>In any <em>pug</em> template, import icon mixin <code>include ../icon/icon</code></li>
               <li>Use <code>+icon(name=&quot;icon-name&quot; title=&quot;Icon title&quot;)</code> to render icon</li>
             </ol>
-            <p>Spritesheet generates with plugin
-              <a href="https://github.com/Hiswe/gulp-svg-symbols">gulp-svg-symbols</a>
-            </p>
-            <p>
-              <a name="data"></a>
-            </p>
+            <p>Spritesheet generates with plugin <a href="https://github.com/Hiswe/gulp-svg-symbols">gulp-svg-symbols</a></p>
+            <p><a name="data"></a></p>
             <h2>DATA</h2>
             <p>All data in modules stores in <code>data/*.yaml</code> files</p>
-            <p>
-              <a href="http://yaml.org/">YAML</a> Ain’t Markup Language</p>
-            <p>
-              <a name="command-line-commands"></a>
-            </p>
+            <p><a href="http://yaml.org/">YAML</a> Ain’t Markup Language</p>
+            <p><a name="command-line-commands"></a></p>
             <h2>Command Line Commands</h2>
-            <p>
-              <a name="initialization"></a>
-            </p>
+            <p><a name="initialization"></a></p>
             <h3>Initialization</h3>
             <pre><code class="highlight-sh">npm install
 </code></pre>
-            <p>
-              <a name="development"></a>
-            </p>
+            <p><a name="development"></a></p>
             <h3>Development</h3>
-            <p>Starts the development server running on
-              <a href="http://localhost:3000">http://localhost:3000</a>
-            </p>
+            <p>Starts the development server running on <a href="http://localhost:3000">http://localhost:3000</a></p>
             <pre><code class="highlight-sh">npm start
 </code></pre>
-            <p>
-              <a name="cleaning"></a>
-            </p>
+            <p><a name="cleaning"></a></p>
             <h3>Cleaning</h3>
             <p>Remove demo app.</p>
             <pre><code class="highlight-sh">npm run cleanup
 </code></pre>
-            <p>
-              <a name="building"></a>
-            </p>
+            <p><a name="building"></a></p>
             <h3>Building</h3>
             <p>Build project.</p>
             <pre><code class="highlight-sh">npm run build
 </code></pre>
-            <p>
-              <a name="deploying"></a>
-            </p>
+            <p><a name="deploying"></a></p>
             <h3>Deploying</h3>
             <p>Create <code>build</code> branch in your git repository and push compilled files.</p>
             <pre><code class="highlight-sh">npm run deploy
 </code></pre>
-            <p>
-              <a name="zip"></a>
-            </p>
+            <p><a name="zip"></a></p>
             <h3>Zip</h3>
             <p>Build a project and pack content of <code>dest</code> folder in zip file</p>
             <pre><code class="highlight-sh">npm run zip
 </code></pre>
-            <p>
-              <a name="module-generator"></a>
-            </p>
+            <p><a name="module-generator"></a></p>
             <h3>Generator</h3>
             <p>Create empty module by name in <code>source/modules</code> folder</p>
             <p>By default generate only <code>*.pug</code> and <code>*.styl</code> files.</p>
-            <p>You can call <code>amo</code> (
-              <strong>A</strong>dd
-              <strong>Mo</strong>dule) with additional params like <code>js</code> and <code>yml</code></p>
+            <p>You can call <code>amo</code> (<strong>A</strong>dd <strong>Mo</strong>dule) with additional params like <code>js</code> and <code>yml</code></p>
             <pre><code class="highlight-sh">npm run amo &lt;module-name&gt; [js || yml]
 </code></pre>
-            <p>
-              <a name="license"></a>
-            </p>
+            <p><a name="license"></a></p>
             <h2>License</h2>
-            <p>
-              <a href="../LICENSE">The MIT License (MIT)</a>
-            </p>
+            <p><a href="../LICENSE">The MIT License (MIT)</a></p>
           </div>
         </div>
       </div>
       <div class="page__footer">
-        <footer class="footer js-appearing-item">
-          <svg class="icon icon_heart footer__icon" role="img">
+        <footer class="footer js-appearing-item"><svg class="icon icon_heart footer__icon" role="img">
             <title>Heart</title>
             <use xlink:href="assets/images/icons.svg#heart"></use>
           </svg>
           <div class="footer__copyright">&copy;&nbsp;2018 Velichko Konstantin</div>
-          <div class="footer__about">This
-            <a href="https://github.com/zoxon/gulp-front">project source code</a> can be found on Github</div>
+          <div class="footer__about">This <a href="https://github.com/zoxon/gulp-front">project source code</a> can be found on Github</div>
           <div class="footer__generated">Generated with gulp-front</div>
         </footer>
       </div>
     </div>
-    <div class="page__overlay" data-offcanvas-overlay></div>
-    <button class="scroll-top button button_style_solid button_color_blue" type="button">
-      <span class="visuallyhidden">Scroll page top</span>
-      <svg class="icon icon_chevron_up scroll-top__icon" role="img">
+    <div class="page__overlay" data-offcanvas-overlay></div><button class="scroll-top button button_style_solid button_color_blue" type="button"><span class="visuallyhidden">Scroll page top</span><svg class="icon icon_chevron_up scroll-top__icon" role="img">
         <title>Chevron up</title>
         <use xlink:href="assets/images/icons.svg#chevron_up"></use>
-      </svg>
-    </button><script src="assets/javascripts/vendor.js"></script><script src="assets/javascripts/main.js"></script></body>
+      </svg></button><script src="assets/javascripts/main.js"></script>
+  </body>
 </html>
