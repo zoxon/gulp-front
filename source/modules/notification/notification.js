@@ -57,9 +57,11 @@ class Notification {
     this.container.appendChild(item);
     this.notifications.push(item);
 
-    setTimeout(() => {
-      this.close(notification);
-    }, options.delay);
+    if (options.delay) {
+      setTimeout(() => {
+        this.close(notification);
+      }, options.delay);
+    }
   }
 }
 
