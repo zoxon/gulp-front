@@ -88,7 +88,7 @@ gulp-front/                         # Project root
 │       │   ├── helpers             # System level helper classes
 │       │   ├── mixins              # System mixins
 │       │   ├── typography          # Typography styles
-│       │   └── variables           # Sysytem variables
+│       │   └── variables           # System variables
 │       ├── _common.styl            # Different styles
 │       ├── _variables.styl         # Variables
 │       ├── main.styl               # Main styles
