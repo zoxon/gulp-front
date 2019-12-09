@@ -139,7 +139,6 @@ gulp-front/                         # Project root
   - [lodash](https://lodash.com/) - utility library delivering modularity, performance & extras
   - [Tooltip.js](https://github.com/FezVrasta/popper.js) - dead simple tooltips, powered by popper.js
   - [attrs](https://github.com/bredele/attrs) - Object as DOM attributes.
-  - [Change Case](https://github.com/blakeembrey/change-case)
   - [Classnames](https://github.com/JedWatson/classnames) - A simple javascript utility for conditionally joining classNames together
   - [omit](https://github.com/DamonOehlman/omit) - Remove values from an object (or an array of objects) based on key, value or an evaluator function
   - [ScrollReveal](https://github.com/scrollreveal/scrollreveal) - Animate elements as they scroll into view

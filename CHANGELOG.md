@@ -6,6 +6,23 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to
 [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [9.5.1] - 2019-04-08
+
+Use `npm` in travis config
+
+### Fixed
+
+- Update dependencies and fix vulnerabilities
+
+### Removed
+
+- `babel-core` module
+
+### Changed
+
+- Replace `yarn.lock` with `package-lock.json`
+- Replace `change-case` with `lodash`
+
 ## [9.5.0] - 2019-04-08
 
 ### Added

@@ -1,12 +1,13 @@
 import path from "path";
 import getTimestamp from "./getTimestamp";
-import { camelCase } from "change-case";
+import { kebabCase } from "lodash";
+
 const CWD = process.cwd();
 
 const getZipFileName = () => {
-  const cwdDirName = path.basename(CWD) || "dist";
+  const dirName = path.basename(CWD) || "dist";
 
-  return `${camelCase(cwdDirName)}-${getTimestamp()}.zip`;
+  return `${kebabCase(dirName)}-${getTimestamp()}.zip`;
 };
 
 export default getZipFileName;

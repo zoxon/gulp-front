@@ -6,14 +6,12 @@ node_js:
   - "node" # latest stable Node.js release
   - "lts/*" # latest LTS Node.js release
 
-# https://docs.travis-ci.com/user/caching
-cache: yarn
-
 before_script:
-  - yarn install
+  - npm install
 
 script:
-  - yarn build
+  - npm run test
+  - npm run build
 
 # https://docs.travis-ci.com/user/notifications/#Notifications
 # notifications:
