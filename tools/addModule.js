@@ -1,7 +1,7 @@
 import path from "path";
 import fs from "fs";
 import mkdirp from "mkdirp";
-import changeCase from "change-case";
+import { kebabCase, camelCase, upperCase, upperFirst, snakeCase } from "lodash";
 import colors from "colors";
 
 // Settings
@@ -43,7 +43,7 @@ function createFile(path, content) {
 }
 
 // Read arguments
-const blockName = changeCase.paramCase(process.argv[2]);
+const blockName = kebabCase(process.argv[2]);
 let extensions = uniqueArray(
   DEFAULT_EXTENSIONS.concat(process.argv.slice(3) || [])
 );
@@ -79,15 +79,15 @@ if (blockName) {
           let targetContent = template;
 
           [
-            "paramCase",
-            "camelCase",
-            "constantCase",
-            "pascalCase",
-            "snakeCase"
-          ].forEach(methodName => {
+            { method: "paramCase", fn: str => kebabCase(str) },
+            { method: "camelCase", fn: str => camelCase(str) },
+            { method: "upperCase", fn: str => upperCase(str) },
+            { method: "pascalCase", fn: str => upperFirst(camelCase(str)) },
+            { method: "snakeCase", fn: str => snakeCase(str) }
+          ].forEach(util => {
             targetContent = targetContent.replace(
-              new RegExp(`#{blockname.${methodName}}`, "g"),
-              changeCase[methodName](blockName)
+              new RegExp(`#{blockname.${util.method}}`, "g"),
+              util.fn(blockName)
             );
           });
 

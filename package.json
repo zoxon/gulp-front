@@ -155,7 +155,6 @@
   "dependencies": {
     "@babel/polyfill": "^7.4.0",
     "attrs": "^1.1.0",
-    "change-case": "^3.1.0",
     "classnames": "^2.2.5",
     "element-closest": "^3.0.1",
     "js-cookie": "^2.1.4",
