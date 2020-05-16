@@ -3,7 +3,7 @@ import gulp from "gulp";
 import { reload } from "./server";
 import { pages, html } from "./templates";
 import { css } from "./styles";
-import { scripts } from "./scripts";
+import { javascript } from "./javascript";
 import { icons } from "./icons";
 import { sprite } from "./sprite";
 import { moduleImages } from "./moduleImages";
@@ -32,11 +32,11 @@ export const watch = () => {
   // Styles
   gulp.watch("source/**/*.styl", gulp.series(css));
 
-  // Scripts
+  // Javascript
   gulp.watch(
     "source/**/*.js",
     { ignored: testsPatterns },
-    gulp.series(scripts, reload)
+    gulp.series(javascript, reload)
   );
 
   // Modules images

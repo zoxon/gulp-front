@@ -6,7 +6,7 @@ import getSiblings from "@/scripts/helpers/dom/getSiblings";
 import simulate from "@/scripts/helpers/event/simulate";
 import { KEYCODES } from "@/scripts/helpers/constants";
 import toArray from "@/scripts/helpers/dom/toArray";
-import generateId from "@/scripts/helpers/generateId";
+
 // eslint-disable-next-line no-unused-vars
 import { h } from "jsx-dom/svg";
 
@@ -67,7 +67,7 @@ class Tabs extends Plugin {
         tab.addEventListener(eventName, event => {
           event.preventDefault();
 
-          let id = tab.getAttribute(this.options.tabsIdAttrName);
+          const id = tab.getAttribute(this.options.tabsIdAttrName);
           plugin.open(plugin.tabsName, id);
         });
       });
@@ -78,10 +78,6 @@ class Tabs extends Plugin {
         plugin.handleKeydown(event);
       });
     });
-  }
-
-  generateId() {
-    return "_" + generateId();
   }
 
   open(tabsName, id) {
@@ -136,7 +132,7 @@ class Tabs extends Plugin {
   }
 
   parseHash(hash) {
-    let data = hash.split("__");
+    const data = hash.split("__");
     return {
       name: data[0] || null,
       id: data[1] || null
@@ -144,8 +140,8 @@ class Tabs extends Plugin {
   }
 
   handleKeydown(event) {
-    let first = 0;
-    let last = this.tabs.length - 1;
+    const first = 0;
+    const last = this.tabs.length - 1;
 
     switch (event.which) {
       case KEYCODES.LEFT_ARROW:

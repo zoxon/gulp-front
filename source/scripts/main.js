@@ -1,3 +1,5 @@
+import "./helpers/polyfills.js";
+
 import svg4everybody from "svg4everybody";
 
 import * as serviceWorker from "./helpers/serviceWorker";
