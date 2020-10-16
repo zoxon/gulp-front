@@ -133,6 +133,7 @@
     "lint-staged": "^10.4.1",
     "mkdirp": "^1.0.4",
     "node-notifier": "^8.0.0",
+    "postcss": "^8.1.1",
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-reporter": "^7.0.1",
     "postcss-sorting": "^6.0.0",
