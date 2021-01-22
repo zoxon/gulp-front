@@ -7,19 +7,19 @@ import "../polyfill/matches";
  * @param  {String} selector Selector to match against [optional]
  * @return {Array}           The parent elements
  */
-let getParents = (elem, selector) => {
+const getParents = (element, selector) => {
   // Setup parents array
-  let parents = [];
+  const parents = [];
 
   // Get matching parent elements
-  for (; elem && elem !== document; elem = elem.parentNode) {
+  for (; element && element !== document; element = element.parentNode) {
     // Add matching parents to array
     if (selector) {
-      if (elem.matches(selector)) {
-        parents.push(elem);
+      if (element.matches(selector)) {
+        parents.push(element);
       }
     } else {
-      parents.push(elem);
+      parents.push(element);
     }
   }
 

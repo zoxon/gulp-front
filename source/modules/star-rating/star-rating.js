@@ -8,7 +8,7 @@ class StarRating extends Plugin {
       maxValueAttribute: "data-raiting-max",
       valueAttribute: "data-raiting-value",
       barClassName: "star-rating__bar",
-      widthMode: "px" // "px" or "%"
+      widthMode: "px", // "px" or "%"
     };
   }
 
@@ -22,11 +22,13 @@ class StarRating extends Plugin {
 
     this.bar =
       this.element.querySelector(`.${barClassName}`) ||
+      // eslint-disable-next-line unicorn/prefer-dom-node-append
       this.element.appendChild(
         createElement("div", { className: barClassName })
       );
     this.value = this.element.getAttribute(valueAttribute) || 0;
-    this.max = parseInt(this.element.getAttribute(maxValueAttribute), 10) || 0;
+    this.max =
+      Number.parseInt(this.element.getAttribute(maxValueAttribute), 10) || 0;
 
     this.starWidth = this.getStarWidth();
 
@@ -35,7 +37,7 @@ class StarRating extends Plugin {
 
   getStarWidth() {
     const computed = getComputedStyle(this.element);
-    return parseInt(computed.width, 10);
+    return Number.parseInt(computed.width, 10);
   }
 
   getContainerWidth() {

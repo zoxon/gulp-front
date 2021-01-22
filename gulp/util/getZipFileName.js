@@ -5,9 +5,9 @@ import { kebabCase } from "lodash";
 const CWD = process.cwd();
 
 const getZipFileName = () => {
-  const dirName = path.basename(CWD) || "dist";
+  const directoryName = path.basename(CWD) || "dist";
 
-  return `${kebabCase(dirName)}-${getTimestamp()}.zip`;
+  return `${kebabCase(directoryName)}-${getTimestamp()}.zip`;
 };
 
 export default getZipFileName;

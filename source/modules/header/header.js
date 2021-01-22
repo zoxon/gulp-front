@@ -5,7 +5,7 @@ import init from "@/scripts/core/init";
 class Header extends Plugin {
   defaults() {
     return {
-      fixedClassName: "header_fixed"
+      fixedClassName: "header_fixed",
     };
   }
 
@@ -21,7 +21,7 @@ class Header extends Plugin {
   }
 
   headerScrollHandler() {
-    let top = Math.abs(document.body.getBoundingClientRect().y);
+    const top = Math.abs(document.body.getBoundingClientRect().y);
     let fixed = false;
 
     if (top > 0) {

@@ -6,7 +6,7 @@ import toArray from "@/scripts/helpers/dom/toArray";
 class AutoTab extends Plugin {
   defaults() {
     return {
-      targetSelector: "input"
+      targetSelector: "input",
     };
   }
 
@@ -17,17 +17,17 @@ class AutoTab extends Plugin {
   }
 
   bindEvents() {
-    this.targets.forEach(target => {
-      target.addEventListener("keyup", event => this.handleKeydown(event));
-      target.addEventListener("focus", event => this.handleFocusIn(event));
-      target.addEventListener("blur", event => this.handleFocusOut(event));
+    this.targets.forEach((target) => {
+      target.addEventListener("keyup", (event) => this.handleKeydown(event));
+      target.addEventListener("focus", (event) => this.handleFocusIn(event));
+      target.addEventListener("blur", (event) => this.handleFocusOut(event));
     });
   }
 
   getElementOrderFromSet(elements = [], target) {
     let result = -1;
-    elements.forEach((el, index) => {
-      if (el === target) {
+    elements.forEach((element, index) => {
+      if (element === target) {
         result = index + 1;
       }
     });
@@ -46,8 +46,8 @@ class AutoTab extends Plugin {
   }
 
   handleKeydown(event) {
-    let first = 0;
-    let last = this.targets.length - 1;
+    const first = 0;
+    const last = this.targets.length - 1;
     const input = event.target;
     const inputLength = input.value.length;
     const keyCode = event.which || event.keyCode;

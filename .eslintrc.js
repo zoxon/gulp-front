@@ -36,11 +36,23 @@ module.exports = {
     // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/no-null.md
     "unicorn/no-null": 0,
 
+    // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/filename-case.md
+    "unicorn/filename-case": [
+      "error",
+      {
+        cases: {
+          camelCase: true,
+          pascalCase: true,
+          kebabCase: true,
+        },
+      },
+    ],
+
     /**
      * Does not work correctly
      * https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md
      */
-    "import/order": 0,
+    // "import/order": 0,
 
     // Conflict with unicorn/prefer-spread
     "array-func/prefer-array-from": 0,

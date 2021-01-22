@@ -8,17 +8,18 @@ import path from "path";
 import logger from "gulplog";
 
 import { plumberConfig, imageminConfig } from "../config";
-import { isDevelopment } from "../util/env";
+import { isDevelopment } from "../util/environment";
 
 function renameFileByModuleName(file) {
   const { dirname, basename, extname } = file;
-  const dirNameArr = dirname.split(path.sep).filter(i => i !== "images") || [];
-  const newDirname = path.join(...dirNameArr);
+  const moduleNames =
+    dirname.split(path.sep).filter((index) => index !== "images") || [];
+  const newDirname = path.join(...moduleNames);
 
-  const prevFileName = path.join(dirname, basename + extname);
+  const previousFileName = path.join(dirname, basename + extname);
   const nextFileName = path.join(newDirname, basename + extname);
 
-  logger.info(`File "${prevFileName}" renamed to "${nextFileName}"`);
+  logger.info(`File "${previousFileName}" renamed to "${nextFileName}"`);
 
   file.dirname = newDirname;
 }

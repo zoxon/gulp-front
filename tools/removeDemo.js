@@ -31,13 +31,13 @@ const PATHS_TO_REMOVE = [
   "./source/assets/images/content/*",
 
   // this file
-  "./tools/removeDemo.js"
+  "./tools/removeDemo.js",
 ];
 
 /* eslint-disable no-console */
-function showError(title, err) {
-  const errTitle = colors.red(`[${title.toUpperCase()}]`);
-  return console.error(`${errTitle}:\n ${err}`);
+function showError(title, error) {
+  const errorTitle = colors.red(`[${title.toUpperCase()}]`);
+  return console.error(`${errorTitle}:\n ${error}`);
 }
 
 function showMessage(title, message) {
@@ -46,11 +46,13 @@ function showMessage(title, message) {
 }
 /* eslint-enable no-console */
 
-function removeFilesGlob(pathGlob, options = { messages: true }) {
-  return glob(pathGlob, {}, (err, matches) => {
-    if (err) showError("Error", err);
+function removeFilesGlob(pathGlob, _options) {
+  const options = { messages: true, ..._options };
 
-    return matches.map(matchedFile => {
+  return glob(pathGlob, {}, (error, matches) => {
+    if (error) showError("Error", error);
+
+    return matches.map((matchedFile) => {
       if (options.messages) {
         showMessage("Remove file", matchedFile);
       }
@@ -59,9 +61,11 @@ function removeFilesGlob(pathGlob, options = { messages: true }) {
   });
 }
 
-function copyFiles(pathFrom, pathTo, options = { messages: true }) {
-  return fse.copy(pathFrom, pathTo).then(err => {
-    if (err) return showError("Error", err);
+function copyFiles(pathFrom, pathTo, _options) {
+  const options = { messages: true, ..._options };
+
+  return fse.copy(pathFrom, pathTo).then((error) => {
+    if (error) return showError("Error", error);
 
     if (options.messages) {
       showMessage("Copy file", `${pathFrom} -> ${pathTo}`);
@@ -70,21 +74,21 @@ function copyFiles(pathFrom, pathTo, options = { messages: true }) {
 }
 
 // Remove entry from package.json
-const removeEntryFromPackageJson = key =>
+const removeEntryFromPackageJson = (key) =>
   fse
     .readJson(PACKAGE_JSON)
-    .then(pkg => {
-      delete pkg.scripts[key];
-      return fse.writeJson(PACKAGE_JSON, pkg, {
+    .then((package_) => {
+      delete package_.scripts[key];
+      return fse.writeJson(PACKAGE_JSON, package_, {
         spaces: 2,
-        EOL: "\n"
+        EOL: "\n",
       });
     })
-    .catch(err => showError("Error", err));
+    .catch((error) => showError("Error", error));
 
-Promise.all(PATHS_TO_REMOVE.map(path => removeFilesGlob(path)))
+Promise.all(PATHS_TO_REMOVE.map((path) => removeFilesGlob(path)))
   .then(() => copyFiles(TEMPLATE_FOLDER, DEST_FOLDER))
   .then(() => removeFilesGlob(TEMPLATE_FOLDER))
   .then(() => removeEntryFromPackageJson("cleanup"))
   .then(() => console.log(colors.green("Demo app removed."))) // eslint-disable-line no-console
-  .catch(err => showError("Error", err));
+  .catch((error) => showError("Error", error));

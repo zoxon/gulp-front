@@ -11,14 +11,14 @@ class Accordion extends Plugin {
       panelSelector: `[data-accordion-panel]`,
       itemActiveAttr: `data-accordion-item-open`,
       mode: this.element.getAttribute("data-accordion-mode") || "single", // "multiple"
-      duration: 400
+      duration: 400,
     };
   }
 
   buildCache() {
     this.items = toArray(
       this.element.querySelectorAll(this.options.itemSelector)
-    ).filter(item => {
+    ).filter((item) => {
       const isDisabled = this.isItemDisabled(item);
       const isOpen = this.isOpen(item);
 
@@ -59,10 +59,10 @@ class Accordion extends Plugin {
   }
 
   bindEvents() {
-    this.items.forEach(item => {
+    this.items.forEach((item) => {
       const trigger = item.querySelector(this.options.triggerSelector);
 
-      trigger.addEventListener("click", event => {
+      trigger.addEventListener("click", (event) => {
         this.handleTriggerClick(event, item);
       });
     });
@@ -70,7 +70,7 @@ class Accordion extends Plugin {
 
   get slideOptions() {
     return {
-      duration: this.options.duration
+      duration: this.options.duration,
     };
   }
 
@@ -111,9 +111,9 @@ class Accordion extends Plugin {
     event.preventDefault();
 
     if (this.options.mode === "single") {
-      this.items.forEach(i => {
-        if (i !== item) {
-          this.close(i);
+      this.items.forEach((index) => {
+        if (index !== item) {
+          this.close(index);
         }
       });
     }

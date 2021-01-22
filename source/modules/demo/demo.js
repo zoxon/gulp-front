@@ -11,14 +11,14 @@ export default () => {
   if (componentsDemo) {
     // Notifications
     const notificationBoard = new Notification({
-      delay: 40000
+      delay: 40000,
     });
 
     document
       .querySelector(".js-notification-info")
       .addEventListener("click", () => {
         notificationBoard.show("Short test message", {
-          className: "notification_type_info"
+          className: "notification_type_info",
         });
       });
 
@@ -26,7 +26,7 @@ export default () => {
       .querySelector(".js-notification-notice")
       .addEventListener("click", () => {
         notificationBoard.show("Medium long test test message test", {
-          className: "notification_type_notice"
+          className: "notification_type_notice",
         });
       });
 
@@ -36,7 +36,7 @@ export default () => {
         notificationBoard.show(
           "Three line test test message test message test long message lorem ipsum",
           {
-            className: "notification_type_success"
+            className: "notification_type_success",
           }
         );
       });
@@ -45,7 +45,7 @@ export default () => {
       .querySelector(".js-notification-error")
       .addEventListener("click", () => {
         notificationBoard.show("test message", {
-          className: "notification_type_error"
+          className: "notification_type_error",
         });
       });
 
@@ -53,18 +53,18 @@ export default () => {
       .querySelector(".js-notification-warning")
       .addEventListener("click", () => {
         notificationBoard.show("test message", {
-          className: "notification_type_warning"
+          className: "notification_type_warning",
         });
       });
   }
 
   // Home page animations
-  ready(function() {
+  ready(function () {
     skrollr.init({
-      mobileCheck: function() {
+      mobileCheck: function () {
         // hack - forces mobile version to be off
         return false;
-      }
+      },
     });
 
     window.sr = ScrollReveal();
@@ -78,7 +78,7 @@ export default () => {
       rotate: {
         x: 0,
         y: 0,
-        z: 0
+        z: 0,
       },
       opacity: 0.1,
       scale: 0.99,
@@ -92,12 +92,12 @@ export default () => {
         top: 0,
         right: 0,
         bottom: 0,
-        left: 0
+        left: 0,
       },
-      beforeReveal: function(e) {},
-      beforeReset: function(e) {},
-      afterReveal: function(e) {},
-      afterReset: function(e) {}
+      beforeReveal: function () {},
+      beforeReset: function () {},
+      afterReveal: function () {},
+      afterReset: function () {},
     });
   });
 };

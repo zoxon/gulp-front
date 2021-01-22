@@ -6,11 +6,11 @@ import imagemin from "gulp-imagemin";
 import filter from "gulp-filter";
 
 import { plumberConfig, imageminConfig } from "../config";
-import { isDevelopment } from "../util/env";
+import { isDevelopment } from "../util/environment";
 
 export const staticFiles = () => {
   const filterImages = filter("**/*.{png,jpg,jpeg,gif,svg,webp}", {
-    restore: true
+    restore: true,
   });
 
   return gulp

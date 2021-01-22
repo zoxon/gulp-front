@@ -9,7 +9,7 @@ class InputPassword extends Plugin {
       buttonText: "Toggle password visibility",
       buttonAdditionalClassNames: ["button"],
       buttonToggleAttribute: "data-input-password-showed",
-      mode: "click"
+      mode: "click",
     };
   }
 
@@ -22,13 +22,13 @@ class InputPassword extends Plugin {
     const {
       buttonClassName,
       buttonAdditionalClassNames,
-      buttonText
+      buttonText,
     } = this.options;
     this.button = createElement(
       "button",
       {
         type: "button",
-        className: [buttonClassName, ...buttonAdditionalClassNames].join(" ")
+        className: [buttonClassName, ...buttonAdditionalClassNames].join(" "),
       },
       createElement("span", { className: "visuallyhidden" }, buttonText)
     );
@@ -49,7 +49,7 @@ class InputPassword extends Plugin {
   }
 
   renderButton() {
-    this.element.appendChild(this.button);
+    this.element.append(this.button);
     this.button.setAttribute(this.options.buttonToggleAttribute, false);
   }
 
