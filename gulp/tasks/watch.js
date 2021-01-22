@@ -13,7 +13,7 @@ export const watch = () => {
   global.watch = true;
   const testsPatterns = [
     "**/__tests__/**/*.js?(x)",
-    "**/?(*.)+(spec|test).js?(x)"
+    "**/?(*.)+(spec|test).js?(x)",
   ];
 
   // Modules, pages
@@ -22,7 +22,7 @@ export const watch = () => {
     .on("all", (event, filepath, stats) => {
       global.emittyChangedFile = {
         path: filepath,
-        stats
+        stats,
       };
     });
 

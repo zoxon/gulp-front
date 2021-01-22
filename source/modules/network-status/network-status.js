@@ -5,7 +5,7 @@ class NetworkStatus extends Plugin {
   defaults() {
     return {
       events: ["online", "offline"],
-      statusAttribute: "data-network-status"
+      statusAttribute: "data-network-status",
     };
   }
 
@@ -22,13 +22,13 @@ class NetworkStatus extends Plugin {
   }
 
   bindEvents() {
-    this.options.events.forEach(eventName =>
+    this.options.events.forEach((eventName) =>
       window.addEventListener(eventName, () => this.handleNetworkEvent())
     );
   }
 
   unbindEvents() {
-    this.options.events.forEach(eventName =>
+    this.options.events.forEach((eventName) =>
       window.removeEventListener(eventName, () => this.handleNetworkEvent())
     );
   }

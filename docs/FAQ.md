@@ -64,7 +64,7 @@ import "ion-rangeslider"; // jQuery plugin
 export default (selector, options) => {
   // You can rewrite default options here
   const defaultOptions = {
-    grid: true
+    grid: true,
   };
 
   const mergedOptions = Object.assign({}, defaultOptions, options);
@@ -84,7 +84,7 @@ Slider("#slider", {
   min: 0,
   max: 1000,
   from: 200,
-  to: 500
+  to: 500,
 });
 ```
 

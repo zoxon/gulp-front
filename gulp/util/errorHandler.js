@@ -17,7 +17,7 @@ function errorHandler(error) {
   notifier.notify({
     title: title,
     message: shortMessage,
-    icon: path.join(cwd, "tools/icons/error.svg")
+    icon: path.join(cwd, "tools/icons/error.svg"),
   });
 
   this.emit("end");

@@ -5,7 +5,7 @@ import { slideUp } from "slide-anim";
 class Alert extends Plugin {
   defaults() {
     return {
-      closeSelector: `[data-alert-close]`
+      closeSelector: `[data-alert-close]`,
     };
   }
 
@@ -14,7 +14,7 @@ class Alert extends Plugin {
   }
 
   bindEvents() {
-    this.close.addEventListener("click", event => this.onClick(event));
+    this.close.addEventListener("click", (event) => this.onClick(event));
   }
 
   onClick(event) {
