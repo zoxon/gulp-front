@@ -53,7 +53,7 @@ class File extends Plugin {
   }
 
   renderElements() {
-    this.element.append([this.button, this.label]);
+    this.element.append(this.button, this.label);
   }
 
   bindEvents() {
