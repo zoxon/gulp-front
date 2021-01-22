@@ -3,3 +3,4 @@
 /.publish
 /dest
 /tools/_templates
+/coverage
