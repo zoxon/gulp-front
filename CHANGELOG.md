@@ -6,6 +6,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to
 [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [9.6.0] - 2021-01-23
+
+### Fixed
+
+- Updated dependencies and fix vulnerabilities
+- Terser config in webpack config
+- Fithub actions workflow config
+- Eslint config
+
+### Changed
+
+- Renamed npm command `npm run amo` to `npm run new`
+
 ## [9.5.1] - 2019-04-08
 
 Use `npm` in travis config
