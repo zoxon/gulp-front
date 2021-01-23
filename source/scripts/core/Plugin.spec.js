@@ -1,13 +1,5 @@
 import Plugin from "./Plugin";
 
-class TestPluginClass {
-  constructor(element, options, name) {
-    this.name = name;
-    this.element = element;
-    this.options = options;
-  }
-}
-
 describe("Plugin class", () => {
   let element;
   beforeEach(() => {
@@ -31,6 +23,8 @@ describe("Plugin class", () => {
     test("setInited", () => {
       const name = "plugin";
       const options = {};
+
+      // eslint-disable-next-line no-unused-vars
       const plugin = new Plugin(element, options, name);
 
       expect(element.hasAttribute(`data-${name}-inited`)).toBeTruthy();
@@ -51,7 +45,7 @@ describe("Plugin class", () => {
         callback1() {
           callback1WasCall = true;
         },
-        callback2: {}
+        callback2: {},
       };
       const plugin = new Plugin(element, options, name);
       plugin.callback("callback1");

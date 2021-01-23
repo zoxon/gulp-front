@@ -19,8 +19,8 @@ export default class EventsBus {
    */
   on(event, handler) {
     if (isArray(event)) {
-      for (let i = 0; i < event.length; i++) {
-        this.on(event[i], handler);
+      for (const element of event) {
+        this.on(element, handler);
       }
     }
 
@@ -30,13 +30,13 @@ export default class EventsBus {
     }
 
     // Add the handler to queue
-    var index = this.events[event].push(handler) - 1;
+    const index = this.events[event].push(handler) - 1;
 
     // Provide handle back for removal of event
     return {
       remove() {
         delete this.events[event][index];
-      }
+      },
     };
   }
 
@@ -48,8 +48,8 @@ export default class EventsBus {
    */
   emit(event, context) {
     if (isArray(event)) {
-      for (let i = 0; i < event.length; i++) {
-        this.emit(event[i], context);
+      for (const element of event) {
+        this.emit(element, context);
       }
     }
 
@@ -59,7 +59,7 @@ export default class EventsBus {
     }
 
     // Cycle through events queue, fire!
-    this.events[event].forEach(item => {
+    this.events[event].forEach((item) => {
       item(context || {});
     });
   }

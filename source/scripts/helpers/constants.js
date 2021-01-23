@@ -20,5 +20,5 @@ export const KEYCODES = {
   INSERT: 45,
   DELETE: 46,
   NUM_LOCK: 144,
-  SCROLL_LOCK: 145
+  SCROLL_LOCK: 145,
 };

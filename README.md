@@ -31,17 +31,23 @@ More information see in [docs](docs/README.md) folder
 
 1.  Install the [node.js](https://nodejs.org)
 2.  Clone the project or [download](https://github.com/zoxon/gulp-front/archive/master.zip) the file
+
     ```sh
     git clone git@github.com:zoxon/gulp-front.git --depth 1 my-project
     ```
+
 3.  Go to project folder and run
+
     ```bash
     npm run setup
     ```
+
 4.  Start dev server
+
     ```bash
     npm start
     ```
+
 5.  In browser open page with address [`http://localhost:3000/`](http://localhost:3000/)
 
 ## Main tasks
@@ -58,10 +64,10 @@ Create empty module by name in `source/modules` folder
 
 By default generate only `*.pug` and `*.styl` files.
 
-You can call `amo` with additional params like `js` and `yml`
+You can call `npm run new` with additional params like `js` and `yml`
 
 ```sh
-npm run amo <module-name> [js || yml]
+npm run new <module-name> [js || yml]
 ```
 
 ## License

@@ -6,7 +6,7 @@ class ProgressBar extends Plugin {
   defaults() {
     return {
       valueAttribute: "data-progress-value",
-      barClassName: "progress-bar__bar"
+      barClassName: "progress-bar__bar",
     };
   }
 
@@ -19,6 +19,7 @@ class ProgressBar extends Plugin {
 
     this.bar =
       this.element.querySelector(`.${barClassName}`) ||
+      // eslint-disable-next-line unicorn/prefer-dom-node-append
       this.element.appendChild(
         createElement("div", { className: barClassName })
       );

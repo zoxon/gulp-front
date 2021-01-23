@@ -5,10 +5,10 @@ import buffer from "vinyl-buffer";
 import gulpIf from "gulp-if";
 
 import { spritesmithConfig, imageminConfig } from "../config";
-import { isDevelopment } from "../util/env";
+import { isDevelopment } from "../util/environment";
 
 export const sprite = () => {
-  let spriteData = gulp
+  const spriteData = gulp
     .src(["**/*.png", "!**/_*.png"], { cwd: "source/sprite" })
     .pipe(spritesmith(spritesmithConfig));
 

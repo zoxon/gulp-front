@@ -11,12 +11,12 @@ class Notification {
     this._defaults = {
       delay: 3000,
       containerClassName: "notification-container",
-      containerItemClassName: "notification-container__item"
+      containerItemClassName: "notification-container__item",
     };
 
     this.options = {
       ...this._defaults,
-      ...options
+      ...options,
     };
 
     this.init();
@@ -28,9 +28,9 @@ class Notification {
 
   createNotificationContainer() {
     const notificationContainer = createElement("div", {
-      className: this.options.containerClassName
+      className: this.options.containerClassName,
     });
-    document.body.appendChild(notificationContainer);
+    document.body.append(notificationContainer);
 
     return notificationContainer;
   }
@@ -45,16 +45,16 @@ class Notification {
   show(message, _options) {
     const options = {
       delay: this.options.delay,
-      ..._options
+      ..._options,
     };
 
     const notification = new NotificationItem(this.container);
     const item = notification.show(message, {
       ...options,
-      className: `${options.className} ${this.options.containerItemClassName}`
+      className: `${options.className} ${this.options.containerItemClassName}`,
     });
 
-    this.container.appendChild(item);
+    this.container.append(item);
     this.notifications.push(item);
 
     if (options.delay) {
@@ -77,7 +77,7 @@ class NotificationItem {
       containerClassName: "notification",
       disappearClassName: "notification_disappear",
       closeClassName: "notification__close",
-      messageClassName: "notification__message"
+      messageClassName: "notification__message",
     };
 
     this.init();
@@ -93,7 +93,7 @@ class NotificationItem {
     if (options.close) {
       close = createElement("button", {
         className: this.defaults.closeClassName,
-        type: "button"
+        type: "button",
       });
     }
 
@@ -122,7 +122,7 @@ class NotificationItem {
   show(message, _options) {
     const options = {
       ...this.defaults,
-      ..._options
+      ..._options,
     };
 
     const item = this.build(message, options);
@@ -135,9 +135,9 @@ class NotificationItem {
   hide() {
     this.element.classList.add(this.defaults.disappearClassName);
 
-    this.element.addEventListener(this.animationEnd, event => {
+    this.element.addEventListener(this.animationEnd, (event) => {
       if (event.target === this.element) {
-        this.container.removeChild(this.element);
+        this.element.remove();
       }
     });
   }

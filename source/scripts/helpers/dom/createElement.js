@@ -1,22 +1,26 @@
-/* Example usage:
+/*
+ * Example usage:
  * let el = createElement('div', {style: 'color: green'}, 'Hello world!');
  * document.body.appendChild(el);
  */
 
 import { isDomNode } from "@/scripts/helpers/is";
 
-export const createElement = (type, props, ...children) => {
+export const createElement = (type, properties, ...children) => {
   if (type.constructor === Function) {
-    return type(props);
+    return type(properties);
   }
 
-  let el = document.createElement(type);
+  const element = document.createElement(type);
 
-  for (let propName in props || {}) {
-    if (/^on/.test(propName)) {
-      el.addEventListener(propName.substring(2).toLowerCase(), props[propName]);
+  for (const propertyName in properties || {}) {
+    if (propertyName.startsWith("on")) {
+      element.addEventListener(
+        propertyName.slice(2).toLowerCase(),
+        properties[propertyName]
+      );
     } else {
-      el[propName] = props[propName];
+      element[propertyName] = properties[propertyName];
     }
   }
 
@@ -26,11 +30,11 @@ export const createElement = (type, props, ...children) => {
         child = document.createTextNode(child);
       }
 
-      el.appendChild(child);
+      element.append(child);
     }
   }
 
-  return el;
+  return element;
 };
 
 export const render = (element, rootComponent) => {
@@ -38,5 +42,6 @@ export const render = (element, rootComponent) => {
     throw new Error("First parameter should be a DOM Node");
   }
 
+  // eslint-disable-next-line unicorn/prefer-dom-node-append
   return element.appendChild(rootComponent());
 };

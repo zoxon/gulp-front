@@ -51,6 +51,8 @@ class Tabs extends Plugin {
     );
     this.preloader = this.element.querySelector(preloaderSelector);
     this.description = this.element.querySelector(descriptionSelector);
+
+    // eslint-disable-next-line unicorn/prefer-dom-node-append
     this.activeBar = this.header.appendChild(
       h("span", {
         [activeBarAttr]: true,

@@ -10,9 +10,9 @@ import { scripts } from "./scripts";
 import { css } from "./styles";
 import { serviceWorker } from "./serviceWorker";
 import { startMessage } from "./messages";
-import { isDevelopment } from "../util/env";
+import { isDevelopment } from "../util/environment";
 
-const noop = done => done();
+const noop = (done) => done();
 
 export const build = gulp.series(
   startMessage,

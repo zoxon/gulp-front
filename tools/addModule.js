@@ -11,9 +11,9 @@ const DEFAULT_EXTENSIONS = ["pug", "styl"];
 
 // Utils
 /* eslint-disable no-console */
-function showError(title, err) {
-  const errTitle = colors.red(`[${title.toUpperCase()}]`);
-  return console.error(`${errTitle}:\n ${err}`);
+function showError(title, error) {
+  const errorTitle = colors.red(`[${title.toUpperCase()}]`);
+  return console.error(`${errorTitle}:\n ${error}`);
 }
 
 function showMessage(title, message) {
@@ -22,43 +22,42 @@ function showMessage(title, message) {
 }
 /* eslint-enable no-console */
 
-function uniqueArray(arr) {
-  let obj = {};
+function uniqueArray(array) {
+  const object = {};
 
-  for (let i = 0; i < arr.length; i++) {
-    let str = arr[i];
-    obj[str] = true;
+  for (const string of array) {
+    object[string] = true;
   }
 
-  return Object.keys(obj);
+  return Object.keys(object);
 }
 
 function createFile(path, content) {
   try {
     fs.writeFileSync(path, content, "utf8");
     showMessage("File created", path);
-  } catch (err) {
-    showError("File not created", err);
+  } catch (error) {
+    showError("File not created", error);
   }
 }
 
 // Read arguments
 const blockName = kebabCase(process.argv[2]);
-let extensions = uniqueArray(
+const extensions = uniqueArray(
   DEFAULT_EXTENSIONS.concat(process.argv.slice(3) || [])
 );
 
 if (blockName) {
-  let dirPath = path.join(MODULES_DIR, blockName);
+  const directoryPath = path.join(MODULES_DIR, blockName);
 
   // создаем
-  mkdirp(dirPath, function(err) {
-    if (err) {
-      showError("CANCELED", err);
+  mkdirp(directoryPath, function (error) {
+    if (error) {
+      showError("CANCELED", error);
     } else {
-      showMessage("CREATE FOLDER", dirPath);
+      showMessage("CREATE FOLDER", directoryPath);
 
-      extensions.forEach(extension => {
+      extensions.forEach((extension) => {
         const templateFilePath = path.join(
           TEMPLATES_DIR,
           `_template.${extension}`
@@ -79,12 +78,15 @@ if (blockName) {
           let targetContent = template;
 
           [
-            { method: "paramCase", fn: str => kebabCase(str) },
-            { method: "camelCase", fn: str => camelCase(str) },
-            { method: "upperCase", fn: str => upperCase(str) },
-            { method: "pascalCase", fn: str => upperFirst(camelCase(str)) },
-            { method: "snakeCase", fn: str => snakeCase(str) }
-          ].forEach(util => {
+            { method: "paramCase", fn: (string) => kebabCase(string) },
+            { method: "camelCase", fn: (string) => camelCase(string) },
+            { method: "upperCase", fn: (string) => upperCase(string) },
+            {
+              method: "pascalCase",
+              fn: (string) => upperFirst(camelCase(string)),
+            },
+            { method: "snakeCase", fn: (string) => snakeCase(string) },
+          ].forEach((util) => {
             targetContent = targetContent.replace(
               new RegExp(`#{blockname.${util.method}}`, "g"),
               util.fn(blockName)

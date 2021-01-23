@@ -17,23 +17,23 @@
 
 1.  Go to the folder with installed nodejs
 
-```bash
-cd "C:\Program Files\nodejs"
-# or
-cd "C:\Program Files (x86)\nodejs"
-```
+    ```bash
+    cd "C:\Program Files\nodejs"
+    # or
+    cd "C:\Program Files (x86)\nodejs"
+    ```
 
-2.  Install lattest version of npm
+2.  Install latest version of npm
 
-```bash
-npm install npm@latest
-```
+    ```bash
+    npm install npm@latest
+    ```
 
 <a name="what-version-of-nodejs-use"></a>
 
 ## What version of node.js use?
 
-We recomended use nodejs version more than 6, but better use 7 or 8.
+We recommended use nodejs version more than 12 but better LTS.
 
 <a name="how-to-remove-demo-app"></a>
 
@@ -45,7 +45,7 @@ Run command in terminal `npm run cleanup`. This command run script [tools/remove
 
 ## How to use jQuery and jQuery plugins?
 
-Create new module using `npm run amo` command or maually.
+Create new module using `npm run new` command or maually.
 
 In javascript part of module for example `modules/slider/slider.js`
 
@@ -64,7 +64,7 @@ import "ion-rangeslider"; // jQuery plugin
 export default (selector, options) => {
   // You can rewrite default options here
   const defaultOptions = {
-    grid: true
+    grid: true,
   };
 
   const mergedOptions = Object.assign({}, defaultOptions, options);
@@ -84,7 +84,7 @@ Slider("#slider", {
   min: 0,
   max: 1000,
   from: 200,
-  to: 500
+  to: 500,
 });
 ```
 

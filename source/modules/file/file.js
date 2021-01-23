@@ -10,18 +10,18 @@ class File extends Plugin {
         ru: {
           selected: "Файлов выбрано: {count}",
           nothing: "Ничего не выбрано",
-          button: "Выбрать файл(ы)"
+          button: "Выбрать файл(ы)",
         },
         en: {
           selected: "Files selected: {count}",
           nothing: "Nothing is selected",
-          button: "Select the file(s)"
-        }
+          button: "Select the file(s)",
+        },
       },
       baseClassName: "file",
       initedClassName: "file_inited",
       buttonClassName: "file__button",
-      labelClassName: "file__label"
+      labelClassName: "file__label",
     };
   }
 
@@ -31,9 +31,14 @@ class File extends Plugin {
   }
 
   buildCache() {
-    const { buttonClassName, labelClassName } = this.options;
+    const {
+      buttonClassName,
+      labelClassName,
+      messages,
+      language,
+    } = this.options;
 
-    this.messages = this.options.messages[this.options.language];
+    this.messages = messages[language];
     this.control = this.element.querySelector('input[type="file"]');
     this.button = createElement(
       "span",
@@ -48,11 +53,11 @@ class File extends Plugin {
   }
 
   renderElements() {
-    [this.button, this.label].forEach(item => this.element.appendChild(item));
+    this.element.append(this.button, this.label);
   }
 
   bindEvents() {
-    this.control.addEventListener("change", event => {
+    this.control.addEventListener("change", (event) => {
       this.controlChangeHandler(event);
     });
   }
@@ -62,11 +67,10 @@ class File extends Plugin {
 
     const files = event.target.files;
 
-    if (files && files.length > 1) {
-      fileName = this.messages.selected.replace("{count}", files.length);
-    } else {
-      fileName = event.target.value.split("\\").pop();
-    }
+    fileName =
+      files && files.length > 1
+        ? this.messages.selected.replace("{count}", files.length)
+        : event.target.value.split("\\").pop();
 
     if (fileName) {
       this.label.innerHTML = fileName;

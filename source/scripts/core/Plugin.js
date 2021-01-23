@@ -49,11 +49,11 @@ export default class Plugin {
     );
   }
 
-  callback(name, ...params) {
-    const cb = this.options[name];
+  callback(name, ...parameters) {
+    const callback = this.options[name];
 
-    if (typeof cb === "function") {
-      return cb.call(...params);
+    if (typeof callback === "function") {
+      return callback.call(...parameters);
     }
   }
 }

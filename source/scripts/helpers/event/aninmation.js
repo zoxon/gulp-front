@@ -4,7 +4,7 @@ const transitionEndEventNames = {
   WebkitTransition: "webkitTransitionEnd",
   MozTransition: "transitionend",
   OTransition: "oTransitionEnd",
-  msTransition: "MSTransitionEnd"
+  msTransition: "MSTransitionEnd",
 };
 
 const animationEndEventNames = {
@@ -12,7 +12,7 @@ const animationEndEventNames = {
   WebkitAnimation: "webkitAnimationEnd",
   MozAnimation: "animationend",
   OAnimation: "oanimationend",
-  msAnimation: "MSAnimationEnd"
+  msAnimation: "MSAnimationEnd",
 };
 
 const animationIterationEventNames = {
@@ -20,15 +20,15 @@ const animationIterationEventNames = {
   WebkitAnimation: "webkitAnimationIteration",
   MozAnimation: "animationiteration",
   OAnimation: "oAnimationIteration",
-  msAnimation: "MSAnimationIteration"
+  msAnimation: "MSAnimationIteration",
 };
 
-const testEvent = props => {
-  const el = document.createElement("span");
+const testEvent = (properties) => {
+  const element = document.createElement("span");
 
-  for (const prop in props) {
-    if (typeof el.style[prop] !== "undefined") {
-      return props[prop];
+  for (const property in properties) {
+    if (typeof element.style[property] !== "undefined") {
+      return properties[property];
     }
   }
 

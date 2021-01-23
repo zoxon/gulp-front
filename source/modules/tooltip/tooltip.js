@@ -1,7 +1,6 @@
 import TooltipJS from "tooltip.js";
 import Plugin from "@/scripts/core/Plugin";
 import init from "@/scripts/core/init";
-import toArray from "@/scripts/helpers/dom/toArray";
 
 class Tooltip extends Plugin {
   defaults() {
@@ -27,7 +26,7 @@ class Tooltip extends Plugin {
       text: this.element.getAttribute("data-tooltip") || "",
       selector: this.element.getAttribute("data-tooltip-selector") || false,
       style: this.element.getAttribute("data-tooltip-style") || "default dark",
-      closeSelector: "[data-tooltip-close]"
+      closeSelector: "[data-tooltip-close]",
     };
   }
 
@@ -49,12 +48,12 @@ class Tooltip extends Plugin {
       this.options = {
         ...this.options,
         html: true,
-        title: content.innerHTML
+        title: content.innerHTML,
       };
     } else {
       this.options = {
         ...this.options,
-        title: this.options.text
+        title: this.options.text,
       };
     }
 
@@ -62,7 +61,7 @@ class Tooltip extends Plugin {
       const { style } = this.options;
       const styles = style
         .split(" ")
-        .map(s => `tooltip_style_${s}`)
+        .map((s) => `tooltip_style_${s}`)
         .join(" ");
 
       this.options.template = `<div class="tooltip ${styles}" role="tooltip">

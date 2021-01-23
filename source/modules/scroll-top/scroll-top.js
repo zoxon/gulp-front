@@ -5,12 +5,12 @@ import scrollTo from "@/scripts/helpers/scrollTo";
 class ScrollTop extends Plugin {
   defaults() {
     return {
-      duration: 700
+      duration: 700,
     };
   }
 
   bindEvents() {
-    this.element.addEventListener("click", event => {
+    this.element.addEventListener("click", (event) => {
       this.onClickHandler(event);
     });
   }

@@ -4,13 +4,13 @@
  * @param  {Node} elem The element
  * @return {Number}    Distance from the top in pixels
  */
-let getOffsetTop = function(elem) {
+const getOffsetTop = function (element) {
   let location = 0;
-  if (elem.offsetParent) {
+  if (element.offsetParent) {
     do {
-      location += elem.offsetTop;
-      elem = elem.offsetParent;
-    } while (elem);
+      location += element.offsetTop;
+      element = element.offsetParent;
+    } while (element);
   }
   return location >= 0 ? location : 0;
 };

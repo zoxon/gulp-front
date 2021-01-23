@@ -13,13 +13,13 @@ import { plumberConfig, posthtmlConfig, htmlPrettifyConfig } from "../config";
 import { data } from "./data";
 
 const emittyPug = emittySetup("source", "pug", {
-  makeVinylFile: true
+  makeVinylFile: true,
 });
 
 global.watch = false;
 global.emittyChangedFile = {
   path: "",
-  stats: null
+  stats: null,
 };
 
 export const pages = () => {
@@ -28,9 +28,9 @@ export const pages = () => {
       ...getJsonData("./tmp/data.json"),
       _: {
         classNames,
-        omit
-      }
-    }
+        omit,
+      },
+    },
   };
 
   const sourceOptions = global.watch ? { read: false } : {};

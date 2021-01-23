@@ -14,10 +14,7 @@ export const minor = () =>
     .pipe(gulp.dest("./"));
 
 export const patch = () =>
-  gulp
-    .src("package.json")
-    .pipe(bump())
-    .pipe(gulp.dest("./"));
+  gulp.src("package.json").pipe(bump()).pipe(gulp.dest("./"));
 
 export const reset = () =>
   gulp

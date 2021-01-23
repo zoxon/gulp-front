@@ -5,7 +5,7 @@ class Code extends Plugin {
   defaults() {
     return {
       baseClassName: "code",
-      lineClassName: "code__line"
+      lineClassName: "code__line",
     };
   }
 
@@ -22,18 +22,20 @@ class Code extends Plugin {
     this.element.innerHTML = this.generateNewCode();
   }
 
+  wrapLine(line) {
+    return `<div class="code__line">${line}</div>`;
+  }
+
   generateNewCode() {
     let code = "";
     const linesCount = this.lines.length;
 
     this.lines.forEach((line, index) => {
-      const wrapLine = line => `<div class="code__line">${line}</div>`;
-
       if (line.length > 0) {
-        code += wrapLine(line);
+        code += this.wrapLine(line);
       } else {
         if (linesCount !== index + 1) {
-          code += wrapLine(" ");
+          code += this.wrapLine(" ");
         }
       }
     });

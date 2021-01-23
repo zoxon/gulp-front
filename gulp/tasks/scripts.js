@@ -7,24 +7,26 @@ import logger from "gulplog";
 import webpackConfig from "../../webpack.config.babel";
 import { plumberConfig } from "../config";
 
-export const scripts = done => {
+export const scripts = (done) => {
   let firstBuildReady = false;
 
-  function webpackDone(err, stats) {
+  function webpackDone(error, stats) {
     firstBuildReady = true;
 
-    if (err) {
+    if (error) {
       // hard error, see https://webpack.github.io/docs/node.js-api.html#error-handling
       return; // emit('error', err) in webpack-stream
     }
 
-    // https://webpack.js.org/api/node/#stats-object
-    // https://webpack.js.org/configuration/stats/
+    /*
+     * https://webpack.js.org/api/node/#stats-object
+     * https://webpack.js.org/configuration/stats/
+     */
     logger[stats.hasErrors() ? "error" : "info"](
       stats.toString({
         chunks: false, // Makes the build much quieter
         modules: false,
-        colors: true // Shows colors in the console
+        colors: true, // Shows colors in the console
       })
     );
   }

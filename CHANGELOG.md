@@ -137,7 +137,7 @@ Use `npm` in travis config
 ### Changed
 
 - All javascript plugins rewrited using Plugin class
-- Updated javascript template for `amo` command
+- Updated javascript template for `npm run new` command
 - Updated to new html-like api checkbox, radio, fieldset, form-item, select, textarea, avatar, dialog, modal, spinner, bage, dropdown, accordion components
 - Comonent bread-crumbs has new api and new design
 - New button style `text`

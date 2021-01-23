@@ -11,7 +11,7 @@ const isDevelopment = NODE_ENV === "development";
 
 const options = {
   mode: NODE_ENV,
-  entry: ["./helpers/polyfills.js", "./main.js"],
+  entry: "./main.js",
   output: {
     filename: "[name].js",
     path: path.join(__dirname, "/dest/assets/javascripts"),
