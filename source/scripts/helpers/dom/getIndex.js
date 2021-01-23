@@ -1,15 +1,15 @@
 function getIndex(element) {
-  let i = 0;
+  let index = 0;
 
   if (!element) {
     return -1;
   }
 
   do {
-    i++;
+    index++;
   } while ((element = element.previousElementSibling));
 
-  return i;
+  return index;
 }
 
 export default getIndex;

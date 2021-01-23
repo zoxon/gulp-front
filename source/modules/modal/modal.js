@@ -14,7 +14,7 @@ const execYoutubeCommand = (frame, command) => {
 const modalHandler = (modal, command) => {
   const iframes = modal.querySelectorAll("iframe");
 
-  [].forEach.call(iframes, frame => {
+  [].forEach.call(iframes, (frame) => {
     execYoutubeCommand(frame, command);
   });
 };
@@ -22,13 +22,13 @@ const modalHandler = (modal, command) => {
 export default () => {
   MicroModal.init({
     awaitCloseAnimation: true,
-    onClose: modal => {
+    onClose: (modal) => {
       modalHandler(modal, "pauseVideo");
       document.documentElement.classList.remove("scroll-locked");
     },
-    onShow: modal => {
+    onShow: (modal) => {
       modalHandler(modal, "playVideo");
       document.documentElement.classList.add("scroll-locked");
-    }
+    },
   });
 };

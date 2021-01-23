@@ -19,7 +19,7 @@ class Tabs extends Plugin {
       panelsIdAttrName: "data-panel-id",
       tabsNameAttrName: "data-tabs-name",
       headerAttrSelector: "[data-tabs-header]",
-      activeBarAttr: "data-tabs-active-bar"
+      activeBarAttr: "data-tabs-active-bar",
     };
   }
 
@@ -38,7 +38,7 @@ class Tabs extends Plugin {
       preloaderSelector,
       descriptionSelector,
       headerAttrSelector,
-      activeBarAttr
+      activeBarAttr,
     } = this.options;
 
     this.tabsName = this.element.getAttribute(tabsNameAttrName);
@@ -51,9 +51,11 @@ class Tabs extends Plugin {
     );
     this.preloader = this.element.querySelector(preloaderSelector);
     this.description = this.element.querySelector(descriptionSelector);
+
+    // eslint-disable-next-line unicorn/prefer-dom-node-append
     this.activeBar = this.header.appendChild(
       h("span", {
-        [activeBarAttr]: true
+        [activeBarAttr]: true,
       })
     );
     this.selected = 0;
@@ -62,26 +64,26 @@ class Tabs extends Plugin {
   bindEvents() {
     const plugin = this;
 
-    ["focus", "click"].forEach(eventName => {
-      plugin.tabs.forEach(tab => {
-        tab.addEventListener(eventName, event => {
+    ["focus", "click"].forEach((eventName) => {
+      plugin.tabs.forEach((tab) => {
+        tab.addEventListener(eventName, (event) => {
           event.preventDefault();
 
-          let id = tab.getAttribute(this.options.tabsIdAttrName);
+          const id = tab.getAttribute(this.options.tabsIdAttrName);
           plugin.open(plugin.tabsName, id);
         });
       });
     });
 
-    plugin.tabs.forEach(tab => {
-      tab.addEventListener("keydown", event => {
+    plugin.tabs.forEach((tab) => {
+      tab.addEventListener("keydown", (event) => {
         plugin.handleKeydown(event);
       });
     });
   }
 
   generateId() {
-    return "_" + generateId();
+    return generateId();
   }
 
   open(tabsName, id) {
@@ -102,27 +104,27 @@ class Tabs extends Plugin {
     attrs(this.activeBar, {
       style: {
         left: targetTab.offsetLeft + "px",
-        width: tabRect.width + "px"
-      }
+        width: tabRect.width + "px",
+      },
     });
 
     attrs(targetTab, {
       tabindex: "0",
-      "aria-selected": "true"
+      "aria-selected": "true",
     });
 
     const targetTabSiblings = toArray(getSiblings(targetTab));
-    targetTabSiblings.forEach(tab => {
+    targetTabSiblings.forEach((tab) => {
       attrs(tab, {
         tabindex: "-1",
-        "aria-selected": "false"
+        "aria-selected": "false",
       });
     });
 
     targetPanel.setAttribute("aria-hidden", "false");
 
     const targetPanelSiblings = toArray(getSiblings(targetPanel));
-    targetPanelSiblings.forEach(panel => {
+    targetPanelSiblings.forEach((panel) => {
       panel.setAttribute("aria-hidden", "true");
     });
 
@@ -136,16 +138,16 @@ class Tabs extends Plugin {
   }
 
   parseHash(hash) {
-    let data = hash.split("__");
+    const data = hash.split("__");
     return {
       name: data[0] || null,
-      id: data[1] || null
+      id: data[1] || null,
     };
   }
 
   handleKeydown(event) {
-    let first = 0;
-    let last = this.tabs.length - 1;
+    const first = 0;
+    const last = this.tabs.length - 1;
 
     switch (event.which) {
       case KEYCODES.LEFT_ARROW:
@@ -211,7 +213,7 @@ class Tabs extends Plugin {
     this.description.setAttribute("id", descriptionId);
     this.firstTab.setAttribute("aria-describedby", descriptionId);
 
-    this.tabs.forEach(tab => {
+    this.tabs.forEach((tab) => {
       const tabId = tab.getAttribute(tabsIdAttrName);
 
       const targetPanel = this.element.querySelector(

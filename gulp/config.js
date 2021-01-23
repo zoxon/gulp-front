@@ -14,7 +14,7 @@ const CWD = process.cwd();
 export const delConfig = ["dest", "tmp"];
 
 export const plumberConfig = {
-  errorHandler
+  errorHandler,
 };
 
 export const browserSyncConfig = {
@@ -23,16 +23,16 @@ export const browserSyncConfig = {
   reloadOnRestart: true,
   snippetOptions: {
     rule: {
-      match: /<\/body>/i
-    }
-  }
+      match: /<\/body>/i,
+    },
+  },
 };
 
 // https://github.com/jescalan/accord/blob/master/docs/stylus.md
 export const stylusConfig = {
   use: [rupture(), stylusFileExists()],
   include: [path.join(CWD, "node_modules")],
-  "include css": true
+  "include css": true,
 };
 
 export const htmlPrettifyConfig = {
@@ -41,23 +41,23 @@ export const htmlPrettifyConfig = {
   indent_size: 2,
   preserve_newlines: true,
   brace_style: "expand",
-  end_with_newline: true
+  end_with_newline: true,
 };
 
 export const svgSymbolsConfig = {
   id: "%f",
   templates: [
     path.join(CWD, "gulp/templates/icons-template.styl"),
-    path.join(CWD, "gulp/templates/icons-template.svg")
+    path.join(CWD, "gulp/templates/icons-template.svg"),
     // "default-svg"
   ],
-  slug: function(name) {
+  slug: function (name) {
     return name;
   },
   svgAttrs: {
     class: "icons-sprite",
-    xmlns: "http://www.w3.org/2000/svg"
-  }
+    xmlns: "http://www.w3.org/2000/svg",
+  },
 };
 
 export const spritesmithConfig = {
@@ -67,7 +67,7 @@ export const spritesmithConfig = {
   cssName: "sprite.styl",
   algorithm: "binary-tree",
   padding: 8,
-  cssTemplate: path.join(CWD, "gulp/templates/sprite-template.mustache")
+  cssTemplate: path.join(CWD, "gulp/templates/sprite-template.mustache"),
 };
 
 export const imageminConfig = {
@@ -75,13 +75,13 @@ export const imageminConfig = {
     // https://github.com/imagemin/imagemin-gifsicle#api
     imagemin.gifsicle({
       interlaced: true,
-      optimizationLevel: 3
+      optimizationLevel: 3,
     }),
 
     // https://github.com/imagemin/imagemin-jpeg-recompress#api
     imageminJpegRecompress({
       max: 90,
-      min: 70
+      min: 70,
     }),
 
     // https://github.com/imagemin/imagemin-pngquant#api
@@ -89,8 +89,8 @@ export const imageminConfig = {
 
     // https://github.com/svg/svgo#what-it-can-do
     imagemin.svgo({
-      plugins: [{ removeViewBox: false }]
-    })
+      plugins: [{ removeViewBox: false }],
+    }),
   ],
 
   icons: [
@@ -102,8 +102,8 @@ export const imageminConfig = {
         { removeStyleElement: true },
         {
           removeAttrs: {
-            attrs: ["id", "class", "data-name", "fill", "fill-rule"]
-          }
+            attrs: ["id", "class", "data-name", "fill", "fill-rule"],
+          },
         },
         { removeEmptyContainers: true },
         { sortAttrs: true },
@@ -112,10 +112,10 @@ export const imageminConfig = {
         { removeEditorsNSData: true },
         { removeEmptyAttrs: true },
         { removeHiddenElems: true },
-        { transformsWithOnePath: true }
-      ]
-    })
-  ]
+        { transformsWithOnePath: true },
+      ],
+    }),
+  ],
 };
 
 export const posthtmlConfig = {
@@ -135,13 +135,13 @@ export const posthtmlConfig = {
         "title",
         "alt",
         "role",
-        "aria"
-      ]
-    })
+        "aria",
+      ],
+    }),
   ],
-  options: {}
+  options: {},
 };
 
 export const ghPagesConfig = {
-  branch: "gh-pages"
+  branch: "gh-pages",
 };

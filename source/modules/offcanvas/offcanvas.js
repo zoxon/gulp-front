@@ -11,7 +11,7 @@ class Offcanvas extends Plugin {
       triggerSelector: "[data-offcanvas-trigger]",
       menuSelector: "[data-offcanvas-menu]",
       containerSelector: "[data-offcanvas-container]",
-      overlaySelector: "[data-offcanvas-overlay]"
+      overlaySelector: "[data-offcanvas-overlay]",
     };
   }
 
@@ -29,7 +29,7 @@ class Offcanvas extends Plugin {
   }
 
   bindEvents() {
-    this.triggers.forEach(trigger => {
+    this.triggers.forEach((trigger) => {
       trigger.addEventListener("click", () => {
         this.triggerClickHandler();
       });
@@ -50,18 +50,18 @@ class Offcanvas extends Plugin {
 
   hide() {
     this.menu.setAttribute("aria-hidden", "true");
-    this.container.setAttribute("data-offcanvas-hidden", "true");
-    this.overlay.setAttribute("data-offcanvas-hidden", "true");
-    this.triggers.forEach(trigger => {
+    this.container.dataset.offcanvasHidden = "true";
+    this.overlay.dataset.offcanvasHidden = "true";
+    this.triggers.forEach((trigger) => {
       trigger.setAttribute("aria-expanded", "false");
     });
   }
 
   show() {
     this.menu.setAttribute("aria-hidden", "false");
-    this.container.setAttribute("data-offcanvas-hidden", "false");
-    this.overlay.setAttribute("data-offcanvas-hidden", "false");
-    this.triggers.forEach(trigger => {
+    this.container.dataset.offcanvasHidden = "false";
+    this.overlay.dataset.offcanvasHidden = "false";
+    this.triggers.forEach((trigger) => {
       trigger.setAttribute("aria-expanded", "true");
     });
   }
@@ -73,23 +73,23 @@ class Offcanvas extends Plugin {
   setA11yAttributes() {
     const id = generateId();
 
-    this.container.setAttribute("data-offcanvas-hidden", "true");
+    this.container.dataset.offcanvasHidden = "true";
 
     if (this.menu) {
       attrs(this.menu, {
         role: "dialog",
         tabindex: "-1",
         "aria-hidden": "true",
-        id
+        id,
       });
     }
 
     if (this.triggers && this.triggers.length > 0) {
-      Array.prototype.forEach.call(this.triggers, trigger => {
+      Array.prototype.forEach.call(this.triggers, (trigger) => {
         attrs(trigger, {
           role: "button",
           "aria-pressed": "false",
-          "aria-expanded": "false"
+          "aria-expanded": "false",
         });
       });
     }

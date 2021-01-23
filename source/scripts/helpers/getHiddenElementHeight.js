@@ -1,5 +1,5 @@
-const getHiddenElementHeight = element => {
-  let clone = element.cloneNode(true);
+const getHiddenElementHeight = (element) => {
+  const clone = element.cloneNode(true);
   let height = 0;
   const style = `
     display: block;
@@ -13,9 +13,9 @@ const getHiddenElementHeight = element => {
 `;
 
   clone.setAttribute("style", style);
-  element.parentElement.appendChild(clone);
+  element.parentElement.append(clone);
   height = clone.clientHeight;
-  element.parentElement.removeChild(clone);
+  clone.remove();
 
   return height;
 };

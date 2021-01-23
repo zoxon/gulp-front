@@ -1,9 +1,9 @@
-module.exports = ctx => ({
+module.exports = (context) => ({
   plugins: {
     autoprefixer: {
       flexbox: "no-2009",
       cascade: false,
-      grid: true
+      grid: true,
     },
     "postcss-flexbugs-fixes": {},
     "postcss-sorting": {
@@ -14,14 +14,14 @@ module.exports = ctx => ({
         "at-rules",
         {
           type: "at-rule",
-          name: "mixin"
+          name: "mixin",
         },
         {
           type: "at-rule",
           name: "include",
-          parameter: "icon"
+          parameter: "icon",
         },
-        "rules"
+        "rules",
       ],
       "properties-order": [
         "content",
@@ -359,9 +359,9 @@ module.exports = ctx => ({
         "will-change",
         "clip",
         "clip-path",
-        "zoom"
-      ]
+        "zoom",
+      ],
     },
-    "postcss-reporter": {}
-  }
+    "postcss-reporter": {},
+  },
 });

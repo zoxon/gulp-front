@@ -10,7 +10,7 @@ import { plumberConfig, imageminConfig, svgSymbolsConfig } from "../config";
 
 function renameIconByFolderName(file) {
   const dirname = file.dirname.replace(/\./g, "").replace(/\//g, "-");
-  const prevName = dirname
+  const previousName = dirname
     ? `${file.dirname}/${file.basename}${file.extname}`
     : `${file.basename}${file.extname}`;
   const nextBasename = dirname ? `${dirname}_${file.basename}` : file.basename;
@@ -19,7 +19,7 @@ function renameIconByFolderName(file) {
   file.dirname = "";
   file.basename = nextBasename;
 
-  logger.info(`Icon "${prevName}" renamed to "${nextName}"`);
+  logger.info(`Icon "${previousName}" renamed to "${nextName}"`);
 }
 
 export const icons = () =>

@@ -43,13 +43,15 @@ MainMenu();
 Tooltip();
 Modal();
 
-ready(function() {
+ready(function () {
   svg4everybody();
 });
 
-// If you want your app to work offline and load faster, you can change
-// `unregister()` to `register()` below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
+/**
+ * If you want your app to work offline and load faster, you can change
+ * `unregister()` to `register()` below. Note this comes with some pitfalls.
+ * Learn more about service workers: http://bit.ly/CRA-PWA
+ */
 serviceWorker.unregister();
 
 module.exports = {
@@ -64,5 +66,5 @@ module.exports = {
   Table,
   ScrollTop,
   StarRating,
-  InputPassword
+  InputPassword,
 };

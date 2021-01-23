@@ -16,7 +16,7 @@
   - [DATA](#data)
   - [Command Line Commands](#command-line-commands)
     - [Initialization](#initialization)
-    - [Development](#development)
+    - [Development](#development-1)
     - [Cleaning](#cleaning)
     - [Building](#building)
     - [Deploying](#deploying)
@@ -30,17 +30,23 @@
 
 1.  Install the [node.js](https://nodejs.org)
 2.  Clone the project or [download](https://github.com/zoxon/gulp-front/archive/master.zip) the file
+
     ```sh
     git clone git@github.com:zoxon/gulp-front.git --depth 1 my-project
     ```
+
 3.  Go to project folder and run
+
     ```sh
     npm run setup
     ```
+
 4.  Start dev server
+
     ```sh
     npm start
     ```
+
 5.  In browser open page with address [`http://localhost:3000/`](http://localhost:3000/)
 
 <a name="development"></a>
@@ -253,7 +259,7 @@ Create empty module by name in `source/modules` folder
 
 By default generate only `*.pug` and `*.styl` files.
 
-You can call `amo` (**A**dd **Mo**dule) with additional params like `js` and `yml`
+You can call `npm run new` (**A**dd **Mo**dule) with additional params like `js` and `yml`
 
 ```sh
 npm run amo <module-name> [js || yml]

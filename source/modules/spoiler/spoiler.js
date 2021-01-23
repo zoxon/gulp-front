@@ -8,7 +8,7 @@ class Spoiler extends Plugin {
   defaults() {
     return {
       targetAttribute: "data-spoiler-target",
-      idAttribute: "data-spoiler-id"
+      idAttribute: "data-spoiler-id",
     };
   }
 
@@ -22,7 +22,7 @@ class Spoiler extends Plugin {
     const plugin = this;
     const { targetAttribute, idAttribute } = this.options;
 
-    this.triggers.forEach(trigger => {
+    this.triggers.forEach((trigger) => {
       const targetId = trigger.getAttribute(targetAttribute);
       const target = document.querySelector(`[${idAttribute}="${targetId}"]`);
 
@@ -37,7 +37,7 @@ class Spoiler extends Plugin {
   }
 
   setIds({ target, trigger }) {
-    const id = `_${generateId()}`;
+    const id = generateId();
     target.setAttribute("aria-labelledby", id);
     trigger.setAttribute("id", id);
   }
@@ -53,14 +53,14 @@ class Spoiler extends Plugin {
 
   hide(target) {
     target.setAttribute("aria-hidden", "true");
-    this.triggers.forEach(trigger => {
+    this.triggers.forEach((trigger) => {
       trigger.setAttribute("aria-expanded", "false");
     });
   }
 
   show(target) {
     target.setAttribute("aria-hidden", "false");
-    this.triggers.forEach(trigger => {
+    this.triggers.forEach((trigger) => {
       trigger.setAttribute("aria-expanded", "true");
     });
   }

@@ -27,7 +27,7 @@ class Dropdown extends Plugin {
       reference: "self",
 
       // https://popper.js.org/popper-documentation.html#Popper.Defaults.placement
-      placement: "bottom"
+      placement: "bottom",
     };
   }
 
@@ -49,18 +49,18 @@ class Dropdown extends Plugin {
       this.dropMenu.querySelectorAll(focusableElements)
     );
     this.selected = 0;
-    this.triggerId = `_${generateId()}`;
+    this.triggerId = generateId();
   }
 
   bindEvents() {
-    this.trigger.addEventListener("click", event => {
+    this.trigger.addEventListener("click", (event) => {
       this.toggle(event);
     });
 
     const targets = [this.trigger, ...this.focusableElements];
 
-    targets.forEach(element => {
-      element.addEventListener("keydown", event => {
+    targets.forEach((element) => {
+      element.addEventListener("keydown", (event) => {
         this.handleKeydown(event);
       });
     });
@@ -71,7 +71,7 @@ class Dropdown extends Plugin {
       }
     });
 
-    document.addEventListener("click", event => {
+    document.addEventListener("click", (event) => {
       this.outerClickHandler(event);
     });
   }
@@ -171,7 +171,7 @@ class Dropdown extends Plugin {
     attrs(this.trigger, {
       "aria-haspopup": true,
       "aria-expanded": false,
-      id: this.triggerId
+      id: this.triggerId,
     });
 
     this.dropMenu.setAttribute("aria-labelledby", this.triggerId);
@@ -193,7 +193,7 @@ class Dropdown extends Plugin {
     }
 
     this.popper = new Popper(this.referenceElement, this.dropMenu, {
-      placement
+      placement,
     });
   }
 }

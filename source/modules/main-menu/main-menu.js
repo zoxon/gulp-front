@@ -5,17 +5,17 @@ export default () => {
   const mainMenu = document.querySelector(".main-menu");
   if (mainMenu) {
     const links = mainMenu.querySelectorAll('a[href*="#"]');
-    const headerHeight = parseInt(
+    const headerHeight = Number.parseInt(
       document.querySelector(".header").offsetHeight
     );
     const duration = 700;
     const offset = headerHeight + 20;
 
-    Array.prototype.forEach.call(links, link => {
-      link.addEventListener("click", event => {
+    Array.prototype.forEach.call(links, (link) => {
+      link.addEventListener("click", (event) => {
         event.preventDefault();
 
-        const title = link.innerText;
+        const title = link.textContent;
         const url = link.getAttribute("href");
         const page = url.split("#")[0];
         const hash = url.split("#")[1];
@@ -26,7 +26,7 @@ export default () => {
         }
 
         if (target) {
-          let options = { duration };
+          const options = { duration };
           const to = getOffsetTop(target) - offset;
 
           scrollTo({ to, options });

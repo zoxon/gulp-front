@@ -1,16 +1,18 @@
-// For a detailed explanation regarding each configuration property, visit:
-// https://jestjs.io/docs/en/configuration.html
+/**
+ * For a detailed explanation regarding each configuration property, visit:
+ * https://jestjs.io/docs/en/configuration.html
+ */
 
 module.exports = {
   rootDir: ".",
   moduleFileExtensions: ["js", "json"],
   moduleNameMapper: {
-    "^@/(.*)$": "<rootDir>/source/$1"
+    "^@/(.*)$": "<rootDir>/source/$1",
   },
   transform: {
-    "^.+\\.js$": "babel-jest"
+    "^.+\\.js$": "babel-jest",
   },
   collectCoverageFrom: ["source/**/*.{js,jsx}"],
   coverageDirectory: "<rootDir>/coverage",
-  testEnvironment: "jsdom"
+  testEnvironment: "jsdom",
 };

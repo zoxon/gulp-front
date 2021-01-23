@@ -1,7 +1,2 @@
-import generate from "nanoid/generate";
-
-export default () => {
-  const alphabet =
-    "_0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  return generate(alphabet, 21);
-};
+import { nanoid } from "nanoid";
+export default () => `_${nanoid(21)}`;

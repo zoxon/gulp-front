@@ -6,7 +6,7 @@
  * @param {element} element - dom element
  */
 export default function simulate(eventName, element) {
-  let event = document.createEvent("HTMLEvents");
+  const event = document.createEvent("HTMLEvents");
   event.initEvent(eventName, true, false);
   element.dispatchEvent(event);
 }
