@@ -38,7 +38,7 @@
     "start:prod": "cross-env NODE_ENV=production npm run dev",
     "cleanup": "babel-node ./tools/removeDemo.js",
     "setup": "npm install",
-    "amo": "babel-node ./tools/addModule.js",
+    "new": "babel-node ./tools/addModule.js",
     "precommit": "lint-staged",
     "prettify": "prettier --write \"**/*.{js,json,jsx,ts,css,less,scss,md,markdown}\"",
     "prettify:stylus": "stylus-supremacy format ./source/**/*.styl --replace --options ./tools/stylus-supremacy.config.json",
