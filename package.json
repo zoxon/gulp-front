@@ -161,7 +161,7 @@
     "jsx-dom": "^6.4.23",
     "lodash": "^4.17.11",
     "micromodal": "^0.4.2",
-    "nanoid": "^3.1.20",
+    "nanoid": "^3.1.31",
     "normalize.css": "^8.0.1",
     "omit": "^1.0.1",
     "popper.js": "^1.14.7",
